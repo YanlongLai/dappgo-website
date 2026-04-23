@@ -769,6 +769,172 @@
             .hero-cta .btn-ghost { text-align: center; }
         }
 
+        /* ─── Flagship (Options) promo ──────────── */
+        #flagship {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .flagship-card {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 2.5rem;
+            background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0.02));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .flagship-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+        }
+        .flagship-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .flagship-title {
+            font-size: clamp(1.7rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-heading);
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+        .flagship-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            max-width: 560px;
+        }
+        .flagship-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: grid;
+            gap: 0.4rem;
+        }
+        .flagship-benefits li {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .flagship-view {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .flagship-view:hover { text-decoration: none; opacity: 0.85; }
+
+        .flagship-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            align-self: start;
+        }
+        .flagship-form-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.3rem;
+        }
+        .flagship-form-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .flagship-form input[type="email"] {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: var(--bg);
+            color: var(--text);
+            margin-bottom: 0.9rem;
+        }
+        .flagship-form input[type="email"]:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 1px;
+            border-color: var(--accent);
+        }
+        .flagship-lang-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .flagship-lang-row select {
+            padding: 0.45rem 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: var(--bg);
+            color: var(--text);
+            cursor: pointer;
+        }
+        .flagship-submit {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #fff;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.15s;
+        }
+        .flagship-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+        .flagship-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .flagship-form-status {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            min-height: 1.1rem;
+        }
+        .flagship-form-status.ok { color: #047857; }
+        .flagship-form-status.err { color: #dc2626; }
+        .flagship-privacy {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.5;
+        }
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        @media (max-width: 900px) {
+            .flagship-card { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -817,6 +983,59 @@
             <span class="trust-badge" data-i18n="hero.ind4">Manufacturing</span>
             <span class="trust-badge" data-i18n="hero.ind5">Media</span>
         </div>
+    </div>
+</section>
+
+<!-- Flagship promo — Options daily report -->
+<section id="flagship" class="reveal">
+    <div class="flagship-card">
+        <div class="flagship-left">
+            <span class="flagship-tag" data-i18n="flagship.tag">Flagship Case Study</span>
+            <h2 class="flagship-title" data-i18n="flagship.title">Daily AI Options Report</h2>
+            <p class="flagship-desc" data-i18n="flagship.desc">Our production AI pipeline analyzes the US options market every weekday morning — Black-Scholes pricing, timing signals, OI concentration, and a 5-model Gemini commentary. Delivered to your inbox before the market opens. Free while in beta.</p>
+            <ul class="flagship-benefits">
+                <li data-i18n="flagship.b1">📬 Fresh report in your inbox every weekday at 6:20 AM PT</li>
+                <li data-i18n="flagship.b2">🤖 AI commentary with highlighted key levels &amp; risks</li>
+                <li data-i18n="flagship.b3">🌐 Bilingual — 繁體中文 or English, your choice</li>
+                <li data-i18n="flagship.b4">🔓 No credit card, no paywall, one-click unsubscribe</li>
+            </ul>
+            <a href="/options" class="flagship-view" data-i18n="flagship.view">See today&rsquo;s report &rarr;</a>
+        </div>
+
+        <form class="flagship-form"
+              action="https://formsubmit.co/ajax/laiyanlong@gmail.com"
+              method="POST"
+              id="subscribeForm">
+            <div class="flagship-form-title" data-i18n="flagship.form.title">Subscribe — free while in beta</div>
+            <div class="flagship-form-desc" data-i18n="flagship.form.desc">We&rsquo;ll email you the daily AI options report. Unsubscribe any time.</div>
+
+            <label for="subscribe-email" class="visually-hidden">Email</label>
+            <input type="email"
+                   id="subscribe-email"
+                   name="email"
+                   required
+                   autocomplete="email"
+                   placeholder="you@example.com"
+                   data-i18n-placeholder="flagship.form.placeholder" />
+
+            <label class="flagship-lang-row">
+                <span data-i18n="flagship.form.lang">Report language:</span>
+                <select name="lang" id="subscribe-lang">
+                    <option value="zh" data-i18n="flagship.form.zh">繁體中文</option>
+                    <option value="en" data-i18n="flagship.form.en">English</option>
+                </select>
+            </label>
+
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="New Options subscriber" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="source" value="dappgo.com flagship" />
+
+            <button type="submit" class="flagship-submit" data-i18n="flagship.form.submit">Get daily reports</button>
+            <div id="subscribeStatus" class="flagship-form-status" aria-live="polite"></div>
+            <p class="flagship-privacy" data-i18n="flagship.form.privacy">By subscribing you agree to receive daily option analysis emails. We don&rsquo;t share your address.</p>
+        </form>
     </div>
 </section>
 
@@ -914,21 +1133,21 @@
     <div class="services-grid">
         <div class="service-card">
             <span class="service-icon">&#x1F4CA;</span>
-            <h3 data-i18n="cases.c1.title">Options Daily Report</h3>
-            <p data-i18n="cases.c1.desc">Fully automated options strategy analysis platform. 63+ features including Black-Scholes pricing, AI market commentary, multi-strategy analysis, risk management, and community tools. Runs daily via GitHub Actions — zero human intervention.</p>
-            <a href="https://github.com/laiyanlong/options-daily-report" target="_blank" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c1.link">View on GitHub &rarr;</a>
+            <h3 data-i18n="cases.c1.title">Daily AI Options Report</h3>
+            <p data-i18n="cases.c1.desc">Our flagship product: fully-automated daily options selling strategy, delivered to your inbox and to the companion iOS app. Black-Scholes pricing, AI commentary, OI concentration, timing signals — generated every weekday before the US market opens. Free while in beta.</p>
+            <a href="/options" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c1.link">See today&rsquo;s report &rarr;</a>
         </div>
         <div class="service-card">
-            <span class="service-icon">&#x1F916;</span>
-            <h3 data-i18n="cases.c2.title">Live Options Report</h3>
-            <p data-i18n="cases.c2.desc">Fresh daily options analysis — Black-Scholes pricing, AI market commentary, OI concentration, and multi-strategy breakdowns. Embedded live in your browser, updated every morning before US market open.</p>
-            <a href="/options" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c2.link">View today&rsquo;s report &rarr;</a>
+            <span class="service-icon">&#x1F4F1;</span>
+            <h3 data-i18n="cases.c2.title">Companion iOS App</h3>
+            <p data-i18n="cases.c2.desc">A native mobile companion that surfaces the daily analysis, live strike matrix, backtest simulator, and watchlist — so you can review and act in the moment. Built with Expo + React Native. TestFlight access available on request.</p>
+            <a href="/#contact" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c2.link">Request TestFlight access &rarr;</a>
         </div>
         <div class="service-card">
             <span class="service-icon">&#x2699;</span>
             <h3 data-i18n="cases.c3.title">Enterprise AI Pipeline</h3>
             <p data-i18n="cases.c3.desc">Custom AI automation for enterprise clients — from data ingestion to model inference to actionable insights. Replaces manual analysis workflows with intelligent, self-monitoring pipelines.</p>
-            <span style="color:var(--text-muted);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c3.link">Client projects — contact us for details</span>
+            <a href="/#contact" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c3.link">Discuss your use case &rarr;</a>
         </div>
     </div>
 </section>
@@ -1141,18 +1360,36 @@ const translations = {
         'solutions.s2.f2': 'On-premise / private cloud deployment',
         'solutions.s2.f3': 'Enterprise security & compliance',
         'solutions.s2.f4': 'Dedicated engineering team',
+        'flagship.tag': 'Flagship Case Study',
+        'flagship.title': 'Daily AI Options Report',
+        'flagship.desc': 'Our production AI pipeline analyzes the US options market every weekday morning — Black-Scholes pricing, timing signals, OI concentration, and a 5-model Gemini commentary. Delivered to your inbox before the market opens. Free while in beta.',
+        'flagship.b1': '📬 Fresh report in your inbox every weekday at 6:20 AM PT',
+        'flagship.b2': '🤖 AI commentary with highlighted key levels & risks',
+        'flagship.b3': '🌐 Bilingual — 繁體中文 or English, your choice',
+        'flagship.b4': '🔓 No credit card, no paywall, one-click unsubscribe',
+        'flagship.view': 'See today’s report →',
+        'flagship.form.title': 'Subscribe — free while in beta',
+        'flagship.form.desc': 'We’ll email you the daily AI options report. Unsubscribe any time.',
+        'flagship.form.placeholder': 'you@example.com',
+        'flagship.form.lang': 'Report language:',
+        'flagship.form.zh': '繁體中文',
+        'flagship.form.en': 'English',
+        'flagship.form.submit': 'Get daily reports',
+        'flagship.form.privacy': 'By subscribing you agree to receive daily option analysis emails. We don’t share your address.',
+        'flagship.form.success': '🎉 You’re subscribed! Check your inbox for confirmation.',
+        'flagship.form.error': 'Something went wrong. Please try again, or email us directly.',
         'cases.label': 'Case Studies',
         'cases.title': 'Real Results, Real Impact',
         'cases.desc': 'See how our AI automation delivers measurable value.',
-        'cases.c1.title': 'Options Daily Report',
-        'cases.c1.desc': 'Fully automated options strategy analysis platform. 63+ features including Black-Scholes pricing, AI market commentary, multi-strategy analysis, risk management, and community tools. Runs daily via GitHub Actions — zero human intervention.',
-        'cases.c1.link': 'View on GitHub \u2192',
-        'cases.c2.title': 'Live Options Report',
-        'cases.c2.desc': 'Fresh daily options analysis — Black-Scholes pricing, AI market commentary, OI concentration, and multi-strategy breakdowns. Embedded live in your browser, updated every morning before US market open.',
+        'cases.c1.title': 'Daily AI Options Report',
+        'cases.c1.desc': 'Our flagship product: fully-automated daily options selling strategy, delivered to your inbox and to the companion iOS app. Black-Scholes pricing, AI commentary, OI concentration, timing signals — generated every weekday before the US market opens. Free while in beta.',
+        'cases.c1.link': 'See today\u2019s report \u2192',
+        'cases.c2.title': 'Companion iOS App',
+        'cases.c2.desc': 'A native mobile companion that surfaces the daily analysis, live strike matrix, backtest simulator, and watchlist — so you can review and act in the moment. Built with Expo + React Native. TestFlight access available on request.',
         'cases.c2.link': 'View today’s report \u2192',
         'cases.c3.title': 'Enterprise AI Pipeline',
         'cases.c3.desc': 'Custom AI automation for enterprise clients — from data ingestion to model inference to actionable insights. Replaces manual analysis workflows with intelligent, self-monitoring pipelines.',
-        'cases.c3.link': 'Client projects — contact us for details',
+        'cases.c3.link': 'Discuss your use case \u2192',
         'tech.label': 'Technology',
         'tech.title': 'Our AI Stack',
         'tech.desc': 'We work with the best tools in the AI ecosystem — and build custom solutions when off-the-shelf isn\'t enough.',
@@ -1243,18 +1480,36 @@ const translations = {
         'solutions.s2.f2': '本地 / 私有雲部署',
         'solutions.s2.f3': '企業級安全與合規',
         'solutions.s2.f4': '專屬工程團隊',
+        'flagship.tag': '旗艦案例',
+        'flagship.title': '每日 AI 選擇權報告',
+        'flagship.desc': '我們的正式 AI 管線，每個交易日早上自動分析美股選擇權市場 — Black-Scholes 定價、交易時機訊號、OI 持倉分佈，以及 5 個 Gemini 模型生成的市場解讀。美股開盤前送達您的信箱。Beta 期間免費。',
+        'flagship.b1': '📬 每個交易日美西 6:20 AM 新報告寄到信箱',
+        'flagship.b2': '🤖 AI 市場解讀，重點數字與風險自動標示',
+        'flagship.b3': '🌐 雙語 — 繁體中文或 English，任君選擇',
+        'flagship.b4': '🔓 免信用卡、無付費牆，一鍵取消訂閱',
+        'flagship.view': '查看今日報告 →',
+        'flagship.form.title': '立即訂閱 — Beta 期間免費',
+        'flagship.form.desc': '我們會每天寄送 AI 選擇權報告給您。隨時可取消訂閱。',
+        'flagship.form.placeholder': 'you@example.com',
+        'flagship.form.lang': '報告語言：',
+        'flagship.form.zh': '繁體中文',
+        'flagship.form.en': 'English',
+        'flagship.form.submit': '開始每日收報告',
+        'flagship.form.privacy': '訂閱即表示您同意接收每日選擇權分析 email。我們不會轉售您的地址。',
+        'flagship.form.success': '🎉 訂閱成功！請到您的信箱確認。',
+        'flagship.form.error': '發生錯誤，請稍後再試，或直接寄信給我們。',
         'cases.label': '實戰案例',
         'cases.title': '真實成果，看得見的價值',
         'cases.desc': '看看我們的 AI 自動化如何為客戶帶來可量化的成效。',
-        'cases.c1.title': '選擇權每日報告',
-        'cases.c1.desc': '全自動選擇權策略分析平台。63+ 項功能，涵蓋 Black-Scholes 定價、AI 市場解讀、多腳策略分析、風險管理及社群工具。透過 GitHub Actions 每日自動執行，零人工干預。',
-        'cases.c1.link': '在 GitHub 上查看 \u2192',
-        'cases.c2.title': '即時選擇權報告',
-        'cases.c2.desc': '每日自動生成的選擇權分析報告 — Black-Scholes 定價、AI 市場解讀、OI 持倉分佈、多腳策略分析。直接內嵌在瀏覽器中，每個交易日開盤前更新。',
-        'cases.c2.link': '查看今日報告 \u2192',
+        'cases.c1.title': '每日 AI 選擇權報告',
+        'cases.c1.desc': '我們的旗艦產品：全自動化每日選擇權賣方策略，送達您的信箱與 iOS 伴侶 app。涵蓋 Black-Scholes 定價、AI 市場解讀、OI 持倉分佈、交易時機訊號 — 每個交易日美股開盤前完成。Beta 期間免費。',
+        'cases.c1.link': '查看今日報告 \u2192',
+        'cases.c2.title': '伴侶 iOS App',
+        'cases.c2.desc': '原生手機伴侶 app，呈現每日分析、即時履約價矩陣、回測模擬器、觀察清單 — 讓您隨時審視與行動。使用 Expo + React Native 打造。可應要求取得 TestFlight 體驗。',
+        'cases.c2.link': '申請 TestFlight 體驗 \u2192',
         'cases.c3.title': '企業 AI 自動化管線',
         'cases.c3.desc': '為企業客戶打造的客製 AI 自動化方案 — 從數據擷取到模型推論到可行洞察。以智慧型自我監控管線取代人工分析流程。',
-        'cases.c3.link': '客戶專案 — 歡迎洽詢',
+        'cases.c3.link': '討論您的使用情境 \u2192',
         'tech.label': '技術棧',
         'tech.title': '我們的 AI 技術',
         'tech.desc': '我們使用 AI 生態系最優秀的工具 — 當現成方案不夠用時，我們自己打造。',
@@ -1304,6 +1559,7 @@ function setLang(lang) {
     currentLang = lang;
     try { localStorage.setItem('dappgo-lang', lang); } catch (_) {}
     const t = translations[lang];
+    // Regular text nodes
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key]) {
@@ -1320,6 +1576,11 @@ function setLang(lang) {
                 }
             }
         }
+    });
+    // Placeholders (for <input>)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.setAttribute('placeholder', t[key]);
     });
     document.documentElement.lang = lang;
     startHeroTypewriter();
@@ -1514,7 +1775,56 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 });
 
 /* ===== FORM SUBMIT ===== */
-/* FormSubmit.co handles the POST natively — no JS override needed */
+/* Contact form: FormSubmit.co handles the POST natively — no JS override. */
+
+/* Subscribe form: AJAX submit so we can stay on-page and show inline status */
+(function() {
+    const form = document.getElementById('subscribeForm');
+    if (!form) return;
+
+    // Pre-select lang dropdown from persisted preference
+    const langSelect = document.getElementById('subscribe-lang');
+    if (langSelect) langSelect.value = currentLang;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const statusEl = document.getElementById('subscribeStatus');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const formData = new FormData(form);
+
+        statusEl.className = 'flagship-form-status';
+        statusEl.textContent = '';
+        submitBtn.disabled = true;
+
+        try {
+            const resp = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' },
+            });
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const t = translations[currentLang] || translations.en;
+            statusEl.className = 'flagship-form-status ok';
+            statusEl.textContent = t['flagship.form.success'];
+            form.reset();
+            if (langSelect) langSelect.value = currentLang;  // keep preference
+        } catch (err) {
+            console.warn('[subscribe] failed:', err);
+            const t = translations[currentLang] || translations.en;
+            statusEl.className = 'flagship-form-status err';
+            statusEl.textContent = t['flagship.form.error'];
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+
+    // Cross-tab sync: update lang dropdown if user flips language elsewhere
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'dappgo-lang' && langSelect && (e.newValue === 'en' || e.newValue === 'zh')) {
+            langSelect.value = e.newValue;
+        }
+    });
+})();
 
 /* ===== INIT ===== */
 // Apply persisted language on first load (default 'en' was set at declaration)
