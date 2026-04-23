@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options Daily Report — AI Commentary | DappGo Case Study</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <meta name="description" content="Live case study: the AI market commentary section from our automated options daily report. Bilingual (EN / 繁體中文), updated every weekday morning.">
+    <meta name="author" content="DappGo">
+    <link rel="canonical" href="https://dappgo.com/options">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dappgo.com/options">
+    <meta property="og:title" content="Options Daily Report — AI Commentary">
+    <meta property="og:description" content="Daily AI market commentary for the options selling strategy, bilingual and auto-updated.">
+    <meta property="og:image" content="https://dappgo.com/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Options Daily Report — AI Commentary">
+    <meta name="twitter:description" content="Auto-generated AI options commentary, refreshed daily.">
+    <meta name="twitter:image" content="https://dappgo.com/og-image.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9K7KCERPP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C9K7KCERPP');
+    </script>
+
+    <!-- Lightweight markdown parser (CDN, ~25KB) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f7f8fc;
+            --bg-card: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --text-heading: #0f172a;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-dim: rgba(37, 99, 235, 0.06);
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(15,23,42,.04);
+            --shadow-lg: 0 12px 40px rgba(15,23,42,.1);
+            --positive: #059669;
+            --negative: #dc2626;
+            --gold: #b45309;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ─── Top bar ─── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 1.5rem;
+        }
+        .topbar-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            font-size: 1.05rem;
+        }
+        .brand-mark {
+            display: inline-grid;
+            place-items: center;
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+        }
+        .topbar-actions { display: flex; gap: 0.5rem; align-items: center; font-size: 0.92rem; }
+        .topbar-actions a { color: var(--text-muted); padding: 0.4rem 0.75rem; border-radius: 8px; }
+        .topbar-actions a:hover { background: var(--accent-dim); color: var(--accent); text-decoration: none; }
+        .lang-switch {
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid transparent;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .lang-switch:hover { background: var(--accent); color: #fff; }
+        .lang-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        /* ─── Hero / case intro ─── */
+        .case-intro {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+        .case-kicker {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .case-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-heading);
+            line-height: 1.15;
+            margin-bottom: 0.6rem;
+        }
+        .case-subtitle {
+            font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+            color: var(--text-muted);
+            max-width: 760px;
+        }
+
+        /* ─── Status bar ─── */
+        .status-bar {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0.25rem 1.5rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .badge-loading { background: rgba(100,116,139,.15); color: var(--text-muted); }
+        .badge-fresh   { background: rgba(16,185,129,.14);  color: #047857; }
+        .badge-stale   { background: rgba(234,179,8,.18);   color: var(--gold); }
+        .badge-error   { background: rgba(239,68,68,.14);   color: var(--negative); }
+        .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        .status-links a {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-left: 1.25rem;
+        }
+        .status-links a:hover { color: var(--accent); }
+
+        /* ─── AI commentary card ─── */
+        .ai-wrap {
+            max-width: 1080px;
+            margin: 0 auto 2rem;
+            padding: 0 1.5rem;
+        }
+        .ai-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            padding: 2.25rem 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+        }
+        .ai-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .ai-icon {
+            font-size: 1.6rem;
+        }
+        .ai-card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        /* Markdown rendering */
+        .ai-content h1, .ai-content h2, .ai-content h3, .ai-content h4 {
+            color: var(--text-heading);
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin: 1.8rem 0 0.75rem;
+        }
+        .ai-content h1 { font-size: 1.5rem; font-weight: 800; }
+        .ai-content h2 { font-size: 1.25rem; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+        .ai-content h3 { font-size: 1.08rem; font-weight: 700; color: var(--accent); }
+        .ai-content h4 { font-size: 1rem; font-weight: 600; }
+        .ai-content p  { margin: 0.85rem 0; color: var(--text); }
+        .ai-content ul, .ai-content ol { margin: 0.75rem 0 1rem 1.5rem; }
+        .ai-content li { margin: 0.3rem 0; }
+        .ai-content strong { color: var(--text-heading); font-weight: 700; }
+        .ai-content code {
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.92em;
+            font-family: 'SF Mono', Menlo, Consolas, monospace;
+        }
+        .ai-content pre {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.88rem;
+            margin: 1rem 0;
+        }
+        .ai-content pre code { background: transparent; color: var(--text); padding: 0; }
+        .ai-content blockquote {
+            border-left: 3px solid var(--accent);
+            background: var(--accent-dim);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+        .ai-content table {
+            border-collapse: collapse;
+            margin: 1rem 0;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .ai-content th, .ai-content td {
+            border: 1px solid var(--border);
+            padding: 0.55rem 0.85rem;
+            text-align: left;
+        }
+        .ai-content thead th {
+            background: var(--bg-alt);
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+        .ai-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.75rem 0;
+        }
+
+        .ai-loading, .ai-fallback {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .ai-spinner {
+            display: inline-block;
+            width: 28px; height: 28px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .ai-disclaimer {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding: 0.85rem 1rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            border-left: 3px solid var(--text-muted);
+        }
+
+        /* ─── Context section ─── */
+        .context {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+        }
+        .context-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .context-heading {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+        .context-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .context-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.4rem;
+        }
+        .context-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer a { color: var(--accent); }
+        .disclaimer {
+            font-size: 0.78rem;
+            margin-top: 0.75rem;
+            opacity: 0.8;
+            max-width: 680px;
+            margin-inline: auto;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .case-intro { padding: 2rem 1.25rem 1rem; }
+            .status-bar { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .ai-wrap { padding: 0 1.25rem; }
+            .ai-card { padding: 1.75rem 1.25rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═════ TOP BAR ═════ -->
+<header class="topbar">
+    <div class="topbar-inner">
+        <a href="/" class="brand">
+            <span class="brand-mark">D</span>
+            <span>DappGo</span>
+        </a>
+        <div class="topbar-actions">
+            <a href="/#cases" data-i18n="nav.cases">Cases</a>
+            <a href="/" data-i18n="nav.home">← Home</a>
+            <button class="lang-switch" id="langSwitch" title="Switch language" aria-label="Switch language">EN / 中</button>
+        </div>
+    </div>
+</header>
+
+<!-- ═════ CASE INTRO ═════ -->
+<section class="case-intro">
+    <span class="case-kicker" data-i18n="kicker">Case Study · Live Output</span>
+    <h1 class="case-title" data-i18n="title">AI Market Commentary</h1>
+    <p class="case-subtitle" data-i18n="subtitle">
+        The AI market commentary section of our automated daily options report, pulled directly
+        from the production pipeline. Generated every weekday morning before US market open by
+        a 5-model Gemini cascade.
+    </p>
+</section>
+
+<!-- ═════ STATUS BAR ═════ -->
+<div class="status-bar">
+    <span id="report-badge" class="badge badge-loading" role="status" aria-live="polite">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span id="report-badge-text" data-i18n="badge.loading">Loading latest commentary…</span>
+    </span>
+    <nav class="status-links" aria-label="Report links">
+        <a href="https://github.com/laiyanlong/options-daily-report/tree/main/reports" target="_blank" rel="noopener" data-i18n="links.history">All reports →</a>
+    </nav>
+</div>
+
+<!-- ═════ AI COMMENTARY ═════ -->
+<section class="ai-wrap">
+    <article class="ai-card">
+        <header class="ai-card-header">
+            <span class="ai-icon" aria-hidden="true">🤖</span>
+            <h2 class="ai-card-title" data-i18n="ai.title">AI Market Commentary (Gemini)</h2>
+        </header>
+        <div id="ai-content" class="ai-content">
+            <div class="ai-loading">
+                <div class="ai-spinner" aria-hidden="true"></div>
+                <p data-i18n="ai.loading">Fetching today's analysis…</p>
+            </div>
+        </div>
+        <p class="ai-disclaimer" data-i18n="ai.disclaimer">
+            The above AI analysis is auto-generated by Gemini (Google) for reference only and does not constitute investment advice.
+        </p>
+    </article>
+</section>
+
+<!-- ═════ CONTEXT ═════ -->
+<section class="context">
+    <div class="context-inner">
+        <h2 class="context-heading" data-i18n="context.title">How this page works</h2>
+        <div class="context-grid">
+            <div class="context-card">
+                <h3 data-i18n="context.c1.title">Fully automated</h3>
+                <p data-i18n="context.c1.desc">GitHub Actions runs the engine every weekday at 13:20 UTC (6:20 AM PT). Zero human intervention.</p>
+            </div>
+            <div class="context-card">
+                <h3 data-i18n="context.c2.title">Live from production</h3>
+                <p data-i18n="context.c2.desc">This is the actual report sent to users via email and shown in the iOS app — not demo data.</p>
+            </div>
+            <div class="context-card">
+                <h3 data-i18n="context.c3.title">Bilingual by design</h3>
+                <p data-i18n="context.c3.desc">The Gemini cascade produces both 繁體中文 and English output in the same run. Toggle above.</p>
+            </div>
+            <div class="context-card">
+                <h3 data-i18n="context.c4.title">Auto-refreshing</h3>
+                <p data-i18n="context.c4.desc">This page re-checks GitHub every 10 minutes while the tab is visible, so you get updates without reloading.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═════ FOOTER ═════ -->
+<footer class="footer">
+    <p data-i18n="footer.cta">Interested in a similar custom AI automation? <a href="/#contact">Get in touch.</a></p>
+    <p class="disclaimer" data-i18n="footer.disclaimer">
+        Reports are educational / informational only. They do not constitute investment advice or a
+        recommendation to buy or sell any security. Options trading carries substantial risk of loss.
+    </p>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════
+   i18n — shared storage key with dappgo.com homepage
+   ════════════════════════════════════════════ */
+const translations = {
+    en: {
+        'nav.cases': 'Cases',
+        'nav.home': '← Home',
+        'kicker': 'Case Study · Live Output',
+        'title': 'AI Market Commentary',
+        'subtitle': 'The AI market commentary section of our automated daily options report, pulled directly from the production pipeline. Generated every weekday morning before US market open by a 5-model Gemini cascade.',
+        'ai.title': 'AI Market Commentary (Gemini)',
+        'ai.loading': 'Fetching today\'s analysis…',
+        'ai.disclaimer': 'The above AI analysis is auto-generated by Gemini (Google) for reference only and does not constitute investment advice.',
+        'badge.loading': 'Loading latest commentary…',
+        'badge.fresh':   'Today\'s commentary',
+        'badge.stale':   'Today\'s not ready yet — showing most recent',
+        'badge.error':   'Unable to load commentary',
+        'badge.empty':   'Commentary not available for this date',
+        'links.history': 'All reports →',
+        'context.title': 'How this page works',
+        'context.c1.title': 'Fully automated',
+        'context.c1.desc': 'GitHub Actions runs the engine every weekday at 13:20 UTC (6:20 AM PT). Zero human intervention.',
+        'context.c2.title': 'Live from production',
+        'context.c2.desc': 'This is the actual report sent to users via email and shown in the iOS app — not demo data.',
+        'context.c3.title': 'Bilingual by design',
+        'context.c3.desc': 'The Gemini cascade produces both 繁體中文 and English output in the same run. Toggle above.',
+        'context.c4.title': 'Auto-refreshing',
+        'context.c4.desc': 'This page re-checks GitHub every 10 minutes while the tab is visible, so you get updates without reloading.',
+        'footer.cta': 'Interested in a similar custom AI automation? <a href="/#contact">Get in touch.</a>',
+        'footer.disclaimer': 'Reports are educational / informational only. They do not constitute investment advice or a recommendation to buy or sell any security. Options trading carries substantial risk of loss.',
+        'error.markdown': 'We couldn\'t render the commentary. <a href="https://github.com/laiyanlong/options-daily-report/tree/main/reports" target="_blank" rel="noopener">Open on GitHub →</a>',
+    },
+    zh: {
+        'nav.cases': '實戰案例',
+        'nav.home': '← 首頁',
+        'kicker': '案例研究 · 即時產出',
+        'title': 'AI 市場解讀',
+        'subtitle': '我們每日自動化選擇權報告中的 AI 市場解讀，直接從正式管線拉取。每個交易日早上美股開盤前，由 5 個 Gemini 模型串連備援生成。',
+        'ai.title': 'AI 市場解讀（Gemini）',
+        'ai.loading': '載入今日分析中…',
+        'ai.disclaimer': '以上 AI 分析由 Gemini (Google) 自動產生，僅供參考，不構成投資建議。',
+        'badge.loading': '載入最新解讀中…',
+        'badge.fresh':   '今日解讀',
+        'badge.stale':   '今日尚未生成 — 顯示最近一份',
+        'badge.error':   '無法載入解讀',
+        'badge.empty':   '此日期尚無解讀內容',
+        'links.history': '所有歷史報告 →',
+        'context.title': '這個頁面如何運作',
+        'context.c1.title': '全自動',
+        'context.c1.desc': 'GitHub Actions 每個交易日在 UTC 13:20（美西 6:20 AM）自動執行引擎，零人為介入。',
+        'context.c2.title': '正式環境',
+        'context.c2.desc': '這是實際寄給用戶與顯示在 iOS app 上的報告 — 不是測試數據。',
+        'context.c3.title': '原生雙語',
+        'context.c3.desc': 'Gemini 串連在同一次執行中同時產出 繁體中文 與 English 版本。請用上方切換。',
+        'context.c4.title': '自動更新',
+        'context.c4.desc': '此頁面在分頁可見時每 10 分鐘重新檢查 GitHub，無需重新整理也能拿到最新內容。',
+        'footer.cta': '想要類似的客製 AI 自動化？<a href="/#contact">歡迎聯繫。</a>',
+        'footer.disclaimer': '報告僅供教育 / 資訊目的。不構成投資建議或買賣任何證券的推薦。選擇權交易具有重大虧損風險。',
+        'error.markdown': '目前無法渲染此解讀。<a href="https://github.com/laiyanlong/options-daily-report/tree/main/reports" target="_blank" rel="noopener">直接在 GitHub 上打開 →</a>',
+    }
+};
+
+function readSavedLang() {
+    try {
+        const saved = localStorage.getItem('dappgo-lang');
+        if (saved === 'en' || saved === 'zh') return saved;
+    } catch (_) {}
+    return (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+}
+
+let currentLang = readSavedLang();
+let currentPayload = null;
+
+function t(key) {
+    return (translations[currentLang] && translations[currentLang][key]) || '';
+}
+
+function applyStaticI18n() {
+    document.documentElement.lang = currentLang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = t(key);
+        if (!val) return;
+        // If value contains HTML tags, use innerHTML (for footer anchors, disclaimers)
+        if (/<\w+/.test(val)) el.innerHTML = val; else el.textContent = val;
+    });
+}
+
+/* ════════════════════════════════════════════
+   Fetch + render AI commentary
+   ════════════════════════════════════════════ */
+const GH_OWNER = 'laiyanlong';
+const GH_REPO  = 'options-daily-report';
+const LATEST_URL = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/dashboard/ai_commentary/latest.json`;
+const LIST_URL   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/dashboard/ai_commentary`;
+
+const badgeEl    = document.getElementById('report-badge');
+const badgeText  = document.getElementById('report-badge-text');
+const contentEl  = document.getElementById('ai-content');
+
+function setBadge(cls, i18nKey) {
+    badgeEl.className = 'badge ' + cls;
+    badgeText.setAttribute('data-i18n', i18nKey);
+    badgeText.textContent = t(i18nKey);
+}
+
+function todayUtc() {
+    const d = new Date();
+    return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
+}
+
+async function fetchLatestPayload() {
+    // Try the stable latest.json pointer first
+    try {
+        const resp = await fetch(LATEST_URL, { cache: 'no-store' });
+        if (resp.ok) return await resp.json();
+    } catch (_) {}
+
+    // Fallback: list the directory and pick the newest file
+    const listResp = await fetch(LIST_URL, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' },
+    });
+    if (!listResp.ok) throw new Error(`GitHub API ${listResp.status}`);
+    const items = await listResp.json();
+    const dates = items
+        .map(f => (f.name.match(/^(\d{4}-\d{2}-\d{2})\.json$/) || [])[1])
+        .filter(Boolean)
+        .sort()
+        .reverse();
+    if (!dates.length) throw new Error('No commentary files found');
+    const pick = dates[0];
+    const raw = await fetch(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/dashboard/ai_commentary/${pick}.json`);
+    if (!raw.ok) throw new Error(`raw ${pick}.json → ${raw.status}`);
+    return await raw.json();
+}
+
+function renderContent(payload) {
+    if (!payload) return;
+    currentPayload = payload;
+
+    // Freshness badge
+    const isToday = payload.date === todayUtc();
+    if (isToday) setBadge('badge-fresh', 'badge.fresh');
+    else         setBadge('badge-stale', 'badge.stale');
+
+    // Pick the commentary body for the current language
+    const body = (payload[currentLang] || '').trim();
+    if (!body) {
+        setBadge('badge-error', 'badge.empty');
+        contentEl.innerHTML = `<div class="ai-fallback"><p>${t('error.markdown')}</p></div>`;
+        return;
+    }
+
+    // Render markdown with marked (configured safely)
+    try {
+        marked.setOptions({ breaks: true, gfm: true });
+        const html = marked.parse(body);
+        contentEl.innerHTML = html;
+    } catch (e) {
+        console.warn('[options] markdown render failed:', e);
+        contentEl.innerHTML = `<div class="ai-fallback"><p>${t('error.markdown')}</p></div>`;
+    }
+}
+
+async function loadAI() {
+    try {
+        const payload = await fetchLatestPayload();
+        renderContent(payload);
+    } catch (e) {
+        console.warn('[options] loader error:', e);
+        setBadge('badge-error', 'badge.error');
+        contentEl.innerHTML = `<div class="ai-fallback"><p>${t('error.markdown')}</p></div>`;
+    }
+}
+
+/* ════════════════════════════════════════════
+   Language toggle
+   ════════════════════════════════════════════ */
+document.getElementById('langSwitch').addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    try { localStorage.setItem('dappgo-lang', currentLang); } catch (_) {}
+    applyStaticI18n();
+    if (currentPayload) renderContent(currentPayload);
+});
+
+// Cross-tab sync: if user flips language on another dappgo.com page
+window.addEventListener('storage', (e) => {
+    if (e.key === 'dappgo-lang' && (e.newValue === 'en' || e.newValue === 'zh') && e.newValue !== currentLang) {
+        currentLang = e.newValue;
+        applyStaticI18n();
+        if (currentPayload) renderContent(currentPayload);
+    }
+});
+
+/* ════════════════════════════════════════════
+   Init
+   ════════════════════════════════════════════ */
+applyStaticI18n();
+loadAI();
+
+// Re-check every 10 min while tab is visible (catches same-day updates)
+setInterval(() => {
+    if (document.visibilityState === 'visible') loadAI();
+}, 10 * 60 * 1000);
+</script>
+
+</body>
+</html>

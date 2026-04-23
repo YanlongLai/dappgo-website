@@ -769,77 +769,6 @@
             .hero-cta .btn-ghost { text-align: center; }
         }
 
-        /* ─── Options Live Report section ──────────── */
-        #options {
-            background: var(--bg-alt);
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        .options-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-        .options-meta-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .options-meta-links a {
-            color: var(--accent);
-            font-size: 0.88rem;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        .options-meta-links a:hover { text-decoration: underline; }
-        .options-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-        .options-badge-loading { background: rgba(100,116,139,.15); color: var(--text-muted); }
-        .options-badge-fresh   { background: rgba(16,185,129,.12);  color: #059669; }
-        .options-badge-stale   { background: rgba(234,179,8,.15);   color: #b45309; }
-        .options-badge-error   { background: rgba(239,68,68,.12);   color: #dc2626; }
-        .options-dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: currentColor;
-        }
-        .options-embed-wrap {
-            position: relative;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            background: var(--bg-card);
-            min-height: 720px;
-        }
-        #options-iframe {
-            width: 100%;
-            height: 900px;
-            max-height: 90vh;
-            border: none;
-            display: block;
-            background: var(--bg-card);
-        }
-        .options-fallback {
-            padding: 3rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-        }
-        @media (max-width: 768px) {
-            #options-iframe { height: 70vh; }
-            .options-embed-wrap { min-height: 500px; }
-        }
     </style>
 </head>
 <body>
@@ -856,7 +785,6 @@
             <li><a href="#process" data-i18n="nav.process">Process</a></li>
             <li><a href="#solutions" data-i18n="nav.solutions">Solutions</a></li>
             <li><a href="#cases" data-i18n="nav.cases">Cases</a></li>
-            <li><a href="#options" data-i18n="nav.options">Options</a></li>
             <li><a href="#tech" data-i18n="nav.tech">Tech</a></li>
             <li><a href="#why" data-i18n="nav.why">Why Us</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -992,40 +920,15 @@
         </div>
         <div class="service-card">
             <span class="service-icon">&#x1F916;</span>
-            <h3 data-i18n="cases.c2.title">Live Backtest Dashboard</h3>
-            <p data-i18n="cases.c2.desc">AI-powered backtesting dashboard that validates options strategies against real market outcomes. Interactive charts showing win rates, cumulative P&L, strategy comparisons, and risk metrics — updated daily.</p>
-            <a href="https://laiyanlong.github.io/options-daily-report/" target="_blank" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c2.link">View Live Dashboard &rarr;</a>
+            <h3 data-i18n="cases.c2.title">Live Options Report</h3>
+            <p data-i18n="cases.c2.desc">Fresh daily options analysis — Black-Scholes pricing, AI market commentary, OI concentration, and multi-strategy breakdowns. Embedded live in your browser, updated every morning before US market open.</p>
+            <a href="/options" style="color:var(--accent);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c2.link">View today&rsquo;s report &rarr;</a>
         </div>
         <div class="service-card">
             <span class="service-icon">&#x2699;</span>
             <h3 data-i18n="cases.c3.title">Enterprise AI Pipeline</h3>
             <p data-i18n="cases.c3.desc">Custom AI automation for enterprise clients — from data ingestion to model inference to actionable insights. Replaces manual analysis workflows with intelligent, self-monitoring pipelines.</p>
             <span style="color:var(--text-muted);font-size:0.85rem;display:inline-block;margin-top:0.5rem" data-i18n="cases.c3.link">Client projects — contact us for details</span>
-        </div>
-    </div>
-</section>
-
-<!-- Options — live latest report -->
-<section id="options" class="reveal">
-    <div class="section-label" data-i18n="options.label">Live Report</div>
-    <h2 class="section-title" data-i18n="options.title">Today&#39;s Options Analysis</h2>
-    <p class="section-desc" data-i18n="options.desc">Automated daily options selling strategy report — Black-Scholes pricing, AI commentary, OI concentration, multi-strategy analysis. Generated fresh every weekday at 6:20 AM PT.</p>
-
-    <div class="options-meta">
-        <span id="options-badge" class="options-badge options-badge-loading" role="status" aria-live="polite">
-            <span class="options-dot" aria-hidden="true"></span>
-            <span data-i18n="options.loading">Loading latest report&hellip;</span>
-        </span>
-        <div class="options-meta-links">
-            <a id="options-download" href="#" target="_blank" rel="noopener" style="display:none" data-i18n="options.download">Download HTML &rarr;</a>
-            <a href="https://github.com/laiyanlong/options-daily-report/tree/main/reports" target="_blank" rel="noopener" data-i18n="options.history">All reports &rarr;</a>
-        </div>
-    </div>
-
-    <div class="options-embed-wrap">
-        <iframe id="options-iframe" title="Latest options daily report" sandbox="allow-scripts" loading="lazy"></iframe>
-        <div id="options-fallback" class="options-fallback" hidden>
-            <p data-i18n="options.error">We couldn&#39;t load today&#39;s report. Try again in a moment, or open it directly on GitHub.</p>
         </div>
     </div>
 </section>
@@ -1186,7 +1089,6 @@ const translations = {
         'nav.process': 'Process',
         'nav.solutions': 'Solutions',
         'nav.cases': 'Cases',
-        'nav.options': 'Options',
         'nav.tech': 'Tech',
         'nav.why': 'Why Us',
         'nav.contact': 'Contact',
@@ -1245,22 +1147,12 @@ const translations = {
         'cases.c1.title': 'Options Daily Report',
         'cases.c1.desc': 'Fully automated options strategy analysis platform. 63+ features including Black-Scholes pricing, AI market commentary, multi-strategy analysis, risk management, and community tools. Runs daily via GitHub Actions — zero human intervention.',
         'cases.c1.link': 'View on GitHub \u2192',
-        'cases.c2.title': 'Live Backtest Dashboard',
-        'cases.c2.desc': 'AI-powered backtesting dashboard that validates options strategies against real market outcomes. Interactive charts showing win rates, cumulative P&L, strategy comparisons, and risk metrics — updated daily.',
-        'cases.c2.link': 'View Live Dashboard \u2192',
+        'cases.c2.title': 'Live Options Report',
+        'cases.c2.desc': 'Fresh daily options analysis — Black-Scholes pricing, AI market commentary, OI concentration, and multi-strategy breakdowns. Embedded live in your browser, updated every morning before US market open.',
+        'cases.c2.link': 'View today’s report \u2192',
         'cases.c3.title': 'Enterprise AI Pipeline',
         'cases.c3.desc': 'Custom AI automation for enterprise clients — from data ingestion to model inference to actionable insights. Replaces manual analysis workflows with intelligent, self-monitoring pipelines.',
         'cases.c3.link': 'Client projects — contact us for details',
-        'options.label': 'Live Report',
-        'options.title': 'Today\'s Options Analysis',
-        'options.desc': 'Automated daily options selling strategy report — Black-Scholes pricing, AI commentary, OI concentration, multi-strategy analysis. Generated fresh every weekday at 6:20 AM PT.',
-        'options.loading': 'Loading latest report…',
-        'options.fresh': 'Today’s report',
-        'options.stale': 'Today’s not ready yet — showing latest available',
-        'options.error-badge': 'Unable to load report',
-        'options.error': 'We couldn’t load today’s report. Try again in a moment, or open it directly on GitHub.',
-        'options.download': 'Download HTML →',
-        'options.history': 'All reports →',
         'tech.label': 'Technology',
         'tech.title': 'Our AI Stack',
         'tech.desc': 'We work with the best tools in the AI ecosystem — and build custom solutions when off-the-shelf isn\'t enough.',
@@ -1299,7 +1191,6 @@ const translations = {
         'nav.process': '流程',
         'nav.solutions': '解決方案',
         'nav.cases': '實戰案例',
-        'nav.options': '選擇權',
         'nav.tech': '技術',
         'nav.why': '為何選擇我們',
         'nav.contact': '聯絡我們',
@@ -1358,22 +1249,12 @@ const translations = {
         'cases.c1.title': '選擇權每日報告',
         'cases.c1.desc': '全自動選擇權策略分析平台。63+ 項功能，涵蓋 Black-Scholes 定價、AI 市場解讀、多腳策略分析、風險管理及社群工具。透過 GitHub Actions 每日自動執行，零人工干預。',
         'cases.c1.link': '在 GitHub 上查看 \u2192',
-        'cases.c2.title': '即時回測儀表板',
-        'cases.c2.desc': 'AI 驅動的回測儀表板，用真實市場數據驗證選擇權策略。互動式圖表展示勝率、累積損益、策略比較和風險指標 — 每日自動更新。',
-        'cases.c2.link': '查看即時儀表板 \u2192',
+        'cases.c2.title': '即時選擇權報告',
+        'cases.c2.desc': '每日自動生成的選擇權分析報告 — Black-Scholes 定價、AI 市場解讀、OI 持倉分佈、多腳策略分析。直接內嵌在瀏覽器中，每個交易日開盤前更新。',
+        'cases.c2.link': '查看今日報告 \u2192',
         'cases.c3.title': '企業 AI 自動化管線',
         'cases.c3.desc': '為企業客戶打造的客製 AI 自動化方案 — 從數據擷取到模型推論到可行洞察。以智慧型自我監控管線取代人工分析流程。',
         'cases.c3.link': '客戶專案 — 歡迎洽詢',
-        'options.label': '即時報告',
-        'options.title': '今日選擇權分析',
-        'options.desc': '自動化每日選擇權賣方策略報告 — Black-Scholes 定價、AI 市場解讀、OI 持倉分佈、多腳策略分析。每個交易日美西 6:20 AM 自動生成。',
-        'options.loading': '載入最新報告中…',
-        'options.fresh': '今日報告',
-        'options.stale': '今日報告尚未生成 — 顯示最近一份',
-        'options.error-badge': '無法載入報告',
-        'options.error': '目前無法載入今日報告。請稍後重試，或直接在 GitHub 上開啟。',
-        'options.download': '下載 HTML →',
-        'options.history': '所有歷史報告 →',
         'tech.label': '技術棧',
         'tech.title': '我們的 AI 技術',
         'tech.desc': '我們使用 AI 生態系最優秀的工具 — 當現成方案不夠用時，我們自己打造。',
@@ -1409,10 +1290,19 @@ const translations = {
     }
 };
 
-let currentLang = 'en';
+// Read persisted language preference (shared with other pages like /options)
+let currentLang = (function() {
+    try {
+        const saved = localStorage.getItem('dappgo-lang');
+        if (saved === 'en' || saved === 'zh') return saved;
+    } catch (_) { /* localStorage blocked */ }
+    // Fallback: browser language
+    return (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+})();
 
 function setLang(lang) {
     currentLang = lang;
+    try { localStorage.setItem('dappgo-lang', lang); } catch (_) {}
     const t = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -1626,109 +1516,9 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 /* ===== FORM SUBMIT ===== */
 /* FormSubmit.co handles the POST natively — no JS override needed */
 
-/* ===== OPTIONS — latest daily report loader ===== */
-(function() {
-    const GH_OWNER = 'laiyanlong';
-    const GH_REPO  = 'options-daily-report';
-    const API_LIST = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/reports`;
-    const RAW_BASE = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/reports`;
-    const DATE_RX  = /^(\d{4}-\d{2}-\d{2})\.html$/;
-
-    const iframe   = document.getElementById('options-iframe');
-    const badge    = document.getElementById('options-badge');
-    const fallback = document.getElementById('options-fallback');
-    const download = document.getElementById('options-download');
-
-    if (!iframe || !badge) return; // section not on this page
-
-    function setBadge(cls, labelKey, text) {
-        badge.className = 'options-badge ' + cls;
-        badge.innerHTML = `<span class="options-dot" aria-hidden="true"></span><span${labelKey ? ` data-i18n="${labelKey}"` : ''}>${text}</span>`;
-    }
-
-    function todayUtcYmd() {
-        const d = new Date();
-        const yyyy = d.getUTCFullYear();
-        const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
-        const dd = String(d.getUTCDate()).padStart(2, '0');
-        return `${yyyy}-${mm}-${dd}`;
-    }
-
-    async function listReportDates() {
-        const resp = await fetch(API_LIST, {
-            headers: { 'Accept': 'application/vnd.github.v3+json' },
-        });
-        if (!resp.ok) throw new Error(`GitHub API ${resp.status}`);
-        const items = await resp.json();
-        return items
-            .map(f => (f.name.match(DATE_RX) || [])[1])
-            .filter(Boolean)
-            .sort()
-            .reverse();  // newest first
-    }
-
-    async function fetchReportHtml(date) {
-        const url = `${RAW_BASE}/${date}.html`;
-        const resp = await fetch(url);
-        if (!resp.ok) throw new Error(`fetch ${url} → ${resp.status}`);
-        return await resp.text();
-    }
-
-    async function loadLatest() {
-        try {
-            const dates = await listReportDates();
-            if (!dates.length) throw new Error('No reports found');
-
-            const today = todayUtcYmd();
-            const latest = dates[0];
-            const isToday = latest === today;
-
-            // Fetch and inject into sandboxed iframe
-            const html = await fetchReportHtml(latest);
-            iframe.srcdoc = html;
-
-            // Update badge
-            if (isToday) {
-                setBadge('options-badge-fresh', 'options.fresh', `Today's report (${latest})`);
-            } else {
-                setBadge('options-badge-stale', 'options.stale', `Latest available: ${latest} — today's not ready yet`);
-            }
-
-            // Show download link
-            if (download) {
-                download.href = `https://github.com/${GH_OWNER}/${GH_REPO}/blob/main/reports/${latest}.html`;
-                download.style.display = 'inline';
-            }
-        } catch (e) {
-            console.warn('[options] loader error:', e);
-            setBadge('options-badge-error', 'options.error-badge', 'Unable to load report');
-            fallback.hidden = false;
-            iframe.style.display = 'none';
-        }
-    }
-
-    // Load when the section becomes visible (saves bandwidth for visitors who don't scroll)
-    const section = document.getElementById('options');
-    if ('IntersectionObserver' in window && section) {
-        const io = new IntersectionObserver((entries, obs) => {
-            if (entries[0].isIntersecting) {
-                obs.disconnect();
-                loadLatest();
-            }
-        }, { rootMargin: '200px' });
-        io.observe(section);
-    } else {
-        loadLatest();
-    }
-
-    // Re-check every 10 minutes while the tab is visible (catches same-day updates)
-    setInterval(() => {
-        if (document.visibilityState === 'visible') loadLatest();
-    }, 10 * 60 * 1000);
-})();
-
 /* ===== INIT ===== */
-startHeroTypewriter();
+// Apply persisted language on first load (default 'en' was set at declaration)
+if (currentLang === 'zh') setLang('zh'); else startHeroTypewriter();
 </script>
 
 </body>
