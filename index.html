@@ -769,159 +769,6 @@
             .hero-cta .btn-ghost { text-align: center; }
         }
 
-        /* ─── Flagship (Options) promo ──────────── */
-        #flagship {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        .flagship-card {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 2.5rem;
-            background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0.02));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        .flagship-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-        }
-        .flagship-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.3rem 0.75rem;
-            border-radius: 999px;
-            background: var(--accent-dim);
-            color: var(--accent);
-            margin-bottom: 0.8rem;
-        }
-        .flagship-title {
-            font-size: clamp(1.7rem, 3vw, 2.2rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-heading);
-            line-height: 1.15;
-            margin-bottom: 0.75rem;
-        }
-        .flagship-desc {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 1.25rem;
-            max-width: 560px;
-        }
-        .flagship-benefits {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
-            display: grid;
-            gap: 0.4rem;
-        }
-        .flagship-benefits li {
-            color: var(--text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .flagship-view {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-        .flagship-view:hover { text-decoration: none; opacity: 0.85; }
-
-        .flagship-form {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.75rem 1.5rem;
-            box-shadow: var(--shadow-sm);
-            align-self: start;
-        }
-        .flagship-form-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 0.3rem;
-        }
-        .flagship-form-desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-        .flagship-form input[type="email"] {
-            width: 100%;
-            padding: 0.75rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            background: var(--bg);
-            color: var(--text);
-            margin-bottom: 0.9rem;
-        }
-        .flagship-form input[type="email"]:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 1px;
-            border-color: var(--accent);
-        }
-        .flagship-lang-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-        .flagship-lang-row select {
-            padding: 0.45rem 0.65rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            cursor: pointer;
-        }
-        .flagship-submit {
-            width: 100%;
-            padding: 0.85rem 1.1rem;
-            border: none;
-            border-radius: 10px;
-            background: var(--accent);
-            color: #fff;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background 0.15s, transform 0.15s;
-        }
-        .flagship-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
-        .flagship-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-        .flagship-form-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-            min-height: 1.1rem;
-        }
-        .flagship-form-status.ok { color: #047857; }
-        .flagship-form-status.err { color: #dc2626; }
-        .flagship-privacy {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            line-height: 1.5;
-        }
         .visually-hidden {
             position: absolute !important;
             width: 1px; height: 1px;
@@ -930,10 +777,6 @@
             clip: rect(0,0,0,0);
             white-space: nowrap;
             border: 0;
-        }
-
-        @media (max-width: 900px) {
-            .flagship-card { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.5rem; }
         }
 
         /* ─── Subscribe popup (non-intrusive) ──────── */
@@ -960,13 +803,19 @@
             opacity: 1;
             pointer-events: auto;
         }
+        /* Soft accent halo — replaces the old blunt top bar */
         .sub-pop::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            inset: -1px -1px auto -1px;
+            height: 60px;
+            background: radial-gradient(
+                ellipse 120% 100% at 20% 0%,
+                rgba(37, 99, 235, 0.08),
+                transparent 70%
+            );
             border-radius: 16px 16px 0 0;
+            pointer-events: none;
         }
         .sub-pop-close {
             position: absolute;
@@ -986,8 +835,19 @@
         .sub-pop-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
         .sub-pop-emoji {
-            font-size: 24px;
-            margin: 2px 0 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04));
+            border: 1px solid rgba(37,99,235,0.18);
+            font-size: 18px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(37,99,235,0.12);
+            position: relative;
+            z-index: 1;
         }
         .sub-pop-title {
             font-size: 15px;
@@ -995,12 +855,16 @@
             color: var(--text-heading);
             margin-bottom: 4px;
             letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
         }
         .sub-pop-desc {
             font-size: 12.5px;
             color: var(--text-muted);
             line-height: 1.5;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
         }
 
         .sub-pop form {
@@ -1149,59 +1013,6 @@
             <span class="trust-badge" data-i18n="hero.ind4">Manufacturing</span>
             <span class="trust-badge" data-i18n="hero.ind5">Media</span>
         </div>
-    </div>
-</section>
-
-<!-- Flagship promo — Options daily report -->
-<section id="flagship" class="reveal">
-    <div class="flagship-card">
-        <div class="flagship-left">
-            <span class="flagship-tag" data-i18n="flagship.tag">Flagship Case Study</span>
-            <h2 class="flagship-title" data-i18n="flagship.title">Daily AI Options Report</h2>
-            <p class="flagship-desc" data-i18n="flagship.desc">Our production AI pipeline analyzes the US options market every weekday morning — Black-Scholes pricing, timing signals, OI concentration, and a 5-model Gemini commentary. Delivered to your inbox before the market opens. Free while in beta.</p>
-            <ul class="flagship-benefits">
-                <li data-i18n="flagship.b1">📬 Fresh report in your inbox every weekday at 6:20 AM PT</li>
-                <li data-i18n="flagship.b2">🤖 AI commentary with highlighted key levels &amp; risks</li>
-                <li data-i18n="flagship.b3">🌐 Bilingual — 繁體中文 or English, your choice</li>
-                <li data-i18n="flagship.b4">🔓 No credit card, no paywall, one-click unsubscribe</li>
-            </ul>
-            <a href="/options" class="flagship-view" data-i18n="flagship.view">See today&rsquo;s report &rarr;</a>
-        </div>
-
-        <form class="flagship-form"
-              action="https://formsubmit.co/ajax/laiyanlong@gmail.com"
-              method="POST"
-              id="subscribeForm">
-            <div class="flagship-form-title" data-i18n="flagship.form.title">Subscribe — free while in beta</div>
-            <div class="flagship-form-desc" data-i18n="flagship.form.desc">We&rsquo;ll email you the daily AI options report. Unsubscribe any time.</div>
-
-            <label for="subscribe-email" class="visually-hidden">Email</label>
-            <input type="email"
-                   id="subscribe-email"
-                   name="email"
-                   required
-                   autocomplete="email"
-                   placeholder="you@example.com"
-                   data-i18n-placeholder="flagship.form.placeholder" />
-
-            <label class="flagship-lang-row">
-                <span data-i18n="flagship.form.lang">Report language:</span>
-                <select name="lang" id="subscribe-lang">
-                    <option value="en" data-i18n="flagship.form.en">English</option>
-                    <option value="zh" data-i18n="flagship.form.zh">繁體中文</option>
-                </select>
-            </label>
-
-            <!-- FormSubmit config -->
-            <input type="hidden" name="_subject" value="New Options subscriber" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="source" value="dappgo.com flagship" />
-
-            <button type="submit" class="flagship-submit" data-i18n="flagship.form.submit">Get daily reports</button>
-            <div id="subscribeStatus" class="flagship-form-status" aria-live="polite"></div>
-            <p class="flagship-privacy" data-i18n="flagship.form.privacy">By subscribing you agree to receive daily option analysis emails. We don&rsquo;t share your address. <a href="/privacy" style="color:var(--accent)">Privacy</a>.</p>
-        </form>
     </div>
 </section>
 
@@ -2006,49 +1817,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 /* ===== FORM SUBMIT ===== */
 /* Contact form: FormSubmit.co handles the POST natively — no JS override. */
 
-/* Subscribe form: AJAX submit so we can stay on-page and show inline status */
-(function() {
-    const form = document.getElementById('subscribeForm');
-    if (!form) return;
-
-    // Default is English (HTML <option> order). We intentionally do NOT
-    // auto-match the site UI language — reading a Chinese UI doesn't
-    // mean the subscriber wants a Chinese report.
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const statusEl = document.getElementById('subscribeStatus');
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const formData = new FormData(form);
-
-        statusEl.className = 'flagship-form-status';
-        statusEl.textContent = '';
-        submitBtn.disabled = true;
-
-        try {
-            const resp = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' },
-            });
-            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-            const t = translations[currentLang] || translations.en;
-            statusEl.className = 'flagship-form-status ok';
-            statusEl.textContent = t['flagship.form.success'];
-            form.reset();
-            // After reset, dropdown returns to its HTML default (English)
-        } catch (err) {
-            console.warn('[subscribe] failed:', err);
-            const t = translations[currentLang] || translations.en;
-            statusEl.className = 'flagship-form-status err';
-            statusEl.textContent = t['flagship.form.error'];
-        } finally {
-            submitBtn.disabled = false;
-        }
-    });
-
-})();
-
 /* ══════════════════════════════════════════════
    Subscribe popup — non-intrusive
    - Defaults closed
@@ -2074,10 +1842,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
         if (cached && cached.until && Date.now() < cached.until) return;
     } catch (_) {}
 
-    // Don't pop while the flagship subscribe form is already in view
-    // (user sees the same CTA above the fold — don't double-nag).
-    const flagship = document.getElementById('subscribeForm');
-
     const form      = document.getElementById('subPopForm');
     const emailIn   = document.getElementById('subPopEmail');
     const langIn    = document.getElementById('subPopLang');
@@ -2099,11 +1863,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     let shown = false;
     function show() {
         if (shown) return;
-        // Guard: don't show while the flagship form is in the viewport
-        if (flagship) {
-            const rect = flagship.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) return;
-        }
         shown = true;
         pop.classList.add('visible');
         pop.setAttribute('aria-hidden', 'false');
