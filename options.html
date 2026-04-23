@@ -231,6 +231,18 @@
         .hl-neg  { background: rgba(239,68,68,.15);  color: #991b1b; }
         .hl-key  { background: rgba(245,158,11,.18); color: #92400e; }
         .hl-warn { background: rgba(249,115,22,.18); color: #9a3412; }
+        /* Underline variant — lighter emphasis, no background, crisp line */
+        .hl-u {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            text-decoration-skip-ink: auto;
+        }
 
         /* Markdown rendering */
         .ai-content h1, .ai-content h2, .ai-content h3, .ai-content h4 {
@@ -642,7 +654,7 @@ function renderContent(payload) {
         // Convert [[pos:text]] → <mark class="hl-pos">text</mark> BEFORE markdown parse.
         // (Escape the payload text so any markdown inside the bracket doesn't re-interpret.)
         const withHighlights = body.replace(
-            /\[\[(pos|neg|key|warn):([^\]\r\n]{1,120})\]\]/g,
+            /\[\[(pos|neg|key|warn|u):([^\]\r\n]{1,120})\]\]/g,
             (_, type, raw) => {
                 const safe = raw
                     .replace(/&/g, '&amp;')
