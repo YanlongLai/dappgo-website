@@ -1034,7 +1034,7 @@
 
             <button type="submit" class="flagship-submit" data-i18n="flagship.form.submit">Get daily reports</button>
             <div id="subscribeStatus" class="flagship-form-status" aria-live="polite"></div>
-            <p class="flagship-privacy" data-i18n="flagship.form.privacy">By subscribing you agree to receive daily option analysis emails. We don&rsquo;t share your address.</p>
+            <p class="flagship-privacy" data-i18n="flagship.form.privacy">By subscribing you agree to receive daily option analysis emails. We don&rsquo;t share your address. <a href="/privacy" style="color:var(--accent)">Privacy</a>.</p>
         </form>
     </div>
 </section>
@@ -1375,7 +1375,7 @@ const translations = {
         'flagship.form.zh': '繁體中文',
         'flagship.form.en': 'English',
         'flagship.form.submit': 'Get daily reports',
-        'flagship.form.privacy': 'By subscribing you agree to receive daily option analysis emails. We don’t share your address.',
+        'flagship.form.privacy': 'By subscribing you agree to receive daily option analysis emails. We don’t share your address. <a href="/privacy" style="color:var(--accent)">Privacy</a>.',
         'flagship.form.success': '🎉 You’re subscribed! Check your inbox for confirmation.',
         'flagship.form.error': 'Something went wrong. Please try again, or email us directly.',
         'cases.label': 'Case Studies',
@@ -1495,7 +1495,7 @@ const translations = {
         'flagship.form.zh': '繁體中文',
         'flagship.form.en': 'English',
         'flagship.form.submit': '開始每日收報告',
-        'flagship.form.privacy': '訂閱即表示您同意接收每日選擇權分析 email。我們不會轉售您的地址。',
+        'flagship.form.privacy': '訂閱即表示您同意接收每日選擇權分析 email。我們不會轉售您的地址。<a href="/privacy" style="color:var(--accent)">隱私政策</a>。',
         'flagship.form.success': '🎉 訂閱成功！請到您的信箱確認。',
         'flagship.form.error': '發生錯誤，請稍後再試，或直接寄信給我們。',
         'cases.label': '實戰案例',
@@ -1566,9 +1566,14 @@ function setLang(lang) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 // skip — these are labels, not inputs
             } else {
+                const newText = t[key];
+                // If translation contains inline HTML (e.g. <a>), swap via innerHTML
+                if (/<\w+/.test(newText)) {
+                    el.innerHTML = newText;
+                    return;
+                }
                 // Typewriter effect for language switch
                 const oldText = el.textContent;
-                const newText = t[key];
                 if (oldText !== newText && el.closest('.hero')) {
                     typewriterReplace(el, newText);
                 } else {
