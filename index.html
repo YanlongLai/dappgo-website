@@ -1021,8 +1021,8 @@
             <label class="flagship-lang-row">
                 <span data-i18n="flagship.form.lang">Report language:</span>
                 <select name="lang" id="subscribe-lang">
-                    <option value="zh" data-i18n="flagship.form.zh">繁體中文</option>
                     <option value="en" data-i18n="flagship.form.en">English</option>
+                    <option value="zh" data-i18n="flagship.form.zh">繁體中文</option>
                 </select>
             </label>
 
@@ -1787,9 +1787,9 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     const form = document.getElementById('subscribeForm');
     if (!form) return;
 
-    // Pre-select lang dropdown from persisted preference
-    const langSelect = document.getElementById('subscribe-lang');
-    if (langSelect) langSelect.value = currentLang;
+    // Default is English (HTML <option> order). We intentionally do NOT
+    // auto-match the site UI language — reading a Chinese UI doesn't
+    // mean the subscriber wants a Chinese report.
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -1812,7 +1812,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
             statusEl.className = 'flagship-form-status ok';
             statusEl.textContent = t['flagship.form.success'];
             form.reset();
-            if (langSelect) langSelect.value = currentLang;  // keep preference
+            // After reset, dropdown returns to its HTML default (English)
         } catch (err) {
             console.warn('[subscribe] failed:', err);
             const t = translations[currentLang] || translations.en;
@@ -1823,12 +1823,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
         }
     });
 
-    // Cross-tab sync: update lang dropdown if user flips language elsewhere
-    window.addEventListener('storage', (e) => {
-        if (e.key === 'dappgo-lang' && langSelect && (e.newValue === 'en' || e.newValue === 'zh')) {
-            langSelect.value = e.newValue;
-        }
-    });
 })();
 
 /* ===== INIT ===== */
