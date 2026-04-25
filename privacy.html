@@ -2,13 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | DappGo</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="description" content="DappGo privacy policy — what data we collect, how we use it, and how to opt out.">
     <link rel="canonical" href="https://dappgo.com/privacy">
 
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
     <style>
+        /* Self-hosted Inter — files in /fonts, populated by scripts/download-fonts.sh */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --bg: #ffffff;
@@ -125,7 +153,7 @@
 
 <main>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 2026-04-23</p>
+    <p class="updated">Last updated: 2026-04-25</p>
 
     <div class="summary">
         <strong>TL;DR:</strong> If you subscribe to the Daily Options Report,
@@ -169,6 +197,32 @@
         page views and referrer traffic. Google Analytics stores cookies in your
         browser. If you prefer not to be tracked, you can install a blocker
         such as uBlock Origin or use your browser's Do Not Track setting.
+    </p>
+
+    <h3>Mobile app analytics</h3>
+    <p>
+        The DappGo Options mobile app (TestFlight beta) records anonymous usage
+        events to help us improve the product. We collect:
+    </p>
+    <ul>
+        <li>A randomly-generated <strong>device ID</strong> (UUID) stored in
+            the OS keychain on your device. This is not tied to your Apple ID,
+            email, or any personal identifier. It resets if you reinstall the app.</li>
+        <li><strong>Behavioural events</strong> — which tabs you open, which
+            reports you read, which option strikes you tap, which backtests
+            you run. No content of your watchlist, portfolio, or trades is
+            uploaded.</li>
+        <li><strong>App version + platform</strong> (iOS / Android) — to
+            triangulate crash reports.</li>
+    </ul>
+    <p>
+        This data is stored in our Supabase project and used to compute
+        aggregate signals like the in-app "Hot Strikes" widget (which strikes
+        are most-tapped across all anonymous users in the past 7 days).
+        Individual rows are not shared, sold, or correlated to identity.
+    </p>
+    <p>
+        Crash reports are captured via Sentry when configured.
     </p>
 
     <h2>How we use your data</h2>

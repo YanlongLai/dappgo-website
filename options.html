@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com https://api.github.com https://ufshdzyfrbwgtdhtymsf.supabase.co; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Options Daily Report — AI Commentary | DappGo Case Study</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -15,12 +16,30 @@
     <meta property="og:url" content="https://dappgo.com/options">
     <meta property="og:title" content="Options Daily Report — AI Commentary">
     <meta property="og:description" content="Daily AI market commentary for the options selling strategy, bilingual and auto-updated.">
-    <meta property="og:image" content="https://dappgo.com/og-image.png">
+    <meta property="og:image" content="https://dappgo.com/og-options.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Options Daily Report — AI Commentary">
     <meta name="twitter:description" content="Auto-generated AI options commentary, refreshed daily.">
-    <meta name="twitter:image" content="https://dappgo.com/og-image.png">
+    <meta name="twitter:image" content="https://dappgo.com/og-options.png">
+
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Market Commentary",
+        "description": "Daily AI options market commentary",
+        "author": {"@type": "Organization", "name": "DappGo"},
+        "datePublished": "2026-04-22",
+        "dateModified": "2026-04-22"
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9K7KCERPP"></script>
@@ -31,10 +50,39 @@
         gtag('config', 'G-C9K7KCERPP');
     </script>
 
-    <!-- Lightweight markdown parser (CDN, ~25KB) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <!-- Lightweight markdown parser (CDN, ~25KB).
+         SRI hash pinned to 12.0.2; regenerate with:
+           curl -sL <url> | openssl dgst -sha384 -binary | openssl base64 -A
+         crossorigin="anonymous" is required for SRI to apply on CDN scripts. -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"
+        integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
 
     <style>
+        /* Self-hosted Inter — files in /fonts, populated by scripts/download-fonts.sh */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --bg: #ffffff;
@@ -80,24 +128,17 @@
             align-items: center;
             gap: 1rem;
         }
+        /* Logo — matches dappgo.com homepage: "Dapp" in heading color,
+           "Go" in accent color. No badge, 1.5rem, letter-spacing -0.5px. */
         .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-heading);
-            font-size: 1.05rem;
+            letter-spacing: -0.5px;
+            text-decoration: none;
         }
-        .brand-mark {
-            display: inline-grid;
-            place-items: center;
-            width: 28px; height: 28px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: #fff;
-            font-size: 14px;
-            font-weight: 800;
-        }
+        .brand:hover { text-decoration: none; }
+        .brand span { color: var(--accent); }
         .topbar-actions { display: flex; gap: 0.5rem; align-items: center; font-size: 0.92rem; }
         .topbar-actions a { color: var(--text-muted); padding: 0.4rem 0.75rem; border-radius: 8px; }
         .topbar-actions a:hover { background: var(--accent-dim); color: var(--accent); text-decoration: none; }
@@ -407,10 +448,7 @@
 <!-- ═════ TOP BAR ═════ -->
 <header class="topbar">
     <div class="topbar-inner">
-        <a href="/" class="brand">
-            <span class="brand-mark">D</span>
-            <span>DappGo</span>
-        </a>
+        <a href="/" class="brand">Dapp<span>Go</span></a>
         <div class="topbar-actions">
             <a href="/#cases" data-i18n="nav.cases">Cases</a>
             <a href="/" data-i18n="nav.home">← Home</a>
@@ -457,6 +495,21 @@
         <p class="ai-disclaimer" data-i18n="ai.disclaimer">
             The above AI analysis is auto-generated by Gemini (Google) for reference only and does not constitute investment advice.
         </p>
+    </article>
+</section>
+
+<!-- ═════ HOT STRIKES — community signal from app ═════ -->
+<section class="ai-wrap" id="hot-section" hidden>
+    <article class="ai-card">
+        <header class="ai-card-header">
+            <span class="ai-card-eyebrow">🔥 Community signal · past 7 days</span>
+            <h2 class="ai-card-title">Hot Strikes</h2>
+        </header>
+        <p style="color:var(--text-muted);font-size:.95rem;margin-bottom:1rem">
+            Aggregated from anonymous mobile-app users tapping strikes in the Matrix view.
+            Counts are unique devices — not raw clicks.
+        </p>
+        <div id="hot-table"></div>
     </article>
 </section>
 
@@ -588,7 +641,10 @@ function applyStaticI18n() {
    ════════════════════════════════════════════ */
 const GH_OWNER = 'laiyanlong';
 const GH_REPO  = 'options-daily-report';
-const LATEST_URL = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/dashboard/ai_commentary/latest.json`;
+// Use jsDelivr CDN (no anonymous rate-limit, serves raw content). Keep GitHub
+// API as a last-ditch fallback for directory listing only.
+const CDN_BASE   = `https://cdn.jsdelivr.net/gh/${GH_OWNER}/${GH_REPO}@main`;
+const LATEST_URL = `${CDN_BASE}/dashboard/ai_commentary/latest.json`;
 const LIST_URL   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/dashboard/ai_commentary`;
 
 const badgeEl    = document.getElementById('report-badge');
@@ -613,7 +669,8 @@ async function fetchLatestPayload() {
         if (resp.ok) return await resp.json();
     } catch (_) {}
 
-    // Fallback: list the directory and pick the newest file
+    // Fallback: list the directory via GitHub API (rate-limited, only hit if
+    // latest.json is missing) and fetch the newest file via jsDelivr CDN.
     const listResp = await fetch(LIST_URL, {
         headers: { 'Accept': 'application/vnd.github.v3+json' },
     });
@@ -626,8 +683,8 @@ async function fetchLatestPayload() {
         .reverse();
     if (!dates.length) throw new Error('No commentary files found');
     const pick = dates[0];
-    const raw = await fetch(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/dashboard/ai_commentary/${pick}.json`);
-    if (!raw.ok) throw new Error(`raw ${pick}.json → ${raw.status}`);
+    const raw = await fetch(`${CDN_BASE}/dashboard/ai_commentary/${pick}.json`);
+    if (!raw.ok) throw new Error(`cdn ${pick}.json → ${raw.status}`);
     return await raw.json();
 }
 
@@ -702,14 +759,67 @@ window.addEventListener('storage', (e) => {
 });
 
 /* ════════════════════════════════════════════
+   Hot Strikes — public anon-key read of popular_options view
+   ════════════════════════════════════════════ */
+const SUPABASE_URL = 'https://ufshdzyfrbwgtdhtymsf.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_5XoK3V6IU1hRVEoFXRmq8A_Tnz384qU';
+
+async function loadHotStrikes() {
+    try {
+        const r = await fetch(
+            `${SUPABASE_URL}/rest/v1/popular_options?select=symbol,option_type,strike,unique_users,total_taps&order=unique_users.desc,total_taps.desc&limit=10`,
+            { headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` } }
+        );
+        if (!r.ok) return;
+        const rows = await r.json();
+        if (!Array.isArray(rows) || rows.length === 0) return;
+
+        const html = `
+            <table style="width:100%;border-collapse:collapse;font-size:.95rem">
+                <thead>
+                    <tr style="border-bottom:1px solid var(--border);text-align:left">
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500">#</th>
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500">Symbol</th>
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500">Type</th>
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500;text-align:right">Strike</th>
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500;text-align:right">Users</th>
+                        <th style="padding:.5rem .25rem;color:var(--text-muted);font-weight:500;text-align:right">Taps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows.map((r, i) => `
+                        <tr style="border-bottom:1px solid var(--border)">
+                            <td style="padding:.5rem .25rem;color:var(--text-muted)">${i + 1}</td>
+                            <td style="padding:.5rem .25rem;font-weight:700;color:var(--gold)">${r.symbol}</td>
+                            <td style="padding:.5rem .25rem;color:${r.option_type === 'put' ? 'var(--negative)' : 'var(--positive)'};font-weight:600;text-transform:uppercase">${r.option_type}</td>
+                            <td style="padding:.5rem .25rem;text-align:right;font-family:ui-monospace,monospace">$${r.strike}</td>
+                            <td style="padding:.5rem .25rem;text-align:right">${r.unique_users}</td>
+                            <td style="padding:.5rem .25rem;text-align:right;color:var(--text-muted)">${r.total_taps}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+        document.getElementById('hot-table').innerHTML = html;
+        document.getElementById('hot-section').hidden = false;
+    } catch {
+        /* silent — section stays hidden */
+    }
+}
+
+/* ════════════════════════════════════════════
    Init
    ════════════════════════════════════════════ */
 applyStaticI18n();
 loadAI();
+loadHotStrikes();
 
 // Re-check every 10 min while tab is visible (catches same-day updates)
 setInterval(() => {
-    if (document.visibilityState === 'visible') loadAI();
+    if (document.visibilityState === 'visible') {
+        loadAI();
+        loadHotStrikes();
+    }
 }, 10 * 60 * 1000);
 </script>
 

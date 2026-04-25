@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DappGo — AI Automation & Model Integration</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="msvalidate.01" content="40676D3D6E27383E43D6405635C74712">
+    <!-- Theme init (pre-paint, avoids flash) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('dappgo-theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.dataset.theme = theme;
+            } catch (e) { /* storage blocked — default to light */ }
+        })();
+    </script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9K7KCERPP"></script>
     <script>
@@ -44,13 +56,14 @@
         "@type": "Organization",
         "name": "DappGo",
         "url": "https://dappgo.com",
+        "logo": "https://dappgo.com/icons/icon-512.png",
         "description": "Enterprise AI automation and model integration solutions.",
         "contactPoint": {
             "@type": "ContactPoint",
             "email": "contact@dappgo.com",
             "contactType": "sales"
         },
-        "sameAs": [],
+        "sameAs": ["https://github.com/laiyanlong"],
         "knowsAbout": ["AI Automation", "Model Integration", "LLM", "Machine Learning", "Workflow Automation"]
     }
     </script>
@@ -64,10 +77,36 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
     <style>
+        /* ===== SELF-HOSTED INTER ===== */
+        /* Files expected under /fonts — run scripts/download-fonts.sh to fetch from rsms/inter v4.1. */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+        }
+
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -93,6 +132,45 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
             --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
         }
+        [data-theme="dark"] {
+            --bg: #0b1220;
+            --bg-alt: #111a2e;
+            --bg-card: #152036;
+            --bg-card-hover: #1b2844;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-heading: #f1f5f9;
+            --accent: #60a5fa;
+            --accent-dark: #3b82f6;
+            --accent-glow: rgba(96, 165, 250, 0.28);
+            --accent-dim: rgba(96, 165, 250, 0.10);
+            --accent-light: rgba(96, 165, 250, 0.18);
+            --border: #1f2a44;
+            --border-hover: #60a5fa;
+            --nav-bg: rgba(11, 18, 32, 0.88);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.45);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.55);
+        }
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: border-color 0.3s, color 0.3s, background 0.3s;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        .theme-toggle svg { width: 16px; height: 16px; }
+        .theme-toggle .icon-sun { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
@@ -792,16 +870,22 @@
             box-shadow: 0 20px 50px rgba(15,23,42,0.18), 0 4px 12px rgba(15,23,42,0.08);
             padding: 20px 20px 16px;
             z-index: 998;
-            transform: translateY(120%) translateZ(0);
+            /* translate3d promotes to its own layer → GPU compositing, no
+               first-frame layout jank. iOS-style easing curve for a soft
+               overshoot-free slide. Exit is snappier than enter. */
+            transform: translate3d(0, 120%, 0);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
-                        opacity 0.3s ease-out;
+            will-change: transform, opacity;
+            transition: transform 220ms cubic-bezier(.2,.9,.3,1),
+                        opacity   220ms cubic-bezier(.2,.9,.3,1);
         }
         .sub-pop.visible {
-            transform: translateY(0) translateZ(0);
+            transform: translate3d(0, 0, 0);
             opacity: 1;
             pointer-events: auto;
+            transition: transform 320ms cubic-bezier(.2,.9,.3,1),
+                        opacity   320ms cubic-bezier(.2,.9,.3,1);
         }
         /* Soft accent halo — replaces the old blunt top bar */
         .sub-pop::before {
@@ -986,6 +1070,10 @@
             <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <button class="lang-switch" id="langSwitch" title="Switch Language">EN / 中</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -1650,6 +1738,13 @@ document.getElementById('langSwitch').addEventListener('click', () => {
     setLang(currentLang === 'en' ? 'zh' : 'en');
 });
 
+/* ===== THEME TOGGLE ===== */
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('dappgo-theme', next); } catch (e) { /* ignore */ }
+});
+
 /* ===== HERO TYPEWRITER ===== */
 let twTimeout;
 function startHeroTypewriter() {
@@ -1857,8 +1952,18 @@ document.querySelectorAll('.nav-links a').forEach(a => {
             langBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             langIn.value = btn.dataset.lang;
+            // analytics hook defined below — guarded so this works even
+            // before `track` is declared (first run before DOM settle).
+            try { if (typeof track === 'function') track('subscribe_lang_toggle', { lang: btn.dataset.lang }); } catch (_) {}
         });
     });
+
+    // Safe GA event wrapper — never throws if gtag isn't loaded
+    function track(name, params) {
+        try {
+            if (typeof gtag === 'function') gtag('event', name, params || {});
+        } catch (_) {}
+    }
 
     let shown = false;
     function show() {
@@ -1866,6 +1971,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
         shown = true;
         pop.classList.add('visible');
         pop.setAttribute('aria-hidden', 'false');
+        track('subscribe_popup_shown');
         // Clean up triggers once shown
         window.removeEventListener('scroll', onScroll);
         clearTimeout(dwellTimer);
@@ -1874,6 +1980,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     function dismiss(days) {
         pop.classList.remove('visible');
         pop.setAttribute('aria-hidden', 'true');
+        track('subscribe_popup_dismissed', { cache_days: days });
         try {
             localStorage.setItem(
                 LS_KEY,
@@ -1897,6 +2004,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        track('subscribe_submit', { lang: langIn.value });
         const btn = form.querySelector('button[type="submit"]');
         btn.disabled = true;
         statusEl.className = 'sub-pop-status';
@@ -1909,15 +2017,30 @@ document.querySelectorAll('.nav-links a').forEach(a => {
                 headers: { 'Accept': 'application/json' },
             });
             if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            track('subscribe_success', { lang: langIn.value });
             const t = translations[currentLang] || translations.en;
             statusEl.className = 'sub-pop-status ok';
             statusEl.textContent = t['pop.ok'] || 'You&rsquo;re subscribed!';
             // Auto-close after 2.5s, cache for 180 days
             setTimeout(() => dismiss(SUCCESS_DAYS), 2500);
         } catch (err) {
+            track('subscribe_error', { lang: langIn.value });
             const t = translations[currentLang] || translations.en;
             statusEl.className = 'sub-pop-status err';
-            statusEl.textContent = t['pop.err'] || 'Something went wrong.';
+            // Offer a mailto fallback when FormSubmit fails (network/outage).
+            // Users can still reach us — we just add them manually on receipt.
+            const emailVal = encodeURIComponent(emailIn.value || '');
+            const langVal = encodeURIComponent(langIn.value || 'en');
+            const fallbackUrl =
+                `mailto:dappgo.options@gmail.com` +
+                `?subject=${encodeURIComponent('Subscribe to Options daily AI report')}` +
+                `&body=${encodeURIComponent('Hi,\n\nPlease add me to the subscriber list.\n\nEmail: ')}${emailVal}` +
+                `${encodeURIComponent('\nLanguage: ')}${langVal}`;
+            statusEl.innerHTML =
+                (t['pop.err'] || 'Something went wrong.') +
+                ` <a href="${fallbackUrl}" style="color:inherit;text-decoration:underline;">` +
+                (currentLang === 'zh' ? '改用 email 訂閱' : 'Email us instead') +
+                '</a>';
             btn.disabled = false;
         }
     });

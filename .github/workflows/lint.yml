@@ -1,0 +1,77 @@
+name: Site Lint
+
+# Lints the static site on every push and once a week:
+#   - lychee: finds broken links (internal + external)
+#   - htmlhint: catches malformed HTML / invalid attributes
+#
+# Weekly runs catch external links that rot after release.
+
+on:
+  push:
+    paths:
+      - '**.html'
+      - '.github/workflows/lint.yml'
+  pull_request:
+    paths:
+      - '**.html'
+  schedule:
+    # Mondays 07:00 UTC — catches link rot weekly
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Run lychee link checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all .html files at repo root; allow 200-399, fail on 4xx/5xx.
+          # --max-concurrency 3 stays polite to external servers.
+          args: >-
+            --max-concurrency 3
+            --cache
+            --cache-exclude-status '429'
+            --no-progress
+            --exclude-path node_modules
+            --exclude '^mailto:'
+            --exclude 'formsubmit.co'
+            './**/*.html'
+          fail: true
+
+  html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install htmlhint
+        run: npm install -g htmlhint@1
+
+      - name: Lint HTML
+        run: |
+          cat > .htmlhintrc <<'EOF'
+          {
+            "tagname-lowercase": true,
+            "attr-lowercase": true,
+            "attr-value-double-quotes": true,
+            "doctype-first": true,
+            "tag-pair": true,
+            "spec-char-escape": true,
+            "id-unique": true,
+            "src-not-empty": true,
+            "attr-no-duplication": true,
+            "title-require": true
+          }
+          EOF
+          htmlhint --rulesdir=./.htmlhintrc "./*.html"
