@@ -34,9 +34,11 @@ jobs:
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v2
         with:
-          # --root-dir resolves root-relative paths (/favicon.svg,
-          # /fonts/..., /icons/...). Must be an absolute path.
-          # --max-concurrency 3 stays polite to external servers.
+          # --root-dir resolves root-relative paths. Must be absolute.
+          # Excludes:
+          #   *.woff2 — fonts are downloaded post-deploy via scripts/download-fonts.sh
+          #   /options, /privacy — GitHub Pages clean-URL rewrites that
+          #   resolve at serving time (lychee can't know about them in local mode)
           args: >-
             --root-dir ${{ github.workspace }}
             --max-concurrency 3
@@ -46,6 +48,8 @@ jobs:
             --exclude-path node_modules
             --exclude '^mailto:'
             --exclude 'formsubmit.co'
+            --exclude '\.woff2$'
+            --exclude 'file:.*/(options|privacy)$'
             './**/*.html'
           fail: true
 
