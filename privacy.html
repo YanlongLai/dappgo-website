@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | DappGo</title>
+    <title>隱私政策 Privacy Policy | DappGo</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta name="description" content="DappGo privacy policy — what data we collect, how we use it, and how to opt out.">
+    <meta name="description" content="DappGo 隱私政策 — 我們收集什麼資料、如何使用、如何停用。DappGo privacy policy.">
     <link rel="canonical" href="https://dappgo.com/privacy">
 
     <!-- PWA manifest & theme -->
@@ -123,6 +123,10 @@
             font-size: 0.95rem;
         }
         .summary strong { color: var(--text-heading); }
+        .lang-en {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
         code {
             background: var(--bg-alt);
             padding: 2px 6px;
@@ -135,6 +139,8 @@
             padding: 2rem 1.5rem; text-align: center;
             color: var(--text-muted); font-size: 0.88rem;
         }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 0.4rem; }
+        footer a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
@@ -146,148 +152,138 @@
             <span>DappGo</span>
         </a>
         <div class="topbar-actions">
-            <a href="/">← Home</a>
+            <a href="/terms">服務條款 Terms</a>
+            <a href="/">← 首頁 Home</a>
         </div>
     </div>
 </header>
 
 <main>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 2026-04-25</p>
+    <h1>隱私政策 <span class="lang-en">/ Privacy Policy</span></h1>
+    <p class="updated">最後更新 Last updated: 2026-05-02</p>
 
     <div class="summary">
-        <strong>TL;DR:</strong> If you subscribe to the Daily Options Report,
-        we collect your email address and a language preference. We email you
-        the report each weekday. We never sell, rent, or share your address.
-        You can unsubscribe any time by replying <code>unsubscribe</code> to
-        any email.
+        <strong>重點摘要 TL;DR:</strong>
+        我們不收集您的位置、聯絡人、相片、廣告 ID 或任何金融資料。App 只收集匿名的裝置 ID 跟當機報告，幫助我們修 bug。如果您訂閱每日報告，我們只儲存您的 email 用來寄信，不會分享。
+        <br><br>
+        <span class="lang-en">We don't collect your location, contacts, photos, advertising IDs, or any financial data. The app only collects an anonymous device ID and crash reports to help us fix bugs. If you subscribe to the daily report, we only store your email to send it.</span>
     </div>
 
-    <h2>Who we are</h2>
+    <h2>我們是誰 <span class="lang-en">/ Who we are</span></h2>
     <p>
-        DappGo is a personal project operated by Yan Long Lai. You can reach
-        us at <a href="mailto:laiyanlong@gmail.com">laiyanlong@gmail.com</a>.
+        DappGo 是 Yan Long Lai 經營的個人專案。聯絡我們：
+        <a href="mailto:laiyanlong@gmail.com">laiyanlong@gmail.com</a>。
+        <br>
+        <span class="lang-en">DappGo is a personal project operated by Yan Long Lai.</span>
     </p>
 
-    <h2>What we collect and why</h2>
+    <h2>我們收集什麼 <span class="lang-en">/ What we collect</span></h2>
 
-    <h3>Email subscription (Daily Options Report)</h3>
+    <h3>App 使用資料 <span class="lang-en">/ App usage</span></h3>
     <ul>
-        <li>Your <strong>email address</strong> — so we can send you the daily report</li>
-        <li><strong>Language preference</strong> (zh or en) — so we send the report in your preferred language</li>
-        <li>The date you subscribed — so we can measure growth and honor data-retention requests</li>
-    </ul>
-    <p>
-        Your address is transmitted via <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit.co</a>
-        (which delivers the form submission to our Gmail inbox) and stored in a
-        private code repository as a plain text file. We do not use any third-party
-        marketing tools, analytics pixels in emails, or open/click tracking.
-    </p>
-
-    <h3>Contact form</h3>
-    <p>
-        If you use the contact form on the home page, the data you submit (name,
-        email, company, message) is sent to our Gmail via FormSubmit.co and kept
-        only for the purpose of replying to you.
-    </p>
-
-    <h3>Website analytics</h3>
-    <p>
-        The website uses Google Analytics (via <code>gtag.js</code>) to measure
-        page views and referrer traffic. Google Analytics stores cookies in your
-        browser. If you prefer not to be tracked, you can install a blocker
-        such as uBlock Origin or use your browser's Do Not Track setting.
-    </p>
-
-    <h3>Mobile app analytics</h3>
-    <p>
-        The DappGo Options mobile app (TestFlight beta) records anonymous usage
-        events to help us improve the product. We collect:
-    </p>
-    <ul>
-        <li>A randomly-generated <strong>device ID</strong> (UUID) stored in
-            the OS keychain on your device. This is not tied to your Apple ID,
-            email, or any personal identifier. It resets if you reinstall the app.</li>
-        <li><strong>Behavioural events</strong> — which tabs you open, which
-            reports you read, which option strikes you tap, which backtests
-            you run. No content of your watchlist, portfolio, or trades is
-            uploaded.</li>
-        <li><strong>App version + platform</strong> (iOS / Android) — to
-            triangulate crash reports.</li>
-    </ul>
-    <p>
-        This data is stored in our Supabase project and used to compute
-        aggregate signals like the in-app "Hot Strikes" widget (which strikes
-        are most-tapped across all anonymous users in the past 7 days).
-        Individual rows are not shared, sold, or correlated to identity.
-    </p>
-    <p>
-        Crash reports are captured via Sentry when configured.
-    </p>
-
-    <h2>How we use your data</h2>
-    <ul>
-        <li>To deliver the Daily Options Report you signed up for</li>
-        <li>To respond to messages you send us via the contact form</li>
-        <li>To compute aggregate subscriber counts (e.g., "247 subscribers this month") — never per-user behavior</li>
-    </ul>
-    <p>We do not, and will not:</p>
-    <ul>
-        <li>Sell, rent, or trade your email address</li>
-        <li>Send you unrelated marketing emails</li>
-        <li>Add you to other lists without your consent</li>
-        <li>Use your data to train machine-learning models</li>
+        <li><strong>App 版本、作業系統版本、裝置型號</strong>（透過 Sentry 當機回報）— 用來重現 bug。<br>
+            <span class="lang-en">App version, OS version, device model (via Sentry crash reports) — to reproduce bugs.</span></li>
+        <li><strong>匿名裝置 ID</strong>（隨機產生的 UUID，存在裝置上的 keychain）— 透過 Supabase 紀錄使用事件，<u>未綁定您的姓名或 email</u>，重新安裝 App 即重置。<br>
+            <span class="lang-en">Pseudonymous device ID (random UUID stored in OS keychain) — used by Supabase analytics, <u>not linked to your name or email</u>, resets on reinstall.</span></li>
+        <li><strong>使用事件</strong>：開啟哪些頁面、看哪些報告、點哪些 strike — 用來計算「熱門 strike」聚合指標。不會上傳您的 watchlist、portfolio 或交易內容。<br>
+            <span class="lang-en">Behavioural events: which tabs/reports you open, which strikes you tap — to compute aggregate "hot strikes". Watchlist/portfolio/trade content is never uploaded.</span></li>
     </ul>
 
-    <h2>How long we keep it</h2>
-    <p>
-        Your subscription record is kept as long as you remain subscribed.
-        When you unsubscribe, your address is removed from the list within
-        one hour (and no later than the next daily run).
-    </p>
-    <p>
-        Contact form messages are kept in Gmail for reply history. You can
-        request deletion by emailing us.
-    </p>
-
-    <h2>Your rights</h2>
-    <p>You can, at any time:</p>
+    <h3>訂閱 email <span class="lang-en">/ Subscription email</span></h3>
     <ul>
-        <li><strong>Unsubscribe</strong> by replying <code>unsubscribe</code> to any daily email, or by emailing <a href="mailto:laiyanlong@gmail.com?subject=Unsubscribe">laiyanlong@gmail.com</a> with the subject "Unsubscribe"</li>
-        <li><strong>Request a copy</strong> of the data we hold on you — email us and we'll reply within 7 days</li>
-        <li><strong>Request deletion</strong> of all your data — we'll process within 7 days</li>
-        <li><strong>Change your language preference</strong> — email us or re-subscribe with the preferred setting</li>
+        <li><strong>Email 地址</strong> — 僅當您透過網站彈出視窗主動訂閱時收集，用於寄送每日報告。<br>
+            <span class="lang-en">Email address — only collected when you opt-in via the website popup, used to send the daily report.</span></li>
+        <li><strong>語言偏好</strong>（zh / en）跟訂閱日期。<br>
+            <span class="lang-en">Language preference and subscription date.</span></li>
     </ul>
 
-    <h2>Security</h2>
+    <h3>網站 analytics <span class="lang-en">/ Website analytics</span></h3>
     <p>
-        Subscriber emails are stored in a private GitHub repository and accessed
-        only by the author. Email delivery uses Gmail's SMTP with TLS. No data
-        is stored on our own servers.
+        本網站使用 Google Analytics 計算頁面瀏覽量。如不希望被追蹤，請使用 uBlock Origin 或瀏覽器 Do Not Track。
+        <br>
+        <span class="lang-en">The site uses Google Analytics for page views. Use a blocker or DNT to opt out.</span>
     </p>
 
-    <h2>Children</h2>
+    <h2>我們<u>不</u>收集什麼 <span class="lang-en">/ What we DON'T collect</span></h2>
+    <ul>
+        <li>不收集 <strong>位置、聯絡人、相片、麥克風、相機、語音</strong> 資料。<br>
+            <span class="lang-en">No location, contacts, photos, microphone, camera, or audio data.</span></li>
+        <li>不做 <strong>跨 App 或跨網站追蹤</strong>（App Tracking Transparency 不適用）。<br>
+            <span class="lang-en">No tracking across other apps or websites.</span></li>
+        <li>不收集 <strong>廣告識別碼</strong>（IDFA / Google AAID）。<br>
+            <span class="lang-en">No advertising IDs (IDFA / AAID).</span></li>
+        <li>不收集 <strong>使用者輸入的金融資料</strong>。我們只分析公開市場數據，您不需要連接券商或輸入 portfolio。<br>
+            <span class="lang-en">No user-input financial info. We only analyze public market data — no broker connection, no portfolio input required.</span></li>
+        <li>不會用您的資料 <strong>訓練 ML 模型</strong>，不會販售或出租。<br>
+            <span class="lang-en">We don't use your data to train ML models, and we don't sell or rent it.</span></li>
+    </ul>
+
+    <h2>第三方服務 <span class="lang-en">/ Third parties</span></h2>
+    <ul>
+        <li><strong>Sentry</strong>（<a href="https://sentry.io/privacy/" target="_blank" rel="noopener">privacy</a>）— 當機回報；EU/US 資料中心；保留 30 天後自動刪除。<br>
+            <span class="lang-en">Sentry — crash reports; EU/US data residency; 30-day retention.</span></li>
+        <li><strong>Supabase</strong>（<a href="https://supabase.com/privacy" target="_blank" rel="noopener">privacy</a>）— 匿名使用事件；EU 資料中心。<br>
+            <span class="lang-en">Supabase — anonymous analytics events; EU data residency.</span></li>
+        <li><strong>jsDelivr</strong> — CDN，提供每日報告 JSON。<br>
+            <span class="lang-en">jsDelivr — CDN serving daily report JSON files.</span></li>
+        <li><strong>GitHub Pages</strong> — 託管本網站。<br>
+            <span class="lang-en">GitHub Pages — hosts this website.</span></li>
+        <li><strong>FormSubmit</strong>（<a href="https://formsubmit.co/" target="_blank" rel="noopener">site</a>）— 將訂閱 email 轉發到我們的 Gmail。<br>
+            <span class="lang-en">FormSubmit — forwards subscribe email to our Gmail.</span></li>
+    </ul>
+
+    <h2>資料保留 <span class="lang-en">/ Data retention</span></h2>
+    <ul>
+        <li>Sentry 當機回報：<strong>30 天</strong>後自動刪除。<br>
+            <span class="lang-en">Sentry crash reports: 30 days, auto-deleted.</span></li>
+        <li>Supabase 匿名使用事件：<strong>90 天</strong>後刪除。<br>
+            <span class="lang-en">Supabase anonymous analytics: 90 days, then deleted.</span></li>
+        <li>訂閱 email：直到您退訂為止。<br>
+            <span class="lang-en">Subscription email: until you unsubscribe.</span></li>
+    </ul>
+
+    <h2>您的權利 <span class="lang-en">/ Your rights</span></h2>
+    <ul>
+        <li><strong>GDPR</strong>（歐盟使用者）：可請求查看、修正、刪除、限制處理或攜出您的資料。寄 email 給我們，7 天內回覆。<br>
+            <span class="lang-en">GDPR (EU users): request access, correction, deletion, restriction, or portability — email us, 7-day reply.</span></li>
+        <li><strong>CCPA</strong>（加州使用者）：可請求知曉收集的資料、刪除、或選擇退出（雖然我們本來就不販售）。寄 email 即可。<br>
+            <span class="lang-en">CCPA (California users): right to know, delete, or opt-out of sale (we don't sell anyway). Email us.</span></li>
+        <li><strong>退訂</strong>：回覆任一封 email「<code>unsubscribe</code>」，或寄信給 <a href="mailto:laiyanlong@gmail.com?subject=Unsubscribe">laiyanlong@gmail.com</a>。<br>
+            <span class="lang-en">Unsubscribe by replying <code>unsubscribe</code> or emailing us.</span></li>
+    </ul>
+
+    <h2>兒童 <span class="lang-en">/ Children</span></h2>
     <p>
-        The service is not directed to children under 13. We do not knowingly
-        collect data from them.
+        本服務<strong>不適用於 13 歲以下兒童</strong>。我們不會故意收集他們的資料。
+        <br>
+        <span class="lang-en">The service is not intended for children under 13. We do not knowingly collect their data.</span>
     </p>
 
-    <h2>Changes to this policy</h2>
+    <h2>安全 <span class="lang-en">/ Security</span></h2>
     <p>
-        Material changes will be announced on this page and, for subscribers,
-        in the email digest. The "Last updated" date at the top of this page
-        reflects the most recent version.
+        訂閱 email 儲存於私人 GitHub repo，僅作者可存取。所有傳輸使用 HTTPS / TLS。我們不營運自己的伺服器。
+        <br>
+        <span class="lang-en">Subscriber emails are stored in a private GitHub repo, accessed only by the author. All transit is HTTPS/TLS. We do not run our own servers.</span>
     </p>
 
-    <h2>Contact</h2>
+    <h2>政策變更 <span class="lang-en">/ Changes</span></h2>
     <p>
-        Questions about this policy or your data: email
-        <a href="mailto:laiyanlong@gmail.com">laiyanlong@gmail.com</a>.
+        重大變更會公告於本頁，並對訂閱者透過每日 email 通知。頁首「最後更新」日期反映最新版本。
+        <br>
+        <span class="lang-en">Material changes will be posted here and notified via the daily digest. See the "Last updated" date above.</span>
+    </p>
+
+    <h2>聯絡 <span class="lang-en">/ Contact</span></h2>
+    <p>
+        對隱私政策或您的資料有任何問題：
+        <a href="mailto:laiyanlong@gmail.com">laiyanlong@gmail.com</a>
+        <br>
+        <span class="lang-en">Questions about privacy or your data: email us.</span>
     </p>
 </main>
 
 <footer>
-    <p>© 2026 DappGo · <a href="/">Home</a> · <a href="/options">Options</a> · <a href="/privacy">Privacy</a></p>
+    <p>&copy; 2026 DappGo · <a href="/">首頁 Home</a> · <a href="/options">Options</a> · <a href="/privacy">隱私 Privacy</a> · <a href="/terms">條款 Terms</a></p>
 </footer>
 
 </body>

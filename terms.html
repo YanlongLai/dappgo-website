@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務條款 Terms of Service | DappGo</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="DappGo 服務條款 — 使用本 App 與網站的條件、免責聲明、責任限制。DappGo terms of service.">
+    <link rel="canonical" href="https://dappgo.com/terms">
+
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+    <style>
+        /* Self-hosted Inter — files in /fonts, populated by scripts/download-fonts.sh */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f7f8fc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --text-heading: #0f172a;
+            --accent: #2563eb;
+            --accent-dim: rgba(37, 99, 235, 0.06);
+            --border: #e2e8f0;
+            --warn: #b45309;
+            --warn-bg: #fffbeb;
+            --warn-border: #fcd34d;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); }
+        a:hover { text-decoration: underline; }
+
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 1.5rem;
+        }
+        .topbar-inner {
+            max-width: 860px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .brand {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-weight: 700; color: var(--text-heading); font-size: 1.05rem;
+            text-decoration: none;
+        }
+        .brand-mark {
+            display: inline-grid; place-items: center;
+            width: 28px; height: 28px; border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: #fff; font-size: 14px; font-weight: 800;
+        }
+        .topbar-actions a {
+            color: var(--text-muted); padding: 0.4rem 0.75rem;
+            border-radius: 8px; text-decoration: none; font-size: 0.92rem;
+        }
+        .topbar-actions a:hover { background: var(--accent-dim); color: var(--accent); }
+
+        main {
+            max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem;
+        }
+        h1 {
+            font-size: clamp(1.9rem, 3.5vw, 2.4rem);
+            font-weight: 800; color: var(--text-heading);
+            letter-spacing: -0.02em; margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+        .updated {
+            color: var(--text-muted); font-size: 0.88rem;
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--text-heading);
+            margin: 2.25rem 0 0.6rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+        }
+        h3 {
+            font-size: 1.05rem; font-weight: 700;
+            color: var(--text-heading);
+            margin: 1.5rem 0 0.4rem;
+        }
+        p { margin: 0.7rem 0; color: var(--text); }
+        ul { margin: 0.6rem 0 0.8rem 1.5rem; }
+        li { margin: 0.25rem 0; }
+        .summary {
+            background: var(--bg-alt);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+        }
+        .summary strong { color: var(--text-heading); }
+        .warn {
+            background: var(--warn-bg);
+            border-left: 3px solid var(--warn-border);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+            color: var(--warn);
+        }
+        .warn strong { color: var(--warn); }
+        .lang-en {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+        code {
+            background: var(--bg-alt);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.92em;
+            font-family: 'SF Mono', Menlo, monospace;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem; text-align: center;
+            color: var(--text-muted); font-size: 0.88rem;
+        }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 0.4rem; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <a href="/" class="brand">
+            <span class="brand-mark">D</span>
+            <span>DappGo</span>
+        </a>
+        <div class="topbar-actions">
+            <a href="/privacy">隱私 Privacy</a>
+            <a href="/">← 首頁 Home</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>服務條款 <span class="lang-en">/ Terms of Service</span></h1>
+    <p class="updated">最後更新 Last updated: 2026-05-02</p>
+
+    <div class="warn">
+        <strong>重要免責聲明 IMPORTANT DISCLAIMER:</strong>
+        DappGo <strong>不提供投資建議</strong>。App 顯示的所有資訊（包含 AI 分析、訊號、回測結果）僅供教育與資訊參考，<strong>不</strong>構成買賣股票、選擇權或任何金融商品的建議。投資有風險，請自行判斷或諮詢合格的財務顧問。
+        <br><br>
+        <span class="lang-en">DappGo does <strong>NOT provide financial advice</strong>. All information shown in the app (including AI analyses, signals, backtests) is for educational and informational purposes only and does <strong>NOT</strong> constitute advice to buy or sell stocks, options, or any financial product. Investing involves risk — make your own decisions or consult a qualified financial advisor.</span>
+    </div>
+
+    <h2>1. 條款接受 <span class="lang-en">/ Acceptance</span></h2>
+    <p>
+        使用 DappGo App 或網站，即表示您同意本條款。如不同意，請停止使用。
+        <br>
+        <span class="lang-en">By using the DappGo app or website, you agree to these Terms. If you do not agree, please stop using the service.</span>
+    </p>
+
+    <h2>2. 服務說明 <span class="lang-en">/ Service description</span></h2>
+    <p>
+        DappGo 是一款分析<strong>公開市場數據</strong>的 App，使用 AI 模型（含大型語言模型）產生選擇權與股票相關的觀察、訊號、回測。資料來源為公開交易所數據，無需連接券商帳戶或輸入投資組合。
+        <br>
+        <span class="lang-en">DappGo is an app that analyzes <strong>public market data</strong> using AI models (including LLMs) to generate observations, signals, and backtests for options and stocks. Source data comes from public exchanges — no broker connection or portfolio input is required.</span>
+    </p>
+
+    <h2>3. 非投資建議 <span class="lang-en">/ Not financial advice</span></h2>
+    <p>
+        DappGo <strong>非</strong>持牌投資顧問、券商或金融機構。App 內所有內容（AI 報告、訊號、回測、報告 email）僅供參考，<strong>不</strong>是針對個人情況的投資建議。我們不知道您的財務狀況、投資目標或風險承受度。
+        <br>
+        <span class="lang-en">DappGo is <strong>NOT</strong> a licensed investment adviser, broker, or financial institution. All content (AI reports, signals, backtests, email digests) is informational only and is <strong>NOT</strong> personalized advice. We do not know your financial situation, goals, or risk tolerance.</span>
+    </p>
+
+    <h2>4. 不擔保準確性 <span class="lang-en">/ No warranty on accuracy</span></h2>
+    <p>
+        我們<strong>盡力</strong>確保資料正確，但不擔保 App 顯示的數據、分析、回測結果完全無誤、即時或完整。市場數據可能延遲或包含錯誤；AI 模型可能產生不正確或誤導性的輸出（俗稱「幻覺」）。請<strong>不要</strong>僅依賴 App 內容做交易決策。
+        <br>
+        <span class="lang-en">We make best efforts but do <strong>NOT</strong> warrant that data, analyses, or backtest results shown in the app are accurate, timely, or complete. Market data may be delayed or contain errors; AI models may produce incorrect or misleading output ("hallucinations"). <strong>Do not</strong> rely solely on the app for trading decisions.</span>
+    </p>
+
+    <h2>5. 使用者責任 <span class="lang-en">/ User responsibility</span></h2>
+    <ul>
+        <li>您自行為交易決策負責。<br>
+            <span class="lang-en">You are solely responsible for your trading decisions.</span></li>
+        <li>請<strong>不要</strong>僅憑 App 訊號做買賣，請自行驗證並考量自身狀況。<br>
+            <span class="lang-en"><strong>Do not</strong> trade based solely on app signals — verify independently and consider your own situation.</span></li>
+        <li>本 App 不適合<strong>專業交易、高頻交易、或系統自動下單</strong>使用。<br>
+            <span class="lang-en">The app is not suited for professional, high-frequency, or automated trading.</span></li>
+        <li>不得逆向工程、爬取大量資料、或將 App 內容轉為商業服務。<br>
+            <span class="lang-en">No reverse engineering, mass scraping, or commercial resale of app content.</span></li>
+    </ul>
+
+    <h2>6. 訂閱條款 <span class="lang-en">/ Subscription</span></h2>
+    <p>
+        目前 App 與每日 email 報告為<strong>免費 Beta</strong>。未來可能推出付費方案；屆時：
+        <br>
+        <span class="lang-en">The app and daily email report are currently <strong>free during Beta</strong>. A paid tier may launch; when it does:</span>
+    </p>
+    <ul>
+        <li>付費方案的價格、計費週期、退款政策將於 App Store 內購頁面與本條款明確揭示。<br>
+            <span class="lang-en">Pricing, billing cycle, and refund policy will be disclosed in the App Store IAP page and these Terms.</span></li>
+        <li>透過 Apple App Store 訂閱者，續訂、取消、退款依 Apple 政策處理。<br>
+            <span class="lang-en">App Store subscribers: renewal/cancellation/refunds follow Apple's policy.</span></li>
+        <li>每日 email 訂閱可隨時退訂（回覆 <code>unsubscribe</code>）。<br>
+            <span class="lang-en">Email subscription can be cancelled anytime by replying <code>unsubscribe</code>.</span></li>
+    </ul>
+
+    <h2>7. 終止 <span class="lang-en">/ Termination</span></h2>
+    <p>
+        您可隨時停止使用、刪除 App、退訂 email。我們有權在違反本條款、濫用、或法律要求時終止您的存取，並合理範圍內通知您。Beta 期間付費若有，依 Apple 政策退款。
+        <br>
+        <span class="lang-en">You may stop using and uninstall at any time. We may terminate your access for breach, abuse, or legal reasons, with reasonable notice when feasible. During Beta, any paid charges follow Apple's refund policy.</span>
+    </p>
+
+    <h2>8. 責任限制 <span class="lang-en">/ Limitation of liability</span></h2>
+    <p>
+        在法律允許的最大範圍內，DappGo 與作者<strong>不對</strong>任何直接、間接、附帶、衍生性損失（含交易損失、利潤損失、資料遺失、設備損壞）負責，<strong>無論</strong>該損失是否因使用或無法使用本服務、依 App 內容做交易、或第三方服務（Sentry、Supabase、jsDelivr、GitHub、FormSubmit）造成。
+        <br>
+        <span class="lang-en">To the maximum extent permitted by law, DappGo and its author are <strong>NOT</strong> liable for any direct, indirect, incidental, or consequential damages (including trading losses, lost profits, data loss, device damage), whether arising from use or inability to use the service, from trades made based on app content, or from third-party services (Sentry, Supabase, jsDelivr, GitHub, FormSubmit).</span>
+    </p>
+
+    <h2>9. 智慧財產 <span class="lang-en">/ Intellectual property</span></h2>
+    <p>
+        App 程式碼、設計、文字、圖示為 DappGo 所有。市場數據版權屬原始交易所或資料提供者。您可個人使用 App 內容，但不可重新散布或商業利用。
+        <br>
+        <span class="lang-en">App code, design, text, and icons are owned by DappGo. Market data copyrights belong to source exchanges or data providers. You may use content for personal purposes only — no redistribution or commercial use.</span>
+    </p>
+
+    <h2>10. 準據法 <span class="lang-en">/ Governing law</span></h2>
+    <p>
+        本條款依<strong>中華民國（台灣）法律</strong>解釋與適用。爭議以台灣台北地方法院為第一審管轄法院。
+        <br>
+        <span class="lang-en">These Terms are governed by the laws of the <strong>Republic of China (Taiwan)</strong>. Disputes shall be subject to the Taipei District Court as the court of first instance.</span>
+    </p>
+
+    <h2>11. 條款變更 <span class="lang-en">/ Changes to terms</span></h2>
+    <p>
+        重大變更將於本頁公告，並透過 App 內通知與訂閱者 email 提前告知。變更生效後您繼續使用即表示同意。
+        <br>
+        <span class="lang-en">Material changes will be posted here and notified via in-app message and subscriber email in advance. Continued use after the effective date constitutes acceptance.</span>
+    </p>
+
+    <h2>12. 聯絡 <span class="lang-en">/ Contact</span></h2>
+    <p>
+        對本條款的問題請寄：
+        <a href="mailto:laiyanlong@gmail.com">laiyanlong@gmail.com</a>
+        <br>
+        <span class="lang-en">Questions about these Terms: email us.</span>
+    </p>
+</main>
+
+<footer>
+    <p>&copy; 2026 DappGo · <a href="/">首頁 Home</a> · <a href="/options">Options</a> · <a href="/privacy">隱私 Privacy</a> · <a href="/terms">條款 Terms</a></p>
+</footer>
+
+</body>
+</html>
