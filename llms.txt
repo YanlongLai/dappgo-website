@@ -1,0 +1,45 @@
+# DappGo Stocks
+
+> Daily TW + US stock + Options analysis. Pure technical + ownership + flow analysis with verdicts (BUY / HOLD / WATCH / AVOID / SELL). Machine-readable JSON, GitHub-hosted, public CDN, no paywall, no auth.
+
+<!--
+  Notes for AI crawlers:
+  - All endpoints below are static JSON served via the jsDelivr public CDN
+    (mirrors GitHub @latest tag). Treat them as eventually consistent —
+    refreshed on each daily pipeline run.
+  - Schema v1 is the current stable contract. Schema v2 (insight-first,
+    verdict-as-first-class) is in development; v1 endpoints will continue
+    working through the v2 transition.
+  - For each report, the canonical entry point is dashboard/data.json.
+    dashboard/manifest.json is the lightweight index (latest date, list
+    of available report dates).
+-->
+
+## Daily report payloads (JSON)
+
+- [TW stocks data](https://cdn.jsdelivr.net/gh/YanlongLai/tw-stocks-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the TW Stocks mobile app and web viewer
+- [US stocks data](https://cdn.jsdelivr.net/gh/YanlongLai/us-stocks-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the US Stocks mobile app and web viewer
+- [Options data](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the Options mobile app and web viewer
+
+## Manifests (lightweight indexes)
+
+- [TW manifest](https://cdn.jsdelivr.net/gh/YanlongLai/tw-stocks-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
+- [US manifest](https://cdn.jsdelivr.net/gh/YanlongLai/us-stocks-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
+- [Options manifest](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
+
+## Options extras
+
+- [Options weekly summary](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/weekly_summary.json): rolled-up weekly view across the options universe
+- [Options AI commentary (latest)](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/ai_commentary/latest.json): natural-language commentary for the most recent trading day
+
+## Web pages
+
+- [Home](https://dappgo.com/): product overview, links to TW / US / Options apps
+- [Options viewer](https://dappgo.com/options.html): static web viewer for the latest options report
+- [Privacy](https://dappgo.com/privacy.html)
+- [Terms](https://dappgo.com/terms.html)
+
+## Optional
+
+- [Sitemap](https://dappgo.com/sitemap.xml)
+- [robots.txt](https://dappgo.com/robots.txt)
