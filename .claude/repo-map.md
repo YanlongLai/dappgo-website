@@ -1,0 +1,3 @@
+# dappgo-website — repo map
+
+You're in **dappgo-website** (Tier 5, static HTML/CSS, GH Pages with CNAME `dappgo.com`). Marketing landing page + AI-discoverability surface. Hosts `index.html`, `options.html` (proxy of options viewer), `privacy.html`, `terms.html`, `sitemap.xml`, `robots.txt`, and **`llms.txt`** which lists all public CDN endpoints (data.json, manifest.json, weekly_summary.json) for AI crawlers / MCP discovery. Push-to-`main` auto-deploys via GH Pages. **Sibling repos**: data sources `~/git/{tw,us,options}-stocks-daily-report` (when they add a new public endpoint, update `llms.txt` AND `sitemap.xml`), MCP `~/git/dappgo-stocks-mcp` (tool catalogue stays aligned with `llms.txt`). **Family entry**: `~/git/dappgo-stocks-meta/CLAUDE.md`.
