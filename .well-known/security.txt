@@ -1,4 +1,4 @@
-Contact: mailto:security@dappgo.com
+Contact: mailto:admin@dappgo.com
 Contact: https://github.com/laiyanlong/dappgo-website/security/advisories/new
 Expires: 2027-04-22T00:00:00.000Z
 Preferred-Languages: en, zh-Hant
