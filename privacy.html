@@ -10,9 +10,10 @@
     <script>
         (function () {
             try {
+                // Default to light regardless of system preference; only honor
+                // an explicit user toggle stored in localStorage.
                 var saved = localStorage.getItem('dappgo-theme');
-                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var theme = saved || (prefersDark ? 'dark' : 'light');
+                var theme = saved || 'light';
                 document.documentElement.dataset.theme = theme;
             } catch (e) { /* storage blocked — default to light */ }
         })();
