@@ -1513,31 +1513,15 @@
                 <span>dappgo.com</span>
             </div>
         </div>
-        <form id="contactForm" action="https://formsubmit.co/admin@dappgo.com" method="POST">
-            <input type="hidden" name="_subject" value="DappGo - New Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://dappgo.com#contact">
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="_template" value="table">
-            <div class="form-group">
-                <label data-i18n="contact.form.company">Company Name</label>
-                <input type="text" name="company" required placeholder="Your company">
-            </div>
-            <div class="form-group">
-                <label data-i18n="contact.form.name">Contact Person</label>
-                <input type="text" name="name" required placeholder="Your name">
-            </div>
-            <div class="form-group">
-                <label data-i18n="contact.form.email">Email</label>
-                <input type="email" name="email" required placeholder="you@company.com">
-            </div>
-            <div class="form-group">
-                <label data-i18n="contact.form.message">How can we help?</label>
-                <textarea name="message" required placeholder="Tell us about your project..."></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width:100%" data-i18n="contact.form.submit">Send Message</button>
-            <div class="form-status" id="formStatus"></div>
-        </form>
+        <div id="contactCta" style="display:flex;flex-direction:column;justify-content:center;gap:1rem;padding:2rem;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px">
+            <p style="margin:0" data-i18n="contact.cta.body">Click below to open our contact form. Takes 30 seconds. Reply within 24 hours.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBs0qAPihfB8WEAYJ-eRTXzkCKrJqMYGVMcUpOvDfuFVlCEw/viewform"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-primary"
+               style="display:inline-block;text-align:center;text-decoration:none"
+               data-i18n="contact.cta.button">Get in Touch &rarr;</a>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-muted)" data-i18n="contact.cta.note">Goes to admin@dappgo.com. Powered by Google Forms.</p>
+        </div>
     </div>
 </section>
 </div>
@@ -1554,6 +1538,7 @@
             <a href="#cases" data-i18n="nav.cases">Cases</a>
             <a href="#tech">Tech</a>
             <a href="#contact" data-i18n="nav.contact">Contact</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener noreferrer" data-i18n="nav.feedback">Feedback</a>
             <a href="/privacy" data-i18n="nav.privacy">Privacy</a>
             <a href="/terms" data-i18n="nav.terms">Terms</a>
         </div>
