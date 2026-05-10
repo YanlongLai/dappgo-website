@@ -47,8 +47,20 @@
 
 - [Home](https://dappgo.com/): product overview, links to TW / US / Options apps
 - [Options viewer](https://dappgo.com/options.html): static web viewer for the latest options report
+- [Support](https://dappgo.com/support.html): FAQs, feedback form, contact form, email — also serves as App Store Connect Support URL
 - [Privacy](https://dappgo.com/privacy.html)
 - [Terms](https://dappgo.com/terms.html)
+
+## Mobile apps (App Store)
+
+The 3 daily reports are also delivered through native mobile apps (iOS first, Android to follow).
+Submitted to the App Store in May 2026; the URLs below will be live once review completes.
+
+- TW Stocks app — `https://apps.apple.com/app/dappgo-tw/id-PENDING-`
+- US Stocks app — `https://apps.apple.com/app/dappgo-us/id-PENDING-`
+- Options app — `https://apps.apple.com/app/dappgo-options/id-PENDING-`
+
+Marketing URL for all 3: `https://dappgo.com/`. Support URL for all 3: `https://dappgo.com/support`.
 
 ## Optional
 

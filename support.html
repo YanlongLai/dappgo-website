@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — DappGo</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9K7KCERPP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C9K7KCERPP');
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="DappGo support — FAQs, contact form, feedback form, and email for the TW / US / Options daily signal apps.">
+    <link rel="canonical" href="https://dappgo.com/support">
+
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+    <style>
+        /* Self-hosted Inter — files in /fonts, populated by scripts/download-fonts.sh */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f7f8fc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --text-heading: #0f172a;
+            --accent: #2563eb;
+            --accent-dim: rgba(37, 99, 235, 0.06);
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); }
+        a:hover { text-decoration: underline; }
+
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 1.5rem;
+        }
+        .topbar-inner {
+            max-width: 860px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .brand {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-weight: 700; color: var(--text-heading); font-size: 1.05rem;
+            text-decoration: none;
+        }
+        .brand-mark {
+            display: inline-grid; place-items: center;
+            width: 28px; height: 28px; border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: #fff; font-size: 14px; font-weight: 800;
+        }
+        .topbar-actions a {
+            color: var(--text-muted); padding: 0.4rem 0.75rem;
+            border-radius: 8px; text-decoration: none; font-size: 0.92rem;
+        }
+        .topbar-actions a:hover { background: var(--accent-dim); color: var(--accent); }
+
+        main {
+            max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem;
+        }
+        h1 {
+            font-size: clamp(1.9rem, 3.5vw, 2.4rem);
+            font-weight: 800; color: var(--text-heading);
+            letter-spacing: -0.02em; margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+        .updated {
+            color: var(--text-muted); font-size: 0.88rem;
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--text-heading);
+            margin: 2.25rem 0 0.6rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+        }
+        h3 {
+            font-size: 1.05rem; font-weight: 700;
+            color: var(--text-heading);
+            margin: 1.5rem 0 0.4rem;
+        }
+        p { margin: 0.7rem 0; color: var(--text); }
+        ul { margin: 0.6rem 0 0.8rem 1.5rem; }
+        li { margin: 0.25rem 0; }
+        .summary {
+            background: var(--bg-alt);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+        }
+        .summary strong { color: var(--text-heading); }
+        .lang-en {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+        code {
+            background: var(--bg-alt);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.92em;
+            font-family: 'SF Mono', Menlo, monospace;
+        }
+        details {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+            margin: 0.7rem 0;
+        }
+        details[open] { background: #fff; }
+        summary {
+            font-weight: 700;
+            color: var(--text-heading);
+            cursor: pointer;
+            list-style: none;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: '+';
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.1rem;
+            width: 1rem; display: inline-block;
+        }
+        details[open] summary::before { content: '−'; }
+        details > p, details > ul { margin-top: 0.7rem; }
+
+        .cta-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0 1rem;
+        }
+        @media (max-width: 600px) {
+            .cta-row { grid-template-columns: 1fr; }
+        }
+        .cta-card {
+            display: flex; flex-direction: column; gap: 0.4rem;
+            padding: 1.25rem;
+            background: var(--accent-dim);
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .cta-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+        }
+        .cta-card-title {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .cta-card-desc {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem; text-align: center;
+            color: var(--text-muted); font-size: 0.88rem;
+        }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 0.4rem; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <a href="/" class="brand">
+            <span class="brand-mark">D</span>
+            <span>DappGo</span>
+        </a>
+        <div class="topbar-actions">
+            <a href="/privacy">隱私 Privacy</a>
+            <a href="/terms">條款 Terms</a>
+            <a href="/">← 首頁 Home</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>Support <span class="lang-en">/ 客服中心</span></h1>
+    <p class="updated">Last updated: 2026-05-08</p>
+
+    <div class="summary">
+        <strong>Need help?</strong>
+        Read the FAQs below — most questions are covered there.
+        Still stuck? Use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener">Feedback Form</a>
+        for bugs / feature requests, the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBs0qAPihfB8WEAYJ-eRTXzkCKrJqMYGVMcUpOvDfuFVlCEw/viewform" target="_blank" rel="noopener">Contact Form</a>
+        for partnerships, or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>. We reply within 24–48 hours.
+    </div>
+
+    <h2>FAQ</h2>
+
+    <details>
+        <summary>How does DappGo work?</summary>
+        <p>
+            DappGo runs a daily pipeline that ingests public market data (Taiwan + US equities, US options) and
+            produces machine-readable JSON reports. Each report contains technical indicators, ownership and flow
+            signals, and a verdict (BUY / HOLD / WATCH / AVOID / SELL). The mobile apps (TW Stocks, US Stocks,
+            Options) read the same JSON via a public CDN — no login, no paywall.
+        </p>
+        <p>
+            New reports land at roughly 06:30 local market time on each trading day. The website
+            <a href="/options">/options</a> page shows the latest options report; the apps surface all three.
+        </p>
+    </details>
+
+    <details>
+        <summary>Is this financial advice?</summary>
+        <p>
+            <strong>No.</strong> DappGo is for educational and informational purposes only. Verdicts (BUY / HOLD /
+            WATCH / AVOID / SELL) are quantitative signals derived from public data — they are <em>not</em>
+            personalised advice and do not consider your financial situation, goals, or risk tolerance.
+        </p>
+        <p>
+            We are not a registered investment adviser, broker-dealer, or financial planner. Always do your own
+            research and consult a licensed professional before making investment decisions. See our full
+            <a href="/terms">Terms of Service</a> for the complete disclaimer.
+        </p>
+    </details>
+
+    <details>
+        <summary>How is my data used?</summary>
+        <p>
+            We collect the bare minimum — anonymous device ID and crash reports for bug fixing, plus your email
+            (only if you opt in to the daily report). We do not collect location, contacts, photos, advertising
+            IDs, or any financial data you input. We never sell or rent your data and never use it to train ML
+            models.
+        </p>
+        <p>
+            Full details on what we collect, retention windows, and your GDPR / CCPA rights:
+            <a href="/privacy">Privacy Policy</a>.
+        </p>
+    </details>
+
+    <details>
+        <summary>How do I unsubscribe from the daily reports?</summary>
+        <p>
+            Two options:
+        </p>
+        <ul>
+            <li>Reply to any daily email with the word <code>unsubscribe</code> in the body or subject.</li>
+            <li>Email <a href="mailto:admin@dappgo.com?subject=Unsubscribe">admin@dappgo.com</a> with subject
+                <code>Unsubscribe</code> — we remove you from the <code>subscribers.txt</code> list within 48 hours.</li>
+        </ul>
+        <p>
+            No login or account needed. If you change your mind later, just resubscribe via the popup on
+            <a href="/">dappgo.com</a>.
+        </p>
+    </details>
+
+    <details>
+        <summary>I found a bug. What should I do?</summary>
+        <p>
+            Please send a quick report via the
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener">Feedback Form</a>.
+            Helpful details:
+        </p>
+        <ul>
+            <li>Which app (TW Stocks / US Stocks / Options) and version (Settings → About).</li>
+            <li>Device + OS version (e.g. iPhone 15, iOS 18.2).</li>
+            <li>What you did, what you expected, what happened instead.</li>
+            <li>Screenshot or screen recording if possible.</li>
+        </ul>
+        <p>
+            We triage daily and usually patch critical issues within a release cycle (1–2 weeks).
+        </p>
+    </details>
+
+    <details>
+        <summary>What if a report is missing or looks wrong?</summary>
+        <p>
+            Daily reports run on trading days only — weekends and market holidays are skipped. If a trading day
+            is missing past 10:00 local time, the upstream pipeline likely failed. Check
+            <a href="/">dappgo.com</a> for status, or report it via the
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener">Feedback Form</a>.
+        </p>
+        <p>
+            For data quality issues (wrong price, wrong verdict, stale figures), include the ticker, date, and
+            field — we'll trace it back to the source.
+        </p>
+    </details>
+
+    <h2>Get in Touch</h2>
+
+    <div class="cta-row">
+        <a class="cta-card" href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener">
+            <span class="cta-card-title">Send Feedback &rarr;</span>
+            <span class="cta-card-desc">Bug reports, feature requests, data quality issues. ~30 seconds.</span>
+        </a>
+        <a class="cta-card" href="https://docs.google.com/forms/d/e/1FAIpQLSeBs0qAPihfB8WEAYJ-eRTXzkCKrJqMYGVMcUpOvDfuFVlCEw/viewform" target="_blank" rel="noopener">
+            <span class="cta-card-title">Contact Form &rarr;</span>
+            <span class="cta-card-desc">Partnerships, press, API access, anything else.</span>
+        </a>
+    </div>
+
+    <p>
+        Or email us directly: <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.
+        We reply within 24–48 hours, Monday to Friday.
+    </p>
+</main>
+
+<footer>
+    <p>&copy; 2026 DappGo · <a href="/">首頁 Home</a> · <a href="/options">Options</a> · <a href="/support">Support</a> · <a href="/privacy">隱私 Privacy</a> · <a href="/terms">條款 Terms</a></p>
+</footer>
+
+</body>
+</html>
