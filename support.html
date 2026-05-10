@@ -244,10 +244,9 @@
     <details>
         <summary>How does DappGo work?</summary>
         <p>
-            DappGo runs a daily pipeline that ingests public market data (Taiwan + US equities, US options) and
-            produces machine-readable JSON reports. Each report contains technical indicators, ownership and flow
-            signals, and a verdict (BUY / HOLD / WATCH / AVOID / SELL). The mobile apps (TW Stocks, US Stocks,
-            Options) read the same JSON via a public CDN — no login, no paywall.
+            Every trading day, DappGo runs a pipeline that pulls public market data (Taiwan + US equities, US options) and
+            outputs a JSON report with technical indicators, ownership signals, and a verdict (BUY / HOLD / WATCH / AVOID / SELL).
+            The three apps (TW Stocks, US Stocks, Options) all read from the same CDN — no login, no paywall.
         </p>
         <p>
             New reports land at roughly 06:30 local market time on each trading day. The website
@@ -272,10 +271,9 @@
     <details>
         <summary>How is my data used?</summary>
         <p>
-            We collect the bare minimum — anonymous device ID and crash reports for bug fixing, plus your email
-            (only if you opt in to the daily report). We do not collect location, contacts, photos, advertising
-            IDs, or any financial data you input. We never sell or rent your data and never use it to train ML
-            models.
+            We collect the bare minimum: anonymous device ID and crash reports for debugging, plus your email
+            if you sign up for the daily report. That's it. No location, no contacts, no photos, no ad IDs,
+            no financial data you enter. We don't sell it, rent it, or use it to train models.
         </p>
         <p>
             Full details on what we collect, retention windows, and your GDPR / CCPA rights:
@@ -313,7 +311,7 @@
             <li>Screenshot or screen recording if possible.</li>
         </ul>
         <p>
-            We triage daily and usually patch critical issues within a release cycle (1–2 weeks).
+            We check reports daily and usually fix critical issues within a release cycle (1–2 weeks).
         </p>
     </details>
 
@@ -336,7 +334,7 @@
     <div class="cta-row">
         <a class="cta-card" href="https://docs.google.com/forms/d/e/1FAIpQLSdbPRZYypmKayxXJhB13UuV4BcUD8nqvSwpDYkyj4-XGt4sOw/viewform" target="_blank" rel="noopener">
             <span class="cta-card-title">Send Feedback &rarr;</span>
-            <span class="cta-card-desc">Bug reports, feature requests, data quality issues. ~30 seconds.</span>
+            <span class="cta-card-desc">Bugs, feature ideas, data quality issues. Takes about 30 seconds.</span>
         </a>
         <a class="cta-card" href="https://docs.google.com/forms/d/e/1FAIpQLSeBs0qAPihfB8WEAYJ-eRTXzkCKrJqMYGVMcUpOvDfuFVlCEw/viewform" target="_blank" rel="noopener">
             <span class="cta-card-title">Contact Form &rarr;</span>
