@@ -33,7 +33,7 @@ python3 -m http.server 8080        # then open http://localhost:8080
 
 ## Release
 
-Push to `main`. GH Pages auto-deploys; CNAME `dappgo.com` is configured in repo settings.
+Push to the repository's configured default branch (`master` in this checkout). GitHub Pages auto-deploys; CNAME `dappgo.com` is configured in repo settings.
 
 ## Files of note
 

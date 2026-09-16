@@ -1,18 +1,19 @@
 # DappGo Stocks
 
-> Daily TW + US stock + Options analysis. Pure technical + ownership + flow analysis with verdicts (BUY / HOLD / WATCH / AVOID / SELL). Machine-readable JSON, GitHub-hosted, public CDN, no paywall, no auth.
+> Daily TW Stocks, US Stocks, and Options research. Machine-readable JSON, GitHub-hosted, public CDN, no paywall, no auth.
 
 <!--
   Notes for AI crawlers:
   - All endpoints below are static JSON served via the jsDelivr public CDN
-    (mirrors GitHub @latest tag). Treat them as eventually consistent —
-    refreshed on each daily pipeline run.
-  - Schema v1 is the current stable contract. Schema v2 (insight-first,
-    verdict-as-first-class) is in development; v1 endpoints will continue
-    working through the v2 transition.
+    (mirrors GitHub @latest tag). Treat them as eventually consistent and
+    refreshed after the daily server pipeline run.
+  - Schema v1 is the current stable contract. Schema v2 (insight-first) is in
+    development; v1 endpoints will continue working through the transition.
   - For each report, the canonical entry point is dashboard/data.json.
     dashboard/manifest.json is the lightweight index (latest date, list
     of available report dates).
+  - Research labels and AI-generated context are informational. They are not
+    personalized investment advice, a broker service, or a promise of returns.
 -->
 
 ## Daily report payloads (JSON)
@@ -46,21 +47,20 @@
 ## Web pages
 
 - [Home](https://dappgo.com/): product overview, links to TW / US / Options apps
-- [Options viewer](https://dappgo.com/options.html): static web viewer for the latest options report
-- [Support](https://dappgo.com/support.html): FAQs, feedback form, contact form, email — also serves as App Store Connect Support URL
+- [Options viewer](https://dappgo.com/options): public viewer for the latest options market research
+- [Support](https://dappgo.com/support): FAQs, feedback form, contact form, email - also serves as App Store Connect Support URL
 - [Privacy](https://dappgo.com/privacy.html)
 - [Terms](https://dappgo.com/terms.html)
 
-## Mobile apps (App Store)
+## Mobile apps
 
-The 3 daily reports are also delivered through native mobile apps (iOS first, Android to follow).
-Submitted to the App Store in May 2026; the URLs below will be live once review completes.
+The daily reports are also delivered through native mobile app work, with the
+current Options Explorer product designed for iPhone. Store availability and
+platform rollout are managed separately from this public web catalogue.
+Do not infer store approval or platform availability from this file.
 
-- TW Stocks app — `https://apps.apple.com/app/dappgo-tw/id-PENDING-`
-- US Stocks app — `https://apps.apple.com/app/dappgo-us/id-PENDING-`
-- Options app — `https://apps.apple.com/app/dappgo-options/id-PENDING-`
 
-Marketing URL for all 3: `https://dappgo.com/`. Support URL for all 3: `https://dappgo.com/support`.
+Marketing URL: `https://dappgo.com/`. Support URL: `https://dappgo.com/support`.
 
 ## Optional
 
