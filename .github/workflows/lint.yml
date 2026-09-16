@@ -37,8 +37,14 @@ jobs:
           # --root-dir resolves root-relative paths. Must be absolute.
           # Excludes:
           #   *.woff2 — fonts are downloaded post-deploy via scripts/download-fonts.sh
-          #   /options, /privacy — GitHub Pages clean-URL rewrites that
-          #   resolve at serving time (lychee can't know about them in local mode)
+          #   /options, /privacy, /terms, /support — GitHub Pages clean-URL
+          #   rewrites that resolve at serving time (lychee can't know about
+          #   them in local mode)
+          #   Google Forms — public responder pages work in a browser without
+          #   sign-in, but Google returns 401 to anonymous automated probes.
+          #   Instagram — the public profile works, but Instagram rate-limits
+          #   CI probes with 429. These are provider-specific false positives,
+          #   not internal routes; keep them in the manual smoke-test checklist.
           args: >-
             --root-dir ${{ github.workspace }}
             --max-concurrency 3
@@ -48,8 +54,10 @@ jobs:
             --exclude-path node_modules
             --exclude '^mailto:'
             --exclude 'formsubmit.co'
+            --exclude 'docs.google.com/forms/d/e/'
+            --exclude 'www.instagram.com/dappgo/'
             --exclude '\.woff2$'
-            --exclude 'file:.*/(options|privacy|terms)$'
+            --exclude 'file:.*/(options|privacy|terms|support)$'
             './**/*.html'
           fail: true
 
