@@ -8,7 +8,7 @@
 - Repository: YanlongLai/dappgo-website
 - Branch: feat/website-redesign-20260916
 - Worktree label: dappgo-website-redesign-20260916
-- Deliverable: a local, independently reviewable `demo.html`, not a deployment.
+- Deliverable: the promoted production homepage at `/`, with `demo.html` retained as a noindex comparison page.
 - Owner direction: more distinctive design, clearer company positioning, and visible automation.
 
 ## Requirement gate and design read
@@ -34,8 +34,8 @@ Build a separate visual direction with a two-line value proposition, genuine Opt
 | Useful interaction                       | verified locally        | Browser: screen switcher, workflow controls, mobile navigation, service disclosure, locale and theme controls; seven dependency-free behavior tests pass                   |
 | Responsive and accessible                | verified for demo scope | Both locales checked at 320, 390, 768, 1024, 1440px with no horizontal overflow; keyboard and reduced-motion behavior tested; primary text contrast pairs all exceed 4.5:1 |
 | Complete EN / Traditional Chinese        | verified                | No empty/undefined translation strings; language round trip and dynamic labels tested; English app captures explicitly identified                                          |
-| Original work preserved                  | verified                | Existing homepage and other preexisting modifications preserved; this turn adds the standalone demo and its assets only                                                    |
-| Owner can inspect local demo             | verified locally        | `/demo.html` served by the existing local preview; production unchanged                                                                                                    |
+| Original work preserved                  | verified                | Existing routes, legal pages, public forms, analytics ID, and pre-existing `privacy.html` change preserved; the new homepage reuses the verified demo assets and behavior       |
+| Owner can inspect the released homepage  | verified in production  | `https://dappgo.com/` returns the promoted homepage; `demo.html` remains available locally and is marked noindex for comparison                                          |
 
 ## Verification record — 2026-09-16
 
@@ -49,8 +49,8 @@ Repair loop: removed an unimplemented product-page destination; restored caption
 
 Assets: genuine product screenshots and existing app icons; self-hosted Space Grotesk (OFL license included); Simple Icons 11.15.0 for social brands (license included); existing Lucide icon family for workflow inputs. No third-party runtime JavaScript or analytics was added.
 
-Goal checkpoint: local demo implemented and verified; no known blocking demo defect. Owner aesthetic review and any future production promotion remain separate gates. No independent reviewer or production rollout is claimed.
+Goal checkpoint: production homepage implemented, promoted, deployed, and observed; no known blocking website defect. The first live capture briefly showed image placeholders during first paint; a second browser check after the assets loaded showed the actual Options Explorer screenshots, with 1320×2868 source dimensions and no console errors. No independent reviewer approval is claimed.
 
 ## Release boundary
 
-The standalone `demo.html` remains a noindex comparison page. The verified design is now prepared for the Owner-requested promotion to the root homepage; `options.html`, support, privacy, terms, and public Google Forms remain separate routes. No contact-form submission or production configuration mutation is performed by the page itself. At this point the code promotion is pending commit, push, merge, and GitHub Pages observation. Self-review is performed in this session; no independent reviewer approval is claimed.
+The standalone `demo.html` remains a noindex comparison page. Commit `3576ace79baa8072571f97e9a6c41adb70d08eb9` was pushed on `feat/website-redesign-20260916` and merged through [PR #1](https://github.com/YanlongLai/dappgo-website/pull/1) as master commit `3dd889a45d025e038607742ae4b895b6c2eac05e`. GitHub Pages deployment run `35145589260` completed successfully for that exact master SHA. On 2026-09-16 at 20:24 UTC, the live homepage, stylesheet, script, favicon, and Options screenshot asset returned HTTP 200; the Pages API reported `status: built`, `cname: dappgo.com`, HTTPS enforced, and an approved certificate. Browser observation confirmed the new hero, real app screenshots, responsive layout, and no console warnings/errors. `options.html`, support, privacy, terms, and public Google Forms remain separate routes. No contact-form submission or production configuration mutation is performed by the page itself. Self-review is performed in this session; no independent reviewer approval is claimed. Next gate: Owner visual review of the live homepage and routine monitoring of the first production traffic.
