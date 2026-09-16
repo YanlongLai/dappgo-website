@@ -23,9 +23,8 @@
     <script>
         (function () {
             try {
-                var saved = localStorage.getItem('dappgo-lang');
-                // Default to 'en' when no preference saved
-                var lang = (saved === 'en' || saved === 'zh') ? saved : 'en';
+                var saved = localStorage.getItem('dappgo-locale') || localStorage.getItem('dappgo-lang') || localStorage.getItem('dappgo-language');
+                var lang = saved === 'zh-Hant' || saved === 'zh' ? 'zh' : 'en';
                 document.documentElement.dataset.lang = lang;
                 document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
             } catch (e) {
@@ -46,6 +45,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="description" content="DappGo 隱私政策 — 我們收集什麼資料、如何使用、如何停用。DappGo privacy policy.">
     <meta name="author" content="DappGo">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dappgo.com/privacy">
 
     <!-- Open Graph -->
@@ -60,7 +60,7 @@
 
     <!-- PWA manifest & theme -->
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#f6f7f9">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
     <style>
@@ -329,40 +329,52 @@
             .footer-right { text-align: center; }
         }
     </style>
+
+    <!-- Shared DappGo visual system and legal-page overrides -->
+    <link rel="stylesheet" href="/assets/demo/demo.css">
+    <link rel="stylesheet" href="/assets/demo/legal.css">
 </head>
-<body>
+<body class="legal-page">
 
-<nav>
-    <a href="/" class="logo">Dapp<span>Go</span></a>
-    <div class="nav-right">
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/privacy" aria-current="page">Privacy</a></li>
-        </ul>
-        <button class="lang-switch" id="langSwitch" type="button" title="Switch Language">EN / 中</button>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
-    </div>
-</nav>
+    <a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-zh">跳至內容</span></a>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="DappGo home">
+            <img src="/favicon.svg" width="34" height="34" alt="">
+            <span>DappGo<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <a href="/"><span class="lang-en">Home</span><span class="lang-zh">首頁</span></a>
+            <a href="/terms.html"><span class="lang-en">Terms</span><span class="lang-zh">條款</span></a>
+            <a href="/privacy.html" aria-current="page"><span class="lang-en">Privacy</span><span class="lang-zh">隱私</span></a>
+        </nav>
+        <div class="header-actions">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Traditional Chinese">中<span aria-hidden="true"> / </span><b>EN</b></button>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button>
+            <a class="header-contact" href="mailto:admin@dappgo.com"><span class="lang-en">Let’s talk</span><span class="lang-zh">聯絡我們</span><span aria-hidden="true">↗</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
+        </div>
+    </header>
 
-<main>
-    <h1>
+    <main id="main" class="legal-main">
+        <div class="legal-hero">
+            <p class="legal-kicker"><span class="kicker-line"></span><span class="lang-en">Trust, by design.</span><span class="lang-zh">清楚交代，安心使用。</span></p>
+            <h1>
         <span class="lang-en">Privacy Policy</span>
         <span class="lang-zh">隱私政策</span>
-    </h1>
-    <p class="updated">最後更新 Last updated: 2026-08-07</p>
+            </h1>
+            <p class="updated"><span class="lang-en">Last updated: 2026-09-09</span><span class="lang-zh">最後更新：2026-09-09</span></p>
+        </div>
+
+        <div class="legal-content">
 
     <div class="summary">
         <div class="lang-zh">
             <strong>重點摘要：</strong>
-            TW Stocks、US Stocks 與 Options App 的資料流程，與 Number Merge 不同。Number Merge 不使用 Firebase、Firestore、帳號或登入，遊戲設定與本機紀錄只保存在裝置上；它包含 Google AdMob 廣告，Google Mobile Ads SDK 可能依廣告投放、同意狀態與裝置設定處理廣告識別、裝置、診斷及廣告互動資料。AI 分析僅基於公開市場數據，不涉及您的個人資料。如果您主動訂閱每日報告或填寫表單，我們會儲存您提供的 email 用於回覆，不會分享或販售。
+            TW Stocks、US Stocks、Options Explorer 與 Number Merge 的資料流程不同。Options Explorer 目前的 iPhone 版本不收集產品使用分析，也不建立 DappGo 自有的穩定裝置識別碼；只有在您主動送出回饋或開啟選用推播時，才會使用 Firebase 的匿名服務識別碼。Options Explorer 的橫幅廣告會先經 Google UMP 同意流程，再依結果請求廣告；Google Mobile Ads 仍可能處理裝置識別碼、網路推估的一般位置、廣告／產品互動、診斷與效能資料。Number Merge 的資料流程另見下方專屬說明。AI 分析僅基於公開市場數據，不涉及您的個人資料。如果您主動訂閱每日報告或填寫表單，我們會儲存您提供的 email 用於回覆，不會分享或販售。
         </div>
         <div class="lang-en">
             <strong>TL;DR:</strong>
-            TW Stocks, US Stocks, and Options have a different data flow from Number Merge. Number Merge uses no Firebase, Firestore, account, or sign-in; game settings and personal records remain on the device. It includes Google AdMob ads, and the Google Mobile Ads SDK may process advertising identifiers, device, diagnostic, and ad-interaction data depending on ad serving, consent, and device settings. AI analysis is based on public market data only — your personal data is never sent to AI providers. If you voluntarily subscribe or submit a form, we store the email you give us to reply; we never share or sell it.
+            TW Stocks, US Stocks, Options Explorer, and Number Merge have different data flows. The current iPhone version of Options Explorer does not collect DappGo product-usage analytics or create a DappGo-owned stable device identifier. Firebase's anonymous service identifier is used only when you voluntarily send feedback or enable optional push notifications. Its banner ad is requested only after Google UMP consent handling permits it; Google Mobile Ads may still process device identifiers, coarse location inferred from network information, advertising or product interactions, diagnostic data, and performance data. See the Number Merge section below for that app's separate flow. AI analysis is based on public market data only — your personal data is never sent to AI providers. If you voluntarily subscribe or submit a form, we store the email you give us to reply; we never share or sell it.
         </div>
     </div>
 
@@ -370,7 +382,7 @@
     <div class="lang-zh">
         <h2>重要聲明</h2>
         <p>
-            DappGo 不是註冊投資顧問、券商、銀行或任何司法管轄區的金融服務提供者。DappGo 提供的所有內容（AI 分析、訊號、insights、技術指標、verdict 標籤、選擇權策略）皆為<strong>教育與資訊參考用</strong>，<strong>不構成投資建議</strong>、買賣特定證券的指示、個人財務或稅務諮詢，亦不是任何形式的金融服務。
+            DappGo 不是註冊投資顧問、券商、銀行或任何司法管轄區的金融服務提供者。DappGo 提供的所有內容（AI 分析、研究訊號、研究解讀、技術指標、研究標籤、選擇權策略）皆為<strong>教育與資訊參考用</strong>，<strong>不構成投資建議</strong>、買賣特定證券的指示、個人財務或稅務諮詢，亦不是任何形式的金融服務。
         </p>
         <p>
             過去表現不代表未來結果。所有投資皆有風險，包括本金損失。投資前請諮詢合格的執照財務顧問。
@@ -379,7 +391,7 @@
     <div class="lang-en">
         <h2>Important Disclaimer</h2>
         <p>
-            DappGo is not a registered investment advisor, broker-dealer, bank, or financial services provider in any jurisdiction. All content (AI analysis, signals, insights, technical indicators, verdict labels, options strategies) is for <strong>educational and informational purposes only</strong> and does <strong>NOT</strong> constitute investment advice, instructions to buy or sell any security, personal financial or tax counsel, or financial services of any kind. Past performance does not predict future results. All investments carry risk including loss of principal. Consult a licensed financial advisor before making decisions.
+            DappGo is not a registered investment advisor, broker-dealer, bank, or financial services provider in any jurisdiction. All content (AI analysis, research signals, research notes, technical indicators, research labels, options strategies) is for <strong>educational and informational purposes only</strong> and does <strong>NOT</strong> constitute investment advice, instructions to buy or sell any security, personal financial or tax counsel, or financial services of any kind. Past performance does not predict future results. All investments carry risk including loss of principal. Consult a licensed financial advisor before making decisions.
         </p>
     </div>
 
@@ -387,19 +399,19 @@
     <div class="lang-zh">
         <h2>我們是誰</h2>
         <p>
-            DappGo 由 Yan Long Lai（doing business as DappGo）以個人營業者（sole proprietor）身份營運，主要營運地為美國加利福尼亞州。本聲明於營運主體變更時會更新以反映新的 Data Controller。
+            DappGo 由 Yenlung Lai（doing business as DappGo）以個人營業者（sole proprietor）身份營運，主要營運地為美國加利福尼亞州。本聲明於營運主體變更時會更新以反映新的 Data Controller。
         </p>
         <p>
-            <strong>資料控管者</strong>：Yan Long Lai（DBA DappGo），個人營業者，設立於美國加利福尼亞州。聯絡方式：<a href="mailto:admin@dappgo.com">admin@dappgo.com</a>。若需書面郵寄地址，請來信索取。
+            <strong>資料控管者</strong>：Yenlung Lai（DBA DappGo），個人營業者，設立於美國加利福尼亞州。聯絡方式：<a href="mailto:admin@dappgo.com">admin@dappgo.com</a>。若需書面郵寄地址，請來信索取。
         </p>
     </div>
     <div class="lang-en">
         <h2>Who we are</h2>
         <p>
-            DappGo is operated by Yan Long Lai (doing business as DappGo) as a sole proprietor, primarily based in California, United States. This statement will be updated if the operating entity changes.
+            DappGo is operated by Yenlung Lai (doing business as DappGo) as a sole proprietor, primarily based in California, United States. This statement will be updated if the operating entity changes.
         </p>
         <p>
-            <strong>Controller</strong>: Yan Long Lai (DBA DappGo), sole proprietor based in California, United States. Contact: <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>. A postal mailing address is available on request via the contact email.
+            <strong>Controller</strong>: Yenlung Lai (DBA DappGo), sole proprietor based in California, United States. Contact: <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>. A postal mailing address is available on request via the contact email.
         </p>
     </div>
 
@@ -410,7 +422,7 @@
             Number Merge 不需要建立帳號或登入，核心遊戲可以離線執行。遊戲設定、本機最高分與最高方塊使用裝置上的本機儲存，沒有送到 DappGo 的 Firebase、Firestore 或自有後端；Number Merge 也不使用股票 App 的匿名 Firebase uid、推播、使用事件或意見回饋流程。
         </p>
         <p>
-            Number Merge 包含 Google AdMob banner 廣告，以及只有在玩家主動選擇「看廣告 +1」時才開啟的獎勵廣告。Google Mobile Ads SDK 可能為投放、衡量、頻率控制及防止廣告詐欺處理裝置識別、廣告識別、診斷與廣告互動資料；實際資料處理會依 AdMob 設定、所在地區、同意狀態與裝置設定而定。DappGo 不會把這些資料與您的姓名、email 或金融資料連結。
+            Number Merge 包含 Google AdMob banner 廣告，以及只有在玩家主動選擇「看廣告 +1」時才開啟的獎勵廣告。Google Mobile Ads SDK 可能為投放、衡量、頻率控制及防止廣告詐欺處理裝置識別、廣告識別、網路推估的一般位置、診斷、效能與廣告互動資料；實際資料處理會依 AdMob 設定、所在地區、同意狀態與裝置設定而定。DappGo 不會把這些資料與您的姓名、email 或金融資料連結。
         </p>
         <p>
             在需要使用者選擇的地區，廣告 consent message 會由 Google User Messaging Platform（UMP）處理。您可以依裝置或廣告提示提供、拒絕或變更選擇；拒絕後仍可能顯示非個人化或受限制的廣告。
@@ -422,7 +434,7 @@
             Number Merge does not require an account or sign-in, and the core game works offline. Game settings, personal best scores, and highest tiles use local device storage. They are not sent to DappGo Firebase, Firestore, or a DappGo application backend. Number Merge does not use the stock-app anonymous Firebase uid, push notification, usage-event, or feedback flows.
         </p>
         <p>
-            Number Merge includes Google AdMob banner ads and an optional rewarded ad that opens only when a player chooses “Watch ad +1”. The Google Mobile Ads SDK may process device identifiers, advertising identifiers, diagnostic data, and ad-interaction data for serving, measurement, frequency control, and fraud prevention. Actual processing depends on AdMob configuration, region, consent status, and device settings. DappGo does not connect this information to your name, email, or financial data.
+            Number Merge includes Google AdMob banner ads and an optional rewarded ad that opens only when a player chooses “Watch ad +1”. The Google Mobile Ads SDK may process device identifiers, advertising identifiers, coarse location inferred from network information, diagnostic data, performance data, and ad-interaction data for serving, measurement, frequency control, and fraud prevention. Actual processing depends on AdMob configuration, region, consent status, and device settings. DappGo does not connect this information to your name, email, or financial data.
         </p>
         <p>
             Where user choice is required, Google User Messaging Platform (UMP) handles the advertising consent message. You can provide, decline, or change your choice through the device or advertising privacy controls; declining may still allow non-personalized or limited ads.
@@ -433,12 +445,12 @@
     <div class="lang-zh">
         <h2>我們收集什麼</h2>
 
-        <p><strong>以下 Firebase / Firestore 項目適用於 TW Stocks、US Stocks 與 Options；Number Merge 請見上方專屬說明。</strong></p>
+        <p><strong>以下 Firebase / Firestore 項目依 App 而異：TW Stocks、US Stocks 與 Options Explorer 的選用功能使用方式不同；Number Merge 請見上方專屬說明。</strong></p>
 
         <h3>App 使用資料</h3>
         <ul>
-            <li><strong>匿名 Firebase uid</strong>（Firebase Anonymous Auth 自動產生，存在裝置上）— 用於將使用事件、推播註冊與意見回饋連結至同一裝置，<u>未綁定您的姓名或 email</u>，刪除重裝 App 即重置。</li>
-            <li><strong>使用事件</strong>：開啟哪些頁面、看哪些報告、點哪些 strike — 用來計算「熱門 strike」聚合指標。不會上傳您的 watchlist、portfolio 或交易內容。</li>
+            <li><strong>匿名 Firebase uid</strong>（Firebase Anonymous Auth 自動產生，存在裝置上）— TW Stocks、US Stocks 的選用後端功能，以及 Options Explorer 的主動回饋或選用推播功能，可能使用此識別碼連結服務資料；<u>未綁定您的姓名或 email</u>。</li>
+            <li><strong>使用事件</strong>：部分其他股票 App 可能依其當時版本收集產品事件。Options Explorer 目前版本不收集產品使用分析，也不建立 DappGo 自有的穩定裝置識別碼；不會上傳您的 watchlist、portfolio 或交易內容。Options Explorer 的 Google Mobile Ads SDK 仍可能依廣告設定處理廣告相關裝置識別、一般位置、互動、診斷與效能資料。</li>
         </ul>
 
         <h3>訂閱 email</h3>
@@ -467,12 +479,12 @@
     <div class="lang-en">
         <h2>What we collect</h2>
 
-        <p><strong>The Firebase / Firestore items below apply to TW Stocks, US Stocks, and Options. See the Number Merge section above for that game's separate data flow.</strong></p>
+        <p><strong>The Firebase / Firestore items below vary by app: TW Stocks, US Stocks, and Options Explorer use different optional flows. See the Number Merge section above for that game's separate data flow.</strong></p>
 
         <h3>App usage</h3>
         <ul>
-            <li>Anonymous Firebase uid (auto-generated by Firebase Anonymous Auth, stored on device) — used to link in-app events, push registration, and feedback to the same device; <u>not linked to your name or email</u>, resets when the app is reinstalled.</li>
-            <li>Behavioural events: which tabs/reports you open, which strikes you tap — to compute aggregate "hot strikes". Watchlist/portfolio/trade content is never uploaded.</li>
+            <li>Anonymous Firebase uid (auto-generated by Firebase Anonymous Auth, stored on device) — some optional backend features in TW Stocks and US Stocks, and the explicit feedback or optional push flows in Options Explorer, may use this identifier to link service records; <u>it is not linked to your name or email</u>.</li>
+            <li>Behavioural events: some other stock-app versions may collect product events. The current Options Explorer version does not collect DappGo product-usage analytics or create a DappGo-owned stable device identifier. Watchlist/portfolio/trade content is never uploaded. Its Google Mobile Ads SDK may still process ad-related device identifiers, coarse location, interactions, diagnostic data, and performance data according to the ad configuration.</li>
         </ul>
 
         <h3>Subscription email</h3>
@@ -503,13 +515,13 @@
     <div class="lang-zh">
         <h2>App 端儲存的 Firestore 集合</h2>
         <p>
-            App 透過 Firebase Anonymous Auth 取得一組<strong>匿名 uid</strong>。此 uid 為 Firebase 自動產生的隨機識別碼，<strong>不包含您的姓名、email、Apple ID 或任何直接識別資訊</strong>，依 GDPR 第 4(5) 條定義屬「假名化識別碼（pseudonymous identifier）」。重新安裝 App 或點選「刪除我的資料」即重置。
+            使用需要後端服務的 App 功能時，App 可能透過 Firebase Anonymous Auth 取得一組<strong>匿名 uid</strong>。此 uid 為 Firebase 自動產生的隨機識別碼，<strong>不包含您的姓名、email、Apple ID 或任何直接識別資訊</strong>。Options Explorer 目前版本不會在啟動或一般瀏覽時建立此識別碼；只有主動送出回饋或開啟選用推播時才會使用。
         </p>
         <p>
-            為了讓 App 運作，我們在 Google Firestore 儲存以下集合（Firebase 為資料處理者）：
+            為了讓選用功能運作，我們在 Google Firestore 儲存以下集合（Firebase 為資料處理者）：
         </p>
         <ul>
-            <li><strong><code>events/</code></strong> — 匿名事件紀錄：uid、event 類型、timestamp、market（TW/US/options），可選 ticker / screen / strike。用於產品分析（熱門 ticker、DAU、推播 CTR）。<strong>保留：原始事件 30 天，聚合資料 90 天。</strong></li>
+            <li><strong><code>events/</code></strong> — 部分其他股票 App 版本的匿名事件紀錄。Options Explorer 目前版本不寫入此集合；既有舊資料依原本的保留政策處理。</li>
             <li><strong><code>feedback/</code></strong> — 使用者主動透過 App 內 Feedback 表單提交的文字意見：uid、類別、評分、訊息內容、App 版本。用於產品改善與審計紀錄。<strong>保留：3 年後刪除識別欄位。</strong></li>
             <li><strong><code>users/{uid}</code></strong> — APNs 推播裝置 token、通知偏好、locale、device_tz、bundle_id、訂閱市場（markets_subscribed）。APNs token 為 Apple 提供的每台裝置不透明識別碼，<strong>非個人識別資料</strong>。<strong>保留：直到您關閉通知或刪除資料為止。</strong></li>
             <li><strong><code>push_log/</code></strong> — 推播發送嘗試紀錄：uid、market、結果（success/failure）、timestamp。用於除錯與發送品質監測。<strong>保留：30 天以上，依除錯需要。</strong></li>
@@ -522,13 +534,13 @@
     <div class="lang-en">
         <h2>Firestore collections stored on our backend</h2>
         <p>
-            The app obtains an <strong>anonymous uid</strong> via Firebase Anonymous Authentication. This uid is a random identifier issued by Firebase that does <strong>not contain your name, email, Apple ID, or any directly-identifying information</strong>; under GDPR Article 4(5) it qualifies as a "pseudonymous identifier". The uid is reset when you reinstall the app or tap "Delete my data".
+            When a feature needs a backend service, the app may obtain an <strong>anonymous uid</strong> via Firebase Anonymous Authentication. This is a random identifier issued by Firebase and contains <strong>no name, email, Apple ID, or other directly-identifying information</strong>. The current Options Explorer version does not create it at launch or during ordinary browsing; it uses it only for explicit feedback submission or optional push registration.
         </p>
         <p>
-            To make the app work, we store the following collections in Google Firestore (Firebase acts as data processor):
+            To support optional features, we store the following collections in Google Firestore (Firebase acts as data processor):
         </p>
         <ul>
-            <li><strong><code>events/</code></strong> — anonymous user-event log: uid, event type, timestamp, market (TW/US/options), optional ticker / screen / strike. Used for product analytics (top tickers, DAU, push CTR). <strong>Retention: 30 days raw, 90 days aggregated.</strong></li>
+            <li><strong><code>events/</code></strong> — anonymous product-event records from some other stock-app versions. The current Options Explorer version does not write to this collection; legacy records follow their existing retention policy.</li>
             <li><strong><code>feedback/</code></strong> — user-submitted text feedback from the in-app Feedback form: uid, category, rating, body, app version. Used for product improvement and audit. <strong>Retention: identifying fields removed after 3 years.</strong></li>
             <li><strong><code>users/{uid}</code></strong> — APNs device token, notification preferences, locale, device_tz, bundle_id, markets_subscribed. The APNs token is a per-device opaque identifier issued by Apple and is <strong>not a personal identifier</strong>. <strong>Retention: until you opt out of notifications or delete your data.</strong></li>
             <li><strong><code>push_log/</code></strong> — record of push delivery attempts: uid, market, outcome (success/failure), timestamp. Used for debugging and delivery-quality monitoring. <strong>Retention: 30+ days as needed for debugging.</strong></li>
@@ -593,13 +605,13 @@
         <h2>第三方服務</h2>
         <ul>
             <li><strong>Google Analytics 4</strong>（<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>，Google LLC）— 網站匿名訪客分析，IP 已自動匿名化；資料中心 US。</li>
-            <li><strong>Firebase Analytics（GA4 in-app）</strong> — 已於 2026-05-18 退役；App 端不再呼叫 @react-native-firebase/analytics。所有 in-app 事件分析改由下述 Firestore 集合處理。</li>
-            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong>（Google LLC）— 後端資料庫，儲存 §「App 端儲存的 Firestore 集合」所列集合（events / feedback / users / push_log / iv_history）。資料中心 US（multi-region nam5）；歐盟傳輸依 Google 的 DPF 認證與 Firebase DPA 中的 SCCs。用途：產品分析、推播路由、使用者偏好儲存。</li>
+            <li><strong>Firebase Analytics（GA4 in-app）</strong> — 已於 2026-05-18 退役；股票 App 不使用 Firebase Analytics。Options Explorer 目前版本也不寫入 Firestore 產品分析事件。</li>
+            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong>（Google LLC）— 後端資料庫；依各 App 的選用功能儲存 feedback、users、push_log、iv_history，以及部分其他股票 App 的舊事件資料。Options Explorer 僅在選用推播流程需要時使用匿名服務識別碼。資料中心 US（multi-region nam5）；歐盟傳輸依 Google 的 DPF 認證與 Firebase DPA 中的 SCCs。</li>
             <li><strong>Apple Push Notification Service (APNs)</strong>（Apple Inc.）— 傳遞推播通知至您的裝置。我們將 APNs 提供的不透明 device token 儲存於 <code>users/{uid}</code>，並透過 Apple 伺服器傳送通知 payload。Apple 不向我們透露您的 Apple ID。資料處理依 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 隱私政策</a>規範。</li>
             <li><strong>Google Forms</strong>（Google LLC）— 處理 Contact Form 與 Feedback Form 提交；data sub-processor for DappGo。</li>
             <li><strong>Google Workspace</strong>（Google LLC）— admin@dappgo.com 信箱、Drive 儲存 Form 回應、Apps Script 執行週期任務（每週彙總、每日報告寄送）。</li>
             <li><strong>Google Gemini API</strong>（Google LLC）— AI 分析公開市場數據（無個人資料），詳見上方 §AI 處理。</li>
-            <li><strong>Google Mobile Ads / AdMob</strong>（Google LLC）— Number Merge 的 banner 與 optional rewarded ads；可能處理廣告識別、裝置、診斷與廣告互動資料，依 AdMob 設定與 consent 狀態而定。</li>
+            <li><strong>Google Mobile Ads / AdMob</strong>（Google LLC）— Number Merge 的 banner／optional rewarded ads，以及 Options Explorer 的 consent-gated banner；可能處理裝置識別、網路推估的一般位置、產品互動、廣告資料、診斷與效能資料，依 AdMob 設定、UMP 同意狀態、所在地區與裝置設定而定。</li>
             <li><strong>GitHub Pages / GitHub Inc.</strong>（Microsoft Corp.）— 託管本網站、訂閱清單存放於 private repository；資料中心 US。GitHub（Microsoft）為訂閱清單儲存的資料處理者，處理依 <a href="https://github.com/customer-terms/data-protection-agreement" target="_blank" rel="noopener">GitHub 資料保護協議</a>及 Microsoft 的 DPF 認證規範。</li>
             <li><strong>jsDelivr</strong> — CDN，提供每日報告 JSON 公開端點。</li>
             <li><strong>訂閱流程</strong> — 訂閱 email 透過 Google Forms 收集（資料存放依 Google Workspace 規範，受 Google DPA 約束）。FormSubmit 已於 2026-05-10 自資料流程中移除。</li>
@@ -610,13 +622,13 @@
         <h2>Third parties</h2>
         <ul>
             <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>, Google LLC) — anonymized website visitor analytics; IP anonymization enabled; US data center.</li>
-            <li><strong>Firebase Analytics (GA4 in-app)</strong> — retired on 2026-05-18; the app no longer calls @react-native-firebase/analytics. All in-app event analytics now flow through the Firestore collections described below.</li>
-            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong> (Google LLC) — backend database storing the collections listed under §"Firestore collections stored on our backend" (events / feedback / users / push_log / iv_history). US data center (multi-region nam5); EU transfers governed by Google's DPF certification and SCCs in the Firebase DPA. Purpose: product analytics, push routing, user-preference storage.</li>
+            <li><strong>Firebase Analytics (GA4 in-app)</strong> — retired on 2026-05-18; the stock apps do not use Firebase Analytics. The current Options Explorer version also does not write product-usage events to Firestore.</li>
+            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong> (Google LLC) — backend database storing optional feedback, push-registration, and shared market-data records, plus legacy event data from some other stock-app versions. Options Explorer uses the anonymous service identifier only when its optional push flow requires it. US data center (multi-region nam5); EU transfers are governed by Google's DPF certification and SCCs in the Firebase DPA.</li>
             <li><strong>Apple Push Notification Service (APNs)</strong> (Apple Inc.) — delivers push notifications to your device. We store the opaque APNs device token Apple provides in <code>users/{uid}</code> and send notification payloads via Apple's servers. Apple does not disclose your Apple ID to us. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
             <li><strong>Google Forms</strong> (Google LLC) — processes Contact and Feedback form submissions on DappGo's behalf.</li>
             <li><strong>Google Workspace</strong> (Google LLC) — admin@dappgo.com mailbox, Drive storage of form responses, Apps Script for scheduled tasks (weekly digest, daily report sending).</li>
             <li><strong>Google Gemini API</strong> (Google LLC) — AI analysis on public market data only (no personal data); see "AI Processing" above.</li>
-            <li><strong>Google Mobile Ads / AdMob</strong> (Google LLC) — banner and optional rewarded ads in Number Merge; may process advertising identifiers, device, diagnostic, and ad-interaction data depending on AdMob configuration and consent status.</li>
+            <li><strong>Google Mobile Ads / AdMob</strong> (Google LLC) — banner and optional rewarded ads in Number Merge, plus a consent-gated banner in Options Explorer; may process device identifiers, coarse location inferred from network information, product interaction, advertising data, diagnostic, and performance data depending on AdMob configuration, UMP consent status, region, and device settings.</li>
             <li><strong>GitHub Pages / GitHub Inc.</strong> (Microsoft Corp.) — hosts this website; subscriber list stored in a private repository; US data center. GitHub (Microsoft) is the data processor for the stored subscriber list; processing is governed by GitHub's Data Protection Agreement at <a href="https://github.com/customer-terms/data-protection-agreement" target="_blank" rel="noopener">https://github.com/customer-terms/data-protection-agreement</a> and Microsoft's DPF certification.</li>
             <li><strong>jsDelivr</strong> — CDN serving daily report JSON files.</li>
             <li><strong>Subscription flow</strong> — Subscription emails are collected via Google Forms (data residency follows Google Workspace; governed by Google's DPA). FormSubmit has been removed from the data flow as of 2026-05-10.</li>
@@ -678,7 +690,7 @@
     <div class="lang-zh">
         <h2>您的權利</h2>
         <ul>
-            <li><strong>App 內「刪除我的資料」按鈕</strong>：App「設定」內提供一鍵刪除按鈕，立即清除上述所有與您匿名 uid 相關的 Firestore 文件（events、feedback、users/{uid}、push_log）。這是最快、最直接的行使刪除權方式。</li>
+            <li><strong>App 內「刪除我的資料」按鈕</strong>：支援此功能的 App「設定」內提供一鍵刪除按鈕，立即清除與您匿名 uid 相關的 Firestore 文件（例如 feedback、users/{uid}、push_log；若其他 App 有舊 events 資料也會一併處理）。Options Explorer 目前版本不新增產品使用事件。</li>
             <li><strong>GDPR</strong>（歐盟使用者，第 15-22 條）：可行使<strong>查閱權（Art. 15）</strong>、<strong>更正權（Art. 16）</strong>、<strong>刪除權／被遺忘權（Art. 17）</strong>、<strong>限制處理權（Art. 18）</strong>、<strong>資料可攜權（Art. 20）</strong>、<strong>異議權（Art. 21）</strong>、以及<strong>不受自動化決定影響權（Art. 22）</strong>。可透過 App 內「刪除我的資料」按鈕（適用刪除權）或寄信至 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 行使其餘權利。我們承諾於收到合理可驗證請求後 30 天內回覆。您亦有權向您所在歐盟成員國的主管監督機關提出申訴，名錄請見 <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank" rel="noopener">https://edpb.europa.eu/about-edpb/board/members_en</a>。</li>
             <li><strong>CCPA / CPRA</strong>（加州使用者，§1798.100 et seq.）：可行使<strong>知情權（§1798.110）</strong>、<strong>刪除權（§1798.105）</strong>、<strong>更正權（§1798.106）</strong>、<strong>限制使用敏感個人資訊（§1798.121）</strong>、以及<strong>選擇退出販售／分享</strong>（§1798.120；我們本就不販售亦不分享）。可透過 App 內「刪除我的資料」按鈕或寄信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 行使。</li>
             <li><strong>回覆期限計算</strong>：查閱 / 刪除請求的回覆期限，依 GDPR 第 12(3) 條規定（1 個月，複雜請求可延長 2 個月）及 CCPA §1798.130（45 天，可延長一次），從我們<strong>收到可驗證請求之日</strong>起算。</li>
@@ -688,7 +700,7 @@
     <div class="lang-en">
         <h2>Your rights</h2>
         <ul>
-            <li><strong>In-app "Delete my data" button</strong>: The app's Settings screen exposes a one-tap delete button that immediately purges every Firestore document tied to your anonymous uid (events, feedback, users/{uid}, push_log). This is the fastest, most direct way to exercise the right to erasure.</li>
+            <li><strong>In-app "Delete my data" button</strong>: Apps that support this feature expose a one-tap delete button that purges Firestore documents tied to your anonymous uid (for example feedback, users/{uid}, and push_log; legacy events are also handled where applicable). The current Options Explorer version does not add new product-usage events.</li>
             <li><strong>GDPR</strong> (EU users, Arts. 15–22): you may exercise the <strong>right of access (Art. 15)</strong>, <strong>rectification (Art. 16)</strong>, <strong>erasure / right to be forgotten (Art. 17)</strong>, <strong>restriction of processing (Art. 18)</strong>, <strong>data portability (Art. 20)</strong>, <strong>objection (Art. 21)</strong>, and the right to <strong>not be subject to automated decision-making (Art. 22)</strong>. Use the in-app "Delete my data" button (for erasure) or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> for any other right. We reply within 30 days of a verifiable request. You also have the right to lodge a complaint with your local EU supervisory authority — directory at <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank" rel="noopener">https://edpb.europa.eu/about-edpb/board/members_en</a>.</li>
             <li><strong>CCPA / CPRA</strong> (California users, §1798.100 et seq.): you may exercise the <strong>right to know (§1798.110)</strong>, <strong>delete (§1798.105)</strong>, <strong>correct (§1798.106)</strong>, <strong>limit use of sensitive personal information (§1798.121)</strong>, and <strong>opt out of sale/sharing (§1798.120)</strong> — we do not sell or share. Use the in-app "Delete my data" button or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.</li>
             <li><strong>Response time limits</strong>: Time limits for responding to access/deletion requests are calculated from the date we receive a verifiable request, in accordance with GDPR Article 12(3) (1 month, extendable by 2 additional months for complex requests) and CCPA §1798.130 (45 days, extendable once).</li>
@@ -700,7 +712,7 @@
     <div class="lang-zh">
         <h2>處理活動的法律基礎（GDPR 第 6 條）</h2>
         <ul>
-            <li><strong>透過 Firebase Firestore 的匿名使用 analytics</strong>：GDPR 第 6(1)(f) 條 — 為產品改善的合法利益。可透過 App「設定 → 刪除我的資料」按鈕立即清除所有與您匿名 uid 相關的 events 文件，或寄信至 admin@dappgo.com 提出異議。</li>
+            <li><strong>選用 Firebase 服務</strong>：GDPR 第 6(1)(a) 條或第 6(1)(b) 條（依功能而定）。Options Explorer 目前僅在使用者主動啟用選用推播時使用匿名服務識別碼；使用者也可透過 App「設定 → 刪除我的資料」或寄信至 admin@dappgo.com 要求刪除。</li>
             <li><strong>自願填寫的意見 / 聯絡表單提交</strong>：GDPR 第 6(1)(a) 條（明確同意）或第 6(1)(b) 條（提交內容涉及業務洽詢時適用，即契約前措施）。您可隨時發 email 至 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 要求刪除任何已提交資料，以撤回同意。</li>
             <li><strong>Email 電子報訂閱</strong>（功能上線時）：GDPR 第 6(1)(a) 條 — 明確的主動訂閱同意。每封郵件均附有退訂連結。</li>
             <li><strong>透過 Google Analytics 4 的網站 analytics</strong>：GDPR 第 6(1)(f) 條 — 為衡量網站效能的合法利益。您可透過瀏覽器的「不追蹤」設定或封鎖 GA cookie 來退出。</li>
@@ -710,7 +722,7 @@
     <div class="lang-en">
         <h2>Legal Basis for Processing (Art. 6 GDPR)</h2>
         <ul>
-            <li><strong>Anonymous usage analytics via Firebase Firestore</strong>: Article 6(1)(f) — legitimate interests in product improvement. Use the in-app "Settings → Delete my data" button to immediately purge every events document tied to your anonymous uid, or email admin@dappgo.com to object.</li>
+            <li><strong>Optional Firebase services</strong>: Article 6(1)(a) or Article 6(1)(b), depending on the feature. The current Options Explorer version uses an anonymous service identifier only when the user explicitly enables optional push notifications; users may request deletion through "Settings → Delete my data" or by emailing admin@dappgo.com.</li>
             <li><strong>Voluntary feedback / contact form submissions</strong>: Article 6(1)(a) (explicit consent) or Article 6(1)(b) GDPR where the submission relates to a business inquiry (pre-contractual steps). You may withdraw consent at any time by emailing <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> requesting deletion of any submitted information.</li>
             <li><strong>Email newsletter subscription</strong> (when implemented): Article 6(1)(a) — explicit opt-in. Unsubscribe link in every email.</li>
             <li><strong>Website analytics via Google Analytics 4</strong>: Article 6(1)(f) — legitimate interests in website performance. You can opt out via your browser's "do not track" settings or by blocking GA cookies.</li>
@@ -722,13 +734,13 @@
     <div class="lang-zh">
         <h2>兒童與 COPPA</h2>
         <p>
-            DappGo 在所有平台（iPhone、iPad、Mac、Vision Pro）的 App Store 評級均為 <strong>4+</strong>。我們對任何使用者（包括 13 歲以下未成年人）收集的資料，是一組透過 Firebase Anonymous Auth 產生的匿名 uid 與相關事件記錄（見 §「App 端儲存的 Firestore 集合」），以及選擇性的當機報告（不含個人資訊）。我們<strong>不</strong>在安裝或使用 App 時收集姓名、email、位置或任何其他直接識別個人的資訊。在 COPPA（美國《兒童線上隱私保護法》）定義的範圍內，我們不會故意收集 13 歲以下兒童的個人資訊。App 內 Feedback 表單顯示明確警告：「<strong>本 App 內容含投資相關資訊，不適合未滿 18 歲使用者。請勿提交可識別個人的資訊。</strong>」，作為產品層面之事前提醒。若您或您的孩童認為我們已收集了任何兒童個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們將於 30 天內審查並刪除。
+            Options Explorer 目前是 <strong>iPhone-only</strong> 的公開市場與選擇權研究工具，不含社群動態、聊天、賭博、獎勵或兒童導向功能。它不會在安裝、啟動或一般瀏覽時建立 Firebase uid；只有主動送出回饋或開啟選用推播時，才可能使用匿名服務識別碼。我們<strong>不</strong>在一般使用時收集姓名、email、位置或其他直接識別資訊。App Store 的年齡分級依 Apple App Store Connect 問卷計算；本專案的建議答案記錄於 <code>docs/app-store/age-rating.md</code>。若您認為我們收到兒童的個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們會審查並刪除。
         </p>
     </div>
     <div class="lang-en">
         <h2>Children &amp; COPPA</h2>
         <p>
-            DappGo's App Store age rating is <strong>4+</strong> across all platforms (iPhone, iPad, Mac, Vision Pro). The data we collect from any user — including minors under 13 — is an anonymous Firebase uid plus the associated event records described in §"Firestore collections stored on our backend", along with optional crash reports that do not contain personal information. We do <strong>not</strong> collect names, email addresses, location, or any other directly-identifying personal information at install or use. We do not knowingly collect personal information from children under 13 within the meaning of COPPA. The in-app Feedback form displays a prominent warning — "<strong>This app contains investment-related content and is not intended for users under 18. Do not submit any personally identifiable information.</strong>" — as a product-level mitigation. A child or parent who believes personal information has been collected may contact us at <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete within 30 days.
+            Options Explorer is currently an <strong>iPhone-only</strong> public-market and options-research tool. It has no social feed, chat, gambling, rewards, or child-directed features. It does not create a Firebase uid at install, launch, or during ordinary browsing; an anonymous service identifier may be used only when the user submits feedback or enables optional push notifications. We do <strong>not</strong> collect names, email addresses, location, or other directly-identifying information during ordinary use. The App Store age rating is calculated from Apple's App Store Connect questionnaire; the recommended answers are recorded in <code>docs/app-store/age-rating.md</code>. If a child or parent believes we received a child's personal information, contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete it.
         </p>
     </div>
 
@@ -819,59 +831,85 @@
             Questions about privacy or your data: email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>. Reply within 30 days of a reasonable verifiable request.
         </p>
     </div>
-</main>
+</div>
+    </main>
 
-<footer>
-    <div class="footer-content">
-        <div class="footer-left">
-            <div class="logo">Dapp<span>Go</span></div>
-            <p class="footer-tagline">AI Automation for Enterprise</p>
+    <footer class="site-footer container">
+        <div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div>
+        <div class="footer-bottom">
+            <p>© 2026 DappGo</p>
+            <p class="demo-notice"><span class="lang-en">Market research · Purposeful automation</span><span class="lang-zh">市場研究 · 有意義的自動化</span></p>
+            <nav aria-label="Legal and support">
+                <a href="/privacy.html" aria-current="page"><span class="lang-en">Privacy</span><span class="lang-zh">隱私</span></a>
+                <a href="/terms.html"><span class="lang-en">Terms</span><span class="lang-zh">條款</span></a>
+                <a href="/support.html"><span class="lang-en">Support</span><span class="lang-zh">支援</span></a>
+            </nav>
         </div>
-        <div class="footer-center">
-            <a href="/">首頁 Home</a>
-            <a href="/options">Options</a>
-            <a href="/privacy">隱私 Privacy</a>
-            <a href="/terms">條款 Terms</a>
-        </div>
-        <div class="footer-right">
-            <p>&copy; 2025-2026 DappGo. All rights reserved.</p>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem">DappGo is an AI automation company. Not affiliated with blockchain, cryptocurrency, or DeFi.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 <script>
-    /* ===== LANGUAGE TOGGLE ===== */
+    /* Keep the legal page on the same locale contract as the main site. */
     var currentLang = (function () {
         try {
-            var saved = localStorage.getItem('dappgo-lang');
-            if (saved === 'en' || saved === 'zh') return saved;
+            var saved = localStorage.getItem('dappgo-locale') || localStorage.getItem('dappgo-lang') || localStorage.getItem('dappgo-language');
+            if (saved === 'zh-Hant' || saved === 'zh') return 'zh';
         } catch (_) {}
-        // Default to English when no preference saved
         return 'en';
     })();
 
     function setLang(lang) {
-        currentLang = lang;
-        try { localStorage.setItem('dappgo-lang', lang); } catch (_) {}
-        document.documentElement.dataset.lang = lang;
-        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+        currentLang = lang === 'zh' ? 'zh' : 'en';
+        try {
+            localStorage.setItem('dappgo-locale', currentLang === 'zh' ? 'zh-Hant' : 'en');
+            localStorage.setItem('dappgo-lang', currentLang);
+        } catch (_) {}
+        document.documentElement.dataset.lang = currentLang;
+        document.documentElement.lang = currentLang === 'zh' ? 'zh-Hant' : 'en';
+        document.title = currentLang === 'zh' ? '隱私政策 | DappGo' : 'Privacy Policy | DappGo';
+        var languageButton = document.getElementById('language-toggle');
+        if (languageButton) {
+            languageButton.setAttribute('aria-label', currentLang === 'zh' ? 'Switch to English' : '切換至繁體中文');
+        }
     }
 
-    document.getElementById('langSwitch').addEventListener('click', function () {
+    document.getElementById('language-toggle').addEventListener('click', function () {
         setLang(currentLang === 'en' ? 'zh' : 'en');
     });
-
-    // Apply persisted language on first load (pre-paint script already ran; this
-    // ensures currentLang variable stays in sync with what was applied)
     setLang(currentLang);
 
-    /* ===== THEME TOGGLE ===== */
-    document.getElementById('themeToggle').addEventListener('click', function () {
+    var themeButton = document.getElementById('theme-toggle');
+    function syncThemeButton() {
+        var isDark = document.documentElement.dataset.theme === 'dark';
+        themeButton.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+        var themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) themeMeta.setAttribute('content', isDark ? '#15191f' : '#f6f7f9');
+    }
+    themeButton.addEventListener('click', function () {
         var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
         document.documentElement.dataset.theme = next;
         try { localStorage.setItem('dappgo-theme', next); } catch (e) { /* ignore */ }
+        syncThemeButton();
     });
+    syncThemeButton();
+
+    var menuButton = document.getElementById('menu-toggle');
+    var mainNav = document.getElementById('main-nav');
+    if (menuButton && mainNav) {
+        menuButton.addEventListener('click', function () {
+            var isOpen = document.body.classList.toggle('menu-open');
+            mainNav.classList.toggle('is-open', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        });
+        mainNav.addEventListener('click', function (event) {
+            if (event.target.closest('a')) {
+                document.body.classList.remove('menu-open');
+                mainNav.classList.remove('is-open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', 'Open navigation');
+            }
+        });
+    }
 </script>
 
 </body>
