@@ -82,6 +82,7 @@ jobs:
           EOF
           # Explicit list — excludes Google Search Console verification
           # file (googlefXXXX.html), which is a 1-line plain-text marker
-          # not actual HTML and trips the doctype-first rule.
-          htmlhint --rulesdir=./.htmlhintrc \
-            index.html options.html privacy.html 404.html
+          # not actual HTML and trips the doctype-first rule. Keep every
+          # public HTML page here so new shell pages cannot silently drift.
+          htmlhint --config .htmlhintrc \
+            index.html options.html privacy.html terms.html support.html 404.html
