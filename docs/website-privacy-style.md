@@ -1,6 +1,6 @@
 # Privacy page visual-system alignment
 
-Status: implemented locally; promotion and live observation are pending.
+Status: promoted and live-verified on 2026-09-16.
 
 `privacy.html` now uses the same visual foundation as the current DappGo website while retaining the latest privacy copy for Options Explorer, feedback, push notifications, Firebase, Google UMP, and AdMob.
 
@@ -21,8 +21,13 @@ Status: implemented locally; promotion and live observation are pending.
 | Mobile browser QA at 390px | Pass — no horizontal overflow; menu opens and closes |
 | English/繁體中文 round trip | Pass |
 | Theme round trip | Pass |
-| GitHub Pages promotion and live observation | Pending |
+| GitHub Pages promotion | Pass — PR [#4](https://github.com/YanlongLai/dappgo-website/pull/4), merge `7d95fca9387be34bf19d9789c66ae313e2abd0e8`, deployment [35155525263](https://github.com/YanlongLai/dappgo-website/actions/runs/35155525263) |
+| Live HTTP/browser observation | Pass — `/privacy.html`, `/privacy`, shared CSS, favicon, 390px/1440px, locale, theme, and menu |
 
 ## Release boundary
 
 This change is a visual-system alignment and copy-preservation update. It does not introduce tracking, advertising behavior, authentication, or a new legal basis. Substantive legal review remains an owner responsibility before publication.
+
+## Operational notes
+
+The repository's Site Lint workflow is currently disabled by GitHub for inactivity; local equivalent checks were run for this release. GitHub Pages emitted a non-blocking Node.js 20 deprecation annotation from its managed deployment action, while all build and deploy jobs succeeded.
