@@ -7,13 +7,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Added
-- 
+- Product screenshots from the current Options Explorer iPhone build for the public product story.
 
 ### Changed
-- 
+- Reworked the homepage into a product-led, mobile-first presentation with a shared DappGo visual system.
+- Updated Options Explorer language to describe public market research, the current server pipeline, and clear research-only boundaries.
+- Synchronized AI crawler guidance and sitemap metadata with the current public pages and platform status.
+- Aligned the gitleaks push gate with the repository's configured `master` branch.
 
 ### Fixed
-- 
+- Removed stale public claims about GitHub Actions ownership and model-count implementation details.
 
 ## [0.1.0] - 2026-05-05
 
