@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en" data-theme="light" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
@@ -21,6 +21,22 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#2563eb">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+    <!-- Theme and locale init (pre-paint, avoids flash) -->
+    <script>
+        (function () {
+            try {
+                document.documentElement.dataset.theme = localStorage.getItem('dappgo-theme') || 'light';
+                var saved = localStorage.getItem('dappgo-locale') || localStorage.getItem('dappgo-lang') || localStorage.getItem('dappgo-language');
+                var lang = saved === 'zh-Hant' || saved === 'zh' ? 'zh' : 'en';
+                document.documentElement.dataset.lang = lang;
+                document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+            } catch (_) {
+                document.documentElement.dataset.theme = 'light';
+                document.documentElement.dataset.lang = 'en';
+            }
+        })();
+    </script>
 
     <style>
         /* Self-hosted Inter — files in /fonts, populated by scripts/download-fonts.sh */
@@ -210,26 +226,39 @@
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 0.4rem; }
         footer a:hover { color: var(--accent); }
     </style>
+    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="/assets/demo/demo.css">
+    <link rel="stylesheet" href="/assets/demo/legal.css">
 </head>
-<body>
+<body class="legal-page">
 
-<header class="topbar">
-    <div class="topbar-inner">
-        <a href="/" class="brand">
-            <span class="brand-mark">D</span>
-            <span>DappGo</span>
-        </a>
-        <div class="topbar-actions">
-            <a href="/privacy">隱私 Privacy</a>
-            <a href="/terms">條款 Terms</a>
-            <a href="/">← 首頁 Home</a>
-        </div>
+<a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-zh">跳至內容</span></a>
+<header class="site-header">
+    <a class="brand" href="/" aria-label="DappGo home">
+        <img src="/favicon.svg" width="34" height="34" alt="">
+        <span>DappGo<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="/"><span class="lang-en">Home</span><span class="lang-zh">首頁</span></a>
+        <a href="/terms.html"><span class="lang-en">Terms</span><span class="lang-zh">條款</span></a>
+        <a href="/privacy.html"><span class="lang-en">Privacy</span><span class="lang-zh">隱私</span></a>
+    </nav>
+    <div class="header-actions">
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Traditional Chinese">中<span aria-hidden="true"> / </span><b>EN</b></button>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button>
+        <a class="header-contact" href="mailto:admin@dappgo.com"><span class="lang-en">Let’s talk</span><span class="lang-zh">聯絡我們</span><span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
     </div>
 </header>
 
-<main>
-    <h1>Support <span class="lang-en">/ 客服中心</span></h1>
-    <p class="updated">Last updated: 2026-08-07</p>
+<main id="main" class="legal-main">
+    <div class="legal-hero">
+    <p class="legal-kicker"><span class="kicker-line"></span><span class="lang-en">Help, made clear.</span><span class="lang-zh">把問題說清楚。</span></p>
+    <h1><span class="lang-en">Support</span><span class="lang-zh">支援中心</span></h1>
+    <p class="updated"><span class="lang-en">Last updated: 2026-08-07</span><span class="lang-zh">最後更新：2026-08-07</span></p>
+    </div>
+
+    <div class="legal-content">
 
     <div class="summary">
         <strong>Need help?</strong>
@@ -360,11 +389,92 @@
         Or email us directly: <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.
         We reply within 24–48 hours, Monday to Friday.
     </p>
+    </div>
 </main>
 
-<footer>
-    <p>&copy; 2026 DappGo · <a href="/">首頁 Home</a> · <a href="/options">Options</a> · <a href="/support">Support</a> · <a href="/privacy">隱私 Privacy</a> · <a href="/terms">條款 Terms</a></p>
+<footer class="site-footer container">
+    <div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div>
+    <div class="footer-bottom">
+        <p>© 2026 DappGo</p>
+        <p class="demo-notice"><span class="lang-en">Market research · Purposeful automation</span><span class="lang-zh">市場研究 · 有意義的自動化</span></p>
+        <nav aria-label="Legal and support">
+            <a href="/privacy.html"><span class="lang-en">Privacy</span><span class="lang-zh">隱私</span></a>
+            <a href="/terms.html"><span class="lang-en">Terms</span><span class="lang-zh">條款</span></a>
+            <a href="/support.html" aria-current="page"><span class="lang-en">Support</span><span class="lang-zh">支援</span></a>
+        </nav>
+    </div>
 </footer>
+
+<script>
+    (function () {
+        'use strict';
+        var currentLang = (function () {
+            try {
+                var saved = localStorage.getItem('dappgo-locale') || localStorage.getItem('dappgo-lang') || localStorage.getItem('dappgo-language');
+                if (saved === 'zh-Hant' || saved === 'zh') return 'zh';
+            } catch (_) {}
+            return 'en';
+        })();
+        var languageButton = document.getElementById('language-toggle');
+        var themeButton = document.getElementById('theme-toggle');
+        var menuButton = document.getElementById('menu-toggle');
+        var mainNav = document.getElementById('main-nav');
+
+        function setLang(lang, persist) {
+            currentLang = lang === 'zh' ? 'zh' : 'en';
+            if (persist !== false) {
+                try {
+                    localStorage.setItem('dappgo-locale', currentLang === 'zh' ? 'zh-Hant' : 'en');
+                    localStorage.setItem('dappgo-lang', currentLang);
+                } catch (_) {}
+            }
+            document.documentElement.dataset.lang = currentLang;
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-Hant' : 'en';
+            languageButton.setAttribute('aria-label', currentLang === 'zh' ? 'Switch to English' : '切換至繁體中文');
+        }
+
+        function syncThemeButton() {
+            var isDark = document.documentElement.dataset.theme === 'dark';
+            themeButton.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+            var themeMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeMeta) themeMeta.setAttribute('content', isDark ? '#15191f' : '#f6f7f9');
+        }
+
+        languageButton.addEventListener('click', function () { setLang(currentLang === 'en' ? 'zh' : 'en'); });
+        themeButton.addEventListener('click', function () {
+            var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = next;
+            try { localStorage.setItem('dappgo-theme', next); } catch (_) {}
+            syncThemeButton();
+        });
+        menuButton.addEventListener('click', function () {
+            var isOpen = document.body.classList.toggle('menu-open');
+            mainNav.classList.toggle('is-open', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        });
+        mainNav.addEventListener('click', function (event) {
+            if (event.target.closest('a')) {
+                document.body.classList.remove('menu-open');
+                mainNav.classList.remove('is-open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', 'Open navigation');
+            }
+        });
+        window.addEventListener('storage', function (event) {
+            if (event.key === 'dappgo-theme' && (event.newValue === 'light' || event.newValue === 'dark')) {
+                document.documentElement.dataset.theme = event.newValue;
+                syncThemeButton();
+            }
+            if (event.key === 'dappgo-locale' || event.key === 'dappgo-lang') {
+                var nextLang = event.newValue === 'zh-Hant' || event.newValue === 'zh' ? 'zh' : event.newValue === 'en' ? 'en' : null;
+                if (nextLang && nextLang !== currentLang) setLang(nextLang, false);
+            }
+        });
+        setLang(currentLang, false);
+        syncThemeButton();
+    })();
+</script>
 
 </body>
 </html>

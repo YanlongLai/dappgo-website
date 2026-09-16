@@ -1,0 +1,149 @@
+/*
+ * Shared shell extensions for pages that keep their own content system.
+ * The header, footer, colours, typography, and responsive behaviour come from
+ * demo.css; this layer only adapts the legacy report variables and gives the
+ * 404 / report-specific content a quiet home in that system.
+ */
+
+html[data-lang="en"] .report-page .lang-zh,
+html[data-lang="zh"] .report-page .lang-en,
+html[data-lang="en"] .not-found-page .lang-zh,
+html[data-lang="zh"] .not-found-page .lang-en {
+  display: none !important;
+}
+
+.report-page {
+  --bg: var(--page);
+  --bg-alt: var(--panel);
+  --bg-card: var(--surface);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-heading: var(--ink);
+  --accent: var(--blue);
+  --accent-dark: var(--blue);
+  --accent-dim: var(--blue-soft);
+  --border: var(--line);
+  --shadow-sm: 0 1px 3px rgba(25, 32, 41, 0.06);
+  --shadow-lg: 0 18px 42px rgba(25, 32, 41, 0.1);
+  background: var(--page);
+}
+
+.report-page .brand > span {
+  color: inherit;
+}
+
+.report-page .brand .brand-dot {
+  color: var(--blue);
+}
+
+.report-page .report-main {
+  min-height: 60vh;
+}
+
+.report-page .report-note {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 40px 76px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.report-page .report-note > p:first-child {
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.report-page .report-note > p:first-child a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.report-page .report-note .disclaimer {
+  max-width: 720px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.not-found-page {
+  min-width: 320px;
+}
+
+.not-found-main {
+  min-height: calc(100vh - 190px);
+  display: grid;
+  place-items: center;
+  padding: 84px 40px 120px;
+}
+
+.not-found-card {
+  width: min(100%, 620px);
+  padding: 58px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 22px 50px rgba(25, 32, 41, 0.08);
+  text-align: center;
+}
+
+.not-found-code {
+  color: var(--blue);
+  font-size: clamp(92px, 15vw, 176px);
+  font-weight: 600;
+  letter-spacing: -0.1em;
+  line-height: 0.82;
+}
+
+.not-found-card h1 {
+  margin-top: 30px;
+  color: var(--ink);
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.not-found-card p {
+  max-width: 420px;
+  margin: 20px auto 32px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.not-found-card .button {
+  background: var(--ink);
+  color: var(--page);
+}
+
+.not-found-card .button:hover {
+  background: var(--blue);
+}
+
+@media (max-width: 767px) {
+  .report-page .report-note {
+    padding: 0 22px 60px;
+  }
+
+  .not-found-main {
+    min-height: calc(100vh - 160px);
+    padding: 60px 22px 92px;
+  }
+
+  .not-found-card {
+    padding: 44px 24px;
+    border-radius: 18px;
+  }
+
+  .not-found-card p {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .report-page *,
+  .not-found-page * {
+    transition: none !important;
+  }
+}
