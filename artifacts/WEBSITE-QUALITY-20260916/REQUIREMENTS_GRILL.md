@@ -16,9 +16,10 @@
 - Branch: `feat/website-redesign-20260916`
 - Worktree: `website-redesign-20260916`
 - Session started at: `2026-09-17T02:04:02Z`
-- Commit SHA: omitted until promotion
-- Remote ref: omitted until promotion
-- Pull request: omitted until promotion
+- Commit SHA: `e44d54328bc8f4692a79842a372427bfc253d9a4`
+- Promoted master SHA: `1d4356b0c3856d2e22c6804d20f5f04cdaa62277`
+- Remote ref: `origin/feat/website-redesign-20260916`
+- Pull request: https://github.com/YanlongLai/dappgo-website/pull/8
 
 ## Facts verified by AI001
 
@@ -58,4 +59,5 @@
 
 - Owner confirmation: `照你的建議修正`
 - Ready for design: `yes`
-- Next AI001 action: Implement the bounded repair, then independently verify every acceptance row.
+- Promotion evidence: GitHub checks passed, PR #8 merged, and GitHub Pages deployment `35176001638` completed successfully.
+- Next AI001 action: Monitor production and complete the hosting Owner gate for HTTP security headers and cache policy.
