@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://cdn.jsdelivr.net https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net; connect-src 'self' https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://docs.google.com https://formsubmit.co">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy · 隱私政策 | DappGo</title>
 
@@ -348,7 +348,7 @@
             <a href="/privacy.html" aria-current="page"><span class="lang-en">Privacy</span><span class="lang-zh">隱私</span></a>
         </nav>
         <div class="header-actions">
-            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Traditional Chinese">中<span aria-hidden="true"> / </span><b>EN</b></button>
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="中 / EN, switch to Traditional Chinese">中<span aria-hidden="true"> / </span><b>EN</b></button>
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button>
             <a class="header-contact" href="mailto:admin@dappgo.com"><span class="lang-en">Let’s talk</span><span class="lang-zh">聯絡我們</span><span aria-hidden="true">↗</span></a>
             <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
@@ -868,7 +868,7 @@
         document.title = currentLang === 'zh' ? '隱私政策 | DappGo' : 'Privacy Policy | DappGo';
         var languageButton = document.getElementById('language-toggle');
         if (languageButton) {
-            languageButton.setAttribute('aria-label', currentLang === 'zh' ? 'Switch to English' : '切換至繁體中文');
+            languageButton.setAttribute('aria-label', currentLang === 'zh' ? '中 / EN, switch to English' : '中 / EN, switch to Traditional Chinese');
         }
     }
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://docs.google.com"
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f6f7f9" />
@@ -28,7 +28,7 @@
     <meta property="og:url" content="https://dappgo.com/" />
     <meta
       property="og:title"
-      content="DappGo — Clearer markets. Smarter workflows."
+      content="DappGo: Clearer markets. Smarter workflows."
     />
     <meta
       property="og:description"
@@ -47,7 +47,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="DappGo — Clearer markets. Smarter workflows."
+      content="DappGo: Clearer markets. Smarter workflows."
     />
     <meta
       name="twitter:description"
@@ -58,7 +58,7 @@
       name="twitter:image:alt"
       content="DappGo market research and automation"
     />
-    <title>DappGo — Clearer markets. Smarter workflows.</title>
+    <title>DappGo: Clearer markets. Smarter workflows.</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -126,6 +126,14 @@
       type="font/ttf"
       crossorigin
     />
+    <link
+      rel="preload"
+      href="/assets/screenshots/options/dashboard-660.webp"
+      as="image"
+      type="image/webp"
+      imagesrcset="/assets/screenshots/options/dashboard-330.webp 330w, /assets/screenshots/options/dashboard-660.webp 660w, /assets/screenshots/options/dashboard-1320.webp 1320w"
+      imagesizes="(max-width: 767px) 208px, (max-width: 1100px) 218px, 258px"
+    />
     <link rel="stylesheet" href="/assets/demo/demo.css" />
     <script src="/assets/demo/demo.js" defer></script>
   </head>
@@ -147,7 +155,7 @@
           class="language-toggle"
           id="language-toggle"
           type="button"
-          aria-label="Switch to Traditional Chinese"
+          aria-label="中 / EN, switch to Traditional Chinese"
         >
           中<span aria-hidden="true"> / </span><b>EN</b>
         </button>
@@ -188,8 +196,8 @@
             ><span class="accent" data-i18n="heroLine2">Insight in.</span>
           </h1>
           <p class="hero-description" data-i18n="heroDescription">
-            Market research, options insights, and the automation that brings it
-            all together.
+            Daily market research, options insights, and purposeful automation
+            from source to publish.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#products"
@@ -222,22 +230,40 @@
             <circle cx="290" cy="600" r="5" fill="currentColor" />
           </svg>
           <div class="phone phone-back">
-            <img
-              src="/assets/screenshots/options/explore.png"
-              width="1320"
-              height="2868"
-              alt="Options Explorer stock exploration screen"
-              fetchpriority="high"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/assets/screenshots/options/explore-330.webp 330w, /assets/screenshots/options/explore-660.webp 660w, /assets/screenshots/options/explore-1320.webp 1320w"
+                sizes="(max-width: 767px) 165px, (max-width: 1100px) 179px, 214px"
+              />
+              <img
+                src="/assets/screenshots/options/explore.png"
+                width="1320"
+                height="2868"
+                alt="Options Explorer stock exploration screen"
+                loading="eager"
+                decoding="async"
+                fetchpriority="low"
+              />
+            </picture>
           </div>
           <div class="phone phone-front">
-            <img
-              src="/assets/screenshots/options/dashboard.png"
-              width="1320"
-              height="2868"
-              alt="Options Explorer dashboard with market quotes and research cards"
-              fetchpriority="high"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/assets/screenshots/options/dashboard-330.webp 330w, /assets/screenshots/options/dashboard-660.webp 660w, /assets/screenshots/options/dashboard-1320.webp 1320w"
+                sizes="(max-width: 767px) 208px, (max-width: 1100px) 218px, 258px"
+              />
+              <img
+                src="/assets/screenshots/options/dashboard.png"
+                width="1320"
+                height="2868"
+                alt="Options Explorer dashboard with market quotes and research cards"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
           <div class="art-tag">
             <img
@@ -442,12 +468,17 @@
         <div class="featured-product" id="options-explorer">
           <div class="product-story">
             <div class="product-identity">
-              <img
-                src="/assets/app-icons/options-icon.png"
-                width="58"
-                height="58"
-                alt="Options Explorer icon"
-              />
+              <picture>
+                <source type="image/webp" srcset="/assets/app-icons/options-icon-128.webp" />
+                <img
+                  src="/assets/app-icons/options-icon.png"
+                  width="58"
+                  height="58"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Options Explorer icon"
+                />
+              </picture>
               <div>
                 <h3>Options Explorer</h3>
                 <p data-i18n="productCategory">
@@ -456,8 +487,8 @@
               </div>
             </div>
             <p class="product-intro" data-i18n="productIntro">
-              Explore the data behind Sell Put and Sell Call ideas. Compare
-              context, not just numbers.
+              Explore market data, valuation ranges, and options chains in one
+              focused research view for Sell Put and Sell Call questions.
             </p>
             <div
               class="product-tabs"
@@ -519,7 +550,7 @@
               </button>
             </div>
             <a class="text-link product-link" href="/options.html"
-              ><span data-i18n="productCta">Meet Options Explorer</span
+              ><span data-i18n="productCta">Explore Options Explorer</span
               ><span aria-hidden="true">↗</span></a
             >
             <p class="product-disclaimer" data-i18n="researchNote">
@@ -536,14 +567,23 @@
           >
             <span class="view-label" id="view-label">Dashboard / 01</span>
             <div class="product-screen">
-              <img
-                id="product-image"
-                src="/assets/screenshots/options/dashboard.png"
-                width="1320"
-                height="2868"
-                loading="lazy"
-                alt="Options Explorer dashboard"
-              />
+              <picture>
+                <source
+                  id="product-image-source"
+                  type="image/webp"
+                  srcset="/assets/screenshots/options/dashboard-330.webp 330w, /assets/screenshots/options/dashboard-660.webp 660w, /assets/screenshots/options/dashboard-1320.webp 1320w"
+                  sizes="(max-width: 767px) 248px, (max-width: 1100px) 235px, 248px"
+                />
+                <img
+                  id="product-image"
+                  src="/assets/screenshots/options/dashboard.png"
+                  width="1320"
+                  height="2868"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Options Explorer dashboard"
+                />
+              </picture>
             </div>
             <span class="view-note" data-i18n="realScreenNote"
               >A closer look at the actual app</span
@@ -553,12 +593,10 @@
         <div class="more-products" id="more-products">
           <article class="portfolio-item">
             <div class="portfolio-icon">
-              <img
-                src="/assets/app-icons/us-stocks-icon.png"
-                alt=""
-                width="52"
-                height="52"
-              /><span class="portfolio-tag">US</span>
+              <picture>
+                <source type="image/webp" srcset="/assets/app-icons/us-stocks-icon-128.webp" />
+                <img src="/assets/app-icons/us-stocks-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async" />
+              </picture><span class="portfolio-tag">US</span>
             </div>
             <h3 data-i18n="usTitle">US Stocks</h3>
             <p data-i18n="usDescription">
@@ -572,12 +610,10 @@
           </article>
           <article class="portfolio-item">
             <div class="portfolio-icon">
-              <img
-                src="/assets/app-icons/tw-stocks-icon.png"
-                alt=""
-                width="52"
-                height="52"
-              /><span class="portfolio-tag">TW</span>
+              <picture>
+                <source type="image/webp" srcset="/assets/app-icons/tw-stocks-icon-128.webp" />
+                <img src="/assets/app-icons/tw-stocks-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async" />
+              </picture><span class="portfolio-tag">TW</span>
             </div>
             <h3 data-i18n="twTitle">Taiwan Stocks</h3>
             <p data-i18n="twDescription">
@@ -591,12 +627,10 @@
           </article>
           <article class="portfolio-item game-item">
             <div class="portfolio-icon">
-              <img
-                src="/assets/app-icons/number-merge-icon.png"
-                alt=""
-                width="52"
-                height="52"
-              /><span class="portfolio-tag" data-i18n="playTag">Play</span>
+              <picture>
+                <source type="image/webp" srcset="/assets/app-icons/number-merge-icon-128.webp" />
+                <img src="/assets/app-icons/number-merge-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async" />
+              </picture><span class="portfolio-tag" data-i18n="playTag">Play</span>
             </div>
             <h3>Number Merge</h3>
             <p data-i18n="gameDescription">
