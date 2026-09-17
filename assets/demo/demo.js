@@ -11,7 +11,7 @@
     heroKicker: "讓研究，每天自動前進。",
     heroLine1: "市場再複雜，",
     heroLine2: "研究更清楚。",
-    heroDescription: "市場資料、選擇權洞察與自動化，串起從資訊到理解的每一步。",
+    heroDescription: "每日市場研究、選擇權洞察與有目的的自動化，從資料來源一路走到發布。",
     exploreCta: "探索我們的產品",
     seeFlow: "看看如何運作",
     artTag: "以自動化串起每一步",
@@ -39,14 +39,14 @@
     productsTitle: "為好奇而做，<br>為每天而用。",
     productCategory: "你的選擇權研究夥伴",
     productIntro:
-      "探索 Sell Put 與 Sell Call 背後的資料。比較數字，也理解脈絡。",
+      "在同一個研究畫面裡探索市場資料、估值區間與選擇權鏈，理解 Sell Put 與 Sell Call 的問題。",
     screen1: "從這裡開始每日研究",
     screen1Detail: "報價、研究卡片與 AI 觀點，集中瀏覽。",
     screen2: "找到下一個值得研究的標的",
     screen2Detail: "所有支援股票，一處探索。",
     screen3: "不只看現價，更看脈絡",
     screen3Detail: "估值區間、選擇權資料與個股分析。",
-    productCta: "認識 Options Explorer",
+    productCta: "探索 Options Explorer",
     researchNote:
       "提供研究與教育資訊，無券商連結或下單功能，不提供個人化投資建議。",
     realScreenNote: "近距離看看真實 App 介面",
@@ -190,6 +190,16 @@
   const menuButton = document.querySelector("#menu-toggle");
   const menu = document.querySelector("#main-nav");
   const sources = ["dashboard", "explore", "ticker"];
+  const productImageSource = document.querySelector("#product-image-source");
+  const productAssets = Object.fromEntries(
+    sources.map((name) => [
+      name,
+      {
+        fallback: `/assets/screenshots/options/${name}.png`,
+        srcset: `/assets/screenshots/options/${name}-330.webp 330w, /assets/screenshots/options/${name}-660.webp 660w, /assets/screenshots/options/${name}-1320.webp 1320w`,
+      },
+    ]),
+  );
 
   function renderStep() {
     const copy = dynamic[locale];
@@ -214,7 +224,9 @@
       .querySelector("#product-panel")
       .setAttribute("aria-labelledby", `product-tab-${screen}`);
     const productImage = document.querySelector("#product-image");
-    productImage.src = `/assets/screenshots/options/${sources[screen]}.png`;
+    const asset = productAssets[sources[screen]];
+    productImage.src = asset.fallback;
+    if (productImageSource) productImageSource.srcset = asset.srcset;
     productImage.alt = dynamic[locale].alts[screen];
     document.querySelector("#view-label").textContent =
       dynamic[locale].screens[screen];
@@ -267,12 +279,14 @@
         : '<b>中</b><span aria-hidden="true"> / </span>EN';
     languageButton.setAttribute(
       "aria-label",
-      locale === "en" ? "Switch to Traditional Chinese" : "Switch to English",
+      locale === "en"
+        ? "中 / EN, switch to Traditional Chinese"
+        : "中 / EN, switch to English",
     );
     document.title =
       locale === "en"
-        ? "DappGo — Clearer markets. Smarter workflows."
-        : "DappGo — 市場研究與智慧自動化";
+        ? "DappGo: Clearer markets. Smarter workflows."
+        : "DappGo: 市場研究與智慧自動化";
     const labels = {
       ".brand": ["DappGo home", "DappGo 首頁"],
       ".main-nav": ["Main navigation", "主要導覽"],
