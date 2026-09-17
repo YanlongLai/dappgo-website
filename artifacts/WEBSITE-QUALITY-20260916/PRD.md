@@ -19,9 +19,9 @@ The website should load the first useful product visual faster, serve appropriat
 
 | ID | Criterion | Status | Evidence | Next action |
 |---|---|---|---|---|
-| Q-01 | CSP allowlist covers current analytics endpoints | verified | `index.html`, all shell CSP audit, local browser/Lighthouse console check | Recheck after production promotion |
+| Q-01 | CSP allowlist covers current analytics endpoints | verified | `index.html`, all shell CSP audit, local browser/Lighthouse console check, live homepage marker audit | Monitor after cache propagation |
 | Q-02 | Ineffective meta `frame-ancestors` removed and hosting gap documented | verified-with-owner-gate | HTML source audit and `docs/website-security-headers.md`; production headers still lack the HTTP controls | Hosting Owner applies and verifies response headers |
-| Q-03 | Visible language label is contained in accessible name on every shell | verified | source audit, Lighthouse accessibility 100, interactive toggle check | Recheck after production promotion |
-| Q-04 | Hero/product images use responsive modern sources with fallback | verified | WebP 330/660/1320 inventory, `<picture>` source audit, local Lighthouse performance 97 | Recheck with production Lighthouse after promotion |
-| Q-05 | Homepage copy clarifies research-only value | verified | homepage English/Traditional Chinese copy and product CTA audit | Owner review before publication |
-| Q-06 | Existing public routes and mobile layout remain healthy | verified | desktop/mobile route smoke, zero broken images after lazy-load scroll, no horizontal overflow | Recheck after production promotion |
+| Q-03 | Visible language label is contained in accessible name on every shell | verified | source audit, Lighthouse accessibility 100, interactive toggle check, live homepage marker audit | Monitor after cache propagation |
+| Q-04 | Hero/product images use responsive modern sources with fallback | verified | WebP 330/660/1320 inventory, `<picture>` source audit, local Lighthouse performance 97, live WebP asset checks | Run production Lighthouse during the next performance window |
+| Q-05 | Homepage copy clarifies research-only value | verified | homepage English/Traditional Chinese copy and product CTA audit; live English copy confirmed | Owner visual review |
+| Q-06 | Existing public routes and mobile layout remain healthy | verified | desktop/mobile route smoke, zero broken images after lazy-load scroll, no horizontal overflow, live route smoke | Monitor production routes |

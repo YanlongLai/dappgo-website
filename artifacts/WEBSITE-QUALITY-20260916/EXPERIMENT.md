@@ -33,4 +33,10 @@ The production audit identified four measurable issues: Lighthouse performance 7
 
 ## Promotion state
 
-The feature branch has been verified locally but has not been committed, pushed, merged, or deployed in this repair round. Promotion remains a separate Owner-authorized step.
+- Focused commit: `e44d54328bc8f4692a79842a372427bfc253d9a4`
+- Pull request: [#8](https://github.com/YanlongLai/dappgo-website/pull/8)
+- Promoted master commit: `1d4356b0c3856d2e22c6804d20f5f04cdaa62277`
+- GitHub Pages deployment: [run 35176001638](https://github.com/YanlongLai/dappgo-website/actions/runs/35176001638), state `success`
+- Live verification: `https://dappgo.com/` exposes the new homepage copy and responsive WebP sources; public routes return 200 and a missing route returns 404.
+
+Promotion is complete. The hosting/edge security-header and cache-lifetime follow-ups remain Owner-gated and are not misrepresented as fixed by this source release.
