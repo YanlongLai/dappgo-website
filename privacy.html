@@ -419,7 +419,7 @@
     <div class="lang-zh">
         <h2>Number Merge（Number Merge - DappGo）</h2>
         <p>
-            Number Merge 不需要建立帳號或登入，核心遊戲可以離線執行。遊戲設定、本機最高分與最高方塊使用裝置上的本機儲存，沒有送到 DappGo 的 Firebase、Firestore 或自有後端；Number Merge 也不使用股票 App 的匿名 Firebase uid、推播、使用事件或意見回饋流程。
+            Number Merge 不需要建立帳號或登入，核心遊戲可以離線執行。遊戲設定、本機最高分與最高方塊保存在裝置上。使用線上排行榜時，App 會傳送隨機產生的玩家識別碼、分數、最高方塊、平台、App 版本與提交時間至 DappGo 排行榜服務；更新個人資料時，也會傳送您選擇的暱稱、寵物及選填的國家代碼。排行榜可能公開顯示這些暱稱、分數與個人資料。國家代碼不是精確位置；請勿在暱稱填入姓名、email 或其他敏感資料。Number Merge 不使用股票 App 的 Firebase uid、推播或意見回饋流程。
         </p>
         <p>
             Number Merge 包含 Google AdMob banner 廣告，以及只有在玩家主動選擇「看廣告 +1」時才開啟的獎勵廣告。Google Mobile Ads SDK 可能為投放、衡量、頻率控制及防止廣告詐欺處理裝置識別、廣告識別、網路推估的一般位置、診斷、效能與廣告互動資料；實際資料處理會依 AdMob 設定、所在地區、同意狀態與裝置設定而定。DappGo 不會把這些資料與您的姓名、email 或金融資料連結。
@@ -431,7 +431,7 @@
     <div class="lang-en">
         <h2>Number Merge (Number Merge - DappGo)</h2>
         <p>
-            Number Merge does not require an account or sign-in, and the core game works offline. Game settings, personal best scores, and highest tiles use local device storage. They are not sent to DappGo Firebase, Firestore, or a DappGo application backend. Number Merge does not use the stock-app anonymous Firebase uid, push notification, usage-event, or feedback flows.
+            Number Merge does not require an account or sign-in, and the core game works offline. Game settings and local records remain on your device. When using the online leaderboard, the app sends a randomly generated player identifier, score, highest tile, platform, app version and submission time to DappGo's leaderboard service. Profile updates also send your chosen display name, pet and optional country code. Leaderboards may publicly display these names, scores and profile details. A country code is not precise location; do not include your real name, email or sensitive information in your display name. Number Merge does not use the stock-app Firebase uid, push notification or feedback flows.
         </p>
         <p>
             Number Merge includes Google AdMob banner ads and an optional rewarded ad that opens only when a player chooses “Watch ad +1”. The Google Mobile Ads SDK may process device identifiers, advertising identifiers, coarse location inferred from network information, diagnostic data, performance data, and ad-interaction data for serving, measurement, frequency control, and fraud prevention. Actual processing depends on AdMob configuration, region, consent status, and device settings. DappGo does not connect this information to your name, email, or financial data.
@@ -734,13 +734,13 @@
     <div class="lang-zh">
         <h2>兒童與 COPPA</h2>
         <p>
-            Options Explorer 目前是 <strong>iPhone-only</strong> 的公開市場與選擇權研究工具，不含社群動態、聊天、賭博、獎勵或兒童導向功能。它不會在安裝、啟動或一般瀏覽時建立 Firebase uid；只有主動送出回饋或開啟選用推播時，才可能使用匿名服務識別碼。我們<strong>不</strong>在一般使用時收集姓名、email、位置或其他直接識別資訊。App Store 的年齡分級依 Apple App Store Connect 問卷計算；本專案的建議答案記錄於 <code>docs/app-store/age-rating.md</code>。若您認為我們收到兒童的個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們會審查並刪除。
+            Options Explorer 是 iOS 與 Android 的公開市場與選擇權研究工具，不含社群動態、聊天、賭博、獎勵或兒童導向功能。它不會在安裝、啟動或一般瀏覽時建立 Firebase uid；只有主動送出回饋或開啟選用推播時，才可能使用匿名服務識別碼。我們<strong>不</strong>在一般使用時收集姓名、email、位置或其他直接識別資訊。App Store 的年齡分級依 Apple App Store Connect 問卷計算；本專案的建議答案記錄於 <code>docs/app-store/age-rating.md</code>。若您認為我們收到兒童的個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們會審查並刪除。
         </p>
     </div>
     <div class="lang-en">
         <h2>Children &amp; COPPA</h2>
         <p>
-            Options Explorer is currently an <strong>iPhone-only</strong> public-market and options-research tool. It has no social feed, chat, gambling, rewards, or child-directed features. It does not create a Firebase uid at install, launch, or during ordinary browsing; an anonymous service identifier may be used only when the user submits feedback or enables optional push notifications. We do <strong>not</strong> collect names, email addresses, location, or other directly-identifying information during ordinary use. The App Store age rating is calculated from Apple's App Store Connect questionnaire; the recommended answers are recorded in <code>docs/app-store/age-rating.md</code>. If a child or parent believes we received a child's personal information, contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete it.
+            Options Explorer is an iOS and Android public-market and options-research tool. It has no social feed, chat, gambling, rewards, or child-directed features. It does not create a Firebase uid at install, launch, or during ordinary browsing; an anonymous service identifier may be used only when the user submits feedback or enables optional push notifications. We do <strong>not</strong> collect names, email addresses, location, or other directly-identifying information during ordinary use. The App Store age rating is calculated from Apple's App Store Connect questionnaire; the recommended answers are recorded in <code>docs/app-store/age-rating.md</code>. If a child or parent believes we received a child's personal information, contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete it.
         </p>
     </div>
 
