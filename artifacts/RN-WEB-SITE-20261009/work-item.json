@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "id": "RN-WEB-SITE-20261009",
+  "project": "dappgo-studio",
+  "title": "Prepare existing website ownership and factual browser privacy disclosure",
+  "status": "proposed",
+  "risk": "medium",
+  "question": "Can web ownership be verified without enabling unapproved advertising?",
+  "hypotheses": ["Publisher ownership files can remain separate from ad activation."],
+  "artifacts": {"prd": "artifacts/RN-WEB-SITE-20261009/PRD.md", "tdd": "artifacts/RN-WEB-SITE-20261009/TDD.md", "experiment": "artifacts/RN-WEB-SITE-20261009/EVIDENCE.md", "review": "artifacts/RN-WEB-SITE-20261009/REVIEW.md"},
+  "assignment": {"producer": "frontend-engineer", "peer_reviewer": "qa-engineer", "director": "engineering-director", "assurance": "independent-review"},
+  "budget": {"token_limit": 12000, "max_iterations": 3, "deadline": "2026-10-12"},
+  "acceptance_criteria": ["Existing confirmed publisher identity matches ads.txt and ownership tag.", "Browser disclosure describes scoped local storage and ads-off state without changing mobile or game facts.", "No ad script, paid service, invented legal claim or credential is introduced."],
+  "governance": {"reversible": true, "sensitive_or_external_side_effect": true, "product_context_required": false},
+  "provenance": {"codex_task_id": "01a11404-c851-7830-a9f2-0494afcd2891", "host_id": "local", "repository": "YanlongLai/dappgo-website", "branch": "feature/rn-web-site-20261009", "worktree": "website-rn-web-foundation-20261009"},
+  "evidence": ["Owner authorized website review setup and latest completion/merge/deploy request."],
+  "decision": "pending"
+}
