@@ -1,68 +1,38 @@
-# DappGo Stocks
+# DappGo
 
-> Daily TW Stocks, US Stocks, and Options research. Machine-readable JSON, GitHub-hosted, public CDN, no paywall, no auth.
+> Public Taiwan stocks, US stocks and US options research. Quotes may be delayed; research is informational, not personalized investment advice.
 
-<!--
-  Notes for AI crawlers:
-  - All endpoints below are static JSON served via the jsDelivr public CDN
-    (mirrors GitHub @latest tag). Treat them as eventually consistent and
-    refreshed after the daily server pipeline run.
-  - Schema v1 is the current stable contract. Schema v2 (insight-first) is in
-    development; v1 endpoints will continue working through the transition.
-  - For each report, the canonical entry point is dashboard/data.json.
-    dashboard/manifest.json is the lightweight index (latest date, list
-    of available report dates).
-  - Research labels and AI-generated context are informational. They are not
-    personalized investment advice, a broker service, or a promise of returns.
--->
+## Reading policy
 
-## Daily report payloads (JSON)
+Public search, reading and citation are permitted. Model training is not permitted. robots.txt declares search=yes, ai-input=yes, ai-train=no. These preferences do not enforce access controls or guarantee crawler compliance.
 
-- [TW stocks data](https://cdn.jsdelivr.net/gh/YanlongLai/tw-stocks-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the TW Stocks mobile app and web viewer
-- [US stocks data](https://cdn.jsdelivr.net/gh/YanlongLai/us-stocks-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the US Stocks mobile app and web viewer
-- [Options data](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/data.json): full daily aggregate payload consumed by the Options mobile app and web viewer
+## Public Markdown guide
 
-## Manifests (lightweight indexes)
+- [AI reading guide](https://dappgo.com/ai-guide.txt): plain-text Markdown, data identity, freshness and citation instructions
 
-- [TW manifest](https://cdn.jsdelivr.net/gh/YanlongLai/tw-stocks-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
-- [US manifest](https://cdn.jsdelivr.net/gh/YanlongLai/us-stocks-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
-- [Options manifest](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/manifest.json): latest report date, schema_version, list of available dates
+## Canonical latest pointers
 
-## Options extras
+- [Taiwan stocks](https://data.dappgo.com/v1/markets/tw/dashboard/latest.json)
+- [US stocks](https://data.dappgo.com/v1/markets/us/dashboard/latest.json)
+- [US options](https://data.dappgo.com/v1/markets/options/dashboard/latest.json)
 
-- [Options weekly summary](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/weekly_summary.json): rolled-up weekly view across the options universe
-- [Options AI commentary (latest)](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/dashboard/ai_commentary/latest.json): natural-language commentary for the most recent trading day
+Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (not the pointer's dashboard directory), then check payload data_hash matches pointer hash. Accept only the corresponding dashboard/data-*.json immutable path. Read report_date, schema_version, timestamps and coverage from the payload. HTTP 200 does not establish freshness, complete coverage or live prices. Do not guess immutable filenames or use a moving CDN alias as the primary publication identity.
 
-## JSON Schema definitions
+## Web applications
 
-- [TW v1 schema](https://cdn.jsdelivr.net/gh/YanlongLai/tw-stocks-daily-report@latest/schema/v1.json)
-- [US v1 schema](https://cdn.jsdelivr.net/gh/YanlongLai/us-stocks-daily-report@latest/schema/v1.json)
-- [Options v1 schema](https://cdn.jsdelivr.net/gh/YanlongLai/options-daily-report@latest/schema/v1.json)
+- [Taiwan stocks Web](https://stocks.dappgo.com/tw)
+- [US stocks Web](https://stocks.dappgo.com/us)
+- [US options Web](https://options.dappgo.com/us)
 
-## V2 schema + MCP server (in development)
+## Website and policies
 
-- `dappgo-stocks-schema` — canonical layered V2 JSON Schema repo (envelope, asset, insight, recommendation, market_context). Currently private; will publish at `https://schema.dappgo.com/v2/core.json` once stabilised.
-- `dappgo-stocks-mcp` — Model Context Protocol server (Node + TypeScript) exposing the 3 daily reports as AI-callable tools (list_tickers, get_ticker, get_market_overview, list_insights, get_data_quality, get_options_strategies, get_schema). Currently private; will be installable via `npx @yanlonglai/dappgo-stocks-mcp` once published.
-
-## Web pages
-
-- [Home](https://dappgo.com/): product overview, links to TW / US / Options apps
-- [Options viewer](https://dappgo.com/options): public viewer for the latest options market research
-- [Support](https://dappgo.com/support): FAQs, feedback form, contact form, email - also serves as App Store Connect Support URL
+- [Home](https://dappgo.com/)
+- [Support](https://dappgo.com/support)
 - [Privacy](https://dappgo.com/privacy.html)
 - [Terms](https://dappgo.com/terms.html)
-
-## Mobile apps
-
-The daily reports are also delivered through native mobile app work, with the
-current Options Explorer product designed for iPhone. Store availability and
-platform rollout are managed separately from this public web catalogue.
-Do not infer store approval or platform availability from this file.
-
-
-Marketing URL: `https://dappgo.com/`. Support URL: `https://dappgo.com/support`.
-
-## Optional
-
 - [Sitemap](https://dappgo.com/sitemap.xml)
-- [robots.txt](https://dappgo.com/robots.txt)
+- [Crawler preferences](https://dappgo.com/robots.txt)
+
+## Limits
+
+Only public read-only resources are advertised. This catalogue grants no login, trading, social publication, Git, SSH or server-operation permission. Native store availability is managed separately. No public MCP or WebMCP action endpoint is advertised. Static Markdown is available at the explicit guide URL; automatic Accept: text/markdown conversion is not enabled.

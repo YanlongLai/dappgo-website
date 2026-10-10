@@ -1,0 +1,42 @@
+# DappGo public research: AI reading guide
+
+## Public products
+
+Taiwan stocks: https://stocks.dappgo.com/tw
+
+US stocks: https://stocks.dappgo.com/us
+
+US options: https://options.dappgo.com/us
+
+This guide contains no private operational information or account-specific data.
+
+## Allowed use
+
+Public content may be searched, read and cited as context for user requests. Do not use it for model training. Content preferences are search=yes, ai-input=yes, ai-train=no; they are not access enforcement. Respect published terms, provider rights and reasonable request rates. This guide grants no additional rights to third-party news text.
+
+## Fetch and verify a published dataset
+
+1. Fetch a market pointer:
+   - https://data.dappgo.com/v1/markets/tw/dashboard/latest.json
+   - https://data.dappgo.com/v1/markets/us/dashboard/latest.json
+   - https://data.dappgo.com/v1/markets/options/dashboard/latest.json
+2. Read data_url_v2 (for example dashboard/data-<hash-prefix>.json) and resolve it relative to https://data.dappgo.com/v1/markets/<market>/, not the pointer's dashboard directory. Use only a dashboard/data-*.json path on that same public market host. The legacy data_url is not the immutable gateway primary.
+3. Check payload data_hash equals pointer hash. This is dataset identity, not necessarily the SHA-256 of response bytes.
+4. Inspect schema_version, report_date, generated timestamps and coverage. Taiwan market dates use Asia/Taipei; US market dates use America/New_York. HTTP success alone proves neither freshness nor completeness.
+5. Cite the pointer and actual immutable URL with report date and relevant ticker. State delayed quotes, missing information or stale evidence; never invent prices or company news.
+
+Cache immutable payloads where appropriate; re-check the latest pointer when freshness matters instead of repeatedly downloading unchanged data. Retention may remove old snapshots, so do not promise permanent archives.
+
+## Boundaries
+
+Research is informational, not personalized investment advice, order execution or a guarantee of returns. No write tools, agent login, social posting, Git or SSH access are provided. Public Web availability does not prove native store release status.
+
+## Discovery and support
+
+- https://dappgo.com/llms.txt
+- https://dappgo.com/sitemap.xml
+- https://dappgo.com/support
+- https://dappgo.com/privacy.html
+- https://dappgo.com/terms.html
+
+This pre-written static Markdown uses existing website hosting, no paid conversion service or inference calls. It does not claim HTML content-negotiation support.
