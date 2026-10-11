@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /tw/
+Allow: /us/
+Disallow: /api/
+
+Sitemap: https://news.dappgo.com/sitemap.xml

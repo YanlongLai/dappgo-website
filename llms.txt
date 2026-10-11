@@ -23,6 +23,8 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 - [Taiwan stocks Web](https://stocks.dappgo.com/tw)
 - [US stocks Web](https://stocks.dappgo.com/us)
 - [US options Web](https://options.dappgo.com/us)
+- [DappGo News — Taiwan](https://news.dappgo.com/tw/)
+- [DappGo News — United States](https://news.dappgo.com/us/)
 
 ## Website and policies
 

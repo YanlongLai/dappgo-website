@@ -11,7 +11,7 @@ def verify(root: Path) -> None:
     assert 'User-agent: Google-adstxt\nDisallow:' in robots
     assert 'Allow: /' in robots
     documents = [(root / name).read_text() for name in ('llms.txt', 'ai-guide.txt')]
-    allowed = {'dappgo.com', 'stocks.dappgo.com', 'options.dappgo.com', 'data.dappgo.com'}
+    allowed = {'dappgo.com', 'stocks.dappgo.com', 'options.dappgo.com', 'news.dappgo.com', 'data.dappgo.com'}
     for text in documents:
         for url in re.findall(r'https://[^\s)]+', text):
             assert urlparse(url).hostname in allowed, f'Non-public discovery host: {url}'

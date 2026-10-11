@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
+  <link rel="canonical" href="https://news.dappgo.com/us/">
+  <link rel="stylesheet" href="../assets/news.css">
+  <title>DappGo News · United States</title>
+</head>
+<body>
+  <div class="topline"><span>DAPPGO / NEWS</span><span>UNITED STATES EDITION · SOURCES STAY VISIBLE</span></div>
+  <div class="shell" data-news-app data-market="us">
+    <header class="mast"><a class="brand" href="/us/" aria-label="DappGo News United States">DappGo<span>/ NEWS</span></a><nav class="market-nav" aria-label="Market editions"><a href="/tw/">台灣</a><a href="/us/" aria-current="page">United States</a></nav></header>
+    <div class="edition"><span>UNITED STATES EDITION</span><span>DATA TIME · NEW YORK TIME</span></div>
+    <section class="hero"><h1>The companies.<br><em>The context.</em></h1><p>Start with a company. Follow the headlines, source, date and available thumbnail without losing the original context.</p></section>
+    <div class="status"><span class="status-dot is-loading" data-status-dot></span><span data-status>Loading published news…</span></div>
+    <div class="reader-grid">
+      <aside class="rail" aria-label="Stock index"><h2>STOCK INDEX</h2><label class="search"><span aria-hidden="true">⌕</span><input data-stock-search type="search" placeholder="Search company or ticker" aria-label="Search United States stocks"></label><div class="stock-list" data-stock-list></div><p class="rail-note">Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.</p></aside>
+      <main>
+        <section class="company-header"><div><p class="crumb">UNITED STATES / COMPANY NEWS</p><h2 data-company-name>United States</h2><div class="symbol" data-company-symbol>US</div><p>Source, date and available article thumbnails stay in the reading flow.</p></div><div class="data-meta" data-updated>Data loading…</div><button class="mobile-picker" type="button" aria-label="Stock index is available in desktop layout">Stock index above on desktop</button></section>
+        <div class="filters" aria-label="Date range"><button class="filter" type="button" data-range="all" aria-pressed="true">All</button><button class="filter" type="button" data-range="7" aria-pressed="false">7 days</button><button class="filter" type="button" data-range="30" aria-pressed="false">30 days</button><span class="result-count" data-count>—</span></div>
+        <div class="update-banner" data-update-banner role="status"><span>Newer published news is available.</span><button type="button" data-update-reload>Refresh reading</button></div>
+        <div data-skeletons class="skeletons" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
+        <div data-error class="error-box" role="alert" hidden></div>
+        <section data-stories aria-live="polite"></section>
+      </main>
+    </div>
+    <p class="disclaimer">Titles, summaries, source links and available thumbnails come from the existing published data pipeline. Available thumbnails are shown; missing or failed media becomes a natural text-only card. For information only, not investment advice.</p>
+    <footer class="footer"><strong>DappGo / NEWS</strong><span>See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html">Privacy</a> · <a href="https://dappgo.com/terms.html">Terms</a></span></footer>
+  </div>
+  <script src="../assets/news.js" defer></script>
+</body>
+</html>

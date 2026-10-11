@@ -1,0 +1,12 @@
+# DappGo News
+
+> Read-only market news reader backed by DappGo's published dashboard data.
+
+- [Taiwan edition](https://news.dappgo.com/tw/)
+- [United States edition](https://news.dappgo.com/us/)
+
+The site reads the formal DappGo market pointer and its immutable payload
+through a same-origin read-only Pages Function. It does not trigger jobs or
+accept write operations. Use each article's source link for the original
+publication; summaries may be absent when the source provides no independent
+description.

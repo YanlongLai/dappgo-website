@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DappGo 台灣股票新聞：依股票與日期閱讀 RSS pipeline 已發布的新聞。">
+  <link rel="canonical" href="https://news.dappgo.com/tw/">
+  <link rel="stylesheet" href="../assets/news.css">
+  <title>DappGo News · 台灣市場</title>
+</head>
+<body>
+  <div class="topline"><span>DAPPGO / NEWS</span><span>台灣版 · 來源與時間保持透明</span></div>
+  <div class="shell" data-news-app data-market="tw">
+    <header class="mast"><a class="brand" href="/tw/" aria-label="DappGo News Taiwan">DappGo<span>/ NEWS</span></a><nav class="market-nav" aria-label="Market editions"><a href="/tw/" aria-current="page">台灣</a><a href="/us/">United States</a></nav></header>
+    <div class="edition"><span>TAIWAN EDITION</span><span>資料時間 · 台北時間</span></div>
+    <section class="hero"><h1>The companies.<br><em>The context.</em></h1><p>從一家公司開始，讀懂每一則消息背後的脈絡。新聞來自既有 RSS pipeline，網站只負責閱讀。</p></section>
+    <div class="status"><span class="status-dot is-loading" data-status-dot></span><span data-status>Loading published news…</span></div>
+    <div class="reader-grid">
+      <aside class="rail" aria-label="股票索引"><h2>STOCK INDEX</h2><label class="search"><span aria-hidden="true">⌕</span><input data-stock-search type="search" placeholder="輸入股名或代號" aria-label="搜尋台灣股票"></label><div class="stock-list" data-stock-list></div><p class="rail-note">以股票為線索，以來源為依據。<br><br>最新 → 最舊。日期不完整時，網站不猜測精確時間。</p></aside>
+      <main>
+        <section class="company-header"><div><p class="crumb">台灣市場 / 公司新聞</p><h2 data-company-name>台灣市場</h2><div class="symbol" data-company-symbol>TW</div><p>保留來源、日期與可用新聞縮圖；不替事實加戲。</p></div><div class="data-meta" data-updated>Data loading…</div><button class="mobile-picker" type="button" aria-label="目前使用股票索引">股票索引在上方桌面版</button></section>
+        <div class="filters" aria-label="期間篩選"><button class="filter" type="button" data-range="all" aria-pressed="true">全部</button><button class="filter" type="button" data-range="7" aria-pressed="false">7 天</button><button class="filter" type="button" data-range="30" aria-pressed="false">30 天</button><span class="result-count" data-count>—</span></div>
+        <div class="update-banner" data-update-banner role="status"><span>有較新的新聞資料。</span><button type="button" data-update-reload>更新閱讀</button></div>
+        <div data-skeletons class="skeletons" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
+        <div data-error class="error-box" role="alert" hidden></div>
+        <section data-stories aria-live="polite"></section>
+      </main>
+    </div>
+    <p class="disclaimer">新聞標題、摘要、來源連結與縮圖由既有資料 pipeline 提供；可用縮圖會顯示，無圖或載入失敗時改為文字版。內容僅供資訊閱讀，不構成投資建議。</p>
+    <footer class="footer"><strong>DappGo / NEWS</strong><span>看見事件。保留脈絡。</span><span><a href="https://dappgo.com/privacy.html">隱私</a> · <a href="https://dappgo.com/terms.html">條款</a></span></footer>
+  </div>
+  <script src="../assets/news.js" defer></script>
+</body>
+</html>
