@@ -13,7 +13,10 @@ assert.match(script, /data-\[a-f0-9\]\{12,64\}/);
 assert.match(script, /\/api\/markets\//);
 assert.match(script, /image_url/);
 assert.match(script, /is-text-only/);
+assert.match(script, /compactMobileName/);
+assert.match(script, /mobileLabel/);
 assert.doesNotMatch(script, /articleThumbnail|文章縮圖|Article thumbnail/);
+assert.doesNotMatch(script, /editionTop|editionName|editionTime|heroTitle|heroBody/);
 assert.doesNotMatch(script, /<figcaption>/);
 assert.doesNotMatch(script, /raw\.githubusercontent\.com|news\.google\.com\/rss|finnhub\.io\/api/);
 
@@ -44,8 +47,8 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /data-i18n-html="heroTitle"/);
-  assert.match(html, /news\.js\?v=20261011-mobile-reader/);
+  assert.match(html, /news\.js\?v=20261011-clean-reader-header/);
+  assert.doesNotMatch(html, /class="edition"|data-i18n="edition(?:Top|Name|Time)"|class="hero"|data-i18n(?:-html)?="hero(?:Title|Body)"/);
   assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
 }
