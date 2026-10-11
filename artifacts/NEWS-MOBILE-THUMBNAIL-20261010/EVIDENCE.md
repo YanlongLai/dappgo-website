@@ -12,7 +12,7 @@
 
 Verified 2026-10-11T06:30:41Z with Wrangler Pages Dev from the `news/` project root on a 390x844 mobile viewport.
 
-- Taiwan route `/tw/`: published pointer `33fae46240b4`, five stories loaded, search `2330` narrowed the selector, selecting `台積電 · 2330` rendered the matching company stories, English switch rendered `TAIWAN EDITION`, no thumbnail prompt text, no horizontal overflow (`scrollWidth=390`).
+- Taiwan route `/tw/`: published pointer `33fae46240b4`, five stories loaded, search `2330` narrowed the selector, selecting `台積電 · 2330` rendered the matching company stories, English switch changed the interface locale while the source-language headlines remained Chinese, no removed edition/timezone/editorial-intro labels, no thumbnail prompt text, no horizontal overflow (`scrollWidth=390`).
 - United States route `/us/`: published pointer `0eab2a98cf2c`, twelve stories loaded, search `TSLA` narrowed the selector, selecting `Tesla Inc. · TSLA` rendered the matching company stories, Chinese switch rendered the Chinese edition, no thumbnail prompt text, no horizontal overflow (`scrollWidth=390`).
 - Mobile visual check: controls, story heading, date/source metadata and article content are visible in the first viewport; the page is not a persistent skeleton.
 - The mobile stock selector presents ticker-first labels with compact company names (for example `SPCX · SpaceX` and `AAPL · Apple`), while the full company name remains in the selected story heading and option accessibility/title metadata. The selector now has a custom chevron, sufficient right padding, and a 390px regression check so long names do not collide with the native control affordance.
