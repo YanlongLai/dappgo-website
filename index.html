@@ -137,8 +137,8 @@
       imagesrcset="/assets/screenshots/options/dashboard-330.webp 330w, /assets/screenshots/options/dashboard-660.webp 660w, /assets/screenshots/options/dashboard-1320.webp 1320w"
       imagesizes="(max-width: 767px) 208px, (max-width: 1100px) 218px, 258px"
     />
-    <link rel="stylesheet" href="/assets/demo/demo.css?v=20261011-stores" />
-    <script src="/assets/demo/demo.js?v=20261011-stores" defer></script>
+    <link rel="stylesheet" href="/assets/demo/demo.css?v=20261011-polish" />
+    <script src="/assets/demo/demo.js?v=20261011-polish" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
@@ -565,8 +565,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/app-store-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/app-store-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/app-store-official.svg" width="119.66407" height="40" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="appStoreLink">Open in the App Store</span>
                 </a>
                 <a
@@ -575,8 +574,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/google-play-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/google-play-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/google-play-official.svg" width="238.96" height="70.87" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="googlePlayLink">Open in Google Play</span>
                 </a>
               </div>
@@ -638,15 +636,12 @@
             <div class="store-downloads" aria-label="US Stocks app downloads">
               <span class="store-downloads-title" data-i18n="downloadOn">Available on</span>
               <div class="store-badge-row">
-                <span class="store-badge store-badge--disabled" role="img" aria-disabled="true">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/app-store-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/app-store-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                <span class="store-badge store-badge--disabled" aria-disabled="true">
+                  <span class="store-platform-name">iOS</span>
                   <span class="store-badge-status" data-i18n="comingSoon">Coming soon</span>
-                  <span class="sr-only" data-i18n="appStoreComingSoon">App Store — Coming soon</span>
                 </span>
                 <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/google-play-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/google-play-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/google-play-official.svg" width="238.96" height="70.87" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="googlePlayLink">Open in Google Play</span>
                 </a>
               </div>
@@ -672,13 +667,11 @@
               <span class="store-downloads-title" data-i18n="downloadOn">Available on</span>
               <div class="store-badge-row">
                 <a class="store-badge" href="https://apps.apple.com/app/id6768116538" target="_blank" rel="noopener noreferrer">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/app-store-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/app-store-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/app-store-official.svg" width="119.66407" height="40" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="appStoreLink">Open in the App Store</span>
                 </a>
                 <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/google-play-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/google-play-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/google-play-official.svg" width="238.96" height="70.87" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="googlePlayLink">Open in Google Play</span>
                 </a>
               </div>
@@ -693,10 +686,10 @@
             <p data-i18n="newsDescription">
               Read company news by market, with the latest stories kept in a clear timeline.
             </p>
-            <a href="https://news.dappgo.com/" class="portfolio-link" target="_blank" rel="noopener noreferrer"
-              ><span data-i18n="openNewsWeb">Open News web app</span
-              ><span aria-hidden="true">↗</span></a
-            >
+            <div class="news-market-links">
+              <a href="https://news.dappgo.com/us/" class="news-market-link" target="_blank" rel="noopener noreferrer"><span><strong data-i18n="usNews">US News</strong><small data-i18n="usNewsDetail">US companies & market stories</small></span><span aria-hidden="true">↗</span></a>
+              <a href="https://news.dappgo.com/tw/" class="news-market-link" target="_blank" rel="noopener noreferrer"><span><strong data-i18n="twNews">Taiwan News</strong><small data-i18n="twNewsDetail">Taiwan companies & market stories</small></span><span aria-hidden="true">↗</span></a>
+            </div>
           </article>
           <article class="portfolio-item app-item game-item">
             <div class="portfolio-icon">
@@ -714,15 +707,12 @@
             <div class="store-downloads" aria-label="Number Merge app downloads">
               <span class="store-downloads-title" data-i18n="downloadOn">Available on</span>
               <div class="store-badge-row">
-                <span class="store-badge store-badge--disabled" role="img" aria-disabled="true">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/app-store-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/app-store-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                <span class="store-badge store-badge--disabled" aria-disabled="true">
+                  <span class="store-platform-name">iOS</span>
                   <span class="store-badge-status" data-i18n="comingSoon">Coming soon</span>
-                  <span class="sr-only" data-i18n="appStoreComingSoon">App Store — Coming soon</span>
                 </span>
                 <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" target="_blank" rel="noopener noreferrer">
-                  <img class="store-badge-image store-badge-image--light" src="/assets/store-badges/google-play-light.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
-                  <img class="store-badge-image store-badge-image--dark" src="/assets/store-badges/google-play-dark.jpg" width="284" height="100" loading="lazy" decoding="async" alt="" />
+                  <img class="store-badge-image" src="/assets/store-badges/google-play-official.svg" width="238.96" height="70.87" loading="lazy" decoding="async" alt="" />
                   <span class="sr-only" data-i18n="googlePlayLink">Open in Google Play</span>
                 </a>
               </div>
