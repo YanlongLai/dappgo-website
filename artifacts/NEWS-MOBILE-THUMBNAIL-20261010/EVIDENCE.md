@@ -22,7 +22,7 @@ The first production check exposed a cache-version defect: the deployed HTML
 still referenced the previous `news.js?v=20261010-bilingual-reader` asset, so
 the edge could execute the old copy dictionary even when the HTML was current.
 The fix changes both route asset URLs to
-`news.js?v=20261011-clean-edition-labels` (and the stylesheet URL for parity) and
+`news.js?v=20261011-clean-reader-header` (and the stylesheet URL for parity) and
 adds a contract assertion so future UI changes cannot reuse the stale asset
 version silently.
 
@@ -34,12 +34,32 @@ Both routes were also loaded with the clean-label asset at 390px; neither
 rendered the removed edition/timezone/editorial-intro labels, while stories and
 controls stayed usable.
 
+## Production verification
+
+- Main release commit: `4452295` (`master`, pushed to `origin/master`).
+- Cloudflare Pages deployment: `https://5f4e4a90.dappgo-news.pages.dev` from
+  the `/news` root, including the Pages Functions bundle.
+- `https://news.dappgo.com/us/` and `https://news.dappgo.com/tw/` returned HTTP
+  200 and referenced `news.js?v=20261011-clean-reader-header`; neither HTML
+  response contains the removed edition/timezone/editorial-intro markup.
+- Both route responses now return `Cache-Control: public, max-age=0,
+  must-revalidate`, so a release cannot leave the old HTML cached for the
+  normal 60-second window. Versioned CSS/JS assets remain immutable and are
+  changed by the asset version in the route HTML.
+- A fresh browser tab loaded the production US route with the new release
+  query, showed the DappGo News header, market/language controls and stories,
+  and did not show the removed header block. The original browser tab was
+  still holding its pre-fix document until reloaded; that observation is the
+  reason for the route revalidation change above.
+
 ## Automated checks
 
 - `node --check news/assets/news.js` passed.
 - `node news/tests/contract.mjs` passed: `news reader contract: passed (12 files)`.
 - `git diff --check` passed.
 
-## Remaining gates
+## Closeout
 
-- Merge to `master`, deploy the Pages project from `/news` so Pages Functions remain included, then verify `https://news.dappgo.com/tw/` and `https://news.dappgo.com/us/` with a cache-busting query.
+- Source, contract tests, merge, Pages deployment and production route checks
+  are complete. GitHub Actions remains paused by Owner policy and is not
+  counted as passed.
