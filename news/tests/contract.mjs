@@ -34,6 +34,9 @@ assert.match(sitemap, /news\.dappgo\.com\/tw\//);
 assert.match(sitemap, /news\.dappgo\.com\/us\//);
 const llms = fs.readFileSync(path.join(root, "llms.txt"), "utf8");
 assert.match(llms, /formal DappGo market pointer/);
+const headers = fs.readFileSync(path.join(root, "_headers"), "utf8");
+assert.match(headers, /\/tw\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
+assert.match(headers, /\/us\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
 
 for (const route of ["tw/index.html", "us/index.html"]) {
   const html = fs.readFileSync(path.join(root, route), "utf8");
