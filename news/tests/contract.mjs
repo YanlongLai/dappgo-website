@@ -35,6 +35,20 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-news-app/);
   assert.match(html, /data-market="(tw|us)"/);
   assert.match(html, /\.\.\/assets\/news\.js/);
+  assert.match(html, /data-stock-search-mobile/);
+  assert.match(html, /data-mobile-stock-select/);
+  assert.doesNotMatch(html, /class="mobile-picker"/);
 }
+
+const css = fs.readFileSync(path.join(root, "assets/news.css"), "utf8");
+assert.match(css, /\.skeletons\[hidden\]\s*\{[^}]*display:\s*none\s*!important/s);
+assert.match(css, /\.mobile-stock-tools\s*\{\s*display:\s*none/s);
+assert.match(css, /@media\s*\(max-width:\s*620px\)[\s\S]*\.mobile-stock-tools\s*\{\s*display:\s*grid/s);
+
+assert.match(script, /mobileSearch/);
+assert.match(script, /mobileSelect/);
+assert.match(script, /data-stock-search-mobile/);
+assert.match(script, /data-mobile-stock-select/);
+assert.match(script, /els\.mobileSelect\.innerHTML/);
 
 console.log(`news reader contract: passed (${files.length} files)`);

@@ -13,6 +13,8 @@
   const els = {
     stockList: root.querySelector("[data-stock-list]"),
     search: root.querySelector("[data-stock-search]"),
+    mobileSearch: root.querySelector("[data-stock-search-mobile]"),
+    mobileSelect: root.querySelector("[data-mobile-stock-select]"),
     company: root.querySelector("[data-company-name]"),
     symbol: root.querySelector("[data-company-symbol]"),
     updated: root.querySelector("[data-updated]"),
@@ -75,12 +77,22 @@
 
   function renderStocks() {
     const filter = state.query.toLowerCase();
-    const all = entries().filter((entry) => `${entry.symbol} ${entry.name}`.toLowerCase().includes(filter));
+    const allEntries = entries();
+    const all = allEntries.filter((entry) => `${entry.symbol} ${entry.name}`.toLowerCase().includes(filter));
     if (!state.stock && all.length) state.stock = all[0].symbol;
     const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${market === "tw" ? "全部市場消息" : "All market news"}</span><small>ALL</small></button>`;
     const buttons = all.map((entry) => `<button class="stock-button" type="button" data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"><span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small></button>`).join("");
     els.stockList.innerHTML = allButton + buttons;
     els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => { state.stock = button.dataset.stock; renderStocks(); renderStories(); }));
+    const selectedEntry = allEntries.find((entry) => entry.symbol === state.stock);
+    const mobileEntries = selectedEntry && state.stock !== "all" && !all.some((entry) => entry.symbol === state.stock) ? [selectedEntry, ...all] : all;
+    if (els.mobileSelect) {
+      const allLabel = market === "tw" ? "全部市場消息" : "All market news";
+      els.mobileSelect.innerHTML = `<option value="all">${allLabel}</option>${mobileEntries.map((entry) => `<option value="${escapeHtml(entry.symbol)}">${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}</option>`).join("")}`;
+      els.mobileSelect.value = state.stock || "all";
+    }
+    if (els.search && els.search.value !== state.query) els.search.value = state.query;
+    if (els.mobileSearch && els.mobileSearch.value !== state.query) els.mobileSearch.value = state.query;
   }
 
   function selectedEntries() {
@@ -162,7 +174,11 @@
 
   function schedulePoll() { clearTimeout(state.refreshTimer); state.refreshTimer = setTimeout(poll, 120000 + Math.floor(Math.random() * 15000)); }
 
-  els.search.addEventListener("input", (event) => { state.query = event.target.value; renderStocks(); });
+  function updateQuery(value) { state.query = value; renderStocks(); }
+
+  els.search.addEventListener("input", (event) => updateQuery(event.target.value));
+  els.mobileSearch.addEventListener("input", (event) => updateQuery(event.target.value));
+  els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; renderStocks(); renderStories(); });
   els.reload.addEventListener("click", async () => {
     els.update.classList.remove("is-visible");
     try {

@@ -51,7 +51,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .stock-button[aria-current="true"] { border-left-color: var(--forest); background: var(--wash); font-weight: 700; }
 .stock-button small { color: var(--muted); font: 11px ui-monospace, monospace; }
 .rail-note { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.9; }
-.mobile-picker { display: none; }
+.mobile-stock-tools { display: none; }
+.mobile-search { margin-bottom: 0; }
+.mobile-stock-select-label { display: grid; gap: 6px; color: var(--muted); font-size: 11px; }
+.mobile-stock-select-label select { width: 100%; min-height: 42px; border: 1px solid #89958b; border-radius: 2px; background: var(--surface); color: var(--ink); padding: 10px 12px; font-size: 13px; }
 
 .company-header { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
 .crumb { margin: 0 0 13px; color: var(--muted); font-size: 11px; letter-spacing: .14em; }
@@ -90,6 +93,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .empty, .error-box { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; color: var(--muted); line-height: 1.8; }
 .error-box { color: var(--danger); }
 .skeletons { display: grid; gap: 28px; }
+.skeletons[hidden] { display: none !important; }
 .skeleton { min-height: 130px; border-bottom: 1px solid var(--line); background: linear-gradient(100deg, transparent 25%, rgba(255,255,255,.58) 50%, transparent 75%) 0 0/240% 100% #ebece5; animation: shimmer 1.5s infinite; }
 @keyframes shimmer { to { background-position: -240% 0; } }
 .footer { padding: 25px 0 36px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 12px; }
@@ -117,7 +121,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .hero p { display: none; }
   .reader-grid { display: block; padding: 24px 0 56px; }
   .rail { display: none; }
-  .mobile-picker { display: inline-flex; align-items: center; border: 1px solid #89958b; border-radius: 2px; background: transparent; color: var(--ink); padding: 10px 12px; font-size: 12px; }
+  .mobile-stock-tools { display: grid; gap: 12px; margin: 0 0 24px; }
   .company-header { align-items: start; }
   .company-header h2 { font-size: 32px; }
   .data-meta { display: none; }
