@@ -44,11 +44,6 @@
     return {
       documentTitle: `DappGo News · ${taiwan ? (chinese ? "台灣市場" : "Taiwan") : (chinese ? "美國市場" : "United States")}`,
       marketName,
-      editionTop: taiwan ? (chinese ? "台灣版 · 來源與時間保持透明" : "TAIWAN EDITION · SOURCES STAY VISIBLE") : (chinese ? "美國版 · 來源與時間保持透明" : "UNITED STATES EDITION · SOURCES STAY VISIBLE"),
-      editionName: taiwan ? (chinese ? "台灣版" : "TAIWAN EDITION") : (chinese ? "美國版" : "UNITED STATES EDITION"),
-      editionTime: taiwan ? (chinese ? "資料時間 · 台北時間" : "DATA TIME · TAIPEI TIME") : (chinese ? "資料時間 · 紐約時間" : "DATA TIME · NEW YORK TIME"),
-      heroTitle: chinese ? "這些公司。<br><em>這些脈絡。</em>" : "The companies.<br><em>The context.</em>",
-      heroBody: chinese ? "從一家公司開始，讀懂每一則消息背後的脈絡。新聞來自既有 RSS pipeline，網站只負責閱讀。" : "Start with a company. Follow the source, date and context behind each published story.",
       navTw: chinese ? "台灣" : "Taiwan",
       navUs: chinese ? "美國" : "United States",
       stockIndex: chinese ? "股票索引" : "Stock index",
@@ -167,6 +162,23 @@
     return Object.entries(tickers).map(([symbol, item]) => ({ symbol, name: item.name || symbol, news: Array.isArray(item.news) ? item.news : [] })).sort((a, b) => a.symbol.localeCompare(b.symbol));
   }
 
+  function compactMobileName(name, symbol) {
+    const value = String(name || symbol || "").trim();
+    const alias = value.match(/\(([^()]{1,24})\)$/);
+    if (alias && !/^(class|series)\b/i.test(alias[1].trim())) return alias[1].trim();
+    const compact = value
+      .replace(/\b(Inc\.?|Corporation|Corp\.?|Company|Limited|Incorporated|Holdings?|plc|ETF)\b/gi, "")
+      .replace(/\s+/g, " ")
+      .replace(/\s+([.,)])/g, "$1")
+      .replace(/[.,]\s*$/, "")
+      .trim();
+    return compact.length > 30 ? `${compact.slice(0, 29).trimEnd()}…` : compact;
+  }
+
+  function mobileLabel(entry) {
+    return `${entry.symbol} · ${compactMobileName(entry.name, entry.symbol)}`;
+  }
+
   function usableImage(item) {
     return item && !["restricted", "unavailable"].includes(item.image_status) && typeof item.image_url === "string" && /^https:\/\//i.test(item.image_url) ? item.image_url : null;
   }
@@ -188,7 +200,7 @@
     const selectedEntry = allEntries.find((entry) => entry.symbol === state.stock);
     const mobileEntries = selectedEntry && state.stock !== "all" && !all.some((entry) => entry.symbol === state.stock) ? [selectedEntry, ...all] : all;
     if (els.mobileSelect) {
-      els.mobileSelect.innerHTML = `<option value="all">${escapeHtml(copy.allMarket)}</option>${mobileEntries.map((entry) => `<option value="${escapeHtml(entry.symbol)}">${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}</option>`).join("")}`;
+      els.mobileSelect.innerHTML = `<option value="all">${escapeHtml(copy.allMarket)}</option>${mobileEntries.map((entry) => `<option value="${escapeHtml(entry.symbol)}" title="${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}" aria-label="${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}">${escapeHtml(mobileLabel(entry))}</option>`).join("")}`;
       els.mobileSelect.value = state.stock || "all";
     }
     if (els.search && els.search.value !== state.query) els.search.value = state.query;
