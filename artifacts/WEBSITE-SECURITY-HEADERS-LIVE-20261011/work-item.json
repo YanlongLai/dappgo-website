@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "id": "WEBSITE-SECURITY-HEADERS-LIVE-20261011",
+  "project": "dappgo-studio",
+  "title": "Activate and verify DappGo website security headers at Cloudflare edge",
+  "status": "approved",
+  "risk": "medium",
+  "question": "Can the website security-header contract be activated at the actual edge and recorded without claiming a host-only change is live?",
+  "hypotheses": [
+    "A host-scoped Cloudflare response-header rule can activate the existing contract without changing application routes or subdomain behavior."
+  ],
+  "artifacts": {
+    "prd": "docs/website-security-headers.md",
+    "tdd": "docs/website-security-headers.md",
+    "experiment": "artifacts/WEBSITE-SECURITY-HEADERS-LIVE-20261011/EVIDENCE.md"
+  },
+  "assignment": {
+    "producer": "web-platform-engineer",
+    "peer_reviewer": "web-platform-engineer",
+    "director": "engineering-director",
+    "assurance": "independent-review"
+  },
+  "budget": {"token_limit": 12000, "max_iterations": 2, "deadline": "2026-10-13"},
+  "acceptance_criteria": [
+    "Cloudflare edge returns the four required response headers for dappgo.com.",
+    "Cloudflare edge returns the conditional HSTS header after HTTPS readiness was verified.",
+    "The repository contract and handoff document accurately record live edge activation.",
+    "Website quality checks pass and no public routes or app links regress."
+  ],
+  "evidence": ["Owner requested completion of the remaining website improvement items; Cloudflare edge configuration is scoped to dappgo.com and www.dappgo.com."],
+  "decision": "release",
+  "provenance": {
+    "codex_task_id": "01a11404-c851-7830-a9f2-0494afcd2891",
+    "host_id": "local",
+    "repository": "https://github.com/YanlongLai/dappgo-website.git",
+    "branch": "website-security-headers-live-20261011",
+    "worktree": "website-security-headers-live-20261011"
+  }
+}

@@ -2,7 +2,13 @@
   "schema_version": "1.0.0",
   "site": "https://dappgo.com",
   "application_point": "cloudflare-edge-or-host",
-  "deployment_status": "contract-only-until-live-header-check",
+  "deployment_status": "cloudflare-edge-live-verified",
+  "last_verified_at_utc": "2026-10-11T23:29:26Z",
+  "edge_rule": {
+    "provider": "Cloudflare Transform Rules",
+    "name": "DappGo website security headers",
+    "host_scope": ["dappgo.com", "www.dappgo.com"]
+  },
   "required_headers": {
     "Content-Security-Policy": "frame-ancestors 'none';",
     "X-Content-Type-Options": "nosniff",

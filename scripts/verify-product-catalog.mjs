@@ -62,7 +62,16 @@ for (const [name, value] of Object.entries(expectedHeaders)) {
   require(headers.required_headers?.[name] === value, `security header contract drift: ${name}`);
 }
 require(headers.conditional_headers?.["Strict-Transport-Security"] === "max-age=31536000; includeSubDomains", "HSTS contract drift");
-require(headers.deployment_status === "contract-only-until-live-header-check", "security header deployment status must be explicit");
+const securityHeaderStatuses = new Set([
+  "contract-only-until-live-header-check",
+  "cloudflare-edge-live-verified"
+]);
+require(securityHeaderStatuses.has(headers.deployment_status), "security header deployment status must be explicit");
+if (headers.deployment_status === "cloudflare-edge-live-verified") {
+  require(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(headers.last_verified_at_utc ?? ""), "live security header status requires a UTC verification timestamp");
+  require(headers.edge_rule?.provider === "Cloudflare Transform Rules", "live security header status requires Cloudflare edge provenance");
+  require(Array.isArray(headers.edge_rule?.host_scope) && headers.edge_rule.host_scope.includes("dappgo.com"), "live security header status requires the canonical host scope");
+}
 require(llms.includes("https://dappgo.com/config/product-catalog.json"), "llms missing catalog link");
 
 if (failures.length) {
