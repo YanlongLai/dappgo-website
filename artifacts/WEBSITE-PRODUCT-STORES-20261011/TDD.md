@@ -4,7 +4,7 @@
 
 Keep the existing static HTML/CSS/vanilla JavaScript site. Add local cropped derivatives of the Owner-supplied badge artwork under `assets/store-badges/`; do not add a framework or runtime request. Keep URLs hand-authored in the homepage because this is a small audited catalog; verify them with a deterministic link test before release.
 
-The homepage remains responsible only for navigation. It does not detect the visitor's OS, invent store URLs, fetch app metadata, or infer an app release from a badge.
+The homepage remains responsible only for navigation. It does not detect the visitor's OS, invent store URLs, fetch app metadata, or infer an app release from a badge. Changed CSS/JavaScript assets receive a release-scoped query version so a newly deployed HTML shell cannot pair with an older cached behavior script.
 
 ## Availability model
 
@@ -18,6 +18,7 @@ The same component rules apply to the featured Options card and the three/four a
 ## Verification
 
 - static parse: all badge image paths exist, all active URLs use the approved host and expected app identifier, disabled slots have no href/tabindex;
+- cache coherence: the HTML references release-scoped CSS/JavaScript URLs, and the exact versioned assets expose the new translation keys;
 - browser: English/Traditional Chinese, light/dark, 360/390/768/1280 widths, no horizontal overflow, keyboard focus does not enter disabled slots;
 - accessibility: visible status for disabled slots, meaningful link names, focus ring, no new unlabeled control;
 - security: external links use `noopener noreferrer`, no new inline tracking or form submission;

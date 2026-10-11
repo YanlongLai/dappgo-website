@@ -34,6 +34,7 @@ The four active Android destinations and two active iOS destinations match `WEBS
 - Local browser language/theme: Traditional Chinese translated `下載平台` and `即將推出`; dark theme selected the dark badge variants.
 - External active links use `target="_blank"` and `rel="noopener noreferrer"`.
 - Read-only HTTP checks returned `200` for all six active store URLs and the four requested web destinations.
+- A production smoke test exposed stale cached `demo.js` pairing with the new HTML and producing `undefined` for new Traditional Chinese keys. The systemic repair is release-scoped `?v=20261011-stores` on both homepage CSS and JavaScript references; the local asset test now strips query strings before checking files. Revalidation is required after the follow-up Pages build.
 
 ## Notes and remaining release gates
 

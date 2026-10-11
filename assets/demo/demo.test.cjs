@@ -125,9 +125,10 @@ function fixture({ reduced = false, storageFails = false } = {}) {
 test("all local links, assets, and anchors resolve", () => {
   const ids = [...html.matchAll(/id="([^"]+)"/g)].map((match) => match[1]);
   assert.equal(new Set(ids).size, ids.length, "Duplicate DOM IDs");
-  for (const [, ref] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+  for (const [, rawRef] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const ref = rawRef.split(/[?#]/, 1)[0];
     if (ref.startsWith("/"))
-      assert.ok(fs.existsSync(path.join(__dirname, "../..", ref)), ref);
+      assert.ok(fs.existsSync(path.join(__dirname, "../..", ref)), rawRef);
     if (ref.startsWith("#") && ref !== "#")
       assert.ok(ids.includes(ref.slice(1)), ref);
   }
@@ -143,6 +144,8 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.match(production, /og-image-v2\.png/);
   assert.doesNotMatch(production, /noindex/);
   assert.doesNotMatch(production, /Design preview/);
+  assert.match(production, /assets\/demo\/demo\.css\?v=20261011-stores/);
+  assert.match(production, /assets\/demo\/demo\.js\?v=20261011-stores/);
 });
 
 test("platform download badges match the verified app availability matrix", () => {
