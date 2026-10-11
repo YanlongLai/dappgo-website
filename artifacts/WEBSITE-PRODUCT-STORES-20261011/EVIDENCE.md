@@ -2,12 +2,15 @@
 
 ## Current status
 
-Implementation is complete in the owning feature worktree. The release candidate is still pending commit/merge/deployment verification in this record.
+Implementation, merge, deployment and public smoke verification are complete for the bounded homepage change.
 
 - Worktree: `website-product-design-20261011`
 - Branch: `feature/website-product-design-20261011`
 - Base: `727a3e579c953b51fc45e08e7234ccfc982a4329`
 - Claim: `CLM-24E8A07DDE9F`
+- Source commit: `15cee40` (merge commit containing the cache-coherence repair)
+- Pages build: `15cee40f9e6cdab359e2ae905e0fd674dda909b4`, `status=built`, updated `2026-10-11T16:35:29Z`
+- Public URL: `https://dappgo.com/`
 - Changed boundaries: `index.html`, `assets/demo/`, `assets/store-badges/`
 - Preserved: mobile repositories, app binaries/store metadata, News/Stocks data, AdSense/CMP identifiers, legal pages and service infrastructure.
 
@@ -40,4 +43,4 @@ The four active Android destinations and two active iOS destinations match `WEBS
 
 - The supplied source image is retained as `assets/store-badges/store-platforms.jpg`; four cropped variants are used by the page. Source/attribution terms are recorded in `LINKS.md` and should remain part of future asset review.
 - Independent review was previously unavailable because the reviewer quota was exhausted; this is recorded, not treated as a pass.
-- Public deployment evidence, final merged SHA and post-deploy URL checks are pending until the release path completes.
+- Public `dappgo.com` smoke verification: versioned CSS/JavaScript assets loaded; all six active store URLs, four store groups, two disabled iOS slots and badge images were present; 390px width had no horizontal overflow; English and Traditional Chinese rendered the new availability labels correctly.
