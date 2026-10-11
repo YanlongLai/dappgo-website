@@ -10,13 +10,13 @@
 <body>
   <div class="topline"><span>DAPPGO / NEWS</span></div>
   <div class="shell" data-news-app data-market="tw">
-    <header class="mast"><a class="brand" href="/tw/" data-i18n-aria-label="brandAria">DappGo<span>/ NEWS</span></a><div class="mast-tools"><nav class="market-nav" data-i18n-aria-label="marketNav"><a href="/tw/" aria-current="page" data-i18n="navTw">台灣</a><a href="/us/" data-i18n="navUs">United States</a></nav><div class="language-switch" role="group" data-i18n-aria-label="language"><button type="button" data-language="zh" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></header>
+    <header class="mast"><a class="brand" href="/tw/" data-i18n-aria-label="brandAria">DappGo<span>/ NEWS</span></a><div class="mast-tools"><nav class="market-nav" data-i18n-aria-label="marketNav"><a href="/us/" data-i18n="navUs">US</a><a href="/tw/" aria-current="page" data-i18n="navTw">TW</a></nav><div class="language-switch" role="group" data-i18n-aria-label="language"><button type="button" data-language="zh" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">English</button></div></div></header>
     <div class="status"><span class="status-dot is-loading" data-status-dot></span><span data-status data-i18n="loadingStatus">載入已發布新聞…</span></div>
     <div class="reader-grid">
       <aside class="rail" data-i18n-aria-label="stockIndex"><h2 data-i18n="stockIndex">股票索引</h2><label class="search"><span aria-hidden="true">⌕</span><input data-stock-search data-i18n-placeholder="searchStock" type="search" placeholder="輸入股名或代號" data-i18n-aria-label="searchStock"></label><div class="stock-list" data-stock-list></div><p class="rail-note" data-i18n-html="railNote">以股票為線索，以來源為依據。<br><br>最新 → 最舊。日期不完整時，網站不猜測精確時間。</p></aside>
       <main>
         <div class="mobile-stock-tools" data-i18n-aria-label="stockSelection"><label class="mobile-search search"><span aria-hidden="true">⌕</span><input data-stock-search-mobile data-i18n-placeholder="searchStock" type="search" placeholder="輸入股名或代號" data-i18n-aria-label="searchStock"></label><label class="mobile-stock-select-label"><span data-i18n="readStock">閱讀股票</span><select data-mobile-stock-select data-i18n-aria-label="selectStock" aria-label="選擇台灣股票"><option value="all">全部市場消息</option></select></label></div>
-        <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">台灣市場 / 公司新聞</p><h2 data-company-name>台灣市場</h2><div class="symbol" data-company-symbol>TW</div><p data-i18n="companyIntro">保留來源與日期，不替事實加戲。</p></div><div class="data-meta" data-updated data-i18n="dataLoading">資料載入中…</div></section>
+        <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">台灣市場 / 公司新聞</p><h2 data-company-name>台灣市場</h2></div><div class="data-meta" data-updated data-i18n="dataLoading">資料載入中…</div></section>
         <div class="filters" data-i18n-aria-label="dateRange"><button class="filter" type="button" data-range="all" aria-pressed="true" data-i18n="rangeAll">全部</button><button class="filter" type="button" data-range="7" aria-pressed="false" data-i18n="range7">7 天</button><button class="filter" type="button" data-range="30" aria-pressed="false" data-i18n="range30">30 天</button><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">有較新的新聞資料。</span><button type="button" data-update-reload data-i18n="updateReading">更新閱讀</button></div>
         <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
@@ -29,6 +29,6 @@
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">看見事件。保留脈絡。</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">隱私</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">條款</a></span></footer>
   </div>
     <script src="../assets/news-data.js?v=20261011-ai-reading" defer></script>
-    <script src="../assets/news.js?v=20261011-ai-reading" defer></script>
+    <script src="../assets/news.js?v=20261011-reader-navigation" defer></script>
 </body>
 </html>

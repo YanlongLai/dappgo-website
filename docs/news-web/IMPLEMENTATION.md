@@ -57,6 +57,22 @@ The custom domain is an external Pages/DNS configuration gate, not a code
 assumption. The deployment record must capture the Pages project, deployment
 ID, custom-domain state and live HTTP checks.
 
+## Reader navigation contract
+
+The market switcher is intentionally ordered `US` then `TW` on both editions.
+The selected stock, date range, search query and language are represented by
+the page query string (`stock`, `range`, `q`, and `lang`). State changes use
+`history.replaceState` so a reader can follow an article in the same tab and
+use the browser Back button to return to the same reader selection. A `popstate`
+listener restores that selection without a data refetch. The source link keeps
+the source URL and visible publication date in the card; it does not open a
+new tab or add editorial claims.
+
+The company header contains only the section crumb and selected company name.
+The former symbol/market line and explanatory copy are deliberately not part
+of the rendered contract. Keep this removal in both `/us/` and `/tw/` when
+updating the reader template.
+
 ## Verification contract
 
 - Local: pointer/payload resolution, schema guard, title/summary normalization,
