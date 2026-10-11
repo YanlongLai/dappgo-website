@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>DappGo | Website design preview</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="design.css">
+  <script type="module" src="design.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-copy="skip">跳至主要內容</a>
+  <header class="header">
+    <a class="brand" href="#main" aria-label="DappGo"><img src="../../favicon.svg" width="32" height="32" alt=""><span>DappGo<span class="brand-period">.</span></span></a>
+    <nav id="nav" aria-label="主要導覽">
+      <a href="#products" data-copy="navProducts">我們的產品</a>
+      <a href="#apps" data-copy="navApps">下載 App</a>
+      <a href="#method" data-copy="navMethod">如何運作</a>
+      <a href="#workflows" data-copy="navBusiness">企業自動化</a>
+    </nav>
+    <div class="tools">
+      <button id="language" type="button" aria-label="Switch to English">EN</button>
+      <button id="theme" type="button" aria-label="切換深色模式"><span aria-hidden="true">◐</span></button>
+      <button id="menu" type="button" aria-expanded="false" aria-controls="nav" data-copy="menu">選單</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-copy="eyebrow">DAPPGO 研究工具</p>
+        <h1 id="hero-title" data-copy="heroTitle">每天的市場，<br><span>看得更清楚。</span></h1>
+        <p class="lead" data-copy="heroDesc">從美股、台股到選擇權，把資料與新聞整理成容易閱讀的研究。</p>
+        <div class="hero-actions"><a class="button primary" href="#products"><span data-copy="explore">探索產品</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#apps" data-copy="download">下載 App</a></div>
+      </div>
+      <figure class="hero-visual">
+        <div class="hero-screen-space">
+          <img class="phone secondary-phone" src="../../assets/screenshots/options/explore-330.webp" width="330" height="717" alt="Options Explorer 股票探索頁面，英文介面" data-alt="exploreAlt">
+          <img class="phone primary-phone" src="../../assets/screenshots/options/dashboard-660.webp" width="660" height="1434" alt="Options Explorer 儀表板，英文介面" data-alt="dashboardAlt" fetchpriority="high">
+        </div>
+        <figcaption><span>Options Explorer</span><span data-copy="realScreen">實際 App 畫面</span></figcaption>
+      </figure>
+    </section>
+    <div class="intro-strip wrap"><p data-copy="intro">在瀏覽器開始，在手機繼續探索。</p><span data-copy="introNote">美股 · 台股 · 選擇權 · 公司新聞</span></div>
+    <section id="products" class="wrap section">
+      <div class="section-heading"><h2 data-copy="productsTitle">找到你的研究入口。</h2><p data-copy="productsDesc">先選擇你關心的市場。每個產品，都有清楚的用途。</p></div>
+      <div class="product-workbench">
+        <div class="product-tabs" role="tablist" aria-label="產品" id="product-tabs"></div>
+        <div id="product-panel" role="tabpanel" tabindex="0"></div>
+      </div>
+    </section>
+    <section id="apps" class="app-section section">
+      <div class="wrap">
+        <div class="section-heading"><h2 data-copy="appsTitle">把喜歡的工具，帶在身邊。</h2><p data-copy="appsDesc">四款 Android App，加上台股與 Options 的 iOS 版本。選擇適合你的裝置。</p></div>
+        <div class="app-grid" id="app-grid"></div>
+      </div>
+    </section>
+    <section id="method" class="wrap section">
+      <div class="section-heading"><h2 data-copy="methodTitle">有來源，才有研究的起點。</h2><p data-copy="methodDesc">從市場資料到公司新聞，把值得注意的線索放進同一個脈絡。</p></div>
+      <div class="method-flow">
+        <article><img src="../../icons/lucide/newspaper.svg" width="28" height="28" alt=""><h3 data-copy="methodOne">從資料出發</h3><p data-copy="methodOneDesc">整理公開市場資料與新聞來源，保留可以追查的背景。</p></article>
+        <article><img src="../../icons/lucide/bar-chart-2.svg" width="28" height="28" alt=""><h3 data-copy="methodTwo">把線索放在一起</h3><p data-copy="methodTwoDesc">結合市場、個股與研究說明，幫助你比較不同觀點。</p></article>
+        <article><img src="../../icons/lucide/smartphone.svg" width="28" height="28" alt=""><h3 data-copy="methodThree">選擇你的閱讀方式</h3><p data-copy="methodThreeDesc">用網頁快速查看，或用 App 建立自己的日常研究習慣。</p></article>
+      </div>
+      <p class="research-note" data-copy="researchNote">市場資料可能延遲。研究產品提供一般資訊與教育用途，沒有券商連結或下單功能。</p>
+    </section>
+    <section id="workflows" class="wrap business-section section">
+      <div><p class="eyebrow" data-copy="businessLabel">給你的團隊</p><h2 data-copy="businessTitle">把重複工作，<br>變成可靠的流程。</h2><p data-copy="businessDesc">把建構 DappGo 的經驗，帶進你的資料整合、AI 應用與內容工作流程。</p><a class="button outline" href="#contact" data-copy="contactCta">聊聊你的想法</a></div>
+      <div class="questions">
+        <details open><summary data-copy="faqOne">DappGo 的資料是即時行情嗎？</summary><p data-copy="faqOneDesc">研究內容依已發布資料更新。請以各產品顯示的資料日期與來源為準，不能視為即時成交報價。</p></details>
+        <details><summary data-copy="faqTwo">新聞網站與股票 App 有什麼不同？</summary><p data-copy="faqTwoDesc">News 著重依市場與公司整理新聞；Stocks 提供市場、個股與研究資料，適合一起使用。</p></details>
+        <details><summary data-copy="faqThree">可以協助企業做什麼？</summary><p data-copy="faqThreeDesc">從資料整理、重複性研究到內容流程，一起評估問題、輸入與輸出，再決定適合的自動化範圍。</p></details>
+      </div>
+    </section>
+    <section id="contact" class="wrap contact-section"><h2 data-copy="contactTitle">有想法，歡迎聊聊。</h2><a class="button primary" href="https://docs.google.com/forms/d/e/1FAIpQLScKpsX7wW6jPi7oX0lvIC8WT421Gm7lMhkXVZ2QMFPZ1LJUrA/viewform"><span data-copy="contactCta">聊聊你的想法</span><span aria-hidden="true">↗</span></a></section>
+    <noscript><section class="wrap section"><h2>Products / 產品</h2><p>US Stocks: <a href="https://stocks.dappgo.com/us/">Web</a> · <span>App Store — Coming soon</span> · <a href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp">Google Play</a></p><p>TW Stocks: <a href="https://stocks.dappgo.com/tw/">Web</a> · <a href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp">Google Play</a> · <a href="https://apps.apple.com/app/id6768116538">App Store</a></p><p>Options Explorer: <a href="https://options.dappgo.com/us/">Web</a> · <a href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp">Google Play</a> · <a href="https://apps.apple.com/app/id6768116720">App Store</a></p><p>DappGo News: <a href="https://news.dappgo.com/">Web</a></p><p>Number Merge: <span>App Store — Coming soon</span> · <a href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge">Google Play</a></p></section></noscript>
+  </main>
+  <footer class="wrap footer"><a class="brand" href="#main"><img src="../../favicon.svg" width="26" height="26" alt=""><span>DappGo.</span></a><p>© 2026 DappGo</p><nav aria-label="法律資訊與支援"><a href="https://dappgo.com/privacy.html" data-copy="privacy">隱私權</a><a href="https://dappgo.com/terms.html" data-copy="terms">服務條款</a><a href="https://dappgo.com/support.html" data-copy="support">支援</a></nav></footer>
+</body>
+</html>
