@@ -50,7 +50,11 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261011-ai-reading/);
+  assert.match(html, /news\.js\?v=20261011-reader-navigation/);
+  assert.match(html, /data-i18n="navUs">US/);
+  assert.match(html, /data-i18n="navTw">TW/);
+  assert.ok(html.indexOf('data-i18n="navUs"') < html.indexOf('data-i18n="navTw"'), `${route}: US navigation must precede TW`);
+  assert.doesNotMatch(html, /data-company-symbol|data-i18n="companyIntro"/);
   assert.match(html, /data-ai-analysis/);
   assert.ok(html.indexOf('data-range="30"') < html.indexOf('data-ai-analysis'));
   assert.doesNotMatch(html, /class="edition"|data-i18n="edition(?:Top|Name|Time)"|class="hero"|data-i18n(?:-html)?="hero(?:Title|Body)"/);
@@ -77,5 +81,10 @@ assert.match(script, /document\.documentElement\.lang/);
 assert.match(script, /function labels\(\)/);
 assert.match(script, /function applyLanguage\(\)/);
 assert.match(script, /Intl\.DateTimeFormat/);
+assert.match(script, /function syncViewUrl\(\)/);
+assert.match(script, /history\.replaceState/);
+assert.match(script, /addEventListener\("popstate"/);
+assert.match(script, /params\.set\("stock", state\.stock\)/);
+assert.doesNotMatch(script, /target="_blank"/);
 
 console.log(`news reader contract: passed (${files.length} files)`);

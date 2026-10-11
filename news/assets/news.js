@@ -15,16 +15,27 @@
       return null;
     }
   })();
+  const validLanguage = (value) => ["zh", "en"].includes(value) ? value : null;
+  const validRange = (value) => ["all", "7", "30"].includes(value) ? value : "all";
+  function readViewState() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      stock: params.get("stock") || null,
+      query: params.get("q") || "",
+      range: validRange(params.get("range")),
+      language: validLanguage(params.get("lang")) || savedLanguage || defaultLanguage
+    };
+  }
+  const initialView = readViewState();
   const proxyRoot = `/api/markets/${market}/dashboard/`;
   const pointerUrl = `${proxyRoot}latest.json`;
-  const state = { pointer: null, payload: null, stock: null, query: "", range: "all", language: savedLanguage || defaultLanguage, refreshTimer: null, errorMessage: null };
+  const state = { pointer: null, payload: null, stock: initialView.stock, query: initialView.query, range: initialView.range, language: initialView.language, refreshTimer: null, errorMessage: null };
   const els = {
     stockList: root.querySelector("[data-stock-list]"),
     search: root.querySelector("[data-stock-search]"),
     mobileSearch: root.querySelector("[data-stock-search-mobile]"),
     mobileSelect: root.querySelector("[data-mobile-stock-select]"),
     company: root.querySelector("[data-company-name]"),
-    symbol: root.querySelector("[data-company-symbol]"),
     updated: root.querySelector("[data-updated]"),
     stories: root.querySelector("[data-stories]"),
     analysis: root.querySelector("[data-ai-analysis]"),
@@ -45,8 +56,8 @@
     return {
       documentTitle: `DappGo News · ${taiwan ? (chinese ? "台灣市場" : "Taiwan") : (chinese ? "美國市場" : "United States")}`,
       marketName,
-      navTw: chinese ? "台灣" : "Taiwan",
-      navUs: chinese ? "美國" : "United States",
+      navTw: "TW",
+      navUs: "US",
       stockIndex: chinese ? "股票索引" : "Stock index",
       searchStock: chinese ? "輸入股名或代號" : "Search company or ticker",
       railNote: chinese ? "以股票為線索，以來源為依據。<br><br>最新 → 最舊。日期不完整時，網站不猜測精確時間。" : "Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.",
@@ -54,7 +65,6 @@
       readStock: chinese ? "閱讀股票" : "Read stock",
       selectStock: chinese ? "選擇股票" : "Select stock",
       companyCrumb: taiwan ? (chinese ? "台灣市場 / 公司新聞" : "TAIWAN / COMPANY NEWS") : (chinese ? "美國市場 / 公司新聞" : "UNITED STATES / COMPANY NEWS"),
-      companyIntro: chinese ? "保留來源與日期，不替事實加戲。" : "Source and date stay in the reading flow.",
       dateRange: chinese ? "期間篩選" : "Date range",
       rangeAll: chinese ? "全部" : "All",
       range7: chinese ? "7 天" : "7 days",
@@ -75,7 +85,6 @@
       privacy: chinese ? "隱私" : "Privacy",
       terms: chinese ? "條款" : "Terms",
       footerLine: chinese ? "看見事件。保留脈絡。" : "See the event. Keep the context.",
-      marketSymbol: taiwan ? "TWSE" : (chinese ? "美國市場" : "US MARKET"),
       dateUnavailable: chinese ? "日期未提供" : "Date unavailable",
       dataLabel: chinese ? "資料" : "Data",
       dataLoading: chinese ? "資料載入中…" : "Data loading…",
@@ -127,6 +136,34 @@
   function setStatus(message, kind) {
     if (els.status) els.status.textContent = message;
     if (els.statusDot) els.statusDot.className = `status-dot${kind ? ` is-${kind}` : ""}`;
+  }
+
+  function syncViewUrl() {
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    if (state.stock) params.set("stock", state.stock);
+    else params.delete("stock");
+    if (state.query) params.set("q", state.query);
+    else params.delete("q");
+    if (state.range !== "all") params.set("range", state.range);
+    else params.delete("range");
+    params.set("lang", state.language);
+    const search = params.toString();
+    window.history.replaceState(null, "", `${url.pathname}${search ? `?${search}` : ""}${url.hash}`);
+  }
+
+  function syncRangeButtons() {
+    root.querySelectorAll("[data-range]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.range === state.range)));
+  }
+
+  function applyViewStateFromUrl() {
+    const next = readViewState();
+    state.stock = next.stock;
+    state.query = next.query;
+    state.range = next.range;
+    state.language = next.language;
+    syncRangeButtons();
+    applyLanguage();
   }
 
   function escapeHtml(value) {
@@ -193,11 +230,12 @@
     const filter = state.query.toLowerCase();
     const allEntries = entries();
     const all = allEntries.filter((entry) => `${entry.symbol} ${entry.name}`.toLowerCase().includes(filter));
+    if (state.stock && state.stock !== "all" && !allEntries.some((entry) => entry.symbol === state.stock)) state.stock = "all";
     if (!state.stock && all.length) state.stock = all[0].symbol;
     const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${escapeHtml(copy.allMarket)}</span><small>ALL</small></button>`;
     const buttons = all.map((entry) => `<button class="stock-button" type="button" data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"><span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small></button>`).join("");
     els.stockList.innerHTML = allButton + buttons;
-    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => { state.stock = button.dataset.stock; renderStocks(); renderStories(); }));
+    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => { state.stock = button.dataset.stock; syncViewUrl(); renderStocks(); renderStories(); }));
     const selectedEntry = allEntries.find((entry) => entry.symbol === state.stock);
     const mobileEntries = selectedEntry && state.stock !== "all" && !all.some((entry) => entry.symbol === state.stock) ? [selectedEntry, ...all] : all;
     if (els.mobileSelect) {
@@ -226,7 +264,6 @@
       return published && Date.now() - published <= Number(state.range) * 86400000;
     });
     els.company.textContent = state.stock === "all" ? copy.allMarket : company.name;
-    els.symbol.textContent = state.stock === "all" ? market.toUpperCase() : `${company.symbol} · ${copy.marketSymbol}`;
     els.count.textContent = `${filtered.length} ${copy.storyCount} · ${copy.newestToOldest}`;
     if (!filtered.length) {
       els.stories.innerHTML = `<div class="empty">${escapeHtml(copy.noNews)}</div>`;
@@ -246,7 +283,7 @@
     const publisher = item.source || item.provider || copy.source;
     const stockTag = `${item.symbol} / ${item.company}`;
     const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"></figure>` : "";
-    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
+    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
   }
 
   function renderAnalysis() {
@@ -285,6 +322,8 @@
     setStatus(`${copy.live} ${copy.marketName} · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
     renderStocks();
     renderStories();
+    syncRangeButtons();
+    syncViewUrl();
   }
 
   async function initialLoad() {
@@ -303,16 +342,17 @@
 
   function schedulePoll() { clearTimeout(state.refreshTimer); state.refreshTimer = setTimeout(poll, 120000 + Math.floor(Math.random() * 15000)); }
 
-  function updateQuery(value) { state.query = value; renderStocks(); }
+  function updateQuery(value) { state.query = value; syncViewUrl(); renderStocks(); }
 
   els.search.addEventListener("input", (event) => updateQuery(event.target.value));
   els.mobileSearch.addEventListener("input", (event) => updateQuery(event.target.value));
-  els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; renderStocks(); renderStories(); });
+  els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; syncViewUrl(); renderStocks(); renderStories(); });
   els.languageButtons.forEach((button) => button.addEventListener("click", () => {
     const next = button.dataset.language;
     if (!["zh", "en"].includes(next) || next === state.language) return;
     state.language = next;
     try { localStorage.setItem(languageStorageKey, next); } catch (_) { /* Preference is optional. */ }
+    syncViewUrl();
     applyLanguage();
   }));
   els.reload.addEventListener("click", async () => {
@@ -327,7 +367,8 @@
       els.error.textContent = `${copy.unableToRefresh} ${copy.marketName} news: ${error.message}`;
     }
   });
-  root.querySelectorAll("[data-range]").forEach((button) => button.addEventListener("click", () => { state.range = button.dataset.range; root.querySelectorAll("[data-range]").forEach((item) => item.setAttribute("aria-pressed", String(item === button))); renderStories(); }));
+  root.querySelectorAll("[data-range]").forEach((button) => button.addEventListener("click", () => { state.range = button.dataset.range; syncViewUrl(); syncRangeButtons(); renderStories(); }));
+  window.addEventListener("popstate", applyViewStateFromUrl);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") poll(); });
   applyLanguage();
   initialLoad();
