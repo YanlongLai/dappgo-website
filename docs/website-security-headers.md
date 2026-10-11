@@ -6,6 +6,12 @@ As of 2026-09-17, `https://dappgo.com/` returns `cache-control: max-age=600` but
 
 The HTML meta CSP remains a defense-in-depth policy for browsers that honor it. `frame-ancestors` is intentionally not included in that meta policy because browsers only enforce it from an HTTP response header.
 
+The machine-readable contract is checked in at
+`config/security-headers.json` and is validated by `npm run quality`. That
+file deliberately records `contract-only-until-live-header-check` until the
+actual edge response is verified; it is not a claim that GitHub Pages has
+already applied the headers.
+
 ## Owner/hosting action still required
 
 Apply the following at the actual edge or hosting layer that serves `dappgo.com`:

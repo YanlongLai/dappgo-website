@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "site": "https://dappgo.com",
+  "application_point": "cloudflare-edge-or-host",
+  "deployment_status": "contract-only-until-live-header-check",
+  "required_headers": {
+    "Content-Security-Policy": "frame-ancestors 'none';",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  },
+  "conditional_headers": {
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+  },
+  "activation_prerequisites": [
+    "Every production and rollback hostname is HTTPS-ready",
+    "The edge response is checked after applying the headers",
+    "The CSP is reviewed against analytics, AdSense and CMP dependencies"
+  ]
+}

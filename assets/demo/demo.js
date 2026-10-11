@@ -57,6 +57,7 @@
     newsDescription: "依市場與公司整理新聞，從最新到最舊閱讀每一則故事的脈絡。",
     productUpdates: "追蹤產品消息",
     openWeb: "開啟網頁版",
+    openOptionsWeb: "開啟 Options 網頁版",
     openUsWeb: "開啟美股網頁版",
     openTwWeb: "開啟台股網頁版",
     openNewsWeb: "開啟 News 網頁版",

@@ -4,6 +4,7 @@
   "private": true,
   "description": "DappGo marketing website (static HTML on GitHub Pages, dappgo.app).",
   "scripts": {
-    "release": "./scripts/release.sh"
+    "release": "./scripts/release.sh",
+    "quality": "node scripts/quality-gate.mjs"
   }
 }

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "canonical_host": "https://dappgo.com",
+  "products": [
+    {
+      "id": "options-explorer",
+      "name": "Options Explorer",
+      "web_routes": [
+        {"market": "us", "url": "https://options.dappgo.com/us/"}
+      ],
+      "stores": {
+        "ios": {"status": "live", "url": "https://apps.apple.com/app/id6768116720"},
+        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp"}
+      }
+    },
+    {
+      "id": "us-stocks",
+      "name": "US Stocks",
+      "web_routes": [
+        {"market": "us", "url": "https://stocks.dappgo.com/us/"}
+      ],
+      "stores": {
+        "ios": {"status": "coming-soon"},
+        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp"}
+      }
+    },
+    {
+      "id": "taiwan-stocks",
+      "name": "Taiwan Stocks",
+      "web_routes": [
+        {"market": "tw", "url": "https://stocks.dappgo.com/tw/"}
+      ],
+      "stores": {
+        "ios": {"status": "live", "url": "https://apps.apple.com/app/id6768116538"},
+        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp"}
+      }
+    },
+    {
+      "id": "news",
+      "name": "DappGo News",
+      "web_routes": [
+        {"market": "us", "url": "https://news.dappgo.com/us/"},
+        {"market": "tw", "url": "https://news.dappgo.com/tw/"}
+      ],
+      "stores": {}
+    },
+    {
+      "id": "number-merge",
+      "name": "Number Merge",
+      "web_routes": [],
+      "stores": {
+        "ios": {"status": "coming-soon"},
+        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge"}
+      }
+    }
+  ]
+}

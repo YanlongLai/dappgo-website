@@ -20,11 +20,19 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 
 ## Web applications
 
-- [Taiwan stocks Web](https://stocks.dappgo.com/tw)
-- [US stocks Web](https://stocks.dappgo.com/us)
-- [US options Web](https://options.dappgo.com/us)
+- The checked-in [product catalog](https://dappgo.com/config/product-catalog.json) is the canonical map of public routes and store availability.
+- [Taiwan stocks Web](https://stocks.dappgo.com/tw/)
+- [US stocks Web](https://stocks.dappgo.com/us/)
+- [US options Web](https://options.dappgo.com/us/)
 - [DappGo News — Taiwan](https://news.dappgo.com/tw/)
 - [DappGo News — United States](https://news.dappgo.com/us/)
+
+## Native app availability
+
+- Options Explorer: iOS and Android are available.
+- Taiwan Stocks: iOS and Android are available.
+- US Stocks: Android is available; iOS is coming soon.
+- Number Merge: Android is available; iOS is coming soon.
 
 ## Website and policies
 

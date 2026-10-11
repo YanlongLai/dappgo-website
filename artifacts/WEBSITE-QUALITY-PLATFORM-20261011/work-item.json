@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "id": "WEBSITE-QUALITY-PLATFORM-20261011",
+  "project": "dappgo-studio",
+  "title": "Website product catalog, security contract, quality gate, SEO and image budgets",
+  "status": "approved",
+  "risk": "medium",
+  "question": "Can the public website reduce cross-session drift and catch route, security, SEO and performance regressions before deployment?",
+  "artifacts": {
+    "prd": "artifacts/WEBSITE-QUALITY-PLATFORM-20261011/PRD.md",
+    "tdd": "artifacts/WEBSITE-QUALITY-PLATFORM-20261011/TDD.md",
+    "requirements_grill": "artifacts/WEBSITE-QUALITY-PLATFORM-20261011/REQUIREMENTS_GRILL.md",
+    "experiment": "artifacts/WEBSITE-QUALITY-PLATFORM-20261011/EVIDENCE.md"
+  },
+  "assignment": {
+    "producer": "web-platform-engineer",
+    "peer_reviewer": "web-platform-engineer",
+    "director": "engineering-director",
+    "assurance": "independent-review"
+  },
+  "budget": {"token_limit": 30000, "max_iterations": 3, "deadline": "2026-10-13"},
+  "acceptance_criteria": [
+    "A versioned product catalog is the validation source for public products, markets, routes and store availability.",
+    "A dependency-free quality gate checks catalog drift, ownership/privacy contracts, JavaScript syntax, SEO discovery and image budgets.",
+    "Required security headers are declared in an edge-applicable contract without falsely claiming GitHub Pages has applied them.",
+    "SEO metadata and sitemap/discovery files remain internally consistent.",
+    "Existing public routes, app links, language toggle and disabled store buttons remain unchanged for users."
+  ],
+  "evidence": ["Owner approved execution of the five prioritized website improvements with merge, deployment and verification."],
+  "decision": "pending",
+  "provenance": {
+    "codex_task_id": "01a11404-c851-7830-a9f2-0494afcd2891",
+    "host_id": "local",
+    "repository": "https://github.com/YanlongLai/dappgo-website.git",
+    "branch": "feature/website-quality-catalog-seo-20261011",
+    "worktree": "website-quality-catalog-seo-20261011"
+  }
+}
