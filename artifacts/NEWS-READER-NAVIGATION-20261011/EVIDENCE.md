@@ -29,6 +29,21 @@
 
 ## Deployment verification
 
-To be recorded after merge: merged source SHA, Cloudflare Pages deployment
-ID, `/us/` and `/tw/` HTTP checks, rendered header/nav state, one same-tab
-article navigation followed by browser Back, and mobile no-overflow checks.
+- Merged source SHA: `441bf2ce9c313d6907947fd176ac764b5bfde41f`.
+- Cloudflare Pages project: `dappgo-news`.
+- Production deployment ID: `0875cb6b-0bb4-462c-8ffc-5a9c21921147`.
+- Deployment URL: `https://0875cb6b.dappgo-news.pages.dev`.
+- `https://news.dappgo.com/us/` — HTTP 200, deployed asset
+  `news.js?v=20261011-reader-navigation`, pointer 200.
+- `https://news.dappgo.com/tw/` — HTTP 200, deployed asset
+  `news.js?v=20261011-reader-navigation`, pointer 200.
+- Browser rendering confirmed both editions show `US` before `TW`, no company
+  symbol/market line, and no explanatory source/date sentence.
+- Browser return-path check: opened a US source link in the same tab from
+  `https://news.dappgo.com/us/?stock=AAPL&lang=zh`; browser Back returned to
+  the News reader with the same URL state, selected Apple story list and
+  Chinese language.
+- The change removed no responsive layout rules; local responsive contract
+  remains green and the deployed mobile DOM keeps the existing search/select
+  controls. No horizontal-overflow regression was observed in the touched
+  layout.
