@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const context = vm.createContext({});
+vm.runInContext(fs.readFileSync(new URL('../assets/news-data.js', import.meta.url), 'utf8'), context);
+const { analysis, localizedNews, plainAnalysis } = context.DappGoNewsData;
+assert.equal(plainAnalysis('**台積電創天價** [[pos:營收成長]]'), '台積電創天價 營收成長');
+assert.equal(plainAnalysis('<script>bad</script>'), '<script>bad</script>'); // Renderer escapes, never parses provider HTML.
+const payload = { ai_commentary: '市場解析', ai_commentary_en: 'Market analysis', ticker_data: { AAPL: { news_commentary: '個股解析', news_commentary_en_summary: 'Company analysis', news_commentary_en_highlights: ['First fact'] }, EMPTY: {} } };
+assert.equal(analysis(payload, 'all', 'zh').summary, '市場解析');
+assert.equal(analysis(payload, 'all', 'en').summary, 'Market analysis');
+assert.equal(analysis(payload, 'AAPL', 'zh').summary, '個股解析');
+assert.equal(analysis(payload, 'AAPL', 'en').summary, 'Company analysis');
+assert.equal(analysis(payload, 'EMPTY', 'zh'), null);
+assert.equal(analysis(payload, 'MISSING', 'en'), null);
+assert.equal(analysis({ ai_commentary: '中文' }, 'all', 'en'), null);
+const mapped = { ai_commentary: { summary: '綜合解析', '2330': '台積電解析' }, ai_commentary_en: { summary: 'Market', '2330': 'TSMC' }, ticker_data: { '2330': {} } };
+assert.equal(analysis(mapped, 'all', 'zh').summary, '綜合解析');
+assert.equal(analysis(mapped, '2330', 'zh').summary, '台積電解析');
+assert.equal(analysis(mapped, '2330', 'en').summary, 'TSMC');
+assert.equal(analysis({ ...mapped, ai_commentary: { '2330': '台積電' } }, 'all', 'zh'), null);
+assert.equal(localizedNews({ title: 'Original', title_zh: '中文標題', summary_zh: '中文摘要' }, 'zh').title, '中文標題');
+assert.equal(localizedNews({ title: 'Original', title_zh: '' }, 'zh').title, 'Original');
+assert.equal(localizedNews({ title: '中文', title_en: 'English' }, 'en').title, 'English');
+console.log('Locale and scope selectors: passed');

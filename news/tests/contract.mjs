@@ -50,7 +50,9 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261011-clean-reader-header/);
+  assert.match(html, /news\.js\?v=20261011-ai-reading/);
+  assert.match(html, /data-ai-analysis/);
+  assert.ok(html.indexOf('data-range="30"') < html.indexOf('data-ai-analysis'));
   assert.doesNotMatch(html, /class="edition"|data-i18n="edition(?:Top|Name|Time)"|class="hero"|data-i18n(?:-html)?="hero(?:Title|Body)"/);
   assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
