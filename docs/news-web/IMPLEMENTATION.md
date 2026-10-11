@@ -26,6 +26,25 @@ are reduced to avoid duplicate copy; no summary is invented.
 
 ## Public routes
 
+## Existing AI reading cards
+
+Both market readers show a scoped AI card after the All/7/30-day filters.
+Language changes rerender existing published commentary immediately without
+network or model calls. Ticker-local news_commentary (zh) or news_commentary_en
+(en) and their cleaned fields take priority; envelope ai_commentary / ai_commentary_en
+objects provide per-ticker fallback. All-market selection uses only the matching
+report summary, never a concatenation of ticker text. Missing locale/scope data
+hides the card. Provider text is escaped and engine markers/Markdown emphasis
+are normalized. The card identifies itself as latest-report analysis, independent
+of the article date filter. Supplied title_zh/title_en and summary_zh/summary_en
+are preferred for articles; no translation is fabricated if absent.
+
+Run `node news/tests/analysis.mjs` and `node news/tests/contract.mjs` before
+promotion. Deploy from the clean merged checkout's `news/` root so Pages Functions
+are included. Version CSS/JS URLs together when reader assets change.
+
+## Public destinations
+
 - `news.dappgo.com/tw/` — Taiwan edition and ticker reader.
 - `news.dappgo.com/us/` — United States edition and ticker reader.
 

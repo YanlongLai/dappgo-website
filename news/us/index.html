@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
   <link rel="canonical" href="https://news.dappgo.com/us/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261011-clean-reader-header">
+  <link rel="stylesheet" href="../assets/news.css?v=20261011-ai-reading">
   <title>DappGo News · United States</title>
 </head>
 <body>
@@ -21,12 +21,14 @@
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">Newer published news is available.</span><button type="button" data-update-reload data-i18n="updateReading">Refresh reading</button></div>
         <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
         <div data-error class="error-box" role="alert" hidden></div>
+        <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
         <section data-stories aria-live="polite"></section>
       </main>
     </div>
     <p class="disclaimer" data-i18n="disclaimer">Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice.</p>
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span></footer>
   </div>
-    <script src="../assets/news.js?v=20261011-clean-reader-header" defer></script>
+    <script src="../assets/news-data.js?v=20261011-ai-reading" defer></script>
+    <script src="../assets/news.js?v=20261011-ai-reading" defer></script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+.ai-analysis { margin: 22px 0 32px; padding: clamp(20px, 4vw, 32px); background: var(--wash); border: 1px solid var(--line); border-left: 4px solid var(--forest); border-radius: 4px; overflow-wrap: anywhere; }
+.ai-analysis[hidden] { display: none; }
+.ai-analysis h2 { margin: 0 0 8px; color: var(--forest-dark); font-size: clamp(22px, 3vw, 28px); }
+.analysis-note { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.analysis-copy { margin: 0; white-space: pre-line; line-height: 1.85; }
+.ai-analysis ul { padding-left: 22px; margin: 16px 0 0; line-height: 1.8; }
+.ai-analysis li + li { margin-top: 8px; }
 :root {
   color-scheme: light;
   --paper: #f5f3ee;

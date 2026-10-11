@@ -27,6 +27,7 @@
     symbol: root.querySelector("[data-company-symbol]"),
     updated: root.querySelector("[data-updated]"),
     stories: root.querySelector("[data-stories]"),
+    analysis: root.querySelector("[data-ai-analysis]"),
     count: root.querySelector("[data-count]"),
     status: root.querySelector("[data-status]"),
     statusDot: root.querySelector("[data-status-dot]"),
@@ -214,6 +215,7 @@
 
   function renderStories() {
     const copy = labels();
+    renderAnalysis();
     const selected = selectedEntries();
     const company = selected[0] || { symbol: state.stock || "", name: copy.marketName };
     const stories = selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })));
@@ -237,6 +239,7 @@
   }
 
   function renderStory(item, lead) {
+    item = DappGoNewsData.localizedNews(item, state.language);
     const copy = labels();
     const image = usableImage(item);
     const summary = stripTitlePrefix(item.title, item.summary);
@@ -244,6 +247,16 @@
     const stockTag = `${item.symbol} / ${item.company}`;
     const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"></figure>` : "";
     return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
+  }
+
+  function renderAnalysis() {
+    const result = DappGoNewsData.analysis(state.payload, state.stock, state.language);
+    els.analysis.hidden = !result;
+    if (!result) { els.analysis.innerHTML = ""; return; }
+    const clean = value => escapeHtml(DappGoNewsData.plainAnalysis(value));
+    const title = state.language === "zh" ? "AI 解讀" : "AI analysis";
+    const note = state.language === "zh" ? "最新已發布資料的解析，不隨新聞期間篩選改寫。" : "Analysis from the latest published report, independent of the news date filter.";
+    els.analysis.innerHTML = `<h2>${title}</h2><p class="analysis-note">${note}</p>${result.summary ? `<p class="analysis-copy">${clean(result.summary)}</p>` : ""}${result.highlights.length ? `<ul>${result.highlights.map(value => `<li>${clean(value)}</li>`).join("")}</ul>` : ""}`;
   }
 
   async function fetchJson(url) {
