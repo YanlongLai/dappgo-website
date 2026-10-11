@@ -6,6 +6,10 @@ const root = path.resolve(new URL("..", import.meta.url).pathname);
 const files = ["index.html", "tw/index.html", "us/index.html", "assets/news.css", "assets/news.js", "_headers", "_routes.json", "wrangler.toml", "robots.txt", "sitemap.xml", "llms.txt", "functions/api/markets/[market]/dashboard/[file].js"];
 for (const file of files) assert.ok(fs.existsSync(path.join(root, file)), `missing ${file}`);
 
+const landing = fs.readFileSync(path.join(root, "index.html"), "utf8");
+assert.match(landing, /window\.location\.replace\("\/us\/"\)/);
+assert.doesNotMatch(landing, /url=\/tw\//);
+
 const script = fs.readFileSync(path.join(root, "assets/news.js"), "utf8");
 assert.match(script, /latest\.json/);
 assert.match(script, /data_url_v2/);
@@ -50,7 +54,7 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261011-reader-navigation/);
+  assert.match(html, /news\.js\?v=20261011-browser-locale/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
   assert.ok(html.indexOf('data-i18n="navUs"') < html.indexOf('data-i18n="navTw"'), `${route}: US navigation must precede TW`);
@@ -81,6 +85,10 @@ assert.match(script, /document\.documentElement\.lang/);
 assert.match(script, /function labels\(\)/);
 assert.match(script, /function applyLanguage\(\)/);
 assert.match(script, /Intl\.DateTimeFormat/);
+assert.match(script, /navigator\.languages/);
+assert.match(script, /navigator\.language/);
+assert.match(script, /const browserLanguage/);
+assert.match(script, /validLanguage\(params\.get\("lang"\)\) \|\| savedLanguage \|\| \(market === "us" \? browserLanguage : defaultLanguage\)/);
 assert.match(script, /function syncViewUrl\(\)/);
 assert.match(script, /history\.replaceState/);
 assert.match(script, /addEventListener\("popstate"/);
