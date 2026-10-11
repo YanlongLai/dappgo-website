@@ -15,6 +15,14 @@
       return null;
     }
   })();
+  const browserLanguage = (() => {
+    try {
+      const languages = Array.isArray(navigator.languages) && navigator.languages.length ? navigator.languages : [navigator.language];
+      return /^zh(?:-|$)/i.test(String(languages[0] || "")) ? "zh" : "en";
+    } catch (_) {
+      return "en";
+    }
+  })();
   const validLanguage = (value) => ["zh", "en"].includes(value) ? value : null;
   const validRange = (value) => ["all", "7", "30"].includes(value) ? value : "all";
   function readViewState() {
@@ -23,7 +31,7 @@
       stock: params.get("stock") || null,
       query: params.get("q") || "",
       range: validRange(params.get("range")),
-      language: validLanguage(params.get("lang")) || savedLanguage || defaultLanguage
+      language: validLanguage(params.get("lang")) || savedLanguage || (market === "us" ? browserLanguage : defaultLanguage)
     };
   }
   const initialView = readViewState();

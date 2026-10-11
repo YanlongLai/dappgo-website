@@ -73,6 +73,16 @@ The former symbol/market line and explanatory copy are deliberately not part
 of the rendered contract. Keep this removal in both `/us/` and `/tw/` when
 updating the reader template.
 
+## Landing language contract
+
+The News root (`news.dappgo.com/`) routes to the US edition. On the US page,
+language resolution is explicit URL `lang`, then the reader's saved manual
+choice, then the first browser language (`zh*` means Chinese), then English.
+This makes a new English browser see US English and a new Chinese browser see
+US Chinese without overriding a reader's deliberate language switch. The TW
+edition keeps its Chinese market default, subject to the same URL and saved
+choice overrides.
+
 ## Verification contract
 
 - Local: pointer/payload resolution, schema guard, title/summary normalization,
