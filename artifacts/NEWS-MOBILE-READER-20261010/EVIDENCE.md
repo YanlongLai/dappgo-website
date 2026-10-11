@@ -23,6 +23,20 @@
 - Versioned the CSS/JS asset URLs so Pages' immutable asset policy cannot keep
   a previous reader bundle after this fix.
 
+## Bilingual reader extension
+
+- Added one shared Chinese/English control to both `/tw/` and `/us/`.
+- The preference is stored locally under `dappgo-news-language`; switching
+  language updates interface labels, accessibility names, controls, status
+  messages and market-localized dates without refetching or changing the
+  in-memory payload.
+- The formal payload was inspected and does not expose authoritative parallel
+  translations for article titles or summaries. Those source RSS fields remain
+  unchanged, which avoids presenting invented translations as source content.
+- The control remains visible in the narrow-screen header and uses native
+  buttons with `aria-pressed` state. Desktop stock rail, mobile selector,
+  newest-first ordering and immutable gateway pointers remain shared.
+
 ## Verification
 
 Verified at `2026-10-11T06:01:07Z` in the feature worktree
@@ -41,6 +55,23 @@ Verified at `2026-10-11T06:01:07Z` in the feature worktree
     skeleton visibility was false after load.
   - Both pages reported zero browser console errors.
 
-No RSS pipeline, data gateway, Postiz, provider, schedule or production data
-was changed. No production deployment was performed in this change-only
-verification pass.
+Verified at `2026-10-11T06:11:59Z` in the same feature worktree after the
+bilingual extension:
+
+- `node --check news/assets/news.js` — passed.
+- `node news/tests/contract.mjs` — passed (`12 files`), including language
+  hooks, localized control contracts and language-switch CSS.
+- `git diff --check` — passed.
+- `scripts/verify-ai-readiness.py` with the managed AI001 runtime — passed.
+- Local Pages-style smoke server using the formal gateway:
+  - `/tw/` loaded pointer `33fae46240b4`, populated the Taiwan stock selector,
+    and switched from Chinese to English while retaining the live pointer and
+    stories.
+  - `/us/` loaded pointer `0eab2a98cf2c`, populated the US stock index, and
+    switched from English to Chinese while retaining the live pointer and
+    stories.
+  - Date output changed locale/time presentation with the toggle; source RSS
+    titles and summaries stayed in their original language.
+- No RSS pipeline, data gateway, Postiz, provider, schedule or production data
+  was changed. No production deployment was performed in this change-only
+  verification pass.

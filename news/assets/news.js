@@ -5,11 +5,19 @@
   if (!root) return;
 
   const market = root.dataset.market;
-  const marketLabel = market === "tw" ? "台灣市場" : "United States";
-  const locale = market === "tw" ? "zh-TW" : "en-US";
+  const defaultLanguage = market === "tw" ? "zh" : "en";
+  const languageStorageKey = "dappgo-news-language";
+  const savedLanguage = (() => {
+    try {
+      const value = localStorage.getItem(languageStorageKey);
+      return ["zh", "en"].includes(value) ? value : null;
+    } catch (_) {
+      return null;
+    }
+  })();
   const proxyRoot = `/api/markets/${market}/dashboard/`;
   const pointerUrl = `${proxyRoot}latest.json`;
-  const state = { pointer: null, payload: null, stock: null, query: "", range: "all", refreshTimer: null };
+  const state = { pointer: null, payload: null, stock: null, query: "", range: "all", language: savedLanguage || defaultLanguage, refreshTimer: null, errorMessage: null };
   const els = {
     stockList: root.querySelector("[data-stock-list]"),
     search: root.querySelector("[data-stock-search]"),
@@ -25,8 +33,101 @@
     update: root.querySelector("[data-update-banner]"),
     reload: root.querySelector("[data-update-reload]"),
     skeletons: root.querySelector("[data-skeletons]"),
-    error: root.querySelector("[data-error]")
+    error: root.querySelector("[data-error]"),
+    languageButtons: [...root.querySelectorAll("[data-language]")]
   };
+
+  function labels() {
+    const chinese = state.language === "zh";
+    const taiwan = market === "tw";
+    const marketName = taiwan ? (chinese ? "台灣市場" : "Taiwan market") : (chinese ? "美國市場" : "United States market");
+    return {
+      documentTitle: `DappGo News · ${taiwan ? (chinese ? "台灣市場" : "Taiwan") : (chinese ? "美國市場" : "United States")}`,
+      marketName,
+      editionTop: taiwan ? (chinese ? "台灣版 · 來源與時間保持透明" : "TAIWAN EDITION · SOURCES STAY VISIBLE") : (chinese ? "美國版 · 來源與時間保持透明" : "UNITED STATES EDITION · SOURCES STAY VISIBLE"),
+      editionName: taiwan ? (chinese ? "台灣版" : "TAIWAN EDITION") : (chinese ? "美國版" : "UNITED STATES EDITION"),
+      editionTime: taiwan ? (chinese ? "資料時間 · 台北時間" : "DATA TIME · TAIPEI TIME") : (chinese ? "資料時間 · 紐約時間" : "DATA TIME · NEW YORK TIME"),
+      heroTitle: chinese ? "這些公司。<br><em>這些脈絡。</em>" : "The companies.<br><em>The context.</em>",
+      heroBody: chinese ? "從一家公司開始，讀懂每一則消息背後的脈絡。新聞來自既有 RSS pipeline，網站只負責閱讀。" : (taiwan ? "Start with a company. Follow the source, date and context behind each published story." : "Start with a company. Follow the headlines, source, date and available thumbnail without losing the original context."),
+      navTw: chinese ? "台灣" : "Taiwan",
+      navUs: chinese ? "美國" : "United States",
+      stockIndex: chinese ? "股票索引" : "Stock index",
+      searchStock: chinese ? "輸入股名或代號" : "Search company or ticker",
+      railNote: chinese ? "以股票為線索，以來源為依據。<br><br>最新 → 最舊。日期不完整時，網站不猜測精確時間。" : "Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.",
+      stockSelection: chinese ? "股票選擇" : "Stock selection",
+      readStock: chinese ? "閱讀股票" : "Read stock",
+      selectStock: chinese ? "選擇股票" : "Select stock",
+      companyCrumb: taiwan ? (chinese ? "台灣市場 / 公司新聞" : "TAIWAN / COMPANY NEWS") : (chinese ? "美國市場 / 公司新聞" : "UNITED STATES / COMPANY NEWS"),
+      companyIntro: chinese ? "保留來源、日期與可用新聞縮圖；不替事實加戲。" : "Source, date and available article thumbnails stay in the reading flow.",
+      dateRange: chinese ? "期間篩選" : "Date range",
+      rangeAll: chinese ? "全部" : "All",
+      range7: chinese ? "7 天" : "7 days",
+      range30: chinese ? "30 天" : "30 days",
+      updateAvailable: chinese ? "有較新的新聞資料。" : "Newer published news is available.",
+      updateReading: chinese ? "更新閱讀" : "Refresh reading",
+      loadingNews: chinese ? "載入新聞" : "Loading news",
+      allMarket: chinese ? "全部市場消息" : "All market news",
+      storyCount: chinese ? "則" : "stories",
+      newestToOldest: chinese ? "最新 → 最舊" : "newest → oldest",
+      noNews: chinese ? "目前沒有可顯示的新聞。" : "No news is available for this selection.",
+      noSummary: chinese ? "來源未提供獨立摘要，請前往原文閱讀完整內容。" : "The source did not provide a separate summary. Read the original article for full context.",
+      readSource: chinese ? "閱讀原文" : "Read source",
+      articleThumbnail: chinese ? "文章縮圖" : "Article thumbnail",
+      source: chinese ? "新聞來源" : "Source",
+      brandAria: taiwan ? (chinese ? "DappGo News 台灣版" : "DappGo News Taiwan") : (chinese ? "DappGo News 美國版" : "DappGo News United States"),
+      marketNav: chinese ? "市場版本" : "Market editions",
+      language: chinese ? "語言" : "Language",
+      privacy: chinese ? "隱私" : "Privacy",
+      terms: chinese ? "條款" : "Terms",
+      footerLine: chinese ? "看見事件。保留脈絡。" : "See the event. Keep the context.",
+      marketSymbol: taiwan ? "TWSE" : (chinese ? "美國市場" : "US MARKET"),
+      dateUnavailable: chinese ? "日期未提供" : "Date unavailable",
+      dataLabel: chinese ? "資料" : "Data",
+      dataLoading: chinese ? "資料載入中…" : "Data loading…",
+      loadingStatus: chinese ? "載入已發布新聞…" : "Loading published news…",
+      dataTimeUnavailable: chinese ? "資料時間無法取得" : "Data time unavailable",
+      live: chinese ? "即時" : "Live",
+      dataUnavailable: chinese ? "資料暫時無法取得" : "Data unavailable",
+      unableToLoad: chinese ? "無法載入" : "Unable to load",
+      unableToRefresh: chinese ? "無法更新" : "Unable to refresh"
+    };
+  }
+
+  function applyLanguage() {
+    const copy = labels();
+    document.documentElement.lang = state.language === "zh" ? "zh-Hant" : "en";
+    document.title = copy.documentTitle;
+    root.querySelectorAll("[data-i18n]").forEach((element) => {
+      const value = copy[element.dataset.i18n];
+      if (value != null) element.textContent = value;
+    });
+    root.querySelectorAll("[data-i18n-html]").forEach((element) => {
+      const value = copy[element.dataset.i18nHtml];
+      if (value != null) element.innerHTML = value;
+    });
+    root.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const value = copy[element.dataset.i18nPlaceholder];
+      if (value != null) element.placeholder = value;
+    });
+    root.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+      const value = copy[element.dataset.i18nAriaLabel];
+      if (value != null) element.setAttribute("aria-label", value);
+    });
+    els.languageButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.language === state.language)));
+    if (state.payload) {
+      renderStocks();
+      renderStories();
+    }
+    if (state.pointer) {
+      els.updated.textContent = state.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(state.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
+      setStatus(`${copy.live} ${copy.marketName} · pointer ${String(state.pointer.hash || "").slice(0, 12)}`, "ok");
+    } else if (state.errorMessage) {
+      els.error.textContent = `${copy.dataUnavailable}: ${state.errorMessage}`;
+      setStatus(copy.dataUnavailable, "error");
+    } else {
+      setStatus(copy.loadingStatus, "loading");
+    }
+  }
 
   function setStatus(message, kind) {
     if (els.status) els.status.textContent = message;
@@ -38,17 +139,17 @@
   }
 
   function formatDate(value) {
-    if (!value) return market === "tw" ? "日期未提供" : "Date unavailable";
+    if (!value) return labels().dateUnavailable;
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return value.slice(0, 10);
-    return new Intl.DateTimeFormat(locale, { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
+    return new Intl.DateTimeFormat(state.language === "zh" ? "zh-TW" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
   }
 
   function dayKey(value) {
     if (!value) return "unknown";
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return String(value).slice(0, 10);
-    return new Intl.DateTimeFormat(locale, { year: "numeric", month: "short", day: "numeric", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
+    return new Intl.DateTimeFormat(state.language === "zh" ? "zh-TW" : "en-US", { year: "numeric", month: "short", day: "numeric", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
   }
 
   function stripTitlePrefix(title, summary) {
@@ -76,19 +177,19 @@
   }
 
   function renderStocks() {
+    const copy = labels();
     const filter = state.query.toLowerCase();
     const allEntries = entries();
     const all = allEntries.filter((entry) => `${entry.symbol} ${entry.name}`.toLowerCase().includes(filter));
     if (!state.stock && all.length) state.stock = all[0].symbol;
-    const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${market === "tw" ? "全部市場消息" : "All market news"}</span><small>ALL</small></button>`;
+    const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${escapeHtml(copy.allMarket)}</span><small>ALL</small></button>`;
     const buttons = all.map((entry) => `<button class="stock-button" type="button" data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"><span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small></button>`).join("");
     els.stockList.innerHTML = allButton + buttons;
     els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => { state.stock = button.dataset.stock; renderStocks(); renderStories(); }));
     const selectedEntry = allEntries.find((entry) => entry.symbol === state.stock);
     const mobileEntries = selectedEntry && state.stock !== "all" && !all.some((entry) => entry.symbol === state.stock) ? [selectedEntry, ...all] : all;
     if (els.mobileSelect) {
-      const allLabel = market === "tw" ? "全部市場消息" : "All market news";
-      els.mobileSelect.innerHTML = `<option value="all">${allLabel}</option>${mobileEntries.map((entry) => `<option value="${escapeHtml(entry.symbol)}">${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}</option>`).join("")}`;
+      els.mobileSelect.innerHTML = `<option value="all">${escapeHtml(copy.allMarket)}</option>${mobileEntries.map((entry) => `<option value="${escapeHtml(entry.symbol)}">${escapeHtml(entry.name)} · ${escapeHtml(entry.symbol)}</option>`).join("")}`;
       els.mobileSelect.value = state.stock || "all";
     }
     if (els.search && els.search.value !== state.query) els.search.value = state.query;
@@ -101,8 +202,9 @@
   }
 
   function renderStories() {
+    const copy = labels();
     const selected = selectedEntries();
-    const company = selected[0] || { symbol: state.stock || "", name: market === "tw" ? "台灣市場" : "United States" };
+    const company = selected[0] || { symbol: state.stock || "", name: copy.marketName };
     const stories = selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })));
     stories.sort((a, b) => String(b.published_at_utc || b.date || "").localeCompare(String(a.published_at_utc || a.date || "")) || a.key.localeCompare(b.key));
     const filtered = stories.filter((item) => {
@@ -110,26 +212,27 @@
       const published = new Date(item.published_at_utc || item.date || 0).getTime();
       return published && Date.now() - published <= Number(state.range) * 86400000;
     });
-    els.company.textContent = state.stock === "all" ? (market === "tw" ? "全部市場消息" : "All market news") : company.name;
-    els.symbol.textContent = state.stock === "all" ? market.toUpperCase() : `${company.symbol} · ${market === "tw" ? "TWSE" : "US MARKET"}`;
-    els.count.textContent = `${filtered.length} ${market === "tw" ? "則" : "stories"} · newest → oldest`;
+    els.company.textContent = state.stock === "all" ? copy.allMarket : company.name;
+    els.symbol.textContent = state.stock === "all" ? market.toUpperCase() : `${company.symbol} · ${copy.marketSymbol}`;
+    els.count.textContent = `${filtered.length} ${copy.storyCount} · ${copy.newestToOldest}`;
     if (!filtered.length) {
-      els.stories.innerHTML = `<div class="empty">${market === "tw" ? "目前沒有可顯示的新聞。" : "No news is available for this selection."}</div>`;
+      els.stories.innerHTML = `<div class="empty">${escapeHtml(copy.noNews)}</div>`;
       return;
     }
     const groups = new Map();
     filtered.forEach((item) => { const key = dayKey(item.published_at_utc || item.date); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(item); });
-    els.stories.innerHTML = Array.from(groups.entries()).map(([date, items]) => `<div class="date-rule">${escapeHtml(date)}<span>${items.length} ${market === "tw" ? "則" : "stories"}</span></div>${items.map((item, index) => renderStory(item, index === 0 && groups.size === 1)).join("")}`).join("");
+    els.stories.innerHTML = Array.from(groups.entries()).map(([date, items]) => `<div class="date-rule">${escapeHtml(date)}<span>${items.length} ${copy.storyCount}</span></div>${items.map((item, index) => renderStory(item, index === 0 && groups.size === 1)).join("")}`).join("");
     els.stories.querySelectorAll("img[data-fallback]").forEach((image) => image.addEventListener("error", () => { const story = image.closest(".story"); if (story) { story.classList.add("is-text-only"); const media = story.querySelector(".story-media"); if (media) media.remove(); } }, { once: true }));
   }
 
   function renderStory(item, lead) {
+    const copy = labels();
     const image = usableImage(item);
     const summary = stripTitlePrefix(item.title, item.summary);
-    const publisher = item.source || item.provider || (market === "tw" ? "新聞來源" : "Source");
+    const publisher = item.source || item.provider || copy.source;
     const stockTag = `${item.symbol} / ${item.company}`;
-    const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"><figcaption>${escapeHtml(publisher)} · article thumbnail</figcaption></figure>` : "";
-    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || (market === "tw" ? "來源未提供獨立摘要，請前往原文閱讀完整內容。" : "The source did not provide a separate summary. Read the original article for full context."))}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener noreferrer">${market === "tw" ? "閱讀原文" : "Read source"} ↗</a></div></div></article>`;
+    const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"><figcaption>${escapeHtml(publisher)} · ${escapeHtml(copy.articleThumbnail)}</figcaption></figure>` : "";
+    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
   }
 
   async function fetchJson(url) {
@@ -148,19 +251,21 @@
   }
 
   function applyLoaded(result) {
+    const copy = labels();
     state.pointer = result.pointer;
     state.payload = result.payload;
+    state.errorMessage = null;
     els.skeletons.hidden = true;
     els.error.hidden = true;
-    els.updated.textContent = result.pointer.generated_at_utc ? `Data ${formatDate(result.pointer.generated_at_utc)}` : "Data time unavailable";
-    setStatus(`Live ${marketLabel} data · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
+    els.updated.textContent = result.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(result.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
+    setStatus(`${copy.live} ${copy.marketName} · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
     renderStocks();
     renderStories();
   }
 
   async function initialLoad() {
     try { applyLoaded(await loadPayload()); schedulePoll(); }
-    catch (error) { els.skeletons.hidden = true; els.error.hidden = false; els.error.textContent = `Unable to load ${marketLabel} news: ${error.message}`; setStatus("Data unavailable", "error"); }
+    catch (error) { const copy = labels(); state.errorMessage = error.message; els.skeletons.hidden = true; els.error.hidden = false; els.error.textContent = `${copy.unableToLoad} ${copy.marketName} news: ${error.message}`; setStatus(copy.dataUnavailable, "error"); }
   }
 
   async function poll() {
@@ -179,17 +284,27 @@
   els.search.addEventListener("input", (event) => updateQuery(event.target.value));
   els.mobileSearch.addEventListener("input", (event) => updateQuery(event.target.value));
   els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; renderStocks(); renderStories(); });
+  els.languageButtons.forEach((button) => button.addEventListener("click", () => {
+    const next = button.dataset.language;
+    if (!["zh", "en"].includes(next) || next === state.language) return;
+    state.language = next;
+    try { localStorage.setItem(languageStorageKey, next); } catch (_) { /* Preference is optional. */ }
+    applyLanguage();
+  }));
   els.reload.addEventListener("click", async () => {
     els.update.classList.remove("is-visible");
     try {
       applyLoaded(await loadPayload());
     } catch (error) {
-      setStatus("Data unavailable", "error");
+      const copy = labels();
+      state.errorMessage = error.message;
+      setStatus(copy.dataUnavailable, "error");
       els.error.hidden = false;
-      els.error.textContent = `Unable to refresh ${marketLabel} news: ${error.message}`;
+      els.error.textContent = `${copy.unableToRefresh} ${copy.marketName} news: ${error.message}`;
     }
   });
   root.querySelectorAll("[data-range]").forEach((button) => button.addEventListener("click", () => { state.range = button.dataset.range; root.querySelectorAll("[data-range]").forEach((item) => item.setAttribute("aria-pressed", String(item === button))); renderStories(); }));
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") poll(); });
+  applyLanguage();
   initialLoad();
 }());

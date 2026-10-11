@@ -2,14 +2,15 @@
   "schema_version": "0.1.0",
   "id": "NEWS-MOBILE-READER-20261010",
   "project": "dappgo-studio",
-  "title": "Repair mobile News reader loading and stock discovery",
+  "title": "Repair mobile News reader and add bilingual language control",
   "status": "approved",
   "risk": "low",
-  "question": "Can the existing News reader keep its quiet editorial layout while making mobile loading stable and stock selection/search usable on both editions?",
+  "question": "Can the existing News reader keep its quiet editorial layout while making mobile loading stable, stock selection/search usable and Chinese/English UI switching available on both editions?",
   "hypotheses": [
     "The persistent blank blocks come from author CSS overriding the hidden attribute on the loading skeleton container.",
     "A native mobile search plus select control can reuse the existing stock state and payload without changing the data gateway or desktop navigation.",
-    "A small contract test can prevent both regressions without requiring a new browser or backend dependency."
+    "A small contract test can prevent both regressions without requiring a new browser or backend dependency.",
+    "A shared, local language dictionary can translate reader UI, controls and dates without changing source RSS titles or summaries when the formal payload has no authoritative bilingual fields."
   ],
   "artifacts": {
     "requirements": "artifacts/NEWS-MOBILE-READER-20261010/REQUIREMENTS_GRILL.md",
@@ -29,6 +30,7 @@
   "acceptance_criteria": [
     "After payload load, loading skeletons are removed and remain hidden; no persistent blank shimmer blocks remain.",
     "Both /tw and /us expose usable mobile search and stock selection controls with labels, keyboard support and state parity with the desktop index.",
+    "Both /tw and /us expose a persistent Chinese/English toggle that localizes UI labels, dates and controls without altering source RSS text.",
     "Desktop stock index, newest-first reading order, data gateway and read-only polling behavior remain unchanged.",
     "Contract, JavaScript syntax, diff hygiene and live mobile route checks pass before release."
   ],

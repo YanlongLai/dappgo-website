@@ -25,6 +25,24 @@ desktop layout.
 - No mobile-app source changes; this is the Cloudflare Pages News reader.
 - No removal of the existing desktop search or stock index.
 
+## Owner extension — 2026-10-11
+
+The Taiwan and United States editions need a reader-level Chinese/English
+switch, matching the app's language expectation without adding a translation
+provider or changing the published data contract.
+
+- Translate the shared interface, market labels, controls, status messages and
+  date formatting.
+- Persist the reader preference locally so a reader does not need to switch on
+  every page visit; the market route remains unchanged.
+- Keep RSS/article title, summary, publisher and company names in the source
+  language. The current formal payload does not expose authoritative parallel
+  localized fields, so the website must not invent translations or mix a
+  machine-translated story with the source record.
+- Keep the change static and client-side. No RSS pipeline, gateway, database,
+  provider, schedule or paid Cloudflare dependency is allowed.
+- Keep the language control visible on narrow screens and keyboard accessible.
+
 ## Failure modes and decisions
 
 | Failure | Required behavior |
@@ -34,6 +52,8 @@ desktop layout.
 | Search has no matches | Keep the selector usable with the existing selection when possible and show the existing empty-news state. |
 | A selected ticker is filtered out | Keep that selected ticker in the native selector so the user can see and change it. |
 | Reduced-motion preference | Preserve the existing no-animation behavior. |
+| Source has no bilingual fields | Translate interface/date chrome only; preserve the source RSS text. |
+| Reader language changes after data load | Re-render labels, dates and controls from the same in-memory payload; do not refetch or mutate data. |
 
 ## Acceptance evidence required
 

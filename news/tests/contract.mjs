@@ -38,6 +38,11 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /\.\.\/assets\/news\.js\?v=[a-z0-9-]+/i);
   assert.match(html, /data-stock-search-mobile/);
   assert.match(html, /data-mobile-stock-select/);
+  assert.match(html, /data-language="zh"/);
+  assert.match(html, /data-language="en"/);
+  assert.match(html, /data-i18n="stockIndex"/);
+  assert.match(html, /data-i18n-placeholder="searchStock"/);
+  assert.match(html, /data-i18n-html="heroTitle"/);
   assert.doesNotMatch(html, /class="mobile-picker"/);
 }
 
@@ -45,11 +50,20 @@ const css = fs.readFileSync(path.join(root, "assets/news.css"), "utf8");
 assert.match(css, /\.skeletons\[hidden\]\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(css, /\.mobile-stock-tools\s*\{\s*display:\s*none/s);
 assert.match(css, /@media\s*\(max-width:\s*620px\)[\s\S]*\.mobile-stock-tools\s*\{\s*display:\s*grid/s);
+assert.match(css, /\.mast-tools\s*\{/);
+assert.match(css, /\.language-switch\s*\{/);
+assert.match(css, /\.language-switch button\[aria-pressed="true"\]/);
 
 assert.match(script, /mobileSearch/);
 assert.match(script, /mobileSelect/);
 assert.match(script, /data-stock-search-mobile/);
 assert.match(script, /data-mobile-stock-select/);
 assert.match(script, /els\.mobileSelect\.innerHTML/);
+assert.match(script, /dappgo-news-language/);
+assert.match(script, /data-language/);
+assert.match(script, /document\.documentElement\.lang/);
+assert.match(script, /function labels\(\)/);
+assert.match(script, /function applyLanguage\(\)/);
+assert.match(script, /Intl\.DateTimeFormat/);
 
 console.log(`news reader contract: passed (${files.length} files)`);
