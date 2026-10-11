@@ -45,6 +45,7 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
   assert.match(html, /data-i18n-html="heroTitle"/);
+  assert.match(html, /news\.js\?v=20261011-mobile-reader/);
   assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
 }

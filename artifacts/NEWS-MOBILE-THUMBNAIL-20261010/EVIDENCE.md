@@ -16,6 +16,14 @@ Verified 2026-10-11T06:30:41Z with Wrangler Pages Dev from the `news/` project r
 - Mobile visual check: controls, story heading, date/source metadata and article content are visible in the first viewport; the page is not a persistent skeleton.
 - Local API requests returned 200 for both market pointers and data manifests.
 
+The first production check exposed a cache-version defect: the deployed HTML
+still referenced the previous `news.js?v=20261010-bilingual-reader` asset, so
+the edge could execute the old copy dictionary even when the HTML was current.
+The fix changes both route asset URLs to
+`news.js?v=20261011-mobile-reader` (and the stylesheet URL for parity) and
+adds a contract assertion so future copy changes cannot reuse the stale asset
+version silently.
+
 ## Automated checks
 
 - `node --check news/assets/news.js` passed.
