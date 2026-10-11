@@ -34,7 +34,8 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   const html = fs.readFileSync(path.join(root, route), "utf8");
   assert.match(html, /data-news-app/);
   assert.match(html, /data-market="(tw|us)"/);
-  assert.match(html, /\.\.\/assets\/news\.js/);
+  assert.match(html, /\.\.\/assets\/news\.css\?v=[a-z0-9-]+/i);
+  assert.match(html, /\.\.\/assets\/news\.js\?v=[a-z0-9-]+/i);
   assert.match(html, /data-stock-search-mobile/);
   assert.match(html, /data-mobile-stock-select/);
   assert.doesNotMatch(html, /class="mobile-picker"/);

@@ -20,6 +20,8 @@
   query would otherwise hide it.
 - Added contract assertions for both mobile controls, the hidden skeleton
   rule and the mobile media-query display rule.
+- Versioned the CSS/JS asset URLs so Pages' immutable asset policy cannot keep
+  a previous reader bundle after this fix.
 
 ## Verification
 

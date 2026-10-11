@@ -15,6 +15,8 @@ desktop layout.
 - Keep the desktop rail, gateway allowlist, polling cadence and story rendering
   contract unchanged.
 - Add regression checks for the CSS and mobile controls.
+- Version static CSS/JS asset URLs whenever their contents change, because the
+  Pages headers intentionally cache `/assets/*` as immutable.
 
 ## Explicit non-goals
 
