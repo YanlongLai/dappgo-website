@@ -48,7 +48,7 @@
       editionName: taiwan ? (chinese ? "台灣版" : "TAIWAN EDITION") : (chinese ? "美國版" : "UNITED STATES EDITION"),
       editionTime: taiwan ? (chinese ? "資料時間 · 台北時間" : "DATA TIME · TAIPEI TIME") : (chinese ? "資料時間 · 紐約時間" : "DATA TIME · NEW YORK TIME"),
       heroTitle: chinese ? "這些公司。<br><em>這些脈絡。</em>" : "The companies.<br><em>The context.</em>",
-      heroBody: chinese ? "從一家公司開始，讀懂每一則消息背後的脈絡。新聞來自既有 RSS pipeline，網站只負責閱讀。" : (taiwan ? "Start with a company. Follow the source, date and context behind each published story." : "Start with a company. Follow the headlines, source, date and available thumbnail without losing the original context."),
+      heroBody: chinese ? "從一家公司開始，讀懂每一則消息背後的脈絡。新聞來自既有 RSS pipeline，網站只負責閱讀。" : "Start with a company. Follow the source, date and context behind each published story.",
       navTw: chinese ? "台灣" : "Taiwan",
       navUs: chinese ? "美國" : "United States",
       stockIndex: chinese ? "股票索引" : "Stock index",
@@ -58,7 +58,7 @@
       readStock: chinese ? "閱讀股票" : "Read stock",
       selectStock: chinese ? "選擇股票" : "Select stock",
       companyCrumb: taiwan ? (chinese ? "台灣市場 / 公司新聞" : "TAIWAN / COMPANY NEWS") : (chinese ? "美國市場 / 公司新聞" : "UNITED STATES / COMPANY NEWS"),
-      companyIntro: chinese ? "保留來源、日期與可用新聞縮圖；不替事實加戲。" : "Source, date and available article thumbnails stay in the reading flow.",
+      companyIntro: chinese ? "保留來源與日期，不替事實加戲。" : "Source and date stay in the reading flow.",
       dateRange: chinese ? "期間篩選" : "Date range",
       rangeAll: chinese ? "全部" : "All",
       range7: chinese ? "7 天" : "7 days",
@@ -72,7 +72,6 @@
       noNews: chinese ? "目前沒有可顯示的新聞。" : "No news is available for this selection.",
       noSummary: chinese ? "來源未提供獨立摘要，請前往原文閱讀完整內容。" : "The source did not provide a separate summary. Read the original article for full context.",
       readSource: chinese ? "閱讀原文" : "Read source",
-      articleThumbnail: chinese ? "文章縮圖" : "Article thumbnail",
       source: chinese ? "新聞來源" : "Source",
       brandAria: taiwan ? (chinese ? "DappGo News 台灣版" : "DappGo News Taiwan") : (chinese ? "DappGo News 美國版" : "DappGo News United States"),
       marketNav: chinese ? "市場版本" : "Market editions",
@@ -231,7 +230,7 @@
     const summary = stripTitlePrefix(item.title, item.summary);
     const publisher = item.source || item.provider || copy.source;
     const stockTag = `${item.symbol} / ${item.company}`;
-    const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"><figcaption>${escapeHtml(publisher)} · ${escapeHtml(copy.articleThumbnail)}</figcaption></figure>` : "";
+    const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"></figure>` : "";
     return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
   }
 

@@ -13,6 +13,8 @@ assert.match(script, /data-\[a-f0-9\]\{12,64\}/);
 assert.match(script, /\/api\/markets\//);
 assert.match(script, /image_url/);
 assert.match(script, /is-text-only/);
+assert.doesNotMatch(script, /articleThumbnail|文章縮圖|Article thumbnail/);
+assert.doesNotMatch(script, /<figcaption>/);
 assert.doesNotMatch(script, /raw\.githubusercontent\.com|news\.google\.com\/rss|finnhub\.io\/api/);
 
 const proxy = fs.readFileSync(path.join(root, "functions/api/markets/[market]/dashboard/[file].js"), "utf8");
@@ -43,6 +45,7 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
   assert.match(html, /data-i18n-html="heroTitle"/);
+  assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
 }
 

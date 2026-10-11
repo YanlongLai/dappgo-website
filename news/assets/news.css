@@ -89,7 +89,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .read-link { color: var(--forest); font-weight: 700; }
 .story-media { grid-area: image; align-self: start; margin: 18px 0 20px; }
 .story-media img { display: block; width: 100%; height: auto; max-height: 270px; border-radius: 2px; background: #e8e9e1; object-fit: cover; }
-.story-media figcaption { margin-top: 8px; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .story-media.is-hidden { display: none; }
 .story.is-text-only .story-grid { display: block; }
 .story.is-text-only .story-meta { display: flex; }
