@@ -73,5 +73,40 @@ bilingual extension:
   - Date output changed locale/time presentation with the toggle; source RSS
     titles and summaries stayed in their original language.
 - No RSS pipeline, data gateway, Postiz, provider, schedule or production data
-  was changed. No production deployment was performed in this change-only
-  verification pass.
+  was changed.
+
+## Merge and production Pages release
+
+Merged to `master` and pushed to `origin/master` at commit
+`8eb1d864ee494d502fc1f34ee7a5c6de6d6efc7a`.
+
+The first upload from the repository parent was intentionally not accepted as
+the release: it uploaded static assets but did not include the Pages Function,
+so `/api/markets/*/dashboard/latest.json` returned 404. The deployment command
+was corrected to run from the `news/` project root, where `wrangler.toml`, the
+`functions/` tree and `_routes.json` are discovered together.
+
+The final deployment was completed at `2026-10-11T06:18Z`:
+
+- Pages project: `dappgo-news`
+- Source commit: `8eb1d864ee494d502fc1f34ee7a5c6de6d6efc7a`
+- Deployment ID: `588f9eca-3a83-4f8e-87f1-10db4c7631c8`
+- Deployment URL: `https://588f9eca.dappgo-news.pages.dev`
+- Custom domain: `https://news.dappgo.com`
+- Official command root: `news/`
+
+Production verification at `2026-10-11T06:19Z`:
+
+- `https://news.dappgo.com/tw/` loaded the formal pointer `33fae46240b4`,
+  populated the Taiwan stock index and displayed newest-first stories.
+- `https://news.dappgo.com/us/` loaded the formal pointer `0eab2a98cf2c`,
+  populated the US stock index and displayed article thumbnails and source
+  summaries.
+- The Pages Function returned the live gateway payload for both markets; the
+  deployed static-only preview was not used as production evidence.
+- The TW reader switched Chinese → English and the US reader switched English
+  → Chinese. Locale labels, dates, controls and accessibility state changed
+  while the pointer and story payload remained unchanged.
+- The production HTML exposed the bilingual controls and versioned assets;
+  no RSS pipeline, Postiz schedule, server runtime or external publication was
+  changed.
