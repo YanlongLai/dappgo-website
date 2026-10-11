@@ -42,7 +42,7 @@ function fixture({ reduced = false, storageFails = false } = {}) {
       this.focused = true;
     }
   }
-  const translated = [...html.matchAll(/data-i18n="([^"]+)"/g)].map(
+  const translated = [...(html + production).matchAll(/data-i18n="([^"]+)"/g)].map(
     (match) => new Element({ i18n: match[1] }),
   );
   const flowTabs = Array.from(
@@ -129,8 +129,8 @@ test("all local links, assets, and anchors resolve", () => {
     const ref = rawRef.split(/[?#]/, 1)[0];
     if (ref.startsWith("/"))
       assert.ok(fs.existsSync(path.join(__dirname, "../..", ref)), rawRef);
-    if (ref.startsWith("#") && ref !== "#")
-      assert.ok(ids.includes(ref.slice(1)), ref);
+    if (rawRef.startsWith("#") && rawRef !== "#")
+      assert.ok(ids.includes(rawRef.slice(1)), rawRef);
   }
 });
 
@@ -144,8 +144,8 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.match(production, /og-image-v2\.png/);
   assert.doesNotMatch(production, /noindex/);
   assert.doesNotMatch(production, /Design preview/);
-  assert.match(production, /assets\/demo\/demo\.css\?v=20261011-stores/);
-  assert.match(production, /assets\/demo\/demo\.js\?v=20261011-stores/);
+  assert.match(production, /assets\/demo\/demo\.css\?v=20261011-polish/);
+  assert.match(production, /assets\/demo\/demo\.js\?v=20261011-polish/);
 });
 
 test("platform download badges match the verified app availability matrix", () => {
@@ -163,15 +163,21 @@ test("platform download badges match the verified app availability matrix", () =
   assert.equal((production.match(/data-i18n="comingSoon"/g) || []).length, 2);
   assert.doesNotMatch(production, /store-badge store-badge--disabled[^>]*href=/);
   for (const asset of [
-    "assets/store-badges/store-platforms.jpg",
-    "assets/store-badges/google-play-light.jpg",
-    "assets/store-badges/google-play-dark.jpg",
-    "assets/store-badges/app-store-light.jpg",
-    "assets/store-badges/app-store-dark.jpg",
+    "assets/store-badges/google-play-official.svg",
+    "assets/store-badges/app-store-official.svg",
   ]) assert.ok(fs.existsSync(path.join(__dirname, "../..", asset)), asset);
   const externalAnchors = production.match(/<a[^>]+target="_blank"[^>]+>/g) || [];
   assert.ok(externalAnchors.length >= 10);
   assert.ok(externalAnchors.every((anchor) => /rel="noopener noreferrer"/.test(anchor)));
+});
+
+test("homepage separates regional news and keeps download artwork vector-based", () => {
+  for (const market of ["us", "tw"]) {
+    assert.ok(production.includes('href="https://news.dappgo.com/' + market + '/"'));
+  }
+  assert.ok(!production.includes('href="https://news.dappgo.com/" class="portfolio-link"'));
+  assert.doesNotMatch(production, /store-badges\/[^"]+\.jpg/);
+  assert.equal((production.match(/class="store-badge-image"/g) || []).length, 6);
 });
 
 test("Traditional Chinese covers every translated element; language round trip works", () => {
