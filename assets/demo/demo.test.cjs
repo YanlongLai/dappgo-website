@@ -145,6 +145,32 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.doesNotMatch(production, /Design preview/);
 });
 
+test("platform download badges match the verified app availability matrix", () => {
+  const activeStoreUrls = [
+    "https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp",
+    "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp",
+    "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp",
+    "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge",
+    "https://apps.apple.com/app/id6768116538",
+    "https://apps.apple.com/app/id6768116720",
+  ];
+  for (const url of activeStoreUrls) assert.match(production, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), url);
+  assert.equal((production.match(/class="store-downloads"/g) || []).length, 4);
+  assert.equal((production.match(/store-badge--disabled/g) || []).length, 2);
+  assert.equal((production.match(/data-i18n="comingSoon"/g) || []).length, 2);
+  assert.doesNotMatch(production, /store-badge store-badge--disabled[^>]*href=/);
+  for (const asset of [
+    "assets/store-badges/store-platforms.jpg",
+    "assets/store-badges/google-play-light.jpg",
+    "assets/store-badges/google-play-dark.jpg",
+    "assets/store-badges/app-store-light.jpg",
+    "assets/store-badges/app-store-dark.jpg",
+  ]) assert.ok(fs.existsSync(path.join(__dirname, "../..", asset)), asset);
+  const externalAnchors = production.match(/<a[^>]+target="_blank"[^>]+>/g) || [];
+  assert.ok(externalAnchors.length >= 10);
+  assert.ok(externalAnchors.every((anchor) => /rel="noopener noreferrer"/.test(anchor)));
+});
+
 test("Traditional Chinese covers every translated element; language round trip works", () => {
   const app = fixture();
   app.get("#language-toggle").events.click();

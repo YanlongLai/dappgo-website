@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "id": "WEBSITE-PRODUCT-STORES-20261011",
+  "project": "dappgo-website",
+  "title": "Add bilingual platform store badges and availability states to the DappGo homepage",
+  "status": "approved",
+  "risk": "low",
+  "question": "Can the homepage show a professional, accurate Android/iOS choice for every DappGo app without creating dead links or changing app releases?",
+  "hypotheses": [
+    "A shared badge component with verified URLs and explicit disabled Coming soon states will make platform availability understandable without affecting app binaries."
+  ],
+  "artifacts": {
+    "prd": "artifacts/WEBSITE-PRODUCT-STORES-20261011/PRD.md",
+    "tdd": "artifacts/WEBSITE-PRODUCT-STORES-20261011/TDD.md",
+    "experiment": "artifacts/WEBSITE-PRODUCT-STORES-20261011/EVIDENCE.md"
+  },
+  "assignment": {
+    "producer": "website-engineer",
+    "peer_reviewer": "qa-engineer",
+    "director": "engineering-director",
+    "assurance": "independent-review"
+  },
+  "budget": {"token_limit": 30000, "max_iterations": 5, "deadline": "2026-10-12"},
+  "acceptance_criteria": [
+    "Every app card exposes both Android and iOS platform states.",
+    "Verified Android/iOS URLs are clickable only when available; unavailable iOS states are visibly Coming soon and not focusable.",
+    "Light/dark themes, English/Traditional Chinese, keyboard order, mobile widths and external-link security are verified.",
+    "The supplied store-badge asset is stored locally and used consistently without changing mobile apps, AdSense configuration or data services.",
+    "The merged homepage is deployed through the existing website release path and public links are rechecked."
+  ],
+  "governance": {"reversible": true, "sensitive_or_external_side_effect": true, "product_context_required": true},
+  "provenance": {
+    "codex_task_id": "01a11404-c851-7830-a9f2-0494afcd2891",
+    "host_id": "local",
+    "repository": "YanlongLai/dappgo-website",
+    "branch": "feature/website-product-design-20261011",
+    "worktree": "website-product-design-20261011"
+  },
+  "evidence": [
+    "Owner requested implementation, platform verification, merge and deployment after the existing design and technical documents.",
+    "Store destinations are recorded in the preceding WEBSITE-PRODUCT-DESIGN-20261011/LINKS.md and are revalidated during this work item."
+  ],
+  "decision": "pending"
+}

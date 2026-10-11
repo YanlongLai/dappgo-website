@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "id": "WEBSITE-PRODUCT-DESIGN-20261011",
+  "project": "dappgo-website",
+  "title": "Design a professional DappGo product and app directory",
+  "status": "approved",
+  "risk": "low",
+  "question": "Can visitors understand DappGo products and reach the correct web or store destination with clear platform availability?",
+  "hypotheses": ["A product-first directory with explicit platform links will reduce navigation ambiguity compared with contact-only product cards."],
+  "artifacts": {
+    "prd": "artifacts/WEBSITE-PRODUCT-DESIGN-20261011/PRD.md",
+    "tdd": "artifacts/WEBSITE-PRODUCT-DESIGN-20261011/TDD.md",
+    "experiment": "artifacts/WEBSITE-PRODUCT-DESIGN-20261011/EVIDENCE.md"
+  },
+  "assignment": {"producer": "ux-designer", "peer_reviewer": "qa-engineer", "director": "art-director", "assurance": "independent-review"},
+  "budget": {"token_limit": 40000, "max_iterations": 5, "deadline": "2026-10-12"},
+  "acceptance_criteria": [
+    "Deliver a local responsive interactive design and written UI and technical specifications.",
+    "Include the four requested web destinations, four verified Android listings and two requested iOS listings.",
+    "Verify Chinese and English, light and dark themes, mobile layout and keyboard interactions.",
+    "Keep canonical homepage, advertising settings and production unchanged."
+  ],
+  "governance": {"reversible": true, "sensitive_or_external_side_effect": false, "product_context_required": true},
+  "provenance": {"codex_task_id": "01a11404-c851-7830-a9f2-0494afcd2891", "host_id": "local", "repository": "YanlongLai/dappgo-website", "branch": "feature/website-product-design-20261011", "worktree": "website-product-design-20261011"},
+  "evidence": ["Owner requested a new worktree and UI/technical design before implementation or deployment."],
+  "decision": "pending"
+}
