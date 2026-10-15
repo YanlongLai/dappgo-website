@@ -24,6 +24,12 @@ const expectedHeaders = {
 const seen = new Set();
 const storeUrls = new Set();
 const products = catalog.products;
+const usIosUrl = "https://apps.apple.com/us/app/us-stocks/id6768116546";
+const usIos = products.find((product) => product.id === "us-stocks")?.stores?.ios;
+require(usIos?.status === "live" && usIos.url === usIosUrl, "US Stocks iOS availability regressed");
+const usDownloads = html.match(/<div class="store-downloads" aria-label="US Stocks app downloads">([\s\S]*?)<\/article>/)?.[1] ?? "";
+require(usDownloads.includes(`href="${usIosUrl}"`) && !usDownloads.includes('aria-disabled="true"'), "US Stocks iOS badge must be active in its own product card");
+require(read("prototypes/website-product/catalog.js").includes(`ios:'${usIosUrl}'`), "prototype US Stocks iOS destination drift");
 
 require(catalog.schema_version === "1.0.0", "unsupported catalog schema");
 require(catalog.canonical_host === "https://dappgo.com", "catalog host drift");

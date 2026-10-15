@@ -4,7 +4,7 @@ export const products = [
    subtitle:{zh:'美股研究',en:'U.S. equity research'},
    description:{zh:'從市場概況到個股研究，把類股輪動、每日變化與公司新聞放在一起，快速建立對美股的理解。',en:'Build a clearer picture of U.S. equities with market breadth, sector rotation, company research and relevant news.'},
    features:{zh:['市場概況','類股輪動','個股與新聞'],en:['Market breadth','Sector rotation','Company research']},
-   android:'https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp',ios:null,
+   android:'https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp',ios:'https://apps.apple.com/us/app/us-stocks/id6768116546',
    appCopy:{zh:'在手機瀏覽美股研究與新聞，收藏你持續關注的公司。',en:'Browse U.S. market research and news, and save the companies you follow.'}},
   {id:'tw',name:'TW Stocks',icon:'tw-stocks-icon-128.webp',web:'https://stocks.dappgo.com/tw/',image:'screens/tw.jpg',
    subtitle:{zh:'台股研究',en:'Taiwan equity research'},
