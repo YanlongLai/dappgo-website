@@ -156,11 +156,12 @@ test("platform download badges match the verified app availability matrix", () =
     "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge",
     "https://apps.apple.com/app/id6768116538",
     "https://apps.apple.com/app/id6768116720",
+    "https://apps.apple.com/us/app/us-stocks/id6768116546",
   ];
   for (const url of activeStoreUrls) assert.match(production, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), url);
   assert.equal((production.match(/class="store-downloads"/g) || []).length, 4);
-  assert.equal((production.match(/store-badge--disabled/g) || []).length, 2);
-  assert.equal((production.match(/data-i18n="comingSoon"/g) || []).length, 2);
+  assert.equal((production.match(/store-badge--disabled/g) || []).length, 1);
+  assert.equal((production.match(/data-i18n="comingSoon"/g) || []).length, 1);
   assert.doesNotMatch(production, /store-badge store-badge--disabled[^>]*href=/);
   for (const asset of [
     "assets/store-badges/google-play-official.svg",
@@ -177,7 +178,7 @@ test("homepage separates regional news and keeps download artwork vector-based",
   }
   assert.ok(!production.includes('href="https://news.dappgo.com/" class="portfolio-link"'));
   assert.doesNotMatch(production, /store-badges\/[^"]+\.jpg/);
-  assert.equal((production.match(/class="store-badge-image"/g) || []).length, 6);
+  assert.equal((production.match(/class="store-badge-image"/g) || []).length, 7);
 });
 
 test("Traditional Chinese covers every translated element; language round trip works", () => {
