@@ -1,0 +1,3 @@
+# Disclosure reconciliation
+
+Owner requests direct new-version Advanced Consent without migration UX. This is a supporting disclosure change for Options Explorer, US Stocks and TW Stocks on iOS/Android. Describe limited Google Firebase signals even without detailed opt-in; optional detailed events default off, can be withdrawn in Settings, and do not grant ads consent. Do not claim legal compliance from mode selection or disclosure alone. Preserve older-version facts, Number Merge and web consent behavior. Independent store privacy/build verification remains required before app submission. No credentials or IAM changes.

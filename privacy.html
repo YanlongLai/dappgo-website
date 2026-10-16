@@ -362,7 +362,7 @@
         <span class="lang-en">Privacy Policy</span>
         <span class="lang-zh">隱私政策</span>
             </h1>
-            <p class="updated"><span class="lang-en">Last updated: 2026-09-09</span><span class="lang-zh">最後更新：2026-09-09</span></p>
+            <p class="updated"><span class="lang-en">Last updated: 2026-10-16</span><span class="lang-zh">最後更新：2026-10-16</span></p>
         </div>
 
         <div class="legal-content">
@@ -370,13 +370,28 @@
     <div class="summary">
         <div class="lang-zh">
             <strong>重點摘要：</strong>
-            TW Stocks、US Stocks、Options Explorer 與 Number Merge 的資料流程不同。Options Explorer 目前的 iPhone 版本不收集產品使用分析，也不建立 DappGo 自有的穩定裝置識別碼；只有在您主動送出回饋或開啟選用推播時，才會使用 Firebase 的匿名服務識別碼。Options Explorer 的橫幅廣告會先經 Google UMP 同意流程，再依結果請求廣告；Google Mobile Ads 仍可能處理裝置識別碼、網路推估的一般位置、廣告／產品互動、診斷與效能資料。Number Merge 的資料流程另見下方專屬說明。AI 分析僅基於公開市場數據，不涉及您的個人資料。如果您主動訂閱每日報告或填寫表單，我們會儲存您提供的 email 用於回覆，不會分享或販售。
+            TW Stocks、US Stocks、Options Explorer 與 Number Merge 的資料流程不同。三款研究 App 的新版將採用下方說明的 Firebase Advanced Consent Mode：詳細使用分析預設關閉，即使未開啟，Firebase 仍可能傳送有限的衡量訊號；較舊版本可能未啟用此功能。廣告同意獨立由 Google UMP 與適用的裝置設定管理，Google Mobile Ads 可能處理裝置識別碼、網路推估的一般位置、廣告互動、診斷與效能資料。Number Merge 另見專屬說明。AI 分析基於公開市場數據；主動提交的 email 僅依相關訂閱或表單用途處理。
         </div>
         <div class="lang-en">
             <strong>TL;DR:</strong>
-            TW Stocks, US Stocks, Options Explorer, and Number Merge have different data flows. The current iPhone version of Options Explorer does not collect DappGo product-usage analytics or create a DappGo-owned stable device identifier. Firebase's anonymous service identifier is used only when you voluntarily send feedback or enable optional push notifications. Its banner ad is requested only after Google UMP consent handling permits it; Google Mobile Ads may still process device identifiers, coarse location inferred from network information, advertising or product interactions, diagnostic data, and performance data. See the Number Merge section below for that app's separate flow. AI analysis is based on public market data only — your personal data is never sent to AI providers. If you voluntarily subscribe or submit a form, we store the email you give us to reply; we never share or sell it.
+            TW Stocks, US Stocks, Options Explorer, and Number Merge have different data flows. The upcoming versions of the three research apps will use Firebase Advanced Consent Mode described below: detailed usage analytics is off by default, but Firebase may still send limited measurement signals while it is off. Older versions may not include this feature. Advertising consent is managed independently through Google UMP and applicable device settings. Google Mobile Ads may process device identifiers, network-inferred coarse location, ad interactions, diagnostics, and performance data. See Number Merge's separate section. AI research uses public market data; voluntarily submitted email is used for the relevant subscription or form purpose.
         </div>
     </div>
+
+    <section id="mobile-advanced-consent">
+        <div class="lang-zh">
+            <h2>研究 App 新版：使用分析與您的選擇</h2>
+            <p>此說明適用於在設定中顯示「選擇性詳細使用分析」的 Options Explorer、US Stocks 與 TW Stocks iOS／Android 新版。Firebase Analytics（Google）採用 Advanced Consent Mode，四項同意目的預設拒絕；既有明確選擇沿用，沒有另外的遷移流程。拒絕分析儲存時，SDK 仍可能傳送有限的 App／裝置環境、時間、同意狀態及自動事件衡量訊號；這不是「完全不收集資料」模式。</p>
+            <p>開啟選用詳細使用分析後，我們才傳送 App 使用與廣告成效的詳細自訂事件，用於產品分析與改善。您可隨時在設定關閉，以停止後續詳細自訂事件；關閉不會停止上述有限 SDK 訊號，也不會自動刪除已處理資料。Firebase 依同意狀態與 SDK 設定處理分析識別碼；我們不為這些事件另建 DappGo 裝置 ID、不傳送姓名、email 或使用者輸入的持倉內容。</p>
+            <p>分析開關不授予廣告儲存、廣告使用者資料、個人化廣告或 Apple 跨 App 追蹤權限。廣告選擇請使用設定中的廣告隱私選項與系統控制。Google 為衡量服務處理資料，詳見 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私政策</a>。如需查詢或請求刪除可識別的資料，請聯絡 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>；已彙總且無法識別的統計無法依個人定位刪除。</p>
+        </div>
+        <div class="lang-en">
+            <h2>New research-app versions: analytics and your choices</h2>
+            <p>This section applies to iOS and Android versions of Options Explorer, US Stocks, and TW Stocks showing “Optional detailed usage analytics” in Settings. Google Firebase Analytics uses Advanced Consent Mode with all four consent purposes denied by default. Existing explicit choices are used directly, without a separate migration flow. When analytics storage is denied, the SDK may still send limited app/device context, time, consent-state, and automatic-event measurement signals. This is not a no-data-collection mode.</p>
+            <p>We send detailed custom app-usage and ad-performance events for product analytics and improvement only after you enable the optional switch. Turn it off in Settings anytime to stop future detailed custom events. Turning it off does not stop limited SDK signals or automatically delete previously processed data. Firebase handles analytics identifiers according to consent and SDK configuration. We do not create a separate DappGo device ID for these events or send your name, email, or user-entered holdings.</p>
+            <p>The analytics switch does not grant ad storage, ad user data, personalized advertising, or Apple cross-app tracking permission. Use the separate advertising privacy options and system controls for advertising choices. Google processes measurement data as described in its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>. Contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> to ask about or request deletion of identifiable data; aggregated statistics that cannot identify you cannot be individually located for deletion.</p>
+        </div>
+    </section>
 
     <!-- Important Disclaimer -->
     <div class="lang-zh">
@@ -471,7 +486,7 @@
         <h3>App 使用資料</h3>
         <ul>
             <li><strong>匿名 Firebase uid</strong>（Firebase Anonymous Auth 自動產生，存在裝置上）— TW Stocks、US Stocks 的選用後端功能，以及 Options Explorer 的主動回饋或選用推播功能，可能使用此識別碼連結服務資料；<u>未綁定您的姓名或 email</u>。</li>
-            <li><strong>使用事件</strong>：部分其他股票 App 可能依其當時版本收集產品事件。Options Explorer 目前版本不收集產品使用分析，也不建立 DappGo 自有的穩定裝置識別碼；不會上傳您的 watchlist、portfolio 或交易內容。Options Explorer 的 Google Mobile Ads SDK 仍可能依廣告設定處理廣告相關裝置識別、一般位置、互動、診斷與效能資料。</li>
+            <li><strong>使用事件</strong>：新版研究 App 依上方 Advanced Consent Mode 說明處理有限衡量訊號與選用詳細自訂事件；舊版 Options Explorer 曾停用產品使用分析。Google Mobile Ads 的廣告資料處理獨立依廣告設定、同意與裝置控制進行。</li>
         </ul>
 
         <h3>訂閱 email</h3>
@@ -505,7 +520,7 @@
         <h3>App usage</h3>
         <ul>
             <li>Anonymous Firebase uid (auto-generated by Firebase Anonymous Auth, stored on device) — some optional backend features in TW Stocks and US Stocks, and the explicit feedback or optional push flows in Options Explorer, may use this identifier to link service records; <u>it is not linked to your name or email</u>.</li>
-            <li>Behavioural events: some other stock-app versions may collect product events. The current Options Explorer version does not collect DappGo product-usage analytics or create a DappGo-owned stable device identifier. Watchlist/portfolio/trade content is never uploaded. Its Google Mobile Ads SDK may still process ad-related device identifiers, coarse location, interactions, diagnostic data, and performance data according to the ad configuration.</li>
+            <li>Usage events: new research-app versions process limited measurement signals and optional detailed custom events as described in the Advanced Consent Mode section above. Older Options Explorer versions had product-usage analytics disabled. Google Mobile Ads data handling is independent and follows advertising configuration, consent, and device controls.</li>
         </ul>
 
         <h3>Subscription email</h3>
@@ -626,7 +641,7 @@
         <h2>第三方服務</h2>
         <ul>
             <li><strong>Google Analytics 4</strong>（<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>，Google LLC）— 網站匿名訪客分析，IP 已自動匿名化；資料中心 US。</li>
-            <li><strong>Firebase Analytics（GA4 in-app）</strong> — 已於 2026-05-18 退役；股票 App 不使用 Firebase Analytics。Options Explorer 目前版本也不寫入 Firestore 產品分析事件。</li>
+            <li><strong>Firebase Analytics（GA4 in-app，Google LLC）</strong> — 舊整合曾於 2026-05-18 退役；新版研究 App 使用上方說明的 Advanced Consent Mode。詳細自訂事件需明確開啟，有限 SDK 訊號不代表取得同意；不使用 Firestore 儲存新版產品分析事件。</li>
             <li><strong>Firebase Firestore &amp; Anonymous Auth</strong>（Google LLC）— 後端資料庫；依各 App 的選用功能儲存 feedback、users、push_log、iv_history，以及部分其他股票 App 的舊事件資料。Options Explorer 僅在選用推播流程需要時使用匿名服務識別碼。資料中心 US（multi-region nam5）；歐盟傳輸依 Google 的 DPF 認證與 Firebase DPA 中的 SCCs。</li>
             <li><strong>Apple Push Notification Service (APNs)</strong>（Apple Inc.）— 傳遞推播通知至您的裝置。我們將 APNs 提供的不透明 device token 儲存於 <code>users/{uid}</code>，並透過 Apple 伺服器傳送通知 payload。Apple 不向我們透露您的 Apple ID。資料處理依 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 隱私政策</a>規範。</li>
             <li><strong>Google Forms</strong>（Google LLC）— 處理 Contact Form 與 Feedback Form 提交；data sub-processor for DappGo。</li>
@@ -643,7 +658,7 @@
         <h2>Third parties</h2>
         <ul>
             <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>, Google LLC) — anonymized website visitor analytics; IP anonymization enabled; US data center.</li>
-            <li><strong>Firebase Analytics (GA4 in-app)</strong> — retired on 2026-05-18; the stock apps do not use Firebase Analytics. The current Options Explorer version also does not write product-usage events to Firestore.</li>
+            <li><strong>Firebase Analytics (GA4 in-app, Google LLC)</strong> — the old integration was retired on 2026-05-18. New research-app versions use Advanced Consent Mode as described above. Detailed custom events require explicit opt-in; limited SDK signals do not constitute consent. New product-analytics events are not stored in Firestore.</li>
             <li><strong>Firebase Firestore &amp; Anonymous Auth</strong> (Google LLC) — backend database storing optional feedback, push-registration, and shared market-data records, plus legacy event data from some other stock-app versions. Options Explorer uses the anonymous service identifier only when its optional push flow requires it. US data center (multi-region nam5); EU transfers are governed by Google's DPF certification and SCCs in the Firebase DPA.</li>
             <li><strong>Apple Push Notification Service (APNs)</strong> (Apple Inc.) — delivers push notifications to your device. We store the opaque APNs device token Apple provides in <code>users/{uid}</code> and send notification payloads via Apple's servers. Apple does not disclose your Apple ID to us. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
             <li><strong>Google Forms</strong> (Google LLC) — processes Contact and Feedback form submissions on DappGo's behalf.</li>
