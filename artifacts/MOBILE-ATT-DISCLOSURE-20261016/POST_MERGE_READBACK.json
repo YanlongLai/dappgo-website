@@ -1,0 +1,339 @@
+{
+  "schema": "mobile-att-post-merge-readback-v1",
+  "scope": "Evidence only; main retains formal criterion 2 acceptance and closeout.",
+  "repository": "YanlongLai/dappgo-website",
+  "pr": {
+    "number": 32,
+    "url": "https://github.com/YanlongLai/dappgo-website/pull/32",
+    "state": "closed",
+    "merged": true,
+    "mergedAt": "2026-10-16T19:04:16Z"
+  },
+  "git": {
+    "freshFetchCommand": "git fetch origin master",
+    "remoteReadbackCommand": "git ls-remote --heads origin master",
+    "remoteMaster": "18b43b96c64a7a0a7a2366cffa769dd74ef086b4",
+    "merge": "18b43b96c64a7a0a7a2366cffa769dd74ef086b4",
+    "parents": [
+      "2ff837dd9581ce6cf6c6c95be1e8af2803372f6d",
+      "4891c9a7e757a0fe11afeb77249b379463f0d923"
+    ],
+    "sourceCommit": "4891c9a7e757a0fe11afeb77249b379463f0d923",
+    "mergeTree": "42448dd7cfdf99240dd765f4aad283a1ea11c0ac",
+    "sourceTree": "42448dd7cfdf99240dd765f4aad283a1ea11c0ac",
+    "sourceToMergeDiffEmpty": true,
+    "immutableChecks": [
+      "git show -s --format='%H%n%P%n%T%n%s%n%cI' 18b43b96c64a7a0a7a2366cffa769dd74ef086b4",
+      "git show -s --format='%H%n%T' 4891c9a7e757a0fe11afeb77249b379463f0d923",
+      "git diff --name-status 4891c9a7e757a0fe11afeb77249b379463f0d923 18b43b96c64a7a0a7a2366cffa769dd74ef086b4"
+    ]
+  },
+  "live": {
+    "merge": "18b43b96c64a7a0a7a2366cffa769dd74ef086b4",
+    "sourceBytes": 75450,
+    "sourceSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+    "contractSHA256": "1a3b52b125555c1057a281d79af126b94dafbf7abf43f434fcd288d860c00f3f",
+    "sourceAttSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+    "results": [
+      {
+        "url": "https://dappgo.com/privacy.html",
+        "status": 200,
+        "capturedAt": "2026-10-16T19:06:26.784Z",
+        "bodyBytes": 79622,
+        "bodySHA256": "50bc9588a9871b4eebb70f13ecb8e1a9ad88d8d7f21e909e5d9cfa867e0d09c6",
+        "exactMergedSourceBytes": false,
+        "attSectionBytes": 3047,
+        "attSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+        "attSectionExactSourceBytes": true,
+        "contractChecks": [
+          {
+            "name": "version-scoped ATT section has both languages and permission controls",
+            "passed": true
+          },
+          {
+            "name": "both languages describe conservative refusal and independent analytics",
+            "passed": true
+          },
+          {
+            "name": "blanket stock no-tracking promises are removed without changing Number Merge section",
+            "passed": true
+          },
+          {
+            "name": "collection, rights and backend wording do not contradict the versioned SDK disclosure",
+            "passed": true
+          }
+        ],
+        "normalization": {
+          "transformations": [
+            {
+              "name": "decode Cloudflare standalone email anchors",
+              "count": 10
+            },
+            {
+              "name": "decode Cloudflare protected mailto href",
+              "count": 19
+            },
+            {
+              "name": "decode Cloudflare protected email spans",
+              "count": 18
+            },
+            {
+              "name": "remove injected Cloudflare email decoder",
+              "count": 1
+            },
+            {
+              "name": "remove injected Cloudflare challenge params script",
+              "count": 1
+            }
+          ],
+          "normalizedBytes": 75450,
+          "normalizedSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+          "normalizedExactMergedSourceBytes": true
+        },
+        "headers": {
+          "content-type": "text/html; charset=utf-8",
+          "content-encoding": "zstd",
+          "last-modified": "Fri, 16 Oct 2026 19:05:02 GMT",
+          "age": "0",
+          "cache-control": "max-age=600",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "url": "https://dappgo.com/privacy",
+        "status": 200,
+        "capturedAt": "2026-10-16T19:06:26.937Z",
+        "bodyBytes": 79622,
+        "bodySHA256": "6b9e3b9d0e2ee0f01ed74b754ac49bec5e716f718d72e72024a32a9f5d14e5ec",
+        "exactMergedSourceBytes": false,
+        "attSectionBytes": 3047,
+        "attSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+        "attSectionExactSourceBytes": true,
+        "contractChecks": [
+          {
+            "name": "version-scoped ATT section has both languages and permission controls",
+            "passed": true
+          },
+          {
+            "name": "both languages describe conservative refusal and independent analytics",
+            "passed": true
+          },
+          {
+            "name": "blanket stock no-tracking promises are removed without changing Number Merge section",
+            "passed": true
+          },
+          {
+            "name": "collection, rights and backend wording do not contradict the versioned SDK disclosure",
+            "passed": true
+          }
+        ],
+        "normalization": {
+          "transformations": [
+            {
+              "name": "decode Cloudflare standalone email anchors",
+              "count": 10
+            },
+            {
+              "name": "decode Cloudflare protected mailto href",
+              "count": 19
+            },
+            {
+              "name": "decode Cloudflare protected email spans",
+              "count": 18
+            },
+            {
+              "name": "remove injected Cloudflare email decoder",
+              "count": 1
+            },
+            {
+              "name": "remove injected Cloudflare challenge params script",
+              "count": 1
+            }
+          ],
+          "normalizedBytes": 75450,
+          "normalizedSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+          "normalizedExactMergedSourceBytes": true
+        },
+        "headers": {
+          "content-type": "text/html; charset=utf-8",
+          "content-encoding": "zstd",
+          "last-modified": "Fri, 16 Oct 2026 19:05:02 GMT",
+          "age": "0",
+          "cache-control": "max-age=600",
+          "cf-cache-status": "DYNAMIC"
+        }
+      }
+    ]
+  },
+  "interpretation": {
+    "rawFullBodyEquality": false,
+    "exactAttSectionEqualityBothURLs": true,
+    "fullSourceEqualityAfterEnumeratedCloudflareTransforms": true,
+    "rawHashSemantics": "SHA256 of decompressed HTTP response bodies, not encoded transport bytes. Dynamic Cloudflare email encodings and injected script parameters change raw hashes.",
+    "contractExecution": "Four frozen contract callbacks replayed per raw live body in a VM, eight passed total; not a new Node test-runner suite.",
+    "normalizationNotRawEquality": true,
+    "formalAcceptance": "Pending main readback; no delegated runtime gate or legal/mobile release acceptance."
+  },
+  "browser": {
+    "provider": "Chrome via CUA",
+    "url": "https://dappgo.com/privacy.html#mobile-att",
+    "observedLocales": [
+      "zh-Hant",
+      "en"
+    ],
+    "observed": "Rendered upcoming versions, personalized advertising and measurement, independent controls, refusal behavior and Android distinction.",
+    "screenshots": "Captured as inline CUA tool images; no separately exported screenshot artifact."
+  },
+  "preserved": [
+    "PROMOTION_READBACK.json historical pre-merge hold snapshot",
+    "Existing EVIDENCE.md history and frozen policy/contract hashes"
+  ],
+  "prohibitedActionsPerformed": false,
+  "noActionsInspection": true,
+  "noPolicyEdit": true,
+  "noNewCommitPushOrPR": true,
+  "reproducibleVerifierRun": {
+    "command": "node artifacts/MOBILE-ATT-DISCLOSURE-20261016/verify-public-readback.cjs",
+    "exitCode": 0,
+    "result": {
+      "merge": "18b43b96c64a7a0a7a2366cffa769dd74ef086b4",
+      "sourceBytes": 75450,
+      "sourceSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+      "contractSHA256": "1a3b52b125555c1057a281d79af126b94dafbf7abf43f434fcd288d860c00f3f",
+      "sourceAttSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+      "results": [
+        {
+          "url": "https://dappgo.com/privacy.html",
+          "finalURL": "https://dappgo.com/privacy.html",
+          "status": 200,
+          "capturedAt": "2026-10-16T19:10:23.661Z",
+          "bodyBytes": 79622,
+          "bodySHA256": "439a50aa849272ebb25ca028889b5bbf9999dd4ca6d7e2958eaa70fe444f2b42",
+          "exactMergedSourceBytes": false,
+          "attSectionBytes": 3047,
+          "attSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+          "attSectionExactSourceBytes": true,
+          "contractChecks": [
+            {
+              "name": "version-scoped ATT section has both languages and permission controls",
+              "passed": true
+            },
+            {
+              "name": "both languages describe conservative refusal and independent analytics",
+              "passed": true
+            },
+            {
+              "name": "blanket stock no-tracking promises are removed without changing Number Merge section",
+              "passed": true
+            },
+            {
+              "name": "collection, rights and backend wording do not contradict the versioned SDK disclosure",
+              "passed": true
+            }
+          ],
+          "normalization": {
+            "transformations": [
+              {
+                "name": "decode Cloudflare standalone email anchors",
+                "count": 10
+              },
+              {
+                "name": "decode Cloudflare protected mailto href",
+                "count": 19
+              },
+              {
+                "name": "decode Cloudflare protected email spans",
+                "count": 18
+              },
+              {
+                "name": "remove injected Cloudflare email decoder",
+                "count": 1
+              },
+              {
+                "name": "remove injected Cloudflare challenge params script",
+                "count": 1
+              }
+            ],
+            "normalizedBytes": 75450,
+            "normalizedSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+            "normalizedExactMergedSourceBytes": true
+          },
+          "headers": {
+            "content-type": "text/html; charset=utf-8",
+            "content-encoding": "zstd",
+            "last-modified": "Fri, 16 Oct 2026 19:05:02 GMT",
+            "age": "0",
+            "cache-control": "max-age=600",
+            "cf-cache-status": "DYNAMIC"
+          }
+        },
+        {
+          "url": "https://dappgo.com/privacy",
+          "finalURL": "https://dappgo.com/privacy",
+          "status": 200,
+          "capturedAt": "2026-10-16T19:10:23.825Z",
+          "bodyBytes": 79622,
+          "bodySHA256": "8af55bc2b62afee95029cbf8dec8ccafe74afe1ebbe5e7c53f8e268d0b7c977c",
+          "exactMergedSourceBytes": false,
+          "attSectionBytes": 3047,
+          "attSectionSHA256": "1623ab5ea9908372345e4c7b36a5817319610beb3d36da60e69131d4a74d451d",
+          "attSectionExactSourceBytes": true,
+          "contractChecks": [
+            {
+              "name": "version-scoped ATT section has both languages and permission controls",
+              "passed": true
+            },
+            {
+              "name": "both languages describe conservative refusal and independent analytics",
+              "passed": true
+            },
+            {
+              "name": "blanket stock no-tracking promises are removed without changing Number Merge section",
+              "passed": true
+            },
+            {
+              "name": "collection, rights and backend wording do not contradict the versioned SDK disclosure",
+              "passed": true
+            }
+          ],
+          "normalization": {
+            "transformations": [
+              {
+                "name": "decode Cloudflare standalone email anchors",
+                "count": 10
+              },
+              {
+                "name": "decode Cloudflare protected mailto href",
+                "count": 19
+              },
+              {
+                "name": "decode Cloudflare protected email spans",
+                "count": 18
+              },
+              {
+                "name": "remove injected Cloudflare email decoder",
+                "count": 1
+              },
+              {
+                "name": "remove injected Cloudflare challenge params script",
+                "count": 1
+              }
+            ],
+            "normalizedBytes": 75450,
+            "normalizedSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+            "normalizedExactMergedSourceBytes": true
+          },
+          "headers": {
+            "content-type": "text/html; charset=utf-8",
+            "content-encoding": "zstd",
+            "last-modified": "Fri, 16 Oct 2026 19:05:02 GMT",
+            "age": "0",
+            "cache-control": "max-age=600",
+            "cf-cache-status": "DYNAMIC"
+          }
+        }
+      ]
+    }
+  },
+  "noCleanup": true
+}
