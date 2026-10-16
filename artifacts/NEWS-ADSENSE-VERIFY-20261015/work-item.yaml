@@ -1,0 +1,34 @@
+schema_version: 0.1.0
+id: NEWS-ADSENSE-VERIFY-20261015
+project: dappgo-studio
+title: Add Owner-supplied AdSense verification loader to News
+status: proposed
+risk: low
+question: Is the exact supplied verification script present in the public News document heads?
+hypotheses:
+  - Static head placement and a narrowly allowed loader path make the script discoverable without changing other publishers.
+artifacts:
+  prd: artifacts/NEWS-ADSENSE-VERIFY-20261015/PRD.md
+  tdd: artifacts/NEWS-ADSENSE-VERIFY-20261015/TDD.md
+  experiment: artifacts/NEWS-ADSENSE-VERIFY-20261015/EVIDENCE.md
+assignment:
+  producer: mobile-engineer
+  peer_reviewer: qa-engineer
+  director: engineering-director
+  assurance: independent-review
+budget:
+  token_limit: 12000
+  max_iterations: 3
+  deadline: '2026-10-17'
+acceptance_criteria:
+  - Supplied publisher script appears once in root US and TW heads.
+  - Reader regressions and narrowly scoped loader CSP pass.
+  - Merged source deployed to dappgo-news and public HTML verified without claiming Google approval.
+evidence: []
+decision: pending
+provenance:
+  codex_task_id: 01a141c5-8985-7853-a8a7-b479936ed1e4
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/news-adsense-verification-20261015
+  worktree: news-adsense-verification-20261015

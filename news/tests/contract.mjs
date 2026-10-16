@@ -7,6 +7,15 @@ const files = ["index.html", "tw/index.html", "us/index.html", "assets/news.css"
 for (const file of files) assert.ok(fs.existsSync(path.join(root, file)), `missing ${file}`);
 
 const landing = fs.readFileSync(path.join(root, "index.html"), "utf8");
+for (const route of ["index.html", "us/index.html", "tw/index.html"]) {
+  const html = fs.readFileSync(path.join(root, route), "utf8");
+  const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? "";
+  const loaders = [...html.matchAll(/<script\b[^>]*\bsrc="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-7851819017318644"[^>]*><\/script>/g)];
+  assert.equal(loaders.length, 1, `${route}: one exact publisher loader`);
+  assert.ok(head.includes(loaders[0][0]), `${route}: loader belongs in head`);
+  assert.match(loaders[0][0], /\basync\b/);
+  assert.match(loaders[0][0], /crossorigin="anonymous"/);
+}
 assert.match(landing, /window\.location\.replace\("\/us\/"\)/);
 assert.doesNotMatch(landing, /url=\/tw\//);
 
@@ -39,6 +48,8 @@ assert.match(sitemap, /news\.dappgo\.com\/us\//);
 const llms = fs.readFileSync(path.join(root, "llms.txt"), "utf8");
 assert.match(llms, /formal DappGo market pointer/);
 const headers = fs.readFileSync(path.join(root, "_headers"), "utf8");
+assert.ok(headers.includes("script-src 'self' https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js;"));
+assert.doesNotMatch(headers, /script-src[^;]*(?:'unsafe-inline'|'unsafe-eval'|\*)/);
 assert.match(headers, /\/tw\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
 assert.match(headers, /\/us\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
 
