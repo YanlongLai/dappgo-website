@@ -1,0 +1,34 @@
+schema_version: 0.1.0
+id: MOBILE-ATT-DISCLOSURE-20261016
+project: dappgo-studio
+title: Disclose Owner-selected ATT flow in three research apps
+status: proposed
+risk: high
+question: Does public privacy wording match the new permission-controlled iOS advertising behavior?
+hypotheses:
+  - Version-scoped bilingual ATT wording removes conflicting blanket no-tracking statements without changing Number Merge policy.
+artifacts:
+  prd: artifacts/MOBILE-ATT-DISCLOSURE-20261016/PRD.md
+  tdd: artifacts/MOBILE-ATT-DISCLOSURE-20261016/TDD.md
+  experiment: artifacts/MOBILE-ATT-DISCLOSURE-20261016/EVIDENCE.md
+assignment:
+  producer: mobile-engineer
+  peer_reviewer: qa-engineer
+  director: engineering-director
+  assurance: independent-review
+budget:
+  token_limit: 12000
+  max_iterations: 3
+  deadline: '2026-10-23'
+acceptance_criteria:
+  - English and Traditional Chinese describe the same ATT permission and refusal controls.
+  - No blanket no-tracking statement conflicts with new app behavior or expands Number Merge scope.
+  - Independent review and live public readback match the merged privacy source.
+evidence: []
+decision: pending
+provenance:
+  codex_task_id: 01a141c5-8985-7853-a8a7-b479936ed1e4
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/mobile-att-disclosure-20261016
+  worktree: mobile-att-disclosure-20261016-website
