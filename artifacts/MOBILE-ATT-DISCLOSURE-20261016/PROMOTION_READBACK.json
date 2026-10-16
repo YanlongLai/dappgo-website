@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "work_item": "MOBILE-ATT-DISCLOSURE-20261016",
+  "claim_id": "CLM-08751F2D7BCF",
+  "task_id": "01a141c5-8985-7853-a8a7-b479936ed1e4",
+  "host_id": "local",
+  "source_commit": "4891c9a7e757a0fe11afeb77249b379463f0d923",
+  "remote_ref": "refs/heads/feature/mobile-att-disclosure-20261016",
+  "base_master": "2ff837dd9581ce6cf6c6c95be1e8af2803372f6d",
+  "pull_request": "https://github.com/YanlongLai/dappgo-website/pull/32",
+  "promotion_state": "pushed-pr-open-merge-held",
+  "merge_sha": null,
+  "pr_preflight": {
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "mergeable_state": "unstable",
+    "changed_files": 7,
+    "head_sha": "4891c9a7e757a0fe11afeb77249b379463f0d923",
+    "base_sha": "2ff837dd9581ce6cf6c6c95be1e8af2803372f6d",
+    "reviews": [],
+    "authority_condition": "Merge only if clean/no other state",
+    "blocker": "PR mergeable_state is unstable, not clean; no override inferred.",
+    "github_actions": "not run, queried, checked or counted"
+  },
+  "frozen_contract_sha256": "1a3b52b125555c1057a281d79af126b94dafbf7abf43f434fcd288d860c00f3f",
+  "live_readback": {
+    "candidateSHA256": "10c5cbff2defdc5576f81574802e8e65e8a8ebf80bcc652e83b9305ee1e51117",
+    "candidateBytes": 75450,
+    "baselineSHA256": "9e11310cce12f7077529de9cb13b8cc616ea8a21e5a7f22b4f5280e61c2c66c8",
+    "baselineBytes": 70164,
+    "results": [
+      {
+        "requestedUrl": "https://dappgo.com/privacy.html",
+        "finalUrl": "https://dappgo.com/privacy.html",
+        "status": 200,
+        "capturedAt": "2026-10-16T18:58:47.582Z",
+        "bodyBytes": 74336,
+        "bodySHA256": "12a19cba1d9693743a06b4ec9d56144cf562cde3c19fce410d85b7014a6088e5",
+        "exactCandidateBytes": false,
+        "exactBaselineBytes": false,
+        "headers": {
+          "content-type": "text/html; charset=utf-8",
+          "content-encoding": "zstd",
+          "last-modified": "Fri, 16 Oct 2026 15:32:45 GMT",
+          "age": "0",
+          "cache-control": "max-age=600",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "requestedUrl": "https://dappgo.com/privacy",
+        "finalUrl": "https://dappgo.com/privacy",
+        "status": 200,
+        "capturedAt": "2026-10-16T18:58:47.936Z",
+        "bodyBytes": 74336,
+        "bodySHA256": "3c4a5f58d4467f96241cd5e68178a9606ca05b24fcd612f325519b8c21c6cd4f",
+        "exactCandidateBytes": false,
+        "exactBaselineBytes": false,
+        "headers": {
+          "content-type": "text/html; charset=utf-8",
+          "content-encoding": "zstd",
+          "last-modified": "Fri, 16 Oct 2026 15:32:45 GMT",
+          "age": "0",
+          "cache-control": "max-age=600",
+          "cf-cache-status": "DYNAMIC"
+        }
+      }
+    ]
+  },
+  "live_disposition": "Pre-merge observation only. Neither public route matches frozen candidate bytes; neither matches prior master bytes. Cause of body difference not determined. Not deployment or criterion-2 acceptance.",
+  "tests": {
+    "privacy_contracts": {
+      "passed": 4,
+      "failed": 0
+    },
+    "quality": {
+      "node_passed": 12,
+      "python_passed": 4,
+      "catalog": "passed",
+      "performance": "passed",
+      "syntax": "passed"
+    },
+    "diff_check": "passed"
+  },
+  "handoff": {
+    "owner": "main",
+    "next_action": "Resolve PR-not-clean merge authority without forbidden Actions inspection, then verify merged source and fresh live exact bytes. Formal review/runtime closeout remains main-owned.",
+    "cleanup": "not performed",
+    "claim": "retained",
+    "local_receipt": "This post-PR receipt and EVIDENCE.md addendum are retained locally, not included in source commit."
+  }
+}
