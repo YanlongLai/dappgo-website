@@ -7,3 +7,7 @@ Local reader contract and locale/scope analysis tests pass. Complete website qua
 DEL-REVIEW-01: clear five-file HTML/CSP/test boundary; deterministic singleton checks; reversible source/Pages rollout; reviewer has no external-write authority; low product-context dependence. Independent read-only assurance delegated; parent retains promotion and deployment responsibility.
 
 Independent assurance Leibniz task 01a1421f-9e72-7ba2-a03f-05a9e6338738 passed with no blockers on tracked diff SHA-256 2bcd23648784ffc8771db8b94ffd598284fce052d061460c28931915f0c06b79. Prior production rollback identity is Pages deployment 32d40195-6925-46e3-b923-b58e0d4355b9, source 254c8d0. No GitHub Actions used.
+
+## Live verification
+
+PR https://github.com/YanlongLai/dappgo-website/pull/28 merged source 60752d2 into master 67d53bcea115a4b6fc8fea56e556fd098dafa814. Existing Wrangler 4.149.0 deployed the clean merged news directory, including Functions, headers and routes, to https://d691e3ee.dappgo-news.pages.dev. Public news.dappgo.com root, /us/ and /tw/ each returned HTTP 200 with exactly one supplied loader inside head and the narrowly scoped CSP allowance. This is code/deployment verification, not Google account approval. Main website publisher unchanged. PR attachment attempted but this long thread exceeds the app's 100-artifact identity limit; PR URL remains authoritative here.
