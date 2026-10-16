@@ -1,0 +1,38 @@
+schema_version: 0.1.0
+id: MOBILE-ADVANCED-CONSENT-PRIVACY-20261016
+project: dappgo-studio
+title: Reconcile new mobile Advanced Consent disclosure
+status: proposed
+risk: medium
+question: Can the public privacy policy accurately describe the new mobile consent flow without changing website analytics or Number Merge?
+hypotheses:
+  - Version-scoped bilingual copy can describe limited SDK signals and opt-in detailed events without erasing historical no-analytics releases.
+artifacts:
+  prd: artifacts/MOBILE-ADVANCED-CONSENT-PRIVACY-20261016/PLAN.md
+  tdd: artifacts/MOBILE-ADVANCED-CONSENT-PRIVACY-20261016/PLAN.md
+  experiment: artifacts/MOBILE-ADVANCED-CONSENT-PRIVACY-20261016/EVIDENCE.md
+assignment:
+  producer: mobile-engineer
+  peer_reviewer: qa-engineer
+  director: engineering-director
+  assurance: independent-review
+budget:
+  token_limit: 12000
+  max_iterations: 2
+  deadline: '2026-10-23'
+acceptance_criteria:
+  - Bilingual upcoming-version copy explains Advanced limited measurement and detailed opt-in, independent ads and no migration flow.
+  - Existing no-analytics version claims are historical and do not contradict new versions.
+  - Static website quality gate passes and production content is verified before app submission.
+governance:
+  reversible: true
+  sensitive_or_external_side_effect: true
+  product_context_required: true
+evidence: []
+decision: pending
+provenance:
+  codex_task_id: 01a141c5-8985-7853-a8a7-b479936ed1e4
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/mobile-advanced-consent-20261016
+  worktree: mobile-advanced-consent-20261016-dappgo-website
