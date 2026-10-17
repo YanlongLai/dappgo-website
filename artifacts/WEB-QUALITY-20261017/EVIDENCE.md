@@ -64,4 +64,30 @@ targets both measure 44x44. Taiwan News loads live gateway data, filters 2330, s
 and displays 台積電 with no overflow at 390x844. Captures: home-mobile-dark.png and news-tw-mobile.png.
 
 The official release ledger requires exact Owner confirmation before production. Requested
-APPROVE WEB-QUALITY-20261017 owner; source work and review continue while awaiting that record.
+APPROVE WEB-QUALITY-20261017 owner; received and recorded at 2026-10-17T18:37:35Z.
+
+## Integration checkpoint
+
+Homepage/News source commit: 57c871c6be2555e8e571af744f166d2f612fd35a.
+PR: https://github.com/YanlongLai/dappgo-website/pull/34 (not yet merged).
+Second independent website review (Laplace) passed 17 focused behavior tests and
+both News contract suites, plus header/body timeout recovery probes without edits.
+Canonical Pages assembly/routing verification: 21 tests pass on Node 20.20.2.
+
+Read-only rollback inventory at 2026-10-17:
+
+| Target | Previous identity |
+|---|---|
+| Homepage legacy Pages master/root | bc113548d8281884f2496d9daebedbe740599227 |
+| News Cloudflare production | d691e3ee-6396-4233-89b9-d1e59c0d71d1 (source 67d53bc) |
+| Stocks Cloudflare production | 63d2ec90-a458-4726-8e0b-e7934f506bba |
+| Options Cloudflare production | 7bff8d9f-f977-4ce0-b3ce-89e81277ae51 |
+
+The three RN patches remain in independent review/integration. Narrow web tabs now
+use the existing responsive tab component; iOS retains its native tab branch.
+Options retained-memory refresh failure feedback was repaired using the existing
+store failure counter, without changing refresh-engine semantics. TW retry text
+contrast is being corrected after independent review. No production mutation yet.
+Native build/device/screen-reader and fresh store-console evidence are outside this
+web promotion and are not represented as passed; those remain gates for any future
+native release. No store submission, ad-rule, data-source or schedule changes.
