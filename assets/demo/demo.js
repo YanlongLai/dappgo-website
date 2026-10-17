@@ -205,6 +205,7 @@
   const themeButton = document.querySelector("#theme-toggle");
   const menuButton = document.querySelector("#menu-toggle");
   const menu = document.querySelector("#main-nav");
+  const mobileNavigation = matchMedia("(max-width: 767px)");
   const sources = ["dashboard", "explore", "ticker"];
   const productImageSource = document.querySelector("#product-image-source");
   const productAssets = Object.fromEntries(
@@ -374,9 +375,17 @@
     store.set("theme", theme);
     renderTheme();
   });
-  menuButton.addEventListener("click", () =>
-    setMenu(!menu.classList.contains("is-open")),
-  );
+  menuButton.addEventListener("click", (event) => {
+    const open = !menu.classList.contains("is-open");
+    setMenu(open);
+    // The navigation precedes its toggle in DOM order. Keyboard users need
+    // an explicit entry point, while pointer users keep their current focus.
+    if (open && event.detail === 0) menu.querySelectorAll("a")[0]?.focus();
+  });
+  mobileNavigation.addEventListener("change", () => setMenu(false));
+  document.addEventListener("focusin", (event) => {
+    if (!event.target.closest(".site-header")) setMenu(false);
+  });
   menu
     .querySelectorAll("a")
     .forEach((link) => link.addEventListener("click", () => setMenu(false)));
@@ -391,6 +400,15 @@
   });
   document.querySelector("#flow-play").addEventListener("click", () => {
     playing = !playing;
+    renderPlay();
+  });
+  workflow.addEventListener("focusin", (event) => {
+    // Let the play/pause control handle its own click. Pointer focus arrives
+    // before click, so pausing here would invert that button's intended action.
+    if (event.target.closest("#flow-play")) return;
+    // Do not replace the panel a keyboard user is reading. Playback can be
+    // explicitly resumed using the existing play button.
+    playing = false;
     renderPlay();
   });
   document.addEventListener("visibilitychange", renderPlay);

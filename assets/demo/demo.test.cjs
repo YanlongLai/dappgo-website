@@ -83,6 +83,7 @@ function fixture({ reduced = false, storageFails = false } = {}) {
     },
   };
   const timers = new Map();
+  const navigationMedia = { addEventListener(key, callback) { this.change = callback; } };
   let nextTimer = 0;
   vm.runInNewContext(script, {
     document,
@@ -95,7 +96,7 @@ function fixture({ reduced = false, storageFails = false } = {}) {
         if (storageFails) throw Error("denied");
       },
     },
-    matchMedia: () => media,
+    matchMedia: (query) => query.includes("reduced-motion") ? media : navigationMedia,
     IntersectionObserver: class {
       constructor(callback) {
         visibility = callback;
@@ -115,6 +116,7 @@ function fixture({ reduced = false, storageFails = false } = {}) {
     productTabs,
     translated,
     media,
+    navigationMedia,
     timers,
     visible(value) {
       visibility([{ isIntersecting: value }]);
@@ -134,6 +136,41 @@ test("all local links, assets, and anchors resolve", () => {
   }
 });
 
+test("mobile navigation supports keyboard entry, focus exit and breakpoint reset", () => {
+  const app = fixture();
+  const firstLink = { focus() { this.focused = true; } };
+  app.get("#main-nav").querySelectorAll = () => [firstLink];
+  app.get("#menu-toggle").events.click({ detail: 0 });
+  assert.equal(firstLink.focused, true);
+  assert.equal(app.get("#menu-toggle").attrs["aria-expanded"], "true");
+  app.document.events.focusin({ target: { closest: () => null } });
+  assert.equal(app.get("#menu-toggle").attrs["aria-expanded"], "false");
+  app.get("#menu-toggle").events.click({ detail: 1 });
+  app.navigationMedia.change();
+  assert.equal(app.get("#menu-toggle").attrs["aria-expanded"], "false");
+});
+
+test("keyboard entry pauses workflow without automatic resume", () => {
+  const app = fixture();
+  app.visible(true);
+  app.get("#workflow").events.focusin({ target: { closest: () => null } });
+  assert.equal(app.timers.size, 0);
+  app.visible(false);
+  app.visible(true);
+  assert.equal(app.timers.size, 0);
+  app.get("#flow-play").events.click();
+  assert.equal(app.timers.size, 1);
+});
+
+test("pointer focus before Pause click does not resume playback", () => {
+  const app = fixture();
+  app.visible(true);
+  app.get("#workflow").events.focusin({ target: { closest: () => app.get("#flow-play") } });
+  app.get("#flow-play").events.click();
+  assert.equal(app.timers.size, 0);
+  assert.equal(app.get("#flow-play").getAttribute("aria-pressed"), "false");
+});
+
 test("production homepage is indexable and keeps the public metadata contract", () => {
   assert.match(production, /<meta name="robots" content="index, follow"/);
   assert.match(
@@ -144,8 +181,8 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.match(production, /og-image-v2\.png/);
   assert.doesNotMatch(production, /noindex/);
   assert.doesNotMatch(production, /Design preview/);
-  assert.match(production, /assets\/demo\/demo\.css\?v=20261011-polish/);
-  assert.match(production, /assets\/demo\/demo\.js\?v=20261011-polish/);
+  assert.match(production, /assets\/demo\/demo\.css\?v=20261017-quality/);
+  assert.match(production, /assets\/demo\/demo\.js\?v=20261017-quality/);
 });
 
 test("platform download badges match the verified app availability matrix", () => {
@@ -265,7 +302,7 @@ test("theme and Escape-to-close menu work even when preference storage is blocke
   const app = fixture({ storageFails: true });
   app.get("#theme-toggle").events.click();
   assert.equal(app.document.documentElement.dataset.theme, "dark");
-  app.get("#menu-toggle").events.click();
+  app.get("#menu-toggle").events.click({ detail: 1 });
   assert.equal(app.get("#menu-toggle").getAttribute("aria-expanded"), "true");
   app.document.events.keydown({ key: "Escape" });
   assert.equal(app.get("#menu-toggle").getAttribute("aria-expanded"), "false");

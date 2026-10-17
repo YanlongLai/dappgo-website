@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+id: WEB-QUALITY-20261017
+project: dappgo-studio
+title: Preserve-brand web interaction quality
+status: approved
+risk: medium
+question: Can focused interaction and layout improvements improve all public reading surfaces without altering data or monetization?
+hypotheses:
+  - Explicit focus, input and responsive states remove navigation friction without replacing the brand.
+artifacts:
+  prd: artifacts/WEB-QUALITY-20261017/PRD.md
+  tdd: artifacts/WEB-QUALITY-20261017/TDD.md
+  experiment: artifacts/WEB-QUALITY-20261017/EVIDENCE.md
+assignment:
+  producer: mobile-engineer
+  peer_reviewer: qa-engineer
+  director: engineering-director
+  assurance: independent-review
+budget:
+  token_limit: 90000
+  max_iterations: 3
+  deadline: '2026-10-19'
+acceptance_criteria:
+  - Homepage keyboard and mobile navigation remain usable in both languages and themes.
+  - News retains stock and language selection, handles search and empty states, and preserves source links.
+  - US, TW and Options changes live in React Native sources and preserve platform behavior.
+  - Relevant tests and responsive visual checks pass before scoped web deployment.
+  - Merged and deployed identities are verified separately; native store submission is excluded.
+evidence: []
+decision: pending
+provenance:
+  codex_task_id: 01a141dc-c497-72d1-b5d6-677e4ae08882
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/web-quality-20261017
+  worktree: web-quality-20261017-website

@@ -16,7 +16,10 @@ for (const route of ["index.html", "us/index.html", "tw/index.html"]) {
   assert.match(loaders[0][0], /\basync\b/);
   assert.match(loaders[0][0], /crossorigin="anonymous"/);
 }
-assert.match(landing, /window\.location\.replace\("\/us\/"\)/);
+assert.match(landing, /http-equiv="refresh" content="0;url=\/us\/\?lang=en"/);
+assert.match(landing, /href="\/us\/\?lang=en"/);
+assert.doesNotMatch(landing, /<script>/);
+assert.equal(fs.readFileSync(path.join(root, "_redirects"), "utf8").trim(), "/ /us/?lang=en 302");
 assert.doesNotMatch(landing, /url=\/tw\//);
 
 const script = fs.readFileSync(path.join(root, "assets/news.js"), "utf8");
@@ -65,7 +68,7 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261011-browser-locale/);
+  assert.match(html, /news\.js\?v=20261017-quality/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
   assert.ok(html.indexOf('data-i18n="navUs"') < html.indexOf('data-i18n="navTw"'), `${route}: US navigation must precede TW`);

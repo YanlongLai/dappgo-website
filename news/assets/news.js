@@ -54,6 +54,7 @@
     reload: root.querySelector("[data-update-reload]"),
     skeletons: root.querySelector("[data-skeletons]"),
     error: root.querySelector("[data-error]"),
+    retry: root.querySelector("[data-retry]"),
     languageButtons: [...root.querySelectorAll("[data-language]")]
   };
 
@@ -101,7 +102,11 @@
       live: chinese ? "即時" : "Live",
       dataUnavailable: chinese ? "資料暫時無法取得" : "Data unavailable",
       unableToLoad: chinese ? "無法載入" : "Unable to load",
-      unableToRefresh: chinese ? "無法更新" : "Unable to refresh"
+      unableToRefresh: chinese ? "無法更新" : "Unable to refresh",
+      noStocks: chinese ? "找不到符合的股票，請換個名稱或代號。" : "No matching stocks. Try another company or ticker.",
+      clearSearch: chinese ? "清除搜尋" : "Clear search",
+      retry: chinese ? "重新載入" : "Try again",
+      disclaimer: chinese ? "標題、摘要與來源連結來自既有已發布資料。僅供資訊參考，不構成投資建議。" : "Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice."
     };
   }
 
@@ -130,7 +135,10 @@
       renderStocks();
       renderStories();
     }
-    if (state.pointer) {
+    if (state.errorMessage) {
+      els.error.textContent = `${copy.dataUnavailable}: ${state.errorMessage}`;
+      setStatus(copy.dataUnavailable, "error");
+    } else if (state.pointer) {
       els.updated.textContent = state.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(state.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
       setStatus(`${copy.live} ${copy.marketName} · pointer ${String(state.pointer.hash || "").slice(0, 12)}`, "ok");
     } else if (state.errorMessage) {
@@ -238,12 +246,26 @@
     const filter = state.query.toLowerCase();
     const allEntries = entries();
     const all = allEntries.filter((entry) => `${entry.symbol} ${entry.name}`.toLowerCase().includes(filter));
+    root.querySelectorAll("[data-search-feedback]").forEach((element) => {
+      element.textContent = state.query.trim() && !all.length ? copy.noStocks : "";
+      element.hidden = !element.textContent;
+    });
+    root.querySelectorAll("[data-clear-search]").forEach((button) => {
+      button.hidden = !state.query;
+      button.setAttribute("aria-label", copy.clearSearch);
+    });
     if (state.stock && state.stock !== "all" && !allEntries.some((entry) => entry.symbol === state.stock)) state.stock = "all";
     if (!state.stock && all.length) state.stock = all[0].symbol;
     const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${escapeHtml(copy.allMarket)}</span><small>ALL</small></button>`;
     const buttons = all.map((entry) => `<button class="stock-button" type="button" data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"><span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small></button>`).join("");
     els.stockList.innerHTML = allButton + buttons;
-    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => { state.stock = button.dataset.stock; syncViewUrl(); renderStocks(); renderStories(); }));
+    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => {
+      state.stock = button.dataset.stock;
+      syncViewUrl(); renderStocks(); renderStories();
+      // Rendering replaces the buttons. Restore focus to the selected control,
+      // without moving focus during typing, refreshes or language changes.
+      [...els.stockList.querySelectorAll("[data-stock]")].find((next) => next.dataset.stock === state.stock)?.focus({ preventScroll: true });
+    }));
     const selectedEntry = allEntries.find((entry) => entry.symbol === state.stock);
     const mobileEntries = selectedEntry && state.stock !== "all" && !all.some((entry) => entry.symbol === state.stock) ? [selectedEntry, ...all] : all;
     if (els.mobileSelect) {
@@ -305,9 +327,13 @@
   }
 
   async function fetchJson(url) {
-    const response = await fetch(url, { headers: { Accept: "application/json" }, cache: "no-store" });
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-    return response.json();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const response = await fetch(url, { headers: { Accept: "application/json" }, cache: "no-store", signal: controller.signal });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return await response.json();
+    } finally { clearTimeout(timeout); }
   }
 
   async function loadPayload() {
@@ -326,6 +352,7 @@
     state.errorMessage = null;
     els.skeletons.hidden = true;
     els.error.hidden = true;
+    els.retry.hidden = true;
     els.updated.textContent = result.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(result.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
     setStatus(`${copy.live} ${copy.marketName} · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
     renderStocks();
@@ -334,16 +361,34 @@
     syncViewUrl();
   }
 
+  let loading = false;
   async function initialLoad() {
-    try { applyLoaded(await loadPayload()); schedulePoll(); }
-    catch (error) { const copy = labels(); state.errorMessage = error.message; els.skeletons.hidden = true; els.error.hidden = false; els.error.textContent = `${copy.unableToLoad} ${copy.marketName} news: ${error.message}`; setStatus(copy.dataUnavailable, "error"); }
+    if (loading) return;
+    loading = true;
+    els.retry.disabled = true;
+    els.reload.disabled = true;
+    els.stories.setAttribute("aria-busy", "true");
+    try {
+      applyLoaded(await loadPayload());
+      els.update.classList.remove("is-visible");
+      schedulePoll();
+    } catch (error) {
+      const copy = labels(); state.errorMessage = error.message;
+      els.skeletons.hidden = true; els.error.hidden = false; els.retry.hidden = false;
+      els.error.textContent = `${state.payload ? copy.unableToRefresh : copy.unableToLoad} ${copy.marketName}: ${error.message}`;
+      setStatus(copy.dataUnavailable, "error");
+    } finally {
+      loading = false; els.retry.disabled = false; els.reload.disabled = false;
+      els.stories.setAttribute("aria-busy", "false");
+    }
   }
 
   async function poll() {
+    if (loading) { schedulePoll(); return; }
     try {
       const pointer = await fetchJson(pointerUrl);
       if (state.pointer && pointer.hash !== state.pointer.hash) els.update.classList.add("is-visible");
-      else if (!state.pointer) applyLoaded(await loadPayload());
+      else if (!state.pointer) await initialLoad();
     } catch (_) { /* Existing last-good view remains readable. */ }
     schedulePoll();
   }
@@ -354,6 +399,10 @@
 
   els.search.addEventListener("input", (event) => updateQuery(event.target.value));
   els.mobileSearch.addEventListener("input", (event) => updateQuery(event.target.value));
+  root.querySelectorAll("[data-clear-search]").forEach((button) => button.addEventListener("click", () => {
+    updateQuery("");
+    button.closest(".search").querySelector("input").focus();
+  }));
   els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; syncViewUrl(); renderStocks(); renderStories(); });
   els.languageButtons.forEach((button) => button.addEventListener("click", () => {
     const next = button.dataset.language;
@@ -363,18 +412,8 @@
     syncViewUrl();
     applyLanguage();
   }));
-  els.reload.addEventListener("click", async () => {
-    els.update.classList.remove("is-visible");
-    try {
-      applyLoaded(await loadPayload());
-    } catch (error) {
-      const copy = labels();
-      state.errorMessage = error.message;
-      setStatus(copy.dataUnavailable, "error");
-      els.error.hidden = false;
-      els.error.textContent = `${copy.unableToRefresh} ${copy.marketName} news: ${error.message}`;
-    }
-  });
+  els.reload.addEventListener("click", initialLoad);
+  els.retry.addEventListener("click", initialLoad);
   root.querySelectorAll("[data-range]").forEach((button) => button.addEventListener("click", () => { state.range = button.dataset.range; syncViewUrl(); syncRangeButtons(); renderStories(); }));
   window.addEventListener("popstate", applyViewStateFromUrl);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") poll(); });

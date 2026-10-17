@@ -5,7 +5,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
   <link rel="canonical" href="https://news.dappgo.com/us/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261011-ai-reading">
+  <link rel="stylesheet" href="../assets/news.css?v=20261017-quality">
   <title>DappGo News · United States</title>
 </head>
 <body>
@@ -14,14 +14,14 @@
     <header class="mast"><a class="brand" href="/us/" data-i18n-aria-label="brandAria">DappGo<span>/ NEWS</span></a><div class="mast-tools"><nav class="market-nav" data-i18n-aria-label="marketNav"><a href="/us/" aria-current="page" data-i18n="navUs">US</a><a href="/tw/" data-i18n="navTw">TW</a></nav><div class="language-switch" role="group" data-i18n-aria-label="language"><button type="button" data-language="zh" aria-pressed="false">中文</button><button type="button" data-language="en" aria-pressed="true">English</button></div></div></header>
     <div class="status"><span class="status-dot is-loading" data-status-dot></span><span data-status data-i18n="loadingStatus">Loading published news…</span></div>
     <div class="reader-grid">
-      <aside class="rail" data-i18n-aria-label="stockIndex"><h2 data-i18n="stockIndex">Stock index</h2><label class="search"><span aria-hidden="true">⌕</span><input data-stock-search data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"></label><div class="stock-list" data-stock-list></div><p class="rail-note" data-i18n-html="railNote">Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.</p></aside>
+      <aside class="rail" data-i18n-aria-label="stockIndex"><h2 data-i18n="stockIndex">Stock index</h2><div class="search"><span aria-hidden="true">⌕</span><input data-stock-search data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"><button type="button" class="clear-search" data-clear-search aria-label="Clear search" hidden>×</button></div><p class="search-feedback" data-search-feedback role="status" hidden></p><div class="stock-list" data-stock-list></div><p class="rail-note" data-i18n-html="railNote">Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.</p></aside>
       <main>
-        <div class="mobile-stock-tools" data-i18n-aria-label="stockSelection"><label class="mobile-search search"><span aria-hidden="true">⌕</span><input data-stock-search-mobile data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"></label><label class="mobile-stock-select-label"><span data-i18n="readStock">Read stock</span><select data-mobile-stock-select data-i18n-aria-label="selectStock" aria-label="Select United States stock"><option value="all">All market news</option></select></label></div>
+        <div class="mobile-stock-tools" data-i18n-aria-label="stockSelection"><div class="mobile-search search"><span aria-hidden="true">⌕</span><input data-stock-search-mobile data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"><button type="button" class="clear-search" data-clear-search aria-label="Clear search" hidden>×</button></div><p class="search-feedback" data-search-feedback role="status" hidden></p><label class="mobile-stock-select-label"><span data-i18n="readStock">Read stock</span><select data-mobile-stock-select data-i18n-aria-label="selectStock" aria-label="Select United States stock"><option value="all">All market news</option></select></label></div>
         <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">UNITED STATES / COMPANY NEWS</p><h2 data-company-name>United States</h2></div><div class="data-meta" data-updated data-i18n="dataLoading">Data loading…</div></section>
         <div class="filters" data-i18n-aria-label="dateRange"><button class="filter" type="button" data-range="all" aria-pressed="true" data-i18n="rangeAll">All</button><button class="filter" type="button" data-range="7" aria-pressed="false" data-i18n="range7">7 days</button><button class="filter" type="button" data-range="30" aria-pressed="false" data-i18n="range30">30 days</button><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">Newer published news is available.</span><button type="button" data-update-reload data-i18n="updateReading">Refresh reading</button></div>
         <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
-        <div data-error class="error-box" role="alert" hidden></div>
+        <div data-error class="error-box" role="alert" hidden></div><button type="button" class="retry-button" data-retry data-i18n="retry" hidden>Try again</button>
         <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
         <section data-stories aria-live="polite"></section>
       </main>
@@ -30,6 +30,6 @@
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span></footer>
   </div>
     <script src="../assets/news-data.js?v=20261011-ai-reading" defer></script>
-    <script src="../assets/news.js?v=20261011-browser-locale" defer></script>
+    <script src="../assets/news.js?v=20261017-quality" defer></script>
 </body>
 </html>
