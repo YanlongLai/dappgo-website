@@ -1,0 +1,919 @@
+{
+  "capturedAt": "2026-10-17T19:28:48.825Z",
+  "project": "dappgo-stocks-web",
+  "hostname": "stocks.dappgo.com",
+  "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+  "manifestDigest": "cd798702c8de625853739896bd1fbba7f96e40328a33d0cca39be04233ea3ecb",
+  "rows": [
+    {
+      "at": "2026-10-17T19:28:43.450Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/_expo/static/css/native-tabs.module-78b0f59737571f455720970791a36bdd.css",
+      "status": 200,
+      "expectedSha256": "35690ffc9fdaada915cbeb62b9763ea1cd4479aaa811c5b467a73fc1a67744bd",
+      "actualSha256": "35690ffc9fdaada915cbeb62b9763ea1cd4479aaa811c5b467a73fc1a67744bd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:43.601Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/index.html",
+      "status": 200,
+      "expectedSha256": "3ba07ea1b908b8176df8b4b111b5c328609721bc6e5807e1c7ad8fcec68af6b4",
+      "actualSha256": "68487609f0c2d3dcf1ddc45a0b8fcf1334fa5ce12573f7d83e57ed520ebbf124",
+      "check": "html-status-only",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:43.648Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/__app-shell.html",
+      "status": 200,
+      "expectedSha256": "e32a0a71515357ab8d172eb40e059e5ffa9fe5fc30f78bdcfd96aa549a563ffd",
+      "actualSha256": "1f6cabf5b4de62bf6e3b9bf400541a6c771d1c4d618a1a3045e097ca2f981d61",
+      "check": "html-status-only",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:43.933Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/_expo/static/js/web/entry.fe7b19bbd0160dca1178436001df2836.js",
+      "status": 200,
+      "expectedSha256": "fe7b19bbd0160dca1178436001df28366ad0177601e147e42a675fe9e25c5964",
+      "actualSha256": "fe7b19bbd0160dca1178436001df28366ad0177601e147e42a675fe9e25c5964",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.036Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/assets/fonts/SpaceMono-Regular.49a79d66bdea2debf1832bf4d7aca127.ttf",
+      "status": 200,
+      "expectedSha256": "4c322514d265062aa3f7fbd81f5b79391ccb74268e6a20600061e0ce33234f41",
+      "actualSha256": "4c322514d265062aa3f7fbd81f5b79391ccb74268e6a20600061e0ce33234f41",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.218Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Entypo.31b5ffea3daddc69dd01a1f3d6cf63c5.ttf",
+      "status": 200,
+      "expectedSha256": "16f92298587bab2b469bc13c0dfc6d5d171bca10bad0c9053ad16bc023bf717d",
+      "actualSha256": "16f92298587bab2b469bc13c0dfc6d5d171bca10bad0c9053ad16bc023bf717d",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.237Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/assets/images/icon.af64a69b08d7fb53ba02336a5faa43c3.png",
+      "status": 200,
+      "expectedSha256": "d89cbca1730a4eefdafac1350eb49afed7b0122e1c513cf412cac9437c48228c",
+      "actualSha256": "d89cbca1730a4eefdafac1350eb49afed7b0122e1c513cf412cac9437c48228c",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.264Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/AntDesign.3f78af31cca60105799838a1a7a59fbd.ttf",
+      "status": 200,
+      "expectedSha256": "08a9d5b513cf947e22ede81e9a843bd8d7763a63444cd21484bfde7662cc6543",
+      "actualSha256": "08a9d5b513cf947e22ede81e9a843bd8d7763a63444cd21484bfde7662cc6543",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.371Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf",
+      "status": 200,
+      "expectedSha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8",
+      "actualSha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.443Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/EvilIcons.140c53a7643ea949007aa9a282153849.ttf",
+      "status": 200,
+      "expectedSha256": "a5caeb4d395c5e32f1d5a30acb382aebc664f1badfd149319907f2215e4e3e26",
+      "actualSha256": "a5caeb4d395c5e32f1d5a30acb382aebc664f1badfd149319907f2215e4e3e26",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.488Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Feather.ca4b48e04dc1ce10bfbddb262c8b835f.ttf",
+      "status": 200,
+      "expectedSha256": "02b88ead91ade5710d7ca18edb43a6965a71d93732c06f290cc07a6dd249e987",
+      "actualSha256": "02b88ead91ade5710d7ca18edb43a6965a71d93732c06f290cc07a6dd249e987",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.530Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Brands.3b89dd103490708d19a95adcae52210e.ttf",
+      "status": 200,
+      "expectedSha256": "06f4d00923ea24697df5df0b92984175991d8bd25776a02d531bb401e393ec42",
+      "actualSha256": "06f4d00923ea24697df5df0b92984175991d8bd25776a02d531bb401e393ec42",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.763Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Regular.1f77739ca9ff2188b539c36f30ffa2be.ttf",
+      "status": 200,
+      "expectedSha256": "c651b8a67d3193206f622c3c3b0fbca4a2f2727108c4212b52c1e2a2e84c9b31",
+      "actualSha256": "c651b8a67d3193206f622c3c3b0fbca4a2f2727108c4212b52c1e2a2e84c9b31",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.772Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Regular.370dd5af19f8364907b6e2c41f45dbbf.ttf",
+      "status": 200,
+      "expectedSha256": "64f9fb623681f112261e9a2f97826782439f3925dea8f44a57d1e4db95ba6cfd",
+      "actualSha256": "64f9fb623681f112261e9a2f97826782439f3925dea8f44a57d1e4db95ba6cfd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.810Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Solid.605ed7926cf39a2ad5ec2d1f9d391d3d.ttf",
+      "status": 200,
+      "expectedSha256": "3d06af1f31cd83ace7a265a014b8fb5dee15770ecac8f7a55555190e627e03c2",
+      "actualSha256": "3d06af1f31cd83ace7a265a014b8fb5dee15770ecac8f7a55555190e627e03c2",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.851Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Brands.56c8d80832e37783f12c05db7c8849e2.ttf",
+      "status": 200,
+      "expectedSha256": "bc844b5b02d3f3adabb514de4e0c0208252d3123413bd03f6287fa446acee859",
+      "actualSha256": "bc844b5b02d3f3adabb514de4e0c0208252d3123413bd03f6287fa446acee859",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:44.991Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.b4eb097d35f44ed943676fd56f6bdc51.ttf",
+      "status": 200,
+      "expectedSha256": "fa2ab7d2557819b2bfe5009e46844efa7170cf177be7735d43aa2ac1295f1d54",
+      "actualSha256": "fa2ab7d2557819b2bfe5009e46844efa7170cf177be7735d43aa2ac1295f1d54",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.089Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Foundation.e20945d7c929279ef7a6f1db184a4470.ttf",
+      "status": 200,
+      "expectedSha256": "7e1dd03dd4ce90b658052554cd7459df16716717389a552fa4c6d56a5f8933e6",
+      "actualSha256": "7e1dd03dd4ce90b658052554cd7459df16716717389a552fa4c6d56a5f8933e6",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.151Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Fontisto.b49ae8ab2dbccb02c4d11caaacf09eab.ttf",
+      "status": 200,
+      "expectedSha256": "94dab9f1d5b13ea0769d124a2da0d02433f3b99d6dea5a07c0446a77158100c0",
+      "actualSha256": "94dab9f1d5b13ea0769d124a2da0d02433f3b99d6dea5a07c0446a77158100c0",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.174Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Solid.adec7d6f310bc577f05e8fe06a5daccf.ttf",
+      "status": 200,
+      "expectedSha256": "31f099c13f6e4ba05f1b471bf170cb5493249474222917372de3ca5cf29e6a1a",
+      "actualSha256": "31f099c13f6e4ba05f1b471bf170cb5493249474222917372de3ca5cf29e6a1a",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.405Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/SimpleLineIcons.d2285965fe34b05465047401b8595dd0.ttf",
+      "status": 200,
+      "expectedSha256": "3f501ddb05c70829bbb51cfe9ca9fff57f39e060457c257b3ccf25df767f0870",
+      "actualSha256": "3f501ddb05c70829bbb51cfe9ca9fff57f39e060457c257b3ccf25df767f0870",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.436Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Octicons.871378c6eab492a3e689a9385dc45a12.ttf",
+      "status": 200,
+      "expectedSha256": "9bc4d9f5e994e774bdc3ef9a9a87da749af5f50b861473ef7d1cc3d6f8229267",
+      "actualSha256": "9bc4d9f5e994e774bdc3ef9a9a87da749af5f50b861473ef7d1cc3d6f8229267",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.458Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.4e85bc9ebe07e0340c9c4fc2f6c38908.ttf",
+      "status": 200,
+      "expectedSha256": "ef149f08bdd2ff09a4e2c8573476b7b0f3fbb15b623954ade59899e7175bedda",
+      "actualSha256": "ef149f08bdd2ff09a4e2c8573476b7b0f3fbb15b623954ade59899e7175bedda",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.702Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.6e435534bd35da5fef04168860a9b8fa.ttf",
+      "status": 200,
+      "expectedSha256": "61e8aba5a4e981fe22cf7c8e8bcdbea00476e75c62c37f01bf7ee33361d68428",
+      "actualSha256": "61e8aba5a4e981fe22cf7c8e8bcdbea00476e75c62c37f01bf7ee33361d68428",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.887Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png",
+      "status": 200,
+      "expectedSha256": "9adb8c5efca932e2b732b293da813bd2e31952263056bce9e2517fec0f0b6a76",
+      "actualSha256": "9adb8c5efca932e2b732b293da813bd2e31952263056bce9e2517fec0f0b6a76",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.938Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png",
+      "status": 200,
+      "expectedSha256": "84cf5eb3b20250f69e0e4733beb4da5f417f0682892a5ad1b5e62570753c21b1",
+      "actualSha256": "84cf5eb3b20250f69e0e4733beb4da5f417f0682892a5ad1b5e62570753c21b1",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.938Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png",
+      "status": 200,
+      "expectedSha256": "d03a5cd7a66ef10c5147916f9d5878b2d0a0a5ad46f405a31cd9967efaa55afd",
+      "actualSha256": "d03a5cd7a66ef10c5147916f9d5878b2d0a0a5ad46f405a31cd9967efaa55afd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:45.959Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Zocial.1681f34aaca71b8dfb70756bca331eb2.ttf",
+      "status": 200,
+      "expectedSha256": "dd8ee403bbcbf5e58b77dca4ac03ebafa13a284a3d87d8ea9ca490435a86fa48",
+      "actualSha256": "dd8ee403bbcbf5e58b77dca4ac03ebafa13a284a3d87d8ea9ca490435a86fa48",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.225Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@2x.png",
+      "status": 200,
+      "expectedSha256": "ab5613d2ce70fa67c5926e831353664945199fc195fa6fe76c5fe3cec452e31a",
+      "actualSha256": "ab5613d2ce70fa67c5926e831353664945199fc195fa6fe76c5fe3cec452e31a",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.235Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@3x.png",
+      "status": 200,
+      "expectedSha256": "c4e54e6a0a7de636aa153378fbc62ea4a41695bfedf807f90df7b18ffd733f67",
+      "actualSha256": "c4e54e6a0a7de636aa153378fbc62ea4a41695bfedf807f90df7b18ffd733f67",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.244Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@4x.png",
+      "status": 200,
+      "expectedSha256": "c86bb485eee687e06c500fc4234f51a6784b4530c2ae11d0c76481110bce3105",
+      "actualSha256": "c86bb485eee687e06c500fc4234f51a6784b4530c2ae11d0c76481110bce3105",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.246Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png",
+      "status": 200,
+      "expectedSha256": "b1bc1810ca23e2c38cd76971c43591d726161061240d8b792b05757196ddb528",
+      "actualSha256": "b1bc1810ca23e2c38cd76971c43591d726161061240d8b792b05757196ddb528",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.427Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@3x.png",
+      "status": 200,
+      "expectedSha256": "d05c9d30d79f45a78e5585a2e7ec67c6a06a883dd9137e1d5059e8c87b33ce76",
+      "actualSha256": "d05c9d30d79f45a78e5585a2e7ec67c6a06a883dd9137e1d5059e8c87b33ce76",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.435Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png",
+      "status": 200,
+      "expectedSha256": "5d075e0c287c4f4441b5b5c8fc7ea5cd27c11bb617ecea09755955bcb1889083",
+      "actualSha256": "5d075e0c287c4f4441b5b5c8fc7ea5cd27c11bb617ecea09755955bcb1889083",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.445Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@4x.png",
+      "status": 200,
+      "expectedSha256": "2325c53a73e54c438cbbc60dffdd8b513d471ba42e2f56713ef404b95e0ca1fc",
+      "actualSha256": "2325c53a73e54c438cbbc60dffdd8b513d471ba42e2f56713ef404b95e0ca1fc",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.464Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@2x.png",
+      "status": 200,
+      "expectedSha256": "cbdf9213e55f65c48d076acd8423b7c9aee4f1b81101ff6c95a38c4cd8a86461",
+      "actualSha256": "cbdf9213e55f65c48d076acd8423b7c9aee4f1b81101ff6c95a38c4cd8a86461",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.655Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png",
+      "status": 200,
+      "expectedSha256": "6deca32b56b97fa1fa87facd6996b46cc45190a553400e7febdf1d2093099b57",
+      "actualSha256": "6deca32b56b97fa1fa87facd6996b46cc45190a553400e7febdf1d2093099b57",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.674Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/forward.d8b800c443b8972542883e0b9de2bdc6.png",
+      "status": 200,
+      "expectedSha256": "708a79cf561b8a2a4850ce0254584d3a5231046be08fb7fadf4b6edfdb31178b",
+      "actualSha256": "708a79cf561b8a2a4850ce0254584d3a5231046be08fb7fadf4b6edfdb31178b",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.693Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/error.d1ea1496f9057eb392d5bbf3732a61b7.png",
+      "status": 200,
+      "expectedSha256": "c15ec72a74d13957211808313d5c35deb7f7606c6d22dbddceb0000d4e0547ad",
+      "actualSha256": "c15ec72a74d13957211808313d5c35deb7f7606c6d22dbddceb0000d4e0547ad",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.719Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/file.19eeb73b9593a38f8e9f418337fc7d10.png",
+      "status": 200,
+      "expectedSha256": "a69a2edb5b6c60b8433d5b6d23c69f520ccd8a602f3f60e7996e489718bc175c",
+      "actualSha256": "a69a2edb5b6c60b8433d5b6d23c69f520ccd8a602f3f60e7996e489718bc175c",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.914Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/pkg.ab19f4cbc543357183a20571f68380a3.png",
+      "status": 200,
+      "expectedSha256": "27f4d229d440925bf7212d5dfffa45d596b2c7b3bb2905c96b839b2081a1dbeb",
+      "actualSha256": "27f4d229d440925bf7212d5dfffa45d596b2c7b3bb2905c96b839b2081a1dbeb",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.927Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/sitemap.412dd9275b6b48ad28f5e3d81bb1f626.png",
+      "status": 200,
+      "expectedSha256": "acf691957a3bcce7d195856dce98a5cf14dce10bea28aa5c10b3550c078e23b5",
+      "actualSha256": "acf691957a3bcce7d195856dce98a5cf14dce10bea28aa5c10b3550c078e23b5",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.960Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/assets/vendor/expo-router/assets/unmatched.20e71bdf79e3a97bf55fd9e164041578.png",
+      "status": 200,
+      "expectedSha256": "efc79da3c4c97dfb1571bff6202958ab0529c5aa31e8392600578b3e359d1447",
+      "actualSha256": "efc79da3c4c97dfb1571bff6202958ab0529c5aa31e8392600578b3e359d1447",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:46.965Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/favicon.ico",
+      "status": 200,
+      "expectedSha256": "7d473b21849209fd750a93a48cf5fb89812849bee10b325edeba0445364cabea",
+      "actualSha256": "7d473b21849209fd750a93a48cf5fb89812849bee10b325edeba0445364cabea",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.002Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/_expo/static/css/native-tabs.module-78b0f59737571f455720970791a36bdd.css",
+      "status": 200,
+      "expectedSha256": "35690ffc9fdaada915cbeb62b9763ea1cd4479aaa811c5b467a73fc1a67744bd",
+      "actualSha256": "35690ffc9fdaada915cbeb62b9763ea1cd4479aaa811c5b467a73fc1a67744bd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.091Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/index.html",
+      "status": 200,
+      "expectedSha256": "e32a0a71515357ab8d172eb40e059e5ffa9fe5fc30f78bdcfd96aa549a563ffd",
+      "actualSha256": "793bb558952594dfb5e729bea244691ea732c15d97b9646ae2f251fc45814f54",
+      "check": "html-status-only",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.140Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/__app-shell.html",
+      "status": 200,
+      "expectedSha256": "2a6821309f945d31c4aed5701dd7ed8f980cfafdfc76c824c43bf90ebf108765",
+      "actualSha256": "9e4342c9ce556f10263d25a4171421c116928afce5cb50e76022cfbe1c61ef81",
+      "check": "html-status-only",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.172Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/tw/metadata.json",
+      "status": 200,
+      "expectedSha256": "aa5f19cc84d41c0f8c70ececb2bc82e863227ea1e121632aca879eb616056991",
+      "actualSha256": "aa5f19cc84d41c0f8c70ececb2bc82e863227ea1e121632aca879eb616056991",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.240Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/assets/fonts/SpaceMono-Regular.49a79d66bdea2debf1832bf4d7aca127.ttf",
+      "status": 200,
+      "expectedSha256": "4c322514d265062aa3f7fbd81f5b79391ccb74268e6a20600061e0ce33234f41",
+      "actualSha256": "4c322514d265062aa3f7fbd81f5b79391ccb74268e6a20600061e0ce33234f41",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.275Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/AntDesign.3f78af31cca60105799838a1a7a59fbd.ttf",
+      "status": 200,
+      "expectedSha256": "08a9d5b513cf947e22ede81e9a843bd8d7763a63444cd21484bfde7662cc6543",
+      "actualSha256": "08a9d5b513cf947e22ede81e9a843bd8d7763a63444cd21484bfde7662cc6543",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.413Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/assets/images/icon.483b822340e8db4284f0bc5c8969e621.png",
+      "status": 200,
+      "expectedSha256": "8daac4557663d0fd4faa0da505a249b1e1a33e86b55d63697ee36146c46d3886",
+      "actualSha256": "8daac4557663d0fd4faa0da505a249b1e1a33e86b55d63697ee36146c46d3886",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.634Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/_expo/static/js/web/entry.6a40b989e01893eaff1826fce9fc14b5.js",
+      "status": 200,
+      "expectedSha256": "6a40b989e01893eaff1826fce9fc14b5b00c1fcb70df91e43a7be3c42abdec01",
+      "actualSha256": "6a40b989e01893eaff1826fce9fc14b5b00c1fcb70df91e43a7be3c42abdec01",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.700Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Feather.ca4b48e04dc1ce10bfbddb262c8b835f.ttf",
+      "status": 200,
+      "expectedSha256": "02b88ead91ade5710d7ca18edb43a6965a71d93732c06f290cc07a6dd249e987",
+      "actualSha256": "02b88ead91ade5710d7ca18edb43a6965a71d93732c06f290cc07a6dd249e987",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.707Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf",
+      "status": 200,
+      "expectedSha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8",
+      "actualSha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.716Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/EvilIcons.140c53a7643ea949007aa9a282153849.ttf",
+      "status": 200,
+      "expectedSha256": "a5caeb4d395c5e32f1d5a30acb382aebc664f1badfd149319907f2215e4e3e26",
+      "actualSha256": "a5caeb4d395c5e32f1d5a30acb382aebc664f1badfd149319907f2215e4e3e26",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.750Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Entypo.31b5ffea3daddc69dd01a1f3d6cf63c5.ttf",
+      "status": 200,
+      "expectedSha256": "16f92298587bab2b469bc13c0dfc6d5d171bca10bad0c9053ad16bc023bf717d",
+      "actualSha256": "16f92298587bab2b469bc13c0dfc6d5d171bca10bad0c9053ad16bc023bf717d",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.838Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Regular.1f77739ca9ff2188b539c36f30ffa2be.ttf",
+      "status": 200,
+      "expectedSha256": "c651b8a67d3193206f622c3c3b0fbca4a2f2727108c4212b52c1e2a2e84c9b31",
+      "actualSha256": "c651b8a67d3193206f622c3c3b0fbca4a2f2727108c4212b52c1e2a2e84c9b31",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.838Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Brands.3b89dd103490708d19a95adcae52210e.ttf",
+      "status": 200,
+      "expectedSha256": "06f4d00923ea24697df5df0b92984175991d8bd25776a02d531bb401e393ec42",
+      "actualSha256": "06f4d00923ea24697df5df0b92984175991d8bd25776a02d531bb401e393ec42",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.842Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Brands.56c8d80832e37783f12c05db7c8849e2.ttf",
+      "status": 200,
+      "expectedSha256": "bc844b5b02d3f3adabb514de4e0c0208252d3123413bd03f6287fa446acee859",
+      "actualSha256": "bc844b5b02d3f3adabb514de4e0c0208252d3123413bd03f6287fa446acee859",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.857Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5_Solid.605ed7926cf39a2ad5ec2d1f9d391d3d.ttf",
+      "status": 200,
+      "expectedSha256": "3d06af1f31cd83ace7a265a014b8fb5dee15770ecac8f7a55555190e627e03c2",
+      "actualSha256": "3d06af1f31cd83ace7a265a014b8fb5dee15770ecac8f7a55555190e627e03c2",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.949Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Foundation.e20945d7c929279ef7a6f1db184a4470.ttf",
+      "status": 200,
+      "expectedSha256": "7e1dd03dd4ce90b658052554cd7459df16716717389a552fa4c6d56a5f8933e6",
+      "actualSha256": "7e1dd03dd4ce90b658052554cd7459df16716717389a552fa4c6d56a5f8933e6",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.949Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Fontisto.b49ae8ab2dbccb02c4d11caaacf09eab.ttf",
+      "status": 200,
+      "expectedSha256": "94dab9f1d5b13ea0769d124a2da0d02433f3b99d6dea5a07c0446a77158100c0",
+      "actualSha256": "94dab9f1d5b13ea0769d124a2da0d02433f3b99d6dea5a07c0446a77158100c0",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.952Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Solid.adec7d6f310bc577f05e8fe06a5daccf.ttf",
+      "status": 200,
+      "expectedSha256": "31f099c13f6e4ba05f1b471bf170cb5493249474222917372de3ca5cf29e6a1a",
+      "actualSha256": "31f099c13f6e4ba05f1b471bf170cb5493249474222917372de3ca5cf29e6a1a",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:47.952Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome6_Regular.370dd5af19f8364907b6e2c41f45dbbf.ttf",
+      "status": 200,
+      "expectedSha256": "64f9fb623681f112261e9a2f97826782439f3925dea8f44a57d1e4db95ba6cfd",
+      "actualSha256": "64f9fb623681f112261e9a2f97826782439f3925dea8f44a57d1e4db95ba6cfd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.049Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.4e85bc9ebe07e0340c9c4fc2f6c38908.ttf",
+      "status": 200,
+      "expectedSha256": "ef149f08bdd2ff09a4e2c8573476b7b0f3fbb15b623954ade59899e7175bedda",
+      "actualSha256": "ef149f08bdd2ff09a4e2c8573476b7b0f3fbb15b623954ade59899e7175bedda",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.049Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Octicons.871378c6eab492a3e689a9385dc45a12.ttf",
+      "status": 200,
+      "expectedSha256": "9bc4d9f5e994e774bdc3ef9a9a87da749af5f50b861473ef7d1cc3d6f8229267",
+      "actualSha256": "9bc4d9f5e994e774bdc3ef9a9a87da749af5f50b861473ef7d1cc3d6f8229267",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.078Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.b4eb097d35f44ed943676fd56f6bdc51.ttf",
+      "status": 200,
+      "expectedSha256": "fa2ab7d2557819b2bfe5009e46844efa7170cf177be7735d43aa2ac1295f1d54",
+      "actualSha256": "fa2ab7d2557819b2bfe5009e46844efa7170cf177be7735d43aa2ac1295f1d54",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.158Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.6e435534bd35da5fef04168860a9b8fa.ttf",
+      "status": 200,
+      "expectedSha256": "61e8aba5a4e981fe22cf7c8e8bcdbea00476e75c62c37f01bf7ee33361d68428",
+      "actualSha256": "61e8aba5a4e981fe22cf7c8e8bcdbea00476e75c62c37f01bf7ee33361d68428",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.226Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png",
+      "status": 200,
+      "expectedSha256": "84cf5eb3b20250f69e0e4733beb4da5f417f0682892a5ad1b5e62570753c21b1",
+      "actualSha256": "84cf5eb3b20250f69e0e4733beb4da5f417f0682892a5ad1b5e62570753c21b1",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.237Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png",
+      "status": 200,
+      "expectedSha256": "9adb8c5efca932e2b732b293da813bd2e31952263056bce9e2517fec0f0b6a76",
+      "actualSha256": "9adb8c5efca932e2b732b293da813bd2e31952263056bce9e2517fec0f0b6a76",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.237Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/SimpleLineIcons.d2285965fe34b05465047401b8595dd0.ttf",
+      "status": 200,
+      "expectedSha256": "3f501ddb05c70829bbb51cfe9ca9fff57f39e060457c257b3ccf25df767f0870",
+      "actualSha256": "3f501ddb05c70829bbb51cfe9ca9fff57f39e060457c257b3ccf25df767f0870",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.265Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Zocial.1681f34aaca71b8dfb70756bca331eb2.ttf",
+      "status": 200,
+      "expectedSha256": "dd8ee403bbcbf5e58b77dca4ac03ebafa13a284a3d87d8ea9ca490435a86fa48",
+      "actualSha256": "dd8ee403bbcbf5e58b77dca4ac03ebafa13a284a3d87d8ea9ca490435a86fa48",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.333Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png",
+      "status": 200,
+      "expectedSha256": "d03a5cd7a66ef10c5147916f9d5878b2d0a0a5ad46f405a31cd9967efaa55afd",
+      "actualSha256": "d03a5cd7a66ef10c5147916f9d5878b2d0a0a5ad46f405a31cd9967efaa55afd",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.339Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@4x.png",
+      "status": 200,
+      "expectedSha256": "c86bb485eee687e06c500fc4234f51a6784b4530c2ae11d0c76481110bce3105",
+      "actualSha256": "c86bb485eee687e06c500fc4234f51a6784b4530c2ae11d0c76481110bce3105",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.368Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@2x.png",
+      "status": 200,
+      "expectedSha256": "ab5613d2ce70fa67c5926e831353664945199fc195fa6fe76c5fe3cec452e31a",
+      "actualSha256": "ab5613d2ce70fa67c5926e831353664945199fc195fa6fe76c5fe3cec452e31a",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.368Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@3x.png",
+      "status": 200,
+      "expectedSha256": "c4e54e6a0a7de636aa153378fbc62ea4a41695bfedf807f90df7b18ffd733f67",
+      "actualSha256": "c4e54e6a0a7de636aa153378fbc62ea4a41695bfedf807f90df7b18ffd733f67",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.445Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@3x.png",
+      "status": 200,
+      "expectedSha256": "d05c9d30d79f45a78e5585a2e7ec67c6a06a883dd9137e1d5059e8c87b33ce76",
+      "actualSha256": "d05c9d30d79f45a78e5585a2e7ec67c6a06a883dd9137e1d5059e8c87b33ce76",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.446Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png",
+      "status": 200,
+      "expectedSha256": "b1bc1810ca23e2c38cd76971c43591d726161061240d8b792b05757196ddb528",
+      "actualSha256": "b1bc1810ca23e2c38cd76971c43591d726161061240d8b792b05757196ddb528",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.454Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@4x.png",
+      "status": 200,
+      "expectedSha256": "2325c53a73e54c438cbbc60dffdd8b513d471ba42e2f56713ef404b95e0ca1fc",
+      "actualSha256": "2325c53a73e54c438cbbc60dffdd8b513d471ba42e2f56713ef404b95e0ca1fc",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.472Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@2x.png",
+      "status": 200,
+      "expectedSha256": "cbdf9213e55f65c48d076acd8423b7c9aee4f1b81101ff6c95a38c4cd8a86461",
+      "actualSha256": "cbdf9213e55f65c48d076acd8423b7c9aee4f1b81101ff6c95a38c4cd8a86461",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.521Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/error.d1ea1496f9057eb392d5bbf3732a61b7.png",
+      "status": 200,
+      "expectedSha256": "c15ec72a74d13957211808313d5c35deb7f7606c6d22dbddceb0000d4e0547ad",
+      "actualSha256": "c15ec72a74d13957211808313d5c35deb7f7606c6d22dbddceb0000d4e0547ad",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.541Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/@react-navigation/elements/lib/module/assets/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png",
+      "status": 200,
+      "expectedSha256": "5d075e0c287c4f4441b5b5c8fc7ea5cd27c11bb617ecea09755955bcb1889083",
+      "actualSha256": "5d075e0c287c4f4441b5b5c8fc7ea5cd27c11bb617ecea09755955bcb1889083",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.541Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/file.19eeb73b9593a38f8e9f418337fc7d10.png",
+      "status": 200,
+      "expectedSha256": "a69a2edb5b6c60b8433d5b6d23c69f520ccd8a602f3f60e7996e489718bc175c",
+      "actualSha256": "a69a2edb5b6c60b8433d5b6d23c69f520ccd8a602f3f60e7996e489718bc175c",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.545Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png",
+      "status": 200,
+      "expectedSha256": "6deca32b56b97fa1fa87facd6996b46cc45190a553400e7febdf1d2093099b57",
+      "actualSha256": "6deca32b56b97fa1fa87facd6996b46cc45190a553400e7febdf1d2093099b57",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.594Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/sitemap.412dd9275b6b48ad28f5e3d81bb1f626.png",
+      "status": 200,
+      "expectedSha256": "acf691957a3bcce7d195856dce98a5cf14dce10bea28aa5c10b3550c078e23b5",
+      "actualSha256": "acf691957a3bcce7d195856dce98a5cf14dce10bea28aa5c10b3550c078e23b5",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.610Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/forward.d8b800c443b8972542883e0b9de2bdc6.png",
+      "status": 200,
+      "expectedSha256": "708a79cf561b8a2a4850ce0254584d3a5231046be08fb7fadf4b6edfdb31178b",
+      "actualSha256": "708a79cf561b8a2a4850ce0254584d3a5231046be08fb7fadf4b6edfdb31178b",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.611Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/unmatched.20e71bdf79e3a97bf55fd9e164041578.png",
+      "status": 200,
+      "expectedSha256": "efc79da3c4c97dfb1571bff6202958ab0529c5aa31e8392600578b3e359d1447",
+      "actualSha256": "efc79da3c4c97dfb1571bff6202958ab0529c5aa31e8392600578b3e359d1447",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.618Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/assets/vendor/expo-router/assets/pkg.ab19f4cbc543357183a20571f68380a3.png",
+      "status": 200,
+      "expectedSha256": "27f4d229d440925bf7212d5dfffa45d596b2c7b3bb2905c96b839b2081a1dbeb",
+      "actualSha256": "27f4d229d440925bf7212d5dfffa45d596b2c7b3bb2905c96b839b2081a1dbeb",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.677Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/metadata.json",
+      "status": 200,
+      "expectedSha256": "aa5f19cc84d41c0f8c70ececb2bc82e863227ea1e121632aca879eb616056991",
+      "actualSha256": "aa5f19cc84d41c0f8c70ececb2bc82e863227ea1e121632aca879eb616056991",
+      "check": "exact-bytes",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.741Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/index.html",
+      "status": 200,
+      "expectedSha256": "2a6821309f945d31c4aed5701dd7ed8f980cfafdfc76c824c43bf90ebf108765",
+      "actualSha256": "3afd132d7232b95763ffeb8b7451c5b647607e88b3fecc9ab5be3f44328fb0cd",
+      "check": "html-status-only",
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:28:48.825Z",
+      "deploymentId": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+      "url": "https://stocks.dappgo.com/us/favicon.ico",
+      "status": 200,
+      "expectedSha256": "8310a62360cef3cb5380baf5299e50f2d4672ecb3fd495719274eeea54cc872b",
+      "actualSha256": "8310a62360cef3cb5380baf5299e50f2d4672ecb3fd495719274eeea54cc872b",
+      "check": "exact-bytes",
+      "pass": true
+    }
+  ]
+}
