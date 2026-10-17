@@ -28,7 +28,10 @@ News root landing on US English. Native store deployment is explicitly excluded.
   outcomes. Latest native-layout cleanup passed nine header contracts and seven
   suites / 53 tests. Five-file source manifest
   bc0032239c4cad108f4cbde9a03d39d2227a313f625f4ac6050390b0f0437d26.
-  Fresh final full producer checks remain a promotion prerequisite.
+  Final integrated checks now pass: 91 suites / 791 tests, types, i18n, web 6/6,
+  export and three browser scenarios. Header checks pass unchanged; only three
+  absent generated Android project checks remain outside web-only validation.
+  Final reviewed PR head: a4c41598e11139dbc25b0ad04514b83306b4a51f.
   PR https://github.com/YanlongLai/dappgo-options-app/pull/39.
 
 ## Release and rollback boundaries
@@ -44,6 +47,14 @@ and deep-link refresh, missing-asset 404, browser controls, language and overflo
 Merged/deployed/observed milestones must be recorded separately; this review is
 release readiness, not proof of production success. Revert the focused homepage
 commit or restore the previous Pages deployment if a regression is observed.
+
+Criterion 5 pre-release review verifies the separation-of-identity contract:
+the canonical assembler's 21 passing checks reject dirty/changed sources, bind
+source commits and lock digests, and keep private release metadata outside uploads.
+PR heads are checked before merge; immutable merged source is then rebuilt, and
+live bytes/deployment IDs are a separate mandatory observation gate. The goal
+checkpoint for actual deployed/observed acceptance stays pending until those live
+checks finish. This readiness review must not be cited as proof of deployment.
 
 ## Explicit residual scope
 
