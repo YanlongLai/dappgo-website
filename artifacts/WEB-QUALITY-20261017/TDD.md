@@ -4,6 +4,10 @@ Audit before editing. Retain the static homepage and News reader architecture; p
 catalog, RSS proxy and generated data contract. Fix interactions at their source with regression tests.
 Use existing theme tokens and native controls; no new dependency or generated-export edits.
 
+The News root uses an exact Cloudflare Pages 302 redirect to /us/?lang=en, with a
+meta-refresh/link fallback for static hosts. Do not use inline JavaScript under the
+strict CSP or change direct country-page language preference resolution.
+
 Split work by repository. Homepage/News are in dappgo-website. Three RN apps are separate source repos.
 Other session actively owns src/components/ui, settings, package files and shared exports in all apps;
 do not edit those boundaries. Audit then claim only non-overlapping screen-level paths.

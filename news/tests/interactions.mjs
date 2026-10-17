@@ -7,7 +7,7 @@ const source = fs.readFileSync(new URL('../assets/news.js', import.meta.url), 'u
 const tickers = { AAPL: { name: 'Apple Inc.', news: [] }, MSFT: { name: 'Microsoft', news: [] } };
 const flush = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 
-async function fixture({ market = 'us', fail = false } = {}) {
+async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en' } = {}) {
   const nodes = new Map();
   const languages = ['zh', 'en'].map(language => element({ language }));
   const ranges = ['all', '7', '30'].map(range => element({ range }));
@@ -51,8 +51,8 @@ async function fixture({ market = 'us', fail = false } = {}) {
   const window = { location: { get search() { return new URL(href).search; }, get href() { return href; } }, history: { replaceState(_a, _b, value) { href = new URL(value, href).href; } }, addEventListener() {} };
   const document = { documentElement: {}, querySelector: () => root, addEventListener() {} };
   vm.runInNewContext(source, {
-    document, window, navigator: { languages: ['en'] }, URL, URLSearchParams, Intl, AbortController,
-    localStorage: { getItem() { return null; }, setItem() {} },
+    document, window, navigator: { languages: [browserLanguage] }, URL, URLSearchParams, Intl, AbortController,
+    localStorage: { getItem() { return savedLanguage; }, setItem() {} },
     DappGoNewsData: { analysis() { return null; } },
     setTimeout(callback, ms) { timers.set(++timerId, { callback, ms }); return timerId; },
     clearTimeout(id) { timers.delete(id); },
@@ -69,6 +69,15 @@ async function fixture({ market = 'us', fail = false } = {}) {
     setFailure(value) { failures = value; },
   };
 }
+
+test('root destination explicitly selects English even with Chinese browser and saved preference', async () => {
+  const app = await fixture({ savedLanguage: 'zh', browserLanguage: 'zh-TW' });
+  assert.equal(app.document.documentElement.lang, 'en');
+  assert.equal(app.languages[1].attrs['aria-pressed'], 'true');
+  app.languages[0].events.click();
+  assert.equal(app.document.documentElement.lang, 'zh-Hant');
+  assert.equal(new URL(app.href()).searchParams.get('lang'), 'zh');
+});
 
 for (const market of ['us', 'tw']) {
   test(`${market}: search feedback, clear and selected-stock focus survive rendering`, async () => {

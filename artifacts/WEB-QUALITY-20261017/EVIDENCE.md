@@ -91,3 +91,14 @@ contrast is being corrected after independent review. No production mutation yet
 Native build/device/screen-reader and fresh store-console evidence are outside this
 web promotion and are not represented as passed; those remain gates for any future
 native release. No store submission, ad-rule, data-source or schedule changes.
+
+## Owner addition: deterministic News landing
+
+Owner explicitly requested the bare news.dappgo.com entry to open US English.
+The root now redirects to /us/?lang=en with an exact Cloudflare 302 rule and a
+non-JavaScript HTML fallback. Existing inline redirection conflicted with the
+strict script CSP; no CSP weakening is needed. Explicit route language takes
+precedence over saved/browser Chinese, while the language and market switches
+remain available. Added that preference regression and root redirect contract.
+Direct /us/ and /tw/ preference behavior is unchanged. Final live redirect and
+browser proof remain required after deployment.
