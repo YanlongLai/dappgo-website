@@ -1,0 +1,118 @@
+{
+  "stocksDeployment": "91089fc0-53fa-4e94-a110-a87c2bb45d1b",
+  "optionsDeployment": "0c7b36b0-95f7-4ea7-90b6-dd39dc64adce",
+  "rows": [
+    {
+      "at": "2026-10-17T19:31:04.865Z",
+      "url": "https://stocks.dappgo.com/us/",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:04.944Z",
+      "url": "https://stocks.dappgo.com/us/signals",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.025Z",
+      "url": "https://stocks.dappgo.com/us/stock/AAPL",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.091Z",
+      "url": "https://stocks.dappgo.com/tw/",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.176Z",
+      "url": "https://stocks.dappgo.com/tw/signals",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.255Z",
+      "url": "https://stocks.dappgo.com/tw/stock/2330",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.429Z",
+      "url": "https://options.dappgo.com/us/",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.532Z",
+      "url": "https://options.dappgo.com/us/explore",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.631Z",
+      "url": "https://options.dappgo.com/us/ticker/AAPL",
+      "expectedStatus": 200,
+      "status": 200,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.717Z",
+      "url": "https://stocks.dappgo.com/xx/",
+      "expectedStatus": 404,
+      "status": 404,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.826Z",
+      "url": "https://options.dappgo.com/tw/",
+      "expectedStatus": 404,
+      "status": 404,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:05.911Z",
+      "url": "https://stocks.dappgo.com/us/assets/missing-validation-font.ttf",
+      "expectedStatus": 404,
+      "status": 404,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:06.008Z",
+      "url": "https://options.dappgo.com/us/assets/missing-validation-font.ttf",
+      "expectedStatus": 404,
+      "status": 404,
+      "location": null,
+      "pass": true
+    },
+    {
+      "at": "2026-10-17T19:31:06.311Z",
+      "url": "https://news.dappgo.com/",
+      "expectedStatus": 302,
+      "status": 302,
+      "location": "/us/?lang=en",
+      "pass": true
+    }
+  ]
+}
