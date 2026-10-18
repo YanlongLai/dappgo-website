@@ -30,12 +30,16 @@ are reduced to avoid duplicate copy; no summary is invented.
 
 Both market readers show a scoped AI card after the All/7/30-day filters.
 Language changes rerender existing published commentary immediately without
-network or model calls. Ticker-local news_commentary (zh) or news_commentary_en
-(en) and their cleaned fields take priority; envelope ai_commentary / ai_commentary_en
-objects provide per-ticker fallback. All-market selection uses only the matching
-report summary, never a concatenation of ticker text. Missing locale/scope data
-hides the card. Provider text is escaped and engine markers/Markdown emphasis
-are normalized. The card identifies itself as latest-report analysis, independent
+network or model calls. The report-level ai_commentary / ai_commentary_en map
+is the only admitted per-ticker analysis. Ticker-local news_commentary never
+replaces the AI view; when its plan is explicitly accepted, a selected
+publisher quotation or source-specific summary appears below the analysis,
+labelled as an unverified publisher account. Rejected or absent source plans
+add no context. All-market selection uses the concise report summary where supplied,
+or the first paragraph of the matching locale's report summary, never a
+concatenation of ticker text. Missing or placeholder locale/scope data hides
+the card. Provider text is escaped and engine markers/Markdown emphasis are
+normalized. The card identifies itself as latest-report analysis, independent
 of the article date filter. Supplied title_zh/title_en and summary_zh/summary_en
 are preferred for articles; no translation is fabricated if absent.
 

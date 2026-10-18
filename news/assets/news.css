@@ -3,6 +3,9 @@
 .ai-analysis h2 { margin: 0 0 8px; color: var(--forest-dark); font-size: clamp(22px, 3vw, 28px); }
 .analysis-note { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .analysis-copy { margin: 0; white-space: pre-line; line-height: 1.85; }
+.analysis-context { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.65; }
+.analysis-context strong { display: block; margin-bottom: 5px; color: var(--forest-dark); font-size: 11px; letter-spacing: .08em; }
+.analysis-context p { margin: 0; }
 .ai-analysis ul { padding-left: 22px; margin: 16px 0 0; line-height: 1.8; }
 .ai-analysis li + li { margin-top: 8px; }
 :root {
