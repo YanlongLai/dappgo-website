@@ -323,7 +323,14 @@
     const clean = value => escapeHtml(DappGoNewsData.plainAnalysis(value));
     const title = state.language === "zh" ? "AI 解讀" : "AI analysis";
     const note = state.language === "zh" ? "最新已發布資料的解析，不隨新聞期間篩選改寫。" : "Analysis from the latest published report, independent of the news date filter.";
-    els.analysis.innerHTML = `<h2>${title}</h2><p class="analysis-note">${note}</p>${result.summary ? `<p class="analysis-copy">${clean(result.summary)}</p>` : ""}${result.highlights.length ? `<ul>${result.highlights.map(value => `<li>${clean(value)}</li>`).join("")}</ul>` : ""}`;
+    const contextLabel = state.language === "zh" ? "相關報導 · 來源說法" : "Related report · Publisher account";
+    let sourceUrl = "";
+    try {
+      const parsed = new URL(result.contextUrl);
+      if (["https:", "http:"].includes(parsed.protocol) && !parsed.username && !parsed.password) sourceUrl = parsed.href;
+    } catch { /* No safe direct source URL: retain the attributed text. */ }
+    const sourceLink = sourceUrl ? `<a class="read-link" href="${escapeHtml(sourceUrl)}">${state.language === "zh" ? "閱讀原文" : "Read source"} ↗</a>` : "";
+    els.analysis.innerHTML = `<h2>${title}</h2><p class="analysis-note">${note}</p>${result.summary ? `<p class="analysis-copy">${clean(result.summary)}</p>` : ""}${result.context ? `<div class="analysis-context"><strong>${contextLabel}</strong><p>${clean(result.context)}</p>${sourceLink}</div>` : ""}${result.highlights.length ? `<ul>${result.highlights.map(value => `<li>${clean(value)}</li>`).join("")}</ul>` : ""}`;
   }
 
   async function fetchJson(url) {
