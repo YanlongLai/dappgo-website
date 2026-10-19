@@ -2,7 +2,7 @@ schema_version: 0.1.0
 id: NEWS-ADSENSE-SUBDOMAIN-20261019
 project: dappgo-studio
 title: Publish News ads.txt and prepare AdSense subdomain review
-status: in-progress
+status: verification-pending-google
 risk: medium
 question: Can news.dappgo.com expose the active AdSense publisher declaration and remain crawlable for a separate site review without weakening dappgo.com security?
 hypotheses:
@@ -26,9 +26,9 @@ acceptance_criteria:
   - The News contract and website quality checks pass without changing the existing publisher loader or CSP boundary.
   - The merged Pages deployment serves news.dappgo.com/ads.txt as HTTP 200 text/plain and preserves /us/ and /tw/ availability.
   - Cloudflare Security Events are inspected for the latest AdSense crawl window; no broad WAF weakening is accepted.
-  - news.dappgo.com is prepared as a separate AdSense site; Google approval or review submission is not claimed until the final Owner confirmation.
+  - news.dappgo.com is technically prepared for AdSense; Google account visibility and review submission are reported exactly and are not claimed as complete if the account UI does not expose a site row.
 evidence: []
-decision: pending
+decision: partial-google-account-follow-up
 provenance:
   codex_task_id: 01a141dc-c497-72d1-b5d6-677e4ae08882
   host_id: local
