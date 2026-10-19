@@ -31,11 +31,29 @@
 |---|---|---|
 | Exact News ads.txt source | passed | `news/ads.txt`; exact active publisher line and final newline |
 | Local contract and quality checks | passed | News tests and `npm run quality` |
-| Merged source identity | pending | |
-| Pages deployment and public readback | pending | |
+| Merged source identity | passed | PR #37, merge `c767c88b431b12e9757fc2aef0ee84986bda619e` |
+| Pages deployment and public readback | passed | Production deployment `8f424f95-9478-44e0-b0d9-d4444d4e4812`; custom routes verified |
 | Cloudflare Security Events inspection | passed | No `/ads.txt` firewall event; Google API challenge recorded; no rule changed |
-| Separate AdSense News site entry | pending | |
+| Separate AdSense News site entry | blocked by Google account state | Add-site dialog says `您似乎加入過這個網站了`; Sites list search shows no News row |
 | Final review submission | intentionally pending Owner confirmation | |
+
+## Deployment readback
+
+- Cloudflare Pages project: `dappgo-news`.
+- Source: merged `master` commit `c767c88`.
+- Deployment: `https://8f424f95.dappgo-news.pages.dev`.
+- `https://news.dappgo.com/ads.txt`: HTTP 200, `text/plain; charset=utf-8`,
+  exact body `google.com, pub-7851819017318644, DIRECT, f08c47fec0942fa0`.
+- `https://news.dappgo.com/`: HTTP 302 to the English US route; `/us/` and
+  `/tw/`: HTTP 200. Each route contains exactly one active AdSense loader.
+
+## AdSense account action
+
+The existing AdSense account is `pub-7851819017318644`. The add-site dialog
+accepted the typed `news.dappgo.com` value only far enough to report that the
+site appears to have already been added; it did not save a new visible site
+row. A filtered Sites list returned no News row. No review request was clicked,
+and no approval or ad serving is claimed.
 
 Historical failures and AdSense review states are preserved; this file never
 labels a Google review as approved merely because the site is reachable.
