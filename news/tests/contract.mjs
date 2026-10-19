@@ -3,8 +3,12 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(new URL("..", import.meta.url).pathname);
-const files = ["index.html", "tw/index.html", "us/index.html", "assets/news.css", "assets/news.js", "_headers", "_routes.json", "wrangler.toml", "robots.txt", "sitemap.xml", "llms.txt", "functions/api/markets/[market]/dashboard/[file].js"];
+const files = ["index.html", "tw/index.html", "us/index.html", "assets/news.css", "assets/news.js", "_headers", "_routes.json", "wrangler.toml", "robots.txt", "sitemap.xml", "llms.txt", "ads.txt", "functions/api/markets/[market]/dashboard/[file].js"];
 for (const file of files) assert.ok(fs.existsSync(path.join(root, file)), `missing ${file}`);
+
+const adsTxt = fs.readFileSync(path.join(root, "ads.txt"), "utf8");
+assert.equal(adsTxt.replace(/\r\n/g, "\n"), "google.com, pub-7851819017318644, DIRECT, f08c47fec0942fa0\n", "ads.txt must contain the active publisher declaration and final newline");
+assert.ok(!adsTxt.startsWith("\uFEFF"), "ads.txt must not contain a BOM");
 
 const landing = fs.readFileSync(path.join(root, "index.html"), "utf8");
 for (const route of ["index.html", "us/index.html", "tw/index.html"]) {
