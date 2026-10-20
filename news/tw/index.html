@@ -5,7 +5,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo 台灣股票新聞：依股票與日期閱讀 RSS pipeline 已發布的新聞。">
   <link rel="canonical" href="https://news.dappgo.com/tw/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261018-stock-viewpoint">
+  <link rel="stylesheet" href="../assets/news.css?v=20261020-reader-ux">
   <title>DappGo News · 台灣市場</title>
 </head>
 <body>
@@ -18,18 +18,18 @@
       <main>
         <div class="mobile-stock-tools" data-i18n-aria-label="stockSelection"><div class="mobile-search search"><span aria-hidden="true">⌕</span><input data-stock-search-mobile data-i18n-placeholder="searchStock" type="search" placeholder="輸入股名或代號" data-i18n-aria-label="searchStock"><button type="button" class="clear-search" data-clear-search aria-label="Clear search" hidden>×</button></div><p class="search-feedback" data-search-feedback role="status" hidden></p><label class="mobile-stock-select-label"><span data-i18n="readStock">閱讀股票</span><select data-mobile-stock-select data-i18n-aria-label="selectStock" aria-label="選擇台灣股票"><option value="all">全部市場消息</option></select></label></div>
         <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">台灣市場 / 公司新聞</p><h2 data-company-name>台灣市場</h2></div><div class="data-meta" data-updated data-i18n="dataLoading">資料載入中…</div></section>
-        <div class="filters" data-i18n-aria-label="dateRange"><button class="filter" type="button" data-range="all" aria-pressed="true" data-i18n="rangeAll">全部</button><button class="filter" type="button" data-range="7" aria-pressed="false" data-i18n="range7">7 天</button><button class="filter" type="button" data-range="30" aria-pressed="false" data-i18n="range30">30 天</button><span class="result-count" data-count>—</span></div>
+        <div class="results-summary"><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">有較新的新聞資料。</span><button type="button" data-update-reload data-i18n="updateReading">更新閱讀</button></div>
-        <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
+        <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div></div>
         <div data-error class="error-box" role="alert" hidden></div><button type="button" class="retry-button" data-retry data-i18n="retry" hidden>Try again</button>
         <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
-        <section data-stories aria-live="polite"></section>
+        <section data-stories aria-live="polite"></section><button type="button" class="load-more" data-load-more hidden>載入更多新聞</button>
       </main>
     </div>
     <p class="disclaimer" data-i18n="disclaimer">新聞標題、摘要與來源連結由既有資料 pipeline 提供。內容僅供資訊閱讀，不構成投資建議。</p>
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">看見事件。保留脈絡。</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">隱私</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">條款</a></span></footer>
   </div>
-    <script src="../assets/news-data.js?v=20261018-stock-viewpoint" defer></script>
-    <script src="../assets/news.js?v=20261018-stock-viewpoint" defer></script>
+    <script src="../assets/news-data.js?v=20261020-reader-ux" defer></script>
+    <script src="../assets/news.js?v=20261020-reader-ux" defer></script>
 </body>
 </html>

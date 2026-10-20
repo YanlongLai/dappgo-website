@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: NEWS-READER-UX-20261020
+project: dappgo-studio
+title: Remove news date filters and add paginated infinite-scroll reader states
+status: in_progress
+risk: high
+question: Can the public News website present all published news in consistent ten-item incremental pages with polished loading, empty and error states?
+acceptance_criteria:
+  - Remove visible date-range filters and use all published stories.
+  - Render ten stories initially and append ten near the lower scroll boundary without duplicates.
+  - Provide card-shaped loading skeletons, empty state CTA and retryable error state.
+  - Use a restrained shimmer animation with reduced-motion-safe behavior.
+  - Merge and publish the website, then verify the public route.
+governance:
+  reversible: true
+  sensitive_or_external_side_effect: true
+  product_context_required: true
+provenance:
+  codex_task_id: 01a141c5-8985-7853-a8a7-b479936ed1e4
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/news-reader-ux-20261020
+  worktree: news-reader-ux-website
+evidence:
+  - /Users/yan/git/dappgo-stocks-meta/artifacts/NEWS-READER-UX-20261020/RELEASE_EVIDENCE.yaml
+decision: pending_implementation
