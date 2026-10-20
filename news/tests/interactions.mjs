@@ -10,7 +10,6 @@ const flush = async () => { for (let i = 0; i < 20; i++) await Promise.resolve()
 async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en' } = {}) {
   const nodes = new Map();
   const languages = ['zh', 'en'].map(language => element({ language }));
-  const ranges = ['all', '7', '30'].map(range => element({ range }));
   const feedback = [element(), element()];
   const clears = [element(), element()];
   const disclaimer = element({ i18n: 'disclaimer' });
@@ -27,6 +26,13 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
         this.buttons = [...value.matchAll(/data-stock="([^"]+)"/g)].map(match => element({ stock: match[1] }));
       },
       get innerHTML() { return this.html; },
+      querySelector(selector) {
+        if (selector === '[data-empty-cta]' && this.html.includes('data-empty-cta')) {
+          this.emptyCta ||= element();
+          return this.emptyCta;
+        }
+        return null;
+      },
       querySelectorAll(selector) { return selector === '[data-stock]' ? this.buttons || [] : []; },
     };
   }
@@ -38,7 +44,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
   const root = {
     dataset: { market }, querySelector: get,
     querySelectorAll: selector => ({
-      '[data-language]': languages, '[data-range]': ranges,
+      '[data-language]': languages,
       '[data-search-feedback]': feedback, '[data-clear-search]': clears,
       '[data-i18n]': [disclaimer],
     })[selector] || [],
@@ -64,7 +70,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
     },
   });
   await flush();
-  return { get, languages, ranges, feedback, clears, disclaimer, timers, document,
+  return { get, languages, feedback, clears, disclaimer, timers, document,
     focus: () => focused, calls: () => calls, href: () => href,
     setFailure(value) { failures = value; },
   };

@@ -24,20 +24,19 @@
     }
   })();
   const validLanguage = (value) => ["zh", "en"].includes(value) ? value : null;
-  const validRange = (value) => ["all", "7", "30"].includes(value) ? value : "all";
+  const PAGE_SIZE = 10;
   function readViewState() {
     const params = new URLSearchParams(window.location.search);
     return {
       stock: params.get("stock") || null,
       query: params.get("q") || "",
-      range: validRange(params.get("range")),
       language: validLanguage(params.get("lang")) || savedLanguage || (market === "us" ? browserLanguage : defaultLanguage)
     };
   }
   const initialView = readViewState();
   const proxyRoot = `/api/markets/${market}/dashboard/`;
   const pointerUrl = `${proxyRoot}latest.json`;
-  const state = { pointer: null, payload: null, stock: initialView.stock, query: initialView.query, range: initialView.range, language: initialView.language, refreshTimer: null, errorMessage: null };
+  const state = { pointer: null, payload: null, stock: initialView.stock, query: initialView.query, language: initialView.language, visibleCount: PAGE_SIZE, refreshTimer: null, loadMoreObserver: null, appending: false, errorMessage: null };
   const els = {
     stockList: root.querySelector("[data-stock-list]"),
     search: root.querySelector("[data-stock-search]"),
@@ -55,6 +54,7 @@
     skeletons: root.querySelector("[data-skeletons]"),
     error: root.querySelector("[data-error]"),
     retry: root.querySelector("[data-retry]"),
+    loadMore: root.querySelector("[data-load-more]"),
     languageButtons: [...root.querySelectorAll("[data-language]")]
   };
 
@@ -74,10 +74,6 @@
       readStock: chinese ? "閱讀股票" : "Read stock",
       selectStock: chinese ? "選擇股票" : "Select stock",
       companyCrumb: taiwan ? (chinese ? "台灣市場 / 公司新聞" : "TAIWAN / COMPANY NEWS") : (chinese ? "美國市場 / 公司新聞" : "UNITED STATES / COMPANY NEWS"),
-      dateRange: chinese ? "期間篩選" : "Date range",
-      rangeAll: chinese ? "全部" : "All",
-      range7: chinese ? "7 天" : "7 days",
-      range30: chinese ? "30 天" : "30 days",
       updateAvailable: chinese ? "有較新的新聞資料。" : "Newer published news is available.",
       updateReading: chinese ? "更新閱讀" : "Refresh reading",
       loadingNews: chinese ? "載入新聞" : "Loading news",
@@ -85,6 +81,12 @@
       storyCount: chinese ? "則" : "stories",
       newestToOldest: chinese ? "最新 → 最舊" : "newest → oldest",
       noNews: chinese ? "目前沒有可顯示的新聞。" : "No news is available for this selection.",
+      emptyTitle: chinese ? "目前沒有已發布新聞" : "No published news yet",
+      emptyBody: chinese ? "這個市場或股票目前沒有可閱讀的新聞資料。" : "There are no published stories for this market or stock yet.",
+      exploreAll: chinese ? "探索全部市場新聞" : "Explore all market news",
+      showing: chinese ? "顯示" : "Showing",
+      loadingMore: chinese ? "載入更多新聞…" : "Loading more stories…",
+      allLoaded: chinese ? "已顯示全部新聞" : "All published stories are shown",
       noSummary: chinese ? "來源未提供獨立摘要，請前往原文閱讀完整內容。" : "The source did not provide a separate summary. Read the original article for full context.",
       readSource: chinese ? "閱讀原文" : "Read source",
       source: chinese ? "新聞來源" : "Source",
@@ -161,24 +163,18 @@
     else params.delete("stock");
     if (state.query) params.set("q", state.query);
     else params.delete("q");
-    if (state.range !== "all") params.set("range", state.range);
-    else params.delete("range");
+    params.delete("range");
     params.set("lang", state.language);
     const search = params.toString();
     window.history.replaceState(null, "", `${url.pathname}${search ? `?${search}` : ""}${url.hash}`);
-  }
-
-  function syncRangeButtons() {
-    root.querySelectorAll("[data-range]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.range === state.range)));
   }
 
   function applyViewStateFromUrl() {
     const next = readViewState();
     state.stock = next.stock;
     state.query = next.query;
-    state.range = next.range;
     state.language = next.language;
-    syncRangeButtons();
+    state.visibleCount = PAGE_SIZE;
     applyLanguage();
   }
 
@@ -286,23 +282,68 @@
     renderAnalysis();
     const selected = selectedEntries();
     const company = selected[0] || { symbol: state.stock || "", name: copy.marketName };
-    const stories = selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })));
+    const seen = new Set();
+    const stories = selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })))
+      .filter((item) => {
+        const key = `${item.key}|${item.title || ""}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
     stories.sort((a, b) => String(b.published_at_utc || b.date || "").localeCompare(String(a.published_at_utc || a.date || "")) || a.key.localeCompare(b.key));
-    const filtered = stories.filter((item) => {
-      if (state.range === "all") return true;
-      const published = new Date(item.published_at_utc || item.date || 0).getTime();
-      return published && Date.now() - published <= Number(state.range) * 86400000;
-    });
+    const visible = stories.slice(0, state.visibleCount);
     els.company.textContent = state.stock === "all" ? copy.allMarket : company.name;
-    els.count.textContent = `${filtered.length} ${copy.storyCount} · ${copy.newestToOldest}`;
-    if (!filtered.length) {
-      els.stories.innerHTML = `<div class="empty">${escapeHtml(copy.noNews)}</div>`;
+    els.count.textContent = stories.length ? `${Math.min(state.visibleCount, stories.length)} ${copy.showing} / ${stories.length} ${copy.storyCount} · ${copy.newestToOldest}` : `0 ${copy.storyCount}`;
+    if (!stories.length) {
+      els.stories.innerHTML = `<div class="empty-state" role="status"><div class="empty-icon" aria-hidden="true">▧</div><h3>${escapeHtml(copy.emptyTitle)}</h3><p>${escapeHtml(copy.emptyBody)}</p><button type="button" class="empty-cta" data-empty-cta>${escapeHtml(copy.exploreAll)}</button></div>`;
+      els.stories.querySelector("[data-empty-cta]")?.addEventListener("click", () => {
+        state.stock = "all";
+        state.visibleCount = PAGE_SIZE;
+        syncViewUrl(); renderStocks(); renderStories();
+      });
+      if (els.loadMore) els.loadMore.hidden = true;
       return;
     }
     const groups = new Map();
-    filtered.forEach((item) => { const key = dayKey(item.published_at_utc || item.date); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(item); });
+    visible.forEach((item) => { const key = dayKey(item.published_at_utc || item.date); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(item); });
     els.stories.innerHTML = Array.from(groups.entries()).map(([date, items]) => `<div class="date-rule">${escapeHtml(date)}<span>${items.length} ${copy.storyCount}</span></div>${items.map((item, index) => renderStory(item, index === 0 && groups.size === 1)).join("")}`).join("");
     els.stories.querySelectorAll("img[data-fallback]").forEach((image) => image.addEventListener("error", () => { const story = image.closest(".story"); if (story) { story.classList.add("is-text-only"); const media = story.querySelector(".story-media"); if (media) media.remove(); } }, { once: true }));
+    if (els.loadMore) {
+      els.loadMore.hidden = false;
+      els.loadMore.disabled = state.visibleCount >= stories.length;
+      els.loadMore.textContent = state.visibleCount >= stories.length ? copy.allLoaded : copy.loadingMore;
+      if (state.visibleCount < stories.length && !state.appending) observeLoadMore();
+    }
+  }
+
+  function observeLoadMore() {
+    if (!els.loadMore || state.visibleCount >= currentStoryCount()) return;
+    state.loadMoreObserver?.disconnect();
+    if (typeof IntersectionObserver !== "undefined") {
+      state.loadMoreObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) appendNextPage();
+      }, { rootMargin: "360px 0px" });
+      state.loadMoreObserver.observe(els.loadMore);
+    }
+  }
+
+  function currentStoryCount() {
+    const selected = selectedEntries();
+    const seen = new Set();
+    return selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, key: articleId(item, index) }))).filter((item) => {
+      const key = `${item.key}|${item.title || ""}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).length;
+  }
+
+  function appendNextPage() {
+    if (state.appending || !els.loadMore || state.visibleCount >= currentStoryCount()) return;
+    state.appending = true;
+    state.visibleCount += PAGE_SIZE;
+    renderStories();
+    state.appending = false;
   }
 
   function renderStory(item, lead) {
@@ -322,7 +363,7 @@
     if (!result) { els.analysis.innerHTML = ""; return; }
     const clean = value => escapeHtml(DappGoNewsData.plainAnalysis(value));
     const title = state.language === "zh" ? "AI 解讀" : "AI analysis";
-    const note = state.language === "zh" ? "最新已發布資料的解析，不隨新聞期間篩選改寫。" : "Analysis from the latest published report, independent of the news date filter.";
+    const note = state.language === "zh" ? "來自最新已發布報表的解析，與新聞列表同步閱讀。" : "Analysis from the latest published report, read alongside the full news list.";
     const contextLabel = state.language === "zh" ? "相關報導 · 來源說法" : "Related report · Publisher account";
     let sourceUrl = "";
     try {
@@ -364,7 +405,6 @@
     setStatus(`${copy.live} ${copy.marketName} · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
     renderStocks();
     renderStories();
-    syncRangeButtons();
     syncViewUrl();
   }
 
@@ -402,7 +442,7 @@
 
   function schedulePoll() { clearTimeout(state.refreshTimer); state.refreshTimer = setTimeout(poll, 120000 + Math.floor(Math.random() * 15000)); }
 
-  function updateQuery(value) { state.query = value; syncViewUrl(); renderStocks(); }
+  function updateQuery(value) { state.query = value; state.visibleCount = PAGE_SIZE; syncViewUrl(); renderStocks(); renderStories(); }
 
   els.search.addEventListener("input", (event) => updateQuery(event.target.value));
   els.mobileSearch.addEventListener("input", (event) => updateQuery(event.target.value));
@@ -410,7 +450,7 @@
     updateQuery("");
     button.closest(".search").querySelector("input").focus();
   }));
-  els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; syncViewUrl(); renderStocks(); renderStories(); });
+  els.mobileSelect.addEventListener("change", (event) => { state.stock = event.target.value; state.visibleCount = PAGE_SIZE; syncViewUrl(); renderStocks(); renderStories(); });
   els.languageButtons.forEach((button) => button.addEventListener("click", () => {
     const next = button.dataset.language;
     if (!["zh", "en"].includes(next) || next === state.language) return;
@@ -421,7 +461,7 @@
   }));
   els.reload.addEventListener("click", initialLoad);
   els.retry.addEventListener("click", initialLoad);
-  root.querySelectorAll("[data-range]").forEach((button) => button.addEventListener("click", () => { state.range = button.dataset.range; syncViewUrl(); syncRangeButtons(); renderStories(); }));
+  els.loadMore?.addEventListener("click", appendNextPage);
   window.addEventListener("popstate", applyViewStateFromUrl);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") poll(); });
   applyLanguage();

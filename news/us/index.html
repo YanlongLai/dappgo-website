@@ -5,7 +5,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
   <link rel="canonical" href="https://news.dappgo.com/us/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261018-stock-viewpoint">
+  <link rel="stylesheet" href="../assets/news.css?v=20261020-reader-ux">
   <title>DappGo News · United States</title>
 </head>
 <body>
@@ -18,18 +18,18 @@
       <main>
         <div class="mobile-stock-tools" data-i18n-aria-label="stockSelection"><div class="mobile-search search"><span aria-hidden="true">⌕</span><input data-stock-search-mobile data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"><button type="button" class="clear-search" data-clear-search aria-label="Clear search" hidden>×</button></div><p class="search-feedback" data-search-feedback role="status" hidden></p><label class="mobile-stock-select-label"><span data-i18n="readStock">Read stock</span><select data-mobile-stock-select data-i18n-aria-label="selectStock" aria-label="Select United States stock"><option value="all">All market news</option></select></label></div>
         <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">UNITED STATES / COMPANY NEWS</p><h2 data-company-name>United States</h2></div><div class="data-meta" data-updated data-i18n="dataLoading">Data loading…</div></section>
-        <div class="filters" data-i18n-aria-label="dateRange"><button class="filter" type="button" data-range="all" aria-pressed="true" data-i18n="rangeAll">All</button><button class="filter" type="button" data-range="7" aria-pressed="false" data-i18n="range7">7 days</button><button class="filter" type="button" data-range="30" aria-pressed="false" data-i18n="range30">30 days</button><span class="result-count" data-count>—</span></div>
+        <div class="results-summary"><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">Newer published news is available.</span><button type="button" data-update-reload data-i18n="updateReading">Refresh reading</button></div>
-        <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton"></div><div class="skeleton"></div></div>
+        <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div></div>
         <div data-error class="error-box" role="alert" hidden></div><button type="button" class="retry-button" data-retry data-i18n="retry" hidden>Try again</button>
         <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
-        <section data-stories aria-live="polite"></section>
+        <section data-stories aria-live="polite"></section><button type="button" class="load-more" data-load-more hidden>Load more stories</button>
       </main>
     </div>
     <p class="disclaimer" data-i18n="disclaimer">Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice.</p>
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span></footer>
   </div>
-    <script src="../assets/news-data.js?v=20261018-stock-viewpoint" defer></script>
-    <script src="../assets/news.js?v=20261018-stock-viewpoint" defer></script>
+    <script src="../assets/news-data.js?v=20261020-reader-ux" defer></script>
+    <script src="../assets/news.js?v=20261020-reader-ux" defer></script>
 </body>
 </html>
