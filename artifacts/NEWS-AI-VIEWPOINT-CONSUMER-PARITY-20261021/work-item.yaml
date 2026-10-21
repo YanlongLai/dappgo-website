@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: NEWS-AI-VIEWPOINT-CONSUMER-PARITY-20261021
+project: dappgo-studio
+title: Keep valid per-ticker AI viewpoints visible when optional news is unavailable
+status: in_progress
+risk: high
+question: Can web consumers show the published per-ticker AI viewpoint without treating optional news-plan rejection as a viewpoint failure?
+scope:
+  - news/assets/news-data.js
+  - news/tests/analysis.mjs
+  - Preserve source attribution and optional-news rejection evidence separately.
+acceptance_criteria:
+  - A valid published per-ticker ai_commentary remains visible when news_ai_quality is rejected or not_used.
+  - Source quotations and unavailable placeholders never become an AI viewpoint.
+  - Existing immutable pointer, language and XSS-safe rendering contracts remain intact.
+  - Website tests pass and the merged static release is deployed through the normal release path.
+governance:
+  reversible: true
+  sensitive_or_external_side_effect: true
+  product_context_required: true
+provenance:
+  codex_task_id: 01a11404-c851-7830-a9f2-0494afcd2891
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: fix/news-ai-viewpoint-consumer-parity-20261021
+  worktree: dappgo-website
