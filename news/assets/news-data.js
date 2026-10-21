@@ -9,7 +9,10 @@
     if (!content) return false;
     // The optional US news plan is a source index and generic checklist, not
     // a company interpretation. Never promote it into the AI viewpoint card.
-    return !/(新聞來源摘錄|source quotations|以下僅為輸入觀察|conditional readings of supplied ticker observations|模型說明暫時不可用|model commentary is temporarily unavailable|不足以形成方向性個股觀點|insufficient for a directional company view)/i.test(content);
+    // Keep rejecting raw field dumps and unavailable placeholders, but allow
+    // the published source-bound historical viewpoint when model prose is
+    // unavailable. Optional news quality is rendered separately below.
+    return !/(新聞來源摘錄|source quotations|以下僅為輸入觀察|conditional readings of supplied ticker observations|模型說明暫時不可用|model commentary is temporarily unavailable|不足以形成方向性個股觀點|insufficient for a directional company view|\b(?:close_usd|ma20_usd|ma60_usd|rsi14|fact_refs)\b)/i.test(content);
   }
   function analysis(payload, stock, language) {
     if (!payload || (stock !== "all" && !payload.ticker_data?.[stock])) return null;
@@ -23,6 +26,8 @@
     const summary = concise || (stock === "all" ? mapped.split(/\n\s*\n/)[0] : mapped);
     if (!isViewpoint(summary)) return null;
     const owner = stock === "all" ? null : payload.ticker_data[stock];
+    // News-plan quality is a separate optional source-context contract. It
+    // must not hide a valid per-ticker AI viewpoint from the report.
     const accepted = owner?.news_ai_quality?.status === "accepted";
     const suffix = language === "en" ? "_en" : "";
     const sourceSummary = accepted ? text(owner[`news_commentary_summary${suffix}`]) : "";
