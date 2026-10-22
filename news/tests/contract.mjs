@@ -72,9 +72,9 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261022-research-navigation/);
-  assert.match(html, /news\.css\?v=20261022-research-navigation/);
-  assert.match(html, /news-data\.js\?v=20261022-research-navigation/);
+  assert.match(html, /news\.js\?v=20261022-news-skeleton/);
+  assert.match(html, /news\.css\?v=20261022-news-skeleton/);
+  assert.match(html, /news-data\.js\?v=20261022-news-skeleton/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
   assert.ok(html.indexOf('data-i18n="navUs"') < html.indexOf('data-i18n="navTw"'), `${route}: US navigation must precede TW`);
@@ -84,6 +84,11 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-count/);
   assert.match(html, /data-load-more/);
   assert.match(html, /skeleton-card/);
+  assert.match(html, /data-skeletons class="skeletons" aria-hidden="true" hidden/);
+  assert.match(html, /data-more-skeletons class="skeletons" aria-hidden="true" hidden/);
+  assert.match(html, /class="story skeleton-card has-media"/);
+  assert.match(html, /skeleton-avatar/);
+  assert.match(html, /data-load-status role="status"/);
   assert.doesNotMatch(html, /class="edition"|data-i18n="edition(?:Top|Name|Time)"|class="hero"|data-i18n(?:-html)?="hero(?:Title|Body)"/);
   assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
@@ -96,7 +101,7 @@ assert.match(css, /@media\s*\(max-width:\s*620px\)[\s\S]*\.mobile-stock-tools\s*
 assert.match(css, /\.mast-tools\s*\{/);
 assert.match(css, /\.language-switch\s*\{/);
 assert.match(css, /\.language-switch button\[aria-pressed="true"\]/);
-assert.match(css, /@keyframes shimmer/);
+assert.match(css, /@keyframes news-shimmer/);
 assert.match(css, /\.load-more\s*\{/);
 
 assert.match(script, /mobileSearch/);

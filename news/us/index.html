@@ -5,7 +5,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
   <link rel="canonical" href="https://news.dappgo.com/us/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261022-research-navigation">
+  <link rel="stylesheet" href="../assets/news.css?v=20261022-news-skeleton">
   <title>DappGo News · United States</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
   <div class="shell" data-news-app data-market="us">
     <a class="skip-link" href="#news-content" data-i18n="skipToNews">Skip to news</a>
     <header class="mast"><a class="brand" href="/us/" data-i18n-aria-label="brandAria">DappGo<span>/ NEWS</span></a><div class="mast-tools"><nav class="market-nav" data-i18n-aria-label="marketNav"><a href="/us/" aria-current="page" data-i18n="navUs">US</a><a href="/tw/" data-i18n="navTw">TW</a></nav><div class="language-switch" role="group" data-i18n-aria-label="language"><button type="button" data-language="zh" aria-pressed="false">中文</button><button type="button" data-language="en" aria-pressed="true">English</button></div></div></header>
-    <div class="status" role="status"><span class="status-dot is-loading" data-status-dot></span><span data-status data-i18n="loadingStatus">Loading published news…</span></div>
+    <div class="status"><span class="status-dot is-loading" data-status-dot></span><span data-status data-i18n="loadingStatus">Loading published news…</span></div>
     <div class="reader-grid">
       <aside class="rail" data-i18n-aria-label="stockIndex"><h2 data-i18n="stockIndex">Stock index</h2><div class="search"><span aria-hidden="true">⌕</span><input data-stock-search data-i18n-placeholder="searchStock" type="search" placeholder="Search company or ticker" data-i18n-aria-label="searchStock"><button type="button" class="clear-search" data-clear-search aria-label="Clear search" hidden>×</button></div><p class="search-feedback" data-search-feedback role="status" hidden></p><div class="stock-list" data-stock-list></div><p class="rail-note" data-i18n-html="railNote">Follow a ticker, keep the source visible.<br><br>Newest → oldest. Date-only stories are never given a guessed time.</p></aside>
       <main id="news-content" tabindex="-1">
@@ -21,16 +21,17 @@
         <section class="company-header"><div><p class="crumb" data-i18n="companyCrumb">UNITED STATES / COMPANY NEWS</p><h1 data-company-name>United States</h1></div><div class="data-meta" data-updated data-i18n="dataLoading">Data loading…</div></section>
         <div class="results-summary"><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">Newer published news is available.</span><button type="button" data-update-reload data-i18n="updateReading">Refresh reading</button></div>
-        <div data-skeletons class="skeletons" data-i18n-aria-label="loadingNews" aria-label="Loading news"><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div><div class="skeleton-card" aria-hidden="true"><div class="skeleton-line skeleton-meta"></div><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-title short"></div><div class="skeleton-media"></div><div class="skeleton-line skeleton-copy"></div><div class="skeleton-line skeleton-copy short"></div></div></div>
+        <p class="load-status" data-load-status role="status" aria-live="polite" aria-atomic="true"></p>
+        <div data-skeletons class="skeletons" aria-hidden="true" hidden><div class="story skeleton-card has-media" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3><figure class="story-media skeleton-block skeleton-media"></figure><p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div><div class="story skeleton-card has-media" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3><figure class="story-media skeleton-block skeleton-media"></figure><p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div></div>
         <div data-error class="error-box" role="alert" hidden></div><button type="button" class="retry-button" data-retry data-i18n="retry" hidden>Try again</button>
         <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
-        <section data-stories aria-live="polite"></section><button type="button" class="load-more" data-load-more hidden>Load more stories</button>
+        <section data-stories data-i18n-aria-label="publishedStories" aria-label="Published stories" aria-busy="true"></section><div data-more-skeletons class="skeletons" aria-hidden="true" hidden></div><button type="button" class="load-more" data-load-more hidden>Load more stories</button>
       </main>
     </div>
     <p class="disclaimer" data-i18n="disclaimer">Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice.</p>
     <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span></footer>
   </div>
-    <script src="../assets/news-data.js?v=20261022-research-navigation" defer></script>
-    <script src="../assets/news.js?v=20261022-research-navigation" defer></script>
+    <script src="../assets/news-data.js?v=20261022-news-skeleton" defer></script>
+    <script src="../assets/news.js?v=20261022-news-skeleton" defer></script>
 </body>
 </html>

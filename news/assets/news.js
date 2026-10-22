@@ -25,6 +25,9 @@
   })();
   const validLanguage = (value) => ["zh", "en"].includes(value) ? value : null;
   const PAGE_SIZE = 10;
+  const SKELETON_DELAY_MS = 300;
+  const PAGE_DELAY_MS = 600;
+  const SLOW_LOAD_MS = 8000;
   function readViewState() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -52,6 +55,8 @@
     update: root.querySelector("[data-update-banner]"),
     reload: root.querySelector("[data-update-reload]"),
     skeletons: root.querySelector("[data-skeletons]"),
+    moreSkeletons: root.querySelector("[data-more-skeletons]"),
+    loadStatus: root.querySelector("[data-load-status]"),
     error: root.querySelector("[data-error]"),
     retry: root.querySelector("[data-retry]"),
     loadMore: root.querySelector("[data-load-more]"),
@@ -77,6 +82,9 @@
       updateAvailable: chinese ? "有較新的新聞資料。" : "Newer published news is available.",
       updateReading: chinese ? "更新閱讀" : "Refresh reading",
       loadingNews: chinese ? "載入新聞" : "Loading news",
+      slowLoading: chinese ? "新聞仍在載入中；若持續等待，請確認網路連線。" : "Still loading published news. Please check your connection if this takes longer.",
+      publishedStories: chinese ? "已發布新聞" : "Published stories",
+      loadMore: chinese ? "載入更多新聞" : "Load more stories",
       allMarket: chinese ? "全部市場消息" : "All market news",
       storyCount: chinese ? "則" : "stories",
       newestToOldest: chinese ? "最新 → 最舊" : "newest → oldest",
@@ -114,6 +122,7 @@
   }
 
   function applyLanguage() {
+    cancelAppend();
     const copy = labels();
     document.documentElement.lang = state.language === "zh" ? "zh-Hant" : "en";
     document.title = copy.documentTitle;
@@ -150,6 +159,7 @@
     } else {
       setStatus(copy.loadingStatus, "loading");
     }
+    updateLoadingStatus();
   }
 
   function setStatus(message, kind) {
@@ -258,6 +268,7 @@
     els.stockList.innerHTML = allButton + buttons;
     els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => {
       state.stock = button.dataset.stock;
+      state.visibleCount = PAGE_SIZE;
       syncViewUrl(); renderStocks(); renderStories();
       // Rendering replaces the buttons. Restore focus to the selected control,
       // without moving focus during typing, refreshes or language changes.
@@ -278,20 +289,24 @@
     return state.stock === "all" ? all : all.filter((entry) => entry.symbol === state.stock);
   }
 
-  function renderStories() {
-    const copy = labels();
-    renderAnalysis();
-    const selected = selectedEntries();
-    const company = selected[0] || { symbol: state.stock || "", name: copy.marketName };
+  function storyItems() {
     const seen = new Set();
-    const stories = selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })))
+    return selectedEntries().flatMap((entry) => entry.news.map((item, index) => ({ ...item, symbol: entry.symbol, company: entry.name, key: articleId(item, index) })))
       .filter((item) => {
         const key = `${item.key}|${item.title || ""}`;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
-      });
-    stories.sort((a, b) => String(b.published_at_utc || b.date || "").localeCompare(String(a.published_at_utc || a.date || "")) || a.key.localeCompare(b.key));
+      }).sort((a, b) => String(b.published_at_utc || b.date || "").localeCompare(String(a.published_at_utc || a.date || "")) || a.key.localeCompare(b.key));
+  }
+
+  function renderStories(appendFrom = 0) {
+    if (!appendFrom) cancelAppend();
+    const copy = labels();
+    renderAnalysis();
+    const selected = selectedEntries();
+    const company = selected[0] || { symbol: state.stock || "", name: copy.marketName };
+    const stories = storyItems();
     const visible = stories.slice(0, state.visibleCount);
     els.company.textContent = state.stock === "all" ? copy.allMarket : company.name;
     els.count.textContent = stories.length ? `${Math.min(state.visibleCount, stories.length)} ${copy.showing} / ${stories.length} ${copy.storyCount} · ${copy.newestToOldest}` : `0 ${copy.storyCount}`;
@@ -307,44 +322,114 @@
     }
     const groups = new Map();
     visible.forEach((item) => { const key = dayKey(item.published_at_utc || item.date); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(item); });
-    els.stories.innerHTML = Array.from(groups.entries()).map(([date, items]) => `<div class="date-rule">${escapeHtml(date)}<span>${items.length} ${copy.storyCount}</span></div>${items.map((item, index) => renderStory(item, index === 0 && groups.size === 1)).join("")}`).join("");
-    els.stories.querySelectorAll("img[data-fallback]").forEach((image) => image.addEventListener("error", () => { const story = image.closest(".story"); if (story) { story.classList.add("is-text-only"); const media = story.querySelector(".story-media"); if (media) media.remove(); } }, { once: true }));
-    if (els.loadMore) {
-      els.loadMore.hidden = false;
-      els.loadMore.disabled = state.visibleCount >= stories.length;
-      els.loadMore.textContent = state.visibleCount >= stories.length ? copy.allLoaded : copy.loadingMore;
-      if (state.visibleCount < stories.length && !state.appending) observeLoadMore();
-    }
+    let previousDay = appendFrom ? dayKey(visible[appendFrom - 1].published_at_utc || visible[appendFrom - 1].date) : null;
+    const markup = visible.slice(appendFrom).map((item, index) => {
+      const date = dayKey(item.published_at_utc || item.date);
+      const heading = date !== previousDay ? `<div class="date-rule">${escapeHtml(date)}<span data-day-count="${escapeHtml(date)}">${groups.get(date).length} ${copy.storyCount}</span></div>` : "";
+      previousDay = date;
+      return heading + renderStory(item, !appendFrom && index === 0 && groups.size === 1);
+    }).join("");
+    if (appendFrom) els.stories.insertAdjacentHTML("beforeend", markup);
+    else els.stories.innerHTML = markup;
+    els.stories.querySelectorAll("[data-day-count]").forEach((node) => { node.textContent = `${groups.get(node.dataset.dayCount)?.length || 0} ${copy.storyCount}`; });
+    els.stories.querySelectorAll("img[data-fallback]:not([data-fallback-bound])").forEach((image) => {
+      image.dataset.fallbackBound = "true";
+      image.addEventListener("error", () => { const story = image.closest(".story"); if (story) { story.classList.add("is-text-only"); const media = story.querySelector(".story-media"); if (media) media.remove(); } }, { once: true });
+    });
+    updatePagination();
+  }
+
+  function updatePagination() {
+    if (!els.loadMore) return;
+    const total = currentStoryCount();
+    els.loadMore.hidden = !total;
+    els.loadMore.disabled = loading || state.appending || state.visibleCount >= total;
+    els.loadMore.textContent = state.appending ? labels().loadingMore : state.visibleCount >= total ? labels().allLoaded : labels().loadMore;
+    if (!loading && !state.appending && state.visibleCount < total) observeLoadMore();
   }
 
   function observeLoadMore() {
-    if (!els.loadMore || state.visibleCount >= currentStoryCount()) return;
     state.loadMoreObserver?.disconnect();
+    if (!els.loadMore || state.visibleCount >= currentStoryCount()) return;
     if (typeof IntersectionObserver !== "undefined") {
-      state.loadMoreObserver = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver((entries) => {
+        if (state.loadMoreObserver !== observer) return;
         if (entries.some((entry) => entry.isIntersecting)) appendNextPage();
       }, { rootMargin: "360px 0px" });
-      state.loadMoreObserver.observe(els.loadMore);
+      state.loadMoreObserver = observer;
+      observer.observe(els.loadMore);
     }
   }
 
   function currentStoryCount() {
-    const selected = selectedEntries();
-    const seen = new Set();
-    return selected.flatMap((entry) => entry.news.map((item, index) => ({ ...item, key: articleId(item, index) }))).filter((item) => {
-      const key = `${item.key}|${item.title || ""}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    }).length;
+    return storyItems().length;
+  }
+
+  let appendTimer = null;
+  let appendRevealTimer = null;
+  let appendGeneration = 0;
+  let loadingPhase = "waiting";
+  function updateLoadingStatus() {
+    const slow = loading && loadingPhase === "slow";
+    els.loadStatus.classList.toggle("is-slow", slow);
+    els.loadStatus.textContent = slow ? labels().slowLoading : loading && loadingPhase === "skeleton" ? labels().loadingNews : state.appending && !els.moreSkeletons.hidden ? labels().loadingMore : "";
+  }
+
+  function cancelAppend() {
+    appendGeneration++;
+    clearTimeout(appendTimer);
+    clearTimeout(appendRevealTimer);
+    appendTimer = null;
+    appendRevealTimer = null;
+    state.appending = false;
+    state.loadMoreObserver?.disconnect();
+    state.loadMoreObserver = null;
+    els.moreSkeletons.hidden = true;
+    els.stories.setAttribute("aria-busy", String(loading));
+    updateLoadingStatus();
+    updatePagination();
+  }
+
+  function renderSkeleton(item) {
+    const hasMedia = usableImage(item);
+    return `<div class="story skeleton-card ${hasMedia ? "has-media" : "is-text-only"}" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3>${hasMedia ? `<figure class="story-media skeleton-block skeleton-media"></figure>` : ""}<p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div>`;
   }
 
   function appendNextPage() {
-    if (state.appending || !els.loadMore || state.visibleCount >= currentStoryCount()) return;
+    if (loading || state.appending || !els.loadMore || state.visibleCount >= currentStoryCount()) return;
     state.appending = true;
-    state.visibleCount += PAGE_SIZE;
-    renderStories();
-    state.appending = false;
+    state.loadMoreObserver?.disconnect();
+    const upcoming = storyItems().slice(state.visibleCount, state.visibleCount + 2);
+    els.moreSkeletons.innerHTML = upcoming.map(renderSkeleton).join("");
+    const mediaItems = upcoming.filter(usableImage);
+    els.moreSkeletons.querySelectorAll(".skeleton-media").forEach((node, index) => {
+      const item = mediaItems[index];
+      if (Number.isFinite(item.image_width) && item.image_width > 0 && Number.isFinite(item.image_height) && item.image_height > 0) node.style.aspectRatio = `${item.image_width} / ${item.image_height}`;
+    });
+    els.moreSkeletons.hidden = true;
+    els.loadMore.disabled = true;
+    els.loadMore.textContent = labels().loadingMore;
+    els.stories.setAttribute("aria-busy", "true");
+    updateLoadingStatus();
+    const generation = ++appendGeneration;
+    // Coalesce scroll events. This expands local data without another API request.
+    appendRevealTimer = setTimeout(() => {
+      if (generation !== appendGeneration) return;
+      els.moreSkeletons.hidden = false;
+      updateLoadingStatus();
+    }, SKELETON_DELAY_MS);
+    appendTimer = setTimeout(() => {
+        if (generation !== appendGeneration) return;
+        appendTimer = null;
+        clearTimeout(appendRevealTimer);
+        const previousCount = state.visibleCount;
+        state.visibleCount = Math.min(previousCount + PAGE_SIZE, currentStoryCount());
+        state.appending = false;
+        els.moreSkeletons.hidden = true;
+        renderStories(previousCount);
+        els.stories.setAttribute("aria-busy", "false");
+        updateLoadingStatus();
+    }, PAGE_DELAY_MS);
   }
 
   function renderStory(item, lead) {
@@ -355,7 +440,7 @@
     const publisher = item.source || item.provider || copy.source;
     const stockTag = `${item.symbol} / ${item.company}`;
     const media = image ? `<figure class="story-media"><img data-fallback loading="lazy" src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" width="${Number(item.image_width) || 1200}" height="${Number(item.image_height) || 675}"></figure>` : "";
-    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source">${escapeHtml(publisher)}</span><span>· ${escapeHtml(item.provider || "RSS")}</span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
+    return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source-avatar" aria-hidden="true">${escapeHtml(Array.from(String(publisher).trim())[0] || "N")}</span><span class="source-lines"><span class="source">${escapeHtml(publisher)}</span><small>${escapeHtml(item.provider || "RSS")}</small></span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
   }
 
   function renderAnalysis() {
@@ -410,9 +495,27 @@
   }
 
   let loading = false;
+  let skeletonTimer = null;
+  let slowLoadingTimer = null;
   async function initialLoad() {
     if (loading) return;
     loading = true;
+    cancelAppend();
+    loadingPhase = "waiting";
+    els.skeletons.hidden = true;
+    els.error.hidden = true;
+    els.retry.hidden = true;
+    updateLoadingStatus();
+    if (!state.payload) skeletonTimer = setTimeout(() => {
+      loadingPhase = "skeleton";
+      els.skeletons.hidden = false;
+      updateLoadingStatus();
+    }, SKELETON_DELAY_MS);
+    slowLoadingTimer = setTimeout(() => {
+      loadingPhase = "slow";
+      els.skeletons.hidden = true;
+      updateLoadingStatus();
+    }, SLOW_LOAD_MS);
     els.retry.disabled = true;
     els.reload.disabled = true;
     els.stories.setAttribute("aria-busy", "true");
@@ -426,8 +529,12 @@
       els.error.textContent = `${state.payload ? copy.unableToRefresh : copy.unableToLoad} ${copy.marketName}: ${error.message}`;
       setStatus(copy.dataUnavailable, "error");
     } finally {
+      clearTimeout(skeletonTimer); clearTimeout(slowLoadingTimer);
+      loadingPhase = "waiting";
       loading = false; els.retry.disabled = false; els.reload.disabled = false;
       els.stories.setAttribute("aria-busy", "false");
+      updateLoadingStatus();
+      updatePagination();
     }
   }
 
