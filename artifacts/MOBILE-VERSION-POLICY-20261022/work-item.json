@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "id": "MOBILE-VERSION-POLICY-20261022",
+  "status": "ready-for-design",
+  "scope": ["Public minimum-version policy for the three mobile apps"],
+  "owner_authorization": "Current user request: implement and verify the shared 1.6.0 baseline, merge, submit both mobile stores and clean completed owned worktrees",
+  "provenance": {
+    "codex_task_id": "01a16211-ed83-79c1-af01-bf7acea4ea7f",
+    "host_id": "local",
+    "repository": "https://github.com/YanlongLai/dappgo-website.git",
+    "branch": "feat/mobile-version-policy-20261022",
+    "worktree": "mobile-version-policy-20261022"
+  }
+}

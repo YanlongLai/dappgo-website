@@ -29,6 +29,8 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 
 ## Native app availability
 
+- [Native minimum-version policy](https://dappgo.com/mobile-version-policy.json): schema-v1 minimum supported versions, independently keyed by app and iOS/Android. This is a read-only configuration resource.
+
 - Options Explorer: iOS and Android are available.
 - Taiwan Stocks: iOS and Android are available.
 - US Stocks: Android is available; iOS is coming soon.
