@@ -5,7 +5,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DappGo News: read RSS-pipeline company news for US stocks, newest first by ticker.">
   <link rel="canonical" href="https://news.dappgo.com/us/">
-  <link rel="stylesheet" href="../assets/news.css?v=20261022-news-skeleton">
+  <link rel="stylesheet" href="../assets/news.css?v=20261022-ai-engagement">
   <title>DappGo News · United States</title>
 </head>
 <body>
@@ -22,16 +22,17 @@
         <div class="results-summary"><span class="result-count" data-count>—</span></div>
         <div class="update-banner" data-update-banner role="status"><span data-i18n="updateAvailable">Newer published news is available.</span><button type="button" data-update-reload data-i18n="updateReading">Refresh reading</button></div>
         <p class="load-status" data-load-status role="status" aria-live="polite" aria-atomic="true"></p>
+        <section class="ai-analysis" data-ai-analysis hidden></section>
         <div data-skeletons class="skeletons" aria-hidden="true" hidden><div class="story skeleton-card has-media" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3><figure class="story-media skeleton-block skeleton-media"></figure><p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div><div class="story skeleton-card has-media" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3><figure class="story-media skeleton-block skeleton-media"></figure><p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div></div>
         <div data-error class="error-box" role="alert" hidden></div><button type="button" class="retry-button" data-retry data-i18n="retry" hidden>Try again</button>
-        <section class="ai-analysis" data-ai-analysis aria-live="polite" hidden></section>
         <section data-stories data-i18n-aria-label="publishedStories" aria-label="Published stories" aria-busy="true"></section><div data-more-skeletons class="skeletons" aria-hidden="true" hidden></div><button type="button" class="load-more" data-load-more hidden>Load more stories</button>
       </main>
     </div>
     <p class="disclaimer" data-i18n="disclaimer">Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice.</p>
-    <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span></footer>
+    <footer class="footer"><strong>DappGo / NEWS</strong><span data-i18n="footerLine">See the event. Keep the context.</span><span><a href="https://dappgo.com/privacy.html" data-i18n="privacy">Privacy</a> · <a href="https://dappgo.com/terms.html" data-i18n="terms">Terms</a></span><span class="analytics-choice"><button type="button" data-analytics-choice aria-pressed="true">匿名使用統計</button><small data-analytics-note></small></span></footer>
   </div>
-    <script src="../assets/news-data.js?v=20261022-news-skeleton" defer></script>
-    <script src="../assets/news.js?v=20261022-news-skeleton" defer></script>
+    <script src="../assets/news-data.js?v=20261022-ai-engagement" defer></script>
+    <script src="../assets/engagement.js?v=20261022-ai-engagement" defer></script>
+    <script src="../assets/news.js?v=20261022-ai-engagement" defer></script>
 </body>
 </html>

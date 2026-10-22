@@ -1,0 +1,10 @@
+{
+  "id": "NEWS-AI-ENGAGEMENT-20261022-WEB",
+  "provenance": {
+    "codex_task_id": "01a16412-86b9-7583-b256-23a8d3ca49bd",
+    "host_id": "local",
+    "repository": "https://github.com/YanlongLai/dappgo-website.git",
+    "branch": "feat/news-ai-engagement-20261022",
+    "worktree": "website-ai-engagement-20261022"
+  }
+}
