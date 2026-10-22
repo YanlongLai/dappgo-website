@@ -14,7 +14,8 @@
     "docs",
     "sitemap.xml",
     "scripts",
-    "artifacts/WEB-SYSTEM-UX-20261022"
+    "artifacts/WEB-SYSTEM-UX-20261022",
+    ".github/workflows/lint.yml"
   ],
   "acceptance_criteria": [
     "Document observed website gaps and React Native web synchronization process",

@@ -52,6 +52,7 @@ jobs:
             --cache-exclude-status '429'
             --no-progress
             --exclude-path node_modules
+            --exclude-path './news/'
             --exclude '^mailto:'
             --exclude 'formsubmit.co'
             --exclude 'docs.google.com/forms/d/e/'
@@ -59,6 +60,19 @@ jobs:
             --exclude '\.woff2$'
             --exclude 'file:.*/(options|privacy|terms|support)$'
             './**/*.html'
+          fail: true
+
+      - name: Check News links from its Pages deployment root
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # News has its own public root; preserve checks for all country routes.
+          args: >-
+            --root-dir ${{ github.workspace }}/news
+            --max-concurrency 3
+            --no-progress
+            --exclude '^mailto:'
+            './news/**/*.html'
+          output: lychee/news.md
           fail: true
 
   html:
