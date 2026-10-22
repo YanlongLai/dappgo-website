@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-22.1",
+  "apps": {
+    "com.dappgo.usstocksapp": {
+      "ios": { "minimumVersion": "1.6.0" },
+      "android": { "minimumVersion": "1.6.0" }
+    },
+    "com.dappgo.twstocksapp": {
+      "ios": { "minimumVersion": "1.6.0" },
+      "android": { "minimumVersion": "1.6.0" }
+    },
+    "com.dappgo.optionsapp": {
+      "ios": { "minimumVersion": "1.6.0" },
+      "android": { "minimumVersion": "1.6.0" }
+    }
+  }
+}
