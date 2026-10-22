@@ -5,6 +5,11 @@
   const zh = {
     skip: "跳至主要內容",
     navProducts: "我們的產品",
+    navNews: "新聞",
+    openResearch: "開啟美股研究",
+    researchNews: "閱讀公司新聞",
+    researchOptions: "探索選擇權",
+    researchTaiwan: "台股研究",
     navMethod: "如何運作",
     navWorkflows: "企業自動化",
     contactCta: "聊聊你的想法",
@@ -307,6 +312,7 @@
     const labels = {
       ".brand": ["DappGo home", "DappGo 首頁"],
       ".main-nav": ["Main navigation", "主要導覽"],
+      ".research-shortcuts": ["More research tools", "更多研究工具"],
       ".hero-art": [
         "Real Options Explorer app screens",
         "Options Explorer 真實 App 畫面",

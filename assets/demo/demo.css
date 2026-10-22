@@ -1966,3 +1966,8 @@ html[lang="zh-Hant"] .business-accordion summary {
     display: none;
   }
 }
+
+/* Direct entry to the working products, alongside the existing product story. */
+.research-shortcuts { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 20px; }
+.research-shortcuts a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 767px) { .research-shortcuts { gap: 0 18px; margin-top: 12px; } }
