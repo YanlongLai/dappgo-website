@@ -40,6 +40,10 @@
   const proxyRoot = `/api/markets/${market}/dashboard/`;
   const pointerUrl = `${proxyRoot}latest.json`;
   const state = { pointer: null, payload: null, stock: initialView.stock, query: initialView.query, language: initialView.language, visibleCount: PAGE_SIZE, refreshTimer: null, loadMoreObserver: null, appending: false, errorMessage: null };
+  const engagement = window.DappGoNewsEngagement?.createClient();
+  let analysisScope = null;
+  let analysisOpen = false;
+  let lastAnalysisMarkup = null;
   const els = {
     stockList: root.querySelector("[data-stock-list]"),
     search: root.querySelector("[data-stock-search]"),
@@ -49,6 +53,7 @@
     updated: root.querySelector("[data-updated]"),
     stories: root.querySelector("[data-stories]"),
     analysis: root.querySelector("[data-ai-analysis]"),
+    analytics: root.querySelector("[data-analytics-choice]"),
     count: root.querySelector("[data-count]"),
     status: root.querySelector("[data-status]"),
     statusDot: root.querySelector("[data-status-dot]"),
@@ -117,6 +122,18 @@
       noStocks: chinese ? "找不到符合的股票，請換個名稱或代號。" : "No matching stocks. Try another company or ticker.",
       clearSearch: chinese ? "清除搜尋" : "Clear search",
       retry: chinese ? "重新載入" : "Try again",
+      aiTitle: chinese ? "AI 解讀" : "AI analysis",
+      aiOpen: chinese ? "點擊展開 AI 解讀" : "Tap to open AI analysis",
+      aiClose: chinese ? "收合 AI 解讀" : "Close AI analysis",
+      aiNote: chinese ? "來自最新已發布報表，搭配來源新聞閱讀。" : "From the latest published report, alongside source news.",
+      aiLoading: chinese ? "載入 AI 解讀…" : "Loading AI analysis…",
+      aiSlow: chinese ? "AI 解讀仍在載入中；請稍候或確認網路連線。" : "AI analysis is still loading. Please wait or check your connection.",
+      aiMissing: chinese ? "此選擇暫無已發布的 AI 解讀。" : "No published AI analysis is available for this selection.",
+      aiError: chinese ? "AI 解讀暫時無法取得，請使用上方的重新載入。" : "AI analysis is unavailable. Use Try again above.",
+      analyticsOn: chinese ? "匿名使用統計：開啟" : "Anonymous usage metrics: on",
+      analyticsOff: chinese ? "匿名使用統計：關閉" : "Anonymous usage metrics: off",
+      analyticsPrivacy: chinese ? "已依瀏覽器隱私設定關閉統計" : "Metrics disabled by browser privacy settings",
+      analyticsNote: chinese ? "統計 AI 展開次數、股票與每日匿名訪客；可隨時關閉。" : "Counts AI opens, stocks and daily anonymous readers. You can opt out.",
       disclaimer: chinese ? "標題、摘要與來源連結來自既有已發布資料。僅供資訊參考，不構成投資建議。" : "Titles, summaries and source links come from the existing published data pipeline. For information only, not investment advice."
     };
   }
@@ -147,6 +164,8 @@
       renderStocks();
       renderStories();
     }
+    if (!state.payload) renderAnalysis();
+    renderAnalyticsChoice();
     if (state.errorMessage) {
       els.error.textContent = `${copy.dataUnavailable}: ${state.errorMessage}`;
       setStatus(copy.dataUnavailable, "error");
@@ -443,21 +462,55 @@
     return `<article class="story ${lead ? "lead" : ""} ${image ? "has-media" : "is-text-only"}"><div class="story-grid"><div class="story-meta"><span class="source-avatar" aria-hidden="true">${escapeHtml(Array.from(String(publisher).trim())[0] || "N")}</span><span class="source-lines"><span class="source">${escapeHtml(publisher)}</span><small>${escapeHtml(item.provider || "RSS")}</small></span><time datetime="${escapeHtml(item.published_at_utc || item.date || "")}">${escapeHtml(formatDate(item.published_at_utc || item.date))}</time></div><h3>${escapeHtml(item.title || "Untitled story")}</h3>${media}<p class="story-excerpt">${escapeHtml(summary || copy.noSummary)}</p><div class="story-footer"><span class="story-tags">${escapeHtml(stockTag)}</span><a class="read-link" href="${escapeHtml(item.url || "#")}">${escapeHtml(copy.readSource)} ↗</a></div></div></article>`;
   }
 
+  function renderAnalyticsChoice() {
+    if (!els.analytics || !engagement) return;
+    const copy = labels();
+    els.analytics.textContent = engagement.privacySignal() ? copy.analyticsPrivacy : engagement.enabled() ? copy.analyticsOn : copy.analyticsOff;
+    els.analytics.disabled = engagement.privacySignal();
+    els.analytics.setAttribute("aria-pressed", String(engagement.enabled()));
+    els.analytics.setAttribute("title", copy.analyticsNote);
+    const note = root.querySelector("[data-analytics-note]");
+    if (note) note.textContent = copy.analyticsNote;
+  }
+
+  function analysisSkeleton() {
+    return `<div class="analysis-skeleton" aria-hidden="true"><p class="analysis-copy">${Array.from({ length: 8 }, (_, index) => `<span class="skeleton-block analysis-line ${index >= 6 ? "mobile-line" : ""} ${index === 7 ? "short" : ""}"></span>`).join("")}</p></div>`;
+  }
+
   function renderAnalysis() {
-    const result = DappGoNewsData.analysis(state.payload, state.stock, state.language);
-    els.analysis.hidden = !result;
-    if (!result) { els.analysis.innerHTML = ""; return; }
-    const clean = value => escapeHtml(DappGoNewsData.plainAnalysis(value));
-    const title = state.language === "zh" ? "AI 解讀" : "AI analysis";
-    const note = state.language === "zh" ? "來自最新已發布報表的解析，與新聞列表同步閱讀。" : "Analysis from the latest published report, read alongside the full news list.";
-    const contextLabel = state.language === "zh" ? "相關報導 · 來源說法" : "Related report · Publisher account";
-    let sourceUrl = "";
-    try {
-      const parsed = new URL(result.contextUrl);
-      if (["https:", "http:"].includes(parsed.protocol) && !parsed.username && !parsed.password) sourceUrl = parsed.href;
-    } catch { /* No safe direct source URL: retain the attributed text. */ }
-    const sourceLink = sourceUrl ? `<a class="read-link" href="${escapeHtml(sourceUrl)}">${state.language === "zh" ? "閱讀原文" : "Read source"} ↗</a>` : "";
-    els.analysis.innerHTML = `<h2>${title}</h2><p class="analysis-note">${note}</p>${result.summary ? `<p class="analysis-copy">${clean(result.summary)}</p>` : ""}${result.context ? `<div class="analysis-context"><strong>${contextLabel}</strong><p>${clean(result.context)}</p>${sourceLink}</div>` : ""}${result.highlights.length ? `<ul>${result.highlights.map(value => `<li>${clean(value)}</li>`).join("")}</ul>` : ""}`;
+    const scope = `${market}:${state.stock || "all"}`;
+    if (scope !== analysisScope) { analysisScope = scope; analysisOpen = false; }
+    const result = state.payload ? DappGoNewsData.analysis(state.payload, state.stock, state.language) : null;
+    const copy = labels();
+    const pending = loading && !state.payload;
+    const hadFocus = document.activeElement?.hasAttribute?.("data-analysis-toggle");
+    const disabled = !pending && !result;
+    const topic = state.stock && state.stock !== "all" ? state.stock : copy.allMarket;
+    const prompt = disabled ? copy.aiMissing : analysisOpen ? copy.aiClose : copy.aiOpen;
+    let content = "";
+    if (analysisOpen) {
+      if (pending) {
+        const status = loadingPhase === "slow" ? copy.aiSlow : copy.aiLoading;
+        content = loadingPhase === "waiting" ? "" : `<div class="analysis-loading" role="status"><span class="analysis-load-label ${loadingPhase === "slow" ? "analysis-slow" : ""}">${status}</span></div>${loadingPhase === "skeleton" ? analysisSkeleton() : ""}`;
+      } else if (result) {
+        const clean = value => escapeHtml(DappGoNewsData.plainAnalysis(value));
+        const contextLabel = state.language === "zh" ? "相關報導 · 來源說法" : "Related report · Publisher account";
+        let sourceUrl = "";
+        try {
+          const parsed = new URL(result.contextUrl);
+          if (["https:", "http:"].includes(parsed.protocol) && !parsed.username && !parsed.password) sourceUrl = parsed.href;
+        } catch { /* Retain attributed text when no safe source link exists. */ }
+        const sourceLink = sourceUrl ? `<a class="read-link" href="${escapeHtml(sourceUrl)}">${copy.readSource} ↗</a>` : "";
+        content = `<p class="analysis-note">${copy.aiNote}</p>${result.summary ? `<p class="analysis-copy">${clean(result.summary)}</p>` : ""}${result.context ? `<div class="analysis-context"><strong>${contextLabel}</strong><p>${clean(result.context)}</p>${sourceLink}</div>` : ""}${result.highlights.length ? `<ul>${result.highlights.map(value => `<li>${clean(value)}</li>`).join("")}</ul>` : ""}`;
+      } else content = `<p class="analysis-note" role="status">${state.errorMessage ? copy.aiError : copy.aiMissing}</p>`;
+    }
+    els.analysis.hidden = false;
+    els.analysis.setAttribute("aria-busy", String(analysisOpen && pending));
+    const markup = `<h2 class="analysis-heading"><button type="button" class="analysis-toggle" data-analysis-toggle aria-expanded="${analysisOpen}" aria-controls="analysis-content" ${disabled && !analysisOpen ? "disabled" : ""}><span class="analysis-heading-copy"><span class="analysis-topic">${escapeHtml(topic)}</span><span>${copy.aiTitle}</span><span class="analysis-prompt">${prompt}</span></span><span class="analysis-chevron ${!analysisOpen && !disabled ? "is-inviting" : ""}" aria-hidden="true">⌄</span></button></h2><div id="analysis-content" class="analysis-content" ${analysisOpen ? "" : "hidden"}>${content}</div>`;
+    if (markup === lastAnalysisMarkup) return;
+    lastAnalysisMarkup = markup;
+    els.analysis.innerHTML = markup;
+    if (hadFocus) els.analysis.querySelector("[data-analysis-toggle]")?.focus({ preventScroll: true });
   }
 
   async function fetchJson(url) {
@@ -506,15 +559,18 @@
     els.error.hidden = true;
     els.retry.hidden = true;
     updateLoadingStatus();
+    renderAnalysis();
     if (!state.payload) skeletonTimer = setTimeout(() => {
       loadingPhase = "skeleton";
       els.skeletons.hidden = false;
       updateLoadingStatus();
+      renderAnalysis();
     }, SKELETON_DELAY_MS);
     slowLoadingTimer = setTimeout(() => {
       loadingPhase = "slow";
       els.skeletons.hidden = true;
       updateLoadingStatus();
+      renderAnalysis();
     }, SLOW_LOAD_MS);
     els.retry.disabled = true;
     els.reload.disabled = true;
@@ -535,6 +591,7 @@
       els.stories.setAttribute("aria-busy", "false");
       updateLoadingStatus();
       updatePagination();
+      renderAnalysis();
     }
   }
 
@@ -567,6 +624,18 @@
     syncViewUrl();
     applyLanguage();
   }));
+  els.analysis.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-analysis-toggle]");
+    if (!button || button.disabled) return;
+    analysisOpen = !analysisOpen;
+    if (analysisOpen) engagement?.recordOpen({ market, stock: state.stock || "all", language: state.language });
+    renderAnalysis();
+  });
+  els.analytics?.addEventListener("click", () => {
+    if (!engagement || engagement.privacySignal()) return;
+    engagement.setEnabled(!engagement.enabled());
+    renderAnalyticsChoice();
+  });
   els.reload.addEventListener("click", initialLoad);
   els.retry.addEventListener("click", initialLoad);
   els.loadMore?.addEventListener("click", appendNextPage);

@@ -1,3 +1,10 @@
 name = "dappgo-news"
 compatibility_date = "2026-10-06"
 pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "NEWS_ENGAGEMENT"
+database_name = "dappgo-news-engagement"
+database_id = "910b02e2-089b-4c36-8760-a23b388d2302"
+preview_database_id = "NEWS_ENGAGEMENT"
+migrations_dir = "migrations"

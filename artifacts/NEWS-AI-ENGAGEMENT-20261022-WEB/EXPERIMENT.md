@@ -1,0 +1,7 @@
+# Verification and review
+
+Web client/function checks cover event schema, bounded input, origin/privacy/preview behavior, daily identities, opt-out, storage denial and failure isolation. SQL tests execute against SQLite, including idempotency, per-stock/platform counts, daily distinct IDs and bounded cleanup. Browser verification at 320/390/768/1440px found no horizontal overflow and preserved expanded state across resizing. Slow fixture verification showed no skeleton before 300ms, paragraph skeleton at 300ms and text/progress after 8s, with real content after completion. Screenshots and fresh command logs are preserved in the private NEWS-AI-ENGAGEMENT-20261022 evidence directory.
+
+Native tests cover disclosure state/scope, loading timers, reduced motion, event payload, opt-out and identity rotation. Independent preliminary review found a pending-storage identity race on opt-out. The fix invalidates pending identity generations and serializes storage mutations; delayed-read and delayed-write regression tests verify a new identity after re-enabling. Typecheck and separate iOS/Android Expo bundle exports are required on final source. Exports are JavaScript/native-module resolution checks, not device UI or store approval.
+
+Final frozen commit review, CI status, production deployment identity, exact verification events and cleanup are recorded in the private FINAL.json receipt. No producer check is described as independent approval.

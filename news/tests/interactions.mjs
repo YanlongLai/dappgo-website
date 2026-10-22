@@ -7,7 +7,7 @@ const source = fs.readFileSync(new URL('../assets/news.js', import.meta.url), 'u
 const tickers = { AAPL: { name: 'Apple Inc.', news: [] }, MSFT: { name: 'Microsoft', news: [] } };
 const flush = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 
-async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en', generatedAt = null, storyCount = 0, deferFetch = false } = {}) {
+async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en', generatedAt = null, storyCount = 0, deferFetch = false, reading = null, initialStock = null } = {}) {
   const nodes = new Map();
   const languages = ['zh', 'en'].map(language => element({ language }));
   const feedback = [element(), element()];
@@ -53,7 +53,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
   };
   let failures = fail;
   let calls = 0;
-  let href = `https://news.dappgo.com/${market}/?lang=en`;
+  let href = `https://news.dappgo.com/${market}/?lang=en${initialStock ? `&stock=${initialStock}` : ""}`;
   const timers = new Map();
   let now = 0;
   let releaseFetch;
@@ -64,12 +64,13 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
     ...(index % 2 === 0 ? { image_url: 'https://example.test/image.jpg', image_width: 1200, image_height: 675 } : {}),
   })) } } };
   let timerId = 0;
-  const window = { location: { get search() { return new URL(href).search; }, get href() { return href; } }, history: { replaceState(_a, _b, value) { href = new URL(value, href).href; } }, addEventListener() {} };
+  const openings = [];
+  const window = { DappGoNewsEngagement: { createClient: () => ({ recordOpen: topic => openings.push(topic), enabled: () => true, privacySignal: () => false }) }, location: { get search() { return new URL(href).search; }, get href() { return href; } }, history: { replaceState(_a, _b, value) { href = new URL(value, href).href; } }, addEventListener() {} };
   const document = { documentElement: {}, querySelector: () => root, addEventListener() {} };
   vm.runInNewContext(source, {
     document, window, navigator: { languages: [browserLanguage] }, URL, URLSearchParams, Intl, AbortController,
     localStorage: { getItem() { return savedLanguage; }, setItem() {} },
-    DappGoNewsData: { analysis() { return null; }, localizedNews(item) { return item; } },
+    DappGoNewsData: { analysis() { return reading; }, plainAnalysis(value) { return String(value); }, localizedNews(item) { return item; } },
     setTimeout(callback, ms) { timers.set(++timerId, { callback, ms, due: now + ms }); return timerId; },
     clearTimeout(id) { timers.delete(id); },
     async fetch(url, options) {
@@ -81,7 +82,8 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
     },
   });
   await flush();
-  return { get, languages, feedback, clears, disclaimer, timers, document,
+  return { get, languages, feedback, clears, disclaimer, timers, document, openings,
+    toggleAnalysis() { const button = { disabled: /aria-controls="analysis-content" disabled/.test(get('[data-ai-analysis]').innerHTML) }; get('[data-ai-analysis]').events.click({ target: { closest: () => button } }); },
     focus: () => focused, calls: () => calls, href: () => href,
     setFailure(value) { failures = value; },
     async release() { deferFetch = false; releaseFetch(); await flush(); },
@@ -246,4 +248,37 @@ test('failed refresh during pagination restores the last-good feed and its load-
   more.events.click(); await app.advance(600);
   assert.equal((feed.html.match(/<article /g) || []).length, 20);
   assert.equal(app.calls(), 3);
+});
+
+
+test('AI stays collapsed until clicked; opening counts the selected stock once and language/search/closing do not count', async () => {
+  const reading = { summary: '<Published AI>', highlights: [], context: 'Publisher account', contextUrl: 'javascript:bad' };
+  const app = await fixture({ reading, initialStock: 'AAPL' });
+  const pane = app.get('[data-ai-analysis]');
+  assert.match(pane.innerHTML, /aria-expanded="false"/); assert.doesNotMatch(pane.innerHTML, /Published AI/);
+  assert.equal(app.openings.length, 0);
+  app.toggleAnalysis();
+  assert.match(pane.innerHTML, /aria-expanded="true"/); assert.match(pane.innerHTML, /&lt;Published AI&gt;/); assert.doesNotMatch(pane.innerHTML, /href="javascript:/);
+  assert.equal(app.openings.length, 1); assert.equal(app.openings[0].stock, 'AAPL');
+  app.languages[0].events.click(); app.get('[data-stock-search]').events.input({ target: { value: 'Apple' } });
+  assert.match(pane.innerHTML, /aria-expanded="true"/); assert.equal(app.openings.length, 1);
+  app.toggleAnalysis(); assert.equal(app.openings.length, 1);
+  app.toggleAnalysis(); assert.equal(app.openings.length, 2);
+  app.get('[data-stock-list]').buttons.find(button => button.dataset.stock === 'all').events.click();
+  assert.match(pane.innerHTML, /aria-expanded="false"/); assert.equal(app.openings.length, 2);
+});
+
+test('AI uses its text skeleton only during a real slow request and stops on completion', async () => {
+  const app = await fixture({ reading: { summary: 'Latest AI reading', highlights: [] }, deferFetch: true, initialStock: 'AAPL' });
+  const pane = app.get('[data-ai-analysis]'); app.toggleAnalysis();
+  await app.advance(299); assert.doesNotMatch(pane.innerHTML, /class="analysis-skeleton"/);
+  await app.advance(1); assert.match(pane.innerHTML, /class="analysis-skeleton"/); assert.doesNotMatch(pane.innerHTML, /skeleton-avatar|story-media/);
+  await app.advance(7700); assert.doesNotMatch(pane.innerHTML, /class="analysis-skeleton"/); assert.match(pane.innerHTML, /still loading/);
+  await app.release(); assert.match(pane.innerHTML, /Latest AI reading/); assert.equal(pane.attrs['aria-busy'], 'false'); assert.equal(app.openings.length, 1);
+});
+
+test('missing AI explains availability without a click event and a failed refresh keeps open last-good AI', async () => {
+  const missing = await fixture(); assert.match(missing.get('[data-ai-analysis]').innerHTML, /No published AI analysis/); missing.toggleAnalysis(); assert.equal(missing.openings.length, 0);
+  const app = await fixture({ reading: { summary: 'Last good analysis', highlights: [] } }); app.toggleAnalysis(); app.setFailure(true); await app.get('[data-retry]').events.click();
+  assert.match(app.get('[data-ai-analysis]').innerHTML, /Last good analysis/); assert.match(app.get('[data-ai-analysis]').innerHTML, /aria-expanded="true"/); assert.equal(app.openings.length, 1);
 });

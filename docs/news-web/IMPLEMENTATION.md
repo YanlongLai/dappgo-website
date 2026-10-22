@@ -28,7 +28,10 @@ are reduced to avoid duplicate copy; no summary is invented.
 
 ## Existing AI reading cards
 
-Both market readers show a scoped AI card after the All/7/30-day filters.
+Both market readers show a scoped, initially collapsed AI disclosure after the
+All/7/30-day filters. Its stock label, click instruction and subtle animated
+chevron invite an explicit opening. The disclosure stays open across language
+and responsive layout changes, and resets on a market/stock change.
 Language changes rerender existing published commentary immediately without
 network or model calls. The report-level ai_commentary / ai_commentary_en map
 is the only admitted per-ticker analysis. Ticker-local news_commentary never
@@ -37,11 +40,15 @@ publisher quotation or source-specific summary appears below the analysis,
 labelled as an unverified publisher account. Rejected or absent source plans
 add no context. All-market selection uses the concise report summary where supplied,
 or the first paragraph of the matching locale's report summary, never a
-concatenation of ticker text. Missing or placeholder locale/scope data hides
-the card. Provider text is escaped and engine markers/Markdown emphasis are
+concatenation of ticker text. Missing or placeholder locale/scope data shows
+an unavailable explanation. Provider text is escaped and engine markers/Markdown emphasis are
 normalized. The card identifies itself as latest-report analysis, independent
 of the article date filter. Supplied title_zh/title_en and summary_zh/summary_en
 are preferred for articles; no translation is fabricated if absent.
+
+See [AI engagement](AI-ENGAGEMENT.md) for responsive AI loading, Cloudflare
+stock/platform counts, anonymous daily identity and opt-out, plus native release
+and future ad-free entitlement considerations.
 
 Run `node news/tests/analysis.mjs` and `node news/tests/contract.mjs` before
 promotion. Deploy from the clean merged checkout's `news/` root so Pages Functions
