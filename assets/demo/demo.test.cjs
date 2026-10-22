@@ -181,8 +181,8 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.match(production, /og-image-v2\.png/);
   assert.doesNotMatch(production, /noindex/);
   assert.doesNotMatch(production, /Design preview/);
-  assert.match(production, /assets\/demo\/demo\.css\?v=20261017-quality/);
-  assert.match(production, /assets\/demo\/demo\.js\?v=20261017-quality/);
+  assert.match(production, /assets\/demo\/demo\.css\?v=20261022-research-navigation/);
+  assert.match(production, /assets\/demo\/demo\.js\?v=20261022-research-navigation/);
 });
 
 test("platform download badges match the verified app availability matrix", () => {

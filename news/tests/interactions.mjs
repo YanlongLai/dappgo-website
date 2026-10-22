@@ -7,7 +7,7 @@ const source = fs.readFileSync(new URL('../assets/news.js', import.meta.url), 'u
 const tickers = { AAPL: { name: 'Apple Inc.', news: [] }, MSFT: { name: 'Microsoft', news: [] } };
 const flush = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 
-async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en' } = {}) {
+async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en', generatedAt = null } = {}) {
   const nodes = new Map();
   const languages = ['zh', 'en'].map(language => element({ language }));
   const feedback = [element(), element()];
@@ -66,7 +66,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
       calls++;
       assert.ok(options.signal instanceof AbortSignal);
       if (failures) throw new Error('Offline');
-      return { ok: true, async json() { return url.endsWith('latest.json') ? { hash: 'abc123abc123', data_url_v2: 'dashboard/data-abc123abc123.json' } : { ticker_data: tickers }; } };
+      return { ok: true, async json() { return url.endsWith('latest.json') ? { hash: 'abc123abc123', data_url_v2: 'dashboard/data-abc123abc123.json', generated_at_utc: generatedAt } : { ticker_data: tickers }; } };
     },
   });
   await flush();
@@ -83,6 +83,16 @@ test('root destination explicitly selects English even with Chinese browser and 
   app.languages[0].events.click();
   assert.equal(app.document.documentElement.lang, 'zh-Hant');
   assert.equal(new URL(app.href()).searchParams.get('lang'), 'zh');
+});
+
+test('published news is not advertised as live and does not expose a pointer hash', async () => {
+  const app = await fixture({ generatedAt: '2026-10-22T12:15:00Z' });
+  assert.match(app.get('[data-status]').textContent, /Published news/);
+  assert.doesNotMatch(app.get('[data-status]').textContent, /Live|pointer|abc123/);
+  assert.match(app.get('[data-updated]').textContent, /EDT|GMT-4/);
+  app.languages[0].events.click();
+  assert.match(app.get('[data-status]').textContent, /已發布新聞/);
+  assert.doesNotMatch(app.get('[data-status]').textContent, /即時|pointer|abc123/);
 });
 
 for (const market of ['us', 'tw']) {

@@ -72,9 +72,9 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261021-ai-viewpoint-parity/);
-  assert.match(html, /news\.css\?v=20261021-ai-viewpoint-parity/);
-  assert.match(html, /news-data\.js\?v=20261021-ai-viewpoint-parity/);
+  assert.match(html, /news\.js\?v=20261022-research-navigation/);
+  assert.match(html, /news\.css\?v=20261022-research-navigation/);
+  assert.match(html, /news-data\.js\?v=20261022-research-navigation/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
   assert.ok(html.indexOf('data-i18n="navUs"') < html.indexOf('data-i18n="navTw"'), `${route}: US navigation must precede TW`);

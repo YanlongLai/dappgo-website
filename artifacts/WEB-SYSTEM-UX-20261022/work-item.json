@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0",
+  "id": "WEB-SYSTEM-UX-20261022",
+  "project": "dappgo-website",
+  "title": "Website system review and first-phase improvements",
+  "repository": "YanlongLai/dappgo-website",
+  "owner": "DappGo engineering",
+  "status": "ready-for-design",
+  "risk": "medium",
+  "scope": [
+    "index.html",
+    "assets/demo",
+    "news",
+    "docs",
+    "sitemap.xml",
+    "scripts",
+    "artifacts/WEB-SYSTEM-UX-20261022"
+  ],
+  "acceptance_criteria": [
+    "Document observed website gaps and React Native web synchronization process",
+    "Preserve source and private release identity boundaries",
+    "Pass scoped automated checks and desktop/mobile browser review"
+  ],
+  "provenance": {
+    "codex_task_id": "01a16412-86b9-7583-b256-23a8d3ca49bd",
+    "host_id": "local",
+    "repository": "YanlongLai/dappgo-website",
+    "branch": "feat/website-system-improve-20261022",
+    "worktree": "website-system-improve-20261022"
+  },
+  "governance": {
+    "reversible": true,
+    "sensitive_or_external_side_effect": false,
+    "product_context_required": true
+  }
+}

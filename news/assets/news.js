@@ -101,7 +101,8 @@
       dataLoading: chinese ? "資料載入中…" : "Data loading…",
       loadingStatus: chinese ? "載入已發布新聞…" : "Loading published news…",
       dataTimeUnavailable: chinese ? "資料時間無法取得" : "Data time unavailable",
-      live: chinese ? "即時" : "Live",
+      published: chinese ? "已發布新聞" : "Published news",
+      skipToNews: chinese ? "跳至新聞內容" : "Skip to news",
       dataUnavailable: chinese ? "資料暫時無法取得" : "Data unavailable",
       unableToLoad: chinese ? "無法載入" : "Unable to load",
       unableToRefresh: chinese ? "無法更新" : "Unable to refresh",
@@ -142,7 +143,7 @@
       setStatus(copy.dataUnavailable, "error");
     } else if (state.pointer) {
       els.updated.textContent = state.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(state.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
-      setStatus(`${copy.live} ${copy.marketName} · pointer ${String(state.pointer.hash || "").slice(0, 12)}`, "ok");
+      setStatus(`${copy.published} · ${copy.marketName}`, "ok");
     } else if (state.errorMessage) {
       els.error.textContent = `${copy.dataUnavailable}: ${state.errorMessage}`;
       setStatus(copy.dataUnavailable, "error");
@@ -186,7 +187,7 @@
     if (!value) return labels().dateUnavailable;
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return value.slice(0, 10);
-    return new Intl.DateTimeFormat(state.language === "zh" ? "zh-TW" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
+    return new Intl.DateTimeFormat(state.language === "zh" ? "zh-TW" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short", timeZone: market === "tw" ? "Asia/Taipei" : "America/New_York" }).format(date);
   }
 
   function dayKey(value) {
@@ -402,7 +403,7 @@
     els.error.hidden = true;
     els.retry.hidden = true;
     els.updated.textContent = result.pointer.generated_at_utc ? `${copy.dataLabel} ${formatDate(result.pointer.generated_at_utc)}` : copy.dataTimeUnavailable;
-    setStatus(`${copy.live} ${copy.marketName} · pointer ${String(result.pointer.hash || "").slice(0, 12)}`, "ok");
+    setStatus(`${copy.published} · ${copy.marketName}`, "ok");
     renderStocks();
     renderStories();
     syncViewUrl();
