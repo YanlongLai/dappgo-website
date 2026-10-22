@@ -52,7 +52,7 @@ jobs:
             --cache-exclude-status '429'
             --no-progress
             --exclude-path node_modules
-            --exclude-path './news/'
+            --exclude-path '(^|/)news/'
             --exclude '^mailto:'
             --exclude 'formsubmit.co'
             --exclude 'docs.google.com/forms/d/e/'
