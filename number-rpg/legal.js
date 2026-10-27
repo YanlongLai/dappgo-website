@@ -9,7 +9,13 @@
   var pageKey = body.getAttribute('data-page') || 'privacy';
   var picker = document.getElementById('locale-picker');
   var contentRoot = document.getElementById('legal-content');
-  var reviewComment = '<!-- OWNER-REVIEW -->';
+  var deletionState = {
+    googleIdToken: '',
+    displayName: '',
+    googleReady: false,
+    googleAttempts: 0,
+    formsReady: false,
+  };
 
   function escapeHtml(value) {
     return String(value)
@@ -22,6 +28,16 @@
 
   function richText(value) {
     var escaped = escapeHtml(value);
+    var providerLinks = {
+      firebaseGoogle: '<a href="https://firebase.google.com/support/privacy">Firebase / Google privacy policies</a>',
+      admob: '<a href="https://policies.google.com/technologies/partner-sites">AdMob privacy policy</a>',
+      apple: '<a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>',
+      meta: '<a href="https://www.facebook.com/privacy/policies/">Meta privacy policy</a>',
+      revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat privacy policy</a>',
+    };
+    Object.keys(providerLinks).forEach(function (key) {
+      escaped = escaped.replace(new RegExp('\\{\\{' + key + '\\}\\}', 'g'), providerLinks[key]);
+    });
     return escaped
       .replace(/admin@dappgo\.com/g, '<a href="mailto:admin@dappgo.com">admin@dappgo.com</a>')
       .replace(/data\.dappgo\.com/g, '<a href="https://data.dappgo.com">data.dappgo.com</a>');
@@ -60,6 +76,183 @@
     window.history.replaceState({}, '', url.pathname + '?' + url.searchParams.toString() + url.hash);
   }
 
+  function setText(id, value) {
+    var element = document.getElementById(id);
+    if (element && value !== undefined) element.textContent = value;
+  }
+
+  function deletionTools(locale) {
+    var page = source.pages[locale] && source.pages[locale].deleteAccount;
+    return (page && page.tools) || (source.pages.en && source.pages.en.deleteAccount.tools) || {};
+  }
+
+  function renderDeletionCopy(locale) {
+    if (pageKey !== 'deleteAccount') return;
+    var tools = deletionTools(locale);
+    setText('delete-tools-title', tools.heading);
+    setText('delete-tools-intro', tools.intro);
+    setText('google-flow-title', tools.googleHeading);
+    setText('google-flow-copy', tools.googleCopy);
+    setText('google-account-label', tools.accountLabel);
+    setText('google-confirmation-label', tools.confirmLabel);
+    setText('google-confirmation-hint', tools.confirmHint);
+    setText('google-confirmation-submit', tools.confirmButton);
+    setText('request-flow-title', tools.requestHeading);
+    setText('request-flow-copy', tools.requestCopy);
+    setText('request-account-id-label', tools.accountIdLabel);
+    setText('request-account-id-hint', tools.accountIdHint);
+    setText('request-email-label', tools.emailLabel);
+    setText('request-reason-label', tools.reasonLabel);
+    setText('request-submit', tools.submitButton);
+    setText('deletion-timeline', tools.timeline);
+    setText('deletion-store-note', tools.storeNote);
+    var googleStatus = document.getElementById('google-status');
+    if (googleStatus && !deletionState.googleIdToken) googleStatus.textContent = tools.signedOut || '';
+    if (deletionState.displayName) {
+      setText('google-account-name', deletionState.displayName);
+      var account = document.getElementById('google-account');
+      if (account) account.hidden = false;
+    }
+  }
+
+  function decodeGoogleCredential(token) {
+    try {
+      var encoded = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      while (encoded.length % 4) encoded += '=';
+      var binary = window.atob(encoded);
+      var bytes = '';
+      for (var i = 0; i < binary.length; i += 1) bytes += String.fromCharCode(binary.charCodeAt(i));
+      return JSON.parse(decodeURIComponent(escape(bytes)));
+    } catch (_) {
+      return {};
+    }
+  }
+
+  function apiError(response, tools) {
+    if (response.status === 429) return tools.rateLimit;
+    return tools.error;
+  }
+
+  function handleGoogleCredential(response) {
+    if (!response || !response.credential) return;
+    var payload = decodeGoogleCredential(response.credential);
+    deletionState.googleIdToken = response.credential;
+    deletionState.displayName = payload.name || payload.email || 'Google account';
+    var account = document.getElementById('google-account');
+    var confirmation = document.getElementById('google-confirmation');
+    var input = document.getElementById('google-confirmation-input');
+    var submit = document.getElementById('google-confirmation-submit');
+    if (account) account.hidden = false;
+    setText('google-account-name', deletionState.displayName);
+    if (confirmation) confirmation.hidden = false;
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+    if (submit) submit.disabled = true;
+    var status = document.getElementById('google-status');
+    if (status) status.textContent = '';
+  }
+
+  function initializeGoogleSignIn() {
+    if (pageKey !== 'deleteAccount' || deletionState.googleReady) return;
+    var button = document.getElementById('google-signin-button');
+    if (!button) return;
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      window.google.accounts.id.initialize({
+        client_id: '103266434487-7q07uac5uf4o5hk6voli26nmhp1stmng.apps.googleusercontent.com',
+        callback: handleGoogleCredential,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+      });
+      window.google.accounts.id.renderButton(button, {
+        theme: 'outline',
+        size: 'large',
+        text: 'signin_with',
+        shape: 'rectangular',
+        width: 280,
+      });
+      deletionState.googleReady = true;
+      return;
+    }
+    deletionState.googleAttempts += 1;
+    if (deletionState.googleAttempts < 40) window.setTimeout(initializeGoogleSignIn, 250);
+  }
+
+  function initializeDeletionForms() {
+    if (pageKey !== 'deleteAccount' || deletionState.formsReady) return;
+    var googleForm = document.getElementById('google-confirmation-form');
+    var requestForm = document.getElementById('deletion-request-form');
+    var googleInput = document.getElementById('google-confirmation-input');
+    var googleSubmit = document.getElementById('google-confirmation-submit');
+    if (!googleForm || !requestForm || !googleInput || !googleSubmit) return;
+    deletionState.formsReady = true;
+
+    googleInput.addEventListener('input', function () {
+      googleSubmit.disabled = googleInput.value !== 'DELETE' || !deletionState.googleIdToken;
+    });
+
+    googleForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var tools = deletionTools(root.dataset.lang || 'en');
+      if (googleInput.value !== 'DELETE' || !deletionState.googleIdToken) return;
+      googleSubmit.disabled = true;
+      googleSubmit.setAttribute('aria-busy', 'true');
+      var status = document.getElementById('google-status');
+      if (status) status.textContent = '';
+      fetch((source.apiBase || 'https://data.dappgo.com/v1/number-rpg') + '/account/delete-with-provider', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ provider: 'google', idToken: deletionState.googleIdToken, confirm: 'DELETE' }),
+        credentials: 'omit',
+      }).then(function (response) {
+        if (!response.ok) throw new Error(apiError(response, tools));
+        if (status) status.textContent = tools.success;
+        deletionState.googleIdToken = '';
+        googleInput.value = '';
+      }).catch(function (error) {
+        if (status) status.textContent = error.message || tools.error;
+        googleSubmit.disabled = false;
+      }).finally(function () {
+        googleSubmit.removeAttribute('aria-busy');
+      });
+    });
+
+    requestForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var tools = deletionTools(root.dataset.lang || 'en');
+      var accountId = document.getElementById('request-account-id').value.trim();
+      var email = document.getElementById('request-email').value.trim();
+      var reason = document.getElementById('request-reason').value.trim();
+      var submit = document.getElementById('request-submit');
+      var status = document.getElementById('request-status');
+      if (!accountId || !email) return;
+      submit.disabled = true;
+      submit.setAttribute('aria-busy', 'true');
+      if (status) status.textContent = '';
+      var request = { accountId: accountId, email: email };
+      if (reason) request.reason = reason;
+      fetch((source.apiBase || 'https://data.dappgo.com/v1/number-rpg') + '/deletion-requests', {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(request),
+        credentials: 'omit',
+      }).then(function (response) {
+        if (!response.ok) throw new Error(apiError(response, tools));
+        if (status) status.textContent = tools.requestSuccess;
+        requestForm.reset();
+      }).catch(function (error) {
+        if (status) status.textContent = error.message || tools.error;
+      }).finally(function () {
+        submit.disabled = false;
+        submit.removeAttribute('aria-busy');
+      });
+    });
+  }
+
   function render(locale, persist) {
     var page = source.pages[locale] && source.pages[locale][pageKey];
     if (!page) {
@@ -72,28 +265,35 @@
     document.title = title;
     var description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute('content', page.summary);
-    document.querySelector('.legal-kicker .kicker-text').textContent = page.kicker;
-    document.querySelector('.number-rpg-product').textContent = page.product;
-    document.querySelector('.legal-hero h1').textContent = page.title;
-    document.querySelector('.updated').textContent = page.effective;
-    var html = reviewComment + '<p class="legal-callout">' + richText(page.summary) + '</p>';
-    page.sections.forEach(function (section) {
-      html += reviewComment + '<section class="legal-section' + (section.placeholder ? ' legal-placeholder' : '') + '">';
-      html += reviewComment + '<h2>' + richText(section.heading) + '</h2>';
-      section.paragraphs.forEach(function (paragraph) {
-        html += reviewComment + '<p' + (section.placeholder ? ' class="legal-callout legal-placeholder"' : '') + '>' + richText(paragraph) + '</p>';
-      });
-      if (section.bullets && section.bullets.length) {
-        html += reviewComment + '<ul>';
-        section.bullets.forEach(function (bullet) {
-          html += reviewComment + '<li>' + richText(bullet) + '</li>';
+    var kicker = document.querySelector('.legal-kicker .kicker-text');
+    var product = document.querySelector('.number-rpg-product');
+    var hero = document.querySelector('.legal-hero h1');
+    var updated = document.querySelector('.updated');
+    if (kicker) kicker.textContent = page.kicker;
+    if (product) product.textContent = page.product;
+    if (hero) hero.textContent = page.title;
+    if (updated) updated.textContent = page.effective;
+    if (contentRoot) {
+      var html = '<p class="legal-callout">' + richText(page.summary) + '</p>';
+      page.sections.forEach(function (section) {
+        html += '<section class="legal-section' + (section.placeholder ? ' legal-placeholder' : '') + '">';
+        html += '<h2>' + richText(section.heading) + '</h2>';
+        section.paragraphs.forEach(function (paragraph) {
+          html += '<p' + (section.placeholder ? ' class="legal-callout legal-placeholder"' : '') + '>' + richText(paragraph) + '</p>';
         });
-        html += '</ul>';
-      }
-      html += '</section>';
-    });
-    contentRoot.innerHTML = html;
+        if (section.bullets && section.bullets.length) {
+          html += '<ul>';
+          section.bullets.forEach(function (bullet) {
+            html += '<li>' + richText(bullet) + '</li>';
+          });
+          html += '</ul>';
+        }
+        html += '</section>';
+      });
+      contentRoot.innerHTML = html;
+    }
     if (picker) picker.value = locale;
+    renderDeletionCopy(locale);
     if (persist !== false) {
       try { localStorage.setItem('number-rpg-locale', locale); } catch (_) {}
       updateQuery(locale);
@@ -153,5 +353,7 @@
   initializePicker();
   initializeTheme();
   initializeMenu();
+  initializeDeletionForms();
   render(selectedLocale(), false);
+  initializeGoogleSignIn();
 })();
