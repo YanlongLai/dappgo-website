@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <meta name="description" content="How to delete a Number RPG account in the app or by email, what is deleted, and how the current API handles completion." />
+    <meta name="robots" content="index, follow" />
+    <title>Number RPG · Delete your account | DappGo</title>
+    <link rel="canonical" href="https://dappgo.com/number-rpg/delete-account/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/assets/demo/demo.css" />
+    <link rel="stylesheet" href="/assets/demo/legal.css" />
+    <link rel="stylesheet" href="/number-rpg/legal.css" />
+  </head>
+  <body class="legal-page number-rpg-legal" data-page="deleteAccount">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="DappGo home"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav>
+      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only">Language</span><select id="locale-picker" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com">Let’s talk <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
+    </header>
+
+    <main id="main" class="legal-main">
+      <section class="legal-hero" aria-labelledby="page-title"><!-- taste-skill-ignore: matches the released DappGo legal shell --><p class="legal-kicker" data-taste-skill-ignore="released legal shell"><span class="kicker-line" aria-hidden="true"></span><span class="kicker-text">Number RPG · account deletion</span></p><p class="number-rpg-product">Number RPG by DappGo</p><h1 id="page-title">Delete your account</h1><p class="updated">Instructions effective: 2026-10-27</p></section>
+      <div class="legal-content" id="legal-content">
+        <!-- OWNER-REVIEW -->
+        <p class="legal-callout">You can request deletion in the app or by email. The in-app flow is the fastest way to delete the Number RPG account and its player-owned data.</p>
+        <!-- OWNER-REVIEW -->
+        <section class="legal-section"><!-- OWNER-REVIEW --><h2>Delete in the app</h2><!-- OWNER-REVIEW --><p>Open Number RPG and go to Settings → Delete account. Read the confirmation, confirm the deletion, and keep the app online until it reports success. If an Apple identity is linked, the app/API may require Apple re-authorisation before deletion can finish.</p></section>
+        <!-- OWNER-REVIEW -->
+        <section class="legal-section"><!-- OWNER-REVIEW --><h2>Request deletion by email</h2><!-- OWNER-REVIEW --><p>Email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> and ask to delete your Number RPG account. Include enough information for DappGo to identify the account, such as the in-game display name and account ID if available. Do not send a password, provider access token, or Apple private key. We may ask for verification before acting on an email request.</p></section>
+        <!-- OWNER-REVIEW -->
+        <section class="legal-section"><!-- OWNER-REVIEW --><h2>What the API deletes</h2><!-- OWNER-REVIEW --><p>A successful deletion removes the player account and the player-owned records linked by the API: provider identities, device and session records, cloud saves, scores, invites, friendships, gifts, rewards, events, activity, purchase records, fraud flags, and push tokens. Local game progress is reset by the app. Store purchases are handled by Apple or Google and remain restorable where the store and entitlement allow it.</p></section>
+        <!-- OWNER-REVIEW -->
+        <section class="legal-section"><!-- OWNER-REVIEW --><h2>How long it takes</h2><!-- OWNER-REVIEW --><p>The current DELETE /me implementation creates a deletion request, performs any required Apple revocation, deletes the player data, marks the request completed, and returns success in the same server operation. There is no code-defined waiting period for a successful in-app request. A network failure or required Apple re-authorisation can prevent completion and requires retrying.</p><!-- OWNER-REVIEW --><p>The completed deletion-request record keeps its request and completion timestamps while its player reference is cleared. Related admin audit entries are anonymised. The code does not define a separate deadline for a manually verified email request; Owner review is required for that procedure.</p></section>
+        <!-- OWNER-REVIEW -->
+        <section class="legal-section"><!-- OWNER-REVIEW --><h2>Need help?</h2><!-- OWNER-REVIEW --><p>Contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> if the in-app flow fails, you cannot access the account, or you need to ask about an email request.</p></section>
+      </div>
+    </main>
+
+    <footer class="site-footer container"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG · Legal</p><nav aria-label="Number RPG legal"><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav></div></footer>
+    <script src="/number-rpg/legal-content.js"></script>
+    <script src="/number-rpg/legal.js"></script>
+  </body>
+</html>

@@ -37,6 +37,24 @@
         <priority>0.3</priority>
     </url>
     <url>
+        <loc>https://dappgo.com/number-rpg/privacy/</loc>
+        <lastmod>2026-10-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/number-rpg/terms/</loc>
+        <lastmod>2026-10-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/number-rpg/delete-account/</loc>
+        <lastmod>2026-10-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
         <loc>https://dappgo.com/mobile-version-policy.json</loc>
         <lastmod>2026-10-22</lastmod>
         <changefreq>monthly</changefreq>

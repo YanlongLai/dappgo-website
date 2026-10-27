@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "TODO_TEAM_ID.com.dappgo.numberrpg"
+        ],
+        "components": [
+          {
+            "/": "/i/*"
+          }
+        ]
+      }
+    ]
+  },
+  "_comment": "<!-- OWNER-REVIEW --> Replace TODO_TEAM_ID with the Apple Developer Team ID before publication."
+}

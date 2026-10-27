@@ -1,0 +1,101 @@
+.number-rpg-legal .legal-kicker {
+  flex-wrap: wrap;
+}
+
+.number-rpg-legal .number-rpg-product {
+  margin: 0 0 12px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.number-rpg-legal .number-rpg-locale {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.number-rpg-legal .number-rpg-locale select {
+  min-height: 40px;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--line); /* taste-skill-ignore: native language select */
+  border-radius: 9px;
+  background: var(--page);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.number-rpg-legal .number-rpg-locale select:hover {
+  border-color: var(--blue);
+}
+
+.number-rpg-legal .number-rpg-locale select:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.number-rpg-legal .legal-content .legal-callout {
+  margin: 0 0 56px;
+  padding: 22px 26px;
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--blue-soft);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.number-rpg-legal .legal-content .legal-callout strong {
+  color: var(--ink);
+}
+
+.number-rpg-legal .legal-content .legal-placeholder {
+  border-left-color: var(--blue);
+}
+
+.number-rpg-legal .legal-content .legal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 0 42px;
+}
+
+.number-rpg-legal .legal-content .legal-actions .button {
+  text-decoration: none;
+}
+
+.number-rpg-legal .legal-content .legal-actions .button-secondary {
+  border: 0;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.number-rpg-legal .legal-content .legal-actions .button-secondary:hover {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.number-rpg-legal .legal-content .review-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .number-rpg-legal .number-rpg-locale {
+    width: 100%;
+    margin: 6px 0 0;
+  }
+
+  .number-rpg-legal .number-rpg-locale select {
+    width: 100%;
+  }
+
+  .number-rpg-legal .legal-content .legal-callout {
+    margin-bottom: 42px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.78;
+  }
+}
