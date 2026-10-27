@@ -3,7 +3,7 @@
     "details": [
       {
         "appIDs": [
-          "TODO_TEAM_ID.com.dappgo.numberrpg"
+          "S2MW9LUK9J.com.dappgo.numberrpg"
         ],
         "components": [
           {
@@ -12,6 +12,5 @@
         ]
       }
     ]
-  },
-  "_comment": "<!-- OWNER-REVIEW --> Replace TODO_TEAM_ID with the Apple Developer Team ID before publication."
+  }
 }
