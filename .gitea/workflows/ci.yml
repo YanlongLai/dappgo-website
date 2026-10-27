@@ -1,0 +1,20 @@
+name: website-ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  quality:
+    runs-on: dappgo-linux-host
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Quality gate
+        run: |
+          set -Eeuo pipefail
+          npm run -s quality

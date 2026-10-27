@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: WEB-REDESIGN-V2-20261027
+project: dappgo-studio
+title: Bold dappgo.com redesign with live market pulse and news connected to products
+status: proposed
+risk: medium
+question: Can the homepage show verified, current product output (US/TW/Options pulse and latest news) in a bold new visual system without regressing privacy, performance or store accuracy?
+hypotheses:
+  - A compact, hash-verified pulse.json derived from the published latest pointers lets the static homepage show live product output without loading 1.5-4 MB payloads.
+  - A product-first, data-forward visual system makes each product's value visible before the visitor clicks.
+artifacts:
+  prd: artifacts/WEB-REDESIGN-V2-20261027/PRD.md
+  tdd: artifacts/WEB-REDESIGN-V2-20261027/TDD.md
+  experiment: artifacts/WEB-REDESIGN-V2-20261027/EVIDENCE.md
+assignment:
+  producer: frontend-engineer
+  peer_reviewer: qa-engineer
+  director: product-director
+  assurance: independent-review
+budget:
+  token_limit: 120000
+  max_iterations: 3
+  deadline: '2026-11-03'
+acceptance_criteria:
+  - Prototype renders live pulse for US, TW and Options with report date, regime, movers and a stale/degraded state.
+  - Pulse builder verifies payload data_hash against the pointer and fails closed.
+  - Latest news cards deep-link to news.dappgo.com by market and stock.
+  - Store/web links match config/product-catalog.json.
+  - Business section stays prominent; research disclaimer preserved.
+  - Responsive at 375px and desktop, light/dark, no console errors.
+  - Owner reviews prototype before any promotion to index.html.
+evidence: []
+decision: pending
+provenance:
+  codex_task_id: claude-73a43bcb
+  host_id: local
+  repository: https://github.com/YanlongLai/dappgo-website.git
+  branch: feature/website-redesign-v2-20261027
+  worktree: website-redesign-v2
