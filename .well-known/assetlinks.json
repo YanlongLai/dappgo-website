@@ -7,9 +7,9 @@
       "namespace": "android_app",
       "package_name": "com.dappgo.numberrpg",
       "sha256_cert_fingerprints": [
+        "A6:72:D1:BD:68:9D:4F:07:1C:62:2E:F6:60:68:B4:27:15:41:CE:27:6F:09:45:64:07:F9:B8:5A:68:72:4E:EA",
         "D5:3C:50:F6:59:6B:A7:41:78:03:0D:C8:E2:F9:3F:4E:12:94:F8:1C:C1:E9:F0:71:0F:35:46:72:EC:F7:F3:4A"
       ]
-    },
-    "_comment": "<!-- OWNER-REVIEW --> Confirm this is the production Play App Signing certificate before publication."
+    }
   }
 ]
