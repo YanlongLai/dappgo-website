@@ -36,13 +36,12 @@
       regime: { neutral: "Neutral", mixed: "Mixed", bullish: "Bullish", bearish: "Bearish", risk_on: "Risk-on", risk_off: "Risk-off" },
       ago: { m: "{n}m ago", h: "{n}h ago", d: "{n}d ago" }, moreOn: "{s} in News →", source: "Source",
       web: "Web", ios: "iOS", android: "Android", soon: "soon",
-      products: {
-        "options-explorer": "Valuation ranges, options chains and scored Sell Put / Sell Call setups in one research view.",
-        "us-stocks": "Daily research cards, company news and AI viewpoints across US equities.",
-        "taiwan-stocks": "Taiwan market coverage with local context and a daily research perspective.",
-        news: "Company news by market, kept in a clear timeline and linked to each stock.",
-        "number-merge": "A different kind of number game. Drop, combine, find your next move."
-      },
+      prodOptions: "Valuation ranges, options chains and scored Sell Put / Sell Call setups in one research view.",
+      prodUs: "Daily research cards, company news and AI viewpoints across US equities.",
+      prodTw: "Taiwan market coverage with local context and a daily research perspective.",
+      prodNews: "Company news by market, kept in a clear timeline and linked to each stock.",
+      prodMerge: "A different kind of number game. Drop, combine, find your next move.",
+      comingSoon: "Coming soon", webApp: "Web app", webUs: "Web · US", webTw: "Web · TW",
       sourceLine: "Pulse built {built} UTC from data.dappgo.com"
     },
     zh: {
@@ -78,18 +77,16 @@
       regime: { neutral: "中性", mixed: "分歧", bullish: "偏多", bearish: "偏空", risk_on: "風險偏好", risk_off: "避險" },
       ago: { m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" }, moreOn: "{s} 新聞 →", source: "來源",
       web: "網頁", ios: "iOS", android: "Android", soon: "即將推出",
-      products: {
-        "options-explorer": "估值區間、選擇權鏈，以及評分過的 Sell Put / Sell Call 策略，集中在一個研究畫面。",
-        "us-stocks": "美股每日研究卡、公司新聞與 AI 觀點。",
-        "taiwan-stocks": "台股涵蓋，在地脈絡與每日研究視角。",
-        news: "依市場整理的公司新聞，時間軸清楚，並連到個股。",
-        "number-merge": "不一樣的數字遊戲。落下、合併、找出下一步。"
-      },
+      prodOptions: "估值區間、選擇權鏈，以及評分過的 Sell Put / Sell Call 策略，集中在一個研究畫面。",
+      prodUs: "美股每日研究卡、公司新聞與 AI 觀點。",
+      prodTw: "台股涵蓋，在地脈絡與每日研究視角。",
+      prodNews: "依市場整理的公司新聞，時間軸清楚，並連到個股。",
+      prodMerge: "不一樣的數字遊戲。落下、合併、找出下一步。",
+      comingSoon: "即將推出", webApp: "網頁版", webUs: "網頁 · 美股", webTw: "網頁 · 台股",
       sourceLine: "脈動建立於 {built} UTC，來源 data.dappgo.com"
     }
   };
 
-  const ICONS = { "options-explorer": "options", "us-stocks": "us-stocks", "taiwan-stocks": "tw-stocks", "number-merge": "number-merge" };
   const $ = (s) => document.querySelector(s);
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
@@ -99,7 +96,6 @@
 
   let lang = store.get("dg-lang") || (/^zh/i.test(navigator.language) ? "zh" : "en");
   let pulse = null;
-  let catalog = null;
   let failed = false;
   const t = () => I18N[lang];
 
@@ -114,13 +110,10 @@
   const fmtTime = (iso) => new Date(iso).toLocaleString(lang === "zh" ? "zh-TW" : "en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
   const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
 
+  // Store destinations come from the static product catalog markup, the single checked copy of the links.
   function storeLinks(productId) {
-    const p = catalog?.products.find((x) => x.id === productId);
-    if (!p) return "";
-    return `<span class="stores">${["ios", "android"].map((os) => {
-      const s = p.stores[os];
-      return s?.status === "live" ? `<a class="store" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${t()[os]}</a>` : "";
-    }).join("")}</span>`;
+    const links = [...document.querySelectorAll(`[data-product="${productId}"] a[data-store]`)];
+    return `<span class="stores">${links.map((a) => `<a class="store" href="${esc(a.href)}" target="_blank" rel="noopener noreferrer">${esc(t()[a.dataset.store])}</a>`).join("")}</span>`;
   }
 
   function moverList(title, rows) {
@@ -202,27 +195,13 @@
     }).join("");
   }
 
-  function renderCatalog() {
-    if (!catalog) return;
-    $("[data-catalog]").innerHTML = catalog.products.map((p, i) => {
-      const icon = ICONS[p.id] ? `<img src="/assets/app-icons/${ICONS[p.id]}-icon-128.webp" alt="" width="52" height="52" loading="lazy" />` : `<span class="glyph" aria-hidden="true">NEWS</span>`;
-      const web = p.web_routes.map((r) => `<a class="chip chip-web" href="${esc(r.url)}">${esc(t().web)}${p.web_routes.length > 1 ? ` ${esc(r.market.toUpperCase())}` : ""} ↗</a>`).join("");
-      const apps = Object.entries(p.stores).map(([os, s]) => s.status === "live"
-        ? `<a class="chip" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(t()[os])} ↗</a>`
-        : `<span class="chip chip-soon">${esc(t()[os])} · ${esc(t().soon)}</span>`).join("");
-      return `<li class="product"><span class="product-num">${String(i + 1).padStart(2, "0")}</span>
-        <div class="product-name">${icon}<h3>${esc(p.name)}</h3></div><p>${esc(t().products[p.id] || "")}</p><div class="product-links">${web}${apps}</div></li>`;
-    }).join("");
-  }
-
-  function render() { applyStatic(); renderPulse(); renderCatalog(); }
+  function render() { applyStatic(); renderPulse(); }
 
   $("[data-lang-toggle]").addEventListener("click", () => { lang = lang === "zh" ? "en" : "zh"; store.set("dg-lang", lang); render(); });
   render();
 
   const getJson = (url) => fetch(url, { cache: "no-store" }).then((r) => { if (!r.ok) throw new Error(`${url} ${r.status}`); return r.json(); });
-  getJson("/config/product-catalog.json").then((c) => { catalog = c; render(); }).catch(() => {});
-  getJson("./pulse.json")
+  getJson("/data/pulse.json")
     .then((p) => { if (p.schema_version !== "1.0.0" || !p.markets?.us || !p.markets?.tw || !p.markets?.options) throw new Error("pulse schema"); pulse = p; render(); })
     .catch(() => { failed = true; render(); });
 })();

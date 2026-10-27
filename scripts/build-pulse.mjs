@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Derive a compact, hash-verified homepage pulse from the published daily-report pointers.
-// Fails closed: any pointer/payload mismatch aborts without writing.
+// Fails closed: any pointer/payload mismatch aborts without writing. Unchanged content is not rewritten.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const GATEWAY = "https://data.dappgo.com/v1/markets";
-const out = path.resolve(root, process.argv[2] || "prototypes/redesign-v2/pulse.json");
+const out = path.resolve(root, process.argv[2] || "data/pulse.json");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "config/product-catalog.json"), "utf8"));
 const webUrl = (id, market) => catalog.products.find((p) => p.id === id)?.web_routes.find((r) => r.market === market)?.url;
 const IMMUTABLE = /^dashboard\/data-[a-f0-9]{12,64}\.json$/;
@@ -115,6 +115,13 @@ const pulse = {
   markets: { us: equities("us", us), tw: equities("tw", tw), options: options(opt) },
   news: latest
 };
-fs.mkdirSync(path.dirname(out), { recursive: true });
-fs.writeFileSync(out, `${JSON.stringify(pulse, null, 2)}\n`);
-console.log(`pulse written: ${path.relative(root, out)} (${fs.statSync(out).size} bytes)`);
+const withoutBuildTime = ({ built_at_utc, ...rest }) => JSON.stringify(rest);
+let previous = null;
+try { previous = JSON.parse(fs.readFileSync(out, "utf8")); } catch { /* first build */ }
+if (previous && withoutBuildTime(previous) === withoutBuildTime(pulse)) {
+  console.log(`pulse unchanged: ${path.relative(root, out)}`);
+} else {
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, `${JSON.stringify(pulse, null, 2)}\n`);
+  console.log(`pulse written: ${path.relative(root, out)} (${fs.statSync(out).size} bytes)`);
+}

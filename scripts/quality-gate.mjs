@@ -10,7 +10,10 @@ const run = (command, args) => {
 };
 run(process.execPath, ["scripts/verify-product-catalog.mjs"]);
 run(process.execPath, ["scripts/performance-budget.mjs"]);
-run(process.execPath, ["--test", "scripts/web-ownership.test.cjs", "assets/demo/demo.test.cjs"]);
+run(process.execPath, ["scripts/verify-pulse.mjs"]);
+run(process.execPath, ["--check", "scripts/build-pulse.mjs"]);
+run(process.execPath, ["--check", "assets/home/home.js"]);
+run(process.execPath, ["--test", "scripts/web-ownership.test.cjs", "assets/demo/demo.test.cjs", "assets/home/home.test.cjs"]);
 run(process.execPath, ["--check", "assets/demo/demo.js"]);
 run(process.execPath, ["--check", "news/assets/news.js"]);
 run(process.execPath, ["news/tests/contract.mjs"]);

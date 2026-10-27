@@ -18,6 +18,10 @@ Public search, reading and citation are permitted. Model training is not permitt
 
 Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (not the pointer's dashboard directory), then check payload data_hash matches pointer hash. Accept only the corresponding dashboard/data-*.json immutable path. Read report_date, schema_version, timestamps and coverage from the payload. HTTP 200 does not establish freshness, complete coverage or live prices. Do not guess immutable filenames or use a moving CDN alias as the primary publication identity.
 
+## Homepage pulse
+
+- [Homepage pulse](https://dappgo.com/data/pulse.json): a compact derived summary (report dates, market regime, five-day movers, top-scored options setups, latest headline links) rebuilt on trading days from the canonical pointers above. Each market entry carries the source `data_hash`; cite the canonical pointer and immutable payload, not this summary, as the publication identity.
+
 ## Web applications
 
 - The checked-in [product catalog](https://dappgo.com/config/product-catalog.json) is the canonical map of public routes and store availability.
@@ -33,7 +37,7 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 
 - Options Explorer: iOS and Android are available.
 - Taiwan Stocks: iOS and Android are available.
-- US Stocks: Android is available; iOS is coming soon.
+- US Stocks: iOS and Android are available.
 - Number Merge: Android is available; iOS is coming soon.
 
 ## Website and policies

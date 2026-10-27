@@ -236,3 +236,8 @@ a.chip:hover { border-color: var(--paper); }
   .movers { grid-template-columns: 1fr; }
   .stores { margin-left: 0; }
 }
+
+/* Static catalog markup */
+.catalog > li { list-style: none; }
+.store-downloads { display: contents; }
+.chip-soon .store-platform-name, .chip .store-platform-name { font: inherit; }
