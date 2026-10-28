@@ -2,6 +2,7 @@ name: homepage-pulse
 
 # Rebuilds data/pulse.json from the hash-verified data.dappgo.com pointers and
 # commits it to GitHub master (canonical; GitHub Pages serves dappgo.com).
+# Gitea is a one-way mirror, so the commit is pushed to GitHub, never to Gitea.
 # Holidays and repeat runs are no-ops: an unchanged pulse is not committed.
 on:
   schedule:
@@ -10,33 +11,26 @@ on:
     - cron: '45 22 * * 1-5'  # after the US close
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write
-
-concurrency:
-  group: homepage-pulse
-  cancel-in-progress: false
-
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: dappgo-pulse-host
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: master
-          fetch-depth: 20
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
       - name: Refresh and publish pulse
-        id: publish
-        shell: bash
+        env:
+          PUSH_TOKEN: ${{ secrets.DAPPGO_WEBSITE_PUSH_TOKEN }}
         run: |
           set -Eeuo pipefail
+          if [ -z "${PUSH_TOKEN:-}" ]; then
+            echo "::error::DAPPGO_WEBSITE_PUSH_TOKEN is not configured; refusing to build an unpublishable pulse." >&2
+            exit 1
+          fi
+          work="$(mktemp -d)"
+          trap 'rm -rf "$work"' EXIT
+          remote="https://github.com/YanlongLai/dappgo-website.git"
+          auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PUSH_TOKEN" | base64 -w0)"
+          git -c http.extraheader="$auth" clone --quiet --depth 20 --branch master "$remote" "$work/site"
+          cd "$work/site"
           git config user.name "DappGo Pulse"
           git config user.email "automation@dappgo.com"
           for attempt in 1 2 3; do
@@ -47,26 +41,14 @@ jobs:
               exit 0
             fi
             dates="$(node -e 'const m=require("./data/pulse.json").markets;console.log(["us","tw","options"].map(k=>`${k} ${m[k].report_date}`).join(", "))')"
-            git add -- data/pulse.json
             git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json
-            if git push origin HEAD:master; then
-              sha="$(git rev-parse HEAD)"
-              echo "published ${sha}"
-              echo "published=true" >> "${GITHUB_OUTPUT}"
+            if git -c http.extraheader="$auth" push --quiet origin HEAD:master; then
+              echo "published $(git rev-parse HEAD)"
               exit 0
             fi
             echo "push rejected (attempt ${attempt}); rebasing on the latest master" >&2
             git reset --quiet --hard HEAD~1
-            git pull --quiet --ff-only origin master
+            git -c http.extraheader="$auth" pull --quiet --ff-only origin master
           done
           echo "::error::pulse push failed after 3 attempts" >&2
           exit 1
-
-      - name: Request legacy Pages build
-        if: steps.publish.outputs.published == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if ! gh api -X POST repos/${{ github.repository }}/pages/builds; then
-            echo "::warning::legacy Pages build request failed" >&2
-          fi
