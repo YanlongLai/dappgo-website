@@ -3,7 +3,7 @@
 
   var copy = {
     en: { locale: 'English', kicker: 'Number RPG · invitation', title: 'A friend saved you a place.', body: 'Open Number RPG to join the adventure. Your invitation code is ready when you are.', code: 'Invitation code', open: 'Open Number RPG', share: 'Copy invite link', copied: 'Invite link copied.', note: 'If the app is not installed, install Number RPG first, then open this link again.' },
-    'zh-TW': { locale: '繁體中文', kicker: 'Number RPG · 邀請', title: '朋友為你留了一個位置。', body: '開啟 Number RPG 加入冒險。你的邀請碼已準備好。', code: '邀請碼', open: '開啟 Number RPG', share: '複製邀請連結', copied: '邀請連結已複製。', note: '如果尚未安裝 App，請先安裝 Number RPG，再重新開啟此連結。' },
+    'zh-TW': { locale: '繁體中文', kicker: 'Number RPG · 邀請', title: '朋友邀你一起冒險！', body: '打開 Number RPG 就能加入，邀請碼已經幫你準備好了。', code: '邀請碼', open: '開啟 Number RPG', share: '複製邀請連結', copied: '邀請連結已複製。', note: '如果尚未安裝 App，請先安裝 Number RPG，再重新開啟此連結。' },
     'zh-CN': { locale: '简体中文', kicker: 'Number RPG · 邀请', title: '朋友为你留了一个位置。', body: '打开 Number RPG 加入冒险。你的邀请码已经准备好。', code: '邀请码', open: '打开 Number RPG', share: '复制邀请链接', copied: '邀请链接已复制。', note: '如果尚未安装 App，请先安装 Number RPG，再重新打开此链接。' },
     ja: { locale: '日本語', kicker: 'Number RPG · 招待', title: '友だちが席を用意しました。', body: 'Number RPG を開いて冒険に参加しましょう。招待コードは準備できています。', code: '招待コード', open: 'Number RPG を開く', share: '招待リンクをコピー', copied: '招待リンクをコピーしました。', note: 'アプリが未インストールの場合は、先に Number RPG をインストールしてからリンクを開いてください。' },
     ko: { locale: '한국어', kicker: 'Number RPG · 초대', title: '친구가 자리를 마련했어요.', body: 'Number RPG를 열고 모험에 참여하세요. 초대 코드가 준비되어 있습니다.', code: '초대 코드', open: 'Number RPG 열기', share: '초대 링크 복사', copied: '초대 링크를 복사했습니다.', note: '앱이 설치되어 있지 않다면 먼저 Number RPG를 설치한 뒤 이 링크를 다시 여세요.' },
