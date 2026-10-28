@@ -145,7 +145,29 @@ function heavyweightNews(items, payload) {
   return wire.length >= 6 ? wire : [...wire, ...newest(items.filter((item) => !top.has(item.symbol)))].slice(0, 6)
     .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc));
 }
-const latest = [...heavyweightNews(news("us", us), us.payload), ...newest(news("tw", tw))];
+// Taiwan wire: largest companies first. The TW payload has no market cap, so latest monthly revenue
+// (revenue.latest_revenue) measures size. One recent story per stock, ordered by size, not by time.
+const RECENT_MS = 72 * 3600e3;
+function largestFirstNews(items, payload) {
+  const size = (symbol) => payload.ticker_data?.[symbol]?.revenue?.latest_revenue;
+  const sorted = items.sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc));
+  const freshest = sorted.length ? Date.parse(sorted[0].published_at_utc) : 0;
+  const recent = sorted.filter((item) => Number.isFinite(size(item.symbol)) && freshest - Date.parse(item.published_at_utc) <= RECENT_MS);
+  const symbols = [...new Set(recent.map((item) => item.symbol))].sort((a, b) => size(b) - size(a));
+  // One story per stock, biggest first; a headline already shown for a bigger stock is not repeated.
+  const titles = new Set();
+  const wire = [];
+  for (const symbol of symbols) {
+    const item = recent.find((n) => n.symbol === symbol && !seen.has(n.url) && !titles.has(n.title.original));
+    if (!item) continue;
+    titles.add(item.title.original);
+    wire.push(item);
+    if (wire.length === 6) break;
+  }
+  wire.forEach((item) => seen.add(item.url));
+  return wire.length ? wire : newest(items);
+}
+const latest = [...heavyweightNews(news("us", us), us.payload), ...largestFirstNews(news("tw", tw), tw.payload)];
 
 const pulse = {
   schema_version: "1.0.0",

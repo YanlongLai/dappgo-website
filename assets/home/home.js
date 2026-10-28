@@ -235,9 +235,9 @@
   }
 
   function renderWire() {
-    // Strictly newest first; the top story becomes the large feature only when it has a publisher image.
-    const items = pulse.news.filter((n) => n.market === market)
-      .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc)).slice(0, 6);
+    // The pulse fixes each tab's order (United States newest first, Taiwan largest company first);
+    // the top story becomes the large feature only when it has a publisher image.
+    const items = pulse.news.filter((n) => n.market === market).slice(0, 6);
     for (const key of ["us", "tw"]) $(`[data-count="${key}"]`).textContent = pulse.news.filter((n) => n.market === key).length;
     $("[data-wire]").innerHTML = items.length ? items.map(wireItem).join("") : `<li class="wire-empty">${esc(t().wireEmpty)}</li>`;
     document.querySelectorAll("[data-wire-tabs] [role=tab]").forEach((tab) => {
