@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-28T19:06:54Z",
+  "built_at_utc": "2026-10-28T22:22:43Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-10-28",
-      "generated_at_utc": "2026-10-28T18:11:51Z",
+      "generated_at_utc": "2026-10-28T19:14:05Z",
       "schema_version": "1.2.0",
-      "data_hash": "7a6462e0a8a40d2db83f49f9d3fbe96ad20999d52c86f9d1f43366b4cc109a5d",
+      "data_hash": "2cfc4323ffe3e2362c6bdc1dd1e0e5274540c2ddca3673ca33777bb53c2fe53b",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -16,7 +16,7 @@
       "web_url": "https://stocks.dappgo.com/us/",
       "regime": "mixed",
       "breadth_score": 0.385,
-      "advance_decline_ratio": 0.73,
+      "advance_decline_ratio": 0.86,
       "vol_regime": "calm",
       "one_liner": {
         "en": "Today's report: 26 tickers, market regime: mixed.",
@@ -24,70 +24,70 @@
       },
       "gainers": [
         {
-          "symbol": "SBUX",
-          "name": "Starbucks Corporation",
-          "return_pct": 5.07,
-          "close": 104.1
-        },
-        {
-          "symbol": "ISRG",
-          "name": "Intuitive Surgical, Inc.",
-          "return_pct": 4.77,
-          "close": 448.52
-        },
-        {
           "symbol": "TSLA",
           "name": "Tesla Inc.",
-          "return_pct": 4.03,
-          "close": 402.05
+          "return_pct": 4.26,
+          "close": 402.94
+        },
+        {
+          "symbol": "SBUX",
+          "name": "Starbucks Corporation",
+          "return_pct": 4.06,
+          "close": 103.11
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 2.99,
-          "close": 569.26
+          "return_pct": 3.91,
+          "close": 574.3
+        },
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical, Inc.",
+          "return_pct": 3.89,
+          "close": 444.77
         }
       ],
       "losers": [
         {
           "symbol": "META",
           "name": "Meta Platforms, Inc.",
-          "return_pct": -12.45,
-          "close": 610.7
+          "return_pct": -12.41,
+          "close": 610.93
         },
         {
           "symbol": "SPCX",
           "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": -9.89,
-          "close": 143.56
+          "return_pct": -9.23,
+          "close": 144.6
         },
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "return_pct": -5.17,
-          "close": 61.68
+          "return_pct": -5.19,
+          "close": 61.66
         },
         {
           "symbol": "ABNB",
           "name": "Airbnb, Inc.",
-          "return_pct": -4.34,
-          "close": 166.16
+          "return_pct": -4.93,
+          "close": 165.12
         }
       ],
       "picks": [
         {
           "symbol": "GOOG",
           "name": "Alphabet Inc. (Class C)",
-          "score": 59,
+          "score": 58,
           "signals": {
             "en": [
-              "Below MA20 4.6%",
-              "RSI 37 near oversold",
+              "Below MA20 4.3%",
+              "RSI 38 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -4.6%",
-              "RSI 37 接近超賣",
+              "低於 MA20 -4.3%",
+              "RSI 38 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -98,13 +98,13 @@
           "score": 58,
           "signals": {
             "en": [
-              "Below MA20 6.4%",
-              "RSI 31 near oversold",
+              "Below MA20 5.9%",
+              "RSI 32 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.4%",
-              "RSI 31 接近超賣",
+              "低於 MA20 -5.9%",
+              "RSI 32 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -112,16 +112,16 @@
         {
           "symbol": "NVDA",
           "name": "NVIDIA Corporation",
-          "score": 51,
+          "score": 53,
           "signals": {
             "en": [
-              "Below MA20 3.2%",
-              "RSI 45 neutral-to-weak",
+              "Below MA20 3.7%",
+              "RSI 44 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -3.2%",
-              "RSI 45 中性偏弱",
+              "低於 MA20 -3.7%",
+              "RSI 44 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-10-28",
-      "generated_at_utc": "2026-10-28T18:46:00Z",
+      "generated_at_utc": "2026-10-28T19:45:58Z",
       "schema_version": "1.3.0",
-      "data_hash": "bc421cdb950618e79ef8e7166cb8757d42058614394d5e0d9c1f23f189024dbe",
+      "data_hash": "5888e012f0b51fa3f2eee3d86900dc893eb180d34de67a6ca6d8a2d1e12c255d",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -266,104 +266,104 @@
       "web_url": "https://options.dappgo.com/us/",
       "ideas": [
         {
-          "symbol": "AMD",
-          "strategy": "sell_put",
-          "strike": 517.5,
-          "premium": 1.05,
-          "expiry": "2026-11-02",
-          "dte": 5,
-          "iv": 58,
-          "pop": 93.6,
-          "annualized": 14.8,
-          "score": 57.8
-        },
-        {
           "symbol": "AMZN",
           "strategy": "sell_put",
-          "strike": 227.5,
-          "premium": 1.84,
+          "strike": 230,
+          "premium": 2.13,
           "expiry": "2026-11-02",
           "dte": 5,
-          "iv": 88.8,
-          "pop": 83.9,
-          "annualized": 59,
-          "score": 56.4
-        },
-        {
-          "symbol": "GOOG",
-          "strategy": "sell_put",
-          "strike": 290,
-          "premium": 1.28,
-          "expiry": "2026-11-06",
-          "dte": 9,
-          "iv": 53.7,
-          "pop": 88.6,
-          "annualized": 17.9,
-          "score": 52.8
+          "iv": 88.9,
+          "pop": 82.2,
+          "annualized": 67.6,
+          "score": 55.1
         },
         {
           "symbol": "INTC",
           "strategy": "sell_put",
-          "strike": 86,
-          "premium": 1.59,
+          "strike": 85,
+          "premium": 1.37,
           "expiry": "2026-11-06",
           "dte": 9,
-          "iv": 85.6,
-          "pop": 75.5,
-          "annualized": 75,
-          "score": 52.5
+          "iv": 86.9,
+          "pop": 77.2,
+          "annualized": 65.4,
+          "score": 53.5
+        },
+        {
+          "symbol": "MRVL",
+          "strategy": "sell_put",
+          "strike": 225,
+          "premium": 2.62,
+          "expiry": "2026-11-06",
+          "dte": 9,
+          "iv": 76.3,
+          "pop": 79.9,
+          "annualized": 47.2,
+          "score": 52.8
+        },
+        {
+          "symbol": "ABNB",
+          "strategy": "sell_put",
+          "strike": 149,
+          "premium": 1.05,
+          "expiry": "2026-11-06",
+          "dte": 9,
+          "iv": 60.4,
+          "pop": 86.4,
+          "annualized": 28.6,
+          "score": 52.6
         }
       ],
       "gainers": [
         {
-          "symbol": "MRVL",
-          "name": "Marvell Technology, Inc.",
-          "return_pct": 3.31,
-          "close": 251.62
-        },
-        {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 2.59,
-          "close": 574.76
+          "return_pct": 2.77,
+          "close": 575.79
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "return_pct": 2.72,
+          "close": 250.19
         },
         {
           "symbol": "AVGO",
           "name": "Broadcom Inc.",
-          "return_pct": 2.47,
-          "close": 350.77
+          "return_pct": 2.4,
+          "close": 350.53
         },
         {
           "symbol": "GOOG",
           "name": "Alphabet Inc. (Class C)",
-          "return_pct": 1.55,
-          "close": 321.75
+          "return_pct": 1.37,
+          "close": 321.17
         }
       ],
       "losers": [
         {
           "symbol": "SPCX",
           "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": -2.46,
-          "close": 144.93
+          "return_pct": -2.03,
+          "close": 145.56
         },
         {
           "symbol": "ABNB",
           "name": "Airbnb, Inc.",
-          "return_pct": -1.53,
-          "close": 166.23
+          "return_pct": -1.72,
+          "close": 165.92
         },
         {
           "symbol": "META",
           "name": "Meta Platforms, Inc.",
-          "return_pct": -1.31,
-          "close": 612.04
+          "return_pct": -1.49,
+          "close": 610.96
         },
         {
-          "symbol": "NFLX",
-          "name": "Netflix Inc.",
-          "return_pct": -1.23,
-          "close": 61.75
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "return_pct": -1.48,
+          "close": 214.71
         }
       ],
       "backtest": {
@@ -375,103 +375,107 @@
   "news": [
     {
       "market": "us",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "source": "Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/exclusiveus-doj-is-inquiring-about-nvidias-purchase-of-hugging-face-sources-say-4980450",
+      "published_at_utc": "2026-10-28T18:36:43Z",
+      "title": {
+        "original": "Exclusive-US DOJ is inquiring about Nvidia’s purchase of Hugging Face, sources say",
+        "en": null
+      },
+      "image": {
+        "url": "https://content-media.investing.com/trkd-images/LYNXNPEM9R25H_L.jpg",
+        "width": null,
+        "height": null
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
+    },
+    {
+      "market": "us",
       "symbol": "AAPL",
       "name": "Apple Inc.",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/price-apple-hospitality-reit-nyse-aple-reaches-new-12-month-high-still-a-buy-2026-10-28/",
-      "published_at_utc": "2026-10-28T17:40:39Z",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=29901a59e950ad628a935c831b32c5e31615c1cd013cbfee977c11b6d8fef430",
+      "published_at_utc": "2026-10-28T17:50:39Z",
       "title": {
-        "original": "Apple Hospitality REIT (NYSE:APLE) Reaches New 12-Month High - Still a Buy?",
-        "en": "Apple Hospitality REIT (NYSE:APLE) Reaches New 12-Month High - Still a Buy?"
+        "original": "MacBook Pro: Apple launches its first ever touchscreen Mac – and brings back iconic feature",
+        "en": null
       },
-      "image": null,
+      "image": {
+        "url": "https://static.independent.co.uk/2026/10/28/17/27/Apple-MacBook-Pro-with-PROLED-XDR-Display-family-lineup-261028.jpeg?trim=0,157,0,156&width=1200&height=800&crop=1200:800",
+        "width": null,
+        "height": null
+      },
       "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     },
     {
       "market": "us",
       "symbol": "MSFT",
       "name": "Microsoft Corporation",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=1143caa24c94d1a235cfd241ce4e45a30fdf0643a9301637a18f7a46101d54e7",
-      "published_at_utc": "2026-10-28T15:29:00Z",
+      "source": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/bloomberg-tech-10-28-2026-video",
+      "published_at_utc": "2026-10-28T17:46:10Z",
       "title": {
-        "original": "Microsoft results to test whether AI investment is paying off",
-        "en": null
-      },
-      "image": {
-        "url": "https://cdn.proactiveinvestors.com/eyJidWNrZXQiOiJwYS1jZG4iLCJrZXkiOiJ1cGxvYWRcL05ld3NcL0ltYWdlXC8yMDI2XzEwXC9NaWNyb3NvZnQtMi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6NjMwLCJmaXQiOiJjb3ZlciJ9fX0=",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
-    },
-    {
-      "market": "us",
-      "symbol": "GOOG",
-      "name": "Alphabet Inc. (Class C)",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=514c21be884ff0d53ce4c665b67dceb9e883fcb2c83078468bcfb336ec0b44ce",
-      "published_at_utc": "2026-10-28T15:20:20Z",
-      "title": {
-        "original": "Stock Market Today: Dow Gains Meekly As Alphabet Rises Ahead Of Earnings (Live Coverage)",
-        "en": null
+        "original": "Investors Eye AI Payoff in Microsoft, Alphabet Earnings",
+        "en": "Investors Eye AI Payoff in Microsoft, Alphabet Earnings"
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=GOOG"
-    },
-    {
-      "market": "us",
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=60bb62e06466dd1b7b2a309e20f919de68b7ae90bc8e920f54e98745144eb947",
-      "published_at_utc": "2026-10-28T15:06:34Z",
-      "title": {
-        "original": "Vicor Soars 11%, TTM Up [10%] as Meta’s $95 Billion AI Raise Lifts Hardware Stocks",
-        "en": null
-      },
-      "image": {
-        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792764256/images/shocked-woman-rising-green-arrow/shocked-woman-rising-green-arrow.png?_i=AA",
-        "width": 1200,
-        "height": 600
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=META"
+      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
     },
     {
       "market": "us",
       "symbol": "AMZN",
       "name": "Amazon.com Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=2096a2a538f26349540338c2d6f8453c52f215f4ebb88612296b01da09ec7bdb",
-      "published_at_utc": "2026-10-28T15:04:54Z",
+      "url": "https://finnhub.io/api/news?id=73ee14e52825706fd518a23f8d9fbb575853718cef31651ecfd166ff83f1dc52",
+      "published_at_utc": "2026-10-28T17:26:11Z",
       "title": {
-        "original": "UBS Thinks the Street Is Too Low on AWS. Amazon’s Quarter Is the Test",
+        "original": "Amazon’s EPS Is “Absolutely Exploding,” Says Josh Brown. Here’s What the Stock Needs to See October 29",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2022/10/imageForEntry4-t98.jpg",
-        "width": 1366,
-        "height": 767
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792796074/images/musing-woman-rising-green-chart/musing-woman-rising-green-chart.png?_i=AA",
+        "width": 1200,
+        "height": 600
       },
       "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
       "market": "us",
-      "symbol": "SPCX",
-      "name": "Space Exploration Technologies Corp. (SpaceX)",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=ef306fba80ba5d38a80ce7790fcc42c535eedfb7f2b1af56649ed9ee505a19be",
-      "published_at_utc": "2026-10-28T15:03:00Z",
+      "url": "https://finnhub.io/api/news?id=cf4f13ed724e0eab60d76f52ed685c1588abc9c49e08dd4b8207cb97b764b923",
+      "published_at_utc": "2026-10-28T16:50:00Z",
       "title": {
-        "original": "Is SpaceX Stock a Buy Right Now?",
+        "original": "Mark Zuckerberg's Meta Platforms Reported Negative Free Cash Flow for the First Time Since 2012. Here's Why That Milestone Matters for Shareholders.",
         "en": null
       },
       "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892154%2Fspcx.png&w=1200&op=resize",
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892256%2Fmeta-logo-on-blue-filter-with-office-building-in-background_the-motley-fool.png&w=1200&op=resize",
         "width": 1200,
         "height": 630
       },
-      "news_url": "https://news.dappgo.com/us/?stock=SPCX"
+      "news_url": "https://news.dappgo.com/us/?stock=META"
+    },
+    {
+      "market": "us",
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=ecef6a7efb24578bb232bbf301f516d98a315a4bc162c058f49cae0391de2074",
+      "published_at_utc": "2026-10-28T16:33:58Z",
+      "title": {
+        "original": "Tesla Gains Another 4% as ARK Restates $4,400 Robotaxi Target and Musk Teases “A Storm of Cybercabs”",
+        "en": null
+      },
+      "image": {
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1793125400/images/elon-musk-smiling-rising-chart-and-trading-screens/elon-musk-smiling-rising-chart-and-trading-screens.png?_i=AA",
+        "width": 1200,
+        "height": 600
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=TSLA"
     },
     {
       "market": "tw",
