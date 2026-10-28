@@ -22,3 +22,11 @@ Root cause: every `.product` row was its own grid (`72px | 1.2fr | 1fr | auto`).
 
 ## Open
 - The Gitea `website-ci` fails on master because of the runner, not the code. The runner uses Node 20.20.2, and `news/tests/engagement.mjs` imports `node:sqlite`, which needs Node 22.5 or later. Fix it by pinning Node 22+ for the runner or for ci.yml. Until then, the gate is the local quality gate plus the GitHub checks.
+
+## Follow-ups (2026-10-28)
+
+| Item | State | Evidence |
+|---|---|---|
+| Gitea website-ci green | verified | PR #53 (b50f5a4) moved the job to the org `dappgo-ci` runner. Gitea run 1956 on master c66a2ea (which contains b50f5a4) succeeded on `dappgo-ci-runner-worker-1` with Node v22.14.0 and Python 3.12.3. Run 1946 (8a82ca1) also succeeded. Earlier host-runner runs had failed on `node:sqlite`. |
+| United States wire uses high-weight stocks | verified (prod) | PR #57 (b99a677): the builder keeps the top 10 US stocks by `fundamentals.market_cap`, one story each, newest first. On dappgo.com: META, NVDA, AAPL, SPCX, TSLA, TSM. |
+| Wire strictly newest first | verified (prod) | PR #58 (2884425): the frontend no longer moves the first photo story to the top. On dappgo.com with `home.js?v=20261028-latest-1`, the US tab runs from 18:24 to 15:06 UTC in descending order. home.test asserts this. |
