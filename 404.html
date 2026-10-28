@@ -35,6 +35,14 @@
         }
       })();
     </script>
+    <script>
+      (function () {
+        var match = window.location.pathname.match(/^\/i\/([A-Za-z0-9_-]{6,16})\/?$/);
+        if (match) {
+          window.location.replace('/i/?code=' + encodeURIComponent(match[1]));
+        }
+      })();
+    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-C9K7KCERPP"

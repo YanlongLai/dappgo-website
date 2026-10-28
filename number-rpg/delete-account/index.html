@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com; connect-src 'self' https://accounts.google.com https://data.dappgo.com; frame-src https://accounts.google.com; style-src 'self'; img-src 'self' data: https://*.googleusercontent.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto: https://data.dappgo.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <meta name="description" content="How to delete a Number RPG account in the app or on the web, what is deleted, and how email requests are verified." />
+    <meta name="robots" content="index, follow" />
+    <title>Number RPG · Delete your account | DappGo</title>
+    <link rel="canonical" href="https://dappgo.com/number-rpg/delete-account/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/assets/demo/demo.css" />
+    <link rel="stylesheet" href="/assets/demo/legal.css" />
+    <link rel="stylesheet" href="/number-rpg/legal.css" />
+  </head>
+  <body class="legal-page number-rpg-legal" data-page="deleteAccount">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="DappGo home"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav>
+      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only">Language</span><select id="locale-picker" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com">Let’s talk <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
+    </header>
+
+    <main id="main" class="legal-main">
+      <section class="legal-hero" aria-labelledby="page-title">
+        <p class="legal-kicker" data-taste-skill-ignore="released legal shell"><span class="kicker-line" aria-hidden="true"></span><span class="kicker-text">Number RPG · account deletion</span></p>
+        <p class="number-rpg-product">Number RPG by DappGo</p>
+        <h1 id="page-title">Delete your account</h1>
+        <p class="updated">Instructions effective: 2026-10-27</p>
+      </section>
+
+      <section class="delete-tools" id="delete-tools" aria-labelledby="delete-tools-title">
+        <h2 id="delete-tools-title">Delete on the web</h2>
+        <p id="delete-tools-intro">Use the app for immediate deletion, or use these browser options when the app is not installed.</p>
+        <div class="delete-tool-grid">
+          <section class="delete-tool-panel" aria-labelledby="google-flow-title">
+            <h3 id="google-flow-title">Self-service with Google</h3>
+            <p id="google-flow-copy">Sign in with Google to confirm the account display name, then type DELETE to continue.</p>
+            <div id="google-signin-button" class="google-signin" aria-label="Sign in with Google"></div>
+            <p id="google-status" class="delete-status" role="status" aria-live="polite">Google sign-in is ready when the browser library loads.</p>
+            <div id="google-account" class="google-account" hidden>
+              <span id="google-account-label">Signed in as</span>
+              <strong id="google-account-name"></strong>
+            </div>
+            <form id="google-confirmation-form" class="delete-form" hidden>
+              <label for="google-confirmation-input" id="google-confirmation-label">Type DELETE to confirm</label>
+              <input id="google-confirmation-input" name="confirmation" type="text" required autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" aria-describedby="google-confirmation-hint" />
+              <p id="google-confirmation-hint" class="field-hint">This takes effect immediately.</p>
+              <button id="google-confirmation-submit" class="button button-primary" type="submit" disabled>Delete my account</button>
+            </form>
+          </section>
+
+          <section class="delete-tool-panel" aria-labelledby="request-flow-title">
+            <h3 id="request-flow-title">Request help with another account</h3>
+            <p id="request-flow-copy">For Apple, Facebook, or guest accounts, send a request with your account ID and contact email. We will complete it within 30 days after verification.</p>
+            <form id="deletion-request-form" class="delete-form">
+              <div class="field-group"><label for="request-account-id" id="request-account-id-label">Account ID</label><input id="request-account-id" name="accountId" type="text" required maxlength="200" autocomplete="off" aria-describedby="request-account-id-hint" /><p id="request-account-id-hint" class="field-hint">Find it in Settings → Account.</p></div>
+              <div class="field-group"><label for="request-email" id="request-email-label">Contact email</label><input id="request-email" name="email" type="email" required maxlength="320" autocomplete="email" /></div>
+              <div class="field-group"><label for="request-reason" id="request-reason-label">Reason (optional)</label><textarea id="request-reason" name="reason" rows="3" maxlength="500"></textarea></div>
+              <button id="request-submit" class="button button-primary" type="submit">Submit deletion request</button>
+              <p id="request-status" class="delete-status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+        <p id="deletion-timeline" class="delete-note">Requests by email or web form are completed within 30 days after verification. Verify with the account ID from Settings → Account or a reply from the linked email.</p>
+        <p id="deletion-store-note" class="delete-note">Purchase records required by Apple or Google stay with those stores.</p>
+      </section>
+
+      <div class="legal-content" id="legal-content">
+        <p class="legal-callout">You can delete a Number RPG account in the app, use Google self-service on this page, or request help by web form or email. Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, San Gabriel, California, USA.</p>
+        <section class="legal-section"><h2>Delete in the app</h2><p>Open Number RPG and go to Settings → Account → Delete account. Read the confirmation, confirm the deletion, and keep the app online until it reports success. In-app deletion takes effect immediately. If an Apple identity is linked, the app may require Apple re-authorization before deletion can finish.</p></section>
+        <section class="legal-section"><h2>Delete on the web</h2><p>If the account is linked to Google, use the Google self-service control below. Sign in with Google, confirm the displayed account, type DELETE, and submit. A successful web deletion takes effect immediately.</p></section>
+        <section class="legal-section"><h2>Request deletion by web form or email</h2><p>For Apple, Facebook, or guest accounts, use the form below or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>. Include the account ID from Settings → Account and the contact email linked to the account when available. We will verify the request and complete it within 30 days. Do not send a password, provider access token, or Apple private key.</p></section>
+        <section class="legal-section"><h2>What we remove and what may remain</h2><p>A successful deletion removes the Number RPG account and player data, including provider identities, display name, country, leader pet, device and session records, cloud saves, scores, invites, friendships, gifts, rewards, events, activity, fraud records, and push tokens. The app resets local game progress after in-app deletion.</p><p>Apple and Google may keep purchase records in their store accounts, and eligible purchases may remain restorable through those stores. DappGo may keep a limited record when necessary for tax, accounting, fraud prevention, security, disputes, or another legal obligation. We delete or anonymize that limited information when the reason for keeping it ends.</p></section>
+        <section class="legal-section"><h2>Timing and help</h2><p>In-app and Google web self-service deletion take effect immediately. Web-form and email requests are completed within 30 days after verification. Contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> if the in-app flow fails, you cannot access the account, or you need help with a request.</p></section>
+      </div>
+    </main>
+
+    <footer class="site-footer container"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG · Legal</p><nav aria-label="Number RPG legal"><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav></div></footer>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="/number-rpg/legal-content.js"></script>
+    <script src="/number-rpg/legal.js"></script>
+  </body>
+</html>

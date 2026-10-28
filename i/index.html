@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto: number-rpg:" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <meta name="description" content="A Number RPG invitation landing page." />
+    <title>Number RPG invitation | DappGo</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/assets/demo/demo.css" />
+    <link rel="stylesheet" href="/i/invite.css" />
+  </head>
+  <body class="invite-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="DappGo home"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a></nav>
+      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only">Language</span><select id="invite-locale" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com">Let’s talk <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
+    </header>
+
+    <main id="main" class="invite-main">
+      <section class="invite-card" aria-labelledby="invite-title">
+        <!-- taste-skill-ignore: matches the released DappGo public shell -->
+        <p class="invite-kicker" id="invite-kicker" data-taste-skill-ignore="released public shell">Number RPG · invitation</p>
+        <h1 id="invite-title">A friend saved you a place.</h1>
+        <p class="invite-copy" id="invite-copy">Open Number RPG to join the adventure. Your invitation code is ready when you are.</p>
+        <div class="invite-code-wrap"><span class="invite-code-label" id="invite-label">Invitation code</span><code class="invite-code" id="invite-code">—</code></div>
+        <div class="invite-actions"><a class="button button-primary" id="open-invite" href="number-rpg://i/">Open Number RPG <span aria-hidden="true">↗</span></a><button class="button button-secondary" id="copy-invite" type="button">Copy invite link</button></div>
+        <p class="invite-note" id="invite-note">If the app is not installed, install Number RPG first, then open this link again.</p>
+        <p class="invite-status" id="invite-status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="invite-footer"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG</p><nav aria-label="Legal"><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/">Delete account</a></nav></div></footer>
+    <script src="/i/invite.js"></script>
+  </body>
+</html>
