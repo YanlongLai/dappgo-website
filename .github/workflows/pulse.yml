@@ -1,0 +1,72 @@
+name: homepage-pulse
+
+# Rebuilds data/pulse.json from the hash-verified data.dappgo.com pointers and
+# commits it to GitHub master (canonical; GitHub Pages serves dappgo.com).
+# Holidays and repeat runs are no-ops: an unchanged pulse is not committed.
+on:
+  schedule:
+    - cron: '20 9 * * 1-5'   # after the Taiwan final publish (~08:40 UTC)
+    - cron: '15 20 * * 1-5'  # after the US / options intraday publish (~19:45 UTC)
+    - cron: '45 22 * * 1-5'  # after the US close
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: homepage-pulse
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 20
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh and publish pulse
+        id: publish
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          git config user.name "DappGo Pulse"
+          git config user.email "automation@dappgo.com"
+          for attempt in 1 2 3; do
+            node scripts/build-pulse.mjs
+            node scripts/verify-pulse.mjs
+            if git diff --quiet -- data/pulse.json; then
+              echo "pulse unchanged; nothing to publish"
+              exit 0
+            fi
+            dates="$(node -e 'const m=require("./data/pulse.json").markets;console.log(["us","tw","options"].map(k=>`${k} ${m[k].report_date}`).join(", "))')"
+            git add -- data/pulse.json
+            git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json
+            if git push origin HEAD:master; then
+              sha="$(git rev-parse HEAD)"
+              echo "published ${sha}"
+              echo "published=true" >> "${GITHUB_OUTPUT}"
+              exit 0
+            fi
+            echo "push rejected (attempt ${attempt}); rebasing on the latest master" >&2
+            git reset --quiet --hard HEAD~1
+            git pull --quiet --ff-only origin master
+          done
+          echo "::error::pulse push failed after 3 attempts" >&2
+          exit 1
+
+      - name: Request legacy Pages build
+        if: steps.publish.outputs.published == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh api -X POST repos/${{ github.repository }}/pages/builds; then
+            echo "::warning::legacy Pages build request failed" >&2
+          fi

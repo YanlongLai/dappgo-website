@@ -16,7 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ### Added
 - Bold homepage redesign ("Markets, compiled daily") showing today's US stocks, Taiwan stocks and US options reports and a mixed US/TW headline wire, each linked into its product.
 - `scripts/build-pulse.mjs` derives the ~14 KB `data/pulse.json` from hash-verified data.dappgo.com pointers (fails closed, skips unchanged); `scripts/verify-pulse.mjs` enforces its contract.
-- Gitea Actions `homepage-pulse` refreshes the pulse on trading days and pushes to GitHub master; `website-ci` runs the quality gate.
+- GitHub Actions `homepage-pulse` refreshes the pulse at 09:20, 20:15, and 22:45 UTC on weekdays and pushes to GitHub master; `website-ci` runs the quality gate. The former Gitea secret `DAPPGO_WEBSITE_PUSH_TOKEN` and the `dappgo-website-pulse` PAT are no longer used.
 - Product screenshots from the current Options Explorer iPhone build for the public product story.
 
 ### Changed
