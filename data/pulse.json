@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-28T03:32:14Z",
+  "built_at_utc": "2026-10-28T04:06:06Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -467,20 +467,6 @@
     },
     {
       "market": "tw",
-      "symbol": "2330",
-      "name": "台積電",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3261953",
-      "published_at_utc": "2026-10-28T01:03:00Z",
-      "title": {
-        "original": "快訊／台積電漲25元至2425 台股強彈702點來到46798點",
-        "en": "Flash: TSMC rises 25 yuan to 2425 yuan Taiwan stocks strongly rebound 702 points to 46798 points"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2330"
-    },
-    {
-      "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
       "source": "UDN Money",
@@ -495,59 +481,73 @@
     },
     {
       "market": "tw",
-      "symbol": "4904",
-      "name": "遠傳",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840537",
-      "published_at_utc": "2026-10-27T12:13:41Z",
+      "symbol": "2330",
+      "name": "台積電",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3261953",
+      "published_at_utc": "2026-10-28T01:03:00Z",
       "title": {
-        "original": "iPhone Duo 開賣就熱銷 遠傳近九成果粉申辦集中1,399、1,599元資費",
-        "en": null
+        "original": "快訊／台積電漲25元至2425 台股強彈702點來到46798點",
+        "en": "Flash: TSMC rises 25 yuan to 2425 yuan Taiwan stocks strongly rebound 702 points to 46798 points"
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=4904"
+      "news_url": "https://news.dappgo.com/tw/?stock=2330"
     },
     {
       "market": "tw",
-      "symbol": "3037",
-      "name": "欣興",
+      "symbol": "3231",
+      "name": "緯創",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840498",
-      "published_at_utc": "2026-10-27T11:54:41Z",
+      "url": "https://money.udn.com/money/story/5612/9839650",
+      "published_at_utc": "2026-10-27T05:22:35Z",
       "title": {
-        "original": "欣興董事會擬處分日本子公司予 MEIKO 簽署合作意向",
-        "en": "Unimicron Board proposes to dispose of Japanese subsidiary to MEIKO, signs letter of intent for cooperation"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=3037"
-    },
-    {
-      "market": "tw",
-      "symbol": "2337",
-      "name": "旺宏",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840313",
-      "published_at_utc": "2026-10-27T09:45:34Z",
-      "title": {
-        "original": "旺宏：新產能2027年下半年產出 短期營收成長靠漲價",
+        "original": "Anthropic 承諾未來十年資本支出 金額高達5,180億美元 台廠將受惠",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2337"
+      "news_url": "https://news.dappgo.com/tw/?stock=3231"
     },
     {
       "market": "tw",
-      "symbol": "3045",
-      "name": "台灣大",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840286",
-      "published_at_utc": "2026-10-27T09:33:43Z",
+      "symbol": "4938",
+      "name": "和碩",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3261451",
+      "published_at_utc": "2026-10-27T03:03:00Z",
       "title": {
-        "original": "台灣大收購精誠信心十足 再拚股價超車中華電",
+        "original": "中籤倒賠2萬元！ 和碩小金雞東擎上市首日遇亂流跌逾14%",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=3045"
+      "news_url": "https://news.dappgo.com/tw/?stock=4938"
+    },
+    {
+      "market": "tw",
+      "symbol": "2357",
+      "name": "華碩",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9839819",
+      "published_at_utc": "2026-10-27T06:27:02Z",
+      "title": {
+        "original": "標案動能升溫 華碩看好2027年商用 PC 價量齊揚",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2357"
+    },
+    {
+      "market": "tw",
+      "symbol": "6505",
+      "name": "台塑化",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3261376",
+      "published_at_utc": "2026-10-27T01:57:00Z",
+      "title": {
+        "original": "南亞甩「鬼故事」漲逾6%急收斂 台塑、台化小紅",
+        "en": "Nan Ya shakes off 'ghost story', rises over 6% then quickly narrows gains; Formosa Plastics, Formosa Chemicals slightly up"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=6505"
     }
   ]
 }
