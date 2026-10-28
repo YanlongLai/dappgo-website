@@ -32,7 +32,7 @@
       firebaseGoogle: '<a href="https://firebase.google.com/support/privacy">Firebase / Google privacy policies</a>',
       admob: '<a href="https://policies.google.com/technologies/partner-sites">AdMob privacy policy</a>',
       apple: '<a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>',
-      meta: '<a href="https://www.facebook.com/privacy/policies/">Meta privacy policy</a>',
+      meta: '<a href="https://www.facebook.com/privacy/policy/">Meta privacy policy</a>',
       revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat privacy policy</a>',
       appleEula: '<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>',
     };
