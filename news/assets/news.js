@@ -108,6 +108,8 @@
       language: chinese ? "語言" : "Language",
       privacy: chinese ? "隱私權政策" : "Privacy",
       terms: chinese ? "服務條款" : "Terms",
+      contact: chinese ? "聯絡我們" : "Contact",
+      contactFull: chinese ? "聯絡我們" : "Contact us",
       footerLine: chinese ? "看清事件，也看懂來龍去脈。" : "See the event. Keep the context.",
       dateUnavailable: chinese ? "日期未提供" : "Date unavailable",
       dataLabel: chinese ? "資料" : "Data",
