@@ -26,3 +26,15 @@ Captured on 2026-10-28 (UTC) by a Claude desktop session (producer). Owner reque
 | Deployed | verified | The GitHub Pages build for 54fc1bc has status `built`. |
 | Observed | verified | On dappgo.com (cache-busted), `/`, the home assets, `/data/pulse.json`, the News icon, `/llms.txt` and `/number-rpg/privacy/` return 200. The HTML carries `v=20261028-blue-3`, the wire tabs and the News icon, with no `chip-soon`. In a browser: chip `live` (2026-10-28), 3 market cards, United States and Taiwan tabs with 6 stories each, 4 of 4 publisher images loaded, 5 products, no Number Merge iOS, no horizontal scroll at 1024 px. The only console errors are the existing Cloudflare Insights and AdSense sodar CSP blocks. |
 | Rollback | ready | Revert merge 54fc1bc on master. GitHub Pages then redeploys 2b6e37b. |
+
+## Scheduled pulse check (2026-10-28 09:20 UTC)
+
+| Check | State | Evidence |
+|---|---|---|
+| Gitea run | failed | Gitea run 1994 (`pulse.yml`, schedule, job 2239, runner `us-colab01-linux-host`) built a pulse with 3 markets and 12 headlines, then failed on push 3 times: `remote: Permission to YanlongLai/dappgo-website.git denied to YanlongLai.` / `The requested URL returned error: 403`, followed by `::error::pulse push failed after 3 attempts`. |
+| Cause | Owner action | `DAPPGO_WEBSITE_PUSH_TOKEN` authenticates as YanlongLai but cannot write. A fine-grained token needs **Contents: Read and write** on `YanlongLai/dappgo-website`; a classic token needs `repo` (or `public_repo`). |
+| GitHub master | no pulse commit | master is at `c7208c2d` (merge #61). No `chore(pulse)` commit by DappGo Pulse exists. The last `data/pulse.json` change is `79bd3ab2` (#60). |
+| dappgo.com | stale by one TW run | `/data/pulse.json` was built at 04:06:06Z and has TW 2026-10-28 `generated_at_utc` 03:08:40Z, 19 BUY. That is later than 01:18:10Z, but only because #60 rebuilt it. The browser console and Taiwan card show 03:08 UTC and "19 BUY / 0 SELL". |
+| Source has newer data | unpublished | A local rebuild at 09:37Z gives TW `generated_at_utc` 08:39:30Z, hash `1b986e8a…`, 17 BUY. It was not committed. |
+
+Next: after the Owner fixes the token permission, trigger `pulse.yml` with workflow_dispatch and confirm a `published <sha>` line.
