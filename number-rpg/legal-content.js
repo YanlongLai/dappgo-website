@@ -28,2433 +28,479 @@ const localeNames = {
   "id": "Bahasa Indonesia"
 };
 
-const pages = {
+const section = (heading, paragraphs, bullets) => ({
+  heading,
+  paragraphs,
+  ...(bullets ? { bullets } : {})
+});
+
+const deletionTools = {
   "en": {
-    "privacy": {
-      "kicker": "Number RPG · privacy",
-      "title": "Privacy policy",
-      "product": "Number RPG by DappGo",
-      "effective": "Effective date: 2026-10-27",
-      "summary": "Number RPG lets you play as a guest. Sign-in is optional; it adds account-backed cloud save and cross-device recovery. This page describes the data Number RPG uses.",
-      "sections": [
-        {
-          "heading": "Who we are",
-          "paragraphs": [
-            "Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, San Gabriel, California, USA. Questions about this policy or your data can be sent to admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Accounts and sign-in",
-          "paragraphs": [
-            "You can play as a guest or optionally continue with Apple, Google, or Facebook. On iOS, Facebook sign-in uses Meta Limited Login. Provider credentials are verified by the Number RPG; provider access tokens are not stored by the the service.",
-            "A guest session is associated with a device and can keep progress on that device. Linking a provider preserves the server account and enables account-backed cloud save, leaderboards, purchase restoration, and cross-device recovery."
-          ],
-          "bullets": [
-            "Account ID and profile information such as display name, country, and selected leader pet.",
-            "Provider name and provider subject ID for Apple, Google, or Facebook; an email address only when a provider supplies one to us."
-          ]
-        },
-        {
-          "heading": "Data we process",
-          "paragraphs": [
-            "Depending on the features you use, the app and data.dappgo.com may process the following:"
-          ],
-          "bullets": [
-            "Cloud saves, game progress, scores, leaderboard submissions, and gameplay events.",
-            "Invite codes, invite activation and anti-fraud records, friends, gifts, rewards, and related activity.",
-            "Purchase records received through RevenueCat, including product, transaction, store, environment, and purchase timing fields used to grant or restore entitlements.",
-            "A device identifier represented by a server-side hash for account sessions and anti-fraud controls, plus push-notification tokens when notifications are enabled.",
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, and Cloud Messaging data used by the corresponding features."
-          ]
-        },
-        {
-          "heading": "How we use and share data",
-          "paragraphs": [
-            "DappGo uses this information to provide the game, save and restore progress, operate leaderboards and social features, process purchases, prevent cheating and abuse, secure accounts, send requested notifications, and keep the service working.",
-            "Number RPG shares information with the providers needed for the feature you choose, including Apple, Google, Meta/Facebook, Firebase, Google AdMob, and RevenueCat. Each provider may process data under its own terms and privacy documentation."
-          ]
-        },
-        {
-          "heading": "Analytics, crash reports, ads, and consent",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, and Cloud Messaging are optional integrations. Their collection is gated by the app consent controller; analytics collection is disabled before consent is resolved, and consent changes can revoke collection.",
-            "In the EEA, Google User Messaging Platform (UMP) consent controls ad readiness. On iOS, App Tracking Transparency is requested after UMP when required. Google AdMob ads may be shown only after the app has an ad-ready consent state; personalised advertising is used only with the required consent."
-          ],
-          "bullets": [
-            "You can decline or change consent where the app presents the relevant privacy options. You can also control notifications and tracking permissions in your device settings.",
-            "See the provider policies listed in Retention and deletion for more information."
-          ]
-        },
-        {
-          "heading": "Retention and deletion",
-          "paragraphs": [
-            "Account data is kept while your account is active. In-app and web self-service deletion take effect immediately. Email and web-form requests are completed within 30 days after verification; we verify with the account ID from Settings → Account or a reply from the email linked to the account.",
-            "Third-party providers process data under their own policies: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, and {{revenuecat}}. Google Analytics data is retained for 14 months, and server request logs are retained for 30 days.",
-            "When deletion succeeds, we remove the account and player data such as identities, devices, sessions, saves, scores, invites, friendships, rewards, gifts, events, activity, fraud records, and push tokens. Purchase records required by Apple or Google stay with those stores. Account data is otherwise deleted as described above."
-          ]
-        },
-        {
-          "heading": "Children and your rights",
-          "paragraphs": [
-            "Number RPG is not directed to children under 13. The app is intended for users 13 and older, and we do not knowingly invite children under 13 to create an account. If you believe a child has provided personal data, contact admin@dappgo.com.",
-            "You may ask for access, export, correction, deletion, or information about consent choices by contacting admin@dappgo.com. We will verify requests as needed to protect accounts and other players."
-          ]
-        },
-        {
-          "heading": "Changes and contact",
-          "paragraphs": [
-            "We may update this policy when the app, vendors, or legal requirements change. The effective date at the top identifies the current version. Contact admin@dappgo.com with privacy questions or requests."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · terms",
-      "title": "Terms of service",
-      "product": "Number RPG by DappGo",
-      "effective": "Effective date: 2026-10-27",
-      "summary": "These terms describe the rules for using Number RPG, including guest play, optional accounts, virtual items, purchases, fair play, and account termination.",
-      "sections": [
-        {
-          "heading": "1. Acceptance",
-          "paragraphs": [
-            "By installing, accessing, or using Number RPG, you agree to these Terms of Service and the Number RPG Privacy Policy. If you do not agree, do not use the game."
-          ]
-        },
-        {
-          "heading": "2. The service and accounts",
-          "paragraphs": [
-            "Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, San Gabriel, California, USA. Number RPG is a mobile game. You may play as a guest. Optional Apple, Google, or Facebook sign-in supports cloud save, social features, leaderboards, and purchase restoration. Keep your device, sign-in credentials, and recovery information secure."
-          ]
-        },
-        {
-          "heading": "3. Virtual items and purchases",
-          "paragraphs": [
-            "The game may offer virtual currency, lives, accessories, upgrades, or other digital entitlements. They have no cash value, are licensed for use in the game, and may not be sold, transferred, or redeemed outside the game. Availability and balances may change when the service or game rules change.",
-            "Purchases are made through Apple App Store or Google Play billing. Refunds, cancellations, and payment disputes must be requested from the store that processed the transaction, subject to that store’s rules. RevenueCat helps us record and restore purchase entitlements. Deleting a Number RPG account deletes game data; eligible store purchases may remain restorable through the store account."
-          ]
-        },
-        {
-          "heading": "4. Fair play and acceptable use",
-          "paragraphs": [
-            "Do not cheat, exploit bugs, automate play, manipulate scores or rewards, abuse invite or gift systems, impersonate another player, interfere with the game or service, or use the game to harm another person. Do not submit content or display names that are unlawful, abusive, hateful, or infringe another person’s rights."
-          ]
-        },
-        {
-          "heading": "5. Enforcement and termination",
-          "paragraphs": [
-            "DappGo may limit, suspend, or terminate access when it reasonably believes an account or device is cheating, abusive, fraudulent, unsafe, or in breach of these Terms. We may also change, pause, or discontinue parts of the service. You may delete your account from Settings → Delete account or use the instructions on the account-deletion page."
-          ]
-        },
-        {
-          "heading": "6. Disclaimers and limits",
-          "paragraphs": [
-            "To the extent permitted by law, the game is provided as available and without promises that it will be uninterrupted, error-free, or permanently preserve every item or save. DappGo is not responsible for failures caused by your device, network, app store, third-party provider, or events outside reasonable control. Nothing in these Terms limits rights that cannot legally be limited."
-          ]
-        },
-        {
-          "heading": "7. Governing law and venue",
-          "paragraphs": [
-            "These Terms are governed by the laws of the State of California, USA, without regard to conflict-of-laws rules. Exclusive venue is in the state or federal courts located in Los Angeles County, California. This does not limit mandatory consumer rights in the country where you live."
-          ]
-        },
-        {
-          "heading": "8. Contact",
-          "paragraphs": [
-            "Questions about these Terms can be sent to admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · account deletion",
-      "title": "Delete your account",
-      "product": "Number RPG by DappGo",
-      "effective": "Instructions effective: 2026-10-27",
-      "summary": "Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, San Gabriel, California, USA. You can request deletion in the app, on this page, or by email.",
-      "sections": [
-        {
-          "heading": "Delete in the app",
-          "paragraphs": [
-            "Open Number RPG and go to Settings → Delete account. Read the confirmation, confirm the deletion, and keep the app online until it reports success. In-app deletion takes effect immediately. If an Apple identity is linked, the app may require Apple re-authorisation before deletion can finish."
-          ]
-        },
-        {
-          "heading": "Request deletion by email or web form",
-          "paragraphs": [
-            "For Apple, Facebook, or guest accounts, use the form on this page or email admin@dappgo.com. Include the account ID from Settings → Account and the contact email linked to the account when available. Email and web-form requests are completed within 30 days after verification; verification can use the account ID or a reply from the linked email. Do not send a password, provider access token, or Apple private key."
-          ]
-        },
-        {
-          "heading": "What we remove",
-          "paragraphs": [
-            "A successful deletion removes the account and player data: provider identities, device and session records, cloud saves, scores, invites, friendships, gifts, rewards, events, activity, fraud records, and push tokens. Local game progress is reset by the app. Purchase records required by Apple or Google stay with those stores."
-          ]
-        },
-        {
-          "heading": "How long it takes",
-          "paragraphs": [
-            "In-app and web self-service deletion take effect immediately. Email and web-form requests are completed within 30 days after verification. To verify, provide the account ID from Settings → Account or reply from the email linked to the account.",
-            "Purchase records required by Apple or Google stay with those stores. Contact admin@dappgo.com if you need help or cannot access the account."
-          ]
-        },
-        {
-          "heading": "Need help?",
-          "paragraphs": [
-            "Contact admin@dappgo.com if the in-app flow fails, you cannot access the account, or you need to ask about an email request."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Delete on the web",
-        "intro": "Use the app for immediate deletion, or use these browser options when the app is not installed.",
-        "googleHeading": "Self-service with Google",
-        "googleCopy": "Sign in with Google to confirm the account display name, then type DELETE to continue.",
-        "accountLabel": "Signed in as",
-        "confirmLabel": "Type DELETE to confirm",
-        "confirmHint": "This takes effect immediately.",
-        "confirmButton": "Delete my account",
-        "requestHeading": "Request help with another account",
-        "requestCopy": "For Apple, Facebook, or guest accounts, send a request with your account ID and contact email. We will complete it within 30 days after verification.",
-        "accountIdLabel": "Account ID",
-        "accountIdHint": "Find it in Settings → Account.",
-        "emailLabel": "Contact email",
-        "reasonLabel": "Reason (optional)",
-        "submitButton": "Submit deletion request",
-        "timeline": "Requests by email or web form are completed within 30 days after verification. Verify with the account ID from Settings → Account or a reply from the linked email.",
-        "storeNote": "Purchase records required by Apple or Google stay with those stores.",
-        "signedOut": "Google sign-in is ready when the browser library loads.",
-        "success": "Your account deletion took effect immediately.",
-        "requestSuccess": "Your request was sent. We will complete it within 30 days after verification.",
-        "error": "We could not complete this request. Please try again or use the email option.",
-        "rateLimit": "Too many requests. Please wait and try again later."
-      }
-    }
+    heading: "Delete on the web",
+    intro: "Use the app for immediate deletion, or use these browser options when the app is not installed.",
+    googleHeading: "Self-service with Google",
+    googleCopy: "Sign in with Google to confirm the account display name, then type DELETE to continue.",
+    accountLabel: "Signed in as",
+    confirmLabel: "Type DELETE to confirm",
+    confirmHint: "This takes effect immediately.",
+    confirmButton: "Delete my account",
+    requestHeading: "Request help with another account",
+    requestCopy: "For Apple, Facebook, or guest accounts, send a request with your account ID and contact email. We will complete it within 30 days after verification.",
+    accountIdLabel: "Account ID",
+    accountIdHint: "Find it in Settings → Account.",
+    emailLabel: "Contact email",
+    reasonLabel: "Reason (optional)",
+    submitButton: "Submit deletion request",
+    timeline: "In-app and Google web self-service deletion take effect immediately. Email and web-form requests are completed within 30 days after verification.",
+    storeNote: "Apple and Google may retain purchase records in their store accounts. DappGo may retain only limited records required by law or legitimate security, accounting, fraud, or dispute needs.",
+    signedOut: "Google sign-in is ready when the browser library loads.",
+    success: "Your account deletion took effect immediately.",
+    requestSuccess: "Your request was sent. We will complete it within 30 days after verification.",
+    error: "We could not complete this request. Please try again or use the email option.",
+    rateLimit: "Too many requests. Please wait and try again later."
   },
   "zh-TW": {
-    "privacy": {
-      "kicker": "Number RPG · 隱私",
-      "title": "隱私政策",
-      "product": "DappGo 的 Number RPG",
-      "effective": "生效日期：2026-10-27",
-      "summary": "Number RPG 可讓您以訪客身分遊玩。登入是選擇性的；登入後可使用帳戶雲端存檔與跨裝置復原。本頁說明 Number RPG 使用的資料。",
-      "sections": [
-        {
-          "heading": "我們是誰",
-          "paragraphs": [
-            "Number RPG 由 Yenlung Lai 以個人獨資業者 DappGo 名義營運，所在地為美國加州 San Gabriel。 若對本政策或您的資料有疑問，請寄信至 admin@dappgo.com。"
-          ]
-        },
-        {
-          "heading": "帳戶與登入",
-          "paragraphs": [
-            "您可以訪客身分遊玩，也可以選擇使用 Apple、Google 或 Facebook 登入。iOS 上的 Facebook 登入使用 Meta Limited Login。Number RPG 會驗證供應商憑證，但不儲存供應商存取權杖。",
-            "訪客工作階段會與裝置關聯，並可在裝置上保留進度。連結供應商後會保留伺服器帳戶，並啟用帳戶雲端存檔、排行榜、購買復原與跨裝置復原。"
-          ],
-          "bullets": [
-            "帳戶 ID 與顯示名稱、國家／地區、領隊寵物等個人資料。",
-            "Apple、Google 或 Facebook 的供應商名稱與 subject ID；只有供應商提供時才會有電子郵件地址。"
-          ]
-        },
-        {
-          "heading": "我們處理的資料",
-          "paragraphs": [
-            "依您使用的功能，App 與 data.dappgo.com 可能處理："
-          ],
-          "bullets": [
-            "雲端存檔、遊戲進度、分數、排行榜提交與遊戲事件。",
-            "邀請碼、邀請啟用與反詐欺紀錄、好友、禮物、獎勵及相關活動。",
-            "RevenueCat 收到的購買紀錄，例如商品、交易、商店、環境與購買時間，用於發放或復原權益。",
-            "為帳戶工作階段與反詐欺控制而以伺服器雜湊形式處理的裝置識別碼，以及啟用通知時的推播權杖。",
-            "Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 與 Cloud Messaging 針對相應功能使用的資料。"
-          ]
-        },
-        {
-          "heading": "資料如何使用與分享",
-          "paragraphs": [
-            "DappGo 使用這些資料提供遊戲、儲存與復原進度、營運排行榜和社交功能、處理購買、防止作弊與濫用、保護帳戶、發送您要求的通知並維持服務運作。",
-            "Number RPG 會與您選用功能所需的供應商分享資料，包括 Apple、Google、Meta／Facebook、Firebase、Google AdMob 與 RevenueCat。各供應商依其自身條款與隱私文件處理資料。"
-          ]
-        },
-        {
-          "heading": "分析、錯誤報告、廣告與同意",
-          "paragraphs": [
-            "Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 與 Cloud Messaging 是選用整合。資料收集受 App 同意控制器管理；在同意狀態確認前會停用分析收集，同意變更也可能撤銷收集。",
-            "在 EEA，Google User Messaging Platform（UMP）同意會控制廣告是否可用。在 iOS，必要時會在 UMP 後要求 App Tracking Transparency。Google AdMob 只會在 App 取得可投放廣告的同意狀態後顯示廣告；個人化廣告只會在取得必要同意後使用。"
-          ],
-          "bullets": [
-            "您可以在 App 顯示相關隱私選項時拒絕或更改同意，也可在裝置設定中控制通知與追蹤權限。",
-            "詳細資訊請參閱「保存與刪除」中列出的供應商政策。"
-          ]
-        },
-        {
-          "heading": "保存與刪除",
-          "paragraphs": [
-            "帳戶資料會在帳戶啟用期間保留。App 內與網頁自助刪除會立即生效。電子郵件與網頁表單請求會在完成驗證後 30 天內處理；我們會透過設定 → 帳戶中的帳戶 ID，或由綁定帳戶的電子郵件回覆來驗證。",
-            "第三方供應商依其自身政策處理資料：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}}及{{revenuecat}}。Google Analytics 資料保留 14 個月，伺服器請求日誌保留 30 天。",
-            "刪除成功後，我們會移除帳戶及玩家資料，例如身分、裝置、工作階段、存檔、分數、邀請、好友、獎勵、禮物、事件、活動、反詐欺紀錄與推播權杖。Apple 或 Google 要求保留的購買紀錄會留在這些商店。其他帳戶資料會依上述說明刪除。"
-          ]
-        },
-        {
-          "heading": "兒童與您的權利",
-          "paragraphs": [
-            "Number RPG 並非以 13 歲以下兒童為對象。本 App 供 13 歲以上使用者使用，我們也不會明知而邀請 13 歲以下兒童建立帳戶。若您認為兒童提供了個人資料，請聯絡 admin@dappgo.com。",
-            "您可以透過 admin@dappgo.com 要求查閱、匯出、更正、刪除資料，或詢問同意選擇。服務 也提供需驗證的資料匯出路徑。為保護帳戶與其他玩家，我們可能需要驗證請求。"
-          ]
-        },
-        {
-          "heading": "變更與聯絡",
-          "paragraphs": [
-            "當 App、服務、供應商或法律要求變更時，我們可能更新本政策。頁首的生效日期代表目前版本。隱私問題或請求請寄至 admin@dappgo.com。"
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · 條款",
-      "title": "服務條款",
-      "product": "DappGo 的 Number RPG",
-      "effective": "生效日期：2026-10-27",
-      "summary": "本條款說明使用 Number RPG 的規則，包括訪客遊玩、選擇性帳戶、虛擬物品、購買、公平遊戲與帳戶終止。",
-      "sections": [
-        {
-          "heading": "1. 接受條款",
-          "paragraphs": [
-            "安裝、存取或使用 Number RPG，即表示您同意本服務條款與 Number RPG 隱私政策。若不同意，請勿使用遊戲。"
-          ]
-        },
-        {
-          "heading": "2. 服務與帳戶",
-          "paragraphs": [
-            "Number RPG 由 Yenlung Lai 以個人獨資業者 DappGo 名義營運，所在地為美國加州 San Gabriel。 Number RPG 是手機遊戲。您可以訪客身分遊玩。選擇性 Apple、Google 或 Facebook 登入支援雲端存檔、社交功能、排行榜與購買復原。請保護裝置、登入憑證與復原資訊。"
-          ]
-        },
-        {
-          "heading": "3. 虛擬物品與購買",
-          "paragraphs": [
-            "遊戲可能提供虛擬貨幣、生命、裝飾、升級或其他數位權益。它們沒有現金價值，只授權在遊戲中使用，不得在遊戲外出售、轉讓或兌換。服務或遊戲規則變更時，可用性與餘額可能改變。",
-            "購買透過 Apple App Store 或 Google Play 計費。退款、取消與付款爭議應向處理交易的商店提出，並受該商店規則約束。RevenueCat 協助記錄及復原購買權益。刪除 Number RPG 帳戶會刪除遊戲資料；符合資格的商店購買可能仍可透過商店帳戶復原。"
-          ]
-        },
-        {
-          "heading": "4. 公平遊戲與可接受使用",
-          "paragraphs": [
-            "請勿作弊、利用錯誤、以自動化方式遊玩、操縱分數或獎勵、濫用邀請或禮物系統、冒充他人、干擾遊戲或服務，或利用遊戲傷害他人。請勿提交違法、辱罵、仇恨或侵害他人權利的內容或顯示名稱。"
-          ]
-        },
-        {
-          "heading": "5. 執行與終止",
-          "paragraphs": [
-            "若 DappGo 合理認為帳戶或裝置有作弊、濫用、詐欺、安全風險或違反本條款，DappGo 可以限制、暫停或終止存取，也可以變更、暫停或停止服務部分功能。您可以從設定 → 刪除帳戶，或依帳戶刪除頁面說明刪除帳戶。"
-          ]
-        },
-        {
-          "heading": "6. 免責與限制",
-          "paragraphs": [
-            "在法律允許的範圍內，遊戲按可用狀態提供，不保證不中斷、無錯誤或永久保存每項物品與存檔。DappGo 不對由裝置、網路、應用程式商店、第三方供應商或合理控制範圍外事件造成的故障負責。本條款不限制法律上不能限制的權利。"
-          ]
-        },
-        {
-          "heading": "7. 準據法與管轄",
-          "paragraphs": [
-            "本條款受美國加州法律管轄，不適用其法律衝突規則。專屬管轄地為位於加州洛杉磯郡的州法院或聯邦法院。本條款不限制您居住國家法律賦予您的強制性消費者權利。"
-          ]
-        },
-        {
-          "heading": "8. 聯絡",
-          "paragraphs": [
-            "條款問題請寄至 admin@dappgo.com。"
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · 刪除帳戶",
-      "title": "刪除您的帳戶",
-      "product": "DappGo 的 Number RPG",
-      "effective": "說明生效日期：2026-10-27",
-      "summary": "Number RPG 由 Yenlung Lai 以個人獨資業者 DappGo 名義營運，所在地為美國加州 San Gabriel。 您可以在 App 內、本頁面或透過電子郵件要求刪除。",
-      "sections": [
-        {
-          "heading": "在 App 內刪除",
-          "paragraphs": [
-            "開啟 Number RPG，前往設定 → 刪除帳戶。閱讀確認訊息並確認刪除，保持 App 在線直到顯示成功。App 內刪除會立即生效。若已連結 Apple 身分，App 可能要求 Apple 重新授權。"
-          ]
-        },
-        {
-          "heading": "透過電子郵件或網頁表單要求刪除",
-          "paragraphs": [
-            "Apple、Facebook 或訪客帳戶可以使用本頁表單或寄信至 admin@dappgo.com。若可以，請提供設定 → 帳戶中的帳戶 ID，以及與帳戶綁定的聯絡電子郵件。電子郵件與網頁表單請求會在完成驗證後 30 天內處理；驗證可以使用帳戶 ID，或由綁定電子郵件回覆。不要寄送密碼、供應商存取權杖或 Apple 私密金鑰。"
-          ]
-        },
-        {
-          "heading": "我們會移除的資料",
-          "paragraphs": [
-            "成功刪除會移除帳戶及玩家資料：供應商身分、裝置與工作階段、雲端存檔、分數、邀請、好友、禮物、獎勵、事件、活動、反詐欺紀錄與推播權杖。App 會重設本機遊戲進度。Apple 或 Google 要求保留的購買紀錄會留在這些商店。"
-          ]
-        },
-        {
-          "heading": "需要多久",
-          "paragraphs": [
-            "App 內與網頁自助刪除會立即生效。電子郵件與網頁表單請求會在完成驗證後 30 天內處理。驗證時請提供設定 → 帳戶中的帳戶 ID，或由綁定帳戶的電子郵件回覆。",
-            "Apple 或 Google 要求保留的購買紀錄會留在這些商店。如需協助或無法存取帳戶，請聯絡 admin@dappgo.com。"
-          ]
-        },
-        {
-          "heading": "需要協助？",
-          "paragraphs": [
-            "若 App 內流程失敗、無法存取帳戶，或想詢問電子郵件請求，請聯絡 admin@dappgo.com。"
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "在網頁上刪除",
-        "intro": "App 內刪除會立即生效；若未安裝 App，也可以使用以下瀏覽器選項。",
-        "googleHeading": "使用 Google 自助刪除",
-        "googleCopy": "使用 Google 登入以確認帳戶顯示名稱，然後輸入 DELETE 繼續。",
-        "accountLabel": "登入帳戶",
-        "confirmLabel": "輸入 DELETE 以確認",
-        "confirmHint": "刪除會立即生效。",
-        "confirmButton": "刪除我的帳戶",
-        "requestHeading": "為其他帳戶提交請求",
-        "requestCopy": "Apple、Facebook 或訪客帳戶請提供帳戶 ID 和聯絡電子郵件。我們會在驗證後 30 天內完成。",
-        "accountIdLabel": "帳戶 ID",
-        "accountIdHint": "可在設定 → 帳戶中找到。",
-        "emailLabel": "聯絡電子郵件",
-        "reasonLabel": "原因（選填）",
-        "submitButton": "提交刪除請求",
-        "timeline": "電子郵件或網頁表單請求會在驗證後 30 天內完成。請使用設定 → 帳戶中的帳戶 ID，或由綁定電子郵件回覆驗證。",
-        "storeNote": "Apple 或 Google 要求保留的購買紀錄會留在這些商店。",
-        "signedOut": "Google 登入會在瀏覽器程式庫載入後可用。",
-        "success": "您的帳戶刪除已立即生效。",
-        "requestSuccess": "請求已送出。我們會在驗證後 30 天內完成。",
-        "error": "無法完成請求。請重試或使用電子郵件選項。",
-        "rateLimit": "請求過多，請稍後再試。"
-      }
-    }
+    heading: "在網頁上刪除", intro: "App 未安裝時，可在瀏覽器使用以下選項；在 App 內刪除會立即生效。", googleHeading: "使用 Google 自助刪除", googleCopy: "使用 Google 登入確認帳戶顯示名稱，然後輸入 DELETE 繼續。", accountLabel: "登入帳戶", confirmLabel: "輸入 DELETE 確認", confirmHint: "會立即生效。", confirmButton: "刪除我的帳戶", requestHeading: "請求協助刪除其他帳戶", requestCopy: "Apple、Facebook 或訪客帳戶請提供帳戶 ID 與聯絡電子郵件。我們會在驗證後 30 天內完成。", accountIdLabel: "帳戶 ID", accountIdHint: "可在設定 → 帳戶中找到。", emailLabel: "聯絡電子郵件", reasonLabel: "原因（選填）", submitButton: "提交刪除請求", timeline: "App 內及 Google 網頁自助刪除會立即生效。電子郵件及網頁表單請求會在驗證後 30 天內完成。", storeNote: "Apple 和 Google 可能在商店帳戶中保留購買記錄。DappGo 只會因法律或合理的安全、會計、防詐欺或爭議需要保留有限記錄。", signedOut: "瀏覽器程式庫載入後即可使用 Google 登入。", success: "您的帳戶已立即刪除。", requestSuccess: "已送出請求。我們會在驗證後 30 天內完成。", error: "無法完成請求。請重試或使用電子郵件選項。", rateLimit: "請求過多，請稍候再試。"
   },
   "zh-CN": {
-    "privacy": {
-      "kicker": "Number RPG · 隐私",
-      "title": "隐私政策",
-      "product": "DappGo 的 Number RPG",
-      "effective": "生效日期：2026-10-27",
-      "summary": "Number RPG 支持以访客身份游玩。登录是可选的；登录后可使用账户云端存档和跨设备恢复。本页说明 Number RPG 使用的数据。",
-      "sections": [
-        {
-          "heading": "我们是谁",
-          "paragraphs": [
-            "Number RPG 由 Yenlung Lai 以个体经营者 DappGo 名义运营，所在地为美国加利福尼亚州 San Gabriel。 有关本政策或您的数据，请发送邮件至 admin@dappgo.com。"
-          ]
-        },
-        {
-          "heading": "账户与登录",
-          "paragraphs": [
-            "您可以访客身份游玩，也可以选择使用 Apple、Google 或 Facebook 登录。iOS 上的 Facebook 登录使用 Meta Limited Login。Number RPG 会验证供应商凭证，但不会保存供应商访问令牌。",
-            "访客会话与设备关联，并可在设备上保留进度。关联供应商后会保留服务器账户，并启用账户云端存档、排行榜、购买恢复和跨设备恢复。"
-          ],
-          "bullets": [
-            "账户 ID 以及显示名称、国家／地区、领队宠物等个人资料。",
-            "Apple、Google 或 Facebook 的供应商名称和 subject ID；只有供应商提供时才会有电子邮件地址。"
-          ]
-        },
-        {
-          "heading": "我们处理的数据",
-          "paragraphs": [
-            "根据您使用的功能，App 与 data.dappgo.com 可能处理："
-          ],
-          "bullets": [
-            "云端存档、游戏进度、分数、排行榜提交和游戏事件。",
-            "邀请码、邀请激活和反欺诈记录、好友、礼物、奖励及相关活动。",
-            "RevenueCat 收到的购买记录，例如商品、交易、商店、环境和购买时间，用于发放或恢复权益。",
-            "用于账户会话和反欺诈控制、以服务器哈希形式处理的设备标识符，以及启用通知时的推送令牌。",
-            "Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 和 Cloud Messaging 为相应功能使用的数据。"
-          ]
-        },
-        {
-          "heading": "数据如何使用与分享",
-          "paragraphs": [
-            "DappGo 使用这些数据提供游戏、保存和恢复进度、运营排行榜与社交功能、处理购买、防止作弊和滥用、保护账户、发送您请求的通知并维持服务运行。",
-            "Number RPG 会与您选择的功能所需的供应商分享数据，包括 Apple、Google、Meta／Facebook、Firebase、Google AdMob 和 RevenueCat。各供应商按照自己的条款和隐私文件处理数据。"
-          ]
-        },
-        {
-          "heading": "分析、错误报告、广告与同意",
-          "paragraphs": [
-            "Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 和 Cloud Messaging 是可选集成。数据收集受 App 同意控制器管理；在同意状态确定前会禁用分析收集，同意变化也可以撤销收集。",
-            "在 EEA，Google User Messaging Platform（UMP）同意控制广告是否可用。在 iOS，必要时会在 UMP 后请求 App Tracking Transparency。Google AdMob 只会在 App 获得可投放广告的同意状态后显示广告；个性化广告仅在获得必要同意后使用。"
-          ],
-          "bullets": [
-            "当 App 提供相关隐私选项时，您可以拒绝或更改同意，也可以在设备设置中控制通知和跟踪权限。",
-            "详细信息请参阅“保存与删除”中列出的供应商政策。"
-          ]
-        },
-        {
-          "heading": "保存与删除",
-          "paragraphs": [
-            "账户数据会在账户处于活动状态期间保留。App 内和网页自助删除会立即生效。电子邮件和网页表单请求会在完成验证后 30 天内处理；我们会通过设置 → 账户中的账户 ID，或由关联账户的电子邮件回复来验证。",
-            "第三方供应商按照各自的政策处理数据：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}}和{{revenuecat}}。Google Analytics 数据保留 14 个月，服务器请求日志保留 30 天。",
-            "删除成功后，我们会移除账户及玩家数据，例如身份、设备、会话、存档、分数、邀请、好友、奖励、礼物、事件、活动、反欺诈记录和推送令牌。Apple 或 Google 要求保留的购买记录会留在这些商店。其他账户数据会按照上述说明删除。"
-          ]
-        },
-        {
-          "heading": "儿童与您的权利",
-          "paragraphs": [
-            "Number RPG 不面向 13 岁以下儿童。本 App 面向 13 岁及以上用户，我们也不会明知而邀请 13 岁以下儿童创建账户。如果您认为儿童提供了个人数据，请联系 admin@dappgo.com。",
-            "您可以通过 admin@dappgo.com 请求访问、导出、更正、删除数据，或询问同意选择。服务 也提供需认证的数据导出路径。为保护账户和其他玩家，我们可能需要验证请求。"
-          ]
-        },
-        {
-          "heading": "变更与联系",
-          "paragraphs": [
-            "当 App、供应商或法律要求发生变化时，我们可能更新本政策。页首的生效日期标识当前版本。隐私问题或请求请发送至 admin@dappgo.com。"
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · 条款",
-      "title": "服务条款",
-      "product": "DappGo 的 Number RPG",
-      "effective": "生效日期：2026-10-27",
-      "summary": "本条款说明使用 Number RPG 的规则，包括访客游玩、可选账户、虚拟物品、购买、公平游戏和账户终止。",
-      "sections": [
-        {
-          "heading": "1. 接受条款",
-          "paragraphs": [
-            "安装、访问或使用 Number RPG，即表示您同意本服务条款和 Number RPG 隐私政策。如果不同意，请勿使用游戏。"
-          ]
-        },
-        {
-          "heading": "2. 服务与账户",
-          "paragraphs": [
-            "Number RPG 由 Yenlung Lai 以个体经营者 DappGo 名义运营，所在地为美国加利福尼亚州 San Gabriel。 Number RPG 是手机游戏。您可以访客身份游玩。可选的 Apple、Google 或 Facebook 登录支持云端存档、社交功能、排行榜和购买恢复。请保护设备、登录凭证和恢复信息。"
-          ]
-        },
-        {
-          "heading": "3. 虚拟物品与购买",
-          "paragraphs": [
-            "游戏可能提供虚拟货币、生命、装饰、升级或其他数字权益。它们没有现金价值，只授权在游戏中使用，不得在游戏外出售、转让或兑换。服务或游戏规则变化时，可用性和余额可能变化。",
-            "购买通过 Apple App Store 或 Google Play 计费。退款、取消和付款争议应向处理交易的商店提出，并受该商店规则约束。RevenueCat 协助记录和恢复购买权益。删除 Number RPG 账户会删除游戏数据；符合条件的商店购买可能仍可通过商店账户恢复。"
-          ]
-        },
-        {
-          "heading": "4. 公平游戏与可接受使用",
-          "paragraphs": [
-            "请勿作弊、利用漏洞、自动化游玩、操纵分数或奖励、滥用邀请或礼物系统、冒充他人、干扰游戏或服务，或利用游戏伤害他人。请勿提交违法、辱骂、仇恨或侵犯他人权利的内容或显示名称。"
-          ]
-        },
-        {
-          "heading": "5. 执行与终止",
-          "paragraphs": [
-            "如果 DappGo 合理认为账户或设备存在作弊、滥用、欺诈、安全风险或违反本条款，DappGo 可以限制、暂停或终止访问，也可以更改、暂停或停止服务的一部分。您可以从设置 → 删除账户，或按照账户删除页面说明删除账户。"
-          ]
-        },
-        {
-          "heading": "6. 免责声明与限制",
-          "paragraphs": [
-            "在法律允许的范围内，游戏按可用状态提供，不保证不中断、无错误或永久保存每项物品和存档。DappGo 不对由设备、网络、应用商店、第三方供应商或合理控制范围外事件造成的故障负责。本条款不限制法律上不能限制的权利。"
-          ]
-        },
-        {
-          "heading": "7. 准据法与管辖",
-          "paragraphs": [
-            "本条款受美国加利福尼亚州法律管辖，不适用其法律冲突规则。专属管辖地为位于加利福尼亚州洛杉矶县的州法院或联邦法院。本条款不限制您居住国家法律赋予您的强制性消费者权利。"
-          ]
-        },
-        {
-          "heading": "8. 联系",
-          "paragraphs": [
-            "条款问题请发送至 admin@dappgo.com。"
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · 删除账户",
-      "title": "删除您的账户",
-      "product": "DappGo 的 Number RPG",
-      "effective": "说明生效日期：2026-10-27",
-      "summary": "Number RPG 由 Yenlung Lai 以个体经营者 DappGo 名义运营，所在地为美国加利福尼亚州 San Gabriel。 您可以在 App 内、本页面或通过电子邮件请求删除。",
-      "sections": [
-        {
-          "heading": "在 App 内删除",
-          "paragraphs": [
-            "打开 Number RPG，前往设置 → 删除账户。阅读确认消息并确认删除，保持 App 在线直到显示成功。App 内删除会立即生效。如果已关联 Apple 身份，App 可能要求 Apple 重新授权。"
-          ]
-        },
-        {
-          "heading": "通过电子邮件或网页表单请求删除",
-          "paragraphs": [
-            "Apple、Facebook 或访客账户可以使用本页面表单或发送邮件至 admin@dappgo.com。如果可以，请提供设置 → 账户中的账户 ID，以及与账户关联的联系邮箱。电子邮件和网页表单请求会在完成验证后 30 天内处理；验证可以使用账户 ID，或由关联邮箱回复。不要发送密码、供应商访问令牌或 Apple 私钥。"
-          ]
-        },
-        {
-          "heading": "我们会移除的数据",
-          "paragraphs": [
-            "成功删除会移除账户及玩家数据：供应商身份、设备与会话、云端存档、分数、邀请、好友、礼物、奖励、事件、活动、反欺诈记录和推送令牌。App 会重置本地游戏进度。Apple 或 Google 要求保留的购买记录会留在这些商店。"
-          ]
-        },
-        {
-          "heading": "需要多长时间",
-          "paragraphs": [
-            "App 内和网页自助删除会立即生效。电子邮件和网页表单请求会在完成验证后 30 天内处理。验证时请提供设置 → 账户中的账户 ID，或由关联账户的邮箱回复。",
-            "Apple 或 Google 要求保留的购买记录会留在这些商店。如需帮助或无法访问账户，请联系 admin@dappgo.com。"
-          ]
-        },
-        {
-          "heading": "需要帮助？",
-          "paragraphs": [
-            "如果 App 内流程失败、无法访问账户，或想询问电子邮件请求，请联系 admin@dappgo.com。"
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "在网页上删除",
-        "intro": "App 内删除会立即生效；如果未安装 App，也可以使用以下浏览器选项。",
-        "googleHeading": "使用 Google 自助删除",
-        "googleCopy": "使用 Google 登录以确认账户显示名称，然后输入 DELETE 继续。",
-        "accountLabel": "登录账户",
-        "confirmLabel": "输入 DELETE 以确认",
-        "confirmHint": "删除会立即生效。",
-        "confirmButton": "删除我的账户",
-        "requestHeading": "为其他账户提交请求",
-        "requestCopy": "Apple、Facebook 或访客账户请提供账户 ID 和联系邮箱。我们会在验证后 30 天内完成。",
-        "accountIdLabel": "账户 ID",
-        "accountIdHint": "可在设置 → 账户中找到。",
-        "emailLabel": "联系邮箱",
-        "reasonLabel": "原因（可选）",
-        "submitButton": "提交删除请求",
-        "timeline": "电子邮件或网页表单请求会在验证后 30 天内完成。请使用设置 → 账户中的账户 ID，或由关联邮箱回复验证。",
-        "storeNote": "Apple 或 Google 要求保留的购买记录会留在这些商店。",
-        "signedOut": "Google 登录会在浏览器程序库加载后可用。",
-        "success": "您的账户删除已立即生效。",
-        "requestSuccess": "请求已发送。我们会在验证后 30 天内完成。",
-        "error": "无法完成请求。请重试或使用电子邮件选项。",
-        "rateLimit": "请求过多，请稍后再试。"
-      }
-    }
+    heading: "在网页上删除", intro: "App 未安装时，可在浏览器使用以下选项；在 App 内删除会立即生效。", googleHeading: "使用 Google 自助删除", googleCopy: "使用 Google 登录确认账户显示名称，然后输入 DELETE 继续。", accountLabel: "登录账户", confirmLabel: "输入 DELETE 确认", confirmHint: "会立即生效。", confirmButton: "删除我的账户", requestHeading: "请求帮助删除其他账户", requestCopy: "Apple、Facebook 或游客账户请提供账户 ID 和联系邮箱。我们会在验证后 30 天内完成。", accountIdLabel: "账户 ID", accountIdHint: "可在设置 → 账户中找到。", emailLabel: "联系邮箱", reasonLabel: "原因（可选）", submitButton: "提交删除请求", timeline: "App 内和 Google 网页自助删除会立即生效。电子邮件和网页表单请求会在验证后 30 天内完成。", storeNote: "Apple 和 Google 可能在商店账户中保留购买记录。DappGo 只会因法律或合理的安全、会计、防欺诈或争议需要保留有限记录。", signedOut: "浏览器库加载后即可使用 Google 登录。", success: "您的账户已立即删除。", requestSuccess: "请求已发送。我们会在验证后 30 天内完成。", error: "无法完成请求。请重试或使用电子邮件选项。", rateLimit: "请求过多，请稍后再试。"
   },
   "ja": {
-    "privacy": {
-      "kicker": "Number RPG · プライバシー",
-      "title": "プライバシーポリシー",
-      "product": "DappGo の Number RPG",
-      "effective": "発効日：2026-10-27",
-      "summary": "Number RPG はゲストとして遊ぶことができます。サインインは任意で、アカウントに紐づくクラウドセーブと端末間の復元を利用できます。本ページでは Number RPG が使用するデータを説明します。",
-      "sections": [
-        {
-          "heading": "運営者",
-          "paragraphs": [
-            "Number RPG は、米国カリフォルニア州サンガブリエルの個人事業主 Yenlung Lai が DappGo の名称で運営しています。 本ポリシーやデータについては admin@dappgo.com までご連絡ください。"
-          ]
-        },
-        {
-          "heading": "アカウントとサインイン",
-          "paragraphs": [
-            "ゲストとして遊ぶことも、Apple、Google、Facebook のいずれかで任意にサインインすることもできます。iOS の Facebook サインインは Meta Limited Login を使用します。Number RPG はプロバイダーの認証情報を検証しますが、プロバイダーのアクセストークンは保存しません。",
-            "ゲストセッションは端末に関連付けられ、その端末に進行状況を保持できます。プロバイダーを連携するとサーバーアカウントが維持され、クラウドセーブ、ランキング、購入の復元、端末間の復元が利用できます。"
-          ],
-          "bullets": [
-            "アカウント ID、表示名、国、リーダーペットなどのプロフィール情報。",
-            "Apple、Google、Facebook のプロバイダー名と subject ID。メールアドレスはプロバイダーから提供された場合のみ。"
-          ]
-        },
-        {
-          "heading": "処理するデータ",
-          "paragraphs": [
-            "利用する機能に応じて、アプリと data.dappgo.com は次のデータを処理することがあります。"
-          ],
-          "bullets": [
-            "クラウドセーブ、ゲーム進行、スコア、ランキング投稿、ゲームイベント。",
-            "招待コード、招待の有効化と不正防止の記録、フレンド、ギフト、報酬、関連アクティビティ。",
-            "権利の付与や復元に使う RevenueCat 経由の購入記録（商品、取引、ストア、環境、購入時刻など）。",
-            "アカウントセッションと不正防止のためにサーバー側でハッシュ化した端末識別子、および通知を有効にした場合のプッシュトークン。",
-            "対応する機能に使う Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config、Cloud Messaging のデータ。"
-          ]
-        },
-        {
-          "heading": "利用と共有",
-          "paragraphs": [
-            "DappGo はゲームの提供、進行の保存と復元、ランキングとソーシャル機能、購入処理、不正や悪用の防止、アカウントの保護、依頼された通知の送信、サービスの維持にこの情報を使います。",
-            "Number RPG は、選択した機能に必要な Apple、Google、Meta／Facebook、Firebase、Google AdMob、RevenueCat などのプロバイダーと情報を共有します。各プロバイダーは独自の規約とプライバシー文書に従って処理します。"
-          ]
-        },
-        {
-          "heading": "分析、クラッシュ、広告、同意",
-          "paragraphs": [
-            "Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config、Cloud Messaging は任意の連携です。収集はアプリの同意コントローラーで制御され、同意が確定する前は分析収集を無効にし、同意の変更で収集を取り消せます。",
-            "EEA では Google User Messaging Platform（UMP）の同意が広告利用可能状態を制御します。iOS では必要な場合、UMP の後に App Tracking Transparency を求めます。Google AdMob は広告利用可能な同意状態になった後にのみ広告を表示し、パーソナライズド広告は必要な同意がある場合にのみ使用します。"
-          ],
-          "bullets": [
-            "アプリに表示されるプライバシー設定で同意を拒否・変更できます。通知とトラッキングの権限は端末設定でも管理できます。",
-            "詳しくは「保存と削除」に記載したプロバイダーのポリシーをご覧ください。"
-          ]
-        },
-        {
-          "heading": "保存と削除",
-          "paragraphs": [
-            "アカウントデータはアカウントが有効な間保持されます。アプリ内およびウェブのセルフサービスによる削除は直ちに反映されます。メールまたはウェブフォームによる依頼は、本人確認後 30 日以内に完了します。確認には、設定 → アカウントに表示されるアカウント ID、または連携したメールアドレスからの返信を使います。",
-            "第三者プロバイダーはそれぞれのポリシーに従ってデータを処理します：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}}、{{revenuecat}}。Google Analytics のデータは 14 か月、サーバーのリクエストログは 30 日保持します。",
-            "削除が完了すると、認証情報、端末、セッション、セーブ、スコア、招待、フレンド、報酬、ギフト、イベント、アクティビティ、不正防止記録、プッシュトークンなどのアカウントとプレイヤーデータを削除します。Apple または Google が保持を必要とする購入記録は各ストアに残ります。その他のアカウントデータは上記のとおり削除されます。"
-          ]
-        },
-        {
-          "heading": "子どもと権利",
-          "paragraphs": [
-            "Number RPG は 13 歳未満の子どもを対象としていません。本アプリは 13 歳以上のユーザーを対象としており、13 歳未満の子どもにアカウント作成を故意に勧めることはありません。子どもが個人データを提供したと思われる場合は admin@dappgo.com までご連絡ください。",
-            "admin@dappgo.com に連絡して、アクセス、エクスポート、訂正、削除、同意の選択に関する情報を求めることができます。"
-          ]
-        },
-        {
-          "heading": "変更と連絡先",
-          "paragraphs": [
-            "アプリ、プロバイダー、法的要件が変わった場合、このポリシーを更新することがあります。上部の日付が現在の版を示します。プライバシーに関する質問や依頼は admin@dappgo.com までお送りください。"
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · 利用規約",
-      "title": "利用規約",
-      "product": "DappGo の Number RPG",
-      "effective": "発効日：2026-10-27",
-      "summary": "本規約は、ゲストプレイ、任意アカウント、バーチャルアイテム、購入、公正なプレイ、アカウント終了を含む Number RPG の利用ルールです。",
-      "sections": [
-        {
-          "heading": "1. 同意",
-          "paragraphs": [
-            "Number RPG をインストール、アクセス、利用することで、本利用規約と Number RPG プライバシーポリシーに同意したものとします。同意しない場合は利用しないでください。"
-          ]
-        },
-        {
-          "heading": "2. サービスとアカウント",
-          "paragraphs": [
-            "Number RPG は、米国カリフォルニア州サンガブリエルの個人事業主 Yenlung Lai が DappGo の名称で運営しています。 Number RPG はモバイルゲームです。ゲストとして遊べます。任意の Apple、Google、Facebook サインインでクラウドセーブ、ソーシャル機能、ランキング、購入の復元を利用できます。端末、サインイン情報、復元情報を安全に管理してください。"
-          ]
-        },
-        {
-          "heading": "3. バーチャルアイテムと購入",
-          "paragraphs": [
-            "ゲームには仮想通貨、ライフ、アクセサリー、アップグレードなどのデジタル権利が含まれることがあります。現金価値はなく、ゲーム内利用のためのライセンスであり、ゲーム外で販売、譲渡、交換できません。",
-            "購入は Apple App Store または Google Play の課金を通じて行います。返金、キャンセル、支払いの問題は取引を処理したストアの規則に従ってストアへ申し立ててください。RevenueCat は購入権利の記録と復元を補助します。アカウント削除でゲームデータは消えますが、対象となるストア購入は復元できる場合があります。"
-          ]
-        },
-        {
-          "heading": "4. 公正なプレイと許可される利用",
-          "paragraphs": [
-            "不正行為、バグの悪用、自動化、スコアや報酬の操作、招待・ギフト制度の悪用、他人へのなりすまし、ゲームやサービスへの干渉、他人を害する利用は禁止です。違法、虐待的、ヘイト、他人の権利を侵害するコンテンツや表示名も禁止します。"
-          ]
-        },
-        {
-          "heading": "5. 執行と終了",
-          "paragraphs": [
-            "DappGo は、アカウントまたは端末が不正、悪用、詐欺、安全上の問題、規約違反に関係すると合理的に判断した場合、アクセスを制限、停止、終了できます。サービスの一部を変更、停止、終了することもあります。設定 → アカウント削除、または削除ページの手順で削除できます。"
-          ]
-        },
-        {
-          "heading": "6. 免責と制限",
-          "paragraphs": [
-            "法律で認められる範囲で、ゲームは利用可能な状態で提供され、常時利用可能、エラーがない、すべてのアイテムやセーブを永久保存することを保証しません。端末、ネットワーク、ストア、第三者プロバイダー、合理的な支配を超える事由による障害について DappGo は責任を負いません。法律上制限できない権利を制限するものではありません。"
-          ]
-        },
-        {
-          "heading": "7. 準拠法と裁判地",
-          "paragraphs": [
-            "本規約は、法の抵触に関する規則を除き、米国カリフォルニア州法に準拠します。専属的な裁判地は、カリフォルニア州ロサンゼルス郡に所在する州裁判所または連邦裁判所とします。これは、お住まいの国の法律に基づく強行的な消費者の権利を制限しません。"
-          ]
-        },
-        {
-          "heading": "8. 連絡先",
-          "paragraphs": [
-            "本規約については admin@dappgo.com までご連絡ください。"
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · アカウント削除",
-      "title": "アカウントを削除",
-      "product": "DappGo の Number RPG",
-      "effective": "手順の発効日：2026-10-27",
-      "summary": "Number RPG は、米国カリフォルニア州サンガブリエルの個人事業主 Yenlung Lai が DappGo の名称で運営しています。 アプリ内、このページ、またはメールで削除を依頼できます。",
-      "sections": [
-        {
-          "heading": "アプリ内で削除",
-          "paragraphs": [
-            "Number RPG を開き、設定 → アカウントを削除に進みます。確認内容を読み、削除を確定し、成功が表示されるまでアプリをオンラインにしてください。アプリ内の削除は直ちに反映されます。Apple ID を連携している場合、Apple の再認証が必要になることがあります。"
-          ]
-        },
-        {
-          "heading": "メールまたはウェブフォームで削除を依頼",
-          "paragraphs": [
-            "Apple、Facebook、またはゲストアカウントは、このページのフォームまたは admin@dappgo.com へのメールを利用できます。可能であれば、設定 → アカウントのアカウント ID と連携したメールアドレスを入力してください。メールとウェブフォームの依頼は本人確認後 30 日以内に完了します。確認にはアカウント ID または連携メールからの返信を使います。パスワード、プロバイダーのアクセストークン、Apple の秘密鍵は送らないでください。"
-          ]
-        },
-        {
-          "heading": "削除されるデータ",
-          "paragraphs": [
-            "削除が完了すると、プロバイダーの認証情報、端末とセッション、クラウドセーブ、スコア、招待、フレンド、ギフト、報酬、イベント、アクティビティ、不正防止記録、プッシュトークンなどのアカウントとプレイヤーデータを削除します。アプリ内の進行状況はリセットされます。Apple または Google が保持を必要とする購入記録は各ストアに残ります。"
-          ]
-        },
-        {
-          "heading": "所要時間",
-          "paragraphs": [
-            "アプリ内およびウェブのセルフサービスによる削除は直ちに反映されます。メールとウェブフォームの依頼は本人確認後 30 日以内に完了します。確認には設定 → アカウントのアカウント ID、または連携メールからの返信を使います。",
-            "Apple または Google が保持を必要とする購入記録は各ストアに残ります。サポートが必要な場合やアカウントにアクセスできない場合は admin@dappgo.com までご連絡ください。"
-          ]
-        },
-        {
-          "heading": "サポート",
-          "paragraphs": [
-            "アプリ内手順が失敗した場合、アカウントにアクセスできない場合、メール依頼について質問がある場合は admin@dappgo.com へご連絡ください。"
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "ウェブで削除",
-        "intro": "アプリ内の削除は直ちに反映されます。アプリをインストールしていない場合は、次のブラウザー選択肢を利用できます。",
-        "googleHeading": "Google によるセルフサービス",
-        "googleCopy": "Google でサインインしてアカウントの表示名を確認し、DELETE と入力して続行します。",
-        "accountLabel": "サインイン中",
-        "confirmLabel": "確認のため DELETE と入力",
-        "confirmHint": "削除は直ちに反映されます。",
-        "confirmButton": "アカウントを削除",
-        "requestHeading": "その他のアカウントを依頼",
-        "requestCopy": "Apple、Facebook、ゲストアカウントはアカウント ID と連絡先メールを送ってください。確認後 30 日以内に完了します。",
-        "accountIdLabel": "アカウント ID",
-        "accountIdHint": "設定 → アカウントで確認できます。",
-        "emailLabel": "連絡先メール",
-        "reasonLabel": "理由（任意）",
-        "submitButton": "削除依頼を送信",
-        "timeline": "メールまたはウェブフォームの依頼は本人確認後 30 日以内に完了します。設定 → アカウントの ID または連携メールからの返信で確認します。",
-        "storeNote": "Apple または Google が保持を必要とする購入記録は各ストアに残ります。",
-        "signedOut": "Google のサインインはブラウザーライブラリの読み込み後に利用できます。",
-        "success": "アカウントの削除は直ちに反映されました。",
-        "requestSuccess": "依頼を送信しました。本人確認後 30 日以内に完了します。",
-        "error": "依頼を完了できませんでした。再試行するかメールを利用してください。",
-        "rateLimit": "依頼が多すぎます。しばらくしてから再試行してください。"
-      }
-    }
+    heading: "ウェブで削除", intro: "アプリを使ってすぐに削除するか、アプリがない場合はブラウザの以下の方法を使ってください。", googleHeading: "Google でセルフサービス", googleCopy: "Google でサインインして表示名を確認し、DELETE と入力して続行します。", accountLabel: "サインイン中", confirmLabel: "確認のため DELETE と入力", confirmHint: "直ちに反映されます。", confirmButton: "アカウントを削除", requestHeading: "別のアカウントの削除を依頼", requestCopy: "Apple、Facebook、ゲストアカウントはアカウント ID と連絡先メールを送ってください。本人確認後 30 日以内に完了します。", accountIdLabel: "アカウント ID", accountIdHint: "設定 → アカウントで確認できます。", emailLabel: "連絡先メール", reasonLabel: "理由（任意）", submitButton: "削除依頼を送信", timeline: "アプリ内と Google ウェブのセルフサービス削除は直ちに反映されます。メールとフォームの依頼は本人確認後 30 日以内に完了します。", storeNote: "Apple と Google はストアアカウントに購入記録を保持することがあります。DappGo は法律または合理的な安全、会計、不正、紛争上の必要性がある場合に限り、限定的な記録を保持します。", signedOut: "ブラウザライブラリが読み込まれると Google サインインを使えます。", success: "アカウントの削除が直ちに反映されました。", requestSuccess: "依頼を送信しました。本人確認後 30 日以内に完了します。", error: "依頼を完了できませんでした。再試行するかメールを利用してください。", rateLimit: "依頼が多すぎます。しばらく待って再試行してください。"
   },
   "ko": {
-    "privacy": {
-      "kicker": "Number RPG · 개인정보",
-      "title": "개인정보 처리방침",
-      "product": "DappGo의 Number RPG",
-      "effective": "시행일: 2026-10-27",
-      "summary": "Number RPG는 게스트로 플레이할 수 있습니다. 로그인은 선택 사항이며 계정 기반 클라우드 저장과 기기 간 복구를 제공합니다. 이 페이지는 Number RPG가 사용하는 데이터를 설명합니다.",
-      "sections": [
-        {
-          "heading": "운영 주체",
-          "paragraphs": [
-            "Number RPG는 미국 캘리포니아주 샌개브리얼에서 DappGo라는 상호로 사업하는 개인사업자 Yenlung Lai가 운영합니다. 이 방침이나 데이터에 관한 질문은 admin@dappgo.com으로 보내 주세요."
-          ]
-        },
-        {
-          "heading": "계정과 로그인",
-          "paragraphs": [
-            "게스트로 플레이하거나 Apple, Google, Facebook으로 선택적으로 로그인할 수 있습니다. iOS의 Facebook 로그인은 Meta Limited Login을 사용합니다. Number RPG는 공급자 자격 증명을 검증하지만 공급자 액세스 토큰은 저장하지 않습니다.",
-            "게스트 세션은 기기와 연결되어 기기에 진행 상황을 보관할 수 있습니다. 공급자를 연결하면 서버 계정이 유지되고 클라우드 저장, 순위표, 구매 복원, 기기 간 복구가 가능합니다."
-          ],
-          "bullets": [
-            "계정 ID와 표시 이름, 국가, 리더 펫 같은 프로필 정보.",
-            "Apple, Google 또는 Facebook의 공급자 이름과 subject ID. 이메일 주소는 공급자가 제공한 경우에만 처리됩니다."
-          ]
-        },
-        {
-          "heading": "처리하는 데이터",
-          "paragraphs": [
-            "사용하는 기능에 따라 앱과 data.dappgo.com은 다음 데이터를 처리할 수 있습니다."
-          ],
-          "bullets": [
-            "클라우드 저장, 게임 진행, 점수, 순위표 제출, 게임 이벤트.",
-            "초대 코드, 초대 활성화 및 사기 방지 기록, 친구, 선물, 보상과 관련 활동.",
-            "권한 부여 또는 복원에 사용하는 RevenueCat 구매 기록(상품, 거래, 스토어, 환경, 구매 시각 등).",
-            "계정 세션과 사기 방지를 위해 서버에서 해시한 기기 식별자와 알림을 켠 경우의 푸시 토큰.",
-            "해당 기능에 사용하는 Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging 데이터."
-          ]
-        },
-        {
-          "heading": "이용 및 공유",
-          "paragraphs": [
-            "DappGo는 게임 제공, 진행 저장과 복구, 순위표와 소셜 기능 운영, 구매 처리, 부정행위와 남용 방지, 계정 보안, 요청한 알림 전송, 서비스 유지에 이 정보를 사용합니다.",
-            "Number RPG는 선택한 기능에 필요한 Apple, Google, Meta/Facebook, Firebase, Google AdMob 및 RevenueCat과 정보를 공유합니다. 각 제공자는 자체 약관과 개인정보 문서에 따라 데이터를 처리할 수 있습니다."
-          ]
-        },
-        {
-          "heading": "분석, 충돌 보고, 광고 및 동의",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging은 선택적 연동입니다. 수집은 앱 동의 컨트롤러가 관리하며 동의가 확인되기 전에는 분석 수집을 끄고, 동의 변경으로 수집을 철회할 수 있습니다.",
-            "EEA에서는 Google User Messaging Platform(UMP) 동의가 광고 준비 상태를 제어합니다. iOS에서는 필요한 경우 UMP 후 App Tracking Transparency를 요청합니다. Google AdMob 광고는 광고 준비 동의 상태 이후에만 표시될 수 있으며 개인 맞춤 광고는 필요한 동의가 있을 때만 사용합니다."
-          ],
-          "bullets": [
-            "앱에 표시되는 개인정보 옵션에서 동의를 거부하거나 변경할 수 있고, 기기 설정에서 알림과 추적 권한을 관리할 수 있습니다.",
-            "자세한 내용은 보관 및 삭제에 나열된 제공자 정책을 확인하세요."
-          ]
-        },
-        {
-          "heading": "보관 및 삭제",
-          "paragraphs": [
-            "계정 데이터는 계정이 활성 상태인 동안 보관됩니다. 앱 내 삭제와 웹 셀프서비스 삭제는 즉시 적용됩니다. 이메일 또는 웹 양식 요청은 본인 확인 후 30일 이내에 완료됩니다. 설정 → 계정의 계정 ID 또는 연결된 이메일에서 보낸 회신으로 확인합니다.",
-            "제3자 제공자는 각자의 정책에 따라 데이터를 처리합니다: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, {{revenuecat}}. Google Analytics 데이터는 14개월, 서버 요청 로그는 30일 동안 보관됩니다.",
-            "삭제가 완료되면 ID, 기기, 세션, 저장 데이터, 점수, 초대, 친구, 보상, 선물, 이벤트, 활동, 부정행위 기록 및 푸시 토큰 등 계정과 플레이어 데이터를 삭제합니다. Apple 또는 Google이 보관해야 하는 구매 기록은 각 스토어에 남습니다. 그 밖의 계정 데이터는 위 설명에 따라 삭제됩니다."
-          ]
-        },
-        {
-          "heading": "아동 및 권리",
-          "paragraphs": [
-            "Number RPG는 13세 미만 아동을 대상으로 하지 않습니다. 이 앱은 13세 이상 사용자를 대상으로 하며, 13세 미만 아동에게 계정을 만들도록 고의로 권유하지 않습니다. 아동이 개인정보를 제공했다고 생각되면 admin@dappgo.com으로 연락해 주세요.",
-            "admin@dappgo.com으로 접근, 내보내기, 수정, 삭제 또는 동의 선택에 관한 요청을 할 수 있습니다. 계정과 다른 플레이어를 보호하기 위해 요청을 확인할 수 있습니다."
-          ]
-        },
-        {
-          "heading": "변경 및 연락처",
-          "paragraphs": [
-            "앱, 공급자 또는 법적 요구가 바뀌면 이 방침을 업데이트할 수 있습니다. 위 날짜가 현재 버전을 나타냅니다. 개인정보 질문이나 요청은 admin@dappgo.com으로 보내 주세요."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · 약관",
-      "title": "서비스 이용약관",
-      "product": "DappGo의 Number RPG",
-      "effective": "시행일: 2026-10-27",
-      "summary": "이 약관은 게스트 플레이, 선택적 계정, 가상 아이템, 구매, 공정한 플레이와 계정 종료를 포함한 Number RPG 이용 규칙입니다.",
-      "sections": [
-        {
-          "heading": "1. 약관 동의",
-          "paragraphs": [
-            "Number RPG를 설치, 접속 또는 사용하면 이 약관과 Number RPG 개인정보 처리방침에 동의하는 것입니다. 동의하지 않으면 게임을 사용하지 마세요."
-          ]
-        },
-        {
-          "heading": "2. 서비스와 계정",
-          "paragraphs": [
-            "Number RPG는 미국 캘리포니아주 샌개브리얼에서 DappGo라는 상호로 사업하는 개인사업자 Yenlung Lai가 운영합니다. Number RPG는 모바일 게임입니다. 게스트로 플레이할 수 있습니다. 선택적 Apple, Google 또는 Facebook 로그인은 클라우드 저장, 소셜 기능, 순위표와 구매 복원을 지원합니다. 기기와 로그인 및 복구 정보를 안전하게 관리하세요."
-          ]
-        },
-        {
-          "heading": "3. 가상 아이템과 구매",
-          "paragraphs": [
-            "게임에는 가상 화폐, 생명, 장식, 업그레이드 또는 기타 디지털 권한이 제공될 수 있습니다. 현금 가치가 없고 게임 안에서만 사용할 수 있으며 게임 밖에서 판매, 이전 또는 교환할 수 없습니다. 서비스나 게임 규칙에 따라 이용 가능성과 잔액이 바뀔 수 있습니다.",
-            "구매는 Apple App Store 또는 Google Play 결제를 통해 이루어집니다. 환불, 취소와 결제 분쟁은 거래를 처리한 스토어의 규칙에 따라 해당 스토어에 요청해야 합니다. RevenueCat은 구매 권한 기록과 복원을 돕습니다. 계정 삭제 시 게임 데이터는 삭제되지만, 해당 스토어 구매는 복원될 수 있습니다."
-          ]
-        },
-        {
-          "heading": "4. 공정한 플레이와 허용된 사용",
-          "paragraphs": [
-            "치팅, 버그 악용, 자동화 플레이, 점수나 보상 조작, 초대나 선물 시스템 악용, 사칭, 게임이나 서비스 방해, 타인에게 해를 끼치는 이용을 하지 마세요. 불법적이거나 모욕적이거나 혐오적이거나 다른 사람의 권리를 침해하는 콘텐츠와 표시 이름도 금지됩니다."
-          ]
-        },
-        {
-          "heading": "5. 조치와 종료",
-          "paragraphs": [
-            "DappGo는 계정이나 기기가 치팅, 남용, 사기, 보안 위험 또는 약관 위반과 관련 있다고 합리적으로 판단하면 이용을 제한, 정지 또는 종료할 수 있습니다. 서비스 일부를 변경, 일시 중지 또는 종료할 수도 있습니다. 설정 → 계정 삭제 또는 계정 삭제 페이지의 안내를 이용하세요."
-          ]
-        },
-        {
-          "heading": "6. 면책과 제한",
-          "paragraphs": [
-            "법이 허용하는 범위에서 게임은 이용 가능한 상태로 제공되며 중단이나 오류가 없거나 모든 아이템과 저장을 영구 보존한다고 보장하지 않습니다. 기기, 네트워크, 스토어, 제3자 공급자 또는 합리적 통제를 벗어난 사건으로 인한 장애에 대해 DappGo는 책임지지 않습니다. 법적으로 제한할 수 없는 권리를 제한하지 않습니다."
-          ]
-        },
-        {
-          "heading": "7. 준거법과 관할",
-          "paragraphs": [
-            "이 약관은 법률 충돌 규칙을 제외하고 미국 캘리포니아주 법률의 적용을 받습니다. 전속 관할은 캘리포니아주 로스앤젤레스 카운티에 있는 주 법원 또는 연방 법원입니다. 이는 귀하가 거주하는 국가의 법률에 따른 강행적 소비자 권리를 제한하지 않습니다."
-          ]
-        },
-        {
-          "heading": "8. 연락처",
-          "paragraphs": [
-            "약관 질문은 admin@dappgo.com으로 보내 주세요."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · 계정 삭제",
-      "title": "계정 삭제",
-      "product": "DappGo의 Number RPG",
-      "effective": "안내 시행일: 2026-10-27",
-      "summary": "Number RPG는 미국 캘리포니아주 샌개브리얼에서 DappGo라는 상호로 사업하는 개인사업자 Yenlung Lai가 운영합니다. 앱, 이 페이지 또는 이메일로 삭제를 요청할 수 있습니다.",
-      "sections": [
-        {
-          "heading": "앱에서 삭제",
-          "paragraphs": [
-            "Number RPG를 열고 설정 → 계정 삭제로 이동하세요. 안내를 읽고 삭제를 확인한 다음 성공 메시지가 표시될 때까지 앱을 온라인 상태로 유지하세요. 앱 내 삭제는 즉시 적용됩니다. Apple ID가 연결되어 있으면 Apple 재인증이 필요할 수 있습니다."
-          ]
-        },
-        {
-          "heading": "이메일 또는 웹 양식으로 삭제 요청",
-          "paragraphs": [
-            "Apple, Facebook 또는 게스트 계정은 이 페이지의 양식이나 admin@dappgo.com 이메일을 이용하세요. 가능하면 설정 → 계정의 계정 ID와 계정에 연결된 연락 이메일을 제공하세요. 이메일 및 웹 양식 요청은 본인 확인 후 30일 이내에 완료됩니다. 계정 ID 또는 연결된 이메일의 회신으로 확인합니다. 비밀번호, 제공자 액세스 토큰 또는 Apple 개인 키는 보내지 마세요."
-          ]
-        },
-        {
-          "heading": "삭제되는 데이터",
-          "paragraphs": [
-            "삭제가 완료되면 제공자 ID, 기기와 세션, 클라우드 저장, 점수, 초대, 친구, 선물, 보상, 이벤트, 활동, 부정행위 기록 및 푸시 토큰 등 계정과 플레이어 데이터를 삭제합니다. 앱 내 진행 상황은 초기화됩니다. Apple 또는 Google이 보관해야 하는 구매 기록은 각 스토어에 남습니다."
-          ]
-        },
-        {
-          "heading": "처리 시간",
-          "paragraphs": [
-            "앱 내 삭제와 웹 셀프서비스 삭제는 즉시 적용됩니다. 이메일 및 웹 양식 요청은 본인 확인 후 30일 이내에 완료됩니다. 설정 → 계정의 계정 ID 또는 연결된 이메일의 회신으로 확인합니다.",
-            "Apple 또는 Google이 보관해야 하는 구매 기록은 각 스토어에 남습니다. 도움이 필요하거나 계정에 접근할 수 없으면 admin@dappgo.com으로 연락해 주세요."
-          ]
-        },
-        {
-          "heading": "도움이 필요하신가요?",
-          "paragraphs": [
-            "앱 내 절차가 실패하거나 계정에 접근할 수 없거나 이메일 요청에 대해 질문이 있으면 admin@dappgo.com으로 연락해 주세요."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "웹에서 삭제",
-        "intro": "앱 내 삭제는 즉시 적용됩니다. 앱이 설치되어 있지 않다면 다음 브라우저 옵션을 사용하세요.",
-        "googleHeading": "Google 셀프서비스",
-        "googleCopy": "Google로 로그인하여 계정 표시 이름을 확인한 다음 DELETE를 입력해 계속하세요.",
-        "accountLabel": "로그인 계정",
-        "confirmLabel": "확인하려면 DELETE 입력",
-        "confirmHint": "삭제는 즉시 적용됩니다.",
-        "confirmButton": "내 계정 삭제",
-        "requestHeading": "다른 계정 삭제 요청",
-        "requestCopy": "Apple, Facebook 또는 게스트 계정은 계정 ID와 연락 이메일을 보내 주세요. 본인 확인 후 30일 이내에 완료합니다.",
-        "accountIdLabel": "계정 ID",
-        "accountIdHint": "설정 → 계정에서 확인하세요.",
-        "emailLabel": "연락 이메일",
-        "reasonLabel": "사유(선택)",
-        "submitButton": "삭제 요청 제출",
-        "timeline": "이메일 또는 웹 양식 요청은 본인 확인 후 30일 이내에 완료됩니다. 설정 → 계정의 계정 ID 또는 연결된 이메일 회신으로 확인합니다.",
-        "storeNote": "Apple 또는 Google이 보관해야 하는 구매 기록은 각 스토어에 남습니다.",
-        "signedOut": "브라우저 라이브러리가 로드되면 Google 로그인을 사용할 수 있습니다.",
-        "success": "계정 삭제가 즉시 적용되었습니다.",
-        "requestSuccess": "요청이 전송되었습니다. 본인 확인 후 30일 이내에 완료합니다.",
-        "error": "요청을 완료할 수 없습니다. 다시 시도하거나 이메일 옵션을 사용하세요.",
-        "rateLimit": "요청이 너무 많습니다. 잠시 후 다시 시도하세요."
-      }
-    }
+    heading: "웹에서 삭제", intro: "앱에서 즉시 삭제하거나 앱이 설치되지 않은 경우 브라우저 옵션을 사용하세요.", googleHeading: "Google 셀프서비스", googleCopy: "Google로 로그인해 계정 표시 이름을 확인한 뒤 DELETE를 입력하여 계속합니다.", accountLabel: "로그인 계정", confirmLabel: "확인을 위해 DELETE 입력", confirmHint: "즉시 적용됩니다.", confirmButton: "내 계정 삭제", requestHeading: "다른 계정 삭제 도움 요청", requestCopy: "Apple, Facebook 또는 게스트 계정은 계정 ID와 연락처 이메일을 보내세요. 확인 후 30일 이내에 완료합니다.", accountIdLabel: "계정 ID", accountIdHint: "설정 → 계정에서 확인할 수 있습니다.", emailLabel: "연락처 이메일", reasonLabel: "사유(선택 사항)", submitButton: "삭제 요청 제출", timeline: "앱 내 및 Google 웹 셀프서비스 삭제는 즉시 적용됩니다. 이메일 및 웹 양식 요청은 확인 후 30일 이내에 완료합니다.", storeNote: "Apple과 Google은 스토어 계정에 구매 기록을 보관할 수 있습니다. DappGo는 법률 또는 합리적인 보안·회계·사기·분쟁 필요에 한해 제한된 기록을 보관할 수 있습니다.", signedOut: "브라우저 라이브러리가 로드되면 Google 로그인을 사용할 수 있습니다.", success: "계정 삭제가 즉시 적용되었습니다.", requestSuccess: "요청을 보냈습니다. 확인 후 30일 이내에 완료합니다.", error: "요청을 완료할 수 없습니다. 다시 시도하거나 이메일 옵션을 이용하세요.", rateLimit: "요청이 너무 많습니다. 잠시 후 다시 시도하세요."
   },
   "es": {
-    "privacy": {
-      "kicker": "Number RPG · privacidad",
-      "title": "Política de privacidad",
-      "product": "Number RPG de DappGo",
-      "effective": "Fecha de vigencia: 2026-10-27",
-      "summary": "Puedes jugar a Number RPG como invitado. Iniciar sesión es opcional y añade guardado en la nube asociado a la cuenta y recuperación entre dispositivos. Esta página describe los datos que usa Number RPG.",
-      "sections": [
-        {
-          "heading": "Quiénes somos",
-          "paragraphs": [
-            "Number RPG es operado por Yenlung Lai, empresario individual que opera bajo el nombre comercial DappGo en San Gabriel, California, Estados Unidos. Puedes enviar preguntas sobre esta política o tus datos a admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Cuentas e inicio de sesión",
-          "paragraphs": [
-            "Puede jugar como invitado o iniciar sesión opcionalmente con Apple, Google o Facebook. En iOS, el inicio de sesión de Facebook usa Meta Limited Login. La servicio de Number RPG verifica las credenciales del proveedor y no almacena tokens de acceso del proveedor.",
-            "La sesión de invitado se vincula a un dispositivo y puede conservar el progreso en él. Al vincular un proveedor se conserva la cuenta del servidor y se habilitan el guardado en la nube, las clasificaciones, la restauración de compras y la recuperación entre dispositivos."
-          ],
-          "bullets": [
-            "ID de cuenta e información del perfil, como nombre visible, país y mascota líder.",
-            "Nombre y subject ID del proveedor de Apple, Google o Facebook; correo electrónico solo si el proveedor lo facilita."
-          ]
-        },
-        {
-          "heading": "Datos que procesamos",
-          "paragraphs": [
-            "Según las funciones que utilice, la app y data.dappgo.com pueden procesar:"
-          ],
-          "bullets": [
-            "Guardados en la nube, progreso, puntuaciones, envíos a clasificaciones y eventos de juego.",
-            "Códigos de invitación, activación de invitaciones y registros antifraude, amigos, regalos, recompensas y actividad relacionada.",
-            "Registros de compras recibidos mediante RevenueCat, como producto, transacción, tienda, entorno y momento de compra, para conceder o restaurar derechos.",
-            "Un identificador de dispositivo representado por un hash del servidor para sesiones y antifraude, además de tokens de notificaciones cuando se activan.",
-            "Datos de Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config y Cloud Messaging usados por sus funciones."
-          ]
-        },
-        {
-          "heading": "Uso y divulgación",
-          "paragraphs": [
-            "DappGo usa esta información para prestar el juego, guardar y restaurar el progreso, operar clasificaciones y funciones sociales, procesar compras, evitar trampas y abusos, proteger cuentas, enviar notificaciones solicitadas y mantener el servicio.",
-            "Number RPG comparte información con los proveedores necesarios para la función que eliges, como Apple, Google, Meta/Facebook, Firebase, Google AdMob y RevenueCat. Cada proveedor puede tratar los datos según sus propios términos y documentos de privacidad."
-          ]
-        },
-        {
-          "heading": "Analítica, fallos, anuncios y consentimiento",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config y Cloud Messaging son integraciones opcionales. La recopilación está controlada por el sistema de consentimiento de la app; la analítica se desactiva antes de resolver el consentimiento y un cambio puede revocarla.",
-            "En el EEE, el consentimiento de Google User Messaging Platform (UMP) controla si los anuncios están listos. En iOS, cuando corresponde, se solicita App Tracking Transparency después de UMP. Google AdMob solo puede mostrar anuncios después de un estado de consentimiento apto; los anuncios personalizados se usan únicamente con el consentimiento requerido."
-          ],
-          "bullets": [
-            "Puede rechazar o cambiar el consentimiento cuando la app muestre las opciones de privacidad y controlar notificaciones y seguimiento en los ajustes del dispositivo.",
-            "Consulta las políticas de los proveedores indicadas en Retención y eliminación para obtener más información."
-          ]
-        },
-        {
-          "heading": "Conservación y eliminación",
-          "paragraphs": [
-            "Conservamos los datos de la cuenta mientras esté activa. La eliminación desde la aplicación y la eliminación autoservicio desde la web tienen efecto inmediato. Las solicitudes por correo electrónico o formulario web se completan en un plazo de 30 días después de la verificación; verificamos con el ID de cuenta de Ajustes → Cuenta o con una respuesta desde el correo vinculado a la cuenta.",
-            "Los proveedores externos tratan los datos según sus propias políticas: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} y {{revenuecat}}. Conservamos los datos de Google Analytics durante 14 meses y los registros de solicitudes del servidor durante 30 días.",
-            "Cuando la eliminación se completa, eliminamos la cuenta y los datos del jugador, como identidades, dispositivos, sesiones, partidas guardadas, puntuaciones, invitaciones, amistades, recompensas, regalos, eventos, actividad, registros antifraude y tokens de notificaciones. Los registros de compras que Apple o Google deban conservar permanecen en esas tiendas. Los demás datos de la cuenta se eliminan como se ha descrito."
-          ]
-        },
-        {
-          "heading": "Menores y derechos",
-          "paragraphs": [
-            "Number RPG no está dirigido a menores de 13 años. La aplicación está destinada a usuarios de 13 años o más y no invitamos conscientemente a menores de 13 años a crear una cuenta. Si crees que un menor ha proporcionado datos personales, contacta con admin@dappgo.com.",
-            "Puede solicitar acceso, exportación, corrección, eliminación o información sobre el consentimiento escribiendo a admin@dappgo.com. La servicio también tiene una ruta autenticada de exportación de datos. Podemos verificar las solicitudes para proteger las cuentas y a otros jugadores."
-          ]
-        },
-        {
-          "heading": "Cambios y contacto",
-          "paragraphs": [
-            "Podemos actualizar esta política cuando cambien la app, la servicio, los proveedores o las obligaciones legales. La fecha de arriba identifica la versión vigente. Para preguntas o solicitudes de privacidad, escriba a admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · términos",
-      "title": "Términos del servicio",
-      "product": "Number RPG de DappGo",
-      "effective": "Fecha de vigencia: 2026-10-27",
-      "summary": "Estos términos establecen las reglas para usar Number RPG, incluido el juego como invitado, las cuentas opcionales, los objetos virtuales, las compras, el juego limpio y la terminación.",
-      "sections": [
-        {
-          "heading": "1. Aceptación",
-          "paragraphs": [
-            "Al instalar, acceder o usar Number RPG, acepta estos Términos del servicio y la Política de privacidad de Number RPG. Si no está de acuerdo, no use el juego."
-          ]
-        },
-        {
-          "heading": "2. Servicio y cuentas",
-          "paragraphs": [
-            "Number RPG es operado por Yenlung Lai, empresario individual que opera bajo el nombre comercial DappGo en San Gabriel, California, Estados Unidos. Number RPG es un juego para móviles. Puedes jugar como invitado. El inicio de sesión opcional con Apple, Google o Facebook permite guardar en la nube, usar funciones sociales, consultar clasificaciones y restaurar compras. Protege tu dispositivo, tus credenciales y la información de recuperación."
-          ]
-        },
-        {
-          "heading": "3. Objetos virtuales y compras",
-          "paragraphs": [
-            "El juego puede ofrecer moneda virtual, vidas, accesorios, mejoras u otros derechos digitales. No tienen valor monetario, se licencian para el juego y no pueden venderse, transferirse ni canjearse fuera de él. La disponibilidad y los saldos pueden cambiar con el servicio o sus reglas.",
-            "Las compras se realizan mediante Apple App Store o Google Play. Las solicitudes de reembolso, cancelación o disputas de pago deben dirigirse a la tienda que procesó la transacción y seguir sus reglas. RevenueCat ayuda a registrar y restaurar derechos. Al eliminar la cuenta se eliminan los datos del juego; las compras elegibles pueden seguir siendo restaurables mediante la cuenta de la tienda."
-          ]
-        },
-        {
-          "heading": "4. Juego limpio y uso aceptable",
-          "paragraphs": [
-            "No haga trampas, explote errores, automatice el juego, manipule puntuaciones o recompensas, abuse de invitaciones o regalos, suplante a otra persona, interfiera con la servicio o el servicio, ni use el juego para dañar a alguien. No envíe contenido o nombres visibles ilegales, abusivos, de odio o que infrinjan derechos."
-          ]
-        },
-        {
-          "heading": "5. Medidas y terminación",
-          "paragraphs": [
-            "DappGo puede limitar, suspender o terminar el acceso cuando razonablemente crea que una cuenta o dispositivo participa en trampas, abuso, fraude, riesgos de seguridad o incumplimiento. También puede cambiar, pausar o discontinuar partes del servicio. Puede eliminar la cuenta desde Ajustes → Eliminar cuenta o siguiendo la página de eliminación."
-          ]
-        },
-        {
-          "heading": "6. Exenciones y límites",
-          "paragraphs": [
-            "En la medida permitida por la ley, el juego se proporciona tal como está disponible y sin promesas de funcionamiento ininterrumpido, sin errores o de conservación permanente de cada objeto o guardado. DappGo no responde por fallos causados por su dispositivo, red, tienda, proveedor externo o hechos fuera de un control razonable. Nada limita derechos que legalmente no puedan limitarse."
-          ]
-        },
-        {
-          "heading": "7. Ley aplicable y jurisdicción",
-          "paragraphs": [
-            "Estos Términos se rigen por las leyes del estado de California, Estados Unidos, sin tener en cuenta sus normas sobre conflicto de leyes. La jurisdicción exclusiva corresponde a los tribunales estatales o federales situados en el condado de Los Ángeles, California. Esto no limita los derechos obligatorios de los consumidores del país donde resides."
-          ]
-        },
-        {
-          "heading": "8. Contacto",
-          "paragraphs": [
-            "Las preguntas sobre estos términos pueden enviarse a admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · eliminar cuenta",
-      "title": "Eliminar su cuenta",
-      "product": "Number RPG de DappGo",
-      "effective": "Instrucciones vigentes: 2026-10-27",
-      "summary": "Number RPG es operado por Yenlung Lai, empresario individual que opera bajo el nombre comercial DappGo en San Gabriel, California, Estados Unidos. Puedes solicitar la eliminación en la aplicación, en esta página o por correo electrónico.",
-      "sections": [
-        {
-          "heading": "Eliminar desde la app",
-          "paragraphs": [
-            "Abre Number RPG y ve a Ajustes → Eliminar cuenta. Lee la confirmación, confirma la eliminación y mantén la aplicación conectada hasta que indique que se completó. La eliminación desde la aplicación tiene efecto inmediato. Si hay una identidad de Apple vinculada, la aplicación puede pedirte que vuelvas a autorizar Apple."
-          ]
-        },
-        {
-          "heading": "Solicitar la eliminación por correo o formulario web",
-          "paragraphs": [
-            "Para cuentas de Apple, Facebook o invitado, usa el formulario de esta página o escribe a admin@dappgo.com. Cuando sea posible, incluye el ID de cuenta de Ajustes → Cuenta y el correo de contacto vinculado. Las solicitudes por correo o formulario web se completan en un plazo de 30 días después de la verificación; verificamos con el ID o con una respuesta desde el correo vinculado. No envíes contraseñas, tokens de acceso ni claves privadas de Apple."
-          ]
-        },
-        {
-          "heading": "Qué eliminamos",
-          "paragraphs": [
-            "Una eliminación correcta elimina la cuenta y los datos del jugador: identidades de proveedores, dispositivos y sesiones, partidas guardadas, puntuaciones, invitaciones, amistades, regalos, recompensas, eventos, actividad, registros antifraude y tokens de notificaciones. La aplicación restablece el progreso local. Los registros de compras que Apple o Google deban conservar permanecen en esas tiendas."
-          ]
-        },
-        {
-          "heading": "Cuánto tarda",
-          "paragraphs": [
-            "La eliminación desde la aplicación y la eliminación autoservicio desde la web tienen efecto inmediato. Las solicitudes por correo o formulario web se completan en un plazo de 30 días después de la verificación. Para verificar, proporciona el ID de Ajustes → Cuenta o responde desde el correo vinculado.",
-            "Los registros de compras que Apple o Google deban conservar permanecen en esas tiendas. Contacta con admin@dappgo.com si necesitas ayuda o no puedes acceder a la cuenta."
-          ]
-        },
-        {
-          "heading": "¿Necesita ayuda?",
-          "paragraphs": [
-            "Contacte con admin@dappgo.com si falla el flujo, no puede acceder a la cuenta o necesita preguntar por una solicitud de correo."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Eliminar en la web",
-        "intro": "La eliminación desde la aplicación tiene efecto inmediato. Si no tienes la aplicación instalada, usa estas opciones del navegador.",
-        "googleHeading": "Autoservicio con Google",
-        "googleCopy": "Inicia sesión con Google para confirmar el nombre visible de la cuenta y escribe DELETE para continuar.",
-        "accountLabel": "Sesión iniciada como",
-        "confirmLabel": "Escribe DELETE para confirmar",
-        "confirmHint": "Tiene efecto inmediato.",
-        "confirmButton": "Eliminar mi cuenta",
-        "requestHeading": "Solicitar ayuda con otra cuenta",
-        "requestCopy": "Para cuentas de Apple, Facebook o invitado, envía el ID de cuenta y el correo de contacto. Lo completaremos en un plazo de 30 días tras la verificación.",
-        "accountIdLabel": "ID de cuenta",
-        "accountIdHint": "Lo encontrarás en Ajustes → Cuenta.",
-        "emailLabel": "Correo de contacto",
-        "reasonLabel": "Motivo (opcional)",
-        "submitButton": "Enviar solicitud de eliminación",
-        "timeline": "Las solicitudes por correo o formulario web se completan en un plazo de 30 días después de la verificación. Verifica con el ID de Ajustes → Cuenta o respondiendo desde el correo vinculado.",
-        "storeNote": "Los registros de compras que Apple o Google deban conservar permanecen en esas tiendas.",
-        "signedOut": "El inicio de sesión de Google estará disponible cuando se cargue la biblioteca del navegador.",
-        "success": "La eliminación de tu cuenta se ha aplicado de inmediato.",
-        "requestSuccess": "Hemos enviado tu solicitud. La completaremos en un plazo de 30 días tras la verificación.",
-        "error": "No hemos podido completar la solicitud. Inténtalo de nuevo o usa el correo electrónico.",
-        "rateLimit": "Demasiadas solicitudes. Espera un momento e inténtalo de nuevo."
-      }
-    }
+    heading: "Eliminar en la web", intro: "Use la app para eliminar de inmediato o estas opciones del navegador cuando no esté instalada.", googleHeading: "Autoservicio con Google", googleCopy: "Inicie sesión con Google para confirmar el nombre de la cuenta y escriba DELETE para continuar.", accountLabel: "Sesión iniciada como", confirmLabel: "Escriba DELETE para confirmar", confirmHint: "Tiene efecto inmediato.", confirmButton: "Eliminar mi cuenta", requestHeading: "Pedir ayuda con otra cuenta", requestCopy: "Para cuentas de Apple, Facebook o invitado, envíe el ID de cuenta y el correo de contacto. Completaremos la solicitud en 30 días tras verificarla.", accountIdLabel: "ID de cuenta", accountIdHint: "Lo encontrará en Ajustes → Cuenta.", emailLabel: "Correo de contacto", reasonLabel: "Motivo (opcional)", submitButton: "Enviar solicitud de eliminación", timeline: "La eliminación en la app y el autoservicio web de Google son inmediatos. Las solicitudes por correo o formulario se completan en 30 días tras verificar.", storeNote: "Apple y Google pueden conservar registros de compra en sus cuentas de tienda. DappGo solo puede conservar registros limitados por ley o por necesidades razonables de seguridad, contabilidad, fraude o disputas.", signedOut: "El inicio de sesión de Google estará disponible cuando cargue la biblioteca del navegador.", success: "La eliminación de su cuenta se realizó de inmediato.", requestSuccess: "Solicitud enviada. La completaremos en 30 días tras verificarla.", error: "No pudimos completar la solicitud. Vuelva a intentarlo o use el correo electrónico.", rateLimit: "Demasiadas solicitudes. Espere y vuelva a intentarlo."
   },
   "fr": {
-    "privacy": {
-      "kicker": "Number RPG · confidentialité",
-      "title": "Politique de confidentialité",
-      "product": "Number RPG par DappGo",
-      "effective": "Date d’effet : 2026-10-27",
-      "summary": "Number RPG peut être utilisé en tant qu’invité. La connexion est facultative et ajoute la sauvegarde cloud liée au compte ainsi que la récupération entre appareils. Cette page décrit les données utilisées par Number RPG.",
-      "sections": [
-        {
-          "heading": "Qui sommes-nous ?",
-          "paragraphs": [
-            "Number RPG est exploité par Yenlung Lai, entrepreneur individuel exerçant sous le nom commercial DappGo à San Gabriel, en Californie, aux États-Unis. Les questions concernant cette politique ou vos données peuvent être envoyées à admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Comptes et connexion",
-          "paragraphs": [
-            "Vous pouvez jouer en invité ou vous connecter facultativement avec Apple, Google ou Facebook. Sur iOS, la connexion Facebook utilise Meta Limited Login. L’service Number RPG vérifie les identifiants du fournisseur et ne conserve pas les jetons d’accès du fournisseur.",
-            "La session invité est associée à un appareil et peut y conserver la progression. La liaison d’un fournisseur conserve le compte serveur et active la sauvegarde cloud, les classements, la restauration des achats et la récupération entre appareils."
-          ],
-          "bullets": [
-            "ID de compte et profil : nom affiché, pays et familier chef, par exemple.",
-            "Nom du fournisseur et subject ID Apple, Google ou Facebook ; adresse e-mail uniquement si le fournisseur la transmet."
-          ]
-        },
-        {
-          "heading": "Données traitées",
-          "paragraphs": [
-            "Selon les fonctions utilisées, l’app et data.dappgo.com peuvent traiter :"
-          ],
-          "bullets": [
-            "Sauvegardes cloud, progression, scores, soumissions aux classements et événements de jeu.",
-            "Codes d’invitation, activation des invitations et données antifraude, amis, cadeaux, récompenses et activité associée.",
-            "Données d’achat reçues via RevenueCat, notamment produit, transaction, boutique, environnement et moment de l’achat, pour accorder ou restaurer les droits.",
-            "Un identifiant d’appareil représenté par un hachage serveur pour les sessions et l’antifraude, ainsi que les jetons push lorsque les notifications sont activées.",
-            "Données de Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config et Cloud Messaging utilisées par les fonctions correspondantes."
-          ]
-        },
-        {
-          "heading": "Utilisation et partage",
-          "paragraphs": [
-            "DappGo utilise ces informations pour fournir le jeu, sauvegarder et restaurer la progression, exploiter les classements et fonctions sociales, traiter les achats, empêcher la triche et les abus, sécuriser les comptes, envoyer les notifications demandées et maintenir le service.",
-            "Number RPG partage des informations avec les fournisseurs nécessaires à la fonction que vous choisissez, notamment Apple, Google, Meta/Facebook, Firebase, Google AdMob et RevenueCat. Chaque fournisseur peut traiter les données selon ses propres conditions et documents de confidentialité."
-          ]
-        },
-        {
-          "heading": "Analytique, rapports d’erreur, publicités et consentement",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config et Cloud Messaging sont des intégrations facultatives. La collecte est contrôlée par le système de consentement de l’app ; l’analytique est désactivée avant la résolution du consentement et un changement peut révoquer la collecte.",
-            "Dans l’EEE, le consentement Google User Messaging Platform (UMP) contrôle l’état de préparation des annonces. Sur iOS, App Tracking Transparency est demandé après UMP lorsque nécessaire. Google AdMob peut afficher des annonces seulement après un état de consentement autorisant les annonces ; les annonces personnalisées sont utilisées uniquement avec le consentement requis."
-          ],
-          "bullets": [
-            "Vous pouvez refuser ou modifier le consentement dans les options de confidentialité présentées par l’app et gérer les notifications et le suivi dans les réglages de l’appareil.",
-            "Pour plus d’informations, consultez les politiques des fournisseurs indiquées dans Conservation et suppression."
-          ]
-        },
-        {
-          "heading": "Conservation et suppression",
-          "paragraphs": [
-            "Les données du compte sont conservées tant que le compte est actif. La suppression dans l’application et la suppression en libre-service sur le web prennent effet immédiatement. Les demandes par e-mail ou formulaire web sont traitées dans les 30 jours suivant la vérification ; nous vérifions avec l’identifiant du compte dans Réglages → Compte ou avec une réponse depuis l’adresse e-mail associée.",
-            "Les fournisseurs tiers traitent les données selon leurs propres politiques : {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} et {{revenuecat}}. Les données Google Analytics sont conservées pendant 14 mois et les journaux des requêtes du serveur pendant 30 jours.",
-            "Une fois la suppression terminée, nous supprimons le compte et les données du joueur, notamment les identités, appareils, sessions, sauvegardes, scores, invitations, amitiés, récompenses, cadeaux, événements, activité, données antifraude et jetons de notification. Les relevés d’achat qu’Apple ou Google doivent conserver restent auprès de ces boutiques. Les autres données du compte sont supprimées comme indiqué ci-dessus."
-          ]
-        },
-        {
-          "heading": "Enfants et droits",
-          "paragraphs": [
-            "Number RPG ne s’adresse pas aux enfants de moins de 13 ans. L’application est destinée aux utilisateurs âgés d’au moins 13 ans et nous n’invitons pas sciemment les enfants de moins de 13 ans à créer un compte. Si vous pensez qu’un enfant a fourni des données personnelles, contactez admin@dappgo.com.",
-            "Vous pouvez demander l’accès, l’exportation, la rectification, la suppression ou des informations sur le consentement en écrivant à admin@dappgo.com. L’service possède également une voie d’export authentifiée. Nous pouvons vérifier les demandes afin de protéger les comptes et les autres joueurs."
-          ]
-        },
-        {
-          "heading": "Modifications et contact",
-          "paragraphs": [
-            "Nous pouvons mettre à jour cette politique lorsque l’app, les fournisseurs ou les obligations légales changent. La date en haut indique la version en vigueur. Pour toute question ou demande de confidentialité, écrivez à admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · conditions",
-      "title": "Conditions d’utilisation",
-      "product": "Number RPG par DappGo",
-      "effective": "Date d’effet : 2026-10-27",
-      "summary": "Ces conditions fixent les règles d’utilisation de Number RPG : jeu en invité, comptes facultatifs, objets virtuels, achats, fair-play et fin du compte.",
-      "sections": [
-        {
-          "heading": "1. Acceptation",
-          "paragraphs": [
-            "En installant, en consultant ou en utilisant Number RPG, vous acceptez ces Conditions d’utilisation et la Politique de confidentialité de Number RPG. Si vous refusez, n’utilisez pas le jeu."
-          ]
-        },
-        {
-          "heading": "2. Service et comptes",
-          "paragraphs": [
-            "Number RPG est exploité par Yenlung Lai, entrepreneur individuel exerçant sous le nom commercial DappGo à San Gabriel, en Californie, aux États-Unis. Number RPG est un jeu mobile. Vous pouvez jouer en tant qu’invité. La connexion facultative avec Apple, Google ou Facebook permet la sauvegarde cloud, les fonctions sociales, les classements et la restauration des achats. Protégez votre appareil, vos identifiants et vos informations de récupération."
-          ]
-        },
-        {
-          "heading": "3. Objets virtuels et achats",
-          "paragraphs": [
-            "Le jeu peut proposer une monnaie virtuelle, des vies, accessoires, améliorations ou autres droits numériques. Ils n’ont aucune valeur en espèces, sont concédés sous licence pour le jeu et ne peuvent pas être vendus, transférés ou échangés hors du jeu. Leur disponibilité et les soldes peuvent changer.",
-            "Les achats passent par Apple App Store ou Google Play. Les remboursements, annulations et litiges de paiement doivent être demandés à la boutique qui a traité la transaction, selon ses règles. RevenueCat aide à enregistrer et restaurer les droits. La suppression du compte efface les données du jeu ; les achats éligibles peuvent rester restaurables via le compte de la boutique."
-          ]
-        },
-        {
-          "heading": "4. Fair-play et usage acceptable",
-          "paragraphs": [
-            "Ne trichez pas, n’exploitez pas les bugs, n’automatisez pas le jeu, ne manipulez pas les scores ou récompenses, n’abusez pas des invitations ou cadeaux, n’usurpez pas l’identité d’autrui et n’interférez pas avec l’service ou le service. N’envoyez pas de contenu ou de nom illégal, abusif, haineux ou portant atteinte aux droits d’autrui."
-          ]
-        },
-        {
-          "heading": "5. Mesures et résiliation",
-          "paragraphs": [
-            "DappGo peut limiter, suspendre ou résilier l’accès lorsqu’il estime raisonnablement qu’un compte ou un appareil triche, abuse du service, est frauduleux, présente un risque de sécurité ou viole ces conditions. Le service peut aussi être modifié, suspendu ou arrêté en partie. Supprimez le compte depuis Réglages → Supprimer le compte ou selon la page de suppression."
-          ]
-        },
-        {
-          "heading": "6. Garanties et limites",
-          "paragraphs": [
-            "Dans la mesure permise par la loi, le jeu est fourni tel qu’il est disponible, sans promesse d’absence d’interruption ou d’erreur ni de conservation permanente de chaque objet ou sauvegarde. DappGo n’est pas responsable des défaillances dues à l’appareil, au réseau, à la boutique, à un fournisseur tiers ou à un événement hors de son contrôle raisonnable. Rien ne limite les droits qui ne peuvent légalement l’être."
-          ]
-        },
-        {
-          "heading": "7. Droit applicable et juridiction",
-          "paragraphs": [
-            "Les présentes Conditions sont régies par les lois de l’État de Californie, aux États-Unis, sans tenir compte des règles de conflit de lois. Le lieu de juridiction exclusif est celui des tribunaux d’État ou fédéraux situés dans le comté de Los Angeles, en Californie. Cela ne limite pas les droits impératifs des consommateurs dans le pays où vous résidez."
-          ]
-        },
-        {
-          "heading": "8. Contact",
-          "paragraphs": [
-            "Les questions sur ces conditions peuvent être envoyées à admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · suppression du compte",
-      "title": "Supprimer votre compte",
-      "product": "Number RPG par DappGo",
-      "effective": "Instructions en vigueur : 2026-10-27",
-      "summary": "Number RPG est exploité par Yenlung Lai, entrepreneur individuel exerçant sous le nom commercial DappGo à San Gabriel, en Californie, aux États-Unis. Vous pouvez demander la suppression dans l’application, sur cette page ou par e-mail.",
-      "sections": [
-        {
-          "heading": "Supprimer dans l’app",
-          "paragraphs": [
-            "Ouvrez Number RPG et accédez à Réglages → Supprimer le compte. Lisez la confirmation, confirmez la suppression et gardez l’application en ligne jusqu’à l’affichage de la réussite. La suppression dans l’application prend effet immédiatement. Si une identité Apple est associée, l’application peut demander une nouvelle autorisation Apple."
-          ]
-        },
-        {
-          "heading": "Demander la suppression par e-mail ou formulaire web",
-          "paragraphs": [
-            "Pour les comptes Apple, Facebook ou invités, utilisez le formulaire de cette page ou écrivez à admin@dappgo.com. Si possible, indiquez l’identifiant du compte dans Réglages → Compte et l’adresse e-mail de contact associée. Les demandes par e-mail ou formulaire web sont traitées dans les 30 jours suivant la vérification ; nous vérifions avec l’identifiant ou une réponse depuis l’adresse associée. N’envoyez pas de mot de passe, de jeton d’accès ni de clé privée Apple."
-          ]
-        },
-        {
-          "heading": "Données supprimées",
-          "paragraphs": [
-            "Une suppression réussie retire le compte et les données du joueur : identités des fournisseurs, appareils et sessions, sauvegardes cloud, scores, invitations, amitiés, cadeaux, récompenses, événements, activité, données antifraude et jetons de notification. La progression locale est réinitialisée par l’application. Les relevés d’achat qu’Apple ou Google doivent conserver restent auprès de ces boutiques."
-          ]
-        },
-        {
-          "heading": "Délai",
-          "paragraphs": [
-            "La suppression dans l’application et la suppression en libre-service sur le web prennent effet immédiatement. Les demandes par e-mail ou formulaire web sont traitées dans les 30 jours suivant la vérification. Pour vérifier, fournissez l’identifiant dans Réglages → Compte ou répondez depuis l’adresse associée.",
-            "Les relevés d’achat qu’Apple ou Google doivent conserver restent auprès de ces boutiques. Contactez admin@dappgo.com si vous avez besoin d’aide ou si vous ne pouvez pas accéder au compte."
-          ]
-        },
-        {
-          "heading": "Besoin d’aide ?",
-          "paragraphs": [
-            "Contactez admin@dappgo.com si le parcours échoue, si vous n’avez plus accès au compte ou si vous avez une question sur une demande e-mail."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Supprimer sur le web",
-        "intro": "La suppression dans l’application prend effet immédiatement. Si l’application n’est pas installée, utilisez ces options du navigateur.",
-        "googleHeading": "Libre-service avec Google",
-        "googleCopy": "Connectez-vous avec Google pour confirmer le nom affiché du compte, puis saisissez DELETE pour continuer.",
-        "accountLabel": "Connecté en tant que",
-        "confirmLabel": "Saisissez DELETE pour confirmer",
-        "confirmHint": "La suppression prend effet immédiatement.",
-        "confirmButton": "Supprimer mon compte",
-        "requestHeading": "Demander de l’aide pour un autre compte",
-        "requestCopy": "Pour les comptes Apple, Facebook ou invités, envoyez l’identifiant du compte et l’adresse e-mail de contact. La demande sera traitée dans les 30 jours suivant la vérification.",
-        "accountIdLabel": "Identifiant du compte",
-        "accountIdHint": "Disponible dans Réglages → Compte.",
-        "emailLabel": "E-mail de contact",
-        "reasonLabel": "Motif (facultatif)",
-        "submitButton": "Envoyer la demande de suppression",
-        "timeline": "Les demandes par e-mail ou formulaire web sont traitées dans les 30 jours suivant la vérification. Vérifiez avec l’identifiant dans Réglages → Compte ou une réponse depuis l’adresse associée.",
-        "storeNote": "Les relevés d’achat qu’Apple ou Google doivent conserver restent auprès de ces boutiques.",
-        "signedOut": "La connexion Google sera disponible après le chargement de la bibliothèque du navigateur.",
-        "success": "La suppression de votre compte a pris effet immédiatement.",
-        "requestSuccess": "Votre demande a été envoyée. Elle sera traitée dans les 30 jours suivant la vérification.",
-        "error": "Nous n’avons pas pu traiter la demande. Réessayez ou utilisez l’e-mail.",
-        "rateLimit": "Trop de demandes. Veuillez patienter avant de réessayer."
-      }
-    }
+    heading: "Supprimer sur le web", intro: "Utilisez l’app pour une suppression immédiate ou ces options du navigateur si elle n’est pas installée.", googleHeading: "Autoservice avec Google", googleCopy: "Connectez-vous avec Google pour confirmer le nom du compte, puis saisissez DELETE pour continuer.", accountLabel: "Connecté en tant que", confirmLabel: "Saisissez DELETE pour confirmer", confirmHint: "Prend effet immédiatement.", confirmButton: "Supprimer mon compte", requestHeading: "Demander de l’aide pour un autre compte", requestCopy: "Pour Apple, Facebook ou un compte invité, envoyez l’ID du compte et l’e-mail de contact. Nous terminerons sous 30 jours après vérification.", accountIdLabel: "ID du compte", accountIdHint: "À trouver dans Réglages → Compte.", emailLabel: "E-mail de contact", reasonLabel: "Motif (facultatif)", submitButton: "Envoyer la demande de suppression", timeline: "La suppression dans l’app et l’autoservice web Google sont immédiats. Les demandes par e-mail ou formulaire sont terminées sous 30 jours après vérification.", storeNote: "Apple et Google peuvent conserver les achats dans leurs comptes de boutique. DappGo ne garde que les dossiers limités nécessaires à la loi ou à des besoins raisonnables de sécurité, comptabilité, fraude ou litige.", signedOut: "La connexion Google sera disponible lorsque la bibliothèque du navigateur sera chargée.", success: "La suppression de votre compte a pris effet immédiatement.", requestSuccess: "Demande envoyée. Nous la terminerons sous 30 jours après vérification.", error: "Impossible de terminer la demande. Réessayez ou utilisez l’e-mail.", rateLimit: "Trop de demandes. Attendez puis réessayez."
   },
   "de": {
-    "privacy": {
-      "kicker": "Number RPG · Datenschutz",
-      "title": "Datenschutzerklärung",
-      "product": "Number RPG von DappGo",
-      "effective": "Gültig ab: 2026-10-27",
-      "summary": "Number RPG kann als Gast gespielt werden. Die Anmeldung ist optional und ermöglicht einen kontobasierten Cloud-Spielstand sowie die Wiederherstellung auf mehreren Geräten. Diese Seite beschreibt die von Number RPG verwendeten Daten.",
-      "sections": [
-        {
-          "heading": "Wer wir sind",
-          "paragraphs": [
-            "Number RPG wird von Yenlung Lai betrieben, einem Einzelunternehmer, der unter dem Namen DappGo in San Gabriel, Kalifornien, USA, tätig ist. Fragen zu dieser Richtlinie oder Ihren Daten können Sie an admin@dappgo.com senden."
-          ]
-        },
-        {
-          "heading": "Konten und Anmeldung",
-          "paragraphs": [
-            "Sie können als Gast spielen oder sich freiwillig mit Apple, Google oder Facebook anmelden. Unter iOS verwendet die Facebook-Anmeldung Meta Limited Login. Die Number-RPG-Dienst prüft die Anbieter-Anmeldedaten, speichert aber keine Zugriffs-Tokens der Anbieter.",
-            "Die Gastsitzung wird einem Gerät zugeordnet und kann den Fortschritt dort speichern. Durch die Verknüpfung mit einem Anbieter bleibt das Serverkonto erhalten; Cloud-Speicherung, Ranglisten, die Wiederherstellung von Käufen und der Gerätewechsel werden ermöglicht."
-          ],
-          "bullets": [
-            "Konto-ID und Profildaten wie Anzeigename, Land und ausgewähltes Anführer-Pet.",
-            "Anbietername und Subject-ID von Apple, Google oder Facebook; eine E-Mail-Adresse nur, wenn sie vom Anbieter übermittelt wird."
-          ]
-        },
-        {
-          "heading": "Verarbeitete Daten",
-          "paragraphs": [
-            "Je nach verwendeten Funktionen können die App und data.dappgo.com Folgendes verarbeiten:"
-          ],
-          "bullets": [
-            "Cloud-Speicherstände, Spielfortschritt, Punkte, Ranglisten-Einreichungen und Spielereignisse.",
-            "Einladungscodes, Aktivierungs- und Betrugsbekämpfungsdaten, Freunde, Geschenke, Belohnungen und zugehörige Aktivitäten.",
-            "Über RevenueCat erhaltene Kaufdaten wie Produkt, Transaktion, Store, Umgebung und Kaufzeitpunkt zur Vergabe oder Wiederherstellung von Berechtigungen.",
-            "Eine serverseitig gehashte Gerätekennung für Sitzungen und Betrugsbekämpfung sowie Push-Tokens, wenn Benachrichtigungen aktiviert sind.",
-            "Daten von Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config und Cloud Messaging für die jeweiligen Funktionen."
-          ]
-        },
-        {
-          "heading": "Verwendung und Weitergabe",
-          "paragraphs": [
-            "DappGo verwendet diese Informationen, um das Spiel bereitzustellen, Fortschritt zu speichern und wiederherzustellen, Ranglisten und soziale Funktionen zu betreiben, Käufe zu verarbeiten, Betrug und Missbrauch zu verhindern, Konten zu schützen, gewünschte Benachrichtigungen zu senden und den Dienst zu betreiben.",
-            "Number RPG teilt Informationen mit den für die von Ihnen gewählte Funktion erforderlichen Anbietern, darunter Apple, Google, Meta/Facebook, Firebase, Google AdMob und RevenueCat. Jeder Anbieter kann Daten nach seinen eigenen Bedingungen und Datenschutzdokumenten verarbeiten."
-          ]
-        },
-        {
-          "heading": "Analysen, Absturzberichte, Werbung und Einwilligung",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config und Cloud Messaging sind optionale Integrationen. Die Erhebung wird durch die Einwilligungssteuerung der App begrenzt; Analysen sind vor der Klärung der Einwilligung deaktiviert und eine Änderung kann die Erhebung widerrufen.",
-            "Im EWR steuert die Einwilligung über Google User Messaging Platform (UMP), ob Werbung bereit ist. Unter iOS wird, falls erforderlich, nach UMP App Tracking Transparency angefragt. Google-AdMob-Werbung darf erst nach einem werbefähigen Einwilligungsstatus angezeigt werden; personalisierte Werbung wird nur mit der erforderlichen Einwilligung verwendet."
-          ],
-          "bullets": [
-            "Sie können Einwilligung über die in der App angezeigten Datenschutzoptionen ablehnen oder ändern und Benachrichtigungs- sowie Tracking-Berechtigungen in den Geräteeinstellungen steuern.",
-            "Weitere Informationen finden Sie in den unter Aufbewahrung und Löschung aufgeführten Anbieterrichtlinien."
-          ]
-        },
-        {
-          "heading": "Aufbewahrung und Löschung",
-          "paragraphs": [
-            "Kontodaten werden gespeichert, solange Ihr Konto aktiv ist. Die Löschung in der App und die selbst bediente Löschung im Web werden sofort wirksam. Anfragen per E-Mail oder Webformular werden innerhalb von 30 Tagen nach der Verifizierung abgeschlossen; zur Verifizierung verwenden wir die Konto-ID unter Einstellungen → Konto oder eine Antwort von der verknüpften E-Mail-Adresse.",
-            "Drittanbieter verarbeiten Daten nach ihren eigenen Richtlinien: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} und {{revenuecat}}. Google-Analytics-Daten werden 14 Monate und Server-Anforderungsprotokolle 30 Tage gespeichert.",
-            "Nach erfolgreicher Löschung entfernen wir das Konto und Spielerdaten wie Identitäten, Geräte, Sitzungen, Spielstände, Punktzahlen, Einladungen, Freundschaften, Belohnungen, Geschenke, Ereignisse, Aktivitäten, Betrugsaufzeichnungen und Push-Tokens. Von Apple oder Google aufzubewahrende Kaufdaten verbleiben bei diesen Stores. Andere Kontodaten werden wie oben beschrieben gelöscht."
-          ]
-        },
-        {
-          "heading": "Kinder und Ihre Rechte",
-          "paragraphs": [
-            "Number RPG richtet sich nicht an Kinder unter 13 Jahren. Die App ist für Nutzer ab 13 Jahren bestimmt, und wir fordern Kinder unter 13 Jahren nicht wissentlich zur Erstellung eines Kontos auf. Wenn Sie glauben, dass ein Kind personenbezogene Daten bereitgestellt hat, wenden Sie sich an admin@dappgo.com.",
-            "Sie können per E-Mail an admin@dappgo.com Auskunft, Export, Berichtigung, Löschung oder Informationen zur Einwilligung verlangen. Die Dienst bietet auch einen authentifizierten Datenexport. Zum Schutz von Konten und anderen Spielern können wir Anfragen prüfen."
-          ]
-        },
-        {
-          "heading": "Änderungen und Kontakt",
-          "paragraphs": [
-            "Wir können diese Erklärung ändern, wenn sich App, Anbieter oder gesetzliche Anforderungen ändern. Das Datum oben bezeichnet die aktuelle Fassung. Datenschutzfragen und Anfragen senden Sie an admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · Bedingungen",
-      "title": "Nutzungsbedingungen",
-      "product": "Number RPG von DappGo",
-      "effective": "Gültig ab: 2026-10-27",
-      "summary": "Diese Bedingungen regeln die Nutzung von Number RPG, einschließlich Gastspiel, optionalen Konten, virtuellen Gegenständen, Käufen, fairem Spiel und Kontobeendigung.",
-      "sections": [
-        {
-          "heading": "1. Zustimmung",
-          "paragraphs": [
-            "Durch Installation, Zugriff oder Nutzung von Number RPG stimmen Sie diesen Nutzungsbedingungen und der Datenschutzerklärung von Number RPG zu. Wenn Sie nicht zustimmen, nutzen Sie das Spiel nicht."
-          ]
-        },
-        {
-          "heading": "2. Dienst und Konten",
-          "paragraphs": [
-            "Number RPG wird von Yenlung Lai betrieben, einem Einzelunternehmer, der unter dem Namen DappGo in San Gabriel, Kalifornien, USA, tätig ist. Number RPG ist ein mobiles Spiel. Sie können als Gast spielen. Eine optionale Anmeldung mit Apple, Google oder Facebook unterstützt Cloud-Spielstände, soziale Funktionen, Ranglisten und die Wiederherstellung von Käufen. Schützen Sie Ihr Gerät, Ihre Anmeldedaten und Ihre Wiederherstellungsinformationen."
-          ]
-        },
-        {
-          "heading": "3. Virtuelle Gegenstände und Käufe",
-          "paragraphs": [
-            "Das Spiel kann virtuelle Währung, Leben, Zubehör, Verbesserungen oder andere digitale Berechtigungen anbieten. Sie haben keinen Geldwert, werden für die Nutzung im Spiel lizenziert und dürfen außerhalb des Spiels nicht verkauft, übertragen oder eingelöst werden. Verfügbarkeit und Guthaben können sich mit dem Dienst oder den Spielregeln ändern.",
-            "Käufe werden über Apple App Store oder Google Play abgerechnet. Erstattungen, Stornierungen und Zahlungsstreitigkeiten müssen nach den Regeln des Stores, der die Transaktion verarbeitet hat, dort beantragt werden. RevenueCat hilft bei der Aufzeichnung und Wiederherstellung von Berechtigungen. Die Kontolöschung löscht Spieldaten; berechtigte Store-Käufe können über das Store-Konto wiederherstellbar bleiben."
-          ]
-        },
-        {
-          "heading": "4. Fair Play und zulässige Nutzung",
-          "paragraphs": [
-            "Cheaten, das Ausnutzen von Fehlern, automatisiertes Spielen, die Manipulation von Punkten oder Belohnungen, der Missbrauch von Einladungs- oder Geschenksystemen, Identitätsvortäuschung, Eingriffe in Dienst oder Dienst sowie die Nutzung zum Schaden anderer sind nicht erlaubt. Senden Sie keine rechtswidrigen, beleidigenden, hasserfüllten oder rechtsverletzenden Inhalte oder Anzeigenamen."
-          ]
-        },
-        {
-          "heading": "5. Maßnahmen und Beendigung",
-          "paragraphs": [
-            "DappGo kann den Zugriff begrenzen, sperren oder beenden, wenn ein Konto oder Gerät nach vernünftiger Einschätzung cheatet, missbraucht, betrügerisch oder unsicher ist oder gegen diese Bedingungen verstößt. Teile des Dienstes können geändert, pausiert oder eingestellt werden. Sie können das Konto über Einstellungen → Konto löschen oder die Löschseite löschen."
-          ]
-        },
-        {
-          "heading": "6. Haftungsausschlüsse und Grenzen",
-          "paragraphs": [
-            "Soweit gesetzlich zulässig, wird das Spiel in der verfügbaren Form bereitgestellt, ohne Zusicherung eines ununterbrochenen oder fehlerfreien Betriebs oder einer dauerhaften Speicherung jedes Gegenstands und Spielstands. DappGo haftet nicht für Ausfälle durch Gerät, Netzwerk, App-Store, Drittanbieter oder Ereignisse außerhalb angemessener Kontrolle. Gesetzlich unabdingbare Rechte bleiben unberührt."
-          ]
-        },
-        {
-          "heading": "7. Anwendbares Recht und Gerichtsstand",
-          "paragraphs": [
-            "Diese Bedingungen unterliegen dem Recht des US-Bundesstaates Kalifornien, ohne Berücksichtigung kollisionsrechtlicher Vorschriften. Ausschließlicher Gerichtsstand sind die staatlichen oder bundesstaatlichen Gerichte im Los Angeles County, Kalifornien. Dies schränkt zwingende Verbraucherrechte im Land Ihres Wohnsitzes nicht ein."
-          ]
-        },
-        {
-          "heading": "8. Kontakt",
-          "paragraphs": [
-            "Fragen zu diesen Bedingungen senden Sie an admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · Konto löschen",
-      "title": "Konto löschen",
-      "product": "Number RPG von DappGo",
-      "effective": "Anleitung gültig ab: 2026-10-27",
-      "summary": "Number RPG wird von Yenlung Lai betrieben, einem Einzelunternehmer, der unter dem Namen DappGo in San Gabriel, Kalifornien, USA, tätig ist. Sie können die Löschung in der App, auf dieser Seite oder per E-Mail anfordern.",
-      "sections": [
-        {
-          "heading": "In der App löschen",
-          "paragraphs": [
-            "Öffnen Sie Number RPG und gehen Sie zu Einstellungen → Konto löschen. Lesen Sie die Bestätigung, bestätigen Sie die Löschung und lassen Sie die App online, bis sie den Erfolg meldet. Die Löschung in der App wird sofort wirksam. Bei einer verknüpften Apple-Identität kann eine erneute Apple-Autorisierung erforderlich sein."
-          ]
-        },
-        {
-          "heading": "Löschung per E-Mail oder Webformular anfordern",
-          "paragraphs": [
-            "Für Apple-, Facebook- oder Gastkonten können Sie das Formular auf dieser Seite oder admin@dappgo.com verwenden. Geben Sie nach Möglichkeit die Konto-ID unter Einstellungen → Konto und die mit dem Konto verknüpfte Kontakt-E-Mail an. Anfragen per E-Mail oder Webformular werden innerhalb von 30 Tagen nach der Verifizierung abgeschlossen; zur Bestätigung verwenden wir die Konto-ID oder eine Antwort von der verknüpften E-Mail-Adresse. Senden Sie kein Passwort, Zugriffstoken oder keinen privaten Apple-Schlüssel."
-          ]
-        },
-        {
-          "heading": "Was wir löschen",
-          "paragraphs": [
-            "Bei erfolgreicher Löschung entfernen wir das Konto und Spielerdaten: Anbieteridentitäten, Geräte und Sitzungen, Cloud-Spielstände, Punktzahlen, Einladungen, Freundschaften, Geschenke, Belohnungen, Ereignisse, Aktivitäten, Betrugsaufzeichnungen und Push-Tokens. Der lokale Spielfortschritt wird von der App zurückgesetzt. Von Apple oder Google aufzubewahrende Kaufdaten verbleiben bei diesen Stores."
-          ]
-        },
-        {
-          "heading": "Wie lange es dauert",
-          "paragraphs": [
-            "Die Löschung in der App und die selbst bediente Löschung im Web werden sofort wirksam. Anfragen per E-Mail oder Webformular werden innerhalb von 30 Tagen nach der Verifizierung abgeschlossen. Zur Verifizierung benötigen wir die Konto-ID unter Einstellungen → Konto oder eine Antwort von der verknüpften E-Mail-Adresse.",
-            "Von Apple oder Google aufzubewahrende Kaufdaten verbleiben bei diesen Stores. Wenden Sie sich an admin@dappgo.com, wenn Sie Hilfe benötigen oder keinen Zugriff auf das Konto haben."
-          ]
-        },
-        {
-          "heading": "Hilfe",
-          "paragraphs": [
-            "Kontaktieren Sie admin@dappgo.com, wenn der Ablauf fehlschlägt, Sie keinen Zugriff haben oder Fragen zu einem E-Mail-Antrag bestehen."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Im Web löschen",
-        "intro": "Die Löschung in der App wird sofort wirksam. Wenn die App nicht installiert ist, können Sie diese Browseroptionen verwenden.",
-        "googleHeading": "Selbstbedienung mit Google",
-        "googleCopy": "Melden Sie sich mit Google an, bestätigen Sie den Kontonamen und geben Sie DELETE ein, um fortzufahren.",
-        "accountLabel": "Angemeldet als",
-        "confirmLabel": "Zur Bestätigung DELETE eingeben",
-        "confirmHint": "Die Löschung wird sofort wirksam.",
-        "confirmButton": "Mein Konto löschen",
-        "requestHeading": "Hilfe für ein anderes Konto anfordern",
-        "requestCopy": "Für Apple-, Facebook- oder Gastkonten senden Sie Konto-ID und Kontakt-E-Mail. Wir schließen die Anfrage innerhalb von 30 Tagen nach der Verifizierung ab.",
-        "accountIdLabel": "Konto-ID",
-        "accountIdHint": "Unter Einstellungen → Konto zu finden.",
-        "emailLabel": "Kontakt-E-Mail",
-        "reasonLabel": "Grund (optional)",
-        "submitButton": "Löschanfrage senden",
-        "timeline": "Anfragen per E-Mail oder Webformular werden innerhalb von 30 Tagen nach der Verifizierung abgeschlossen. Bestätigen Sie mit der Konto-ID unter Einstellungen → Konto oder einer Antwort von der verknüpften E-Mail-Adresse.",
-        "storeNote": "Von Apple oder Google aufzubewahrende Kaufdaten verbleiben bei diesen Stores.",
-        "signedOut": "Die Google-Anmeldung ist verfügbar, sobald die Browserbibliothek geladen ist.",
-        "success": "Die Löschung Ihres Kontos wurde sofort wirksam.",
-        "requestSuccess": "Ihre Anfrage wurde gesendet. Wir schließen sie innerhalb von 30 Tagen nach der Verifizierung ab.",
-        "error": "Die Anfrage konnte nicht abgeschlossen werden. Versuchen Sie es erneut oder nutzen Sie E-Mail.",
-        "rateLimit": "Zu viele Anfragen. Bitte warten Sie und versuchen Sie es später erneut."
-      }
-    }
+    heading: "Im Web löschen", intro: "Nutzen Sie die App für eine sofortige Löschung oder die Browseroptionen, wenn sie nicht installiert ist.", googleHeading: "Selbstservice mit Google", googleCopy: "Melden Sie sich mit Google an, bestätigen Sie den Kontonamen und geben Sie DELETE ein.", accountLabel: "Angemeldet als", confirmLabel: "DELETE zur Bestätigung eingeben", confirmHint: "Wirkt sofort.", confirmButton: "Mein Konto löschen", requestHeading: "Hilfe für ein anderes Konto anfordern", requestCopy: "Für Apple-, Facebook- oder Gastkonten senden Sie Konto-ID und Kontakt-E-Mail. Wir erledigen es nach Prüfung innerhalb von 30 Tagen.", accountIdLabel: "Konto-ID", accountIdHint: "Zu finden unter Einstellungen → Konto.", emailLabel: "Kontakt-E-Mail", reasonLabel: "Grund (optional)", submitButton: "Löschanfrage senden", timeline: "Die Löschung in der App und der Google-Web-Selbstservice wirken sofort. E-Mail- und Formularanfragen werden nach Prüfung innerhalb von 30 Tagen erledigt.", storeNote: "Apple und Google können Käufe in ihren Store-Konten behalten. DappGo bewahrt nur begrenzte Aufzeichnungen auf, die gesetzlich oder für angemessene Sicherheits-, Buchhaltungs-, Betrugs- oder Streitgründe nötig sind.", signedOut: "Google-Anmeldung ist verfügbar, sobald die Browserbibliothek geladen ist.", success: "Ihr Konto wurde sofort gelöscht.", requestSuccess: "Anfrage gesendet. Wir erledigen sie nach Prüfung innerhalb von 30 Tagen.", error: "Die Anfrage konnte nicht abgeschlossen werden. Versuchen Sie es erneut oder nutzen Sie E-Mail.", rateLimit: "Zu viele Anfragen. Warten Sie und versuchen Sie es erneut."
   },
   "pt-BR": {
-    "privacy": {
-      "kicker": "Number RPG · privacidade",
-      "title": "Política de privacidade",
-      "product": "Number RPG da DappGo",
-      "effective": "Vigência: 2026-10-27",
-      "summary": "Você pode jogar Number RPG como visitante. O login é opcional e acrescenta salvamento na nuvem vinculado à conta e recuperação entre dispositivos. Esta página descreve os dados usados pelo Number RPG.",
-      "sections": [
-        {
-          "heading": "Quem somos",
-          "paragraphs": [
-            "Number RPG é operado por Yenlung Lai, empresário individual que atua sob o nome comercial DappGo, em San Gabriel, Califórnia, EUA. Dúvidas sobre esta política ou seus dados podem ser enviadas para admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Contas e login",
-          "paragraphs": [
-            "Você pode jogar como convidado ou fazer login opcional com Apple, Google ou Facebook. No iOS, o login do Facebook usa Meta Limited Login. A serviço do Number RPG verifica as credenciais do provedor, mas não armazena tokens de acesso do provedor.",
-            "A sessão de convidado é associada a um dispositivo e pode manter o progresso nele. Vincular um provedor preserva a conta do servidor e habilita salvamento na nuvem, placares, restauração de compras e recuperação entre dispositivos."
-          ],
-          "bullets": [
-            "ID da conta e perfil, como nome exibido, país e mascote líder.",
-            "Nome e subject ID do provedor Apple, Google ou Facebook; e-mail somente quando fornecido pelo provedor."
-          ]
-        },
-        {
-          "heading": "Dados processados",
-          "paragraphs": [
-            "Dependendo dos recursos usados, o app e data.dappgo.com podem processar:"
-          ],
-          "bullets": [
-            "Salvamentos na nuvem, progresso, pontuações, envios para placares e eventos de jogo.",
-            "Códigos de convite, ativação e registros antifraude, amigos, presentes, recompensas e atividade relacionada.",
-            "Registros de compras recebidos pelo RevenueCat, como produto, transação, loja, ambiente e horário da compra, para conceder ou restaurar direitos.",
-            "Um identificador de dispositivo representado por hash no servidor para sessões e antifraude, além de tokens push quando as notificações são ativadas.",
-            "Dados do Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config e Cloud Messaging usados pelos recursos correspondentes."
-          ]
-        },
-        {
-          "heading": "Uso e compartilhamento",
-          "paragraphs": [
-            "A DappGo usa essas informações para oferecer o jogo, salvar e restaurar o progresso, operar placares e recursos sociais, processar compras, evitar trapaças e abusos, proteger contas, enviar notificações solicitadas e manter o serviço.",
-            "O Number RPG compartilha informações com os provedores necessários para o recurso escolhido, incluindo Apple, Google, Meta/Facebook, Firebase, Google AdMob e RevenueCat. Cada provedor pode processar dados segundo seus próprios termos e documentos de privacidade."
-          ]
-        },
-        {
-          "heading": "Análises, falhas, anúncios e consentimento",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config e Cloud Messaging são integrações opcionais. A coleta é controlada pelo consentimento do app; a análise fica desativada antes da resolução do consentimento e uma mudança pode revogar a coleta.",
-            "No EEE, o consentimento do Google User Messaging Platform (UMP) controla a disponibilidade de anúncios. No iOS, quando necessário, o App Tracking Transparency é solicitado depois do UMP. O Google AdMob só pode exibir anúncios após um estado de consentimento apto; anúncios personalizados só são usados com o consentimento necessário."
-          ],
-          "bullets": [
-            "Você pode recusar ou alterar o consentimento nas opções de privacidade exibidas pelo app e controlar notificações e rastreamento nas configurações do dispositivo.",
-            "Para mais informações, consulte as políticas dos provedores listadas em Retenção e exclusão."
-          ]
-        },
-        {
-          "heading": "Retenção e exclusão",
-          "paragraphs": [
-            "Os dados da conta são mantidos enquanto a conta estiver ativa. A exclusão no aplicativo e a exclusão autônoma pela web entram em vigor imediatamente. Solicitações por e-mail ou formulário web são concluídas em até 30 dias após a verificação; verificamos usando o ID da conta em Configurações → Conta ou uma resposta do e-mail vinculado à conta.",
-            "Provedores terceirizados processam dados de acordo com suas próprias políticas: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} e {{revenuecat}}. Os dados do Google Analytics são mantidos por 14 meses e os registros de solicitações do servidor por 30 dias.",
-            "Quando a exclusão é concluída, removemos a conta e os dados do jogador, como identidades, dispositivos, sessões, salvamentos, pontuações, convites, amizades, recompensas, presentes, eventos, atividade, registros antifraude e tokens de push. Registros de compras que a Apple ou o Google precisem manter permanecem nessas lojas. Os demais dados da conta são excluídos conforme descrito acima."
-          ]
-        },
-        {
-          "heading": "Crianças e seus direitos",
-          "paragraphs": [
-            "Number RPG não é destinado a crianças menores de 13 anos. O aplicativo é destinado a usuários com 13 anos ou mais e não convidamos conscientemente crianças menores de 13 anos a criar uma conta. Se você acredita que uma criança forneceu dados pessoais, entre em contato com admin@dappgo.com.",
-            "Você pode solicitar acesso, exportação, correção, exclusão ou informações sobre consentimento em admin@dappgo.com. A serviço também possui uma rota autenticada de exportação. Podemos verificar solicitações para proteger contas e outros jogadores."
-          ]
-        },
-        {
-          "heading": "Alterações e contato",
-          "paragraphs": [
-            "Podemos atualizar esta política quando mudarem o app, a serviço, os provedores ou as exigências legais. A data acima identifica a versão vigente. Envie dúvidas e solicitações de privacidade para admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · termos",
-      "title": "Termos de serviço",
-      "product": "Number RPG da DappGo",
-      "effective": "Vigência: 2026-10-27",
-      "summary": "Estes termos definem as regras para usar Number RPG, incluindo jogo como convidado, contas opcionais, itens virtuais, compras, jogo justo e encerramento de conta.",
-      "sections": [
-        {
-          "heading": "1. Aceitação",
-          "paragraphs": [
-            "Ao instalar, acessar ou usar Number RPG, você aceita estes Termos de Serviço e a Política de Privacidade do Number RPG. Se não concordar, não use o jogo."
-          ]
-        },
-        {
-          "heading": "2. Serviço e contas",
-          "paragraphs": [
-            "Number RPG é operado por Yenlung Lai, empresário individual que atua sob o nome comercial DappGo, em San Gabriel, Califórnia, EUA. Number RPG é um jogo para celular. Você pode jogar como visitante. O login opcional com Apple, Google ou Facebook permite salvamento na nuvem, recursos sociais, placares e restauração de compras. Proteja seu dispositivo, suas credenciais e suas informações de recuperação."
-          ]
-        },
-        {
-          "heading": "3. Itens virtuais e compras",
-          "paragraphs": [
-            "O jogo pode oferecer moeda virtual, vidas, acessórios, melhorias ou outros direitos digitais. Eles não têm valor em dinheiro, são licenciados para uso no jogo e não podem ser vendidos, transferidos ou trocados fora dele. A disponibilidade e os saldos podem mudar com o serviço ou as regras.",
-            "As compras são feitas pela cobrança do Apple App Store ou Google Play. Reembolsos, cancelamentos e disputas de pagamento devem ser solicitados à loja que processou a transação, conforme suas regras. O RevenueCat ajuda a registrar e restaurar direitos. Excluir a conta remove os dados do jogo; compras elegíveis podem continuar restauráveis pela conta da loja."
-          ]
-        },
-        {
-          "heading": "4. Jogo justo e uso aceitável",
-          "paragraphs": [
-            "Não trapaceie, explore bugs, automatize o jogo, manipule pontuações ou recompensas, abuse de convites ou presentes, se passe por outra pessoa, interfira na serviço ou no serviço, nem use o jogo para prejudicar alguém. Não envie conteúdo ou nomes ilegais, abusivos, de ódio ou que violem direitos de terceiros."
-          ]
-        },
-        {
-          "heading": "5. Medidas e encerramento",
-          "paragraphs": [
-            "A DappGo pode limitar, suspender ou encerrar o acesso quando acreditar razoavelmente que uma conta ou dispositivo está trapaceando, abusando, fraudando, oferecendo risco de segurança ou violando estes termos. Partes do serviço também podem ser alteradas, pausadas ou encerradas. Exclua a conta em Configurações → Excluir conta ou na página de exclusão."
-          ]
-        },
-        {
-          "heading": "6. Isenções e limites",
-          "paragraphs": [
-            "Na medida permitida por lei, o jogo é fornecido conforme disponível, sem promessa de funcionamento ininterrupto, ausência de erros ou preservação permanente de todos os itens e salvamentos. A DappGo não responde por falhas causadas por dispositivo, rede, loja, provedor terceiro ou eventos fora de controle razoável. Nada limita direitos que não possam ser legalmente limitados."
-          ]
-        },
-        {
-          "heading": "7. Lei aplicável e foro",
-          "paragraphs": [
-            "Estes Termos são regidos pelas leis do Estado da Califórnia, EUA, sem considerar as regras de conflito de leis. O foro exclusivo é o dos tribunais estaduais ou federais localizados no Condado de Los Angeles, Califórnia. Isso não limita os direitos obrigatórios do consumidor no país onde você reside."
-          ]
-        },
-        {
-          "heading": "8. Contato",
-          "paragraphs": [
-            "Perguntas sobre estes termos podem ser enviadas para admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · excluir conta",
-      "title": "Excluir sua conta",
-      "product": "Number RPG da DappGo",
-      "effective": "Instruções vigentes: 2026-10-27",
-      "summary": "Number RPG é operado por Yenlung Lai, empresário individual que atua sob o nome comercial DappGo, em San Gabriel, Califórnia, EUA. Você pode solicitar a exclusão no aplicativo, nesta página ou por e-mail.",
-      "sections": [
-        {
-          "heading": "Excluir no app",
-          "paragraphs": [
-            "Abra o Number RPG e acesse Configurações → Excluir conta. Leia a confirmação, confirme a exclusão e mantenha o aplicativo online até ele informar que foi concluída. A exclusão no aplicativo entra em vigor imediatamente. Se houver uma identidade Apple vinculada, o aplicativo poderá exigir uma nova autorização da Apple."
-          ]
-        },
-        {
-          "heading": "Solicitar exclusão por e-mail ou formulário web",
-          "paragraphs": [
-            "Para contas Apple, Facebook ou de visitante, use o formulário desta página ou envie um e-mail para admin@dappgo.com. Quando possível, inclua o ID da conta em Configurações → Conta e o e-mail de contato vinculado. Solicitações por e-mail ou formulário web são concluídas em até 30 dias após a verificação; verificamos pelo ID ou por uma resposta do e-mail vinculado. Não envie senha, token de acesso ou chave privada da Apple."
-          ]
-        },
-        {
-          "heading": "O que removemos",
-          "paragraphs": [
-            "Uma exclusão bem-sucedida remove a conta e os dados do jogador: identidades de provedores, dispositivos e sessões, salvamentos na nuvem, pontuações, convites, amizades, presentes, recompensas, eventos, atividade, registros antifraude e tokens de push. O progresso local é redefinido pelo aplicativo. Registros de compras que a Apple ou o Google precisem manter permanecem nessas lojas."
-          ]
-        },
-        {
-          "heading": "Quanto tempo leva",
-          "paragraphs": [
-            "A exclusão no aplicativo e a exclusão autônoma pela web entram em vigor imediatamente. Solicitações por e-mail ou formulário web são concluídas em até 30 dias após a verificação. Para verificar, forneça o ID em Configurações → Conta ou responda pelo e-mail vinculado.",
-            "Registros de compras que a Apple ou o Google precisem manter permanecem nessas lojas. Entre em contato com admin@dappgo.com se precisar de ajuda ou não conseguir acessar a conta."
-          ]
-        },
-        {
-          "heading": "Precisa de ajuda?",
-          "paragraphs": [
-            "Fale com admin@dappgo.com se o fluxo falhar, se você não conseguir acessar a conta ou se tiver dúvidas sobre um pedido por e-mail."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Excluir pela web",
-        "intro": "A exclusão no aplicativo entra em vigor imediatamente. Se o aplicativo não estiver instalado, use estas opções do navegador.",
-        "googleHeading": "Autoatendimento com Google",
-        "googleCopy": "Faça login com o Google para confirmar o nome exibido da conta e digite DELETE para continuar.",
-        "accountLabel": "Login como",
-        "confirmLabel": "Digite DELETE para confirmar",
-        "confirmHint": "A exclusão entra em vigor imediatamente.",
-        "confirmButton": "Excluir minha conta",
-        "requestHeading": "Solicitar ajuda com outra conta",
-        "requestCopy": "Para contas Apple, Facebook ou de visitante, envie o ID da conta e o e-mail de contato. Concluiremos em até 30 dias após a verificação.",
-        "accountIdLabel": "ID da conta",
-        "accountIdHint": "Encontre em Configurações → Conta.",
-        "emailLabel": "E-mail de contato",
-        "reasonLabel": "Motivo (opcional)",
-        "submitButton": "Enviar solicitação de exclusão",
-        "timeline": "Solicitações por e-mail ou formulário web são concluídas em até 30 dias após a verificação. Verifique com o ID em Configurações → Conta ou uma resposta do e-mail vinculado.",
-        "storeNote": "Registros de compras que a Apple ou o Google precisem manter permanecem nessas lojas.",
-        "signedOut": "O login do Google ficará disponível quando a biblioteca do navegador for carregada.",
-        "success": "A exclusão da sua conta entrou em vigor imediatamente.",
-        "requestSuccess": "Sua solicitação foi enviada. Nós a concluiremos em até 30 dias após a verificação.",
-        "error": "Não foi possível concluir a solicitação. Tente novamente ou use o e-mail.",
-        "rateLimit": "Solicitações demais. Aguarde e tente novamente mais tarde."
-      }
-    }
+    heading: "Excluir na web", intro: "Use o app para exclusão imediata ou estas opções do navegador quando ele não estiver instalado.", googleHeading: "Autosserviço com Google", googleCopy: "Faça login com o Google para confirmar o nome da conta e digite DELETE para continuar.", accountLabel: "Conectado como", confirmLabel: "Digite DELETE para confirmar", confirmHint: "Tem efeito imediato.", confirmButton: "Excluir minha conta", requestHeading: "Pedir ajuda com outra conta", requestCopy: "Para contas Apple, Facebook ou de convidado, envie o ID da conta e o e-mail de contato. Concluiremos em até 30 dias após a verificação.", accountIdLabel: "ID da conta", accountIdHint: "Encontre em Configurações → Conta.", emailLabel: "E-mail de contato", reasonLabel: "Motivo (opcional)", submitButton: "Enviar pedido de exclusão", timeline: "A exclusão no app e o autosserviço web do Google são imediatos. Pedidos por e-mail ou formulário são concluídos em até 30 dias após a verificação.", storeNote: "Apple e Google podem manter registros de compra nas contas de loja. A DappGo só mantém registros limitados exigidos por lei ou por necessidades razoáveis de segurança, contabilidade, fraude ou disputa.", signedOut: "O login do Google estará disponível quando a biblioteca do navegador carregar.", success: "A exclusão da sua conta foi efetivada imediatamente.", requestSuccess: "Pedido enviado. Concluiremos em até 30 dias após a verificação.", error: "Não foi possível concluir o pedido. Tente novamente ou use o e-mail.", rateLimit: "Muitos pedidos. Aguarde e tente novamente."
   },
   "th": {
-    "privacy": {
-      "kicker": "Number RPG · ความเป็นส่วนตัว",
-      "title": "นโยบายความเป็นส่วนตัว",
-      "product": "Number RPG โดย DappGo",
-      "effective": "มีผลบังคับใช้: 2026-10-27",
-      "summary": "คุณสามารถเล่น Number RPG ในฐานะผู้เยี่ยมชมได้ การลงชื่อเข้าใช้เป็นทางเลือกและเพิ่มการบันทึกบนคลาวด์ของบัญชีและการกู้คืนข้ามอุปกรณ์ หน้านี้อธิบายข้อมูลที่ Number RPG ใช้",
-      "sections": [
-        {
-          "heading": "เราเป็นใคร",
-          "paragraphs": [
-            "Number RPG ดำเนินการโดย Yenlung Lai ผู้ประกอบการรายบุคคลที่ทำธุรกิจในชื่อ DappGo ในเมือง San Gabriel รัฐแคลิฟอร์เนีย สหรัฐอเมริกา หากมีคำถามเกี่ยวกับนโยบายนี้หรือข้อมูลของคุณ โปรดส่งไปที่ admin@dappgo.com"
-          ]
-        },
-        {
-          "heading": "บัญชีและการเข้าสู่ระบบ",
-          "paragraphs": [
-            "คุณเล่นเป็นผู้เยี่ยมชม หรือเข้าสู่ระบบโดยสมัครใจกับ Apple, Google หรือ Facebook ได้ บน iOS การเข้าสู่ระบบ Facebook ใช้ Meta Limited Login บริการ ของ Number RPG ตรวจสอบข้อมูลรับรองของผู้ให้บริการ แต่ไม่เก็บโทเค็นการเข้าถึงของผู้ให้บริการ",
-            "เซสชันผู้เยี่ยมชมเชื่อมโยงกับอุปกรณ์และอาจเก็บความคืบหน้าไว้บนอุปกรณ์นั้น การเชื่อมโยงผู้ให้บริการจะคงบัญชีเซิร์ฟเวอร์และเปิดใช้การบันทึกบนคลาวด์ กระดานจัดอันดับ การกู้คืนการซื้อ และการกู้คืนข้ามอุปกรณ์"
-          ],
-          "bullets": [
-            "ID บัญชีและข้อมูลโปรไฟล์ เช่น ชื่อที่แสดง ประเทศ และสัตว์เลี้ยงผู้นำ",
-            "ชื่อผู้ให้บริการและ subject ID ของ Apple, Google หรือ Facebook; อีเมลเฉพาะเมื่อผู้ให้บริการส่งมาให้"
-          ]
-        },
-        {
-          "heading": "ข้อมูลที่เราประมวลผล",
-          "paragraphs": [
-            "ตามฟังก์ชันที่คุณใช้ แอปและ data.dappgo.com อาจประมวลผล:"
-          ],
-          "bullets": [
-            "การบันทึกบนคลาวด์ ความคืบหน้า คะแนน การส่งคะแนนขึ้นกระดาน และเหตุการณ์ในเกม",
-            "รหัสเชิญ การเปิดใช้งานคำเชิญและบันทึกป้องกันการฉ้อโกง เพื่อน ของขวัญ รางวัล และกิจกรรมที่เกี่ยวข้อง",
-            "บันทึกการซื้อที่ได้รับผ่าน RevenueCat เช่น สินค้า ธุรกรรม ร้านค้า สภาพแวดล้อม และเวลาซื้อ เพื่อมอบหรือกู้คืนสิทธิ์",
-            "ตัวระบุอุปกรณ์ที่จัดเก็บเป็นแฮชฝั่งเซิร์ฟเวอร์เพื่อใช้กับเซสชันและการป้องกันการฉ้อโกง รวมถึงโทเค็นพุชเมื่อเปิดการแจ้งเตือน",
-            "ข้อมูลจาก Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config และ Cloud Messaging สำหรับฟังก์ชันที่เกี่ยวข้อง"
-          ]
-        },
-        {
-          "heading": "การใช้และการแบ่งปัน",
-          "paragraphs": [
-            "DappGo ใช้ข้อมูลเพื่อให้บริการเกม บันทึกและกู้คืนความคืบหน้า ดำเนินการกระดานจัดอันดับและฟังก์ชันสังคม ประมวลผลการซื้อ ป้องกันการโกงและการใช้งานในทางที่ผิด รักษาความปลอดภัยบัญชี ส่งการแจ้งเตือนที่ร้องขอ และดูแลบริการ",
-            "Number RPG แบ่งปันข้อมูลกับผู้ให้บริการที่จำเป็นสำหรับฟีเจอร์ที่คุณเลือก ได้แก่ Apple, Google, Meta/Facebook, Firebase, Google AdMob และ RevenueCat ผู้ให้บริการแต่ละรายอาจประมวลผลข้อมูลตามข้อกำหนดและเอกสารความเป็นส่วนตัวของตนเอง"
-          ]
-        },
-        {
-          "heading": "การวิเคราะห์ รายงานข้อขัดข้อง โฆษณา และความยินยอม",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config และ Cloud Messaging เป็นการเชื่อมต่อที่เลือกได้ การเก็บข้อมูลควบคุมโดยตัวควบคุมความยินยอมของแอป การวิเคราะห์จะปิดก่อนยืนยันความยินยอม และการเปลี่ยนแปลงความยินยอมอาจยกเลิกการเก็บข้อมูล",
-            "ใน EEA ความยินยอมของ Google User Messaging Platform (UMP) ควบคุมความพร้อมของโฆษณา บน iOS จะขอ App Tracking Transparency หลัง UMP เมื่อจำเป็น Google AdMob จะแสดงโฆษณาได้หลังมีสถานะความยินยอมที่พร้อมสำหรับโฆษณาเท่านั้น และใช้โฆษณาเฉพาะบุคคลเมื่อมีความยินยอมที่จำเป็น"
-          ],
-          "bullets": [
-            "คุณปฏิเสธหรือเปลี่ยนความยินยอมได้จากตัวเลือกความเป็นส่วนตัวในแอป และควบคุมการแจ้งเตือนกับสิทธิ์การติดตามในการตั้งค่าอุปกรณ์",
-            "ดูข้อมูลเพิ่มเติมได้จากนโยบายของผู้ให้บริการที่ระบุไว้ในหัวข้อการเก็บรักษาและการลบ"
-          ]
-        },
-        {
-          "heading": "การเก็บรักษาและการลบ",
-          "paragraphs": [
-            "เราจะเก็บข้อมูลบัญชีไว้ขณะที่บัญชียังใช้งานอยู่ การลบภายในแอปและการลบด้วยตนเองบนเว็บมีผลทันที คำขอทางอีเมลหรือแบบฟอร์มเว็บจะดำเนินการให้เสร็จภายใน 30 วันหลังยืนยันตัวตน โดยยืนยันด้วย ID บัญชีจากการตั้งค่า → บัญชี หรือการตอบกลับจากอีเมลที่เชื่อมโยงกับบัญชี",
-            "ผู้ให้บริการภายนอกประมวลผลข้อมูลตามนโยบายของตนเอง: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} และ {{revenuecat}} เราเก็บข้อมูล Google Analytics ไว้ 14 เดือน และเก็บบันทึกคำขอของเซิร์ฟเวอร์ไว้ 30 วัน",
-            "เมื่อการลบเสร็จสมบูรณ์ เราจะลบบัญชีและข้อมูลผู้เล่น เช่น ข้อมูลยืนยันตัวตน อุปกรณ์ เซสชัน การบันทึก คะแนน คำเชิญ เพื่อน รางวัล ของขวัญ เหตุการณ์ กิจกรรม ข้อมูลป้องกันการทุจริต และโทเค็นพุช บันทึกการซื้อที่ Apple หรือ Google จำเป็นต้องเก็บไว้จะยังคงอยู่กับร้านค้าเหล่านั้น ข้อมูลบัญชีส่วนอื่นจะถูกลบตามที่อธิบายไว้ข้างต้น"
-          ]
-        },
-        {
-          "heading": "เด็กและสิทธิ์ของคุณ",
-          "paragraphs": [
-            "Number RPG ไม่ได้มุ่งเป้าไปที่เด็กอายุต่ำกว่า 13 ปี แอปนี้มีไว้สำหรับผู้ใช้อายุ 13 ปีขึ้นไป และเราไม่เชิญชวนเด็กอายุต่ำกว่า 13 ปีให้สร้างบัญชีโดยรู้เห็น หากคุณเชื่อว่าเด็กได้ให้ข้อมูลส่วนบุคคล โปรดติดต่อ admin@dappgo.com",
-            "คุณขอเข้าถึง ส่งออก แก้ไข ลบข้อมูล หรือสอบถามตัวเลือกความยินยอมได้ที่ admin@dappgo.com บริการ ยังมีเส้นทางส่งออกข้อมูลที่ต้องยืนยันตัวตน เราอาจตรวจสอบคำขอเพื่อปกป้องบัญชีและผู้เล่นอื่น"
-          ]
-        },
-        {
-          "heading": "การเปลี่ยนแปลงและการติดต่อ",
-          "paragraphs": [
-            "เราอาจปรับปรุงนโยบายเมื่อแอป บริการ ผู้ให้บริการ หรือข้อกำหนดทางกฎหมายเปลี่ยน วันที่ด้านบนระบุเวอร์ชันปัจจุบัน สำหรับคำถามหรือคำขอด้านความเป็นส่วนตัว โปรดติดต่อ admin@dappgo.com"
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · ข้อกำหนด",
-      "title": "ข้อกำหนดการให้บริการ",
-      "product": "Number RPG โดย DappGo",
-      "effective": "มีผลบังคับใช้: 2026-10-27",
-      "summary": "ข้อกำหนดนี้อธิบายกฎการใช้ Number RPG รวมถึงการเล่นแบบผู้เยี่ยมชม บัญชีเสริม รายการเสมือน การซื้อ การเล่นอย่างยุติธรรม และการยุติบัญชี",
-      "sections": [
-        {
-          "heading": "1. การยอมรับ",
-          "paragraphs": [
-            "การติดตั้ง เข้าถึง หรือใช้ Number RPG หมายถึงคุณยอมรับข้อกำหนดนี้และนโยบายความเป็นส่วนตัวของ Number RPG หากไม่ยอมรับ โปรดอย่าใช้เกม"
-          ]
-        },
-        {
-          "heading": "2. บริการและบัญชี",
-          "paragraphs": [
-            "Number RPG ดำเนินการโดย Yenlung Lai ผู้ประกอบการรายบุคคลที่ทำธุรกิจในชื่อ DappGo ในเมือง San Gabriel รัฐแคลิฟอร์เนีย สหรัฐอเมริกา Number RPG เป็นเกมมือถือ คุณสามารถเล่นในฐานะผู้เยี่ยมชมได้ การลงชื่อเข้าใช้ Apple, Google หรือ Facebook แบบเลือกได้รองรับการบันทึกบนคลาวด์ ฟีเจอร์โซเชียล กระดานจัดอันดับ และการกู้คืนการซื้อ โปรดรักษาความปลอดภัยของอุปกรณ์ ข้อมูลเข้าสู่ระบบ และข้อมูลการกู้คืน"
-          ]
-        },
-        {
-          "heading": "3. รายการเสมือนและการซื้อ",
-          "paragraphs": [
-            "เกมอาจมีสกุลเงินเสมือน ชีวิต อุปกรณ์เสริม การอัปเกรด หรือสิทธิ์ดิจิทัลอื่น รายการเหล่านี้ไม่มีมูลค่าเงินสด อนุญาตให้ใช้ในเกม และห้ามขาย โอน หรือแลกเปลี่ยนนอกเกม ความพร้อมและยอดคงเหลืออาจเปลี่ยนตามบริการหรือกฎเกม",
-            "การซื้อผ่านการเรียกเก็บเงินของ Apple App Store หรือ Google Play การคืนเงิน การยกเลิก และข้อพิพาทการชำระเงินต้องขอกับร้านค้าที่ดำเนินธุรกรรมตามกฎของร้านค้า RevenueCat ช่วยบันทึกและกู้คืนสิทธิ์ การลบบัญชีลบข้อมูลเกม แต่การซื้อที่เข้าเกณฑ์อาจกู้คืนผ่านบัญชีร้านค้าได้"
-          ]
-        },
-        {
-          "heading": "4. การเล่นอย่างยุติธรรมและการใช้งานที่ยอมรับได้",
-          "paragraphs": [
-            "ห้ามโกง ใช้บั๊ก เล่นอัตโนมัติ ปรับเปลี่ยนคะแนนหรือรางวัล ใช้ระบบเชิญหรือของขวัญในทางที่ผิด แอบอ้างบุคคลอื่น รบกวนเกมหรือบริการ หรือใช้เกมทำร้ายผู้อื่น ห้ามส่งเนื้อหาหรือชื่อที่ผิดกฎหมาย ละเมิด แสดงความเกลียดชัง หรือละเมิดสิทธิ์ผู้อื่น"
-          ]
-        },
-        {
-          "heading": "5. การบังคับใช้และการยุติ",
-          "paragraphs": [
-            "DappGo อาจจำกัด ระงับ หรือยุติการเข้าถึงเมื่อเชื่ออย่างสมเหตุสมผลว่าบัญชีหรืออุปกรณ์โกง ใช้งานในทางที่ผิด ฉ้อโกง ไม่ปลอดภัย หรือฝ่าฝืนข้อกำหนด และอาจเปลี่ยน หยุดชั่วคราว หรือยุติบางส่วนของบริการ คุณลบบัญชีได้จาก การตั้งค่า → ลบบัญชี หรือหน้าคำแนะนำการลบ"
-          ]
-        },
-        {
-          "heading": "6. ข้อปฏิเสธและข้อจำกัด",
-          "paragraphs": [
-            "เท่าที่กฎหมายอนุญาต เกมให้บริการตามที่มีอยู่ โดยไม่รับรองว่าจะไม่ขัดข้อง ไม่มีข้อผิดพลาด หรือเก็บทุกไอเท็มและการบันทึกไว้ตลอดไป DappGo ไม่รับผิดชอบความล้มเหลวจากอุปกรณ์ เครือข่าย ร้านค้า ผู้ให้บริการภายนอก หรือเหตุการณ์นอกเหนือการควบคุมที่สมเหตุสมผล ไม่มีข้อความใดจำกัดสิทธิ์ที่กฎหมายห้ามจำกัด"
-          ]
-        },
-        {
-          "heading": "7. กฎหมายและเขตอำนาจ",
-          "paragraphs": [
-            "ข้อกำหนดนี้อยู่ภายใต้กฎหมายของรัฐแคลิฟอร์เนีย สหรัฐอเมริกา โดยไม่คำนึงถึงหลักกฎหมายขัดกัน เขตอำนาจศาลแต่เพียงผู้เดียวคือศาลของรัฐหรือศาลรัฐบาลกลางที่ตั้งอยู่ใน Los Angeles County รัฐแคลิฟอร์เนีย ข้อนี้ไม่จำกัดสิทธิผู้บริโภคที่กฎหมายบังคับของประเทศที่คุณอาศัยอยู่รับรองไว้"
-          ]
-        },
-        {
-          "heading": "8. ติดต่อ",
-          "paragraphs": [
-            "ส่งคำถามเกี่ยวกับข้อกำหนดไปที่ admin@dappgo.com"
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · ลบบัญชี",
-      "title": "ลบบัญชีของคุณ",
-      "product": "Number RPG โดย DappGo",
-      "effective": "คำแนะนำมีผล: 2026-10-27",
-      "summary": "Number RPG ดำเนินการโดย Yenlung Lai ผู้ประกอบการรายบุคคลที่ทำธุรกิจในชื่อ DappGo ในเมือง San Gabriel รัฐแคลิฟอร์เนีย สหรัฐอเมริกา คุณสามารถขอลบได้ในแอป หน้านี้ หรือทางอีเมล",
-      "sections": [
-        {
-          "heading": "ลบในแอป",
-          "paragraphs": [
-            "เปิด Number RPG แล้วไปที่การตั้งค่า → ลบบัญชี อ่านคำยืนยัน ยืนยันการลบ และเปิดแอปออนไลน์จนกว่าจะแสดงว่าสำเร็จ การลบในแอปมีผลทันที หากเชื่อมโยงตัวตน Apple ไว้ แอปอาจขอให้ยืนยัน Apple อีกครั้ง"
-          ]
-        },
-        {
-          "heading": "ขอลบทางอีเมลหรือแบบฟอร์มเว็บ",
-          "paragraphs": [
-            "สำหรับบัญชี Apple, Facebook หรือบัญชีผู้เยี่ยมชม ให้ใช้แบบฟอร์มในหน้านี้หรือส่งอีเมลไปที่ admin@dappgo.com หากทำได้ ให้ระบุ ID บัญชีจากการตั้งค่า → บัญชีและอีเมลติดต่อที่เชื่อมโยง คำขอทางอีเมลหรือแบบฟอร์มเว็บจะเสร็จภายใน 30 วันหลังยืนยันตัวตน โดยยืนยันด้วย ID บัญชีหรือการตอบกลับจากอีเมลที่เชื่อมโยง อย่าส่งรหัสผ่าน โทเค็นการเข้าถึง หรือคีย์ส่วนตัวของ Apple"
-          ]
-        },
-        {
-          "heading": "ข้อมูลที่เราลบ",
-          "paragraphs": [
-            "การลบที่สำเร็จจะลบบัญชีและข้อมูลผู้เล่น ได้แก่ ตัวตนของผู้ให้บริการ อุปกรณ์และเซสชัน การบันทึกบนคลาวด์ คะแนน คำเชิญ เพื่อน ของขวัญ รางวัล เหตุการณ์ กิจกรรม ข้อมูลป้องกันการทุจริต และโทเค็นพุช แอปจะรีเซ็ตความคืบหน้าในเครื่อง บันทึกการซื้อที่ Apple หรือ Google จำเป็นต้องเก็บไว้จะยังคงอยู่กับร้านค้าเหล่านั้น"
-          ]
-        },
-        {
-          "heading": "ใช้เวลานานเท่าใด",
-          "paragraphs": [
-            "การลบในแอปและการลบด้วยตนเองบนเว็บมีผลทันที คำขอทางอีเมลและแบบฟอร์มเว็บจะเสร็จภายใน 30 วันหลังยืนยันตัวตน ในการยืนยัน โปรดให้ ID บัญชีจากการตั้งค่า → บัญชี หรือตอบกลับจากอีเมลที่เชื่อมโยง",
-            "บันทึกการซื้อที่ Apple หรือ Google จำเป็นต้องเก็บไว้จะยังคงอยู่กับร้านค้าเหล่านั้น หากต้องการความช่วยเหลือหรือเข้าถึงบัญชีไม่ได้ โปรดติดต่อ admin@dappgo.com"
-          ]
-        },
-        {
-          "heading": "ต้องการความช่วยเหลือหรือไม่",
-          "paragraphs": [
-            "ติดต่อ admin@dappgo.com หากขั้นตอนในแอปล้มเหลว เข้าบัญชีไม่ได้ หรือมีคำถามเกี่ยวกับคำขอทางอีเมล"
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "ลบบนเว็บ",
-        "intro": "การลบในแอปมีผลทันที หากไม่ได้ติดตั้งแอป ให้ใช้ตัวเลือกเบราว์เซอร์เหล่านี้",
-        "googleHeading": "ลบด้วยตนเองผ่าน Google",
-        "googleCopy": "ลงชื่อเข้าใช้ด้วย Google เพื่อยืนยันชื่อที่แสดงของบัญชี แล้วพิมพ์ DELETE เพื่อดำเนินการต่อ",
-        "accountLabel": "ลงชื่อเข้าใช้ในชื่อ",
-        "confirmLabel": "พิมพ์ DELETE เพื่อยืนยัน",
-        "confirmHint": "มีผลทันที",
-        "confirmButton": "ลบบัญชีของฉัน",
-        "requestHeading": "ขอความช่วยเหลือสำหรับบัญชีอื่น",
-        "requestCopy": "สำหรับบัญชี Apple, Facebook หรือผู้เยี่ยมชม ให้ส่ง ID บัญชีและอีเมลติดต่อ เราจะดำเนินการให้เสร็จภายใน 30 วันหลังยืนยันตัวตน",
-        "accountIdLabel": "ID บัญชี",
-        "accountIdHint": "ดูได้ที่การตั้งค่า → บัญชี",
-        "emailLabel": "อีเมลติดต่อ",
-        "reasonLabel": "เหตุผล (ไม่บังคับ)",
-        "submitButton": "ส่งคำขอลบบัญชี",
-        "timeline": "คำขอทางอีเมลหรือแบบฟอร์มเว็บจะเสร็จภายใน 30 วันหลังยืนยันตัวตน ยืนยันด้วย ID บัญชีจากการตั้งค่า → บัญชีหรือการตอบกลับจากอีเมลที่เชื่อมโยง",
-        "storeNote": "บันทึกการซื้อที่ Apple หรือ Google จำเป็นต้องเก็บไว้จะยังคงอยู่กับร้านค้าเหล่านั้น",
-        "signedOut": "การลงชื่อเข้าใช้ Google จะใช้ได้เมื่อโหลดไลบรารีเบราว์เซอร์แล้ว",
-        "success": "การลบบัญชีของคุณมีผลทันที",
-        "requestSuccess": "ส่งคำขอแล้ว เราจะดำเนินการให้เสร็จภายใน 30 วันหลังยืนยันตัวตน",
-        "error": "ไม่สามารถดำเนินการตามคำขอได้ โปรดลองอีกครั้งหรือใช้อีเมล",
-        "rateLimit": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองใหม่"
-      }
-    }
+    heading: "ลบบนเว็บ", intro: "ใช้แอปเพื่อลบทันที หรือใช้ตัวเลือกเบราว์เซอร์เมื่อไม่ได้ติดตั้งแอป", googleHeading: "ลบด้วยตนเองผ่าน Google", googleCopy: "เข้าสู่ระบบ Google เพื่อยืนยันชื่อบัญชี แล้วพิมพ์ DELETE เพื่อดำเนินการต่อ", accountLabel: "เข้าสู่ระบบในชื่อ", confirmLabel: "พิมพ์ DELETE เพื่อยืนยัน", confirmHint: "มีผลทันที", confirmButton: "ลบบัญชีของฉัน", requestHeading: "ขอความช่วยเหลือเกี่ยวกับบัญชีอื่น", requestCopy: "สำหรับบัญชี Apple, Facebook หรือผู้เยี่ยมชม ส่ง ID บัญชีและอีเมลติดต่อ เราจะเสร็จภายใน 30 วันหลังยืนยัน", accountIdLabel: "ID บัญชี", accountIdHint: "ดูได้ที่การตั้งค่า → บัญชี", emailLabel: "อีเมลติดต่อ", reasonLabel: "เหตุผล (ไม่บังคับ)", submitButton: "ส่งคำขอลบบัญชี", timeline: "การลบในแอปและการลบด้วยตนเองผ่านเว็บ Google มีผลทันที คำขอทางอีเมลหรือแบบฟอร์มเสร็จภายใน 30 วันหลังยืนยัน", storeNote: "Apple และ Google อาจเก็บบันทึกการซื้อในบัญชีร้านค้า DappGo อาจเก็บบันทึกจำกัดเฉพาะที่กฎหมายหรือความจำเป็นด้านความปลอดภัย บัญชี การฉ้อโกง หรือข้อพิพาทกำหนด", signedOut: "การเข้าสู่ระบบ Google พร้อมใช้เมื่อไลบรารีเบราว์เซอร์โหลดแล้ว", success: "การลบบัญชีของคุณมีผลทันที", requestSuccess: "ส่งคำขอแล้ว เราจะดำเนินการภายใน 30 วันหลังยืนยัน", error: "ดำเนินการคำขอไม่สำเร็จ โปรดลองอีกครั้งหรือใช้อีเมล", rateLimit: "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองใหม่"
   },
   "vi": {
-    "privacy": {
-      "kicker": "Number RPG · quyền riêng tư",
-      "title": "Chính sách quyền riêng tư",
-      "product": "Number RPG của DappGo",
-      "effective": "Ngày có hiệu lực: 2026-10-27",
-      "summary": "Bạn có thể chơi Number RPG với tư cách khách. Đăng nhập là tùy chọn và bổ sung lưu trên đám mây theo tài khoản cùng khả năng khôi phục trên nhiều thiết bị. Trang này mô tả dữ liệu Number RPG sử dụng.",
-      "sections": [
-        {
-          "heading": "Chúng tôi là ai",
-          "paragraphs": [
-            "Number RPG do Yenlung Lai vận hành, với tư cách cá nhân kinh doanh dưới tên DappGo tại San Gabriel, California, Hoa Kỳ. Bạn có thể gửi câu hỏi về chính sách này hoặc dữ liệu của mình đến admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Tài khoản và đăng nhập",
-          "paragraphs": [
-            "Bạn có thể chơi với tư cách khách hoặc tùy chọn đăng nhập bằng Apple, Google hay Facebook. Trên iOS, đăng nhập Facebook dùng Meta Limited Login. dịch vụ Number RPG xác minh thông tin xác thực của nhà cung cấp nhưng không lưu token truy cập của nhà cung cấp.",
-            "Phiên khách gắn với thiết bị và có thể giữ tiến trình trên thiết bị đó. Liên kết nhà cung cấp giữ tài khoản máy chủ và bật lưu đám mây, bảng xếp hạng, khôi phục giao dịch mua và khôi phục giữa thiết bị."
-          ],
-          "bullets": [
-            "ID tài khoản và thông tin hồ sơ như tên hiển thị, quốc gia và thú cưng dẫn đầu.",
-            "Tên nhà cung cấp và subject ID của Apple, Google hoặc Facebook; email chỉ khi nhà cung cấp gửi cho chúng tôi."
-          ]
-        },
-        {
-          "heading": "Dữ liệu chúng tôi xử lý",
-          "paragraphs": [
-            "Tùy tính năng bạn dùng, ứng dụng và data.dappgo.com có thể xử lý:"
-          ],
-          "bullets": [
-            "Bản lưu đám mây, tiến trình, điểm số, lần gửi bảng xếp hạng và sự kiện trong game.",
-            "Mã mời, kích hoạt lời mời và hồ sơ chống gian lận, bạn bè, quà tặng, phần thưởng và hoạt động liên quan.",
-            "Hồ sơ mua hàng nhận qua RevenueCat, như sản phẩm, giao dịch, cửa hàng, môi trường và thời điểm mua, để cấp hoặc khôi phục quyền lợi.",
-            "Mã nhận dạng thiết bị được biểu diễn bằng hàm băm phía máy chủ cho phiên và chống gian lận, cùng token đẩy khi bật thông báo.",
-            "Dữ liệu của Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config và Cloud Messaging cho các chức năng tương ứng."
-          ]
-        },
-        {
-          "heading": "Sử dụng và chia sẻ",
-          "paragraphs": [
-            "DappGo dùng thông tin để cung cấp game, lưu và khôi phục tiến trình, vận hành bảng xếp hạng và tính năng xã hội, xử lý mua hàng, ngăn gian lận và lạm dụng, bảo vệ tài khoản, gửi thông báo được yêu cầu và duy trì dịch vụ.",
-            "Number RPG chia sẻ thông tin với các nhà cung cấp cần thiết cho tính năng bạn chọn, gồm Apple, Google, Meta/Facebook, Firebase, Google AdMob và RevenueCat. Mỗi nhà cung cấp có thể xử lý dữ liệu theo điều khoản và tài liệu quyền riêng tư riêng."
-          ]
-        },
-        {
-          "heading": "Phân tích, báo cáo lỗi, quảng cáo và đồng ý",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config và Cloud Messaging là các tích hợp tùy chọn. Việc thu thập được kiểm soát bởi bộ điều khiển đồng ý của ứng dụng; phân tích bị tắt trước khi xác định đồng ý và thay đổi đồng ý có thể thu hồi việc thu thập.",
-            "Tại EEA, đồng ý Google User Messaging Platform (UMP) kiểm soát trạng thái sẵn sàng quảng cáo. Trên iOS, App Tracking Transparency được yêu cầu sau UMP khi cần. Google AdMob chỉ có thể hiển thị sau trạng thái đồng ý sẵn sàng quảng cáo; quảng cáo được cá nhân hóa chỉ dùng khi có đồng ý cần thiết."
-          ],
-          "bullets": [
-            "Bạn có thể từ chối hoặc đổi đồng ý tại các tùy chọn quyền riêng tư trong ứng dụng và kiểm soát thông báo, quyền theo dõi trong cài đặt thiết bị.",
-            "Xem chính sách của các nhà cung cấp trong mục Lưu giữ và xóa để biết thêm thông tin."
-          ]
-        },
-        {
-          "heading": "Lưu giữ và xóa",
-          "paragraphs": [
-            "Dữ liệu tài khoản được giữ trong thời gian tài khoản còn hoạt động. Xóa trong ứng dụng và xóa tự phục vụ trên web có hiệu lực ngay lập tức. Yêu cầu qua email hoặc biểu mẫu web được hoàn tất trong vòng 30 ngày sau khi xác minh; chúng tôi xác minh bằng ID tài khoản trong Cài đặt → Tài khoản hoặc thư trả lời từ email đã liên kết.",
-            "Nhà cung cấp bên thứ ba xử lý dữ liệu theo chính sách riêng của họ: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} và {{revenuecat}}. Dữ liệu Google Analytics được giữ trong 14 tháng và nhật ký yêu cầu máy chủ được giữ trong 30 ngày.",
-            "Khi xóa hoàn tất, chúng tôi xóa tài khoản và dữ liệu người chơi như danh tính, thiết bị, phiên, bản lưu, điểm số, lời mời, bạn bè, phần thưởng, quà tặng, sự kiện, hoạt động, bản ghi chống gian lận và mã thông báo đẩy. Bản ghi giao dịch mà Apple hoặc Google yêu cầu giữ lại sẽ ở lại với các cửa hàng đó. Dữ liệu tài khoản còn lại được xóa như mô tả ở trên."
-          ]
-        },
-        {
-          "heading": "Trẻ em và quyền của bạn",
-          "paragraphs": [
-            "Number RPG không hướng đến trẻ em dưới 13 tuổi. Ứng dụng dành cho người dùng từ 13 tuổi trở lên và chúng tôi không cố ý mời trẻ dưới 13 tuổi tạo tài khoản. Nếu bạn cho rằng trẻ em đã cung cấp dữ liệu cá nhân, hãy liên hệ admin@dappgo.com.",
-            "Bạn có thể yêu cầu truy cập, xuất, sửa, xóa hoặc hỏi về lựa chọn đồng ý tại admin@dappgo.com. dịch vụ cũng có đường xuất dữ liệu cần xác thực. Chúng tôi có thể xác minh yêu cầu để bảo vệ tài khoản và người chơi khác."
-          ]
-        },
-        {
-          "heading": "Thay đổi và liên hệ",
-          "paragraphs": [
-            "Chúng tôi có thể cập nhật chính sách khi ứng dụng, nhà cung cấp hoặc yêu cầu pháp lý thay đổi. Ngày ở đầu trang cho biết phiên bản hiện tại. Gửi câu hỏi hoặc yêu cầu về quyền riêng tư đến admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · điều khoản",
-      "title": "Điều khoản dịch vụ",
-      "product": "Number RPG của DappGo",
-      "effective": "Ngày có hiệu lực: 2026-10-27",
-      "summary": "Điều khoản này nêu quy tắc dùng Number RPG, gồm chơi khách, tài khoản tùy chọn, vật phẩm ảo, mua hàng, chơi công bằng và chấm dứt tài khoản.",
-      "sections": [
-        {
-          "heading": "1. Chấp nhận",
-          "paragraphs": [
-            "Khi cài đặt, truy cập hoặc dùng Number RPG, bạn đồng ý với Điều khoản dịch vụ này và Chính sách quyền riêng tư của Number RPG. Nếu không đồng ý, hãy ngừng sử dụng game."
-          ]
-        },
-        {
-          "heading": "2. Dịch vụ và tài khoản",
-          "paragraphs": [
-            "Number RPG do Yenlung Lai vận hành, với tư cách cá nhân kinh doanh dưới tên DappGo tại San Gabriel, California, Hoa Kỳ. Number RPG là một trò chơi di động. Bạn có thể chơi với tư cách khách. Đăng nhập tùy chọn bằng Apple, Google hoặc Facebook hỗ trợ lưu trên đám mây, tính năng xã hội, bảng xếp hạng và khôi phục giao dịch mua. Hãy bảo vệ thiết bị, thông tin đăng nhập và thông tin khôi phục của bạn."
-          ]
-        },
-        {
-          "heading": "3. Vật phẩm ảo và mua hàng",
-          "paragraphs": [
-            "Game có thể cung cấp tiền ảo, mạng sống, phụ kiện, nâng cấp hoặc quyền lợi số khác. Chúng không có giá trị tiền mặt, được cấp phép dùng trong game và không được bán, chuyển nhượng hay đổi bên ngoài game. Tính sẵn có và số dư có thể thay đổi theo dịch vụ hoặc luật game.",
-            "Mua hàng qua thanh toán Apple App Store hoặc Google Play. Yêu cầu hoàn tiền, hủy và tranh chấp thanh toán phải gửi cho cửa hàng đã xử lý giao dịch theo quy tắc của cửa hàng. RevenueCat giúp ghi nhận và khôi phục quyền lợi. Xóa tài khoản xóa dữ liệu game; mua hàng đủ điều kiện có thể vẫn khôi phục qua tài khoản cửa hàng."
-          ]
-        },
-        {
-          "heading": "4. Chơi công bằng và sử dụng được phép",
-          "paragraphs": [
-            "Không gian lận, khai thác lỗi, tự động hóa, thao túng điểm hoặc phần thưởng, lạm dụng hệ thống mời hoặc quà, giả mạo người khác, can thiệp dịch vụ/dịch vụ hoặc dùng game để gây hại. Không gửi nội dung hoặc tên hiển thị bất hợp pháp, xúc phạm, thù ghét hoặc vi phạm quyền người khác."
-          ]
-        },
-        {
-          "heading": "5. Thực thi và chấm dứt",
-          "paragraphs": [
-            "DappGo có thể hạn chế, đình chỉ hoặc chấm dứt quyền truy cập nếu có lý do hợp lý cho rằng tài khoản hoặc thiết bị gian lận, lạm dụng, gian dối, không an toàn hoặc vi phạm điều khoản. DappGo cũng có thể thay đổi, tạm dừng hoặc ngừng một phần dịch vụ. Bạn có thể xóa tài khoản ở Cài đặt → Xóa tài khoản hoặc trang hướng dẫn xóa."
-          ]
-        },
-        {
-          "heading": "6. Tuyên bố miễn trừ và giới hạn",
-          "paragraphs": [
-            "Trong phạm vi pháp luật cho phép, game được cung cấp theo tình trạng sẵn có, không cam kết không gián đoạn, không lỗi hoặc lưu giữ vĩnh viễn mọi vật phẩm và bản lưu. DappGo không chịu trách nhiệm cho lỗi do thiết bị, mạng, cửa hàng, nhà cung cấp bên thứ ba hoặc sự kiện ngoài kiểm soát hợp lý. Không điều gì giới hạn quyền không thể giới hạn theo luật."
-          ]
-        },
-        {
-          "heading": "7. Luật áp dụng và nơi xét xử",
-          "paragraphs": [
-            "Các Điều khoản này chịu sự điều chỉnh của pháp luật Bang California, Hoa Kỳ, không áp dụng các quy tắc xung đột pháp luật. Tòa án có thẩm quyền duy nhất là tòa án bang hoặc liên bang tại Quận Los Angeles, California. Điều này không hạn chế các quyền bắt buộc của người tiêu dùng theo pháp luật của quốc gia nơi bạn cư trú."
-          ]
-        },
-        {
-          "heading": "8. Liên hệ",
-          "paragraphs": [
-            "Câu hỏi về điều khoản gửi đến admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · xóa tài khoản",
-      "title": "Xóa tài khoản",
-      "product": "Number RPG của DappGo",
-      "effective": "Hướng dẫn có hiệu lực: 2026-10-27",
-      "summary": "Number RPG do Yenlung Lai vận hành, với tư cách cá nhân kinh doanh dưới tên DappGo tại San Gabriel, California, Hoa Kỳ. Bạn có thể yêu cầu xóa trong ứng dụng, trên trang này hoặc qua email.",
-      "sections": [
-        {
-          "heading": "Xóa trong ứng dụng",
-          "paragraphs": [
-            "Mở Number RPG và vào Cài đặt → Xóa tài khoản. Đọc xác nhận, xác nhận xóa và giữ ứng dụng trực tuyến cho đến khi báo thành công. Xóa trong ứng dụng có hiệu lực ngay lập tức. Nếu đã liên kết danh tính Apple, ứng dụng có thể yêu cầu xác thực lại Apple."
-          ]
-        },
-        {
-          "heading": "Yêu cầu xóa qua email hoặc biểu mẫu web",
-          "paragraphs": [
-            "Đối với tài khoản Apple, Facebook hoặc khách, hãy dùng biểu mẫu trên trang này hoặc gửi email đến admin@dappgo.com. Nếu có thể, hãy cung cấp ID tài khoản trong Cài đặt → Tài khoản và email liên hệ đã liên kết. Yêu cầu qua email hoặc biểu mẫu web được hoàn tất trong vòng 30 ngày sau khi xác minh; chúng tôi xác minh bằng ID hoặc thư trả lời từ email đã liên kết. Không gửi mật khẩu, mã thông báo truy cập hoặc khóa riêng Apple."
-          ]
-        },
-        {
-          "heading": "Dữ liệu chúng tôi xóa",
-          "paragraphs": [
-            "Việc xóa thành công sẽ xóa tài khoản và dữ liệu người chơi: danh tính nhà cung cấp, thiết bị và phiên, bản lưu trên đám mây, điểm số, lời mời, bạn bè, quà tặng, phần thưởng, sự kiện, hoạt động, bản ghi chống gian lận và mã thông báo đẩy. Ứng dụng đặt lại tiến trình cục bộ. Bản ghi giao dịch mà Apple hoặc Google yêu cầu giữ lại sẽ ở lại với các cửa hàng đó."
-          ]
-        },
-        {
-          "heading": "Thời gian xử lý",
-          "paragraphs": [
-            "Xóa trong ứng dụng và xóa tự phục vụ trên web có hiệu lực ngay lập tức. Yêu cầu qua email và biểu mẫu web được hoàn tất trong vòng 30 ngày sau khi xác minh. Để xác minh, hãy cung cấp ID trong Cài đặt → Tài khoản hoặc trả lời từ email đã liên kết.",
-            "Bản ghi giao dịch mà Apple hoặc Google yêu cầu giữ lại sẽ ở lại với các cửa hàng đó. Hãy liên hệ admin@dappgo.com nếu cần trợ giúp hoặc không thể truy cập tài khoản."
-          ]
-        },
-        {
-          "heading": "Cần hỗ trợ?",
-          "paragraphs": [
-            "Liên hệ admin@dappgo.com nếu quy trình thất bại, bạn không truy cập được tài khoản hoặc có câu hỏi về yêu cầu email."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Xóa trên web",
-        "intro": "Xóa trong ứng dụng có hiệu lực ngay lập tức. Nếu chưa cài ứng dụng, hãy dùng các lựa chọn trình duyệt này.",
-        "googleHeading": "Tự xóa bằng Google",
-        "googleCopy": "Đăng nhập bằng Google để xác nhận tên hiển thị của tài khoản, sau đó nhập DELETE để tiếp tục.",
-        "accountLabel": "Đã đăng nhập với",
-        "confirmLabel": "Nhập DELETE để xác nhận",
-        "confirmHint": "Có hiệu lực ngay lập tức.",
-        "confirmButton": "Xóa tài khoản của tôi",
-        "requestHeading": "Yêu cầu trợ giúp cho tài khoản khác",
-        "requestCopy": "Đối với tài khoản Apple, Facebook hoặc khách, hãy gửi ID tài khoản và email liên hệ. Chúng tôi sẽ hoàn tất trong vòng 30 ngày sau khi xác minh.",
-        "accountIdLabel": "ID tài khoản",
-        "accountIdHint": "Tìm trong Cài đặt → Tài khoản.",
-        "emailLabel": "Email liên hệ",
-        "reasonLabel": "Lý do (không bắt buộc)",
-        "submitButton": "Gửi yêu cầu xóa",
-        "timeline": "Yêu cầu qua email hoặc biểu mẫu web được hoàn tất trong vòng 30 ngày sau khi xác minh. Xác minh bằng ID trong Cài đặt → Tài khoản hoặc thư trả lời từ email đã liên kết.",
-        "storeNote": "Bản ghi giao dịch mà Apple hoặc Google yêu cầu giữ lại sẽ ở lại với các cửa hàng đó.",
-        "signedOut": "Đăng nhập Google sẽ dùng được sau khi thư viện trình duyệt tải xong.",
-        "success": "Việc xóa tài khoản của bạn đã có hiệu lực ngay lập tức.",
-        "requestSuccess": "Đã gửi yêu cầu. Chúng tôi sẽ hoàn tất trong vòng 30 ngày sau khi xác minh.",
-        "error": "Không thể hoàn tất yêu cầu. Hãy thử lại hoặc dùng email.",
-        "rateLimit": "Quá nhiều yêu cầu. Vui lòng đợi rồi thử lại."
-      }
-    }
+    heading: "Xóa trên web", intro: "Dùng ứng dụng để xóa ngay hoặc dùng lựa chọn trình duyệt khi chưa cài ứng dụng.", googleHeading: "Tự phục vụ bằng Google", googleCopy: "Đăng nhập Google để xác nhận tên tài khoản, sau đó nhập DELETE để tiếp tục.", accountLabel: "Đã đăng nhập là", confirmLabel: "Nhập DELETE để xác nhận", confirmHint: "Có hiệu lực ngay.", confirmButton: "Xóa tài khoản của tôi", requestHeading: "Yêu cầu trợ giúp với tài khoản khác", requestCopy: "Với tài khoản Apple, Facebook hoặc khách, gửi ID tài khoản và email liên hệ. Chúng tôi hoàn tất trong 30 ngày sau khi xác minh.", accountIdLabel: "ID tài khoản", accountIdHint: "Tìm trong Cài đặt → Tài khoản.", emailLabel: "Email liên hệ", reasonLabel: "Lý do (tùy chọn)", submitButton: "Gửi yêu cầu xóa", timeline: "Xóa trong ứng dụng và tự phục vụ web Google có hiệu lực ngay. Yêu cầu email và biểu mẫu hoàn tất trong 30 ngày sau khi xác minh.", storeNote: "Apple và Google có thể giữ hồ sơ mua hàng trong tài khoản cửa hàng. DappGo chỉ giữ hồ sơ giới hạn do luật hoặc nhu cầu hợp lý về an ninh, kế toán, gian lận hoặc tranh chấp yêu cầu.", signedOut: "Đăng nhập Google sẵn sàng khi thư viện trình duyệt tải xong.", success: "Việc xóa tài khoản của bạn có hiệu lực ngay.", requestSuccess: "Đã gửi yêu cầu. Chúng tôi hoàn tất trong 30 ngày sau khi xác minh.", error: "Không thể hoàn tất yêu cầu. Hãy thử lại hoặc dùng email.", rateLimit: "Quá nhiều yêu cầu. Vui lòng chờ rồi thử lại."
   },
   "id": {
-    "privacy": {
-      "kicker": "Number RPG · privasi",
-      "title": "Kebijakan privasi",
-      "product": "Number RPG oleh DappGo",
-      "effective": "Berlaku mulai: 2026-10-27",
-      "summary": "Anda dapat memainkan Number RPG sebagai tamu. Login bersifat opsional dan menambahkan penyimpanan cloud berbasis akun serta pemulihan lintas perangkat. Halaman ini menjelaskan data yang digunakan Number RPG.",
-      "sections": [
-        {
-          "heading": "Siapa kami",
-          "paragraphs": [
-            "Number RPG dioperasikan oleh Yenlung Lai, pemilik usaha perseorangan yang menjalankan bisnis dengan nama DappGo di San Gabriel, California, AS. Pertanyaan tentang kebijakan ini atau data Anda dapat dikirim ke admin@dappgo.com."
-          ]
-        },
-        {
-          "heading": "Akun dan login",
-          "paragraphs": [
-            "Anda dapat bermain sebagai tamu atau login secara opsional dengan Apple, Google, atau Facebook. Di iOS, login Facebook memakai Meta Limited Login. layanan Number RPG memverifikasi kredensial penyedia tetapi tidak menyimpan token akses penyedia.",
-            "Sesi tamu dikaitkan dengan perangkat dan dapat menyimpan kemajuan di perangkat tersebut. Menghubungkan penyedia mempertahankan akun server dan mengaktifkan penyimpanan cloud, papan peringkat, pemulihan pembelian, serta pemulihan lintas perangkat."
-          ],
-          "bullets": [
-            "ID akun dan profil seperti nama tampilan, negara, serta hewan pemimpin.",
-            "Nama penyedia dan subject ID Apple, Google, atau Facebook; alamat email hanya jika diberikan oleh penyedia."
-          ]
-        },
-        {
-          "heading": "Data yang kami proses",
-          "paragraphs": [
-            "Bergantung pada fitur yang digunakan, aplikasi dan data.dappgo.com dapat memproses:"
-          ],
-          "bullets": [
-            "Simpanan cloud, kemajuan permainan, skor, pengiriman papan peringkat, dan peristiwa permainan.",
-            "Kode undangan, aktivasi undangan dan catatan anti-penipuan, teman, hadiah, reward, serta aktivitas terkait.",
-            "Catatan pembelian dari RevenueCat, seperti produk, transaksi, toko, lingkungan, dan waktu pembelian untuk memberikan atau memulihkan hak.",
-            "Pengenal perangkat yang direpresentasikan sebagai hash server untuk sesi dan anti-penipuan, serta token push ketika notifikasi diaktifkan.",
-            "Data Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, dan Cloud Messaging untuk fungsi terkait."
-          ]
-        },
-        {
-          "heading": "Penggunaan dan pembagian",
-          "paragraphs": [
-            "DappGo menggunakan informasi ini untuk menyediakan permainan, menyimpan dan memulihkan kemajuan, menjalankan papan peringkat dan fitur sosial, memproses pembelian, mencegah kecurangan dan penyalahgunaan, mengamankan akun, mengirim notifikasi yang diminta, dan menjaga layanan.",
-            "Number RPG membagikan informasi dengan penyedia yang diperlukan untuk fitur yang Anda pilih, termasuk Apple, Google, Meta/Facebook, Firebase, Google AdMob, dan RevenueCat. Setiap penyedia dapat memproses data berdasarkan ketentuan dan dokumen privasinya sendiri."
-          ]
-        },
-        {
-          "heading": "Analitik, laporan kerusakan, iklan, dan persetujuan",
-          "paragraphs": [
-            "Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, dan Cloud Messaging adalah integrasi opsional. Pengumpulan dikendalikan oleh pengontrol persetujuan aplikasi; analitik dinonaktifkan sebelum persetujuan dipastikan dan perubahan persetujuan dapat mencabut pengumpulan.",
-            "Di EEA, persetujuan Google User Messaging Platform (UMP) mengontrol kesiapan iklan. Di iOS, App Tracking Transparency diminta setelah UMP jika diperlukan. Iklan Google AdMob hanya dapat ditampilkan setelah status persetujuan siap iklan; iklan yang dipersonalisasi hanya digunakan dengan persetujuan yang diperlukan."
-          ],
-          "bullets": [
-            "Anda dapat menolak atau mengubah persetujuan dari opsi privasi di aplikasi dan mengontrol notifikasi serta izin pelacakan di pengaturan perangkat.",
-            "Lihat kebijakan penyedia yang tercantum dalam Penyimpanan dan penghapusan untuk informasi lebih lanjut."
-          ]
-        },
-        {
-          "heading": "Penyimpanan dan penghapusan",
-          "paragraphs": [
-            "Data akun disimpan selama akun Anda aktif. Penghapusan di dalam aplikasi dan penghapusan mandiri melalui web berlaku segera. Permintaan melalui email atau formulir web diselesaikan dalam 30 hari setelah verifikasi; kami memverifikasi dengan ID akun dari Pengaturan → Akun atau balasan dari email yang tertaut ke akun.",
-            "Penyedia pihak ketiga memproses data berdasarkan kebijakan mereka sendiri: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, dan {{revenuecat}}. Data Google Analytics disimpan selama 14 bulan dan log permintaan server selama 30 hari.",
-            "Setelah penghapusan berhasil, kami menghapus akun dan data pemain seperti identitas, perangkat, sesi, simpanan, skor, undangan, pertemanan, reward, hadiah, peristiwa, aktivitas, catatan anti-penipuan, dan token push. Catatan pembelian yang wajib disimpan Apple atau Google tetap berada di toko tersebut. Data akun lainnya dihapus seperti yang dijelaskan di atas."
-          ]
-        },
-        {
-          "heading": "Anak-anak dan hak Anda",
-          "paragraphs": [
-            "Number RPG tidak ditujukan untuk anak di bawah 13 tahun. Aplikasi ini ditujukan untuk pengguna berusia 13 tahun ke atas dan kami tidak dengan sengaja mengundang anak di bawah 13 tahun untuk membuat akun. Jika Anda yakin anak telah memberikan data pribadi, hubungi admin@dappgo.com.",
-            "Anda dapat meminta akses, ekspor, koreksi, penghapusan, atau informasi tentang pilihan persetujuan melalui admin@dappgo.com. Kami dapat memverifikasi permintaan untuk melindungi akun dan pemain lain."
-          ]
-        },
-        {
-          "heading": "Perubahan dan kontak",
-          "paragraphs": [
-            "Kami dapat memperbarui kebijakan ini saat aplikasi, penyedia, atau persyaratan hukum berubah. Tanggal di atas menunjukkan versi yang berlaku. Kirim pertanyaan atau permintaan privasi ke admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "kicker": "Number RPG · ketentuan",
-      "title": "Ketentuan layanan",
-      "product": "Number RPG oleh DappGo",
-      "effective": "Berlaku mulai: 2026-10-27",
-      "summary": "Ketentuan ini menjelaskan aturan penggunaan Number RPG, termasuk permainan tamu, akun opsional, item virtual, pembelian, permainan adil, dan penghentian akun.",
-      "sections": [
-        {
-          "heading": "1. Penerimaan",
-          "paragraphs": [
-            "Dengan memasang, mengakses, atau menggunakan Number RPG, Anda menyetujui Ketentuan Layanan ini dan Kebijakan Privasi Number RPG. Jika tidak setuju, jangan gunakan permainan."
-          ]
-        },
-        {
-          "heading": "2. Layanan dan akun",
-          "paragraphs": [
-            "Number RPG dioperasikan oleh Yenlung Lai, pemilik usaha perseorangan yang menjalankan bisnis dengan nama DappGo di San Gabriel, California, AS. Number RPG adalah permainan seluler. Anda dapat bermain sebagai tamu. Login opsional dengan Apple, Google, atau Facebook mendukung penyimpanan cloud, fitur sosial, papan peringkat, dan pemulihan pembelian. Jaga keamanan perangkat, kredensial login, dan informasi pemulihan Anda."
-          ]
-        },
-        {
-          "heading": "3. Item virtual dan pembelian",
-          "paragraphs": [
-            "Permainan dapat menawarkan mata uang virtual, nyawa, aksesori, peningkatan, atau hak digital lainnya. Semua tidak memiliki nilai tunai, dilisensikan untuk digunakan dalam permainan, dan tidak boleh dijual, dipindahkan, atau ditukar di luar permainan. Ketersediaan dan saldo dapat berubah mengikuti layanan atau aturan permainan.",
-            "Pembelian dilakukan melalui penagihan Apple App Store atau Google Play. Pengembalian dana, pembatalan, dan sengketa pembayaran harus diajukan kepada toko yang memproses transaksi sesuai aturannya. RevenueCat membantu mencatat dan memulihkan hak. Penghapusan akun menghapus data permainan; pembelian yang memenuhi syarat mungkin tetap dapat dipulihkan melalui akun toko."
-          ]
-        },
-        {
-          "heading": "4. Permainan adil dan penggunaan yang dapat diterima",
-          "paragraphs": [
-            "Jangan curang, mengeksploitasi bug, mengotomatisasi permainan, memanipulasi skor atau reward, menyalahgunakan sistem undangan atau hadiah, menyamar sebagai orang lain, mengganggu permainan atau layanan, atau menggunakan permainan untuk merugikan orang lain. Jangan mengirim konten atau nama tampilan yang ilegal, kasar, penuh kebencian, atau melanggar hak orang lain."
-          ]
-        },
-        {
-          "heading": "5. Penegakan dan penghentian",
-          "paragraphs": [
-            "DappGo dapat membatasi, menangguhkan, atau menghentikan akses jika secara wajar meyakini akun atau perangkat melakukan kecurangan, penyalahgunaan, penipuan, menimbulkan risiko keamanan, atau melanggar ketentuan. Bagian layanan juga dapat diubah, dijeda, atau dihentikan. Anda dapat menghapus akun dari Pengaturan → Hapus akun atau halaman penghapusan."
-          ]
-        },
-        {
-          "heading": "6. Penyangkalan dan batasan",
-          "paragraphs": [
-            "Sejauh diizinkan hukum, permainan disediakan sebagaimana tersedia tanpa janji tidak terputus, bebas kesalahan, atau menyimpan setiap item dan simpanan selamanya. DappGo tidak bertanggung jawab atas kegagalan karena perangkat, jaringan, toko aplikasi, penyedia pihak ketiga, atau kejadian di luar kendali wajar. Tidak ada yang membatasi hak yang tidak boleh dibatasi secara hukum."
-          ]
-        },
-        {
-          "heading": "7. Hukum dan forum",
-          "paragraphs": [
-            "Ketentuan ini diatur oleh hukum Negara Bagian California, AS, tanpa memperhatikan aturan pertentangan hukum. Tempat pengadilan eksklusif adalah pengadilan negara bagian atau federal yang berada di Los Angeles County, California. Hal ini tidak membatasi hak konsumen wajib berdasarkan hukum negara tempat Anda tinggal."
-          ]
-        },
-        {
-          "heading": "8. Kontak",
-          "paragraphs": [
-            "Pertanyaan tentang ketentuan ini dapat dikirim ke admin@dappgo.com."
-          ]
-        }
-      ]
-    },
-    "deleteAccount": {
-      "kicker": "Number RPG · hapus akun",
-      "title": "Hapus akun Anda",
-      "product": "Number RPG oleh DappGo",
-      "effective": "Petunjuk berlaku: 2026-10-27",
-      "summary": "Number RPG dioperasikan oleh Yenlung Lai, pemilik usaha perseorangan yang menjalankan bisnis dengan nama DappGo di San Gabriel, California, AS. Anda dapat meminta penghapusan di dalam aplikasi, pada halaman ini, atau melalui email.",
-      "sections": [
-        {
-          "heading": "Hapus di aplikasi",
-          "paragraphs": [
-            "Buka Number RPG dan buka Pengaturan → Hapus akun. Baca konfirmasi, konfirmasikan penghapusan, dan tetap online sampai aplikasi melaporkan keberhasilan. Penghapusan di dalam aplikasi berlaku segera. Jika identitas Apple tertaut, aplikasi mungkin meminta otorisasi ulang Apple."
-          ]
-        },
-        {
-          "heading": "Minta penghapusan melalui email atau formulir web",
-          "paragraphs": [
-            "Untuk akun Apple, Facebook, atau tamu, gunakan formulir di halaman ini atau email admin@dappgo.com. Jika tersedia, sertakan ID akun dari Pengaturan → Akun dan email kontak yang tertaut. Permintaan melalui email atau formulir web diselesaikan dalam 30 hari setelah verifikasi; kami memverifikasi dengan ID atau balasan dari email yang tertaut. Jangan kirim kata sandi, token akses, atau kunci pribadi Apple."
-          ]
-        },
-        {
-          "heading": "Yang kami hapus",
-          "paragraphs": [
-            "Penghapusan yang berhasil menghapus akun dan data pemain: identitas penyedia, perangkat dan sesi, simpanan cloud, skor, undangan, pertemanan, hadiah, reward, peristiwa, aktivitas, catatan anti-penipuan, dan token push. Aplikasi mengatur ulang kemajuan lokal. Catatan pembelian yang wajib disimpan Apple atau Google tetap berada di toko tersebut."
-          ]
-        },
-        {
-          "heading": "Berapa lama?",
-          "paragraphs": [
-            "Penghapusan di dalam aplikasi dan penghapusan mandiri melalui web berlaku segera. Permintaan melalui email dan formulir web diselesaikan dalam 30 hari setelah verifikasi. Untuk verifikasi, berikan ID akun dari Pengaturan → Akun atau balasan dari email yang tertaut.",
-            "Catatan pembelian yang wajib disimpan Apple atau Google tetap berada di toko tersebut. Hubungi admin@dappgo.com jika membutuhkan bantuan atau tidak dapat mengakses akun."
-          ]
-        },
-        {
-          "heading": "Perlu bantuan?",
-          "paragraphs": [
-            "Hubungi admin@dappgo.com jika alur gagal, Anda tidak dapat mengakses akun, atau memiliki pertanyaan tentang permintaan email."
-          ]
-        }
-      ],
-      "tools": {
-        "heading": "Hapus di web",
-        "intro": "Penghapusan di dalam aplikasi berlaku segera. Jika aplikasi tidak terpasang, gunakan pilihan browser berikut.",
-        "googleHeading": "Penghapusan mandiri dengan Google",
-        "googleCopy": "Login dengan Google untuk mengonfirmasi nama tampilan akun, lalu ketik DELETE untuk melanjutkan.",
-        "accountLabel": "Login sebagai",
-        "confirmLabel": "Ketik DELETE untuk mengonfirmasi",
-        "confirmHint": "Berlaku segera.",
-        "confirmButton": "Hapus akun saya",
-        "requestHeading": "Minta bantuan untuk akun lain",
-        "requestCopy": "Untuk akun Apple, Facebook, atau tamu, kirim ID akun dan email kontak. Kami akan menyelesaikannya dalam 30 hari setelah verifikasi.",
-        "accountIdLabel": "ID akun",
-        "accountIdHint": "Temukan di Pengaturan → Akun.",
-        "emailLabel": "Email kontak",
-        "reasonLabel": "Alasan (opsional)",
-        "submitButton": "Kirim permintaan penghapusan",
-        "timeline": "Permintaan melalui email atau formulir web diselesaikan dalam 30 hari setelah verifikasi. Verifikasi dengan ID akun dari Pengaturan → Akun atau balasan dari email yang tertaut.",
-        "storeNote": "Catatan pembelian yang wajib disimpan Apple atau Google tetap berada di toko tersebut.",
-        "signedOut": "Login Google tersedia setelah pustaka browser dimuat.",
-        "success": "Penghapusan akun Anda berlaku segera.",
-        "requestSuccess": "Permintaan Anda telah dikirim. Kami akan menyelesaikannya dalam 30 hari setelah verifikasi.",
-        "error": "Permintaan tidak dapat diselesaikan. Coba lagi atau gunakan email.",
-        "rateLimit": "Terlalu banyak permintaan. Tunggu dan coba lagi nanti."
-      }
-    }
+    heading: "Hapus di web", intro: "Gunakan aplikasi untuk penghapusan segera, atau pilihan browser ini ketika aplikasi tidak terpasang.", googleHeading: "Layanan mandiri dengan Google", googleCopy: "Login dengan Google untuk mengonfirmasi nama akun, lalu ketik DELETE untuk melanjutkan.", accountLabel: "Login sebagai", confirmLabel: "Ketik DELETE untuk mengonfirmasi", confirmHint: "Berlaku segera.", confirmButton: "Hapus akun saya", requestHeading: "Minta bantuan untuk akun lain", requestCopy: "Untuk akun Apple, Facebook, atau tamu, kirim ID akun dan email kontak. Kami menyelesaikannya dalam 30 hari setelah verifikasi.", accountIdLabel: "ID akun", accountIdHint: "Temukan di Pengaturan → Akun.", emailLabel: "Email kontak", reasonLabel: "Alasan (opsional)", submitButton: "Kirim permintaan penghapusan", timeline: "Penghapusan dalam aplikasi dan layanan mandiri web Google berlaku segera. Permintaan email dan formulir selesai dalam 30 hari setelah verifikasi.", storeNote: "Apple dan Google dapat menyimpan catatan pembelian di akun toko mereka. DappGo hanya menyimpan catatan terbatas yang diwajibkan hukum atau diperlukan secara wajar untuk keamanan, akuntansi, penipuan, atau sengketa.", signedOut: "Login Google siap digunakan saat pustaka browser dimuat.", success: "Penghapusan akun Anda berlaku segera.", requestSuccess: "Permintaan terkirim. Kami menyelesaikannya dalam 30 hari setelah verifikasi.", error: "Kami tidak dapat menyelesaikan permintaan. Coba lagi atau gunakan email.", rateLimit: "Terlalu banyak permintaan. Tunggu lalu coba lagi."
   }
 };
 
-const apiBase = "https://data.dappgo.com/v1/number-rpg";
+const pages = {
+  "en": {
+    privacy: {
+      kicker: "Number RPG · privacy", title: "Privacy policy", product: "Number RPG by DappGo", effective: "Effective date: 2026-10-27",
+      summary: "Number RPG lets you play as a guest. Sign-in is optional and adds cloud saves, social features, and recovery across devices. This policy explains what data the game uses, why it uses it, and your choices.",
+      sections: [
+        section("Who we are", ["Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, in San Gabriel, California, USA. For GDPR and UK GDPR purposes, DappGo is the controller of the personal data described in this policy. Contact admin@dappgo.com with privacy questions, rights requests, or complaints."]),
+        section("Information we collect", ["You can play as a guest. Depending on the features you use, Number RPG may collect or receive the following categories of information."], ["Account and profile information: an account ID, sign-in provider, provider subject ID, display name, country, and selected leader pet. An email address is used only when Apple, Google, or Meta provides one to us.", "Game and social information: cloud saves, progress, scores, leaderboards, gameplay events, invite codes, invite activity, friends, gifts, rewards, and related activity.", "Purchase information: product, transaction, store, environment, and purchase-time details received through RevenueCat to grant or restore entitlements. Apple or Google handles payment-card and bank details; Number RPG does not receive them through the app.", "Device and technical information: a hashed device or installation identifier, session information, app and platform details, language, time zone, and push-notification tokens when notifications are enabled.", "Usage and diagnostic information: app interactions, ad impressions and rewarded-ad events, crash details, performance data, remote settings, and consent or permission choices when the corresponding feature is enabled."]),
+        section("Sources and purposes", ["We receive information directly from you, from the sign-in and app-store providers you choose, from your device and the game, and from other players when you use invites, friends, gifts, or leaderboards."], ["Provide the game, create or restore an account, save progress, operate leaderboards and social features, and keep the service secure.", "Process purchases, grant virtual items, restore eligible purchases, prevent cheating and abuse, and investigate fraud or account problems.", "Send push notifications that you request, such as friend-life, invite, or event notifications, and maintain optional local reminders on your device.", "Measure and improve reliability through analytics, crash reports, performance information, and remote settings after the applicable consent state allows collection.", "Show ads. Ads are non-personalized until the required consent is recorded; personalized ads are used only when the required consent and device permissions allow them."]),
+        section("Service providers and sharing", ["We share information with the providers needed for the feature you choose. These providers may process information under their own privacy policies and may act as independent controllers for some services."], ["Apple: Apple sign-in and App Store purchase processing.", "Google and Firebase: Google sign-in, Google Play purchase processing, Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging, and Google AdMob advertising and consent services.", "Meta: Facebook sign-in, including Meta Limited Login on iOS.", "RevenueCat: purchase and entitlement processing.", "Other players may see the display name, country, leader pet, scores, and friend relationships that you make visible through the game. Number RPG has no chat feature.", "We may also disclose information when reasonably necessary to comply with law, protect users or the service, prevent fraud, or respond to a valid legal request."]),
+        section("Ads, analytics, notifications, and cookies", ["Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, and Cloud Messaging are consent-gated. Collection is not enabled before the applicable consent state allows it, and a later choice can stop the corresponding collection. Google AdMob serves non-personalized ads by default until the required Google consent choice is recorded. On iOS, App Tracking Transparency must also authorize personalized advertising; denying it leaves ads non-personalized."], ["Push notifications are optional. If you enable them, the app can send a push token and notification settings, together with platform, language, and time-zone information, so requested notifications can be delivered. You can turn notifications off in the app or device settings.", "The mobile app does not use browser cookies. The website may store language and theme choices in browser local storage. The Google sign-in control on the account-deletion page may use cookies or similar technologies under Google’s policies.", "Device, advertising, installation, and similar identifiers may be used by the app or its providers for the purposes described above. You can decline the consent choices when they are presented and manage tracking or notification permissions in your device settings. California opt-out choices are described below."]),
+        section("California privacy rights", ["If the California Consumer Privacy Act, as amended by the CPRA, applies to you, you may request to know or access the personal information we collect, delete it, correct inaccurate information, and receive a portable copy where required. You may submit a request to admin@dappgo.com. We will verify requests as needed to protect your account and other players.", "We do not sell personal information for money. We may share device or advertising identifiers and ad-interaction information with Google AdMob for cross-context behavioral advertising only after the applicable consent choice; California law may treat that as sharing. To opt out, decline or withdraw the relevant advertising choice when available, turn off applicable device tracking permission, or email admin@dappgo.com with the subject “Do Not Sell or Share My Personal Information.”"], ["You may use an authorized agent with written permission. We may ask the agent and you for information needed to verify the request.", "We will not discriminate against you for exercising these rights. We generally respond to know, delete, and correct requests within 45 calendar days; if an extension is allowed, we will explain it. Opt-out requests are handled as soon as reasonably possible."]),
+        section("EEA and UK privacy rights", ["If the GDPR or UK GDPR applies, we use these legal bases: contract necessity to provide the game, accounts, saves, social features, and purchases; consent for personalized advertising and consent-gated analytics or similar optional collection; legitimate interests for security, anti-cheat, fraud prevention, service reliability, and support; and legal obligations for records we must keep. You can withdraw consent at any time, and withdrawal does not affect processing that happened before withdrawal.", "You may request access, correction, erasure, restriction of processing, data portability, or object to processing based on legitimate interests. Contact admin@dappgo.com first. You may also complain to the data-protection supervisory authority in the EEA country where you live or work, or where you believe an infringement occurred; in the UK, you may complain to the Information Commissioner’s Office."], ["DappGo and the providers named above may process information in the United States and other countries outside the EEA or UK. Where required, we use a lawful transfer mechanism such as an adequacy decision, standard contractual clauses, or another approved safeguard. Contact us for more information about a transfer.", "We do not knowingly use Number RPG to make decisions based only on automated processing that produce legal or similarly significant effects."]),
+        section("Retention and deletion", ["We keep account data while your account is active and delete it after a successful account-deletion request, subject to the limited exceptions described below. In-app and Google web self-service deletion take effect immediately. Requests by email or web form are completed within 30 days after we verify the request.", "Analytics data, including Google Analytics or Firebase Analytics data, is retained for 14 months. Server request logs are retained for 30 days. Push tokens are removed when notifications are disabled or an account is deleted. Apple and Google may retain purchase records in their store accounts, and provider retention is governed by the provider’s policy.", "We may keep a limited record when needed for tax, accounting, fraud prevention, security, disputes, or a legal obligation. We keep that information only for as long as the reason requires, then delete or anonymize it. When deletion succeeds, we remove Number RPG account and player data such as identities, devices, sessions, saves, scores, invites, friendships, rewards, gifts, events, activity, fraud records, and push tokens."], ["Provider policies: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, and {{revenuecat}}."]),
+        section("Children", ["Number RPG is not directed to children under 13 and is intended for people aged 13 and older. We do not knowingly invite a child under 13 to create an account. If we learn that a child under 13 has provided personal information, a parent or guardian can contact admin@dappgo.com; after verification, we will delete the child’s account and information as required by law. If local law requires a higher age or parental consent, that rule applies."]),
+        section("Security, changes, and contact", ["We use reasonable technical and organizational safeguards for the information we handle, including protected account sessions and verification for deletion requests. No service can guarantee absolute security, so keep your device and sign-in credentials secure.", "We may update this policy when the game, providers, or legal requirements change. The effective date at the top identifies the current version. Contact admin@dappgo.com with privacy questions, rights requests, or concerns."])
+      ]
+    },
+    terms: {
+      kicker: "Number RPG · terms", title: "Terms of service", product: "Number RPG by DappGo", effective: "Effective date: 2026-10-27",
+      summary: "These terms explain the rules for using Number RPG, including guest play, optional accounts, virtual items, purchases, fair play, account termination, and your legal rights.",
+      sections: [
+        section("1. Acceptance and age", ["By installing, accessing, or using Number RPG, you agree to these Terms of Service and the Number RPG Privacy Policy. Number RPG is intended for people aged 13 and older. Do not use it if you are under the applicable minimum age or cannot legally agree to these Terms. If you do not agree, do not use the game."]),
+        section("2. License and service", ["Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, in San Gabriel, California, USA. DappGo grants you a limited, personal, non-exclusive, non-transferable, and revocable license to use the game for personal, non-commercial entertainment. You receive no ownership of the game, its code, artwork, names, or other content. For iOS, the {{appleEula}} also applies where applicable."]),
+        section("3. Accounts and security", ["You may play as a guest. Optional Apple, Google, or Facebook sign-in supports cloud saves, social features, leaderboards, and purchase restoration. Keep your device, sign-in credentials, and recovery information secure. Do not share an account, impersonate another player, or provide information that is knowingly false."]),
+        section("4. Virtual items and purchases", ["The game may offer virtual currency, lives, accessories, upgrades, or other digital entitlements. They have no cash value, are licensed for use only in the game, and may not be sold, transferred, or redeemed outside the game. Consumable items are used when granted or consumed in the game; non-consumable entitlements may be restored when the store supports restoration. Availability and balances may change when the service or game rules change.", "Purchases are made through Apple App Store or Google Play billing. Refunds, cancellations, and payment disputes must be requested from the store that processed the transaction, subject to that store’s rules. RevenueCat helps us record and restore purchase entitlements. Deleting a Number RPG account deletes game data; eligible store purchases may remain restorable through the store account."]),
+        section("5. Fair play and acceptable use", ["Do not cheat, exploit bugs, automate play, manipulate scores or rewards, abuse invite or gift systems, impersonate another player, interfere with the game or service, or use the game to harm another person. Do not submit content or display names that are unlawful, abusive, hateful, sexually exploitative, or infringe another person’s rights."]),
+        section("6. Enforcement and termination", ["DappGo may limit, suspend, or terminate access when it reasonably believes an account or device is cheating, abusive, fraudulent, unsafe, or in breach of these Terms. We may also change, pause, or discontinue parts of the service. You may delete your account from Settings → Account → Delete account or use the instructions on the account-deletion page. Termination does not remove rights or obligations that should continue by their nature."]),
+        section("7. Disclaimers and limits", ["To the fullest extent permitted by law, the game is provided as available and without promises that it will be uninterrupted, error-free, secure, or permanently preserve every item or save. DappGo is not responsible for failures caused by your device, network, app store, third-party provider, or events outside reasonable control. To the extent permitted by law, DappGo will not be liable for indirect, incidental, special, consequential, or lost-profit damages, and DappGo’s total liability for direct damages will not exceed the greater of the amount you paid to DappGo in the previous 12 months or 100 US dollars. Nothing in these Terms excludes liability for fraud, willful misconduct, death or personal injury where it cannot be excluded, or consumer rights that cannot legally be limited."]),
+        section("8. Indemnity", ["To the extent permitted by law, you agree to reimburse DappGo for third-party claims, losses, and reasonable costs that result from your unlawful use of the game, your breach of these Terms, or content you submit. This section does not require you to reimburse DappGo for its own misconduct and does not limit mandatory consumer rights."]),
+        section("9. Disputes and governing law", ["If you have a dispute, please contact admin@dappgo.com first so we can try to resolve it. These Terms do not require arbitration and do not waive your right to bring a claim in a court that has jurisdiction. Nothing prevents you from using a small-claims court or another forum that consumer law makes available.", "These Terms are governed by the laws of the State of California, USA, without regard to conflict-of-laws rules. Subject to the consumer-rights carve-out above, the state or federal courts located in Los Angeles County, California are the exclusive venue for disputes that may be brought there. This does not limit mandatory consumer rights in the country where you live."]),
+        section("10. Changes and contact", ["We may update these Terms when the game, providers, or legal requirements change. The effective date at the top identifies the current version. If a change is material, we will provide notice through the game or another reasonable channel when required. Questions about these Terms can be sent to admin@dappgo.com."])
+      ]
+    },
+    deleteAccount: {
+      kicker: "Number RPG · account deletion", title: "Delete your account", product: "Number RPG by DappGo", effective: "Instructions effective: 2026-10-27",
+      summary: "You can delete a Number RPG account in the app, use Google self-service on this page, or request help by web form or email. Number RPG is operated by Yenlung Lai, a sole proprietor doing business as DappGo, San Gabriel, California, USA.",
+      sections: [
+        section("Delete in the app", ["Open Number RPG and go to Settings → Account → Delete account. Read the confirmation, confirm the deletion, and keep the app online until it reports success. In-app deletion takes effect immediately. If an Apple identity is linked, the app may require Apple re-authorization before deletion can finish."]),
+        section("Delete on the web", ["If the account is linked to Google, use the Google self-service control below. Sign in with Google, confirm the displayed account, type DELETE, and submit. A successful web deletion takes effect immediately."]),
+        section("Request deletion by web form or email", ["For Apple, Facebook, or guest accounts, use the form below or email admin@dappgo.com. Include the account ID from Settings → Account and the contact email linked to the account when available. We will verify the request and complete it within 30 days. Do not send a password, provider access token, or Apple private key."]),
+        section("What we remove and what may remain", ["A successful deletion removes the Number RPG account and player data, including provider identities, display name, country, leader pet, device and session records, cloud saves, scores, invites, friendships, gifts, rewards, events, activity, fraud records, and push tokens. The app resets local game progress after in-app deletion.", "Apple and Google may keep purchase records in their store accounts, and eligible purchases may remain restorable through those stores. DappGo may keep a limited record when necessary for tax, accounting, fraud prevention, security, disputes, or another legal obligation. We delete or anonymize that limited information when the reason for keeping it ends."]),
+        section("Timing and help", ["In-app and Google web self-service deletion take effect immediately. Web-form and email requests are completed within 30 days after verification. Contact admin@dappgo.com if the in-app flow fails, you cannot access the account, or you need help with a request."])
+      ],
+      tools: deletionTools.en
+    }
+  },
+  "zh-TW": {
+    privacy: { kicker: "Number RPG · 隱私", title: "隱私權政策", product: "DappGo 的 Number RPG", effective: "生效日期：2026-10-27", summary: "Number RPG 可讓您以訪客身分遊玩。登入是選擇性的，可啟用雲端存檔、社交功能及跨裝置恢復。本政策說明遊戲使用哪些資料、使用原因，以及您的選擇。", sections: [
+      section("我們是誰", ["Number RPG 由 Yenlung Lai 經營；Yenlung Lai 是在美國加州 San Gabriel 以 DappGo 名義營業的獨資經營者。就 GDPR 及英國 GDPR 而言，DappGo 是本政策所述個人資料的控制者。如有隱私問題、權利請求或申訴，請寄信至 admin@dappgo.com。"]),
+      section("我們收集的資料", ["您可以以訪客身分遊玩。依您使用的功能，Number RPG 可能收集或接收以下類別的資料。"], ["帳戶與個人資料：帳戶 ID、登入提供者、提供者主體 ID、顯示名稱、國家/地區及選定的領隊寵物。只有在 Apple、Google 或 Meta 提供電子郵件時，我們才會使用該電子郵件。", "遊戲與社交資料：雲端存檔、進度、分數、排行榜、遊戲事件、邀請碼、邀請活動、好友、禮物、獎勵及相關活動。", "購買資料：透過 RevenueCat 接收的商品、交易、商店、環境及購買時間資料，用於發放或恢復權益。付款卡或銀行資料由 Apple 或 Google 處理，Number RPG 不會透過 App 接收。", "裝置與技術資料：經雜湊處理的裝置或安裝識別碼、工作階段資料、App 與平台資訊、語言、時區，以及啟用通知時的推播通知權杖。", "使用與診斷資料：App 互動、廣告曝光及獎勵廣告事件、錯誤資料、效能資料、遠端設定，以及啟用相應功能時的同意或權限選擇。"]),
+      section("資料來源與用途", ["我們直接從您取得資料，也從您選擇的登入與商店提供者、您的裝置與遊戲，以及您使用邀請、好友、禮物或排行榜時的其他玩家取得資料。"], ["提供遊戲、建立或恢復帳戶、保存進度、運作排行榜與社交功能，並維護服務安全。", "處理購買、發放虛擬物品、恢復符合條件的購買、防止作弊與濫用，並調查詐欺或帳戶問題。", "傳送您要求的推播通知，例如好友生命、邀請或活動通知，並在您的裝置上維持選擇性的本機提醒。", "在適用的同意狀態允許收集後，透過分析、錯誤報告、效能資料及遠端設定衡量並改善可靠性。", "顯示廣告。廣告在記錄必要同意前會是非個人化廣告；只有在必要同意及裝置權限允許時才會使用個人化廣告。"]),
+      section("服務提供者與分享", ["我們會與您選擇的功能所需的提供者分享資料。這些提供者可能依自己的隱私政策處理資料；對部分服務而言，他們可能是獨立的資料控制者。"], ["Apple：Apple 登入及 App Store 購買處理。", "Google 與 Firebase：Google 登入、Google Play 購買處理、Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config、Cloud Messaging，以及 Google AdMob 廣告與同意服務。", "Meta：Facebook 登入，包括 iOS 上的 Meta Limited Login。", "RevenueCat：使用購買與交易資料處理購買及權益。", "其他玩家可能看到您透過遊戲公開的顯示名稱、國家/地區、領隊寵物、分數及好友關係。Number RPG 沒有聊天功能。"]),
+      section("廣告、分析、通知與 Cookie", ["Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 及 Cloud Messaging 受同意狀態控制。在適用的同意狀態允許前不會啟用收集；之後改變選擇也可以停止相應收集。Google AdMob 在記錄必要的 Google 同意選擇前，預設提供非個人化廣告。在 iOS 上，個人化廣告還必須得到 App Tracking Transparency 授權；拒絕後仍會使用非個人化廣告。", "推播通知是選擇性的。啟用後，App 可能傳送推播權杖、通知設定、平台、語言及時區資料，以便傳送您要求的通知。手機 App 不使用瀏覽器 Cookie；網站可能保存語言與主題選擇。帳戶刪除頁面的 Google 登入可能依 Google 政策使用 Cookie 或類似技術。"]),
+      section("加州隱私權", ["若 CCPA（經 CPRA 修訂）適用，您可以要求知道、存取、刪除或更正個人資料，並在法律要求時取得可攜式副本，請寄信至 admin@dappgo.com。我們不會為了金錢出售個人資料；只有在適用同意後，可能將裝置或廣告識別碼及廣告互動資料分享給 Google AdMob 用於跨情境行為廣告。若要退出，拒絕或撤回廣告選擇、關閉裝置追蹤權限，或以主旨「Do Not Sell or Share My Personal Information」寄信。", "您可使用書面授權的代理人；我們會驗證請求且不會歧視行使權利的人。知悉、刪除及更正請求通常在 45 個日曆日內回覆，退出請求會儘快處理。"]),
+      section("歐洲經濟區與英國的隱私權", ["若 GDPR 或英國 GDPR 適用，法律依據包括：提供遊戲、帳戶、存檔、社交功能與購買所必要的契約；個人化廣告及選擇性收集所需的同意；安全、防作弊、防詐欺、服務可靠性及支援所需的正當利益；以及保存必要紀錄的法律義務。您可撤回同意。您也可要求存取、更正、刪除、限制處理、資料可攜性或反對正當利益處理，並向所在國監管機關或英國 Information Commissioner’s Office 申訴。", "DappGo 和提供者可能在美國及 EEA/英國以外處理資料；必要時使用適足性決定、標準契約條款或其他核准保障措施。"]),
+      section("保存與刪除", ["帳戶啟用期間保留帳戶資料，成功刪除後刪除。App 內及 Google 網頁自助刪除立即生效，電子郵件或表單請求在驗證後 30 天內完成。分析資料（包括 Google Analytics 或 Firebase Analytics）保留 14 個月，伺服器請求記錄保留 30 天；Apple 和 Google 可能保留商店購買記錄。法律、會計、安全、防詐欺或爭議需要時，我們可能保留有限記錄，理由結束後刪除或匿名化。提供者政策：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}} 及 {{revenuecat}}。"]),
+      section("兒童、安全、變更與聯絡", ["Number RPG 不以 13 歲以下兒童為對象，若得知兒童提供資料，家長可聯絡 admin@dappgo.com；驗證後我們會依法刪除。若當地要求更高年齡或家長同意，適用當地規定。我們採取合理安全措施但不能保證絕對安全。政策可能因遊戲、提供者或法律變更而更新，頂部日期代表目前版本。"])
+    ] },
+    terms: { kicker: "Number RPG · 條款", title: "服務條款", product: "DappGo 的 Number RPG", effective: "生效日期：2026-10-27", summary: "本條款說明使用 Number RPG 的規則，包括訪客遊玩、選擇性帳戶、虛擬物品、購買、公平遊戲、帳戶終止及您的法律權利。", sections: [
+      section("1. 接受條款與年齡", ["安裝、存取或使用 Number RPG 即表示您同意本服務條款及隱私權政策。遊戲供年滿 13 歲者使用；未達最低年齡或無法合法同意時請勿使用。"]),
+      section("2. 授權與服務", ["Number RPG 由 Yenlung Lai 以 DappGo 名義在 San Gabriel 經營。DappGo 授予個人、非商業、有限、非專屬、不可轉讓且可撤銷的遊戲使用授權，不轉讓遊戲、程式碼、藝術、名稱或內容所有權。iOS 適用 Apple 的 {{appleEula}}。"]),
+      section("3. 帳戶與安全", ["可作為訪客遊玩；Apple、Google 或 Facebook 登入可支援雲端存檔、社交功能、排行榜及購買恢復。請保護裝置與登入資料，不得分享帳戶、冒充他人或故意提供虛假資料。"]),
+      section("4. 虛擬物品與購買", ["虛擬貨幣、生命、配件、升級及其他權益沒有現金價值，只能在遊戲內使用，不得在遊戲外出售、轉讓或兌換。消耗品會被使用；商店支援時非消耗性權益可恢復。購買透過 Apple App Store 或 Google Play，退款依商店規則處理；RevenueCat 協助記錄與恢復權益，刪除帳戶後商店購買可能仍可恢復。"]),
+      section("5. 公平遊戲與可接受使用", ["不得作弊、利用錯誤、自動化、操縱分數或獎勵、濫用邀請或禮物、冒充玩家、干擾服務或傷害他人，也不得提交違法、辱罵、仇恨、性剝削或侵權內容。"]),
+      section("6. 執行與終止", ["我們可因作弊、濫用、詐欺、不安全或違反條款而限制、暫停或終止存取，也可變更或停止服務。可在設定 → 帳戶 → 刪除帳戶刪除；依性質應繼續的權利義務仍然有效。"]),
+      section("7. 免責與限制", ["在法律允許範圍內，遊戲按現狀提供，不保證不中斷、無錯誤、安全或永久保存。DappGo 不對裝置、網路、商店、第三方或不可控事件造成的故障負責，也不對間接或特殊損害負責；直接損害責任不超過前 12 個月付款或 100 美元較高者。本條款不限制法律不得限制的責任或消費者權利。"]),
+      section("8. 賠償與爭議", ["在法律允許範圍內，您須就違法使用、違反條款或提交內容造成的第三方請求和合理費用補償 DappGo，但不包括 DappGo 自身不當行為。爭議請先聯絡 admin@dappgo.com；本條款不要求仲裁。"]),
+      section("9. 準據法與管轄", ["本條款適用加州法律。除消費者強制權利外，爭議專屬於加州 Los Angeles County 的州或聯邦法院；不限制您居住地的強制性消費者權利。"]),
+      section("10. 變更與聯絡", ["我們可能因遊戲、提供者或法律變更更新條款；重大變更會在法律要求時通知。生效日期代表目前版本，問題請寄至 admin@dappgo.com。"])
+    ] },
+    deleteAccount: { kicker: "Number RPG · 刪除帳戶", title: "刪除您的帳戶", product: "DappGo 的 Number RPG", effective: "說明生效日期：2026-10-27", summary: "您可以在 App 內刪除帳戶，使用本頁的 Google 自助服務，或透過網頁表單或電子郵件請求協助。", sections: [
+      section("在 App 內刪除", ["開啟 Number RPG，前往設定 → 帳戶 → 刪除帳戶，確認並保持 App 在線直到成功。App 內刪除立即生效；Apple 身分可能需要重新授權。"]),
+      section("在網頁上刪除", ["Google 帳戶可使用下方自助服務登入、確認帳戶、輸入 DELETE 並送出，成功後立即生效。"]),
+      section("透過表單或電子郵件要求刪除", ["Apple、Facebook 或訪客帳戶請使用表單或寄信至 admin@dappgo.com，提供設定 → 帳戶的帳戶 ID 和聯絡電子郵件（如有）。驗證後 30 天內完成，請勿寄送密碼、權杖或 Apple 私密金鑰。"]),
+      section("我們會移除及保留的資料", ["我們會移除帳戶、提供者身分、名稱、國家、領隊寵物、裝置、工作階段、存檔、分數、邀請、好友、禮物、獎勵、事件、活動、詐欺記錄及推播權杖；App 內刪除也會重設本機進度。Apple 和 Google 可能保留購買記錄，DappGo 可能因法律、會計、安全、防詐欺或爭議需要保留有限記錄，理由結束後刪除或匿名化。"]),
+      section("時間與協助", ["App 內及 Google 網頁自助刪除立即生效；表單及電子郵件請求在驗證後 30 天內完成。流程失敗或需要協助請聯絡 admin@dappgo.com。"])
+    ] }
+  },
+  "zh-CN": {
+    privacy: { kicker: "Number RPG · 隐私", title: "隐私政策", product: "DappGo 的 Number RPG", effective: "生效日期：2026-10-27", summary: "Number RPG 支持以游客身份游玩。登录是可选的，可启用云端存档、社交功能和跨设备恢复。本政策说明游戏使用哪些数据、使用原因以及您的选择。", sections: [
+      section("我们是谁", ["Number RPG 由 Yenlung Lai 运营；Yenlung Lai 是在美国加利福尼亚州 San Gabriel 以 DappGo 名义经营的独资经营者。就 GDPR 和英国 GDPR 而言，DappGo 是本政策所述个人数据的控制者。如有隐私问题、权利请求或投诉，请发送邮件至 admin@dappgo.com。"]),
+      section("我们收集的信息", ["您可以以游客身份游玩。根据您使用的功能，Number RPG 可能收集或接收以下类别的信息。"], ["账户和资料：账户 ID、登录提供商、提供商主体 ID、显示名称、国家/地区和选定的领队宠物。只有在 Apple、Google 或 Meta 提供电子邮件时，我们才会使用该邮箱。", "游戏和社交：云端存档、进度、分数、排行榜、游戏事件、邀请码、邀请活动、好友、礼物、奖励及相关活动。", "购买：通过 RevenueCat 接收商品、交易、商店、环境和购买时间，用于发放或恢复权益。付款卡和银行信息由 Apple 或 Google 处理，Number RPG 不会通过 App 接收。", "设备和技术：经过哈希处理的设备或安装标识符、会话、App 和平台、语言、时区，以及启用通知时的推送令牌。", "使用和诊断：App 互动、广告展示、奖励广告事件、崩溃、性能、远程设置及同意或权限选择。"]),
+      section("数据来源和用途", ["我们直接从您、您选择的登录和商店提供商、您的设备和游戏中获取信息；当您使用邀请、好友、礼物或排行榜时，也会从其他玩家获得信息。"], ["提供游戏、创建或恢复账户、保存进度、运行排行榜和社交功能，并保护服务安全。", "处理购买、发放虚拟物品、恢复符合条件的购买、防止作弊和滥用，并调查欺诈或账户问题。", "发送您请求的推送通知和可选的本地提醒。", "在适用的同意状态允许后，通过分析、崩溃报告、性能数据和远程设置改善可靠性。", "展示广告；必要同意前为非个性化广告，必要同意和设备权限允许时才使用个性化广告。"]),
+      section("服务提供商和共享", ["我们会与功能所需的提供商共享信息，他们可能按自己的政策处理，并在部分服务中作为独立控制者。Apple 处理 Apple 登录和 App Store 购买；Google/Firebase 处理 Google 登录、Google Play、Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config、Cloud Messaging 及 Google AdMob；Meta 处理 Facebook 登录；RevenueCat 处理购买和权益。其他玩家可看到您公开的名称、国家/地区、领队宠物、分数和好友关系；Number RPG 没有聊天。法律、安全、防欺诈或有效法律请求需要时，我们也可能披露信息。"]),
+      section("广告、分析、通知和 Cookie", ["Firebase Analytics、Crashlytics、Performance Monitoring、Remote Config 和 Cloud Messaging 受同意控制，在适用同意允许前不会启用。Google AdMob 默认提供非个性化广告；iOS 个性化广告还需 App Tracking Transparency 授权。推送通知可选，启用后可能使用推送令牌、设置、平台、语言和时区；手机 App 不使用浏览器 Cookie，网站可能使用本地存储保存语言和主题，删除页面的 Google 登录可能使用 Google Cookie 或类似技术。您可以拒绝同意并在设备设置中管理跟踪和通知权限。"]),
+      section("加州隐私权", ["如 CCPA（经 CPRA 修订）适用，您可请求了解、访问、删除、更正个人信息，并在法律要求时获得可携带副本，联系 admin@dappgo.com 即可。我们不为金钱出售个人信息；在适用同意后，可能向 Google AdMob 分享设备或广告标识符和广告互动信息用于跨情境行为广告，这可能属于加州法律所说的共享。请拒绝或撤回广告选择、关闭设备跟踪，或以主题“Do Not Sell or Share My Personal Information”发邮件。您可使用书面授权的代理人，我们不会歧视行使权利的人；了解、删除和更正请求通常在 45 个日历日内回复。"]),
+      section("欧洲经济区和英国的隐私权", ["如 GDPR 或英国 GDPR 适用，法律依据包括：提供游戏、账户、存档、社交功能和购买所必要的合同；个性化广告和可选收集所需的同意；安全、防作弊、防欺诈、可靠性和支持所需的合法利益；以及必要记录的法律义务。您可撤回同意，并请求访问、更正、删除、限制、可携带性或反对合法利益处理，也可向所在国监管机构或英国 Information Commissioner’s Office 投诉。DappGo 和提供商可能在美国等境外处理信息；必要时使用适足性决定、标准合同条款或其他批准保障措施。"]),
+      section("保存和删除", ["账户启用期间保留账户数据；App 内和 Google 网页自助删除立即生效，电子邮件或表单请求在验证后 30 天内完成。分析数据（包括 Google Analytics 或 Firebase Analytics）保留 14 个月，服务器请求日志保留 30 天。Apple 和 Google 可能保留商店购买记录；税务、会计、安全、防欺诈、争议或法律义务需要时，我们可能保留有限记录，理由结束后删除或匿名化。提供商政策：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}} 和 {{revenuecat}}。"]),
+      section("儿童、安全、变更和联系", ["Number RPG 不面向 13 岁以下儿童；如果得知儿童提供信息，家长可联系 admin@dappgo.com，验证后我们会依法删除。当地要求更高年龄或家长同意时适用当地规则。我们采取合理安全措施但不能保证绝对安全。政策会随游戏、提供商或法律变化而更新，顶部日期代表当前版本。"])
+    ] },
+    terms: { kicker: "Number RPG · 条款", title: "服务条款", product: "DappGo 的 Number RPG", effective: "生效日期：2026-10-27", summary: "本条款说明使用 Number RPG 的规则，包括游客游玩、可选账户、虚拟物品、购买、公平游戏、账户终止和您的法律权利。", sections: [
+      section("1. 接受条款和年龄", ["安装、访问或使用 Number RPG 即表示您同意本服务条款和隐私政策。游戏面向 13 岁及以上；未达到适用最低年龄或不能合法同意时请勿使用。"]),
+      section("2. 授权和服务", ["Number RPG 由 Yenlung Lai 以 DappGo 名义在 San Gabriel 运营。DappGo 授予个人、非商业、有限、非独占、不可转让且可撤销的使用授权，不转让游戏、代码、艺术、名称或内容所有权。iOS 适用 Apple 的 {{appleEula}}。"]),
+      section("3. 账户和安全", ["可作为游客游玩；Apple、Google 或 Facebook 登录支持云端存档、社交功能、排行榜和购买恢复。请保护设备和登录信息，不得分享账户、冒充他人或故意提供虚假信息。"]),
+      section("4. 虚拟物品和购买", ["虚拟货币、生命、配件、升级和其他权益没有现金价值，只能在游戏内使用，不得出售、转让或兑换。消耗品会被使用，非消耗权益在商店支持时可恢复。购买通过 Apple App Store 或 Google Play，退款依商店规则；RevenueCat 协助记录和恢复权益，删除账户后商店购买可能仍可恢复。"]),
+      section("5. 公平游戏和可接受使用", ["不得作弊、利用漏洞、自动化游玩、操纵分数或奖励、滥用邀请或礼物、冒充玩家、干扰服务或伤害他人，也不得提交违法、辱骂、仇恨、性剥削或侵权内容。"]),
+      section("6. 执行和终止", ["我们可因作弊、滥用、欺诈、不安全或违反条款而限制、暂停或终止访问，也可变更或停止服务。可从设置 → 账户 → 删除账户中删除；依性质应继续的权利和义务仍有效。"]),
+      section("7. 免责声明和限制", ["在法律允许范围内，游戏按现状提供，不保证不中断、无错误、安全或永久保存。DappGo 不对设备、网络、商店、第三方或不可控事件造成的故障负责，也不对间接或特殊损害负责；直接损害责任不超过前 12 个月付款或 100 美元中的较高者。本条款不限制法律不得限制的责任或消费者权利。"]),
+      section("8. 赔偿和争议", ["在法律允许范围内，您须就违法使用、违反条款或提交内容造成的第三方请求和合理费用补偿 DappGo，但不包括 DappGo 自身不当行为。争议请先联系 admin@dappgo.com；本条款不要求仲裁。"]),
+      section("9. 适用法律和管辖", ["本条款适用加利福尼亚州法律。除强制性消费者权利外，争议专属位于加州 Los Angeles County 的州或联邦法院；不限制您居住地的强制性消费者权利。"]),
+      section("10. 变更和联系", ["我们可能随游戏、提供商或法律变化更新条款；重大变化会在法律要求时通知。生效日期代表当前版本，问题请发送至 admin@dappgo.com。"])
+    ] },
+    deleteAccount: { kicker: "Number RPG · 删除账户", title: "删除您的账户", product: "DappGo 的 Number RPG", effective: "说明生效日期：2026-10-27", summary: "您可以在 App 内删除账户，使用本页的 Google 自助服务，或通过网页表单或电子邮件请求帮助。", sections: [
+      section("在 App 内删除", ["打开 Number RPG，前往设置 → 账户 → 删除账户，确认并保持 App 在线直到成功。App 内删除立即生效；Apple 身份可能需要重新授权。"]),
+      section("在网页上删除", ["Google 账户可使用下方自助服务登录、确认账户、输入 DELETE 并提交，成功后立即生效。"]),
+      section("通过表单或电子邮件请求删除", ["Apple、Facebook 或游客账户请使用表单或发送邮件至 admin@dappgo.com，提供设置 → 账户中的账户 ID 和联系邮箱（如有）。验证后 30 天内完成，请勿发送密码、令牌或 Apple 私钥。"]),
+      section("我们会移除和保留的数据", ["我们会移除账户、提供商身份、名称、国家、领队宠物、设备、会话、存档、分数、邀请、好友、礼物、奖励、事件、活动、欺诈记录和推送令牌；App 内删除也会重置本地进度。Apple 和 Google 可能保留购买记录；DappGo 可能因法律、会计、安全、防欺诈或争议需要保留有限记录，理由结束后删除或匿名化。"]),
+      section("时间和帮助", ["App 内和 Google 网页自助删除立即生效；表单和电子邮件请求在验证后 30 天内完成。流程失败或需要帮助请联系 admin@dappgo.com。"])
+    ] }
+  },
+  "ja": {
+    privacy: { kicker: "Number RPG · プライバシー", title: "プライバシーポリシー", product: "DappGo の Number RPG", effective: "発効日：2026-10-27", summary: "Number RPG はゲストとして遊べます。サインインは任意で、クラウドセーブ、ソーシャル機能、端末間の復元が利用できます。本ポリシーでは、ゲームが使うデータ、利用目的、選択肢を説明します。", sections: [
+      section("運営者", ["Number RPG は、米国カリフォルニア州サンガブリエルで DappGo として事業を行う個人事業主 Yenlung Lai が運営します。GDPR と英国 GDPR では DappGo が本ポリシーの個人データの管理者です。質問、権利請求、苦情は admin@dappgo.com へ。"]),
+      section("収集する情報", ["ゲストとして遊べます。機能に応じ、アカウント ID、プロバイダーと subject ID、表示名、国、リーダーペット、クラウドセーブ、進行、スコア、ランキング、招待・友達・ギフト・報酬、購入・取引情報、ハッシュ化した端末識別子、セッション、言語、タイムゾーン、通知トークン、広告・分析・クラッシュ・性能情報、同意や権限の選択を収集または受け取ります。メールは Apple、Google、Meta が提供した場合だけ使います。カード情報は受け取りません。"]),
+      section("情報源と利用目的", ["情報源はあなた、選択したログイン・ストア提供者、端末、ゲーム、他のプレイヤーです。ゲーム、アカウント、セーブ、ランキング、ソーシャル機能を提供し、安全確保、購入と権利の処理、不正防止、希望した通知、分析・クラッシュ・性能改善、広告表示に使います。広告は必要な同意と端末権限がない限り非パーソナライズです。"]),
+      section("提供者と共有", ["Apple は Apple サインインと App Store、Google/Firebase は Google サインイン、Google Play、Analytics、Crashlytics、Performance Monitoring、Remote Config、Cloud Messaging、AdMob、Meta は Facebook サインイン、RevenueCat は購入と権利を扱います。提供者は自分のポリシーで処理し、独立した管理者となる場合があります。ゲームで公開した名前、国、ペット、スコア、友達関係は他のプレイヤーに見える場合があります。法令、安全、詐欺防止、適法な要求のためにも開示することがあります。"]),
+      section("広告、分析、通知、Cookie", ["Firebase の各サービスは同意状態により制御され、許可前は収集しません。AdMob は必要な Google 同意まで非パーソナライズ広告を表示し、iOS のパーソナライズ広告には App Tracking Transparency の許可も必要です。通知は任意で、オンにするとトークン、設定、プラットフォーム、言語、タイムゾーンを使います。モバイルアプリはブラウザ Cookie を使わず、サイトは言語・テーマをローカル保存できます。削除ページの Google ログインは Google の Cookie 等を使う場合があります。"]),
+      section("カリフォルニア州の権利", ["CCPA/CPRA が適用される場合、個人情報の知る・アクセス、削除、訂正、可搬性を請求できます。個人情報を金銭のために販売しませんが、同意後に AdMob と広告識別子や広告操作情報を共有することがあり、州法上の共有となる場合があります。広告選択を拒否または撤回し、端末追跡をオフにするか、件名 “Do Not Sell or Share My Personal Information” で admin@dappgo.com に連絡してください。認定代理人を使え、差別はしません。知る・削除・訂正には通常 45 暦日以内に回答します。"]),
+      section("EEA と英国の権利", ["GDPR/英国 GDPR の法的根拠は、ゲーム・アカウント・購入の契約、広告と任意収集の同意、安全・不正防止・信頼性・支援の正当な利益、必要記録の法的義務です。アクセス、訂正、消去、制限、移植、異議を請求でき、同意を撤回できます。まず admin@dappgo.com に連絡し、監督機関または英国 ICO に申立てできます。米国など域外で処理する場合、必要に応じ適足性、標準契約条項等を使います。"]),
+      section("保存と削除", ["アカウントが有効な間データを保持します。アプリ内と Google ウェブ削除は直ちに、メール・フォームは確認後 30 日以内です。分析データは 14 か月、サーバーリクエストログは 30 日保持します。Apple/Google の購入記録は残る場合があります。税務、会計、安全、詐欺、紛争、法的義務のため限定記録を保留し、理由が終われば削除または匿名化します。提供者：{{firebaseGoogle}}、{{admob}}、{{apple}}、{{meta}}、{{revenuecat}}。"]),
+      section("子ども、安全、変更、連絡", ["Number RPG は 13 歳未満を対象としません。知った場合は保護者が admin@dappgo.com に連絡でき、確認後に法律に従い削除します。現地の高い年齢規則を守ってください。合理的な安全対策を行いますが絶対の安全は保証できません。変更時は更新し、発効日が現行版を示します。"])
+    ] },
+    terms: { kicker: "Number RPG · 利用規約", title: "利用規約", product: "DappGo の Number RPG", effective: "発効日：2026-10-27", summary: "本規約は、ゲストプレイ、任意のアカウント、バーチャルアイテム、購入、公正なプレイ、アカウント終了、法的権利を含む Number RPG の利用ルールを説明します。", sections: [
+      section("1. 同意と年齢", ["Number RPG を使うと本規約とプライバシーポリシーに同意します。13 歳以上を対象とし、最低年齢未満または合法的に同意できない場合は使用しないでください。"]),
+      section("2. ライセンスとサービス", ["Yenlung Lai が DappGo として運営します。個人的・非商業的な娯楽のための限定、非独占、譲渡不可、取消可能なライセンスを付与し、ゲーム、コード、アート、名称、コンテンツの所有権は移しません。iOS では Apple の {{appleEula}} も適用されます。"]),
+      section("3. アカウントと安全", ["ゲストで遊べます。Apple、Google、Facebook の任意ログインはクラウドセーブ、ソーシャル、ランキング、購入復元に対応します。端末と認証情報を守り、アカウント共有、なりすまし、故意の虚偽情報を禁止します。"]),
+      section("4. アイテムと購入", ["仮想通貨、ライフ、アクセサリー、アップグレード等は現金価値がなく、ゲーム内だけで使用できます。消耗品は使うと消費され、非消耗権利はストアが対応すれば復元できます。購入は Apple/Google のストア規則に従い、RevenueCat が権利の記録・復元を補助します。アカウント削除後もストア購入が復元できる場合があります。"]),
+      section("5. 公正なプレイ", ["チート、バグ悪用、自動化、スコア操作、招待・ギフト悪用、なりすまし、サービス妨害、他人への危害、違法・虐待的・憎悪的・性的搾取的・権利侵害の内容や表示名を禁止します。"]),
+      section("6. 対応と終了", ["チート、悪用、詐欺、安全問題、規約違反があると合理的に判断した場合、利用を制限・停止・終了できます。サービス変更もできます。設定 → アカウント → 削除で削除でき、性質上続く権利義務は残ります。"]),
+      section("7. 免責と制限", ["法律の範囲でゲームは利用可能な状態で提供され、継続、無誤、安全性、永久保存を保証しません。装置、ネットワーク、ストア、第三者、不可抗力による故障に責任を負わず、間接等の損害を負いません。直接損害の総責任は過去 12 か月の支払額または 100 米ドルの高い方を上限とします。法的に除外できない責任や消費者権利を制限しません。"]),
+      section("8. 補償と紛争", ["法律の範囲で、違法利用、規約違反、送信内容による第三者請求等を補償しますが、DappGo 自身の不正行為を補償させず、強行消費者権利を制限しません。紛争はまず admin@dappgo.com に連絡し、本規約は仲裁を義務付けません。"]),
+      section("9. 準拠法と裁判地", ["カリフォルニア州法に準拠し、消費者の強制権利を除き、カリフォルニア州ロサンゼルス郡の州または連邦裁判所を裁判地とします。居住国の強制権利を制限しません。"]),
+      section("10. 変更と連絡先", ["ゲーム、提供者、法律の変更時に更新し、重要な変更は必要に応じ通知します。発効日が現行版を示します。質問は admin@dappgo.com へ。"])
+    ] },
+    deleteAccount: { kicker: "Number RPG · アカウント削除", title: "アカウントを削除する", product: "DappGo の Number RPG", effective: "手順の発効日：2026-10-27", summary: "アカウントはアプリ内、Google セルフサービス、ウェブフォームまたはメールで削除できます。", sections: [
+      section("アプリ内で削除", ["設定 → アカウント → アカウント削除で確認し、成功までオンラインにします。直ちに反映され、Apple ID は再認証が必要な場合があります。"]),
+      section("ウェブで削除", ["Google 連携アカウントは、下の Google でログインし、表示を確認して DELETE を送信します。成功すれば直ちに反映されます。"]),
+      section("フォームまたはメールで依頼", ["Apple、Facebook、ゲストはフォームまたは admin@dappgo.com を使い、設定 → アカウントの ID とメール（あれば）を提示します。確認後 30 日以内に完了します。秘密情報を送らないでください。"]),
+      section("削除・保留データ", ["アカウント、提供者 ID、プロフィール、装置、セッション、保存、スコア、招待、友達、報酬、ギフト、イベント、活動、不正記録、プッシュトークンを削除し、ローカル進行をリセットします。Apple/Google の購入記録や、法律・会計・安全・不正・紛争に必要な限定記録は残る場合があります。理由が終われば削除または匿名化します。"]),
+      section("時間と支援", ["アプリと Google ウェブ削除は直ちに、フォーム・メールは確認後 30 日以内です。問題は admin@dappgo.com へ。"])
+    ] }
+  },
+  "ko": {
+    privacy: { kicker: "Number RPG · 개인정보 보호", title: "개인정보 처리방침", product: "DappGo의 Number RPG", effective: "시행일: 2026-10-27", summary: "Number RPG는 게스트로 플레이할 수 있습니다. 로그인은 선택 사항이며 클라우드 저장, 소셜 기능, 기기 간 복구를 제공합니다. 이 방침은 사용 데이터와 목적, 선택을 설명합니다.", sections: [
+      section("운영 주체", ["Number RPG는 미국 캘리포니아주 San Gabriel에서 DappGo라는 이름으로 사업하는 개인사업자 Yenlung Lai가 운영합니다. GDPR 및 영국 GDPR에서 DappGo는 이 방침의 개인정보 컨트롤러입니다. 문의와 권리 요청은 admin@dappgo.com으로 보내 주세요."]),
+      section("수집하는 정보", ["게스트로 플레이할 수 있습니다. 계정 ID, 로그인 제공자와 subject ID, 표시 이름, 국가, 대표 펫, 클라우드 저장·진행·점수·순위·초대·친구·선물·보상, RevenueCat 구매·거래, 해시된 기기 ID, 세션, 언어·시간대, 푸시 토큰, 광고·분석·충돌·성능 정보와 동의·권한 선택을 기능에 따라 수집하거나 받습니다. 이메일은 제공자가 줄 때만 사용하고 결제 카드 정보는 받지 않습니다."]),
+      section("출처와 목적", ["정보는 이용자, 선택한 로그인·스토어 제공자, 기기·게임, 초대·친구·선물·순위표의 다른 플레이어에게서 옵니다. 게임·계정·저장·소셜 기능 제공, 보안·부정 방지, 구매·권한 처리, 요청한 알림, 선택적 분석과 안정성 개선, 광고 표시를 위해 사용합니다. 필요한 동의 전 광고는 개인화되지 않습니다."]),
+      section("제공자와 공유", ["Apple은 Apple 로그인과 App Store, Google/Firebase는 Google 로그인·Play·Analytics·Crashlytics·Performance Monitoring·Remote Config·Cloud Messaging·AdMob, Meta는 Facebook 로그인, RevenueCat은 구매와 권한을 처리합니다. 각자 정책에 따라 처리하며 독립 컨트롤러일 수 있습니다. 게임에서 공개한 이름·국가·펫·점수·친구 관계는 다른 플레이어에게 보일 수 있고 채팅은 없습니다. 법률·안전·사기 방지·유효한 요청에도 공개할 수 있습니다."]),
+      section("광고, 분석, 알림 및 쿠키", ["Firebase 서비스는 동의 상태 전에는 수집하지 않습니다. AdMob은 필요한 Google 동의 전 비개인화 광고를 제공하고, iOS 개인화 광고에는 App Tracking Transparency 허가가 필요합니다. 푸시 알림은 선택 사항이며 토큰·설정·플랫폼·언어·시간대를 사용할 수 있습니다. 모바일 앱은 브라우저 쿠키를 쓰지 않고, 웹은 언어·테마를 로컬 저장할 수 있으며 삭제 페이지 Google 로그인은 Google 쿠키 등을 사용할 수 있습니다. 기기 설정에서 추적·알림 권한을 관리할 수 있습니다."]),
+      section("캘리포니아 권리", ["CCPA/CPRA가 적용되면 열람·알기, 삭제, 정정, 이동 가능한 사본을 요청할 수 있습니다. admin@dappgo.com으로 연락하세요. 개인정보를 돈 받고 판매하지 않지만, 동의 후 AdMob과 광고 식별자·상호작용을 공유할 수 있어 법상 공유일 수 있습니다. 광고 선택을 거부·철회하거나 추적을 끄고, 제목 “Do Not Sell or Share My Personal Information”으로 이메일을 보내세요. 서면 권한의 대리인을 사용할 수 있고 차별하지 않으며, 요청은 일반적으로 45일 내 답합니다."]),
+      section("EEA 및 영국 권리", ["GDPR/영국 GDPR의 근거는 게임·계정·구매의 계약, 개인화 광고와 선택 수집의 동의, 보안·부정·사기 방지·지원의 정당한 이익, 필요한 기록의 법적 의무입니다. 액세스·정정·삭제·제한·이동·이의를 요청하고 동의를 철회할 수 있으며, 감독기관 또는 영국 ICO에 신고할 수 있습니다. 미국 등 국외 처리에는 필요 시 적정성, 표준계약조항 등 합법적 보호조치를 사용합니다."]),
+      section("보관 및 삭제", ["계정이 활성일 때 보관하고 성공적인 삭제 후 삭제합니다. 앱 및 Google 웹 삭제는 즉시, 이메일·양식은 확인 후 30일 내입니다. 분석 데이터는 14개월, 서버 요청 로그는 30일 보관합니다. 스토어 구매 기록이나 법률·회계·보안·사기·분쟁에 필요한 제한 기록은 남을 수 있고 이유가 끝나면 삭제·익명화합니다. 제공자: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, {{revenuecat}}."]),
+      section("아동, 보안, 변경 및 연락처", ["13세 미만 아동 대상이 아니며 알게 되면 보호자가 admin@dappgo.com으로 연락할 수 있고 확인 후 법에 따라 삭제합니다. 현지의 더 높은 연령 규칙을 따르세요. 합리적 보호조치를 적용하지만 절대 보안을 보장하지 않습니다. 변경 시 업데이트하며 상단 날짜가 현재 버전입니다."])
+    ] },
+    terms: { kicker: "Number RPG · 약관", title: "서비스 약관", product: "DappGo의 Number RPG", effective: "시행일: 2026-10-27", summary: "이 약관은 게스트 플레이, 선택적 계정, 가상 아이템, 구매, 공정한 플레이, 계정 종료 및 법적 권리를 설명합니다.", sections: [
+      section("1. 동의 및 연령", ["Number RPG를 사용하면 약관과 개인정보 처리방침에 동의합니다. 13세 이상 대상이며 적용 최소 연령 미만이거나 합법적으로 동의할 수 없으면 사용하지 마세요."]),
+      section("2. 라이선스와 서비스", ["Yenlung Lai가 DappGo로 운영합니다. 개인적·비상업적 오락을 위한 제한적·비독점적·양도 불가·철회 가능한 라이선스를 주며 게임, 코드, 아트, 이름, 콘텐츠 소유권은 주지 않습니다. iOS에는 Apple의 {{appleEula}}가 적용됩니다."]),
+      section("3. 계정과 보안", ["게스트로 플레이할 수 있고 Apple·Google·Facebook 로그인은 저장·소셜·순위·구매 복구를 지원합니다. 기기와 자격 증명을 보호하고 계정 공유, 사칭, 고의적 허위정보를 금지합니다."]),
+      section("4. 가상 아이템과 구매", ["가상 화폐·생명·액세서리·업그레이드는 현금 가치가 없고 게임 안에서만 사용합니다. 소모품은 사용 시 소모되고 비소모 권리는 스토어가 지원하면 복구됩니다. 구매·환불은 Apple/Google 규칙을 따르고 RevenueCat이 권한 복구를 돕습니다. 계정 삭제 후에도 스토어 구매는 복구될 수 있습니다."]),
+      section("5. 공정한 플레이와 허용된 사용", ["치팅, 버그 악용, 자동화, 점수·보상 조작, 초대·선물 악용, 사칭, 서비스 방해, 타인 피해, 불법·모욕·혐오·성착취·권리침해 콘텐츠를 금지합니다."]),
+      section("6. 조치와 종료", ["치팅·악용·사기·안전 문제·약관 위반이면 접근을 제한·정지·종료할 수 있고 서비스도 바꿀 수 있습니다. 설정 → 계정 → 계정 삭제에서 삭제하며 성격상 계속되는 권리·의무는 남습니다."]),
+      section("7. 면책과 제한", ["법이 허용하는 범위에서 게임은 현 상태로 제공되며 중단·무오류·보안·영구 보존을 보장하지 않습니다. 간접 등 손해에 책임지지 않으며 직접 손해 책임은 지난 12개월 지급액 또는 100달러 중 큰 금액을 넘지 않습니다. 법적으로 배제할 수 없는 책임과 소비자 권리는 제한하지 않습니다."]),
+      section("8. 배상과 분쟁", ["불법 사용, 약관 위반, 제출 콘텐츠로 인한 제3자 청구와 합리적 비용을 법이 허용하는 범위에서 배상합니다. 먼저 admin@dappgo.com으로 연락하며 중재를 요구하지 않습니다."]),
+      section("9. 준거법과 관할", ["캘리포니아주 법률을 적용하고, 강행 소비자 권리를 제외한 분쟁은 캘리포니아 Los Angeles County의 주 또는 연방 법원을 관할로 합니다."]),
+      section("10. 변경과 연락처", ["게임·제공자·법률이 바뀌면 약관을 업데이트하고 중요한 변경은 필요한 경우 알립니다. 현재 버전은 상단 날짜로 확인하며 질문은 admin@dappgo.com으로 보내세요."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · 계정 삭제", title: "계정 삭제", product: "DappGo의 Number RPG", effective: "안내 시행일: 2026-10-27", summary: "앱, 이 페이지의 Google 셀프서비스, 웹 양식 또는 이메일로 계정을 삭제할 수 있습니다.", sections: [
+      section("앱에서 삭제", ["설정 → 계정 → 계정 삭제에서 확인하고 성공할 때까지 온라인으로 유지하세요. 즉시 적용되며 Apple은 재인증이 필요할 수 있습니다."]),
+      section("웹에서 삭제", ["Google 계정은 아래에서 로그인하고 표시를 확인한 뒤 DELETE를 제출하세요. 성공하면 즉시 적용됩니다."]),
+      section("양식 또는 이메일 요청", ["Apple·Facebook·게스트 계정은 양식 또는 admin@dappgo.com을 사용하고 계정 ID와 이메일을 제출하세요. 확인 후 30일 내 완료하며 비밀번호·토큰·Apple 키를 보내지 마세요."]),
+      section("삭제 및 보관 데이터", ["계정·제공자 ID·프로필·기기·세션·저장·점수·초대·친구·보상·선물·이벤트·활동·사기 기록·푸시 토큰을 삭제하고 로컬 진행을 초기화합니다. Apple/Google 구매 기록과 법률·회계·보안·사기·분쟁에 필요한 제한 기록은 남을 수 있으며 이유가 끝나면 삭제·익명화합니다."]),
+      section("시간과 도움", ["앱 및 Google 웹 삭제는 즉시, 양식·이메일은 확인 후 30일 내입니다. 문제가 있으면 admin@dappgo.com으로 연락하세요."])
+    ] }
+  },
+  "es": {
+    privacy: { kicker: "Number RPG · privacidad", title: "Política de privacidad", product: "Number RPG de DappGo", effective: "Fecha de entrada en vigor: 2026-10-27", summary: "Number RPG permite jugar como invitado. Iniciar sesión es opcional y añade partidas guardadas en la nube, funciones sociales y recuperación entre dispositivos. Esta política explica los datos, finalidades y opciones.", sections: [
+      section("Quiénes somos", ["Number RPG está operado por Yenlung Lai, empresario individual que trabaja como DappGo en San Gabriel, California, Estados Unidos. Para el GDPR y el GDPR del Reino Unido, DappGo es el responsable de los datos personales descritos aquí. Preguntas, solicitudes de derechos y reclamaciones: admin@dappgo.com."]),
+      section("Información que recopilamos", ["Puede jugar como invitado. Podemos recibir ID de cuenta, proveedor y subject ID, nombre, país y mascota líder; partidas, progreso, puntuaciones, rankings, invitaciones, amigos, regalos y recompensas; datos de compras de RevenueCat; identificadores de dispositivo con hash, sesiones, idioma, zona horaria, tokens push; datos de anuncios, analítica, errores, rendimiento y elecciones de consentimiento. El correo solo se usa cuando lo proporciona Apple, Google o Meta; no recibimos datos de tarjetas."]),
+      section("Fuentes y finalidades", ["La información procede de usted, de los proveedores de inicio de sesión y tiendas, del dispositivo y juego y de otros jugadores. La usamos para ofrecer el juego, cuentas, guardados, rankings y funciones sociales; procesar compras; prevenir trampas, abusos y fraude; enviar notificaciones solicitadas; mejorar fiabilidad después del consentimiento aplicable; y mostrar anuncios no personalizados hasta que haya consentimiento y permisos para personalizarlos."]),
+      section("Proveedores y uso compartido", ["Apple gestiona Apple y App Store; Google/Firebase, Google Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging y AdMob; Meta, Facebook; RevenueCat, compras y derechos. Cada proveedor puede aplicar su política y actuar como responsable independiente. Otros jugadores pueden ver el nombre, país, mascota, puntuación y amistad que haga visibles; no hay chat. Podemos revelar datos para cumplir la ley, proteger el servicio o prevenir fraude."]),
+      section("Anuncios, analítica, notificaciones y cookies", ["Los servicios Firebase están sujetos al consentimiento. AdMob muestra anuncios no personalizados por defecto; en iOS los personalizados requieren también App Tracking Transparency. Las notificaciones son opcionales y pueden usar token, ajustes, plataforma, idioma y zona horaria. La app móvil no usa cookies; el sitio puede guardar idioma y tema en almacenamiento local, y Google Login en la página de eliminación puede usar cookies de Google. Gestione seguimiento y notificaciones en el dispositivo."]),
+      section("Derechos de California", ["Si se aplica CCPA/CPRA, puede conocer, acceder, eliminar, corregir y obtener una copia portátil cuando corresponda: admin@dappgo.com. No vendemos datos por dinero, pero tras el consentimiento podemos compartir identificadores y datos de anuncios con AdMob para publicidad conductual entre contextos, que puede ser «sharing». Rechace o retire la elección, desactive el seguimiento o escriba con el asunto “Do Not Sell or Share My Personal Information”. Puede usar agente autorizado, no discriminamos y respondemos normalmente en 45 días."]),
+      section("Derechos del EEE y Reino Unido", ["Las bases GDPR son contrato para el servicio, consentimiento para anuncios personalizados y recogida opcional, intereses legítimos para seguridad, antitrampas, fraude, fiabilidad y soporte, y obligación legal para registros. Puede acceder, corregir, borrar, limitar, portar u oponerse, retirar consentimiento y reclamar ante la autoridad de su país o la ICO. Puede haber tratamiento en EE. UU. y otros países; usamos garantías legales como adecuación o cláusulas contractuales cuando se exige."]),
+      section("Conservación y eliminación", ["Conservamos los datos mientras la cuenta está activa; la eliminación en la app y web de Google es inmediata y las solicitudes por correo o formulario se completan en 30 días tras verificar. La analítica se conserva 14 meses y los registros de solicitudes del servidor 30 días. Apple/Google pueden conservar compras. Podemos guardar registros limitados por impuestos, contabilidad, seguridad, fraude, disputas u obligación legal y luego eliminarlos o anonimizarlos. Proveedores: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} y {{revenuecat}}."]),
+      section("Menores, seguridad, cambios y contacto", ["Number RPG no se dirige a menores de 13 años. Si lo sabemos, un padre o tutor puede contactar y, tras verificar, eliminaremos los datos conforme a la ley; las reglas locales de edad mayor también aplican. Usamos medidas razonables pero no garantizamos seguridad absoluta. Actualizaremos la política cuando cambien el juego, proveedores o ley; la fecha superior es la versión vigente."])
+    ] },
+    terms: { kicker: "Number RPG · términos", title: "Términos de servicio", product: "Number RPG de DappGo", effective: "Fecha de entrada en vigor: 2026-10-27", summary: "Estas condiciones explican el juego invitado, cuentas opcionales, objetos virtuales, compras, juego limpio, terminación y derechos legales.", sections: [
+      section("1. Aceptación y edad", ["Al usar Number RPG acepta estos términos y la política de privacidad. Está destinado a personas de 13 años o más; no lo use si es menor de la edad mínima o no puede consentir legalmente."]),
+      section("2. Licencia y servicio", ["Yenlung Lai opera Number RPG como DappGo. Concede una licencia personal, limitada, no exclusiva, intransferible y revocable para uso no comercial; no transfiere propiedad del juego, código, arte, nombres o contenido. En iOS también se aplica la {{appleEula}} de Apple."]),
+      section("3. Cuentas y seguridad", ["Puede jugar como invitado; Apple, Google o Facebook permiten guardados, funciones sociales, rankings y restauración. Proteja credenciales y no comparta cuentas, suplante ni proporcione datos falsos."]),
+      section("4. Objetos virtuales y compras", ["Los objetos virtuales no tienen valor en efectivo y solo se usan en el juego; los consumibles se gastan y los no consumibles pueden restaurarse si la tienda lo admite. Compras, reembolsos y cancelaciones siguen Apple/Google; RevenueCat ayuda a restaurar derechos. Las compras pueden seguir restaurándose tras borrar la cuenta."]),
+      section("5. Juego limpio y uso aceptable", ["Prohibimos trampas, bugs, automatización, manipular puntuaciones o recompensas, abusar de invitaciones o regalos, suplantar, interferir, dañar a otros y enviar contenido ilegal, abusivo, de odio, sexualmente explotador o infractor."]),
+      section("6. Medidas y terminación", ["Podemos limitar, suspender o terminar por trampas, abuso, fraude, inseguridad o incumplimiento y cambiar partes del servicio. Puede borrar desde Ajustes → Cuenta → Eliminar cuenta; sobreviven los derechos y deberes que deban continuar."]),
+      section("7. Exenciones y límites", ["En la medida legal, el juego se ofrece según disponibilidad sin garantizar continuidad, ausencia de errores, seguridad o conservación permanente. No respondemos por fallos del dispositivo, red, tienda, terceros o eventos fuera de control, ni por daños indirectos; la responsabilidad directa total se limita al mayor de lo pagado en 12 meses o 100 USD. No se limitan responsabilidades irrenunciables ni derechos del consumidor."]),
+      section("8. Indemnización y controversias", ["En la medida legal, indemnizará por reclamaciones de terceros derivadas de uso ilegal, incumplimiento o contenido enviado, pero no por conducta indebida de DappGo. Contacte primero con admin@dappgo.com; no hay arbitraje obligatorio."]),
+      section("9. Ley aplicable y jurisdicción", ["Rige la ley de California. Salvo derechos obligatorios del consumidor, el foro exclusivo es el tribunal estatal o federal de Los Ángeles, California, sin limitar los derechos imperativos de su país."]),
+      section("10. Cambios y contacto", ["Podemos actualizar los términos cuando cambien el juego, proveedores o ley y avisar cambios importantes cuando se exija. La fecha superior es la versión vigente. Contacto: admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · eliminación de cuenta", title: "Eliminar su cuenta", product: "Number RPG de DappGo", effective: "Instrucciones vigentes: 2026-10-27", summary: "Puede eliminar la cuenta en la app, con el autoservicio de Google, o por formulario web o correo.", sections: [
+      section("Eliminar desde la app", ["Vaya a Ajustes → Cuenta → Eliminar cuenta, confirme y mantenga la app conectada hasta terminar. Es inmediato; Apple puede pedir reautorización."]),
+      section("Eliminar en la web", ["Con una cuenta Google vinculada, inicie sesión abajo, confirme, escriba DELETE y envíe. Es inmediato."]),
+      section("Solicitar por formulario o correo", ["Para Apple, Facebook o invitado, use el formulario o admin@dappgo.com con ID de cuenta y correo vinculado. Verificaremos y completaremos en 30 días. No envíe contraseñas ni claves."]),
+      section("Datos que eliminamos y conservamos", ["Eliminamos cuenta, identidades, perfil, dispositivos, sesiones, guardados, puntuaciones, invitaciones, amigos, regalos, recompensas, eventos, actividad, fraude y tokens push; la app reinicia el progreso local. Apple/Google pueden conservar compras y DappGo puede conservar registros limitados por ley, contabilidad, seguridad, fraude o disputas; después se eliminan o anonimizan."]),
+      section("Plazos y ayuda", ["App y Google web son inmediatos; formularios y correos se completan en 30 días tras verificar. Contacte admin@dappgo.com si necesita ayuda."])
+    ] }
+  },
+  "fr": {
+    privacy: { kicker: "Number RPG · confidentialité", title: "Politique de confidentialité", product: "Number RPG de DappGo", effective: "Date d’entrée en vigueur : 2026-10-27", summary: "Number RPG permet de jouer comme invité. La connexion est facultative et ajoute la sauvegarde cloud, les fonctions sociales et la récupération entre appareils. Cette politique explique les données, les finalités et vos choix.", sections: [
+      section("Qui sommes-nous ?", ["Number RPG est exploité par Yenlung Lai, entrepreneur individuel exerçant sous le nom DappGo à San Gabriel, Californie, États-Unis. Pour le RGPD et le RGPD britannique, DappGo est le responsable des données personnelles décrites ici. Questions, demandes de droits et réclamations : admin@dappgo.com."]),
+      section("Informations collectées", ["Vous pouvez jouer comme invité. Nous pouvons recevoir ID de compte, fournisseur et subject ID, nom, pays, animal leader, sauvegardes, progression, scores, classements, invitations, amis, cadeaux, récompenses, achats RevenueCat, identifiant d’appareil haché, sessions, langue, fuseau, jetons push, données publicitaires, analytiques, d’erreur, de performance et choix de consentement. L’e-mail vient seulement d’Apple, Google ou Meta ; nous ne recevons pas les cartes."]),
+      section("Sources et finalités", ["Les sources sont vous, les fournisseurs de connexion et de boutique, l’appareil et le jeu, ainsi que les autres joueurs. Nous fournissons jeu, comptes, sauvegardes, classements et fonctions sociales, traitons les achats, prévenons triche et fraude, envoyons les notifications demandées, améliorons la fiabilité après consentement et affichons des publicités non personnalisées jusqu’au consentement et aux autorisations nécessaires."]),
+      section("Prestataires et partage", ["Apple traite Apple et App Store ; Google/Firebase traite Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging et AdMob ; Meta traite Facebook ; RevenueCat traite achats et droits. Chaque prestataire peut appliquer sa politique et être responsable indépendant. Les autres joueurs peuvent voir les éléments rendus visibles dans le jeu ; il n’y a pas de chat. Nous pouvons divulguer pour la loi, la sécurité ou la fraude."]),
+      section("Publicités, analyse, notifications et cookies", ["Les services Firebase sont contrôlés par le consentement. AdMob fournit des publicités non personnalisées par défaut ; sur iOS, les personnalisées exigent aussi App Tracking Transparency. Les notifications sont facultatives et peuvent utiliser jeton, préférences, plateforme, langue et fuseau. L’app mobile n’utilise pas de cookies ; le site peut stocker langue et thème localement, et la connexion Google de la page de suppression peut utiliser les cookies Google. Gérez les droits dans l’appareil."]),
+      section("Droits californiens", ["Si CCPA/CPRA s’applique, demandez accès, connaissance, suppression, correction et portabilité à admin@dappgo.com. Nous ne vendons pas les données contre de l’argent, mais pouvons partager après consentement des identifiants et données publicitaires avec AdMob pour la publicité comportementale entre contextes, possiblement un « sharing ». Refusez ou retirez le choix publicitaire, désactivez le suivi ou écrivez avec l’objet “Do Not Sell or Share My Personal Information”. Vous pouvez mandater un agent, nous ne discriminons pas et répondons normalement sous 45 jours."]),
+      section("Droits EEE et Royaume-Uni", ["Les bases RGPD sont contrat pour le service, consentement pour publicité personnalisée et collecte facultative, intérêts légitimes pour sécurité, anti-triche, fraude, fiabilité et assistance, obligation légale pour les registres. Vous pouvez demander accès, rectification, effacement, limitation, portabilité, opposition et retrait du consentement, puis saisir l’autorité de votre pays ou l’ICO. Des traitements peuvent avoir lieu aux États-Unis et ailleurs avec des garanties légales telles que décision d’adéquation ou clauses types."]),
+      section("Conservation et suppression", ["Les données sont conservées pendant l’activité du compte ; suppression dans l’app et web Google immédiate, demandes e-mail/formulaire sous 30 jours après vérification. Analytique : 14 mois ; journaux de requêtes serveur : 30 jours. Apple/Google peuvent garder les achats. Les dossiers limités nécessaires aux impôts, à la comptabilité, à la sécurité, à la fraude, aux litiges ou à la loi sont supprimés ou anonymisés ensuite. Prestataires : {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} et {{revenuecat}}."]),
+      section("Enfants, sécurité, modifications et contact", ["Number RPG ne vise pas les moins de 13 ans. Si nous le savons, un parent peut contacter admin@dappgo.com et nous supprimerons après vérification selon la loi ; les règles locales plus strictes s’appliquent. Nous protégeons raisonnablement les données sans garantir une sécurité absolue. Nous mettons à jour en cas de changement ; la date en tête est la version actuelle."])
+    ] },
+    terms: { kicker: "Number RPG · conditions", title: "Conditions d’utilisation", product: "Number RPG de DappGo", effective: "Date d’entrée en vigueur : 2026-10-27", summary: "Ces conditions expliquent le jeu invité, les comptes facultatifs, objets virtuels, achats, fair-play, fin de compte et droits légaux.", sections: [
+      section("1. Acceptation et âge", ["L’utilisation de Number RPG vaut acceptation des conditions et de la politique de confidentialité. Le jeu vise les 13 ans et plus ; n’utilisez pas si vous êtes trop jeune ou ne pouvez pas consentir légalement."]),
+      section("2. Licence et service", ["Yenlung Lai exploite le jeu sous DappGo. Licence personnelle, limitée, non exclusive, non transférable et révocable pour usage non commercial ; aucune propriété du jeu, code, art, noms ou contenu. Sur iOS, le {{appleEula}} d’Apple s’applique aussi."]),
+      section("3. Comptes et sécurité", ["Le jeu invité est possible ; Apple, Google ou Facebook permettent sauvegardes, social, classements et restauration. Protégez vos identifiants et ne partagez pas, n’usurpez pas et ne fournissez pas sciemment de fausses informations."]),
+      section("4. Objets virtuels et achats", ["Les objets virtuels n’ont pas de valeur monétaire et servent uniquement au jeu ; les consommables sont dépensés et les droits non consommables peuvent être restaurés si la boutique le permet. Achats et remboursements suivent Apple/Google ; RevenueCat aide à restaurer les droits. Les achats peuvent rester restaurables après suppression."]),
+      section("5. Fair-play et usage acceptable", ["Triche, bugs, automatisation, manipulation de scores ou récompenses, abus d’invitations ou cadeaux, usurpation, interférence, nuisance et contenu illégal, abusif, haineux, d’exploitation sexuelle ou contrefaisant sont interdits."]),
+      section("6. Mesures et résiliation", ["Nous pouvons limiter, suspendre ou résilier pour triche, abus, fraude, danger ou violation, et changer le service. Supprimez depuis Réglages → Compte → Supprimer le compte ; les droits et obligations survivants restent en vigueur."]),
+      section("7. Garanties et limites", ["Dans la mesure légale, le jeu est fourni tel quel sans garantie de continuité, absence d’erreur, sécurité ou conservation permanente. Pas de responsabilité pour appareil, réseau, boutique, tiers ou événement hors contrôle, ni pour dommages indirects ; responsabilité directe plafonnée au plus élevé des paiements des 12 derniers mois ou 100 USD. Les responsabilités impératives et droits du consommateur restent intacts."]),
+      section("8. Indemnisation et litiges", ["Dans la mesure légale, vous indemnisez DappGo pour les réclamations de tiers dues à un usage illégal, une violation ou votre contenu, hors faute de DappGo. Contactez d’abord admin@dappgo.com ; aucun arbitrage obligatoire."]),
+      section("9. Droit et juridiction", ["Droit de Californie. Sous réserve des droits impératifs du consommateur, tribunaux d’État ou fédéraux du comté de Los Angeles comme for exclusif, sans limiter les droits de votre pays."]),
+      section("10. Modifications et contact", ["Nous pouvons mettre à jour selon le jeu, les prestataires ou la loi et notifier les changements importants si nécessaire. La date en tête est la version actuelle. Contact : admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · suppression du compte", title: "Supprimer votre compte", product: "Number RPG de DappGo", effective: "Instructions en vigueur : 2026-10-27", summary: "Supprimez dans l’app, avec l’autoservice Google, ou par formulaire web et e-mail.", sections: [
+      section("Supprimer dans l’app", ["Réglages → Compte → Supprimer le compte, confirmez et restez en ligne jusqu’à la réussite. Effet immédiat ; Apple peut demander une nouvelle autorisation."]),
+      section("Supprimer sur le web", ["Pour un compte Google, connectez-vous ci-dessous, confirmez, saisissez DELETE et envoyez. Effet immédiat."]),
+      section("Demander par formulaire ou e-mail", ["Pour Apple, Facebook ou invité, utilisez le formulaire ou admin@dappgo.com avec l’ID du compte et l’e-mail lié. Après vérification, sous 30 jours. N’envoyez pas de secrets."]),
+      section("Données supprimées et conservées", ["Nous retirons compte, identités, profil, appareils, sessions, sauvegardes, scores, invitations, amis, cadeaux, récompenses, événements, activité, fraude et jetons push ; l’app réinitialise le progrès local. Apple/Google peuvent garder les achats et DappGo des dossiers limités nécessaires à la loi, comptabilité, sécurité, fraude ou litiges ; suppression ou anonymisation ensuite."]),
+      section("Délai et aide", ["App et Google web : immédiat ; formulaire et e-mail : sous 30 jours après vérification. Contactez admin@dappgo.com en cas de problème."])
+    ] }
+  },
+  "de": {
+    privacy: { kicker: "Number RPG · Datenschutz", title: "Datenschutzerklärung", product: "Number RPG von DappGo", effective: "Gültig ab: 2026-10-27", summary: "Number RPG kann als Gast gespielt werden. Die Anmeldung ist freiwillig und ermöglicht Cloud-Spielstände, soziale Funktionen und Wiederherstellung auf mehreren Geräten. Diese Erklärung beschreibt Daten, Zwecke und Wahlmöglichkeiten.", sections: [
+      section("Wer wir sind", ["Number RPG wird von Yenlung Lai betrieben, einem Einzelunternehmer, der in San Gabriel, Kalifornien, USA, unter DappGo tätig ist. Für DSGVO und britische DSGVO ist DappGo Verantwortlicher der beschriebenen Daten. Fragen, Rechteanträge und Beschwerden: admin@dappgo.com."]),
+      section("Welche Daten wir erfassen", ["Als Gast ist Spielen möglich. Je nach Funktion erfassen oder erhalten wir Konto-ID, Anbieter und Subject-ID, Anzeigename, Land, Haustier, Cloud-Spielstände, Fortschritt, Punkte, Ranglisten, Einladungen, Freunde, Geschenke, Belohnungen, RevenueCat-Käufe, gehashte Gerätekennung, Sitzungen, Sprache, Zeitzone, Push-Token sowie Werbe-, Analyse-, Fehler-, Leistungs- und Einwilligungsdaten. E-Mail nur bei Bereitstellung durch Apple, Google oder Meta; keine Kartendaten."]),
+      section("Quellen und Zwecke", ["Quellen sind Sie, gewählte Login- und Store-Anbieter, Gerät und Spiel sowie andere Spieler. Wir liefern Spiel, Konto, Speicher, Ranglisten und Social-Funktionen, verarbeiten Käufe, verhindern Betrug, senden gewünschte Benachrichtigungen, verbessern nach Einwilligung die Zuverlässigkeit und zeigen bis zur nötigen Einwilligung nicht personalisierte Werbung."]),
+      section("Dienstleister und Weitergabe", ["Apple verarbeitet Apple und App Store; Google/Firebase Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging und AdMob; Meta Facebook; RevenueCat Käufe und Rechte. Anbieter haben eigene Richtlinien und können eigenständige Verantwortliche sein. Andere Spieler sehen veröffentlichte Angaben; es gibt keinen Chat. Offenlegung ist für Gesetz, Sicherheit und Betrugsprävention möglich."]),
+      section("Werbung, Analysen, Benachrichtigungen und Cookies", ["Firebase-Dienste sind einwilligungsgesteuert. AdMob zeigt standardmäßig nicht personalisierte Werbung; iOS-Personalisierung benötigt zusätzlich App Tracking Transparency. Push ist freiwillig und kann Token, Einstellungen, Plattform, Sprache und Zeitzone nutzen. Die mobile App verwendet keine Browser-Cookies; die Website kann Sprache und Theme lokal speichern, Google-Anmeldung auf der Löschseite kann Google-Cookies verwenden. Rechte verwalten Sie am Gerät."]),
+      section("Datenschutzrechte in Kalifornien", ["Bei CCPA/CPRA können Sie Auskunft, Zugang, Löschung, Berichtigung und Portabilität über admin@dappgo.com verlangen. Wir verkaufen Daten nicht gegen Geld, können aber nach Einwilligung Geräte-/Werbekennungen und Anzeigeninteraktionen für kontextübergreifende Werbung mit AdMob teilen, möglicherweise „sharing“. Werbeauswahl ablehnen/zurückziehen, Tracking deaktivieren oder mit Betreff “Do Not Sell or Share My Personal Information” schreiben. Bevollmächtigte sind möglich, keine Diskriminierung; Antwort grundsätzlich binnen 45 Tagen."]),
+      section("Datenschutzrechte im EWR und Vereinigten Königreich", ["Rechtsgrundlagen sind Vertrag für den Dienst, Einwilligung für personalisierte Werbung und optionale Erfassung, berechtigte Interessen für Sicherheit, Anti-Cheat, Betrug, Zuverlässigkeit und Support sowie gesetzliche Pflicht für erforderliche Aufzeichnungen. Sie können Zugang, Korrektur, Löschung, Einschränkung, Übertragbarkeit, Widerspruch und Widerruf verlangen und sich bei Aufsicht oder ICO beschweren. Verarbeitung kann in den USA und anderen Ländern erfolgen; erforderlichenfalls nutzen wir Angemessenheit, Standardvertragsklauseln oder andere Garantien."]),
+      section("Aufbewahrung und Löschung", ["Kontodaten bleiben während der Aktivität; App- und Google-Web-Löschung wirken sofort, E-Mail/Formular in 30 Tagen nach Prüfung. Analysedaten 14 Monate, Server-Anfrageprotokolle 30 Tage. Apple/Google können Käufe behalten. Begrenzte Aufzeichnungen für Steuer, Buchhaltung, Sicherheit, Betrug, Streit oder Gesetz werden danach gelöscht/anonymisiert. Anbieter: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} und {{revenuecat}}."]),
+      section("Kinder, Sicherheit, Änderungen und Kontakt", ["Number RPG richtet sich nicht an unter 13-Jährige. Eltern können bei Kenntnis admin@dappgo.com kontaktieren; nach Prüfung löschen wir nach Gesetz. Höhere lokale Altersregeln gelten. Wir schützen angemessen, garantieren aber keine absolute Sicherheit. Bei Änderungen aktualisieren wir; das Datum oben ist die aktuelle Fassung."])
+    ] },
+    terms: { kicker: "Number RPG · Bedingungen", title: "Nutzungsbedingungen", product: "Number RPG von DappGo", effective: "Gültig ab: 2026-10-27", summary: "Diese Bedingungen erklären Gastspiel, freiwillige Konten, virtuelle Gegenstände, Käufe, Fair Play, Beendigung und Rechte.", sections: [
+      section("1. Zustimmung und Alter", ["Die Nutzung bedeutet Zustimmung zu Bedingungen und Datenschutzerklärung. Für 13 Jahre und älter; unter der Mindestaltergrenze oder ohne rechtliche Zustimmung nicht verwenden."]),
+      section("2. Lizenz und Dienst", ["Yenlung Lai betreibt das Spiel als DappGo. Persönliche, begrenzte, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz für nicht kommerzielle Nutzung; keine Eigentumsübertragung. Für iOS gilt zusätzlich Apples {{appleEula}}."]),
+      section("3. Konten und Sicherheit", ["Gastspiel möglich; Apple, Google oder Facebook unterstützen Speicher, Social, Ranglisten und Wiederherstellung. Schützen Sie Zugangsdaten und teilen Sie keine Konten, täuschen Sie keine Identität vor und machen Sie keine bewusst falschen Angaben."]),
+      section("4. Virtuelle Gegenstände und Käufe", ["Virtuelle Währung, Leben, Zubehör und Upgrades haben keinen Geldwert und dienen nur dem Spiel; Verbrauchsgegenstände werden verbraucht, nicht verbrauchbare Rechte können bei Store-Unterstützung wiederhergestellt werden. Käufe und Erstattungen folgen Apple/Google; RevenueCat unterstützt Rechte. Käufe können nach Kontolöschung wiederherstellbar bleiben."]),
+      section("5. Fair Play und zulässige Nutzung", ["Cheaten, Bugs, Automatisierung, Manipulation, Missbrauch von Einladungen/Geschenken, Identitätsvortäuschung, Störung, Schädigung und rechtswidrige, beleidigende, hasserfüllte, sexuell ausbeuterische oder rechtsverletzende Inhalte sind verboten."]),
+      section("6. Maßnahmen und Beendigung", ["Bei Cheating, Missbrauch, Betrug, Unsicherheit oder Verstoß können wir Zugriff beschränken, sperren oder beenden und Dienste ändern. Löschen unter Einstellungen → Konto → Konto löschen; fortbestehende Rechte und Pflichten bleiben."]),
+      section("7. Haftungsausschlüsse und Grenzen", ["Gesetzlich zulässig wird der Dienst verfügbar und ohne Garantie für Kontinuität, Fehlerfreiheit, Sicherheit oder dauerhafte Speicherung bereitgestellt. Keine Haftung für Gerät, Netz, Store, Dritte oder nicht kontrollierbare Ereignisse und keine für indirekte Schäden; direkte Haftung höchstens Zahlungen der letzten 12 Monate oder 100 USD, höherer Betrag. Unabdingbare Haftung und Verbraucherrechte bleiben."]),
+      section("8. Freistellung und Streitigkeiten", ["Sie stellen DappGo im gesetzlichen Umfang für Drittansprüche wegen rechtswidriger Nutzung, Verstoß oder Inhalten frei, nicht für eigenes Fehlverhalten von DappGo. Erst admin@dappgo.com kontaktieren; kein verpflichtendes Schiedsverfahren."]),
+      section("9. Recht und Gerichtsstand", ["Kalifornisches Recht; vorbehaltlich zwingender Verbraucherrechte sind staatliche oder Bundesgerichte in Los Angeles County, Kalifornien, ausschließlicher Gerichtsstand."]),
+      section("10. Änderungen und Kontakt", ["Wir können bei Änderungen von Spiel, Anbieter oder Recht aktualisieren und wichtige Änderungen erforderlichenfalls mitteilen. Das Datum oben ist aktuell. Kontakt: admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · Kontolöschung", title: "Konto löschen", product: "Number RPG von DappGo", effective: "Anleitung gültig ab: 2026-10-27", summary: "Löschen Sie in der App, mit Google-Selbstservice oder über Webformular und E-Mail.", sections: [
+      section("In der App löschen", ["Einstellungen → Konto → Konto löschen, bestätigen und bis zum Erfolg online bleiben. Sofort; Apple kann eine erneute Autorisierung verlangen."]),
+      section("Im Web löschen", ["Mit Google verknüpftes Konto unten anmelden, bestätigen, DELETE eingeben und senden. Sofort wirksam."]),
+      section("Per Formular oder E-Mail anfordern", ["Für Apple, Facebook oder Gast Formular oder admin@dappgo.com mit Konto-ID und E-Mail nutzen. Nach Prüfung binnen 30 Tagen; keine Passwörter oder Schlüssel senden."]),
+      section("Gelöschte und verbleibende Daten", ["Konto, Identitäten, Profil, Geräte, Sitzungen, Speicherstände, Punkte, Einladungen, Freunde, Geschenke, Belohnungen, Ereignisse, Aktivitäten, Betrugsdaten und Push-Token werden entfernt; lokaler Fortschritt wird zurückgesetzt. Apple/Google können Käufe, DappGo begrenzte gesetzliche, buchhalterische, Sicherheits-, Betrugs- oder Streitdaten behalten; danach löschen/anonymisieren wir."]),
+      section("Dauer und Hilfe", ["App und Google Web sofort; Formular und E-Mail binnen 30 Tagen nach Prüfung. Hilfe: admin@dappgo.com."])
+    ] }
+  },
+  "pt-BR": {
+    privacy: { kicker: "Number RPG · privacidade", title: "Política de privacidade", product: "Number RPG da DappGo", effective: "Data de vigência: 2026-10-27", summary: "Number RPG permite jogar como convidado. O login é opcional e adiciona salvamento na nuvem, recursos sociais e recuperação entre dispositivos. Esta política explica dados, finalidades e escolhas.", sections: [
+      section("Quem somos", ["Number RPG é operado por Yenlung Lai, empresário individual que atua como DappGo em San Gabriel, Califórnia, EUA. Para o GDPR e o GDPR do Reino Unido, a DappGo é a controladora dos dados descritos. Perguntas, direitos e reclamações: admin@dappgo.com."]),
+      section("Informações coletadas", ["Como convidado, podemos receber ID, provedor e subject ID, nome, país, mascote líder, salvamentos, progresso, pontos, rankings, convites, amigos, presentes, recompensas, compras da RevenueCat, identificador de dispositivo com hash, sessões, idioma, fuso, token push, dados de anúncios, análise, falhas, desempenho e consentimento. E-mail somente se fornecido por Apple, Google ou Meta; não recebemos dados de cartão."]),
+      section("Fontes e finalidades", ["As fontes são você, provedores de login e loja, dispositivo, jogo e outros jogadores. Usamos para fornecer jogo, conta, salvamento, rankings e social; processar compras; prevenir trapaça, abuso e fraude; enviar notificações solicitadas; melhorar confiabilidade após consentimento; e mostrar anúncios não personalizados até consentimento e permissões necessárias."]),
+      section("Prestadores e compartilhamento", ["Apple cuida de Apple e App Store; Google/Firebase de Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging e AdMob; Meta de Facebook; RevenueCat de compras e direitos. Prestadores têm políticas próprias e podem ser controladores independentes. Outros jogadores veem dados que você tornar públicos; não há chat. Podemos divulgar por lei, segurança e prevenção de fraude."]),
+      section("Anúncios, análises, notificações e cookies", ["Serviços Firebase dependem de consentimento. AdMob não personaliza por padrão; no iOS personalização também requer App Tracking Transparency. Push é opcional e pode usar token, preferências, plataforma, idioma e fuso. O app não usa cookies; o site pode guardar idioma e tema localmente, e o login Google da página de exclusão pode usar cookies Google. Gerencie permissões no dispositivo."]),
+      section("Direitos na Califórnia", ["Se CCPA/CPRA se aplicar, peça acesso, conhecimento, exclusão, correção e portabilidade a admin@dappgo.com. Não vendemos dados por dinheiro, mas após consentimento podemos compartilhar identificadores e dados de anúncios com AdMob para publicidade comportamental entre contextos, possivelmente “sharing”. Recuse ou retire a escolha, desative rastreamento ou escreva com o assunto “Do Not Sell or Share My Personal Information”. Pode usar agente autorizado, não discriminamos e respondemos normalmente em 45 dias."]),
+      section("Direitos no EEE e Reino Unido", ["Bases GDPR: contrato para o serviço, consentimento para publicidade personalizada e coleta opcional, interesses legítimos para segurança, antitrapaça, fraude, confiabilidade e suporte, obrigação legal para registros. Pode pedir acesso, correção, exclusão, limitação, portabilidade, oposição e retirar consentimento; também reclamar à autoridade local ou ICO. Pode haver tratamento nos EUA e outros países com garantias legais quando necessárias."]),
+      section("Retenção e exclusão", ["Dados ficam enquanto a conta está ativa; exclusão no app e web Google é imediata e pedidos por e-mail/formulário terminam em 30 dias após verificação. Análises ficam 14 meses e logs de solicitações do servidor 30 dias. Apple/Google podem manter compras. Registros limitados para imposto, contabilidade, segurança, fraude, disputas ou lei serão apagados ou anonimizados depois. Prestadores: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}} e {{revenuecat}}."]),
+      section("Crianças, segurança, alterações e contato", ["Number RPG não é dirigido a menores de 13. Responsáveis podem contatar admin@dappgo.com e, após verificação, excluiremos conforme a lei; regras locais mais rígidas se aplicam. Usamos salvaguardas razoáveis sem garantir segurança absoluta. Atualizamos quando necessário; a data acima é a versão atual."])
+    ] },
+    terms: { kicker: "Number RPG · termos", title: "Termos de serviço", product: "Number RPG da DappGo", effective: "Data de vigência: 2026-10-27", summary: "Estes termos explicam jogo convidado, contas, itens virtuais, compras, jogo justo, encerramento e direitos.", sections: [
+      section("1. Aceitação e idade", ["Usar o Number RPG significa aceitar estes termos e a política de privacidade. Destina-se a pessoas de 13 anos ou mais; não use abaixo da idade mínima ou sem capacidade legal de consentir."]),
+      section("2. Licença e serviço", ["Yenlung Lai opera como DappGo. Concede licença pessoal, limitada, não exclusiva, intransferível e revogável para uso não comercial; não transfere propriedade do jogo, código, arte, nomes ou conteúdo. No iOS aplica-se também a {{appleEula}} da Apple."]),
+      section("3. Contas e segurança", ["Pode jogar como convidado; Apple, Google e Facebook permitem salvamento, social, rankings e restauração. Proteja credenciais e não compartilhe conta, imite outro jogador ou forneça informação falsa."]),
+      section("4. Itens virtuais e compras", ["Itens virtuais não têm valor em dinheiro e só servem no jogo; consumíveis são gastos e direitos não consumíveis podem ser restaurados se a loja permitir. Compras e reembolsos seguem Apple/Google; RevenueCat ajuda a restaurar direitos. Compras podem continuar restauráveis após excluir a conta."]),
+      section("5. Jogo justo e uso aceitável", ["São proibidos trapaça, bugs, automação, manipulação de pontuação ou recompensa, abuso de convite ou presente, impersonação, interferência, dano e conteúdo ilegal, abusivo, de ódio, sexualmente explorador ou infrator."]),
+      section("6. Medidas e encerramento", ["Podemos limitar, suspender ou encerrar por trapaça, abuso, fraude, insegurança ou violação e mudar o serviço. Exclua em Configurações → Conta → Excluir conta; direitos e deveres que devam sobreviver continuam."]),
+      section("7. Isenções e limites", ["Na medida legal, o jogo é fornecido conforme disponível sem garantia de continuidade, ausência de erros, segurança ou preservação permanente. Não respondemos por dispositivo, rede, loja, terceiros ou eventos fora de controle nem por danos indiretos; danos diretos limitados ao maior entre pagamentos dos 12 meses ou 100 USD. Não limitamos responsabilidade irrenunciável nem direitos do consumidor."]),
+      section("8. Indenização e disputas", ["Na medida legal, você indeniza por reclamações de terceiros causadas por uso ilegal, violação ou conteúdo, não por conduta da DappGo. Contate admin@dappgo.com primeiro; não há arbitragem obrigatória."]),
+      section("9. Lei e foro", ["Aplica-se a lei da Califórnia; salvo direitos obrigatórios, o foro exclusivo é o tribunal estadual ou federal de Los Angeles County. Não limitamos direitos obrigatórios do seu país."]),
+      section("10. Alterações e contato", ["Podemos atualizar por mudanças no jogo, prestadores ou lei e avisar mudanças importantes quando necessário. A data acima é a versão atual. Contato: admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · exclusão da conta", title: "Excluir sua conta", product: "Number RPG da DappGo", effective: "Instruções vigentes: 2026-10-27", summary: "Exclua no app, com o autosserviço Google, por formulário web ou e-mail.", sections: [
+      section("Excluir no app", ["Vá a Configurações → Conta → Excluir conta, confirme e fique online até concluir. É imediato; Apple pode exigir nova autorização."]),
+      section("Excluir na web", ["Com conta Google vinculada, faça login abaixo, confirme, digite DELETE e envie. É imediato."]),
+      section("Pedir por formulário ou e-mail", ["Para Apple, Facebook ou convidado, use formulário ou admin@dappgo.com com ID e e-mail. Após verificar, concluiremos em 30 dias. Não envie segredos."]),
+      section("Dados removidos e mantidos", ["Removemos conta, identidades, perfil, dispositivos, sessões, salvamentos, pontos, convites, amigos, presentes, recompensas, eventos, atividades, fraude e tokens push; o app reinicia o progresso local. Apple/Google podem manter compras e a DappGo registros limitados necessários à lei, contabilidade, segurança, fraude ou disputas; depois excluímos ou anonimizamos."]),
+      section("Prazo e ajuda", ["App e Google web: imediato; formulário e e-mail: até 30 dias após verificar. Ajuda: admin@dappgo.com."])
+    ] }
+  },
+  "th": {
+    privacy: { kicker: "Number RPG · ความเป็นส่วนตัว", title: "นโยบายความเป็นส่วนตัว", product: "Number RPG โดย DappGo", effective: "วันที่มีผล: 2026-10-27", summary: "Number RPG ให้คุณเล่นเป็นผู้เยี่ยมชมได้ การเข้าสู่ระบบเป็นทางเลือกและช่วยบันทึกบนคลาวด์ ฟีเจอร์โซเชียล และการกู้คืนข้ามอุปกรณ์ นโยบายนี้อธิบายข้อมูล วัตถุประสงค์ และตัวเลือกของคุณ", sections: [
+      section("เราเป็นใคร", ["Number RPG ดำเนินงานโดย Yenlung Lai เจ้าของกิจการรายบุคคลที่ทำธุรกิจในชื่อ DappGo ใน San Gabriel รัฐแคลิฟอร์เนีย สหรัฐอเมริกา สำหรับ GDPR และ UK GDPR DappGo เป็นผู้ควบคุมข้อมูลตามนโยบายนี้ ติดต่อ admin@dappgo.com สำหรับคำถาม คำขอใช้สิทธิ หรือข้อร้องเรียน"]),
+      section("ข้อมูลที่เราเก็บ", ["ขึ้นอยู่กับฟีเจอร์ เราอาจได้รับ ID บัญชี ผู้ให้บริการและ subject ID ชื่อ ประเทศ สัตว์เลี้ยงผู้นำ การบันทึก ความคืบหน้า คะแนน กระดานผู้นำ คำเชิญ เพื่อน ของขวัญ รางวัล ข้อมูลซื้อจาก RevenueCat ตัวระบุอุปกรณ์ที่แฮช เซสชัน ภาษา เขตเวลา โทเค็นพุช ข้อมูลโฆษณา การวิเคราะห์ ข้อขัดข้อง ประสิทธิภาพ และตัวเลือกความยินยอม อีเมลใช้เมื่อ Apple, Google หรือ Meta ให้มา และเราไม่รับข้อมูลบัตร"]),
+      section("แหล่งที่มาและวัตถุประสงค์", ["ข้อมูลมาจากคุณ ผู้ให้บริการเข้าสู่ระบบและร้านค้า อุปกรณ์ เกม และผู้เล่นอื่น เราใช้เพื่อให้บริการเกมและบัญชี บันทึกข้อมูล กระดานผู้นำและโซเชียล ป้องกันโกงและฉ้อโกง ดำเนินการซื้อ ส่งการแจ้งเตือนที่ขอ ปรับปรุงความเสถียรหลังความยินยอม และแสดงโฆษณาที่ไม่ปรับตามบุคคลจนกว่าจะได้รับความยินยอมและสิทธิ์ที่จำเป็น"]),
+      section("ผู้ให้บริการและการแบ่งปัน", ["Apple ดูแล Apple และ App Store; Google/Firebase ดูแล Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging และ AdMob; Meta ดูแล Facebook; RevenueCat ดูแลการซื้อและสิทธิ์ ผู้ให้บริการใช้แนวทางของตนเองและอาจเป็นผู้ควบคุมอิสระ ผู้เล่นอื่นอาจเห็นข้อมูลที่คุณเปิดเผย และไม่มีแชต เราอาจเปิดเผยเพื่อกฎหมาย ความปลอดภัย หรือป้องกันการฉ้อโกง"]),
+      section("โฆษณา การวิเคราะห์ การแจ้งเตือน และคุกกี้", ["บริการ Firebase ถูกควบคุมด้วยความยินยอม AdMob แสดงโฆษณาที่ไม่ปรับตามบุคคลเป็นค่าเริ่มต้น และ iOS ต้องได้รับ App Tracking Transparency สำหรับโฆษณาที่ปรับตามบุคคล การแจ้งเตือนเป็นทางเลือกและอาจใช้โทเค็น การตั้งค่า แพลตฟอร์ม ภาษา และเขตเวลา แอปมือถือไม่ใช้คุกกี้เบราว์เซอร์ เว็บไซต์อาจเก็บภาษาและธีมในเครื่อง และ Google ในหน้าลบบัญชีอาจใช้คุกกี้ของ Google คุณจัดการสิทธิ์ในอุปกรณ์ได้"]),
+      section("สิทธิในแคลิฟอร์เนีย", ["หาก CCPA/CPRA ใช้บังคับ คุณขอทราบ เข้าถึง ลบ แก้ไข และสำเนาที่โอนได้ผ่าน admin@dappgo.com ได้ เราไม่ขายข้อมูลเพื่อเงิน แต่อาจแบ่งปันตัวระบุและข้อมูลโฆษณากับ AdMob หลังความยินยอมเพื่อโฆษณาข้ามบริบท ซึ่งอาจเป็นการแบ่งปันตามกฎหมาย หากต้องการยกเลิก ให้ถอนตัวเลือกโฆษณา ปิดการติดตาม หรือส่งหัวข้อ “Do Not Sell or Share My Personal Information” คุณใช้ตัวแทนได้ เราไม่เลือกปฏิบัติ และตอบคำขอโดยทั่วไปภายใน 45 วัน"]),
+      section("สิทธิใน EEA และสหราชอาณาจักร", ["ฐานกฎหมายของ GDPR/UK GDPR ได้แก่ สัญญาสำหรับบริการ ความยินยอมสำหรับโฆษณาและการเก็บข้อมูลทางเลือก ประโยชน์โดยชอบด้วยกฎหมายสำหรับความปลอดภัย การป้องกันโกง/ฉ้อโกง ความเสถียรและการสนับสนุน และหน้าที่ตามกฎหมายสำหรับบันทึก คุณขอเข้าถึง แก้ไข ลบ จำกัด โอนย้าย คัดค้าน และถอนความยินยอมได้ รวมถึงร้องเรียนต่อหน่วยงานกำกับหรือ ICO ข้อมูลอาจถูกประมวลผลในสหรัฐฯ และประเทศอื่นโดยใช้มาตรการโอนที่ชอบด้วยกฎหมายเมื่อจำเป็น"]),
+      section("การเก็บรักษาและลบ", ["เก็บข้อมูลบัญชีขณะใช้งาน ลบในแอปและเว็บ Google ทันที และคำขออีเมล/แบบฟอร์มภายใน 30 วันหลังยืนยัน ข้อมูลวิเคราะห์เก็บ 14 เดือน บันทึกคำขอเซิร์ฟเวอร์ 30 วัน Apple/Google อาจเก็บข้อมูลซื้อ และเราอาจเก็บบันทึกจำกัดเพื่อภาษี บัญชี ความปลอดภัย ฉ้อโกง ข้อพิพาท หรือกฎหมาย แล้วลบหรือทำให้ไม่ระบุตัวตน นโยบายผู้ให้บริการ: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, {{revenuecat}}"]),
+      section("เด็ก ความปลอดภัย การเปลี่ยนแปลง และติดต่อ", ["ไม่มุ่งเป้าเด็กต่ำกว่า 13 ปี หากทราบให้ผู้ปกครองติดต่อ admin@dappgo.com และเราจะลบตามกฎหมาย กฎอายุที่สูงกว่าในท้องถิ่นใช้บังคับ เรามาตรการสมเหตุสมผลแต่ไม่รับประกันความปลอดภัยสมบูรณ์ อัปเดตนโยบายเมื่อเกม ผู้ให้บริการ หรือกฎหมายเปลี่ยน โดยวันที่ด้านบนคือฉบับปัจจุบัน"])
+    ] },
+    terms: { kicker: "Number RPG · ข้อกำหนด", title: "ข้อกำหนดการให้บริการ", product: "Number RPG โดย DappGo", effective: "วันที่มีผล: 2026-10-27", summary: "ข้อกำหนดนี้อธิบายการเล่นแบบผู้เยี่ยมชม บัญชี ไอเท็มเสมือน การซื้อ การเล่นยุติธรรม การยุติบัญชี และสิทธิของคุณ", sections: [
+      section("1. การยอมรับและอายุ", ["การใช้ Number RPG คือการยอมรับข้อกำหนดและนโยบายความเป็นส่วนตัว เกมมีไว้สำหรับผู้มีอายุ 13 ปีขึ้นไป และห้ามใช้หากอายุต่ำกว่าเกณฑ์หรือยอมรับไม่ได้ตามกฎหมาย"]),
+      section("2. ใบอนุญาตและบริการ", ["Yenlung Lai ดำเนินงานในชื่อ DappGo ให้ใบอนุญาตส่วนบุคคล จำกัด ไม่ผูกขาด โอนต่อไม่ได้ และเพิกถอนได้เพื่อความบันเทิงที่ไม่ใช่เชิงพาณิชย์ ไม่โอนกรรมสิทธิ์เกม โค้ด ศิลป์ ชื่อ หรือเนื้อหา สำหรับ iOS ใช้ {{appleEula}} ของ Apple ด้วย"]),
+      section("3. บัญชีและความปลอดภัย", ["เล่นเป็นผู้เยี่ยมชมได้ การเข้าสู่ระบบ Apple, Google หรือ Facebook รองรับการบันทึก โซเชียล กระดานผู้นำ และกู้คืนการซื้อ รักษาข้อมูลให้ปลอดภัย ห้ามแชร์หรือแอบอ้าง"]),
+      section("4. ไอเท็มเสมือนและการซื้อ", ["ไอเท็มเสมือนไม่มีมูลค่าเงินและใช้ในเกมเท่านั้น ของสิ้นเปลืองถูกใช้แล้วหมด สิทธิ์อื่นกู้คืนได้หากร้านรองรับ การซื้อและคืนเงินเป็นไปตาม Apple/Google และ RevenueCat ช่วยเรื่องสิทธิ์ การซื้ออาจกู้คืนได้หลังลบบัญชี"]),
+      section("5. การเล่นยุติธรรม", ["ห้ามโกง ใช้บั๊ก อัตโนมัติ บิดเบือนคะแนนหรือรางวัล ใช้คำเชิญ/ของขวัญผิด แอบอ้าง รบกวน ทำร้ายผู้อื่น หรือส่งเนื้อหาผิดกฎหมาย หยาบคาย เกลียดชัง ล่วงละเมิดทางเพศ หรือละเมิดสิทธิ"]),
+      section("6. การบังคับใช้และยุติ", ["เราจำกัด ระงับ หรือยุติได้เมื่อมีโกง ใช้ผิด ฉ้อโกง ไม่ปลอดภัย หรือฝ่าฝืน และเปลี่ยนบริการได้ ลบได้ที่การตั้งค่า → บัญชี → ลบบัญชี สิทธิและหน้าที่ที่ควรอยู่ต่อยังคงอยู่"]),
+      section("7. ข้อปฏิเสธและข้อจำกัด", ["เท่าที่กฎหมายอนุญาต เกมให้บริการตามที่มี ไม่รับประกันความต่อเนื่อง ข้อผิดพลาด ความปลอดภัย หรือการเก็บถาวร ไม่รับผิดความเสียหายทางอ้อม และจำกัดความเสียหายโดยตรงที่จำนวนเงิน 12 เดือนหรือ 100 ดอลลาร์ที่สูงกว่า ไม่จำกัดความรับผิดที่กฎหมายห้ามตัดหรือสิทธิผู้บริโภค"]),
+      section("8. ชดใช้และข้อพิพาท", ["เท่าที่กฎหมายอนุญาต คุณชดใช้คำเรียกร้องจากการใช้ผิดกฎหมาย ฝ่าฝืน หรือเนื้อหา แต่ไม่ใช่การผิดของ DappGo ติดต่อ admin@dappgo.com ก่อน และไม่มีอนุญาโตตุลาการบังคับ"]),
+      section("9. กฎหมายและเขตอำนาจ", ["ใช้กฎหมายแคลิฟอร์เนีย และศาลรัฐหรือรัฐบาลกลางใน Los Angeles County เป็นศาลเฉพาะภายใต้สิทธิผู้บริโภคที่บังคับใช้"]),
+      section("10. การเปลี่ยนแปลงและติดต่อ", ["อาจปรับปรุงเมื่อเกม ผู้ให้บริการ หรือกฎหมายเปลี่ยน และแจ้งการเปลี่ยนแปลงสำคัญเมื่อจำเป็น วันที่ด้านบนคือฉบับปัจจุบัน ติดต่อ admin@dappgo.com"])
+    ] },
+    deleteAccount: { kicker: "Number RPG · การลบบัญชี", title: "ลบบัญชีของคุณ", product: "Number RPG โดย DappGo", effective: "คำแนะนำมีผล: 2026-10-27", summary: "ลบบัญชีในแอป ใช้ Google ด้วยตนเอง หรือขอผ่านแบบฟอร์มและอีเมล", sections: [
+      section("ลบในแอป", ["ไปที่การตั้งค่า → บัญชี → ลบบัญชี ยืนยันและออนไลน์จนสำเร็จ มีผลทันที และ Apple อาจขออนุญาตใหม่"]),
+      section("ลบบนเว็บ", ["บัญชี Google ใช้บริการด้านล่าง เข้าสู่ระบบ ยืนยัน พิมพ์ DELETE และส่ง มีผลทันที"]),
+      section("ขอผ่านแบบฟอร์มหรืออีเมล", ["บัญชี Apple, Facebook หรือผู้เยี่ยมชมใช้แบบฟอร์มหรือ admin@dappgo.com พร้อม ID และอีเมล ยืนยันแล้วเสร็จภายใน 30 วัน อย่าส่งความลับ"]),
+      section("ข้อมูลที่ลบและอาจคงอยู่", ["ลบบัญชี ตัวตน โปรไฟล์ อุปกรณ์ เซสชัน การบันทึก คะแนน คำเชิญ เพื่อน ของขวัญ รางวัล เหตุการณ์ กิจกรรม การฉ้อโกง และโทเค็นพุช พร้อมรีเซ็ตความคืบหน้าในเครื่อง Apple/Google อาจเก็บการซื้อ และ DappGo อาจเก็บบันทึกจำกัดตามกฎหมาย บัญชี ความปลอดภัย ฉ้อโกง หรือข้อพิพาท แล้วลบ/ทำให้ไม่ระบุตัวตน"]),
+      section("เวลาและช่วยเหลือ", ["แอปและเว็บ Google ทันที แบบฟอร์มและอีเมลภายใน 30 วันหลังยืนยัน ติดต่อ admin@dappgo.com"])
+    ] }
+  },
+  "vi": {
+    privacy: { kicker: "Number RPG · quyền riêng tư", title: "Chính sách quyền riêng tư", product: "Number RPG của DappGo", effective: "Ngày có hiệu lực: 2026-10-27", summary: "Number RPG cho phép chơi với tư cách khách. Đăng nhập là tùy chọn và thêm lưu đám mây, tính năng xã hội và khôi phục giữa thiết bị. Chính sách này giải thích dữ liệu, mục đích và lựa chọn.", sections: [
+      section("Chúng tôi là ai", ["Number RPG do Yenlung Lai vận hành, là chủ doanh nghiệp cá nhân kinh doanh dưới tên DappGo tại San Gabriel, California, Hoa Kỳ. Theo GDPR và UK GDPR, DappGo là bên kiểm soát dữ liệu được mô tả. Câu hỏi, yêu cầu quyền và khiếu nại: admin@dappgo.com."]),
+      section("Thông tin thu thập", ["Tùy tính năng, chúng tôi có thể nhận ID tài khoản, nhà cung cấp và subject ID, tên, quốc gia, thú cưng dẫn đầu, lưu đám mây, tiến trình, điểm, bảng xếp hạng, lời mời, bạn bè, quà, thưởng, mua hàng RevenueCat, mã thiết bị đã băm, phiên, ngôn ngữ, múi giờ, token đẩy, dữ liệu quảng cáo, phân tích, lỗi, hiệu năng và đồng ý. Email chỉ khi Apple, Google hoặc Meta cung cấp; không nhận dữ liệu thẻ."]),
+      section("Nguồn và mục đích", ["Nguồn là bạn, nhà cung cấp đăng nhập/cửa hàng, thiết bị, trò chơi và người chơi khác. Dùng để cung cấp trò chơi, tài khoản, lưu, bảng xếp hạng và xã hội; xử lý mua hàng; chống gian lận; gửi thông báo yêu cầu; cải thiện độ tin cậy sau đồng ý; và hiển thị quảng cáo không cá nhân hóa trước khi có đồng ý và quyền cần thiết."]),
+      section("Nhà cung cấp và chia sẻ", ["Apple xử lý Apple và App Store; Google/Firebase xử lý Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging và AdMob; Meta xử lý Facebook; RevenueCat xử lý mua và quyền. Nhà cung cấp có chính sách riêng và có thể là bên kiểm soát độc lập. Người chơi khác thấy thông tin bạn công khai; không có chat. Có thể tiết lộ vì luật, an ninh và phòng gian lận."]),
+      section("Quảng cáo, phân tích, thông báo và cookie", ["Dịch vụ Firebase phụ thuộc đồng ý. AdMob mặc định không cá nhân hóa; iOS cần App Tracking Transparency cho quảng cáo cá nhân hóa. Thông báo đẩy tùy chọn và có thể dùng token, cài đặt, nền tảng, ngôn ngữ, múi giờ. Ứng dụng không dùng cookie trình duyệt; trang web có thể lưu ngôn ngữ và giao diện cục bộ, còn đăng nhập Google ở trang xóa có thể dùng cookie Google. Quản lý quyền trên thiết bị."]),
+      section("Quyền tại California", ["Nếu CCPA/CPRA áp dụng, yêu cầu biết, truy cập, xóa, sửa và bản sao chuyển được tại admin@dappgo.com. Không bán dữ liệu lấy tiền, nhưng sau đồng ý có thể chia sẻ mã nhận dạng và dữ liệu quảng cáo với AdMob cho quảng cáo hành vi xuyên ngữ cảnh, có thể là sharing. Từ chối hoặc rút lựa chọn, tắt theo dõi hoặc gửi chủ đề “Do Not Sell or Share My Personal Information”. Có thể dùng đại lý, không phân biệt đối xử và thường trả lời trong 45 ngày."]),
+      section("Quyền tại EEA và Vương quốc Anh", ["Cơ sở GDPR/UK GDPR gồm hợp đồng cho dịch vụ, đồng ý cho quảng cáo và thu thập tùy chọn, lợi ích hợp pháp cho an ninh, chống gian lận, độ tin cậy và hỗ trợ, nghĩa vụ pháp lý cho hồ sơ. Bạn có quyền truy cập, sửa, xóa, hạn chế, chuyển, phản đối, rút đồng ý và khiếu nại với cơ quan giám sát hoặc ICO. Có thể xử lý tại Hoa Kỳ và nơi khác với biện pháp chuyển hợp pháp khi cần."]),
+      section("Lưu giữ và xóa", ["Giữ dữ liệu khi tài khoản hoạt động; xóa trong app và web Google ngay, yêu cầu email/form trong 30 ngày sau xác minh. Dữ liệu phân tích 14 tháng, log yêu cầu máy chủ 30 ngày. Apple/Google có thể giữ mua hàng. Hồ sơ giới hạn cho thuế, kế toán, an ninh, gian lận, tranh chấp hoặc luật sẽ được xóa/ẩn danh sau đó. Nhà cung cấp: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, {{revenuecat}}."]),
+      section("Trẻ em, bảo mật, thay đổi và liên hệ", ["Không hướng tới trẻ dưới 13; phụ huynh có thể liên hệ admin@dappgo.com và chúng tôi xóa theo luật sau xác minh. Quy tắc tuổi cao hơn tại địa phương áp dụng. Có biện pháp hợp lý nhưng không đảm bảo an toàn tuyệt đối. Cập nhật khi cần; ngày đầu trang là phiên bản hiện tại."])
+    ] },
+    terms: { kicker: "Number RPG · điều khoản", title: "Điều khoản dịch vụ", product: "Number RPG của DappGo", effective: "Ngày có hiệu lực: 2026-10-27", summary: "Điều khoản giải thích chơi khách, tài khoản, vật phẩm ảo, mua hàng, chơi công bằng, chấm dứt và quyền pháp lý.", sections: [
+      section("1. Chấp nhận và độ tuổi", ["Dùng Number RPG nghĩa là đồng ý điều khoản và chính sách riêng tư. Dành cho người từ 13 tuổi; không dùng khi dưới tuổi tối thiểu hoặc không thể đồng ý hợp pháp."]),
+      section("2. Giấy phép và dịch vụ", ["Yenlung Lai vận hành dưới tên DappGo. Cấp giấy phép cá nhân, giới hạn, không độc quyền, không chuyển nhượng và có thể thu hồi cho mục đích phi thương mại; không chuyển quyền sở hữu game, mã, nghệ thuật, tên hay nội dung. iOS áp dụng {{appleEula}} của Apple."]),
+      section("3. Tài khoản và bảo mật", ["Có thể chơi khách; Apple, Google, Facebook hỗ trợ lưu, xã hội, bảng xếp hạng và khôi phục mua. Bảo vệ thông tin và không chia sẻ, mạo danh hay cố ý cung cấp sai."]),
+      section("4. Vật phẩm ảo và mua hàng", ["Vật phẩm ảo không có giá trị tiền, chỉ dùng trong game; vật phẩm tiêu hao bị dùng hết và quyền không tiêu hao có thể khôi phục nếu cửa hàng hỗ trợ. Mua và hoàn tiền theo Apple/Google; RevenueCat hỗ trợ quyền. Mua có thể khôi phục sau xóa tài khoản."]),
+      section("5. Chơi công bằng và sử dụng được phép", ["Cấm gian lận, khai thác lỗi, tự động, thao túng điểm/thưởng, lạm dụng lời mời/quà, mạo danh, can thiệp, gây hại và nội dung bất hợp pháp, lạm dụng, thù ghét, bóc lột tình dục hoặc xâm phạm quyền."]),
+      section("6. Thực thi và chấm dứt", ["Có thể hạn chế, đình chỉ hoặc chấm dứt vì gian lận, lạm dụng, lừa đảo, không an toàn hoặc vi phạm; có thể đổi dịch vụ. Xóa tại Cài đặt → Tài khoản → Xóa tài khoản; quyền/nghĩa vụ cần tiếp tục vẫn còn."]),
+      section("7. Tuyên bố miễn trừ và giới hạn", ["Trong phạm vi luật cho phép, game không bảo đảm liên tục, không lỗi, an toàn hoặc lưu vĩnh viễn. Không chịu trách nhiệm lỗi do thiết bị, mạng, cửa hàng, bên thứ ba hoặc sự kiện ngoài kiểm soát, hay thiệt hại gián tiếp; trách nhiệm trực tiếp tối đa là khoản trả 12 tháng hoặc 100 USD, số cao hơn. Không giới hạn trách nhiệm không thể loại trừ và quyền người tiêu dùng."]),
+      section("8. Bồi thường và tranh chấp", ["Trong phạm vi luật cho phép, bạn bồi thường khiếu nại bên thứ ba do dùng trái luật, vi phạm hoặc nội dung, không do lỗi DappGo. Liên hệ admin@dappgo.com trước; không bắt buộc trọng tài."]),
+      section("9. Luật và nơi xét xử", ["Áp dụng luật California; trừ quyền người tiêu dùng bắt buộc, tòa bang hoặc liên bang ở Los Angeles County là nơi xét xử độc quyền."]),
+      section("10. Thay đổi và liên hệ", ["Có thể cập nhật theo thay đổi của game, nhà cung cấp hoặc luật và báo thay đổi quan trọng khi cần. Ngày đầu trang là bản hiện tại. Liên hệ admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · xóa tài khoản", title: "Xóa tài khoản của bạn", product: "Number RPG của DappGo", effective: "Hướng dẫn có hiệu lực: 2026-10-27", summary: "Xóa trong ứng dụng, tự phục vụ Google, biểu mẫu web hoặc email.", sections: [
+      section("Xóa trong ứng dụng", ["Vào Cài đặt → Tài khoản → Xóa tài khoản, xác nhận và giữ trực tuyến đến khi xong. Có hiệu lực ngay; Apple có thể yêu cầu xác thực lại."]),
+      section("Xóa trên web", ["Tài khoản Google đăng nhập, xác nhận, nhập DELETE và gửi ở dưới. Có hiệu lực ngay."]),
+      section("Yêu cầu qua biểu mẫu hoặc email", ["Tài khoản Apple, Facebook hoặc khách dùng biểu mẫu hoặc admin@dappgo.com với ID và email. Sau xác minh hoàn thành trong 30 ngày; không gửi bí mật."]),
+      section("Dữ liệu xóa và còn lại", ["Xóa tài khoản, danh tính, hồ sơ, thiết bị, phiên, lưu, điểm, lời mời, bạn bè, quà, thưởng, sự kiện, hoạt động, gian lận và token đẩy; đặt lại tiến trình cục bộ. Apple/Google có thể giữ mua hàng và DappGo hồ sơ giới hạn cần cho luật, kế toán, an ninh, gian lận hoặc tranh chấp; sau đó xóa/ẩn danh."]),
+      section("Thời gian và hỗ trợ", ["App và web Google ngay; form/email trong 30 ngày sau xác minh. Liên hệ admin@dappgo.com nếu cần."])
+    ] }
+  },
+  "id": {
+    privacy: { kicker: "Number RPG · privasi", title: "Kebijakan privasi", product: "Number RPG oleh DappGo", effective: "Tanggal berlaku: 2026-10-27", summary: "Number RPG dapat dimainkan sebagai tamu. Login opsional menambahkan penyimpanan cloud, fitur sosial, dan pemulihan antarperangkat. Kebijakan ini menjelaskan data, tujuan, dan pilihan Anda.", sections: [
+      section("Siapa kami", ["Number RPG dioperasikan oleh Yenlung Lai, pemilik usaha perseorangan yang menjalankan bisnis sebagai DappGo di San Gabriel, California, Amerika Serikat. Untuk GDPR dan UK GDPR, DappGo adalah pengendali data yang dijelaskan. Pertanyaan, permintaan hak, dan keluhan: admin@dappgo.com."]),
+      section("Informasi yang dikumpulkan", ["Kami dapat menerima ID akun, penyedia dan subject ID, nama, negara, hewan pemimpin, penyimpanan, kemajuan, skor, peringkat, undangan, teman, hadiah, imbalan, pembelian RevenueCat, pengenal perangkat yang di-hash, sesi, bahasa, zona waktu, token push, data iklan, analitik, kerusakan, kinerja, dan persetujuan. Email hanya dari Apple, Google, atau Meta; data kartu tidak kami terima."]),
+      section("Sumber dan tujuan", ["Sumbernya adalah Anda, penyedia login/toko, perangkat, game, dan pemain lain. Kami menggunakannya untuk menyediakan game, akun, penyimpanan, peringkat dan sosial; memproses pembelian; mencegah kecurangan dan penipuan; mengirim notifikasi; memperbaiki keandalan setelah persetujuan; serta menayangkan iklan tidak dipersonalisasi sebelum persetujuan dan izin yang diperlukan."]),
+      section("Penyedia dan pembagian", ["Apple menangani Apple dan App Store; Google/Firebase menangani Google, Play, Analytics, Crashlytics, Performance Monitoring, Remote Config, Cloud Messaging, dan AdMob; Meta menangani Facebook; RevenueCat menangani pembelian dan hak. Mereka memiliki kebijakan sendiri dan dapat menjadi pengendali independen. Pemain lain melihat data yang Anda tampilkan; tidak ada chat. Kami dapat mengungkap untuk hukum, keamanan, atau pencegahan penipuan."]),
+      section("Iklan, analitik, notifikasi, dan cookie", ["Layanan Firebase bergantung pada persetujuan. AdMob secara default tidak mempersonalisasi iklan; iOS memerlukan App Tracking Transparency untuk iklan yang dipersonalisasi. Push opsional dan dapat memakai token, pengaturan, platform, bahasa, dan zona waktu. Aplikasi tidak memakai cookie browser; situs dapat menyimpan bahasa dan tema secara lokal, dan login Google di halaman penghapusan dapat memakai cookie Google. Kelola izin di perangkat."]),
+      section("Hak California", ["Jika CCPA/CPRA berlaku, minta akses, mengetahui, menghapus, memperbaiki, atau salinan portabel melalui admin@dappgo.com. Kami tidak menjual data demi uang, tetapi setelah persetujuan dapat membagikan pengenal dan data iklan dengan AdMob untuk iklan perilaku lintas konteks, yang mungkin merupakan sharing. Tolak atau tarik pilihan iklan, matikan pelacakan, atau kirim subjek “Do Not Sell or Share My Personal Information”. Agen resmi dapat digunakan, tidak ada diskriminasi, dan jawaban biasanya dalam 45 hari."]),
+      section("Hak EEA dan Inggris", ["Dasar GDPR/UK GDPR adalah kontrak untuk layanan, persetujuan untuk iklan dan pengumpulan opsional, kepentingan sah untuk keamanan, anti-kecurangan, pencegahan penipuan, keandalan dan dukungan, serta kewajiban hukum untuk catatan. Anda dapat mengakses, memperbaiki, menghapus, membatasi, memindahkan, menolak, menarik persetujuan, dan mengadu ke otoritas atau ICO. Pemrosesan dapat terjadi di AS dan negara lain dengan perlindungan transfer yang sah bila diperlukan."]),
+      section("Penyimpanan dan penghapusan", ["Data akun disimpan selama aktif; penghapusan di aplikasi dan web Google segera, permintaan email/form dalam 30 hari setelah verifikasi. Analitik 14 bulan, log permintaan server 30 hari. Apple/Google dapat menyimpan pembelian. Catatan terbatas untuk pajak, akuntansi, keamanan, penipuan, sengketa, atau hukum kemudian dihapus atau dianonimkan. Penyedia: {{firebaseGoogle}}, {{admob}}, {{apple}}, {{meta}}, {{revenuecat}}."]),
+      section("Anak-anak, keamanan, perubahan, dan kontak", ["Number RPG tidak ditujukan bagi anak di bawah 13 tahun. Orang tua dapat menghubungi admin@dappgo.com dan kami menghapus setelah verifikasi sesuai hukum; aturan usia lokal yang lebih tinggi berlaku. Kami memakai perlindungan wajar tanpa menjamin keamanan mutlak. Kebijakan diperbarui saat perlu; tanggal di atas adalah versi kini."])
+    ] },
+    terms: { kicker: "Number RPG · ketentuan", title: "Ketentuan layanan", product: "Number RPG oleh DappGo", effective: "Tanggal berlaku: 2026-10-27", summary: "Ketentuan ini menjelaskan bermain sebagai tamu, akun, item virtual, pembelian, permainan adil, penghentian, dan hak Anda.", sections: [
+      section("1. Penerimaan dan usia", ["Menggunakan Number RPG berarti menyetujui ketentuan dan kebijakan privasi. Ditujukan untuk usia 13 tahun ke atas; jangan gunakan di bawah usia minimum atau tanpa persetujuan hukum."]),
+      section("2. Lisensi dan layanan", ["Yenlung Lai menjalankan bisnis sebagai DappGo. Lisensi pribadi, terbatas, non-eksklusif, tidak dapat dialihkan, dan dapat dicabut untuk penggunaan nonkomersial; tidak ada pengalihan kepemilikan game, kode, seni, nama, atau konten. Di iOS berlaku {{appleEula}} Apple."]),
+      section("3. Akun dan keamanan", ["Anda dapat bermain sebagai tamu; login Apple, Google, atau Facebook mendukung penyimpanan, sosial, peringkat, dan pemulihan pembelian. Lindungi kredensial dan jangan berbagi akun, menyamar, atau sengaja memberi informasi palsu."]),
+      section("4. Item virtual dan pembelian", ["Item virtual tidak bernilai tunai dan hanya digunakan dalam game; item konsumsi habis dan hak nonkonsumsi dapat dipulihkan jika toko mendukung. Pembelian dan pengembalian mengikuti Apple/Google; RevenueCat membantu hak. Pembelian dapat dipulihkan setelah akun dihapus."]),
+      section("5. Permainan adil dan penggunaan yang dapat diterima", ["Dilarang curang, mengeksploitasi bug, otomatisasi, memanipulasi skor/imbalan, menyalahgunakan undangan/hadiah, menyamar, mengganggu, merugikan, atau mengirim konten ilegal, kasar, penuh kebencian, eksploitatif, atau melanggar hak."]),
+      section("6. Penegakan dan penghentian", ["Kami dapat membatasi, menangguhkan, atau menghentikan karena kecurangan, penyalahgunaan, penipuan, ketidakamanan, atau pelanggaran dan mengubah layanan. Hapus dari Pengaturan → Akun → Hapus akun; hak dan kewajiban yang harus bertahan tetap berlaku."]),
+      section("7. Penyangkalan dan batasan", ["Sejauh hukum mengizinkan, game disediakan apa adanya tanpa jaminan terus berjalan, bebas kesalahan, aman, atau tersimpan permanen. Tidak bertanggung jawab atas perangkat, jaringan, toko, pihak ketiga, peristiwa di luar kendali, atau kerugian tidak langsung; tanggung jawab langsung dibatasi pembayaran 12 bulan atau 100 USD, mana yang lebih tinggi. Hak konsumen dan tanggung jawab yang tidak boleh dikecualikan tetap berlaku."]),
+      section("8. Ganti rugi dan sengketa", ["Sejauh hukum mengizinkan, Anda mengganti rugi klaim pihak ketiga akibat penggunaan ilegal, pelanggaran, atau konten, bukan kesalahan DappGo. Hubungi admin@dappgo.com terlebih dahulu; tidak ada arbitrase wajib."]),
+      section("9. Hukum dan forum", ["Hukum California berlaku; kecuali hak konsumen wajib, pengadilan negara bagian atau federal di Los Angeles County menjadi forum eksklusif."]),
+      section("10. Perubahan dan kontak", ["Kami dapat memperbarui saat game, penyedia, atau hukum berubah dan memberi tahu perubahan penting bila perlu. Tanggal di atas adalah versi kini. Hubungi admin@dappgo.com."])
+    ] },
+    deleteAccount: { kicker: "Number RPG · penghapusan akun", title: "Hapus akun Anda", product: "Number RPG oleh DappGo", effective: "Petunjuk berlaku: 2026-10-27", summary: "Hapus di aplikasi, dengan layanan mandiri Google, melalui formulir web, atau email.", sections: [
+      section("Hapus di aplikasi", ["Buka Pengaturan → Akun → Hapus akun, konfirmasi, dan tetap online sampai selesai. Berlaku segera; Apple mungkin meminta autentikasi ulang."]),
+      section("Hapus di web", ["Akun Google login, konfirmasi, ketik DELETE, dan kirim di bawah. Berlaku segera."]),
+      section("Minta melalui formulir atau email", ["Akun Apple, Facebook, atau tamu gunakan formulir atau admin@dappgo.com dengan ID dan email. Setelah verifikasi selesai dalam 30 hari; jangan kirim rahasia."]),
+      section("Data yang dihapus dan tersisa", ["Kami menghapus akun, identitas, profil, perangkat, sesi, penyimpanan, skor, undangan, teman, hadiah, imbalan, acara, aktivitas, penipuan, dan token push; kemajuan lokal direset. Apple/Google dapat menyimpan pembelian dan DappGo catatan terbatas untuk hukum, akuntansi, keamanan, penipuan, atau sengketa; setelah itu dihapus atau dianonimkan."]),
+      section("Waktu dan bantuan", ["Aplikasi dan Google web segera; formulir/email dalam 30 hari setelah verifikasi. Hubungi admin@dappgo.com bila perlu."])
+    ] }
+  }
+};
 
+// The store pages are translated above; keep a safe English fallback if a future
+// locale is added before its copy is complete.
+for (const locale of localeOrder) {
+  if (!pages[locale]) pages[locale] = pages.en;
+  if (!pages[locale].deleteAccount.tools) pages[locale].deleteAccount.tools = deletionTools[locale] || deletionTools.en;
+}
+
+const apiBase = "https://data.dappgo.com/v1/number-rpg";
 window.NUMBER_RPG_LEGAL = { localeOrder, localeNames, pages, apiBase };

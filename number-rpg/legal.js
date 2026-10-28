@@ -34,6 +34,7 @@
       apple: '<a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>',
       meta: '<a href="https://www.facebook.com/privacy/policies/">Meta privacy policy</a>',
       revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat privacy policy</a>',
+      appleEula: '<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>',
     };
     Object.keys(providerLinks).forEach(function (key) {
       escaped = escaped.replace(new RegExp('\\{\\{' + key + '\\}\\}', 'g'), providerLinks[key]);
