@@ -82,6 +82,12 @@ function options(source) {
   };
 }
 
+// Publisher preview image (og:image / twitter:image) the engine already resolved; hotlinked, never re-hosted.
+function image(item) {
+  if (item.image_status !== "available" || !/^https:\/\//.test(item.image_url || "")) return null;
+  return { url: item.image_url, width: item.image_width || null, height: item.image_height || null };
+}
+
 function news(market, { payload }) {
   const items = [];
   for (const [symbol, ticker] of Object.entries(payload.ticker_data || {})) {
@@ -91,6 +97,7 @@ function news(market, { payload }) {
       items.push({
         market, symbol, name: ticker.name || symbol, source: item.source, url: item.url, published_at_utc: item.published_at_utc,
         title: { original: item.title, en: item.title_en || (item.language === "en" ? item.title : null) },
+        image: image(item),
         news_url: `${webUrl("news", market)}?stock=${encodeURIComponent(symbol)}`
       });
     }
@@ -99,14 +106,21 @@ function news(market, { payload }) {
 }
 
 const [us, tw, opt] = await Promise.all(["us", "tw", "options"].map(load));
-// Newest first per market, then interleaved so one market's later session cannot crowd out the other.
+// Newest first, kept per market: the homepage shows each market in its own tab.
 const seen = new Set();
-const newest = (items) => items
-  .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc))
-  .filter((item) => !seen.has(item.url) && seen.add(item.url))
-  .slice(0, 5);
-const [usNews, twNews] = [newest(news("us", us)), newest(news("tw", tw))];
-const latest = usNews.flatMap((item, i) => [item, twNews[i]]).filter(Boolean).concat(twNews.slice(usNews.length)).slice(0, 9);
+// The two newest stories always lead; the other slots prefer stories with a publisher image from the 30 newest,
+// so the wire stays visual without hiding breaking news. Output stays newest-first.
+const newest = (items) => {
+  const recent = items
+    .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc))
+    .filter((item) => !seen.has(item.url) && seen.add(item.url))
+    .slice(0, 30);
+  const lead = recent.slice(0, 2);
+  const rest = recent.slice(2);
+  const picked = [...lead, ...rest.filter((item) => item.image), ...rest.filter((item) => !item.image)].slice(0, 6);
+  return picked.sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc));
+};
+const latest = [...newest(news("us", us)), ...newest(news("tw", tw))];
 
 const pulse = {
   schema_version: "1.0.0",

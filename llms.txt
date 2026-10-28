@@ -38,7 +38,7 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 - Options Explorer: iOS and Android are available.
 - Taiwan Stocks: iOS and Android are available.
 - US Stocks: iOS and Android are available.
-- Number Merge: Android is available; iOS is coming soon.
+- Number Merge: Android only (Google Play).
 
 ## Website and policies
 

@@ -85,9 +85,20 @@ test("renders all three market cards and the wire from the pulse", async () => {
   for (const key of ["us", "tw", "options"]) assert.ok(board.includes(pulse.markets[key].web_url), key);
   assert.ok(board.includes('data-store') === false && board.includes('class="store"'), "store links copied from catalog rows");
   const wire = app.element("[data-wire]").innerHTML;
-  assert.equal((wire.match(/<li>/g) || []).length, Math.min(6, pulse.news.length));
-  assert.ok(wire.includes("news.dappgo.com"));
+  const us = pulse.news.filter((n) => n.market === "us");
+  assert.equal((wire.match(/<li class="spot/g) || []).length, Math.min(6, us.length));
+  assert.ok(wire.includes("news.dappgo.com/us/"));
+  assert.ok(!wire.includes("news.dappgo.com/tw/"), "Taiwan headlines stay in their own tab");
+  for (const n of us.filter((item) => item.image)) assert.ok(wire.includes(`src="${n.image.url.replace(/&/g, "&amp;")}"`), n.symbol);
+  assert.match(app.element("[data-console]").innerHTML, /payloads verified/);
   assert.ok(["live", "stale"].includes(app.element("[data-live-chip]").dataset.state));
+});
+
+test("Number Merge is Android-only and DappGo News uses its app icon", () => {
+  const merge = production.match(/data-product="number-merge">([\s\S]*?)<\/article>/)[1];
+  assert.doesNotMatch(merge, /data-store="ios"|chip-soon|Coming soon/);
+  const news = production.match(/data-product="news">([\s\S]*?)<\/article>/)[1];
+  assert.match(news, /src="\/assets\/app-icons\/news-icon-128\.webp"/);
 });
 
 test("a failed pulse shows the offline state instead of stale cards", async () => {
