@@ -6,6 +6,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Homepage returns to the DappGo blue base (light with system dark mode, deep-blue hero and business band) and gains a live publish-run console, a hero market-field canvas, count-up stats, scroll reveal, cursor spotlight and a scroll progress bar.
+- On the wire is split into United States and Taiwan tabs (United States first, choice remembered) and shows the publisher preview image when the engine resolved one; the pulse keeps up to six headlines per market.
+- DappGo News uses its submitted app icon; Number Merge is listed as Android-only.
+
 ### Added
 - Bold homepage redesign ("Markets, compiled daily") showing today's US stocks, Taiwan stocks and US options reports and a mixed US/TW headline wire, each linked into its product.
 - `scripts/build-pulse.mjs` derives the ~14 KB `data/pulse.json` from hash-verified data.dappgo.com pointers (fails closed, skips unchanged); `scripts/verify-pulse.mjs` enforces its contract.

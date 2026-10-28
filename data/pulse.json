@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-27T21:36:35Z",
+  "built_at_utc": "2026-10-28T02:15:20Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-10-27",
-      "generated_at_utc": "2026-10-27T08:39:07Z",
+      "report_date": "2026-10-28",
+      "generated_at_utc": "2026-10-28T01:18:10Z",
       "schema_version": "1.2.0",
-      "data_hash": "a7e1c52184aa435910d992883aa33cfd06e493b031f258ac3b0e7bf9800dd455",
+      "data_hash": "f4f74819ad962243111685b8182f1cede3c3bd555be3549be0ad88135db98c0f",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,113 +140,113 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "mixed",
-      "breadth_score": 0.416,
-      "advance_decline_ratio": 0.46,
+      "breadth_score": 0.465,
+      "advance_decline_ratio": 1.31,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 11 BUY / 0 SELL, market regime: mixed.",
-        "zh": "今日 11 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 42% + 波動 cho）。"
+        "en": "Today's report: 19 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 19 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 46% + 波動 cho）。"
       },
       "gainers": [
         {
-          "symbol": "4958",
-          "name": "臻鼎-KY",
-          "return_pct": 9.25,
-          "close": 567
+          "symbol": "7750",
+          "name": "新代",
+          "return_pct": 9.34,
+          "close": 1990
         },
         {
-          "symbol": "3231",
-          "name": "緯創",
-          "return_pct": 7.95,
-          "close": 190
+          "symbol": "2356",
+          "name": "英業達",
+          "return_pct": 6.78,
+          "close": 63
         },
         {
-          "symbol": "4938",
-          "name": "和碩",
-          "return_pct": 5.5,
-          "close": 103.5
+          "symbol": "3533",
+          "name": "嘉澤",
+          "return_pct": 6.06,
+          "close": 1925
         },
         {
-          "symbol": "2886",
-          "name": "兆豐金",
-          "return_pct": 5.14,
-          "close": 55.2
+          "symbol": "6669",
+          "name": "緯穎",
+          "return_pct": 5.69,
+          "close": 1950
         }
       ],
       "losers": [
         {
-          "symbol": "2327",
-          "name": "國巨*",
-          "return_pct": -11.52,
-          "close": 507
+          "symbol": "3665",
+          "name": "貿聯-KY",
+          "return_pct": -13.9,
+          "close": 1735
+        },
+        {
+          "symbol": "6505",
+          "name": "台塑化",
+          "return_pct": -13.47,
+          "close": 106
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電",
+          "return_pct": -13.25,
+          "close": 1080
         },
         {
           "symbol": "3653",
           "name": "健策",
-          "return_pct": -10.27,
-          "close": 6070
-        },
-        {
-          "symbol": "6531",
-          "name": "愛普*",
-          "return_pct": -9.86,
-          "close": 795
-        },
-        {
-          "symbol": "1301",
-          "name": "台塑",
-          "return_pct": -9.67,
-          "close": 73.8
+          "return_pct": -12.93,
+          "close": 5860
         }
       ],
       "picks": [
         {
-          "symbol": "2395",
-          "name": "研華",
-          "score": 66,
+          "symbol": "2337",
+          "name": "旺宏",
+          "score": 62,
           "signals": {
             "en": [
-              "Below MA20 5.7%",
+              "Below MA20 8.3%",
               "RSI 39 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -5.7%",
+              "低於 MA20 -8.3%",
               "RSI 39 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "6770",
-          "name": "力積電",
-          "score": 64,
+          "symbol": "6139",
+          "name": "亞翔",
+          "score": 60,
           "signals": {
             "en": [
-              "Below MA20 6.2%",
-              "RSI 43 near oversold",
+              "Below MA20 9.3%",
+              "RSI 35 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.2%",
-              "RSI 43 接近超賣",
+              "低於 MA20 -9.3%",
+              "RSI 35 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "6789",
-          "name": "采鈺",
-          "score": 63,
+          "symbol": "2454",
+          "name": "聯發科",
+          "score": 59,
           "signals": {
             "en": [
-              "Below MA20 5.7%",
-              "RSI 43 near oversold",
+              "Below MA20 14.2%",
+              "RSI 33 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -5.7%",
-              "RSI 43 接近超賣",
+              "低於 MA20 -14.2%",
+              "RSI 33 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -384,20 +384,8 @@
         "original": "Why Cheaper Models Won't Win OpenAI the Enterprise",
         "en": "Why Cheaper Models Won't Win OpenAI the Enterprise"
       },
+      "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=COST"
-    },
-    {
-      "market": "tw",
-      "symbol": "6239",
-      "name": "力成",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839983",
-      "published_at_utc": "2026-10-27T07:39:25Z",
-      "title": {
-        "original": "力成法說會／預期2027年記憶體市場供需趨穩定 需求仍大於供給",
-        "en": null
-      },
-      "news_url": "https://news.dappgo.com/tw/?stock=6239"
     },
     {
       "market": "us",
@@ -410,85 +398,164 @@
         "original": "Meta Boosts Equity Offering to $98 Billion, Raising Its AI Bet",
         "en": "Meta Boosts Equity Offering to $98 Billion, Raising Its AI Bet"
       },
+      "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=META"
     },
     {
-      "market": "tw",
-      "symbol": "2002",
-      "name": "中鋼",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839944",
-      "published_at_utc": "2026-10-27T07:20:34Z",
-      "title": {
-        "original": "印度內需「硬啦」! 鋼鐵第4季復甦 中鋼股價越墊越高",
-        "en": null
-      },
-      "news_url": "https://news.dappgo.com/tw/?stock=2002"
-    },
-    {
       "market": "us",
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/list-virtual-reality-stocks-to-follow-today-october-27th-2026-10-27/",
-      "published_at_utc": "2026-10-27T18:04:46Z",
-      "title": {
-        "original": "Virtual Reality Stocks To Follow Today - October 27th",
-        "en": "Virtual Reality Stocks To Follow Today - October 27th"
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=META"
-    },
-    {
-      "market": "tw",
-      "symbol": "2324",
-      "name": "仁寶",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839924",
-      "published_at_utc": "2026-10-27T07:12:29Z",
-      "title": {
-        "original": "仁寶與 ARC Cloud 簽署策略合作備忘錄 加速大型 AI 基礎建設布局",
-        "en": null
-      },
-      "news_url": "https://news.dappgo.com/tw/?stock=2324"
-    },
-    {
-      "market": "us",
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/list-technology-stocks-to-add-to-your-watchlist-october-27th-2026-10-27/",
-      "published_at_utc": "2026-10-27T18:04:44Z",
-      "title": {
-        "original": "Technology Stocks To Add to Your Watchlist - October 27th",
-        "en": "Technology Stocks To Add to Your Watchlist - October 27th"
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
-    },
-    {
-      "market": "tw",
-      "symbol": "2357",
-      "name": "華碩",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839819",
-      "published_at_utc": "2026-10-27T06:27:02Z",
-      "title": {
-        "original": "標案動能升溫 華碩看好2027年商用 PC 價量齊揚",
-        "en": null
-      },
-      "news_url": "https://news.dappgo.com/tw/?stock=2357"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=9351e5d42e674c7c80becfd2ee40949712115fb21899328229ef1fe892ee3c4d",
-      "published_at_utc": "2026-10-27T17:40:40Z",
+      "url": "https://finnhub.io/api/news?id=9e285e0a011b89bc8ab8e47e31a4e3a09296a74f5ece69a2ec80e1145d888970",
+      "published_at_utc": "2026-10-27T17:40:02Z",
       "title": {
-        "original": "The AI economy, Apple's iPhone Duo issues, and Meta partners with Nvidia",
+        "original": "Advance Auto Parts vs. Airbnb: Diverging Paths in Revenue Flash a Warning for Investors",
         "en": null
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+      "image": {
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fcharts%2Fproduction%2Fprocessed%2Faap-abnb%2Fquarter%2Frevenue%2Fbar%2Fprimary%2Fstandard%2Flimit-8%2Flatest%2Faap-abnb_quarter_revenue_bar_primary_standard_limit8.png&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=ABNB"
+    },
+    {
+      "market": "us",
+      "symbol": "SPCX",
+      "name": "Space Exploration Technologies Corp. (SpaceX)",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=7ad784725b4a14bc1dfca4e699f54057f7485560ac4b507f93d2521c2f220719",
+      "published_at_utc": "2026-10-27T15:54:27Z",
+      "title": {
+        "original": "Intuitive Machines Surges 9% as Small-Cap Space Selloff Reverses; Rocket Lab Climbs 7%, SpaceX Lags",
+        "en": null
+      },
+      "image": {
+        "url": "https://247wallst.com/wp-content/uploads/2024/12/shutterstock-2192824801-huge-licensed-scaled.jpg",
+        "width": 1500,
+        "height": 998
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=SPCX"
+    },
+    {
+      "market": "us",
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=e8c650186f070e9d87dde9a757076cfe8ef626f37b7b2b116725c844dc3299a0",
+      "published_at_utc": "2026-10-27T15:43:11Z",
+      "title": {
+        "original": "Why Broadcom Stock Rallied Tuesday Morning",
+        "en": null
+      },
+      "image": {
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F62fe5ad403ac7cdc09a9fe81c28aa73b8fabe4bc-1290x860.jpg&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AVGO"
+    },
+    {
+      "market": "us",
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=ab979018908efcf0a4214de57f233bb5b91d2ca2f00d98acdce3b8d15e7d6e24",
+      "published_at_utc": "2026-10-27T15:40:01Z",
+      "title": {
+        "original": "Airbnb vs. GameStop: Will Consumers Going Out or Staying In Benefit One of These Stocks More in 2026?",
+        "en": null
+      },
+      "image": {
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7983a0234774f460e8c581b653d69b390bcdeb4b-2000x1200.jpg&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=ABNB"
+    },
+    {
+      "market": "tw",
+      "symbol": "2317",
+      "name": "鴻海",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840898",
+      "published_at_utc": "2026-10-27T18:54:39Z",
+      "title": {
+        "original": "輝達 VR 平台 鴻海訂單躍增 業界傳出占比挑戰五成",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2317"
+    },
+    {
+      "market": "tw",
+      "symbol": "4904",
+      "name": "遠傳",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840537",
+      "published_at_utc": "2026-10-27T12:13:41Z",
+      "title": {
+        "original": "iPhone Duo 開賣就熱銷 遠傳近九成果粉申辦集中1,399、1,599元資費",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=4904"
+    },
+    {
+      "market": "tw",
+      "symbol": "3037",
+      "name": "欣興",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840498",
+      "published_at_utc": "2026-10-27T11:54:41Z",
+      "title": {
+        "original": "欣興董事會擬處分日本子公司予 MEIKO 簽署合作意向",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=3037"
+    },
+    {
+      "market": "tw",
+      "symbol": "2337",
+      "name": "旺宏",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840313",
+      "published_at_utc": "2026-10-27T09:45:34Z",
+      "title": {
+        "original": "旺宏：新產能2027年下半年產出 短期營收成長靠漲價",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2337"
+    },
+    {
+      "market": "tw",
+      "symbol": "3045",
+      "name": "台灣大",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840286",
+      "published_at_utc": "2026-10-27T09:33:43Z",
+      "title": {
+        "original": "台灣大收購精誠信心十足 再拚股價超車中華電",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=3045"
+    },
+    {
+      "market": "tw",
+      "symbol": "2337",
+      "name": "旺宏",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9840256",
+      "published_at_utc": "2026-10-27T09:27:45Z",
+      "title": {
+        "original": "旺宏董座吳敏求：旺宏不做Me too 要當守護人類健康的「護人神山」",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2337"
     }
   ]
 }

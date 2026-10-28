@@ -33,6 +33,7 @@ for (const item of pulse.news || []) {
   require(["us", "tw"].includes(item.market), `news market ${item.market}`);
   require(https(item.url) && https(item.news_url), `news links for ${item.symbol}`);
   require(!("summary" in item), "news items carry headline, source and link only");
+  require(item.image == null || https(item.image.url), `news image for ${item.symbol} must be https`);
 }
 if (failures.length) {
   console.error(JSON.stringify({ ok: false, failures }, null, 2));
