@@ -29,6 +29,12 @@ jobs:
           trap 'rm -rf "$work"' EXIT
           remote="https://github.com/YanlongLai/dappgo-website.git"
           auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PUSH_TOKEN" | base64 -w0)"
+          # Non-secret preflight: token kind and the repo permissions GitHub grants it.
+          case "$PUSH_TOKEN" in github_pat_*) kind=fine-grained ;; ghp_*) kind=classic ;; *) kind=other ;; esac
+          api="$(curl -sS -D "$work/h" -o "$work/repo.json" -w '%{http_code}' -H "Authorization: Bearer $PUSH_TOKEN" https://api.github.com/repos/YanlongLai/dappgo-website || true)"
+          perms="$(node -e 'try{console.log(JSON.stringify(require(process.argv[1]).permissions||null))}catch{console.log("unreadable")}' "$work/repo.json")"
+          echo "token kind=${kind} length=${#PUSH_TOKEN} api=${api} permissions=${perms}"
+          grep -iE '^(x-accepted-github-permissions|github-authentication-token-expiration|x-oauth-scopes):' "$work/h" || true
           git -c http.extraheader="$auth" clone --quiet --depth 20 --branch master "$remote" "$work/site"
           cd "$work/site"
           git config user.name "DappGo Pulse"
