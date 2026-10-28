@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-28T02:15:20Z",
+  "built_at_utc": "2026-10-28T03:32:14Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -130,9 +130,9 @@
     },
     "tw": {
       "report_date": "2026-10-28",
-      "generated_at_utc": "2026-10-28T01:18:10Z",
+      "generated_at_utc": "2026-10-28T03:08:40Z",
       "schema_version": "1.2.0",
-      "data_hash": "f4f74819ad962243111685b8182f1cede3c3bd555be3549be0ad88135db98c0f",
+      "data_hash": "d190d968d2b64e48aa764a31ac0dff3ddd8f6c2f6cd21f2f1f7c2ab9c5b195cf",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -375,20 +375,6 @@
   "news": [
     {
       "market": "us",
-      "symbol": "COST",
-      "name": "Costco Wholesale Corporation",
-      "source": "The Information",
-      "url": "https://www.theinformation.com/articles/cheaper-models-win-openai-enterprise",
-      "published_at_utc": "2026-10-27T18:33:50Z",
-      "title": {
-        "original": "Why Cheaper Models Won't Win OpenAI the Enterprise",
-        "en": "Why Cheaper Models Won't Win OpenAI the Enterprise"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=COST"
-    },
-    {
-      "market": "us",
       "symbol": "META",
       "name": "Meta Platforms, Inc.",
       "source": "Bloomberg Technology",
@@ -403,21 +389,31 @@
     },
     {
       "market": "us",
-      "symbol": "ABNB",
-      "name": "Airbnb, Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=9e285e0a011b89bc8ab8e47e31a4e3a09296a74f5ece69a2ec80e1145d888970",
-      "published_at_utc": "2026-10-27T17:40:02Z",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-technology-stocks-to-add-to-your-watchlist-october-27th-2026-10-27/",
+      "published_at_utc": "2026-10-27T18:04:44Z",
       "title": {
-        "original": "Advance Auto Parts vs. Airbnb: Diverging Paths in Revenue Flash a Warning for Investors",
+        "original": "Technology Stocks To Add to Your Watchlist - October 27th",
+        "en": "Technology Stocks To Add to Your Watchlist - October 27th"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=9351e5d42e674c7c80becfd2ee40949712115fb21899328229ef1fe892ee3c4d",
+      "published_at_utc": "2026-10-27T17:40:40Z",
+      "title": {
+        "original": "The AI economy, Apple's iPhone Duo issues, and Meta partners with Nvidia",
         "en": null
       },
-      "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fcharts%2Fproduction%2Fprocessed%2Faap-abnb%2Fquarter%2Frevenue%2Fbar%2Fprimary%2Fstandard%2Flimit-8%2Flatest%2Faap-abnb_quarter_revenue_bar_primary_standard_limit8.png&w=1200&op=resize",
-        "width": 1200,
-        "height": 630
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=ABNB"
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     },
     {
       "market": "us",
@@ -439,39 +435,49 @@
     },
     {
       "market": "us",
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=e8c650186f070e9d87dde9a757076cfe8ef626f37b7b2b116725c844dc3299a0",
-      "published_at_utc": "2026-10-27T15:43:11Z",
+      "url": "https://finnhub.io/api/news?id=85375af88f81aaf64781cb53b93c954241435f6eb0d741932cb3052fcc4e7b90",
+      "published_at_utc": "2026-10-27T15:36:00Z",
       "title": {
-        "original": "Why Broadcom Stock Rallied Tuesday Morning",
+        "original": "Tesla's Q3 Per-Car Fiscal Metrics Show Minor but Important Progress",
         "en": null
       },
       "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F62fe5ad403ac7cdc09a9fe81c28aa73b8fabe4bc-1290x860.jpg&w=1200&op=resize",
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892195%2Ftesla-dealership.jpg&w=1200&op=resize",
         "width": 1200,
         "height": 630
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AVGO"
+      "news_url": "https://news.dappgo.com/us/?stock=TSLA"
     },
     {
       "market": "us",
-      "symbol": "ABNB",
-      "name": "Airbnb, Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=ab979018908efcf0a4214de57f233bb5b91d2ca2f00d98acdce3b8d15e7d6e24",
-      "published_at_utc": "2026-10-27T15:40:01Z",
+      "symbol": "TSM",
+      "name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "source": "Seeking Alpha",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQZEN1M1JmbHlBV3NidEFjN2xfTF9CazJKaTRUT0JJblVyZ3ZVcjNCNC1pdDFrSFFQcEFUOF9Lb1RtU0hnYUxwblQ5Y0tjSXlvZHlnVlZqaHdUZ1JCblZGRHZLT2xucHVVSElKOEtnSlVZaWpwZjRlTUw1Q2J3VUtfWFU1RWl5Y3ZSOUw5bmRJSndxcFVzMGZxQXpiZTJJdzlsNEE?oc=5",
+      "published_at_utc": "2026-10-27T15:06:26Z",
       "title": {
-        "original": "Airbnb vs. GameStop: Will Consumers Going Out or Staying In Benefit One of These Stocks More in 2026?",
+        "original": "Why TSMC's Q3 2026 Results Highlight Pitfalls In The AI Hype (NYSE:TSM) - Seeking Alpha",
         "en": null
       },
-      "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7983a0234774f460e8c581b653d69b390bcdeb4b-2000x1200.jpg&w=1200&op=resize",
-        "width": 1200,
-        "height": 630
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=TSM"
+    },
+    {
+      "market": "tw",
+      "symbol": "2330",
+      "name": "台積電",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3261953",
+      "published_at_utc": "2026-10-28T01:03:00Z",
+      "title": {
+        "original": "快訊／台積電漲25元至2425 台股強彈702點來到46798點",
+        "en": "Flash: TSMC rises 25 yuan to 2425 yuan Taiwan stocks strongly rebound 702 points to 46798 points"
       },
-      "news_url": "https://news.dappgo.com/us/?stock=ABNB"
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2330"
     },
     {
       "market": "tw",
@@ -510,7 +516,7 @@
       "published_at_utc": "2026-10-27T11:54:41Z",
       "title": {
         "original": "欣興董事會擬處分日本子公司予 MEIKO 簽署合作意向",
-        "en": null
+        "en": "Unimicron Board proposes to dispose of Japanese subsidiary to MEIKO, signs letter of intent for cooperation"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=3037"
@@ -542,20 +548,6 @@
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=3045"
-    },
-    {
-      "market": "tw",
-      "symbol": "2337",
-      "name": "旺宏",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840256",
-      "published_at_utc": "2026-10-27T09:27:45Z",
-      "title": {
-        "original": "旺宏董座吳敏求：旺宏不做Me too 要當守護人類健康的「護人神山」",
-        "en": null
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2337"
     }
   ]
 }
