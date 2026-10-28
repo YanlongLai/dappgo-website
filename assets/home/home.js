@@ -110,7 +110,7 @@
   // Browser-only motion layer; the content itself renders without it (and in the node test harness).
   const browser = typeof window === "object" && typeof window.IntersectionObserver === "function";
   const calm = browser && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  const ICONS = { "us-stocks": "us-stocks-icon-128.webp", "taiwan-stocks": "tw-stocks-icon-128.webp", "options-explorer": "options-icon-128.webp" };
+  const ICONS = { "us-stocks": "us-stocks-icon-128.webp?v=20261028", "taiwan-stocks": "tw-stocks-icon-128.webp?v=20261028", "options-explorer": "options-icon-128.webp?v=20261028" };
 
   let lang = store.get("dg-lang") || (/^zh/i.test(navigator.language) ? "zh" : "en");
   let market = store.get("dg-wire") === "tw" ? "tw" : "us";
