@@ -26,3 +26,16 @@ Captured on 2026-10-28 (UTC) by a Claude desktop session (producer). Owner reque
 | Deployed | verified | The GitHub Pages build for 54fc1bc has status `built`. |
 | Observed | verified | On dappgo.com (cache-busted), `/`, the home assets, `/data/pulse.json`, the News icon, `/llms.txt` and `/number-rpg/privacy/` return 200. The HTML carries `v=20261028-blue-3`, the wire tabs and the News icon, with no `chip-soon`. In a browser: chip `live` (2026-10-28), 3 market cards, United States and Taiwan tabs with 6 stories each, 4 of 4 publisher images loaded, 5 products, no Number Merge iOS, no horizontal scroll at 1024 px. The only console errors are the existing Cloudflare Insights and AdSense sodar CSP blocks. |
 | Rollback | ready | Revert merge 54fc1bc on master. GitHub Pages then redeploys 2b6e37b. |
+
+## Scheduled pulse observation (2026-10-28 09:20 UTC slot)
+
+Checked at 09:37 UTC. Result: **failed at push; the site was not refreshed.**
+
+| Check | State | Evidence |
+|---|---|---|
+| Gitea run | failed | Gitea homepage-pulse run 1994 (`schedule`, head c7208c2) built and verified the pulse 3 times (`{"ok":true,...,"news":12}`). Every push was rejected: `remote: Permission to YanlongLai/dappgo-website.git denied to YanlongLai.` / `The requested URL returned error: 403`. The run ended with `::error::pulse push failed after 3 attempts`. |
+| GitHub master | no pulse commit | `git ls-remote` shows master is still c7208c2 (PR #61). There is no `chore(pulse)` commit by DappGo Pulse. |
+| dappgo.com pulse.json | stale | `built_at_utc` 2026-10-28T04:06:06Z. TW `report_date` is 2026-10-28 and `generated_at_utc` is 03:08:40Z. The upstream TW pointer already serves the final report: `tw-final` rev 1, generated 08:39:30Z, hash 1b986e8a. |
+| Taiwan card (browser) | stale | The card shows 2026-10-28 "Published Oct 27, 08:08 PM" (PDT = 03:08Z). |
+
+Diagnosis: the secret is present and authenticates (the 403 names the YanlongLai account, and the clone succeeded), but the token cannot write to the repository. The fine-grained token needs `YanlongLai/dappgo-website` under Repository access and **Contents: Read and write**. This is an Owner credential action. After it is fixed, re-run `pulse.yml` with workflow_dispatch and expect `published <sha>`.
