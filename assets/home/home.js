@@ -42,7 +42,13 @@
       prodTw: "Taiwan market coverage with local context and a daily research perspective.",
       prodNews: "Company news by market, kept in a clear timeline and linked to each stock.",
       prodMerge: "A different kind of number game. Drop, combine, find your next move.",
-      webApp: "Web app", webUs: "Web · United States", webTw: "Web · Taiwan", mOptShort: "Options",
+      webApp: "Open web app", webUs: "United States news", webTw: "Taiwan news", mOptShort: "Options",
+      fOpt1: "Valuation ranges by ticker", fOpt2: "Options chains in one view", fOpt3: "Scored Sell Put / Sell Call setups",
+      fUs1: "Daily research cards", fUs2: "Company news by stock", fUs3: "AI viewpoints grounded in the data",
+      fTw1: "Taiwan market coverage", fTw2: "Local news and context", fTw3: "A daily research perspective",
+      fNews1: "United States and Taiwan newsrooms", fNews2: "A clear timeline for each stock", fNews3: "Linked to the source and each stock",
+      fMerge1: "Drop a number", fMerge2: "Combine to climb", fMerge3: "Find your next move",
+      liveEq: "{n} tickers · {regime}", liveOpt: "Top setup · {sym} {score}", liveNews: "{n} new headlines today", liveMerge: "On Google Play",
       sourceLine: "Pulse built {built} UTC from data.dappgo.com"
     },
     zh: {
@@ -84,7 +90,13 @@
       prodTw: "台股涵蓋，在地脈絡與每日研究視角。",
       prodNews: "依市場整理的公司新聞，時間軸清楚，並連到個股。",
       prodMerge: "不一樣的數字遊戲。落下、合併、找出下一步。",
-      webApp: "網頁版", webUs: "網頁 · 美股", webTw: "網頁 · 台股", mOptShort: "選擇權",
+      webApp: "開啟網頁版", webUs: "美股新聞", webTw: "台股新聞", mOptShort: "選擇權",
+      fOpt1: "逐檔估值區間", fOpt2: "選擇權鏈一頁看完", fOpt3: "評分過的 Sell Put / Sell Call 策略",
+      fUs1: "每日研究卡", fUs2: "個股公司新聞", fUs3: "以資料為依據的 AI 觀點",
+      fTw1: "台股市場涵蓋", fTw2: "在地新聞與脈絡", fTw3: "每日研究視角",
+      fNews1: "美股與台股新聞室", fNews2: "每檔個股清楚的時間軸", fNews3: "連到原始來源與個股",
+      fMerge1: "落下一個數字", fMerge2: "合併、往上爬", fMerge3: "找出下一步",
+      liveEq: "今日 {n} 檔 · {regime}", liveOpt: "今日最高分 · {sym} {score}", liveNews: "今日 {n} 則新頭條", liveMerge: "Google Play 上架中",
       sourceLine: "脈動建立於 {built} UTC，來源 data.dappgo.com"
     }
   };
@@ -202,6 +214,7 @@
     $("[data-tape]").innerHTML = tape.join("") + tape.join("").replace(/<a /g, '<a aria-hidden="true" tabindex="-1" ');
 
     renderConsole();
+    renderAppLive();
     renderWire();
   }
 
@@ -289,7 +302,19 @@
     tick();
   }
 
-  function render() { applyStatic(); renderPulse(); }
+  // One live line per app card, from the same verified pulse as the board.
+  function renderAppLive() {
+    const set = (key, text) => { const el = $(`[data-app-live="${key}"] span`); if (el) el.textContent = text; };
+    for (const key of ["us", "tw"]) {
+      const m = pulse.markets[key];
+      set(key, fill(t().liveEq, { n: m.coverage?.covered ?? "—", regime: t().regime[m.regime] || m.regime || "—" }));
+    }
+    const best = pulse.markets.options.ideas[0];
+    if (best) set("options", fill(t().liveOpt, { sym: best.symbol, score: best.score }));
+    set("news", fill(t().liveNews, { n: pulse.news.length }));
+  }
+
+  function render() { applyStatic(); renderPulse(); $('[data-app-live="merge"] span').textContent = t().liveMerge; }
 
   $("[data-lang-toggle]").addEventListener("click", () => { lang = lang === "zh" ? "en" : "zh"; store.set("dg-lang", lang); render(); });
   render();
