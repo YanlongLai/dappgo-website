@@ -1,18 +1,32 @@
 name: website-ci
 
+# Gitea-native gate on the isolated dappgo-ci runner (worker-1 pod). Node 22 and
+# Python 3.12 come pinned from the runner image; the host runner's Node 20 lacks
+# node:sqlite, which news/tests/engagement.mjs needs.
 on:
   push:
     branches: [master]
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   quality:
-    runs-on: dappgo-linux-host
+    runs-on: dappgo-ci
     timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Require the image Node 22 toolchain
+        run: |
+          set -Eeuo pipefail
+          node --version
+          python3 --version
+          [[ "$(node --version)" == v22.* ]]
+          node -e 'require("node:sqlite")'
 
       - name: Quality gate
         run: |
