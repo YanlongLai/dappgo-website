@@ -7,6 +7,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Added
+- Bold homepage redesign ("Markets, compiled daily") showing today's US stocks, Taiwan stocks and US options reports and a mixed US/TW headline wire, each linked into its product.
+- `scripts/build-pulse.mjs` derives the ~14 KB `data/pulse.json` from hash-verified data.dappgo.com pointers (fails closed, skips unchanged); `scripts/verify-pulse.mjs` enforces its contract.
+- Gitea Actions `homepage-pulse` refreshes the pulse on trading days and pushes to GitHub master; `website-ci` runs the quality gate.
 - Product screenshots from the current Options Explorer iPhone build for the public product story.
 
 ### Changed
@@ -16,6 +19,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 - Aligned the gitleaks push gate with the repository's configured `master` branch.
 
 ### Fixed
+- `llms.txt` now lists US Stocks iOS as available, matching the product catalog.
 - Removed stale public claims about GitHub Actions ownership and model-count implementation details.
 
 ## [0.1.0] - 2026-05-05

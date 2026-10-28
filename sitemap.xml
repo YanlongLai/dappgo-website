@@ -60,4 +60,10 @@
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
+    <url>
+        <loc>https://dappgo.com/data/pulse.json</loc>
+        <lastmod>2026-10-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+    </url>
 </urlset>

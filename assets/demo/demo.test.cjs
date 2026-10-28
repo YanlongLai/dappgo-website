@@ -1,4 +1,4 @@
-/* Dependency-free behavior checks. Run: node --test assets/demo/demo.test.cjs */
+/* Dependency-free behavior checks for demo.html. Production homepage checks live in assets/home/home.test.cjs. */
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -6,10 +6,6 @@ const path = require("node:path");
 const vm = require("node:vm");
 const script = fs.readFileSync(path.join(__dirname, "demo.js"), "utf8");
 const html = fs.readFileSync(path.join(__dirname, "../../demo.html"), "utf8");
-const production = fs.readFileSync(
-  path.join(__dirname, "../../index.html"),
-  "utf8",
-);
 
 function fixture({ reduced = false, storageFails = false } = {}) {
   class Element {
@@ -42,7 +38,7 @@ function fixture({ reduced = false, storageFails = false } = {}) {
       this.focused = true;
     }
   }
-  const translated = [...(html + production).matchAll(/data-i18n="([^"]+)"/g)].map(
+  const translated = [...html.matchAll(/data-i18n="([^"]+)"/g)].map(
     (match) => new Element({ i18n: match[1] }),
   );
   const flowTabs = Array.from(
@@ -169,53 +165,6 @@ test("pointer focus before Pause click does not resume playback", () => {
   app.get("#flow-play").events.click();
   assert.equal(app.timers.size, 0);
   assert.equal(app.get("#flow-play").getAttribute("aria-pressed"), "false");
-});
-
-test("production homepage is indexable and keeps the public metadata contract", () => {
-  assert.match(production, /<meta name="robots" content="index, follow"/);
-  assert.match(
-    production,
-    /<link rel="canonical" href="https:\/\/dappgo\.com\//,
-  );
-  assert.match(production, /googletagmanager\.com\/gtag\/js\?id=G-C9K7KCERPP/);
-  assert.match(production, /og-image-v2\.png/);
-  assert.doesNotMatch(production, /noindex/);
-  assert.doesNotMatch(production, /Design preview/);
-  assert.match(production, /assets\/demo\/demo\.css\?v=20261022-research-navigation/);
-  assert.match(production, /assets\/demo\/demo\.js\?v=20261022-research-navigation/);
-});
-
-test("platform download badges match the verified app availability matrix", () => {
-  const activeStoreUrls = [
-    "https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp",
-    "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp",
-    "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp",
-    "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge",
-    "https://apps.apple.com/app/id6768116538",
-    "https://apps.apple.com/app/id6768116720",
-    "https://apps.apple.com/us/app/us-stocks/id6768116546",
-  ];
-  for (const url of activeStoreUrls) assert.match(production, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), url);
-  assert.equal((production.match(/class="store-downloads"/g) || []).length, 4);
-  assert.equal((production.match(/store-badge--disabled/g) || []).length, 1);
-  assert.equal((production.match(/data-i18n="comingSoon"/g) || []).length, 1);
-  assert.doesNotMatch(production, /store-badge store-badge--disabled[^>]*href=/);
-  for (const asset of [
-    "assets/store-badges/google-play-official.svg",
-    "assets/store-badges/app-store-official.svg",
-  ]) assert.ok(fs.existsSync(path.join(__dirname, "../..", asset)), asset);
-  const externalAnchors = production.match(/<a[^>]+target="_blank"[^>]+>/g) || [];
-  assert.ok(externalAnchors.length >= 10);
-  assert.ok(externalAnchors.every((anchor) => /rel="noopener noreferrer"/.test(anchor)));
-});
-
-test("homepage separates regional news and keeps download artwork vector-based", () => {
-  for (const market of ["us", "tw"]) {
-    assert.ok(production.includes('href="https://news.dappgo.com/' + market + '/"'));
-  }
-  assert.ok(!production.includes('href="https://news.dappgo.com/" class="portfolio-link"'));
-  assert.doesNotMatch(production, /store-badges\/[^"]+\.jpg/);
-  assert.equal((production.match(/class="store-badge-image"/g) || []).length, 7);
 });
 
 test("Traditional Chinese covers every translated element; language round trip works", () => {
