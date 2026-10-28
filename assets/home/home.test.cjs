@@ -89,6 +89,8 @@ test("renders all three market cards and the wire from the pulse", async () => {
   assert.equal((wire.match(/<li class="spot/g) || []).length, Math.min(6, us.length));
   assert.ok(wire.includes("news.dappgo.com/us/"));
   assert.ok(!wire.includes("news.dappgo.com/tw/"), "Taiwan headlines stay in their own tab");
+  const shown = [...wire.matchAll(/<time datetime="([^"]+)"/g)].map(([, iso]) => iso);
+  assert.deepEqual(shown, [...shown].sort().reverse(), "wire is newest first");
   for (const n of us.filter((item) => item.image)) assert.ok(wire.includes(`src="${n.image.url.replace(/&/g, "&amp;")}"`), n.symbol);
   assert.match(app.element("[data-console]").innerHTML, /payloads verified/);
   assert.ok(["live", "stale"].includes(app.element("[data-live-chip]").dataset.state));

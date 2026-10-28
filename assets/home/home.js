@@ -235,10 +235,9 @@
   }
 
   function renderWire() {
-    // The newest story with a publisher image leads as the large feature; the rest stay newest-first.
-    const all = pulse.news.filter((n) => n.market === market).slice(0, 6);
-    const lead = all.find((n) => n.image);
-    const items = lead ? [lead, ...all.filter((n) => n !== lead)] : all;
+    // Strictly newest first; the top story becomes the large feature only when it has a publisher image.
+    const items = pulse.news.filter((n) => n.market === market)
+      .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc)).slice(0, 6);
     for (const key of ["us", "tw"]) $(`[data-count="${key}"]`).textContent = pulse.news.filter((n) => n.market === key).length;
     $("[data-wire]").innerHTML = items.length ? items.map(wireItem).join("") : `<li class="wire-empty">${esc(t().wireEmpty)}</li>`;
     document.querySelectorAll("[data-wire-tabs] [role=tab]").forEach((tab) => {
