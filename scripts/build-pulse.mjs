@@ -120,7 +120,32 @@ const newest = (items) => {
   const picked = [...lead, ...rest.filter((item) => item.image), ...rest.filter((item) => !item.image)].slice(0, 6);
   return picked.sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc));
 };
-const latest = [...newest(news("us", us)), ...newest(news("tw", tw))];
+// US wire: the highest-weight stocks (market cap, the basis of index weight), one story each, newest first.
+// A stock's photo story stands in for its newest when it ran within two hours of it.
+const HEAVYWEIGHTS = 10;
+const IMAGE_WINDOW_MS = 2 * 3600e3;
+function heavyweightNews(items, payload) {
+  const caps = Object.entries(payload.ticker_data || {})
+    .map(([symbol, ticker]) => [symbol, ticker.fundamentals?.market_cap])
+    .filter(([, cap]) => Number.isFinite(cap) && cap > 0)
+    .sort((a, b) => b[1] - a[1]);
+  const top = new Set(caps.slice(0, HEAVYWEIGHTS).map(([symbol]) => symbol));
+  const bySymbol = new Map();
+  for (const item of items.sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc))) {
+    if (!top.has(item.symbol) || seen.has(item.url)) continue;
+    const list = bySymbol.get(item.symbol) || [];
+    list.push(item);
+    bySymbol.set(item.symbol, list);
+  }
+  const picked = [...bySymbol.values()].map(([head, ...rest]) =>
+    rest.find((item) => item.image && Date.parse(head.published_at_utc) - Date.parse(item.published_at_utc) <= IMAGE_WINDOW_MS) || head);
+  picked.forEach((item) => seen.add(item.url));
+  const wire = picked.sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc)).slice(0, 6);
+  // Thin news day: fill from the rest of the universe so the tab never runs short.
+  return wire.length >= 6 ? wire : [...wire, ...newest(items.filter((item) => !top.has(item.symbol)))].slice(0, 6)
+    .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc));
+}
+const latest = [...heavyweightNews(news("us", us), us.payload), ...newest(news("tw", tw))];
 
 const pulse = {
   schema_version: "1.0.0",
