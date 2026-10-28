@@ -123,7 +123,7 @@
       crossorigin
     />
     <link rel="preload" href="/data/pulse.json" as="fetch" type="application/json" crossorigin />
-    <link rel="stylesheet" href="/assets/home/home.css?v=20261028-blue-3" />
+    <link rel="stylesheet" href="/assets/home/home.css?v=20261028-cards-4" />
     <script>document.documentElement.classList.add("js");</script>
   </head>
   <body>
@@ -233,44 +233,74 @@
             <p data-i18n="productsLede">Open on the web today, or take it with you.</p>
           </header>
           <ul class="catalog" data-reveal>
-            <li>
-              <article class="product" data-product="options-explorer">
-                <span class="product-num">01</span>
-                <div class="product-name"><img src="/assets/app-icons/options-icon-128.webp" alt="" width="52" height="52" loading="lazy" /><h3>Options Explorer</h3></div>
-                <p data-i18n="prodOptions">Valuation ranges, options chains and scored Sell Put / Sell Call setups in one research view.</p>
-                <div class="product-links"><a class="chip chip-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">Web app</span> ↗</a><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="chip" data-store="ios" href="https://apps.apple.com/app/id6768116720" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">iOS</span> ↗</a><a class="chip" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">Android</span> ↗</a></div></div>
+            <li class="app-cell">
+              <article class="app spot" style="--tint:#5b6cff" data-product="options-explorer">
+                <div class="app-head">
+                  <img class="app-icon" src="/assets/app-icons/options-icon-128.webp" alt="" width="72" height="72" loading="lazy" />
+                  <p class="app-live" data-app-live="options"><i aria-hidden="true"></i><span>—</span></p>
+                </div>
+                <div class="app-body">
+                  <h3>Options Explorer</h3>
+                  <p data-i18n="prodOptions">Valuation ranges, options chains and scored Sell Put / Sell Call setups in one research view.</p>
+                  <ul class="app-feats"><li data-i18n="fOpt1">Valuation ranges by ticker</li><li data-i18n="fOpt2">Options chains in one view</li><li data-i18n="fOpt3">Scored Sell Put / Sell Call setups</li></ul>
+                </div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116720" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
-            <li>
-              <article class="product" data-product="us-stocks">
-                <span class="product-num">02</span>
-                <div class="product-name"><img src="/assets/app-icons/us-stocks-icon-128.webp" alt="" width="52" height="52" loading="lazy" /><h3>US Stocks</h3></div>
-                <p data-i18n="prodUs">Daily research cards, company news and AI viewpoints across US equities.</p>
-                <div class="product-links"><a class="chip chip-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">Web app</span> ↗</a><div class="store-downloads" aria-label="US Stocks app downloads"><a class="chip" data-store="ios" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">iOS</span> ↗</a><a class="chip" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">Android</span> ↗</a></div></div>
+            <li class="app-cell">
+              <article class="app spot" style="--tint:#245dde" data-product="us-stocks">
+                <div class="app-head">
+                  <img class="app-icon" src="/assets/app-icons/us-stocks-icon-128.webp" alt="" width="72" height="72" loading="lazy" />
+                  <p class="app-live" data-app-live="us"><i aria-hidden="true"></i><span>—</span></p>
+                </div>
+                <div class="app-body">
+                  <h3>US Stocks</h3>
+                  <p data-i18n="prodUs">Daily research cards, company news and AI viewpoints across US equities.</p>
+                  <ul class="app-feats"><li data-i18n="fUs1">Daily research cards</li><li data-i18n="fUs2">Company news by stock</li><li data-i18n="fUs3">AI viewpoints grounded in the data</li></ul>
+                </div>
+                <div class="app-foot"><div class="store-downloads" aria-label="US Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
-            <li>
-              <article class="product" data-product="taiwan-stocks">
-                <span class="product-num">03</span>
-                <div class="product-name"><img src="/assets/app-icons/tw-stocks-icon-128.webp" alt="" width="52" height="52" loading="lazy" /><h3>Taiwan Stocks</h3></div>
-                <p data-i18n="prodTw">Taiwan market coverage with local context and a daily research perspective.</p>
-                <div class="product-links"><a class="chip chip-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">Web app</span> ↗</a><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="chip" data-store="ios" href="https://apps.apple.com/app/id6768116538" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">iOS</span> ↗</a><a class="chip" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">Android</span> ↗</a></div></div>
+            <li class="app-cell">
+              <article class="app spot" style="--tint:#2e7bd6" data-product="taiwan-stocks">
+                <div class="app-head">
+                  <img class="app-icon" src="/assets/app-icons/tw-stocks-icon-128.webp" alt="" width="72" height="72" loading="lazy" />
+                  <p class="app-live" data-app-live="tw"><i aria-hidden="true"></i><span>—</span></p>
+                </div>
+                <div class="app-body">
+                  <h3>Taiwan Stocks</h3>
+                  <p data-i18n="prodTw">Taiwan market coverage with local context and a daily research perspective.</p>
+                  <ul class="app-feats"><li data-i18n="fTw1">Taiwan market coverage</li><li data-i18n="fTw2">Local news and context</li><li data-i18n="fTw3">A daily research perspective</li></ul>
+                </div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116538" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
-            <li>
-              <article class="product" data-product="news">
-                <span class="product-num">04</span>
-                <div class="product-name"><img src="/assets/app-icons/news-icon-128.webp" alt="" width="52" height="52" loading="lazy" /><h3>DappGo News</h3></div>
-                <p data-i18n="prodNews">Company news by market, kept in a clear timeline and linked to each stock.</p>
-                <div class="product-links"><a class="chip chip-web" href="https://news.dappgo.com/us/"><span data-i18n="webUs">Web · United States</span> ↗</a><a class="chip chip-web" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">Web · Taiwan</span> ↗</a></div>
+            <li class="app-cell app-cell--wide">
+              <article class="app spot" style="--tint:#3c5a8a" data-product="news">
+                <div class="app-head">
+                  <img class="app-icon" src="/assets/app-icons/news-icon-128.webp" alt="" width="72" height="72" loading="lazy" />
+                  <p class="app-live" data-app-live="news"><i aria-hidden="true"></i><span>—</span></p>
+                </div>
+                <div class="app-body">
+                  <h3>DappGo News</h3>
+                  <p data-i18n="prodNews">Company news by market, kept in a clear timeline and linked to each stock.</p>
+                  <ul class="app-feats"><li data-i18n="fNews1">United States and Taiwan newsrooms</li><li data-i18n="fNews2">A clear timeline for each stock</li><li data-i18n="fNews3">Linked to the source and each stock</li></ul>
+                </div>
+                <div class="app-foot"><div class="app-cta"><a class="btn btn-accent" href="https://news.dappgo.com/us/"><span data-i18n="webUs">United States news</span><span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">Taiwan news</span><span aria-hidden="true">↗</span></a></div></div>
               </article>
             </li>
-            <li>
-              <article class="product" data-product="number-merge">
-                <span class="product-num">05</span>
-                <div class="product-name"><img src="/assets/app-icons/number-merge-icon-128.webp" alt="" width="52" height="52" loading="lazy" /><h3>Number Merge</h3></div>
-                <p data-i18n="prodMerge">A different kind of number game. Drop, combine, find your next move.</p>
-                <div class="product-links"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="chip" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" target="_blank" rel="noopener noreferrer"><span class="store-platform-name">Android</span> ↗</a></div></div>
+            <li class="app-cell app-cell--wide">
+              <article class="app spot" style="--tint:#f07a2e" data-product="number-merge">
+                <div class="app-head">
+                  <img class="app-icon" src="/assets/app-icons/number-merge-icon-128.webp" alt="" width="72" height="72" loading="lazy" />
+                  <p class="app-live" data-app-live="merge"><i aria-hidden="true"></i><span>—</span></p>
+                </div>
+                <div class="app-body">
+                  <h3>Number Merge</h3>
+                  <p data-i18n="prodMerge">A different kind of number game. Drop, combine, find your next move.</p>
+                  <ul class="app-feats"><li data-i18n="fMerge1">Drop a number</li><li data-i18n="fMerge2">Combine to climb</li><li data-i18n="fMerge3">Find your next move</li></ul>
+                </div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div></div>
               </article>
             </li>
           </ul>
@@ -335,6 +365,6 @@
       </div>
     </footer>
 
-    <script src="/assets/home/home.js?v=20261028-blue-3" defer></script>
+    <script src="/assets/home/home.js?v=20261028-cards-4" defer></script>
   </body>
 </html>
