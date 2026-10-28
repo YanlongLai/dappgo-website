@@ -96,7 +96,7 @@
       "追蹤我們的研究與產品進展。或帶著一個值得改善的工作流程，來聊聊。",
     subscribeCta: "訂閱 DappGo 更新",
     demoNotice: "設計預覽 · 尚未發布至正式網站",
-    siteNotice: "研究產品 · 有目的的自動化",
+    siteNotice: "研究產品 · 用在刀口上的自動化",
     privacy: "隱私權",
     terms: "服務條款",
     support: "支援",
