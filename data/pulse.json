@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-28T22:22:43Z",
+  "built_at_utc": "2026-10-29T09:20:43Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-10-28",
-      "generated_at_utc": "2026-10-28T08:39:30Z",
+      "report_date": "2026-10-29",
+      "generated_at_utc": "2026-10-29T08:41:35Z",
       "schema_version": "1.2.0",
-      "data_hash": "1b986e8a0cb49cb7dfa3f6a52cc9785313662c4fa17560440c4112c67c97e07c",
+      "data_hash": "2d8d464c3db3b30bd82d4f3b17365e1784b12bb93896779eb4a747e19e013b55",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,79 +140,79 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "mixed",
-      "breadth_score": 0.465,
-      "advance_decline_ratio": 1.31,
+      "breadth_score": 0.574,
+      "advance_decline_ratio": 2.5,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 17 BUY / 0 SELL, market regime: mixed.",
-        "zh": "今日 17 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 46% + 波動 cho）。"
+        "en": "Today's report: 19 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 19 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 57% + 波動 cho）。"
       },
       "gainers": [
         {
+          "symbol": "6415",
+          "name": "矽力*-KY",
+          "return_pct": 13.51,
+          "close": 525
+        },
+        {
+          "symbol": "2344",
+          "name": "華邦電",
+          "return_pct": 10.61,
+          "close": 172
+        },
+        {
           "symbol": "7750",
           "name": "新代",
-          "return_pct": 9.34,
-          "close": 1990
+          "return_pct": 9.86,
+          "close": 2005
         },
         {
-          "symbol": "2356",
-          "name": "英業達",
-          "return_pct": 6.78,
-          "close": 63
-        },
-        {
-          "symbol": "3533",
-          "name": "嘉澤",
-          "return_pct": 6.06,
-          "close": 1925
-        },
-        {
-          "symbol": "6669",
-          "name": "緯穎",
-          "return_pct": 5.69,
-          "close": 1950
+          "symbol": "2408",
+          "name": "南亞科",
+          "return_pct": 9.4,
+          "close": 477
         }
       ],
       "losers": [
         {
-          "symbol": "3665",
-          "name": "貿聯-KY",
-          "return_pct": -13.9,
-          "close": 1735
-        },
-        {
           "symbol": "6505",
           "name": "台塑化",
-          "return_pct": -13.47,
-          "close": 106
+          "return_pct": -11.21,
+          "close": 103
         },
         {
-          "symbol": "2368",
-          "name": "金像電",
-          "return_pct": -13.25,
-          "close": 1080
+          "symbol": "2313",
+          "name": "華通",
+          "return_pct": -9.68,
+          "close": 224
         },
         {
-          "symbol": "3653",
-          "name": "健策",
-          "return_pct": -12.93,
-          "close": 5860
+          "symbol": "2345",
+          "name": "智邦",
+          "return_pct": -9.48,
+          "close": 1815
+        },
+        {
+          "symbol": "3665",
+          "name": "貿聯-KY",
+          "return_pct": -8.35,
+          "close": 1810
         }
       ],
       "picks": [
         {
-          "symbol": "2337",
-          "name": "旺宏",
-          "score": 62,
+          "symbol": "2404",
+          "name": "漢唐",
+          "score": 64,
           "signals": {
             "en": [
               "Below MA20 8.3%",
-              "RSI 39 near oversold",
+              "RSI 43 near oversold",
               "Golden KD cross"
             ],
             "zh": [
               "低於 MA20 -8.3%",
-              "RSI 39 接近超賣",
+              "RSI 43 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -220,33 +220,33 @@
         {
           "symbol": "6139",
           "name": "亞翔",
-          "score": 60,
+          "score": 63,
           "signals": {
             "en": [
-              "Below MA20 9.3%",
-              "RSI 35 near oversold",
+              "Below MA20 5.9%",
+              "RSI 42 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -9.3%",
-              "RSI 35 接近超賣",
+              "低於 MA20 -5.9%",
+              "RSI 42 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "2454",
-          "name": "聯發科",
-          "score": 59,
+          "symbol": "2303",
+          "name": "聯電",
+          "score": 62,
           "signals": {
             "en": [
-              "Below MA20 14.2%",
-              "RSI 33 near oversold",
+              "Below MA20 9.8%",
+              "RSI 39 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -14.2%",
-              "RSI 33 接近超賣",
+              "低於 MA20 -9.8%",
+              "RSI 39 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -496,11 +496,11 @@
       "symbol": "2330",
       "name": "台積電",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9841961",
-      "published_at_utc": "2026-10-28T04:56:55Z",
+      "url": "https://money.udn.com/money/story/5612/9844944",
+      "published_at_utc": "2026-10-29T07:47:35Z",
       "title": {
-        "original": "魏哲家赴美設廠為硫酸都頭痛！看似普通的化學品為何這麼難做？",
-        "en": "Wei Zhejia's US factory setup: even sulfuric acid is a headache! Why is this seemingly ordinary chemical so hard to make?"
+        "original": "秦永沛談 AI「梳型人」 魏哲家揭 Hear 與 Listen 差別",
+        "en": "Qin Yongpei talks AI 'comb-shaped talent' Wei Zhejia reveals difference between Hear and Listen"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -518,6 +518,20 @@
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=3231"
+    },
+    {
+      "market": "tw",
+      "symbol": "2382",
+      "name": "廣達",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9842748",
+      "published_at_utc": "2026-10-28T09:33:57Z",
+      "title": {
+        "original": "Google 推出最強世界模型 Genie 4 將推升算力需求 台廠供應鏈沾光",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2382"
     },
     {
       "market": "tw",
@@ -546,20 +560,6 @@
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2357"
-    },
-    {
-      "market": "tw",
-      "symbol": "6505",
-      "name": "台塑化",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3261376",
-      "published_at_utc": "2026-10-27T01:57:00Z",
-      "title": {
-        "original": "南亞甩「鬼故事」漲逾6%急收斂 台塑、台化小紅",
-        "en": "Nan Ya shakes off 'ghost story', rises over 6% then quickly narrows gains; Formosa Plastics, Formosa Chemicals slightly up"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=6505"
     }
   ]
 }
