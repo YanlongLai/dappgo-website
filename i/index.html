@@ -1,40 +1,97 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto: number-rpg:" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f6f7f9" />
-    <meta name="description" content="A Number RPG invitation landing page." />
-    <title>Number RPG invitation | DappGo</title>
+    <title>Number RPG · 邀請 | DappGo</title>
+    <meta name="description" content="朋友邀請你一起玩 Number RPG。用邀請碼加入，你們各得 3 顆愛心。" />
+    <meta property="og:title" content="一起玩 Number RPG" />
+    <meta property="og:description" content="用邀請碼加入，你們各得 3 顆愛心 ❤️" />
+    <meta property="og:image" content="https://dappgo.com/assets/app-icons/number-rpg-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="/assets/demo/demo.css" />
-    <link rel="stylesheet" href="/i/invite.css" />
+    <link rel="apple-touch-icon" href="/assets/app-icons/number-rpg-icon.png" />
+    <style>
+      :root { color-scheme: light; --ink: #3b2a3f; --paper: #fffaf3; --card: #fff; --accent: #ff9a76; --accent-ink: #5a2a1c; --muted: #7b6f80; --line: #e9e0d6; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 -apple-system, "PingFang TC", "Noto Sans TC", "Segoe UI", system-ui, sans-serif; }
+      main { max-width: 420px; margin: 0 auto; padding: 32px 20px 48px; text-align: center; }
+      .icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 30px rgba(59,42,63,.15); }
+      h1 { font-size: 26px; margin: 18px 0 6px; }
+      p { margin: 0 0 14px; color: var(--muted); }
+      .card { background: var(--card); border: 2px solid var(--ink); border-radius: 22px; padding: 18px; margin: 22px 0; box-shadow: 0 4px 0 var(--ink); }
+      .label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+      .code { font: 700 36px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .14em; margin: 6px 0 12px; word-break: break-all; }
+      button, .btn { display: inline-block; width: 100%; border: 2px solid var(--ink); border-radius: 16px; padding: 13px 16px; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+      button { background: var(--accent); color: var(--accent-ink); box-shadow: 0 4px 0 var(--ink); }
+      button:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); }
+      .btn { background: #fff; color: var(--ink); margin-top: 10px; }
+      .btn.disabled { color: var(--muted); border-color: var(--line); pointer-events: none; }
+      .copied { color: #2a7a4b; font-weight: 700; min-height: 1.5em; margin-top: 8px; }
+      .small { font-size: 14px; }
+      footer { margin-top: 36px; font-size: 13px; color: var(--muted); }
+      footer a { color: inherit; }
+    </style>
   </head>
-  <body class="invite-page">
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="DappGo home"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a></nav>
-      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only">Language</span><select id="invite-locale" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com">Let’s talk <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
-    </header>
+  <body>
+    <main>
+      <img class="icon" src="/assets/app-icons/number-rpg-icon.png" alt="Number RPG" width="112" height="112" />
+      <h1 data-i18n="title">一起玩 Number RPG！</h1>
+      <p data-i18n="pitch">合成數字、帶著元素夥伴打倒魔王。用朋友的邀請碼加入，你們各得 3 顆愛心 ❤️</p>
 
-    <main id="main" class="invite-main">
-      <section class="invite-card" aria-labelledby="invite-title">
-        <!-- taste-skill-ignore: matches the released DappGo public shell -->
-        <p class="invite-kicker" id="invite-kicker" data-taste-skill-ignore="released public shell">Number RPG · invitation</p>
-        <h1 id="invite-title">A friend saved you a place.</h1>
-        <p class="invite-copy" id="invite-copy">Open Number RPG to join the adventure. Your invitation code is ready when you are.</p>
-        <div class="invite-code-wrap"><span class="invite-code-label" id="invite-label">Invitation code</span><code class="invite-code" id="invite-code">—</code></div>
-        <div class="invite-actions"><a class="button button-primary" id="open-invite" href="number-rpg://i/">Open Number RPG <span aria-hidden="true">↗</span></a><button class="button button-secondary" id="copy-invite" type="button">Copy invite link</button></div>
-        <p class="invite-note" id="invite-note">If the app is not installed, install Number RPG first, then open this link again.</p>
-        <p class="invite-status" id="invite-status" aria-live="polite"></p>
+      <section class="card">
+        <div class="label" data-i18n="codeLabel">邀請碼</div>
+        <div class="code" id="code">——</div>
+        <button id="copy" type="button" data-i18n="copy">複製邀請碼</button>
+        <div class="copied" id="copied" aria-live="polite"></div>
+        <p class="small" data-i18n="paste">安裝後打開遊戲，在「好友」頁貼上邀請碼即可。</p>
       </section>
-    </main>
 
-    <footer class="invite-footer"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG</p><nav aria-label="Legal"><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/">Delete account</a></nav></div></footer>
-    <script src="/i/invite.js"></script>
+      <a class="btn" id="ios" href="#" data-i18n="ios">App Store 下載</a>
+      <a class="btn" id="android" href="#" data-i18n="android">Google Play 下載</a>
+      <p class="small" id="open-app-hint" data-i18n="installed" style="margin-top:16px">已經安裝了？直接點這個連結就會開啟遊戲並自動加入。</p>
+
+      <footer>
+        <a href="/number-rpg/privacy/" data-i18n="privacy">隱私政策</a> · <a href="/number-rpg/terms/" data-i18n="terms">使用條款</a> · DappGo
+      </footer>
+    </main>
+    <script src="/i/stores.js"></script>
+    <script>
+      (function () {
+        var strings = {
+          'zh-Hant': null,
+          en: { title: 'Come play Number RPG!', pitch: 'Merge numbers and beat bosses with elemental pets. Join with your friend’s invite code and you both get 3 lives ❤️', codeLabel: 'Invite code', copy: 'Copy invite code', paste: 'After installing, open the game and paste the code on the Friends screen.', ios: 'Download on the App Store', android: 'Get it on Google Play', installed: 'Already installed? Tapping this link opens the game and joins automatically.', privacy: 'Privacy policy', terms: 'Terms', copied: 'Copied!', iosSoon: 'App Store · coming soon' },
+          'zh-Hans': { title: '一起玩 Number RPG！', pitch: '合成数字、带着元素伙伴打倒魔王。用朋友的邀请码加入，你们各得 3 颗爱心 ❤️', codeLabel: '邀请码', copy: '复制邀请码', paste: '安装后打开游戏，在「好友」页粘贴邀请码即可。', ios: 'App Store 下载', android: 'Google Play 下载', installed: '已经安装了？直接点这个链接就会打开游戏并自动加入。', privacy: '隐私政策', terms: '使用条款', copied: '已复制！', iosSoon: 'App Store · 即将上架' },
+          ja: { title: 'Number RPG で遊ぼう！', pitch: '数字を合体させ、属性ペットとボスを倒そう。友だちの招待コードで参加すると、ふたりともライフ 3 つをプレゼント ❤️', codeLabel: '招待コード', copy: '招待コードをコピー', paste: 'インストール後、ゲームの「フレンド」画面でコードを貼り付けてください。', ios: 'App Store でダウンロード', android: 'Google Play で手に入れよう', installed: 'インストール済みなら、このリンクでゲームが開き自動で参加します。', privacy: 'プライバシーポリシー', terms: '利用規約', copied: 'コピーしました！', iosSoon: 'App Store · 近日公開' },
+        };
+        var zhHant = { copied: '已複製！', iosSoon: 'App Store · 即將上架' };
+        var lang = (navigator.language || 'zh-TW').toLowerCase();
+        var table = lang.indexOf('ja') === 0 ? strings.ja : lang.indexOf('zh') === 0 ? (/cn|sg|hans/.test(lang) ? strings['zh-Hans'] : zhHant) : strings.en;
+        if (table !== zhHant) {
+          document.documentElement.lang = lang.indexOf('ja') === 0 ? 'ja' : lang.indexOf('zh') === 0 ? 'zh-Hans' : 'en';
+          document.querySelectorAll('[data-i18n]').forEach(function (el) { var key = el.getAttribute('data-i18n'); if (table[key]) el.textContent = table[key]; });
+        }
+        // GitHub Pages serves /i/<code> through 404.html, which redirects here as /i/?code=<code>.
+        var match = location.pathname.match(/^\/i\/([A-Za-z0-9_-]{6,16})\/?$/) || location.search.match(/[?&]code=([A-Za-z0-9_-]{6,16})/);
+        var code = match ? match[1].toUpperCase() : '';
+        document.getElementById('code').textContent = code || '—';
+        var copy = document.getElementById('copy');
+        copy.disabled = !code;
+        copy.addEventListener('click', function () {
+          var done = function () { document.getElementById('copied').textContent = table.copied; };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, done);
+          else { var ta = document.createElement('textarea'); ta.value = code; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); }
+        });
+        var stores = window.NRPG_STORES || {};
+        var ios = document.getElementById('ios'), android = document.getElementById('android');
+        if (stores.ios) ios.href = stores.ios; else { ios.classList.add('disabled'); ios.textContent = table.iosSoon; ios.removeAttribute('href'); }
+        var referrer = encodeURIComponent('utm_source=invite&utm_medium=link' + (code ? '&invite=' + code : ''));
+        android.href = (stores.android || 'https://play.google.com/store/apps/details?id=com.dappgo.numberrpg') + '&referrer=' + referrer;
+        var ua = navigator.userAgent || '';
+        if (/android/i.test(ua)) ios.style.display = 'none';
+        if (/iphone|ipad|ipod/i.test(ua)) android.style.display = 'none';
+      })();
+    </script>
   </body>
 </html>
