@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-29T20:15:51Z",
+  "built_at_utc": "2026-10-30T09:20:37Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-10-29",
-      "generated_at_utc": "2026-10-29T08:41:35Z",
+      "report_date": "2026-10-30",
+      "generated_at_utc": "2026-10-30T08:38:12Z",
       "schema_version": "1.2.0",
-      "data_hash": "2d8d464c3db3b30bd82d4f3b17365e1784b12bb93896779eb4a747e19e013b55",
+      "data_hash": "e4120b427fe36a20a9855e797cb12d6246977118742eadf9c8c0c6dfc391b1b2",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,113 +140,113 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "mixed",
-      "breadth_score": 0.574,
-      "advance_decline_ratio": 2.5,
+      "breadth_score": 0.436,
+      "advance_decline_ratio": 0.38,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 19 BUY / 0 SELL, market regime: mixed.",
-        "zh": "今日 19 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 57% + 波動 cho）。"
+        "en": "Today's report: 20 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 20 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 44% + 波動 cho）。"
       },
       "gainers": [
         {
-          "symbol": "6415",
-          "name": "矽力*-KY",
-          "return_pct": 13.51,
-          "close": 525
+          "symbol": "2408",
+          "name": "南亞科",
+          "return_pct": 13.03,
+          "close": 477
         },
         {
           "symbol": "2344",
           "name": "華邦電",
-          "return_pct": 10.61,
-          "close": 172
+          "return_pct": 11.8,
+          "close": 170.5
         },
         {
           "symbol": "7750",
           "name": "新代",
-          "return_pct": 9.86,
-          "close": 2005
+          "return_pct": 10.58,
+          "close": 2090
         },
         {
-          "symbol": "2408",
-          "name": "南亞科",
-          "return_pct": 9.4,
-          "close": 477
+          "symbol": "2892",
+          "name": "第一金",
+          "return_pct": 9.08,
+          "close": 44.45
         }
       ],
       "losers": [
         {
-          "symbol": "6505",
-          "name": "台塑化",
-          "return_pct": -11.21,
-          "close": 103
+          "symbol": "6442",
+          "name": "光聖",
+          "return_pct": -13,
+          "close": 1305
         },
         {
           "symbol": "2313",
           "name": "華通",
-          "return_pct": -9.68,
-          "close": 224
-        },
-        {
-          "symbol": "2345",
-          "name": "智邦",
-          "return_pct": -9.48,
-          "close": 1815
+          "return_pct": -12.32,
+          "close": 213.5
         },
         {
           "symbol": "3665",
           "name": "貿聯-KY",
-          "return_pct": -8.35,
-          "close": 1810
+          "return_pct": -11.43,
+          "close": 1705
+        },
+        {
+          "symbol": "2345",
+          "name": "智邦",
+          "return_pct": -10.91,
+          "close": 1755
         }
       ],
       "picks": [
         {
-          "symbol": "2404",
-          "name": "漢唐",
-          "score": 64,
-          "signals": {
-            "en": [
-              "Below MA20 8.3%",
-              "RSI 43 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -8.3%",
-              "RSI 43 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
           "symbol": "6139",
           "name": "亞翔",
-          "score": 63,
+          "score": 68,
           "signals": {
             "en": [
-              "Below MA20 5.9%",
-              "RSI 42 near oversold",
+              "Below MA20 6.6%",
+              "RSI 40 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -5.9%",
-              "RSI 42 接近超賣",
+              "低於 MA20 -6.6%",
+              "RSI 40 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "2303",
-          "name": "聯電",
-          "score": 62,
+          "symbol": "8046",
+          "name": "南電",
+          "score": 65,
           "signals": {
             "en": [
-              "Below MA20 9.8%",
-              "RSI 39 near oversold",
+              "Below MA20 9.3%",
+              "RSI 45 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -9.8%",
-              "RSI 39 接近超賣",
+              "低於 MA20 -9.3%",
+              "RSI 45 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "3702",
+          "name": "大聯大",
+          "score": 65,
+          "signals": {
+            "en": [
+              "Below MA20 5.4%",
+              "RSI 40 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -5.4%",
+              "RSI 40 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -470,11 +470,11 @@
       "symbol": "2317",
       "name": "鴻海",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9840898",
-      "published_at_utc": "2026-10-27T18:54:39Z",
+      "url": "https://money.udn.com/money/story/5612/9847334",
+      "published_at_utc": "2026-10-30T08:05:12Z",
       "title": {
-        "original": "輝達 VR 平台 鴻海訂單躍增 業界傳出占比挑戰五成",
-        "en": "Nvidia VR platform Foxconn orders surge; industry says share may challenge fifty percent"
+        "original": "鴻海董座劉揚偉：AI 產業沒有泡沫化 明年持續兩位數成長",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -484,11 +484,11 @@
       "symbol": "2330",
       "name": "台積電",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9844944",
-      "published_at_utc": "2026-10-29T07:47:35Z",
+      "url": "https://money.udn.com/money/story/5612/9847332",
+      "published_at_utc": "2026-10-30T08:03:46Z",
       "title": {
-        "original": "秦永沛談 AI「梳型人」 魏哲家揭 Hear 與 Listen 差別",
-        "en": "Qin Yongpei talks AI 'comb-shaped talent' Wei Zhejia reveals difference between Hear and Listen"
+        "original": "台積電綠色製造升級外氣空調箱洗滌技術節電60% 評估導入 PTFE 濾網",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -498,10 +498,10 @@
       "symbol": "3231",
       "name": "緯創",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839650",
-      "published_at_utc": "2026-10-27T05:22:35Z",
+      "url": "https://money.udn.com/money/story/5612/9845335",
+      "published_at_utc": "2026-10-29T10:24:13Z",
       "title": {
-        "original": "Anthropic 承諾未來十年資本支出 金額高達5,180億美元 台廠將受惠",
+        "original": "磐儀大股東增加新血 引進威剛、技嘉",
         "en": null
       },
       "image": null,
@@ -512,10 +512,10 @@
       "symbol": "2382",
       "name": "廣達",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9842748",
-      "published_at_utc": "2026-10-28T09:33:57Z",
+      "url": "https://money.udn.com/money/story/5612/9845306",
+      "published_at_utc": "2026-10-29T10:09:32Z",
       "title": {
-        "original": "Google 推出最強世界模型 Genie 4 將推升算力需求 台廠供應鏈沾光",
+        "original": "雙方未達共識 廣達宣布撤銷收購友達龜山廠房",
         "en": null
       },
       "image": null,
@@ -523,31 +523,31 @@
     },
     {
       "market": "tw",
-      "symbol": "4938",
-      "name": "和碩",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3261451",
-      "published_at_utc": "2026-10-27T03:03:00Z",
+      "symbol": "2356",
+      "name": "英業達",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9842748",
+      "published_at_utc": "2026-10-28T09:33:57Z",
       "title": {
-        "original": "中籤倒賠2萬元！ 和碩小金雞東擎上市首日遇亂流跌逾14%",
+        "original": "Google 推出最強世界模型 Genie 4 將推升算力需求 台廠供應鏈沾光",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=4938"
+      "news_url": "https://news.dappgo.com/tw/?stock=2356"
     },
     {
       "market": "tw",
-      "symbol": "2357",
-      "name": "華碩",
+      "symbol": "2308",
+      "name": "台達電",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9839819",
-      "published_at_utc": "2026-10-27T06:27:02Z",
+      "url": "https://money.udn.com/money/story/5612/9846603",
+      "published_at_utc": "2026-10-30T03:21:42Z",
       "title": {
-        "original": "標案動能升溫 華碩看好2027年商用 PC 價量齊揚",
+        "original": "台股挫逾1400點破半年線 台達電跌停、AI股受挫",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2357"
+      "news_url": "https://news.dappgo.com/tw/?stock=2308"
     }
   ]
 }
