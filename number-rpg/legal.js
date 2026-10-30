@@ -29,13 +29,23 @@
   function richText(value) {
     var escaped = escapeHtml(value);
     var providerLinks = {
-      firebaseGoogle: '<a href="https://firebase.google.com/support/privacy">Firebase / Google privacy policies</a>',
-      admob: '<a href="https://policies.google.com/technologies/partner-sites">AdMob privacy policy</a>',
-      apple: '<a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>',
-      meta: '<a href="https://www.facebook.com/privacy/policy/">Meta privacy policy</a>',
-      revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat privacy policy</a>',
+      firebaseGoogle: '<a href="https://firebase.google.com/support/privacy">Firebase / Google</a>',
+      firebaseRetention: '<a href="https://firebase.google.com/support/privacy">Firebase</a>',
+      analyticsRetention: '<a href="https://support.google.com/analytics/answer/7667196">Google Analytics</a>',
+      admobDisclosure: '<a href="https://developers.google.com/admob/ios/privacy/data-disclosure">Google AdMob</a>',
+      googleRetention: '<a href="https://policies.google.com/technologies/retention">Google</a>',
+      admob: '<a href="https://policies.google.com/technologies/partner-sites">AdMob</a>',
+      apple: '<a href="https://www.apple.com/legal/privacy/">Apple</a>',
+      meta: '<a href="https://www.facebook.com/privacy/policy/">Meta</a>',
+      revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat</a>',
       appleEula: '<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>',
     };
+    var locale = root.dataset.lang || 'en';
+    var labels = uiCopy(locale);
+    ['privacy', 'terms', 'support', 'deleteAccount'].forEach(function (key) {
+      var path = key === 'deleteAccount' ? 'delete-account' : key;
+      providerLinks[key] = '<a href="/number-rpg/' + path + '/?lang=' + locale + '">' + escapeHtml(labels[key]) + '</a>';
+    });
     Object.keys(providerLinks).forEach(function (key) {
       escaped = escaped.replace(new RegExp('\\{\\{' + key + '\\}\\}', 'g'), providerLinks[key]);
     });
@@ -80,6 +90,57 @@
   function setText(id, value) {
     var element = document.getElementById(id);
     if (element && value !== undefined) element.textContent = value;
+  }
+
+  function uiCopy(locale) {
+    return source.ui[locale] || source.ui.en;
+  }
+
+  function renderSharedCopy(locale) {
+    var labels = uiCopy(locale);
+    document.querySelectorAll('[data-ui]').forEach(function (element) {
+      var value = labels[element.getAttribute('data-ui')];
+      if (value) element.textContent = value;
+    });
+    document.querySelectorAll('[data-nav]').forEach(function (link) {
+      var key = link.getAttribute('data-nav');
+      link.textContent = key === 'home' ? 'Number RPG' : labels[key];
+    });
+    // Keep locale selection when following a link, including without local storage.
+    document.querySelectorAll('a[href^="/number-rpg/"]').forEach(function (link) {
+      var url = new URL(link.getAttribute('href'), window.location.origin);
+      url.searchParams.set('lang', locale);
+      link.setAttribute('href', url.pathname + url.search + url.hash);
+    });
+    if (picker) picker.setAttribute('aria-label', labels.language);
+    var nav = document.getElementById('main-nav');
+    if (nav) nav.setAttribute('aria-label', labels.navigation);
+    var footerNav = document.querySelector('.site-footer nav');
+    if (footerNav) footerNav.setAttribute('aria-label', labels.footerNavigation);
+    var theme = document.getElementById('theme-toggle');
+    if (theme) theme.setAttribute('aria-label', root.dataset.theme === 'dark' ? labels.lightTheme : labels.darkTheme);
+    var menu = document.getElementById('menu-toggle');
+    if (menu) menu.setAttribute('aria-label', body.classList.contains('menu-open') ? labels.closeMenu : labels.openMenu);
+  }
+
+  function renderHome(page, locale) {
+    if (pageKey !== 'home') return;
+    document.querySelectorAll('[data-home]').forEach(function (element) {
+      var value = page[element.getAttribute('data-home')];
+      if (value) element.textContent = value;
+    });
+    var stores = window.NRPG_STORES || {};
+    document.querySelectorAll('[data-store]').forEach(function (link) {
+      var platform = link.getAttribute('data-store');
+      var value = stores[platform];
+      var url;
+      try { url = new URL(value); } catch (_) {}
+      var available = !!(url && url.protocol === 'https:');
+      link.hidden = !available;
+      link.textContent = uiCopy(locale)[platform];
+      if (available) link.setAttribute('href', url.href);
+      else link.removeAttribute('href');
+    });
   }
 
   function deletionTools(locale) {
@@ -262,7 +323,7 @@
     }
     root.lang = locale === 'zh-TW' ? 'zh-Hant' : locale === 'zh-CN' ? 'zh-Hans' : locale;
     root.dataset.lang = locale;
-    var title = 'Number RPG · ' + page.title + ' | DappGo';
+    var title = pageKey === 'home' ? 'Number RPG | DappGo' : 'Number RPG · ' + page.title + ' | DappGo';
     document.title = title;
     var description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute('content', page.summary);
@@ -294,6 +355,8 @@
       contentRoot.innerHTML = html;
     }
     if (picker) picker.value = locale;
+    renderSharedCopy(locale);
+    renderHome(page, locale);
     renderDeletionCopy(locale);
     if (persist !== false) {
       try { localStorage.setItem('number-rpg-locale', locale); } catch (_) {}
@@ -319,7 +382,8 @@
     root.dataset.theme = storedTheme === 'dark' ? 'dark' : 'light';
     function syncTheme() {
       var dark = root.dataset.theme === 'dark';
-      if (themeButton) themeButton.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      var labels = uiCopy(root.dataset.lang || 'en');
+      if (themeButton) themeButton.setAttribute('aria-label', dark ? labels.lightTheme : labels.darkTheme);
       var themeMeta = document.querySelector('meta[name="theme-color"]');
       if (themeMeta) themeMeta.setAttribute('content', dark ? '#15191f' : '#f6f7f9');
     }
@@ -339,14 +403,15 @@
       var open = body.classList.toggle('menu-open');
       mainNav.classList.toggle('is-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      var labels = uiCopy(root.dataset.lang || 'en');
+      menuButton.setAttribute('aria-label', open ? labels.closeMenu : labels.openMenu);
     });
     mainNav.addEventListener('click', function (event) {
       if (event.target.closest('a')) {
         body.classList.remove('menu-open');
         mainNav.classList.remove('is-open');
         menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open navigation');
+        menuButton.setAttribute('aria-label', uiCopy(root.dataset.lang || 'en').openMenu);
       }
     });
   }
