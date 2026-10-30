@@ -17,11 +17,17 @@
     <link rel="stylesheet" href="/number-rpg/legal.css" />
   </head>
   <body class="legal-page number-rpg-legal" data-page="deleteAccount">
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a data-ui="skip" class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="DappGo home"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav>
-      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only">Language</span><select id="locale-picker" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com">Let’s talk <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
+      <a class="brand" href="/" aria-label="DappGo"><img src="/favicon.svg" width="34" height="34" alt="" /><span>DappGo<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a data-nav="home" href="/number-rpg/">Number RPG</a>
+        <a data-nav="privacy" href="/number-rpg/privacy/">Privacy</a>
+        <a data-nav="terms" href="/number-rpg/terms/">Terms</a>
+        <a data-nav="support" href="/number-rpg/support/">Support</a>
+        <a data-nav="deleteAccount" href="/number-rpg/delete-account/" aria-current="page">Delete account</a>
+      </nav>
+      <div class="header-actions"><label class="number-rpg-locale"><span class="sr-only" data-ui="language">Language</span><select id="locale-picker" aria-label="Language"></select></label><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-glyph" aria-hidden="true"></span></button><a class="header-contact" href="mailto:admin@dappgo.com"><span data-ui="contact">Contact</span> <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button></div>
     </header>
 
     <main id="main" class="legal-main">
@@ -79,7 +85,7 @@
       </div>
     </main>
 
-    <footer class="site-footer container"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG · Legal</p><nav aria-label="Number RPG legal"><a href="/number-rpg/privacy/">Privacy</a><a href="/number-rpg/terms/">Terms</a><a href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav></div></footer>
+    <footer class="site-footer container"><div class="footer-wordmark" aria-hidden="true">DappGo<span>.</span></div><div class="footer-bottom"><p>© 2026 DappGo</p><p class="demo-notice">Number RPG</p><nav aria-label="Number RPG links"><a data-nav="home" href="/number-rpg/">Number RPG</a><a data-nav="privacy" href="/number-rpg/privacy/">Privacy</a><a data-nav="terms" href="/number-rpg/terms/">Terms</a><a data-nav="support" href="/number-rpg/support/">Support</a><a data-nav="deleteAccount" href="/number-rpg/delete-account/" aria-current="page">Delete account</a></nav></div></footer>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="/number-rpg/legal-content.js"></script>
     <script src="/number-rpg/legal.js"></script>
