@@ -4,10 +4,13 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-test('review loader matches existing publisher, is async in head, without manual slots', () => {
-  const native = fs.readFileSync(path.join(root, 'app-ads.txt'), 'utf8').trim();
-  assert.equal(fs.readFileSync(path.join(root, 'ads.txt'), 'utf8').trim(), native);
-  const publisher = native.split(',')[1].trim();
+test('review loader includes approved publishers, is async in head, without manual slots', () => {
+  const nativeLines = fs.readFileSync(path.join(root, 'app-ads.txt'), 'utf8').trim().split(/\r?\n/).filter(Boolean);
+  const webAdsLines = fs.readFileSync(path.join(root, 'ads.txt'), 'utf8').trim().split(/\r?\n/).filter(Boolean);
+  for (const line of nativeLines) assert.ok(webAdsLines.includes(line));
+  assert.equal(new Set(webAdsLines).size, webAdsLines.length);
+  assert.ok(webAdsLines.includes('google.com, pub-7924462280562432, DIRECT, f08c47fec0942fa0'));
+  const publisher = nativeLines[0].split(',')[1].trim();
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.ok(html.includes(`name="google-adsense-account" content="ca-${publisher}"`));
   const head = html.split('</head>')[0];
