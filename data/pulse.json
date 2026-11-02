@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-10-30T20:15:45Z",
+  "built_at_utc": "2026-11-02T09:20:46Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -95,10 +95,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-10-30",
-      "generated_at_utc": "2026-10-30T08:38:12Z",
+      "report_date": "2026-11-02",
+      "generated_at_utc": "2026-11-02T08:40:23Z",
       "schema_version": "1.2.0",
-      "data_hash": "e4120b427fe36a20a9855e797cb12d6246977118742eadf9c8c0c6dfc391b1b2",
+      "data_hash": "7c8fc7f90df7c936b36e51843b2f1e0d0d604e8d9be7e1a09c02cd40e7376d1d",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -106,113 +106,113 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "mixed",
-      "breadth_score": 0.436,
-      "advance_decline_ratio": 0.38,
+      "breadth_score": 0.347,
+      "advance_decline_ratio": 0.27,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 20 BUY / 0 SELL, market regime: mixed.",
-        "zh": "今日 20 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 44% + 波動 cho）。"
+        "en": "Today's report: 16 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 16 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 35% + 波動 cho）。"
       },
       "gainers": [
         {
-          "symbol": "2408",
-          "name": "南亞科",
-          "return_pct": 13.03,
-          "close": 477
-        },
-        {
-          "symbol": "2344",
-          "name": "華邦電",
-          "return_pct": 11.8,
-          "close": 170.5
-        },
-        {
           "symbol": "7750",
           "name": "新代",
-          "return_pct": 10.58,
-          "close": 2090
+          "return_pct": 12.43,
+          "close": 2035
         },
         {
           "symbol": "2892",
           "name": "第一金",
-          "return_pct": 9.08,
-          "close": 44.45
+          "return_pct": 7.99,
+          "close": 44.6
+        },
+        {
+          "symbol": "6415",
+          "name": "矽力*-KY",
+          "return_pct": 6.36,
+          "close": 502
+        },
+        {
+          "symbol": "2603",
+          "name": "長榮",
+          "return_pct": 5.44,
+          "close": 271.5
         }
       ],
       "losers": [
         {
-          "symbol": "6442",
-          "name": "光聖",
-          "return_pct": -13,
-          "close": 1305
+          "symbol": "2308",
+          "name": "台達電",
+          "return_pct": -17.85,
+          "close": 1335
         },
         {
-          "symbol": "2313",
-          "name": "華通",
-          "return_pct": -12.32,
-          "close": 213.5
+          "symbol": "2409",
+          "name": "友達",
+          "return_pct": -17.72,
+          "close": 30.65
         },
         {
           "symbol": "3665",
           "name": "貿聯-KY",
-          "return_pct": -11.43,
-          "close": 1705
+          "return_pct": -16.67,
+          "close": 1625
         },
         {
-          "symbol": "2345",
-          "name": "智邦",
-          "return_pct": -10.91,
-          "close": 1755
+          "symbol": "2313",
+          "name": "華通",
+          "return_pct": -16.01,
+          "close": 202
         }
       ],
       "picks": [
         {
-          "symbol": "6139",
-          "name": "亞翔",
+          "symbol": "1590",
+          "name": "亞德客-KY",
           "score": 68,
           "signals": {
             "en": [
-              "Below MA20 6.6%",
-              "RSI 40 near oversold",
+              "Below MA20 7.5%",
+              "RSI 32 near oversold",
+              "MACD bullish turn"
+            ],
+            "zh": [
+              "低於 MA20 -7.5%",
+              "RSI 32 接近超賣",
+              "MACD 翻多"
+            ]
+          }
+        },
+        {
+          "symbol": "6139",
+          "name": "亞翔",
+          "score": 65,
+          "signals": {
+            "en": [
+              "Below MA20 9.9%",
+              "RSI 35 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.6%",
-              "RSI 40 接近超賣",
+              "低於 MA20 -9.9%",
+              "RSI 35 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "8046",
-          "name": "南電",
-          "score": 65,
+          "symbol": "3017",
+          "name": "奇鋐",
+          "score": 64,
           "signals": {
             "en": [
-              "Below MA20 9.3%",
-              "RSI 45 near oversold",
+              "Below MA20 7.0%",
+              "RSI 42 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -9.3%",
-              "RSI 45 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "3702",
-          "name": "大聯大",
-          "score": 65,
-          "signals": {
-            "en": [
-              "Below MA20 5.4%",
-              "RSI 40 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -5.4%",
-              "RSI 40 接近超賣",
+              "低於 MA20 -7.0%",
+              "RSI 42 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -447,12 +447,12 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9847334",
-      "published_at_utc": "2026-10-30T08:05:12Z",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3264377",
+      "published_at_utc": "2026-11-01T06:21:00Z",
       "title": {
-        "original": "鴻海董座劉揚偉：AI 產業沒有泡沫化 明年持續兩位數成長",
-        "en": null
+        "original": "美期中選舉3劇本！彭博點「台股4檔」受波及 亞洲4地掀變局",
+        "en": "US midterm election 3 script! Bloomberg points out \"Taiwan stocks 4\" affected, Asia 4 triggers upheaval"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -466,7 +466,7 @@
       "published_at_utc": "2026-10-30T08:03:46Z",
       "title": {
         "original": "台積電綠色製造升級外氣空調箱洗滌技術節電60% 評估導入 PTFE 濾網",
-        "en": null
+        "en": "TSMC upgrades green manufacturing external air conditioning box scrubbing technology power saving 60% evaluates introduction of PTFE filter"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -476,10 +476,10 @@
       "symbol": "3231",
       "name": "緯創",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9845335",
-      "published_at_utc": "2026-10-29T10:24:13Z",
+      "url": "https://money.udn.com/money/story/5612/9847575",
+      "published_at_utc": "2026-10-30T09:45:09Z",
       "title": {
-        "original": "磐儀大股東增加新血 引進威剛、技嘉",
+        "original": "緯創醫學科技推 AI 零接觸睡眠管理系統 重度 OSA 辨識率達96％",
         "en": null
       },
       "image": null,
@@ -487,45 +487,45 @@
     },
     {
       "market": "tw",
-      "symbol": "2382",
-      "name": "廣達",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9845306",
-      "published_at_utc": "2026-10-29T10:09:32Z",
+      "symbol": "2454",
+      "name": "聯發科",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3264631",
+      "published_at_utc": "2026-11-02T01:16:00Z",
       "title": {
-        "original": "雙方未達共識 廣達宣布撤銷收購友達龜山廠房",
-        "en": null
+        "original": "聯發科翻紅台股跌勢收斂！本土投顧按讚後市 喊目標價5400元",
+        "en": "MediaTek Turns Positive TWSE Decline Narrows! Domestic Investment Consultant Likes Outlook Calls Target Price 5400 yuan"
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2382"
+      "news_url": "https://news.dappgo.com/tw/?stock=2454"
     },
     {
       "market": "tw",
-      "symbol": "2356",
-      "name": "英業達",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9842748",
-      "published_at_utc": "2026-10-28T09:33:57Z",
+      "symbol": "1303",
+      "name": "南亞",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3264808",
+      "published_at_utc": "2026-11-02T04:37:00Z",
       "title": {
-        "original": "Google 推出最強世界模型 Genie 4 將推升算力需求 台廠供應鏈沾光",
-        "en": null
+        "original": "「一塊布」族群回血！3檔亮燈 富喬翻紅飆漲停",
+        "en": "「One Piece of Cloth」 sector rebounds! 3 stocks light up; Fu Qiao turns red, surges to limit up"
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2356"
+      "news_url": "https://news.dappgo.com/tw/?stock=1303"
     },
     {
       "market": "tw",
-      "symbol": "2308",
-      "name": "台達電",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9846603",
-      "published_at_utc": "2026-10-30T03:21:42Z",
+      "symbol": "4958",
+      "name": "臻鼎-KY",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3264828",
+      "published_at_utc": "2026-11-02T05:08:00Z",
       "title": {
-        "original": "台股挫逾1400點破半年線 台達電跌停、AI股受挫",
+        "original": "載板族群反攻！欣興重回千金股 景碩跌幅縮小",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2308"
+      "news_url": "https://news.dappgo.com/tw/?stock=4958"
     }
   ]
 }
