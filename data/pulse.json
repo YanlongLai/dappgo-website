@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-02T09:20:46Z",
+  "built_at_utc": "2026-11-02T20:15:47Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
-      "report_date": "2026-10-30",
-      "generated_at_utc": "2026-10-30T19:11:47Z",
+      "report_date": "2026-11-02",
+      "generated_at_utc": "2026-11-02T19:14:21Z",
       "schema_version": "1.2.0",
-      "data_hash": "d420c84c4fcef3f687212f03e0dfb4dd674646dcdba7add7d40af1e1715e5bb0",
+      "data_hash": "b349b14a5f94e0bb99fa80c1c0dd9485077c247033181839dff5dd5cab007037",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -15,79 +15,113 @@
       },
       "web_url": "https://stocks.dappgo.com/us/",
       "regime": "mixed",
-      "breadth_score": 0.385,
-      "advance_decline_ratio": 0.13,
+      "breadth_score": 0.346,
+      "advance_decline_ratio": 1.6,
       "vol_regime": "calm",
       "one_liner": {
         "en": "Today's report: 26 tickers, market regime: mixed.",
-        "zh": "今日 26 檔個股，市場環境訊號分歧（SPY 趨勢 down + 漲家數 38% + 波動 cal）。"
+        "zh": "今日 26 檔個股，市場環境訊號分歧（SPY 趨勢 down + 漲家數 35% + 波動 cal）。"
       },
       "gainers": [
         {
-          "symbol": "TSLA",
-          "name": "Tesla Inc.",
-          "return_pct": 7.25,
-          "close": 399.2
-        },
-        {
-          "symbol": "SBUX",
-          "name": "Starbucks Corporation",
-          "return_pct": 4.01,
-          "close": 104.84
-        },
-        {
           "symbol": "ARCC",
           "name": "Ares Capital Corporation",
-          "return_pct": 2.28,
-          "close": 19.07
+          "return_pct": 4.38,
+          "close": 19.43
+        },
+        {
+          "symbol": "TSLA",
+          "name": "Tesla Inc.",
+          "return_pct": 3.75,
+          "close": 406.32
         },
         {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 1.26,
-          "close": 1015.92
+          "return_pct": 3.46,
+          "close": 1039.94
+        },
+        {
+          "symbol": "BABA",
+          "name": "Alibaba Group Holding Limited",
+          "return_pct": 2.33,
+          "close": 102.59
         }
       ],
       "losers": [
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -26.63,
-          "close": 63.8
+          "return_pct": -32.69,
+          "close": 60.89
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -15.44,
-          "close": 193.22
+          "return_pct": -25.61,
+          "close": 173.92
+        },
+        {
+          "symbol": "AMD",
+          "name": "Advanced Micro Devices, Inc.",
+          "return_pct": -10.39,
+          "close": 476.06
         },
         {
           "symbol": "GOOG",
           "name": "Alphabet Inc. (Class C)",
-          "return_pct": -12.87,
-          "close": 276.46
-        },
-        {
-          "symbol": "SPCX",
-          "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": -7.93,
-          "close": 135.8
+          "return_pct": -10.08,
+          "close": 282.53
         }
       ],
       "picks": [
+        {
+          "symbol": "NFLX",
+          "name": "Netflix Inc.",
+          "score": 59,
+          "signals": {
+            "en": [
+              "Below MA20 6.8%",
+              "RSI 34 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -6.8%",
+              "RSI 34 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
         {
           "symbol": "META",
           "name": "Meta Platforms, Inc.",
           "score": 59,
           "signals": {
             "en": [
-              "Below MA20 11.2%",
-              "RSI 33 near oversold",
+              "Below MA20 10.7%",
+              "RSI 32 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -11.2%",
-              "RSI 33 接近超賣",
+              "低於 MA20 -10.7%",
+              "RSI 32 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "BABA",
+          "name": "Alibaba Group Holding Limited",
+          "score": 48,
+          "signals": {
+            "en": [
+              "Below MA20 2.8%",
+              "RSI 43 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -2.8%",
+              "RSI 43 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -220,10 +254,10 @@
       ]
     },
     "options": {
-      "report_date": "2026-10-30",
-      "generated_at_utc": "2026-10-30T19:47:41Z",
+      "report_date": "2026-11-02",
+      "generated_at_utc": "2026-11-02T19:45:34Z",
       "schema_version": "1.3.0",
-      "data_hash": "61207c8b47100dc59b500dc18a373f84e96aa402d75b20772897802fe4377144",
+      "data_hash": "45d03a63402642d737174015bce7ffd8bc3136e70fb5ce7e270831620efab9c3",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -232,104 +266,104 @@
       "web_url": "https://options.dappgo.com/us/",
       "ideas": [
         {
-          "symbol": "AMD",
+          "symbol": "AAPL",
           "strategy": "sell_put",
-          "strike": 447.5,
-          "premium": 5.15,
-          "expiry": "2026-11-04",
-          "dte": 5,
-          "iv": 100,
-          "pop": 80.8,
-          "annualized": 84,
-          "score": 56.6
+          "strike": 305,
+          "premium": 1.23,
+          "expiry": "2026-11-09",
+          "dte": 7,
+          "iv": 57.2,
+          "pop": 89,
+          "annualized": 21,
+          "score": 53.1
         },
         {
           "symbol": "MRVL",
           "strategy": "sell_put",
-          "strike": 175,
-          "premium": 2.42,
-          "expiry": "2026-11-06",
-          "dte": 7,
-          "iv": 88.1,
-          "pop": 79.2,
-          "annualized": 72.1,
-          "score": 54.4
+          "strike": 155,
+          "premium": 3.9,
+          "expiry": "2026-11-13",
+          "dte": 11,
+          "iv": 89.4,
+          "pop": 72.3,
+          "annualized": 83.5,
+          "score": 53
         },
         {
           "symbol": "TSM",
           "strategy": "sell_put",
-          "strike": 362.5,
-          "premium": 2.23,
+          "strike": 360,
+          "premium": 1.9,
           "expiry": "2026-11-13",
-          "dte": 14,
-          "iv": 50.1,
-          "pop": 85.6,
-          "annualized": 16,
-          "score": 51.1
+          "dte": 11,
+          "iv": 52,
+          "pop": 87.4,
+          "annualized": 17.5,
+          "score": 52
         },
         {
           "symbol": "ABNB",
           "strategy": "sell_put",
-          "strike": 148,
-          "premium": 1.26,
+          "strike": 155,
+          "premium": 1.25,
           "expiry": "2026-11-13",
-          "dte": 14,
-          "iv": 57,
-          "pop": 81.4,
-          "annualized": 22.2,
-          "score": 50.5
+          "dte": 11,
+          "iv": 63,
+          "pop": 82.2,
+          "annualized": 26.8,
+          "score": 51.8
         }
       ],
       "gainers": [
         {
+          "symbol": "ABNB",
+          "name": "Airbnb, Inc.",
+          "return_pct": 4.78,
+          "close": 172.26
+        },
+        {
+          "symbol": "BABA",
+          "name": "Alibaba Group Holding Limited",
+          "return_pct": 4.22,
+          "close": 102.18
+        },
+        {
+          "symbol": "AMZN",
+          "name": "Amazon.com Inc.",
+          "return_pct": 3.08,
+          "close": 247.74
+        },
+        {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 1.98,
-          "close": 1015.78
-        },
-        {
-          "symbol": "SHEL",
-          "name": "Shell plc",
-          "return_pct": 0.78,
-          "close": 108.5
-        },
-        {
-          "symbol": "TLT",
-          "name": "iShares 20+ Year Treasury Bond ETF",
-          "return_pct": 0.12,
-          "close": 81.58
-        },
-        {
-          "symbol": "NFLX",
-          "name": "Netflix Inc.",
-          "return_pct": -0.29,
-          "close": 61.87
+          "return_pct": 2.83,
+          "close": 1040.9
         }
       ],
       "losers": [
         {
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "return_pct": -12.56,
+          "close": 171.73
+        },
+        {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -30.48,
-          "close": 64.01
+          "return_pct": -8.22,
+          "close": 60.35
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -12,
-          "close": 498.47
+          "return_pct": -6.69,
+          "close": 471.03
         },
         {
-          "symbol": "MRVL",
-          "name": "Marvell Technology, Inc.",
-          "return_pct": -10.89,
-          "close": 194.57
-        },
-        {
-          "symbol": "TSM",
-          "name": "Taiwan Semiconductor Manufacturing Company Limited",
-          "return_pct": -6.56,
-          "close": 403.46
+          "symbol": "SHEL",
+          "name": "Shell plc",
+          "return_pct": -3.37,
+          "close": 105.03
         }
       ],
       "backtest": {
@@ -341,31 +375,17 @@
   "news": [
     {
       "market": "us",
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "source": "MarketWatch Top Stories",
-      "url": "https://www.marketwatch.com/story/microsoft-is-winning-the-cloud-wars-and-becoming-wall-streets-new-golden-child-62eecbbd?mod=mw_rss_topstories",
-      "published_at_utc": "2026-10-30T18:09:00Z",
-      "title": {
-        "original": "Microsoft is winning the cloud wars and becoming Wall Street’s new golden child",
-        "en": "Microsoft is winning the cloud wars and becoming Wall Street’s new golden child"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
-    },
-    {
-      "market": "us",
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/manufacturing-pmi-and-ism-manufacturing-pmi-due-monday-93CH-4988481",
-      "published_at_utc": "2026-10-30T18:00:32Z",
+      "url": "https://www.investing.com/news/stock-market-news/manufacturing-pmi-and-jolts-job-openings-among-economic-data-due-tuesday-93CH-4992588",
+      "published_at_utc": "2026-11-02T19:00:41Z",
       "title": {
-        "original": "Manufacturing PMI and ISM Manufacturing PMI due Monday",
+        "original": "Manufacturing PMI and JOLTs job openings among economic data due Tuesday",
         "en": null
       },
       "image": {
-        "url": "https://content-media.investing.com/news/LYNXNPEC0K08U_M.jpg",
+        "url": "https://content-media.investing.com/news/LYNXMPED0C0KP_M.jpg",
         "width": null,
         "height": null
       },
@@ -373,71 +393,89 @@
     },
     {
       "market": "us",
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/investingcoms-stocks-of-the-week-4988477",
-      "published_at_utc": "2026-10-30T17:58:21Z",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=4339102276a64e65c6e8a7dd8df94c5b0aece0b6cece66e94cf3d69eaab38b01",
+      "published_at_utc": "2026-11-02T17:49:21Z",
       "title": {
-        "original": "Investing.com’s stocks of the week",
+        "original": "AMD Slides 3% Ahead of Earnings as PC Worries Linger; Intel Drops 5%, NVIDIA Edges Higher",
         "en": null
       },
       "image": {
-        "url": "https://content-media.investing.com/news/LYNXMPEM230X4_1200_L.jpg",
-        "width": null,
-        "height": null
+        "url": "https://247wallst.com/wp-content/uploads/2019/06/imageforentry19-fdf.jpg",
+        "width": 1366,
+        "height": 767
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
+      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
     },
     {
       "market": "us",
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
+      "symbol": "GOOG",
+      "name": "Alphabet Inc. (Class C)",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=2d060a854250b6d80a6bbbed19d95e90af29b339f426948084bf4c50ec89ebd9",
-      "published_at_utc": "2026-10-30T16:29:00Z",
+      "url": "https://finnhub.io/api/news?id=4c2f306d5cfe84a0cd0c84a508c701f860ecc01d35722938c85810e8f114ea4b",
+      "published_at_utc": "2026-11-02T17:45:14Z",
       "title": {
-        "original": "5 AI Stocks Set to Win Big From Anthropic's Spending Spree",
+        "original": "Meta and Alphabet Face Serious Market Pressure Over Capex in Q4",
         "en": null
       },
       "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892427%2Fgettyimages-2078917109.jpg&w=1200&op=resize",
+        "url": "https://247wallst.com/wp-content/uploads/2026/11/meta-and-alphabet-face-serious-market-pressure-ove-featured-1793587516793-scaled.webp",
+        "width": 2560,
+        "height": 1440
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=GOOG"
+    },
+    {
+      "market": "us",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=4c2f306d5cfe84a0cd0c84a508c701f860ecc01d35722938c85810e8f114ea4b",
+      "published_at_utc": "2026-11-02T17:45:14Z",
+      "title": {
+        "original": "Meta and Alphabet Face Serious Market Pressure Over Capex in Q4",
+        "en": null
+      },
+      "image": {
+        "url": "https://247wallst.com/wp-content/uploads/2026/11/meta-and-alphabet-face-serious-market-pressure-ove-featured-1793587516793-scaled.webp",
+        "width": 2560,
+        "height": 1440
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=META"
+    },
+    {
+      "market": "us",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=d92577a9e3b590c1d034e8f678b145c56739bf810fb4610dbb48ecc1fe9f6faf",
+      "published_at_utc": "2026-11-02T17:20:44Z",
+      "title": {
+        "original": "Why Amazon Stock Rallied Monday Morning",
+        "en": null
+      },
+      "image": {
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5168d902eb0bc330deb4ef1c0f9c1ed456cb0c90-1200x800.png&w=1200&op=resize",
         "width": 1200,
         "height": 630
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AVGO"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=2bec1ca6b2905c75236aada9b50d4f750f4eb0602317017d774d7b48e52b93b5",
-      "published_at_utc": "2026-10-30T16:02:00Z",
-      "title": {
-        "original": "Apple faces margin pressure and uneven iPhone demand as launch schedule shifts, Bank of America says",
-        "en": null
-      },
-      "image": {
-        "url": "https://cdn.proactiveinvestors.com/eyJidWNrZXQiOiJwYS1jZG4iLCJrZXkiOiJ1cGxvYWRcL05ld3NcL0ltYWdlXC8yMDI2XzEwXC9BcHBsZS1ldmVudDEuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjYzMCwiZml0IjoiY292ZXIifX19",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
       "market": "us",
       "symbol": "SPCX",
       "name": "Space Exploration Technologies Corp. (SpaceX)",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=f5da361af02aa91ada666d06079328f4bc12bb36d18c9ff4c27900ecff1f7373",
-      "published_at_utc": "2026-10-30T15:40:33Z",
+      "url": "https://finnhub.io/api/news?id=67f57a2c4c06bb91c9efe40c0a817b764430614049e33918bff384ceb597e8b0",
+      "published_at_utc": "2026-11-02T16:50:02Z",
       "title": {
-        "original": "Why SpaceX Stock Dropped Today",
+        "original": "GE Aerospace vs. SpaceX: Which Flight Giant's Stock Is a Better Buy for 2027?",
         "en": null
       },
       "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc86d6d7f28cf578481eb1ba20c17f88fc4a76546-1290x860.jpg&w=1200&op=resize",
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F78fd12573e5435da1993dff95df5ef951b148742-1290x860.jpg&w=1200&op=resize",
         "width": 1200,
         "height": 630
       },
