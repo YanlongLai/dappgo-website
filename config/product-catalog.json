@@ -51,6 +51,14 @@
       "stores": {
         "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge"}
       }
+    },
+    {
+      "id": "market-claim-verifier",
+      "name": "Market claim verifier",
+      "web_routes": [
+        {"url": "https://hackathon.dappgo.com"}
+      ],
+      "stores": {}
     }
   ]
 }

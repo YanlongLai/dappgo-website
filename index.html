@@ -63,6 +63,7 @@
     />
     <title>DappGo: Markets, compiled daily.</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -123,7 +124,7 @@
       crossorigin
     />
     <link rel="preload" href="/data/pulse.json" as="fetch" type="application/json" crossorigin />
-    <link rel="stylesheet" href="/assets/home/home.css?v=20261028-cards-4" />
+    <link rel="stylesheet" href="/assets/home/home.css?v=20261102-hackathon-2" />
     <script>document.documentElement.classList.add("js");</script>
   </head>
   <body>
@@ -304,6 +305,33 @@
               </article>
             </li>
           </ul>
+          <div class="experiments" data-reveal>
+            <div class="experiments-head">
+              <h3 data-i18n="experimentsTitle">Labs &amp; experiments</h3>
+              <p data-i18n="experimentsLede">Small projects we build to test a useful idea in public.</p>
+            </div>
+            <article class="app app--experiment spot" style="--tint:#6d7cff" data-product="market-claim-verifier">
+              <div class="app-head">
+                <img class="app-icon" src="/assets/app-icons/market-claim-verifier-icon-128.png" alt="" width="72" height="72" loading="lazy" />
+                <p class="app-live"><i aria-hidden="true"></i><span data-i18n="expLabel">Hackathon experiment</span></p>
+              </div>
+              <div class="app-body">
+                <h3 data-i18n="expTitle">Market claim verifier</h3>
+                <p data-i18n="expDesc">Paste a finance post and check its numbers against SEC filings; every checked number links to the filing that proves it.</p>
+                <ul class="app-feats">
+                  <li data-i18n="expF1">Check claims against SEC filings</li>
+                  <li data-i18n="expF2">Link every checked number to proof</li>
+                  <li data-i18n="expF3">Open source, with published evaluation reports</li>
+                </ul>
+              </div>
+              <div class="app-foot">
+                <div class="app-cta">
+                  <a class="btn btn-accent" href="https://hackathon.dappgo.com" target="_blank" rel="noopener noreferrer"><span data-i18n="expCta">Try the experiment</span><span aria-hidden="true">↗</span></a>
+                  <a class="btn btn-ghost" href="https://github.com/YanlongLai/market-claim-verifier" target="_blank" rel="noopener noreferrer"><span data-i18n="expSource">View source</span><span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -365,6 +393,6 @@
       </div>
     </footer>
 
-    <script src="/assets/home/home.js?v=20261028-size-1" defer></script>
+    <script src="/assets/home/home.js?v=20261102-hackathon-1" defer></script>
   </body>
 </html>

@@ -30,6 +30,7 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 - [US options Web](https://options.dappgo.com/us/)
 - [DappGo News — Taiwan](https://news.dappgo.com/tw/)
 - [DappGo News — United States](https://news.dappgo.com/us/)
+- [Market claim verifier](https://hackathon.dappgo.com): Hackathon experiment that checks finance-post numbers against SEC filings and links each checked number to its proof.
 
 ## Native app availability
 
