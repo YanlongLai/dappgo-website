@@ -20,8 +20,9 @@ for (const route of ["index.html", "us/index.html", "tw/index.html"]) {
   assert.match(loaders[0][0], /\basync\b/);
   assert.match(loaders[0][0], /crossorigin="anonymous"/);
 }
-assert.match(landing, /http-equiv="refresh" content="0;url=\/us\/\?lang=en"/);
-assert.match(landing, /href="\/us\/\?lang=en"/);
+assert.match(landing, /http-equiv="refresh" content="0;url=https:\/\/news\.dappgo\.com\/us\/"/);
+assert.match(landing, /href="https:\/\/news\.dappgo\.com\/us\/"/);
+assert.match(landing, /name="robots" content="noindex"/);
 assert.doesNotMatch(landing, /<script>/);
 assert.equal(fs.readFileSync(path.join(root, "_redirects"), "utf8").trim(), "/ /us/?lang=en 302");
 assert.doesNotMatch(landing, /url=\/tw\//);

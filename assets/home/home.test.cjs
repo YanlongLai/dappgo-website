@@ -49,7 +49,7 @@ test("store links match the product catalog and open safely", () => {
   for (const market of ["us", "tw"]) assert.ok(production.includes(`href="https://news.dappgo.com/${market}/"`));
 });
 
-function fixture({ pulseResponse, storageFails = false, language = "en-US" } = {}) {
+function fixture({ pulseResponse, storageFails = false, language = "en-US", pathname = "/", savedLang } = {}) {
   const elements = new Map();
   const element = (key) => {
     if (!elements.has(key)) elements.set(key, { key, dataset: {}, textContent: "", innerHTML: "", events: {}, addEventListener(type, fn) { this.events[type] = fn; } });
@@ -65,16 +65,19 @@ function fixture({ pulseResponse, storageFails = false, language = "en-US" } = {
     querySelectorAll: (selector) => {
       if (selector === "[data-i18n]") return i18n;
       if (selector === "[data-i18n-html]") return [];
+      if (selector === "[data-product]") return [...new Set(storeAnchors.map((a) => a.id))].map((id) => ({
+        dataset: { product: id }, querySelectorAll: () => storeAnchors.filter((a) => a.id === id)
+      }));
       const product = selector.match(/data-product="([^"]+)"/)?.[1];
       return product ? storeAnchors.filter((anchor) => anchor.id === product) : [];
     }
   };
   const storage = storageFails
     ? { getItem() { throw new Error("blocked"); }, setItem() { throw new Error("blocked"); } }
-    : { data: {}, getItem(k) { return this.data[k] ?? null; }, setItem(k, v) { this.data[k] = v; } };
+    : { data: { "dg-lang": savedLang }, getItem(k) { return this.data[k] ?? null; }, setItem(k, v) { this.data[k] = v; } };
   const fetch = async () => pulseResponse ?? { ok: true, json: async () => pulse };
-  vm.runInNewContext(script, { document, navigator: { language }, localStorage: storage, fetch, Date, Math, Number, JSON, URLSearchParams, console });
-  return { document, element, i18n, settle: () => new Promise((resolve) => setTimeout(resolve, 0)) };
+  vm.runInNewContext(script, { document, navigator: { language }, location: { pathname }, localStorage: storage, fetch, Date, Math, Number, JSON, URLSearchParams, console });
+  return { document, element, i18n, storage, settle: () => new Promise((resolve) => setTimeout(resolve, 0)) };
 }
 
 test("renders all three market cards and the wire from the pulse", async () => {
@@ -120,10 +123,24 @@ test("a failed pulse shows the offline state instead of stale cards", async () =
 });
 
 test("Traditional Chinese covers every translated element and storage may be blocked", async () => {
-  const app = fixture({ storageFails: true, language: "zh-TW" });
+  const app = fixture({ storageFails: true, pathname: "/zh/" });
   await app.settle();
   assert.equal(app.document.documentElement.lang, "zh-Hant");
   for (const node of app.i18n) assert.ok(node.textContent.length, node.dataset.i18n);
   app.element("[data-lang-toggle]").events.click();
-  assert.equal(app.document.documentElement.lang, "en");
+  assert.equal(app.document.documentElement.lang, "zh-Hant", "the link navigates; it does not swap text in place");
+});
+
+test("URL language overrides saved choices and browser language without redirecting", async () => {
+  const en = fixture({ language: "zh-TW", savedLang: "zh" });
+  const zh = fixture({ language: "en-US", savedLang: "en", pathname: "/zh/" });
+  await Promise.all([en.settle(), zh.settle()]);
+  assert.equal(en.document.documentElement.lang, "en");
+  assert.equal(zh.document.documentElement.lang, "zh-Hant");
+  en.element("[data-lang-toggle]").events.click();
+  assert.equal(en.storage.data["dg-lang"], "zh");
+  zh.element("[data-lang-toggle]").events.click();
+  assert.equal(zh.storage.data["dg-lang"], "en");
+  assert.match(production, /<a class="lang" href="\/zh\/"/);
+  assert.match(fs.readFileSync(path.join(root, "zh/index.html"), "utf8"), /<a class="lang" href="\/"/);
 });

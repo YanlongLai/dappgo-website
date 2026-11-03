@@ -43,7 +43,8 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 
 ## Website and policies
 
-- [Home](https://dappgo.com/)
+- [Home — English](https://dappgo.com/): static report snapshot with report dates; research and education only, not investment advice.
+- [首頁 — 繁體中文](https://dappgo.com/zh/): 靜態報告摘要附報告日期，僅供研究與學習參考，不構成投資建議。
 - [Support](https://dappgo.com/support)
 - [Privacy](https://dappgo.com/privacy.html)
 - [Terms](https://dappgo.com/terms.html)

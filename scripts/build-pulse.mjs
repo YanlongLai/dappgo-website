@@ -2,6 +2,7 @@
 // Derive a compact, hash-verified homepage pulse from the published daily-report pointers.
 // Fails closed: any pointer/payload mismatch aborts without writing. Unchanged content is not rewritten.
 import fs from "node:fs";
+import { renderHomeSnapshots } from "./render-pulse-html.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -186,3 +187,6 @@ if (previous && withoutBuildTime(previous) === withoutBuildTime(pulse)) {
   fs.writeFileSync(out, `${JSON.stringify(pulse, null, 2)}\n`);
   console.log(`pulse written: ${path.relative(root, out)} (${fs.statSync(out).size} bytes)`);
 }
+
+// A custom output path is a data-only build; the canonical build also refreshes the homepage.
+if (out === path.join(root, "data/pulse.json")) renderHomeSnapshots();
