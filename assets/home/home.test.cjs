@@ -27,7 +27,8 @@ test("all local links, assets, and anchors resolve", () => {
   assert.equal(new Set(ids).size, ids.length, "Duplicate DOM IDs");
   for (const [, rawRef] of production.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const ref = rawRef.split(/[?#]/, 1)[0];
-    if (ref.startsWith("/")) assert.ok(fs.existsSync(path.join(root, ref)), rawRef);
+    // GitHub Pages serves /page from page.html, which is the canonical form for those routes.
+    if (ref.startsWith("/")) assert.ok(fs.existsSync(path.join(root, ref)) || fs.existsSync(path.join(root, `${ref}.html`)), rawRef);
     if (rawRef.startsWith("#") && rawRef !== "#") assert.ok(ids.includes(rawRef.slice(1)), rawRef);
   }
 });
