@@ -37,7 +37,7 @@
       admob: '<a href="https://policies.google.com/technologies/partner-sites">AdMob</a>',
       apple: '<a href="https://www.apple.com/legal/privacy/">Apple</a>',
       meta: '<a href="https://www.facebook.com/privacy/policy/">Meta</a>',
-      revenuecat: '<a href="https://www.revenuecat.com/privacy/">RevenueCat</a>',
+      revenuecat: '<a href="https://www.revenuecat.com/privacy">RevenueCat</a>',
       appleEula: '<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>',
     };
     var locale = root.dataset.lang || 'en';

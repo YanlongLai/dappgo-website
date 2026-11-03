@@ -8,61 +8,61 @@
     </url>
     <url>
         <loc>https://dappgo.com/</loc>
-        <lastmod>2026-10-22</lastmod>
+        <lastmod>2026-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://dappgo.com/options</loc>
-        <lastmod>2026-09-16</lastmod>
+        <lastmod>2026-10-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dappgo.com/support</loc>
-        <lastmod>2026-08-10</lastmod>
+        <lastmod>2026-10-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://dappgo.com/privacy</loc>
-        <lastmod>2026-08-10</lastmod>
+        <lastmod>2026-10-16</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://dappgo.com/terms</loc>
-        <lastmod>2026-05-17</lastmod>
+        <lastmod>2026-09-16</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://dappgo.com/number-rpg/</loc>
-        <lastmod>2026-10-30</lastmod>
+        <lastmod>2026-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dappgo.com/number-rpg/support/</loc>
-        <lastmod>2026-10-30</lastmod>
+        <lastmod>2026-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://dappgo.com/number-rpg/privacy/</loc>
-        <lastmod>2026-10-27</lastmod>
+        <lastmod>2026-10-30</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://dappgo.com/number-rpg/terms/</loc>
-        <lastmod>2026-10-27</lastmod>
+        <lastmod>2026-10-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://dappgo.com/number-rpg/delete-account/</loc>
-        <lastmod>2026-10-27</lastmod>
+        <lastmod>2026-10-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -74,7 +74,6 @@
     </url>
     <url>
         <loc>https://dappgo.com/data/pulse.json</loc>
-        <lastmod>2026-10-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
     </url>
