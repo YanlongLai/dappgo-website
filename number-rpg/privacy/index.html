@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f6f7f9" />
     <meta name="description" content="Number RPG privacy policy: guest play, sign-in, Firebase, notifications, ads, retention, and account deletion." />
@@ -113,7 +113,7 @@
           <p>Firebase retention varies by service. Under Firebase’s published policy (<a href="https://firebase.google.com/support/privacy">Firebase</a>), Crashlytics begins removing crash data and associated identifiers after 90 days. Performance Monitoring keeps IP-associated events for 30 days and installation-associated or de-identified performance data for 60 days before removal begins. Cloud Messaging and Remote Config installation identifiers may remain until installation deletion is requested; Firebase states that removal from live and backup systems completes within 180 days after that request. Account deletion does not immediately erase every Firebase record.</p>
           <p>Account deletion requests removal of developer-held account, player, and push-registration data, as described on <a href="/number-rpg/delete-account/">Delete account</a>. The app also attempts to clear the departing account’s notification eligibility, topic subscriptions, and push token. This asynchronous cleanup can fail and does not itself delete the Firebase installation identifier or previously uploaded Analytics, crash, or performance records. Those remain subject to provider retention and deletion processes. Contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> about access to or deletion of associated Firebase information, in addition to the in-app and public deletion options. Limited records may be kept for tax, accounting, security, fraud prevention, disputes, or legal obligations, then deleted or anonymized when that reason ends.</p>
           <ul>
-            <li>Provider policies: <a href="https://firebase.google.com/support/privacy">Firebase / Google</a>, <a href="https://policies.google.com/technologies/partner-sites">AdMob</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>, <a href="https://www.facebook.com/privacy/policy/">Meta</a>, and <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>.</li>
+            <li>Provider policies: <a href="https://firebase.google.com/support/privacy">Firebase / Google</a>, <a href="https://policies.google.com/technologies/partner-sites">AdMob</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>, <a href="https://www.facebook.com/privacy/policy/">Meta</a>, and <a href="https://www.revenuecat.com/privacy">RevenueCat</a>.</li>
           </ul>
         </section>
         <section class="legal-section">

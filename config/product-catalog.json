@@ -9,7 +9,7 @@
         {"market": "us", "url": "https://options.dappgo.com/us/"}
       ],
       "stores": {
-        "ios": {"status": "live", "url": "https://apps.apple.com/app/id6768116720"},
+        "ios": {"status": "live", "url": "https://apps.apple.com/us/app/options-explorer/id6768116720"},
         "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp"}
       }
     },
@@ -31,7 +31,7 @@
         {"market": "tw", "url": "https://stocks.dappgo.com/tw/"}
       ],
       "stores": {
-        "ios": {"status": "live", "url": "https://apps.apple.com/app/id6768116538"},
+        "ios": {"status": "live", "url": "https://apps.apple.com/us/app/tw-stocks/id6768116538"},
         "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp"}
       }
     },
