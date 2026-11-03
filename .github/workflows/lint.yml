@@ -45,11 +45,16 @@ jobs:
           #   Instagram — the public profile works, but Instagram rate-limits
           #   CI probes with 429. These are provider-specific false positives,
           #   not internal routes; keep them in the manual smoke-test checklist.
+          #   https://dappgo.com/zh/ — absolute canonical/hreflang URL of a page that
+          #   only exists after deploy; the local file is checked by home.test.cjs.
+          # --accept 403/429: the pulse snapshot links today's publisher articles,
+          #   and several publishers block automated probes; 404 still fails.
           args: >-
             --root-dir ${{ github.workspace }}
             --max-concurrency 3
             --cache
             --cache-exclude-status '429'
+            --accept '200..=299,403,429'
             --no-progress
             --exclude-path node_modules
             --exclude-path '(^|/)news/'
@@ -59,6 +64,7 @@ jobs:
             --exclude 'www.instagram.com/dappgo/'
             --exclude '\.woff2$'
             --exclude 'file:.*/(options|privacy|terms|support)$'
+            --exclude '^https://dappgo\.com/zh/$'
             './**/*.html'
           fail: true
 
