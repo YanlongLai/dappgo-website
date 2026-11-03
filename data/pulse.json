@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-03T20:15:41Z",
+  "built_at_utc": "2026-11-03T22:45:41Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-11-03",
-      "generated_at_utc": "2026-11-03T19:14:30Z",
+      "generated_at_utc": "2026-11-03T20:11:56Z",
       "schema_version": "1.2.0",
-      "data_hash": "5ab66f93f2dd837fe1921099acea6ea5e80ab5a21f64d3d4b4803db34e76b27d",
+      "data_hash": "27e05fcd74684822abb76581097ea2b847f2e1f9364e38781fcb7bd253aff545",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -16,7 +16,7 @@
       "web_url": "https://stocks.dappgo.com/us/",
       "regime": "mixed",
       "breadth_score": 0.308,
-      "advance_decline_ratio": 0.86,
+      "advance_decline_ratio": 1,
       "vol_regime": "calm",
       "one_liner": {
         "en": "Today's report: 26 tickers, market regime: mixed.",
@@ -26,68 +26,85 @@
         {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 3.35,
-          "close": 1025.4
+          "return_pct": 3.19,
+          "close": 1023.83
         },
         {
           "symbol": "ARCC",
           "name": "Ares Capital Corporation",
-          "return_pct": 2.89,
-          "close": 19.05
+          "return_pct": 2.76,
+          "close": 19.02
         },
         {
           "symbol": "SBUX",
           "name": "Starbucks Corporation",
-          "return_pct": 1.27,
-          "close": 104.35
+          "return_pct": 1.12,
+          "close": 104.19
         },
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "return_pct": 0.98,
-          "close": 63.13
+          "return_pct": 0.53,
+          "close": 62.85
         }
       ],
       "losers": [
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -36.03,
-          "close": 59.97
+          "return_pct": -35.61,
+          "close": 60.36
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -30.49,
-          "close": 169.31
+          "return_pct": -30.07,
+          "close": 170.33
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -12.85,
-          "close": 488.28
+          "return_pct": -13.02,
+          "close": 487.34
         },
         {
           "symbol": "GOOG",
           "name": "Alphabet Inc. (Class C)",
-          "return_pct": -12.29,
-          "close": 277.88
+          "return_pct": -12.59,
+          "close": 276.93
         }
       ],
       "picks": [
         {
-          "symbol": "NFLX",
-          "name": "Netflix Inc.",
-          "score": 59,
+          "symbol": "META",
+          "name": "Meta Platforms, Inc.",
+          "score": 61,
           "signals": {
             "en": [
-              "Below MA20 5.8%",
-              "RSI 35 near oversold",
+              "Below MA20 8.7%",
+              "RSI 36 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -5.8%",
-              "RSI 35 接近超賣",
+              "低於 MA20 -8.7%",
+              "RSI 36 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "NFLX",
+          "name": "Netflix Inc.",
+          "score": 60,
+          "signals": {
+            "en": [
+              "Below MA20 6.2%",
+              "RSI 34 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -6.2%",
+              "RSI 34 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -105,23 +122,6 @@
             "zh": [
               "低於 MA20 -4.4%",
               "RSI 38 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "AMZN",
-          "name": "Amazon.com Inc.",
-          "score": 39,
-          "signals": {
-            "en": [
-              "Below MA20 1.2%",
-              "RSI 49 neutral-to-weak",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -1.2%",
-              "RSI 49 中性偏弱",
               "KD 黃金交叉"
             ]
           }
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-03",
-      "generated_at_utc": "2026-11-03T19:56:34Z",
+      "generated_at_utc": "2026-11-03T20:50:04Z",
       "schema_version": "1.3.0",
-      "data_hash": "e3b7b7d17329c4d85fd9150e58749fe2db059e5d909cff833f4bf113f1b1967d",
+      "data_hash": "fc6e555b457fe307e95a7b9b4149295ecc20c40551b169c51ff9b54c5e1c5327",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -266,104 +266,104 @@
       "web_url": "https://options.dappgo.com/us/",
       "ideas": [
         {
-          "symbol": "TSLA",
-          "strategy": "sell_put",
-          "strike": 360,
-          "premium": 1.06,
-          "expiry": "2026-11-09",
-          "dte": 6,
-          "iv": 59.3,
-          "pop": 90.7,
-          "annualized": 17.9,
-          "score": 55.7
-        },
-        {
           "symbol": "AMD",
           "strategy": "sell_put",
           "strike": 440,
-          "premium": 6.3,
+          "premium": 6.05,
           "expiry": "2026-11-09",
           "dte": 6,
-          "iv": 97.5,
-          "pop": 77.6,
-          "annualized": 87.1,
-          "score": 54.7
+          "iv": 95.5,
+          "pop": 78.6,
+          "annualized": 83.6,
+          "score": 55.1
         },
         {
-          "symbol": "MRVL",
+          "symbol": "UNH",
           "strategy": "sell_put",
-          "strike": 152.5,
-          "premium": 3.15,
+          "strike": 362.5,
+          "premium": 1.05,
           "expiry": "2026-11-13",
           "dte": 10,
-          "iv": 89.9,
-          "pop": 74.5,
-          "annualized": 75.4,
-          "score": 53.6
+          "iv": 46,
+          "pop": 90.8,
+          "annualized": 10.6,
+          "score": 52.7
         },
         {
           "symbol": "TSM",
           "strategy": "sell_put",
           "strike": 365,
-          "premium": 1.83,
+          "premium": 1.72,
           "expiry": "2026-11-13",
           "dte": 10,
-          "iv": 52.7,
-          "pop": 87.5,
-          "annualized": 18.3,
-          "score": 51.9
+          "iv": 52.2,
+          "pop": 88.4,
+          "annualized": 17.2,
+          "score": 52.5
+        },
+        {
+          "symbol": "ABNB",
+          "strategy": "sell_put",
+          "strike": 150,
+          "premium": 1.2,
+          "expiry": "2026-11-13",
+          "dte": 10,
+          "iv": 65.8,
+          "pop": 82.8,
+          "annualized": 29.2,
+          "score": 52.3
         }
       ],
       "gainers": [
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 4.35,
-          "close": 487.13
-        },
-        {
-          "symbol": "SPCX",
-          "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": 3.92,
-          "close": 141.72
+          "return_pct": 4.56,
+          "close": 488.13
         },
         {
           "symbol": "AVGO",
           "name": "Broadcom Inc.",
-          "return_pct": 2.99,
-          "close": 331.87
+          "return_pct": 3.19,
+          "close": 332.52
+        },
+        {
+          "symbol": "SPCX",
+          "name": "Space Exploration Technologies Corp. (SpaceX)",
+          "return_pct": 3,
+          "close": 140.46
         },
         {
           "symbol": "MSFT",
           "name": "Microsoft Corporation",
-          "return_pct": 2.86,
-          "close": 521.64
+          "return_pct": 2.82,
+          "close": 521.41
         }
       ],
       "losers": [
         {
-          "symbol": "EWT",
-          "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -2.38,
-          "close": 98.26
+          "symbol": "ABNB",
+          "name": "Airbnb, Inc.",
+          "return_pct": -2.36,
+          "close": 167.08
         },
         {
-          "symbol": "ARCC",
-          "name": "Ares Capital Corporation",
-          "return_pct": -2.06,
-          "close": 19.02
+          "symbol": "EWT",
+          "name": "iShares MSCI Taiwan ETF",
+          "return_pct": -2.25,
+          "close": 98.4
         },
         {
           "symbol": "AAPL",
           "name": "Apple Inc.",
-          "return_pct": -1.93,
-          "close": 331.77
+          "return_pct": -2.24,
+          "close": 330.74
         },
         {
-          "symbol": "ABNB",
-          "name": "Airbnb, Inc.",
-          "return_pct": -1.69,
-          "close": 168.22
+          "symbol": "ARCC",
+          "name": "Ares Capital Corporation",
+          "return_pct": -1.98,
+          "close": 19.04
         }
       ],
       "backtest": {
@@ -373,6 +373,38 @@
     }
   },
   "news": [
+    {
+      "market": "us",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-best-retail-stocks-to-follow-now-november-3rd-2026-11-03/",
+      "published_at_utc": "2026-11-03T19:14:18Z",
+      "title": {
+        "original": "Best Retail Stocks To Follow Now - November 3rd",
+        "en": "Best Retail Stocks To Follow Now - November 3rd"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/apple-releases-new-ios-beta-with-ai-audio-tools-and-china-features-4996211",
+      "published_at_utc": "2026-11-03T18:34:50Z",
+      "title": {
+        "original": "Apple releases new iOS beta with AI audio tools and China features",
+        "en": null
+      },
+      "image": {
+        "url": "https://content-media.investing.com/news/moved_LYNXMPEM7D146_L.jpg",
+        "width": null,
+        "height": null
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+    },
     {
       "market": "us",
       "symbol": "TSM",
@@ -425,55 +457,19 @@
     },
     {
       "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=04062ed16700919e8004c78fb9b534de489d6ed64ce175bfbb433d9262ebd030",
-      "published_at_utc": "2026-11-03T17:42:00Z",
-      "title": {
-        "original": "Apple faces valuation test as slowing Services growth and rising costs weigh",
-        "en": null
-      },
-      "image": {
-        "url": "https://cdn.proactiveinvestors.com/eyJidWNrZXQiOiJwYS1jZG4iLCJrZXkiOiJ1cGxvYWRcL05ld3NcL0ltYWdlXC8yMDI2XzExXC8yMDIyLTA1LTEwLTEwLTEzLTM2LTg1MTg2NjllMTdjN2U2ODRlNzU5YzA3YTcwOTE1MWFlLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo2MzAsImZpdCI6ImNvdmVyIn19fQ==",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
-    },
-    {
-      "market": "us",
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=7f85e001602cc30117491a55bc5fda642ddad5d5851cc6b0aee6b28cd24e4d78",
-      "published_at_utc": "2026-11-03T17:16:03Z",
-      "title": {
-        "original": "Top VC Warns: “Depreciation Is Going to Start Hitting” Microsoft, Google and Meta. Here’s Where Things Get Ugly",
-        "en": null
-      },
-      "image": {
-        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792908505/images/FEATURED-IMAGE-MAKER-1890-1/FEATURED-IMAGE-MAKER-1890-1.png?_i=AA",
-        "width": 1200,
-        "height": 600
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
-    },
-    {
-      "market": "us",
       "symbol": "META",
       "name": "Meta Platforms, Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=7f85e001602cc30117491a55bc5fda642ddad5d5851cc6b0aee6b28cd24e4d78",
-      "published_at_utc": "2026-11-03T17:16:03Z",
+      "url": "https://finnhub.io/api/news?id=e40fc9ddfc3c4589220442b5e6652482735cca783db5283bd4abc46cef1b3d17",
+      "published_at_utc": "2026-11-03T17:45:25Z",
       "title": {
-        "original": "Top VC Warns: “Depreciation Is Going to Start Hitting” Microsoft, Google and Meta. Here’s Where Things Get Ugly",
+        "original": "Investors Are Beginning to Say That Meta Is The Best Buy And Hold Stock Through 2030",
         "en": null
       },
       "image": {
-        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792908505/images/FEATURED-IMAGE-MAKER-1890-1/FEATURED-IMAGE-MAKER-1890-1.png?_i=AA",
-        "width": 1200,
-        "height": 600
+        "url": "https://247wallst.com/wp-content/uploads/2021/11/Facebook-_-Meta.jpg",
+        "width": 1366,
+        "height": 768
       },
       "news_url": "https://news.dappgo.com/us/?stock=META"
     },
