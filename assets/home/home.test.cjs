@@ -103,6 +103,15 @@ test("Number Merge is Android-only and DappGo News uses its app icon", () => {
   assert.match(news, /src="\/assets\/app-icons\/news-icon-128\.webp"/);
 });
 
+test("Market claim verifier is a hackathon experiment, not a store app", () => {
+  const experiment = production.match(/data-product="market-claim-verifier">([\s\S]*?)<\/article>/)?.[1];
+  assert.ok(experiment, "market-claim-verifier card");
+  assert.match(experiment, /href="https:\/\/hackathon\.dappgo\.com"/);
+  assert.match(experiment, /href="https:\/\/github\.com\/YanlongLai\/market-claim-verifier"/);
+  assert.match(experiment, /data-i18n="expLabel"/);
+  assert.doesNotMatch(experiment, /data-store=|store-downloads|class="badge"/);
+});
+
 test("a failed pulse shows the offline state instead of stale cards", async () => {
   const app = fixture({ pulseResponse: { ok: false, status: 503, json: async () => ({}) } });
   await app.settle();
