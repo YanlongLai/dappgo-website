@@ -1,8 +1,28 @@
 """Offline public AI discovery contract; no provider calls or deployment."""
 from pathlib import Path
 from urllib.parse import urlparse
+from html.parser import HTMLParser
+import json
 import re
 import xml.etree.ElementTree as ET
+
+
+class HomeDocument(HTMLParser):
+    def __init__(self, text):
+        super().__init__()
+        self.links = []
+        self.meta = {}
+        self.lang = None
+        self.feed(text)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'html':
+            self.lang = attrs.get('lang')
+        elif tag == 'link':
+            self.links.append(attrs)
+        elif tag == 'meta':
+            self.meta[attrs.get('name', attrs.get('property'))] = attrs.get('content')
 
 
 def verify(root: Path) -> None:
@@ -24,6 +44,36 @@ def verify(root: Path) -> None:
     assert 'https://dappgo.com/ai-guide.txt' in locations
     for location in locations:
         assert urlparse(location).hostname == 'dappgo.com'
+    alternates = {'en': 'https://dappgo.com/', 'zh-Hant': 'https://dappgo.com/zh/', 'x-default': 'https://dappgo.com/'}
+    assert alternates['zh-Hant'] in documents[0], 'llms.txt missing Traditional Chinese homepage'
+    pulse = json.loads((root / 'data/pulse.json').read_text())
+    for file, lang, locale, url in (
+        ('index.html', 'en', 'en_US', alternates['en']),
+        ('zh/index.html', 'zh-Hant', 'zh_TW', alternates['zh-Hant']),
+    ):
+        assert url in locations, f'Sitemap missing {url}'
+        text = (root / file).read_text()
+        home = HomeDocument(text)
+        assert home.lang == lang, f'{file}: language'
+        assert any(link.get('rel') == 'canonical' and link.get('href') == url for link in home.links)
+        assert home.meta.get('og:url') == url
+        assert home.meta.get('og:locale') == locale
+        assert {link.get('hreflang'): link.get('href') for link in home.links if link.get('rel') == 'alternate'} == alternates
+        assert home.meta.get('description') == home.meta.get('og:description') == home.meta.get('twitter:description')
+        assert home.meta.get('og:title') == home.meta.get('twitter:title')
+        for region in ('stats', 'board', 'wire', 'source'):
+            assert f'<!-- pulse:{region}:start -->' in text and f'<!-- pulse:{region}:end -->' in text
+        assert 'Today’s report needs JavaScript' not in text
+        assert pulse['built_at_utc'].replace('T', ' ').replace('Z', '') in text
+        for market in pulse['markets'].values():
+            assert market['report_date'] in text
+            assert f"{market['coverage']['covered']}/{market['coverage']['expected']}" in text
+        for story in pulse['news']:
+            assert story['url'].replace('&', '&amp;') in text
+        assert ('不構成投資建議' if lang == 'zh-Hant' else 'not investment advice') in text
+    for node in ET.parse(root / 'sitemap.xml').getroot():
+        if node.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}loc') in alternates.values():
+            assert {link.get('hreflang'): link.get('href') for link in node.findall('{http://www.w3.org/1999/xhtml}link')} == alternates
 
 
 if __name__ == '__main__':

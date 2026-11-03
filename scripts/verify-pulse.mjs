@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Structural contract for data/pulse.json, the homepage's only live-data input.
 import fs from "node:fs";
+import { renderHomeSnapshots } from "./render-pulse-html.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -40,3 +41,5 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(JSON.stringify({ ok: true, markets: Object.keys(pulse.markets), news: pulse.news.length, built_at_utc: pulse.built_at_utc }));
+
+if (file === path.join(root, "data/pulse.json")) renderHomeSnapshots({ check: true });

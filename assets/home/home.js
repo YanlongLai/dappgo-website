@@ -4,6 +4,14 @@
   const STALE_HOURS = 96;
   const I18N = {
     en: {
+      pageTitle: "DappGo — Daily US & Taiwan stock and options research",
+      pageDescription: "Free daily research reports on US stocks, Taiwan stocks and US options. Read on the web or in DappGo’s iOS and Android apps, with news and market context.",
+      skip: "Skip to content", homeLabel: "DappGo home", mainNav: "Main", socialNav: "Social", legalNav: "Legal and support",
+      consoleLabel: "Latest publish run", tapeLabel: "Five-day movers across markets", marketLabel: "Market",
+      switchLanguage: "切換至繁體中文", languageName: "中文",
+      ogImageAlt: "DappGo market research and automation",
+      expImageAlt: "Market claim verifier comparing a finance post with an SEC filing",
+      coverage: "Coverage", reportDates: "Report dates", researchNote: "Research and education only; not investment advice.",
       navPulse: "Today", navProducts: "Products", navNews: "News", navBusiness: "For business",
       kicker: "DappGo Studio · Research engines that ship", heroA: "Markets,", heroB: "compiled daily.",
       heroLede: "Every trading day our engines read US stocks, Taiwan stocks and US options — prices, filings, news and options chains — check the result, then publish it to the apps below. This page shows today’s run.",
@@ -31,7 +39,7 @@
       b1: "Data, connected.", b1t: "Bring scattered sources into one structured flow, with source context kept.",
       b2: "AI, with a purpose.", b2t: "Summarize, organize or draft — with review and exceptions built in.",
       b3: "Work that keeps moving.", b3t: "Schedules, publishing and monitoring that don’t depend on someone remembering.",
-      footTitle: "Stay curious.<br />Stay connected.", footCta: "Get DappGo updates", support: "Support", privacy: "Privacy", terms: "Terms",
+      footTitle: "Stay curious.<br />Stay connected.", footCta: "Get DappGo updates", optionsReport: "Options daily report", support: "Support", privacy: "Privacy", terms: "Terms",
       live: "Live · {date}", stale: "Stale · {date}", staleTag: "Stale", down: "Pulse offline", loading: "Loading",
       mUs: "United States", mTw: "Taiwan", mOpt: "US options",
       nUs: "US Stocks", nTw: "Taiwan Stocks", nOpt: "Options Explorer",
@@ -57,6 +65,14 @@
       sourceLine: "Pulse built {built} UTC from data.dappgo.com"
     },
     zh: {
+      pageTitle: "DappGo｜每日美股、台股與美股選擇權研究",
+      pageDescription: "DappGo 每日整理美股、台股與美股選擇權研究報告，提供市場概況、個股漲跌、選擇權策略與新聞來源連結。可透過網頁或 iOS、Android App 免費閱讀，內容僅供研究與學習參考，不構成投資建議。",
+      skip: "跳至主要內容", homeLabel: "DappGo 首頁", mainNav: "主要導覽", socialNav: "社群", legalNav: "法律與支援",
+      consoleLabel: "最新發布紀錄", tapeLabel: "各市場五日漲跌", marketLabel: "市場",
+      switchLanguage: "Switch to English", languageName: "EN",
+      ogImageAlt: "DappGo 市場研究與自動化",
+      expImageAlt: "Market claim verifier 對照財經貼文與 SEC 申報文件",
+      coverage: "分析範圍", reportDates: "報告日期", researchNote: "僅供研究與學習參考，不構成投資建議。",
       navPulse: "今日報告", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
       kicker: "DappGo Studio · 每天自動產出市場研究", heroA: "市場，", heroB: "每天幫你整理好。",
       heroLede: "每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。",
@@ -84,7 +100,7 @@
       b1: "資料不再東一塊西一塊", b1t: "把散在各處的資料整理成一條清楚的流程，並保留每筆資料的來源。",
       b2: "AI 用在對的地方", b2t: "摘要、整理、起草文件，同時保留人工審核與例外處理。",
       b3: "工作自己會跑", b3t: "排程、發布和監控自動進行，不必靠人記得下一步。",
-      footTitle: "保持好奇，<br />掌握市場。", footCta: "訂閱 DappGo 最新消息", support: "客服支援", privacy: "隱私權政策", terms: "服務條款",
+      footTitle: "保持好奇，<br />掌握市場。", footCta: "訂閱 DappGo 最新消息", optionsReport: "選擇權每日報告", support: "客服支援", privacy: "隱私權政策", terms: "服務條款",
       live: "已更新 · {date}", stale: "資料未更新 · {date}", staleTag: "資料未更新", down: "暫時無法載入", loading: "載入中",
       mUs: "美股", mTw: "台股", mOpt: "美股選擇權",
       nUs: "US Stocks", nTw: "Taiwan Stocks", nOpt: "Options Explorer",
@@ -111,18 +127,90 @@
     }
   };
 
-  const $ = (s) => document.querySelector(s);
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
   const pct = (v) => (v == null ? "—" : `${v > 0 ? "+" : ""}${v.toFixed(2)}%`);
   const tone = (v) => (v > 0 ? "up" : v < 0 ? "down" : "");
+  const ICONS = { "us-stocks": "us-stocks-icon-128.webp?v=20261028", "taiwan-stocks": "tw-stocks-icon-128.webp?v=20261028", "options-explorer": "options-icon-128.webp?v=20261028" };
+
+  function createPulseRenderer(pulse, lang, stores, now = Date.now()) {
+    const t = () => I18N[lang];
+    const isStale = (m) => !m || now - Date.parse(m.generated_at_utc) > STALE_HOURS * 3600e3;
+    const fmtTime = (iso) => `${iso.slice(0, 10)} ${iso.slice(11, 16)} UTC`;
+    const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
+    const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => `<a class="store" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`).join("")}</span>`;
+    function moverList(title, rows) {
+      return `<div><h4>${esc(title)}</h4><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>${r.name && r.name !== r.symbol ? `<small>${esc(r.name)}</small>` : ""}</li>`).join("")}</ul></div>`;
+    }
+
+    function cardHead(label, name, m, productId) {
+      const stale = isStale(m);
+      const coverage = m.coverage ? `${m.coverage.covered}/${m.coverage.expected}` : "—";
+      return `<div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/${ICONS[productId]}" alt="" width="22" height="22" />${esc(label)}</div><div class="card-name">${esc(name)}</div></div>
+        <div class="card-date"><b>${esc(m.report_date)}</b>${esc(t().published)} ${esc(fmtTime(m.generated_at_utc))}${stale ? `<br /><span class="pill pill-stale">${esc(t().staleTag)}</span>` : ""}</div><div class="card-coverage">${esc(t().coverage)} ${esc(coverage)}</div></div>`;
+    }
+
+    function equityCard(key, productId, label, name) {
+      const m = pulse.markets[key];
+      const reg = m.regime || "neutral";
+      const breadth = Math.round((m.breadth_score ?? 0) * 100);
+      const line = lang === "zh" ? m.one_liner.zh || m.one_liner.en : m.one_liner.en || m.one_liner.zh;
+      return `<article class="card spot">${cardHead(label, name, m, productId)}
+        <div class="regime-row"><span class="pill ${regimeClass(reg)}">${esc(t().regime[reg] || reg)}</span>
+          <div class="meter"><div class="meter-label"><span>${esc(t().breadth)}</span><span>${breadth}% · ${esc(t().adv)} ${esc(m.advance_decline_ratio ?? "—")}</span></div><div class="meter-bar"><i style="--w:${Math.min(100, Math.max(0, breadth))}%"></i></div></div></div>
+        ${line ? `<p class="one-liner">${esc(line)}</p>` : ""}
+        <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 3))}${moverList(t().losers, m.losers.slice(0, 3))}</div>
+        <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks(productId)}</div>
+      </article>`;
+    }
+
+    function optionsCard() {
+      const m = pulse.markets.options;
+      const name = t().nOpt;
+      const ideas = m.ideas.map((i) => `<li><b>${esc(i.symbol)}</b><span>${esc(i.strategy === "sell_call" ? t().sellCall : t().sellPut)} $${esc(i.strike)} · ${esc(i.dte)}d</span><span class="score">${esc(i.score)}</span>
+        <small>${esc(t().exp)} ${esc(i.expiry)} · ${esc(t().pop)} ${esc(i.pop)}% · ${esc(t().iv)} ${esc(i.iv)}% · ${esc(t().ann)} ${esc(i.annualized)}%</small></li>`).join("");
+      return `<article class="card spot">${cardHead(t().mOpt, name, m, "options-explorer")}
+        <div><div class="movers"><div><h4>${esc(t().ideas)}</h4></div></div><ul class="ideas">${ideas}</ul></div>
+        <div class="movers">${moverList(t().today, m.gainers.slice(0, 3))}${moverList(t().todayDown, m.losers.slice(0, 3))}</div>
+        <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks("options-explorer")}</div>
+      </article>`;
+    }
+
+    function wireItem(n, i) {
+      const title = lang === "en" ? n.title.en || n.title.original : n.title.original;
+      const label = /^\d+$/.test(n.symbol) && n.name && n.name !== n.symbol ? `${n.name} ${n.symbol}` : n.symbol;
+      const media = n.image
+        ? `<a class="wire-media" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="${esc(n.image.url)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-symbol="${esc(n.symbol)}" data-label="${esc(label)}" /></a>`
+        : `<div class="wire-media ph" aria-hidden="true"><b>${esc(label)}</b><em>${esc(n.source)}</em></div>`;
+      return `<li class="spot${i === 0 && n.image ? " feature" : ""}" style="--i:${i}">${media}<div class="wire-body"><div class="wire-meta"><span class="wire-tag">${esc(n.symbol)}</span><span>${esc(n.name && n.name !== n.symbol ? n.name : "")}</span><span>·</span><time datetime="${esc(n.published_at_utc)}">${esc(fmtTime(n.published_at_utc))}</time></div>
+          <a class="wire-title" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a>
+          <div class="wire-foot"><span>${esc(n.source)}</span><a href="${esc(n.news_url)}">${esc(fill(t().moreOn, { s: n.symbol }))}</a></div></div></li>`;
+    }
+
+    return {
+      board: () => equityCard("us", "us-stocks", t().mUs, t().nUs) + equityCard("tw", "taiwan-stocks", t().mTw, t().nTw) + optionsCard(),
+      reportDates: () => `${esc(t().reportDates)}: ${[[t().mUs, pulse.markets.us], [t().mTw, pulse.markets.tw], [t().mOpt, pulse.markets.options]].map(([name, m]) => `${esc(name)} <time datetime="${esc(m.report_date)}">${esc(m.report_date)}</time>`).join(" · ")}`,
+      wireItems: (market) => {
+        const items = pulse.news.filter((n) => n.market === market).slice(0, 6);
+        return items.length ? items.map(wireItem).join("") : `<li class="wire-empty">${esc(t().wireEmpty)}</li>`;
+      }
+    };
+  }
+
+  // Node builders import the exact same copy and markup without running browser effects.
+  if (typeof module === "object" && module.exports) {
+    module.exports = { I18N, esc, fill, createPulseRenderer };
+    return;
+  }
+
+  const $ = (s) => document.querySelector(s);
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch { /* optional */ } } };
   // Browser-only motion layer; the content itself renders without it (and in the node test harness).
   const browser = typeof window === "object" && typeof window.IntersectionObserver === "function";
   const calm = browser && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  const ICONS = { "us-stocks": "us-stocks-icon-128.webp?v=20261028", "taiwan-stocks": "tw-stocks-icon-128.webp?v=20261028", "options-explorer": "options-icon-128.webp?v=20261028" };
 
-  let lang = store.get("dg-lang") || (/^zh/i.test(navigator.language) ? "zh" : "en");
+
+  const lang = /^\/zh(?:\/|$)/.test(location.pathname) ? "zh" : "en";
   let market = store.get("dg-wire") === "tw" ? "tw" : "us";
   let pulse = null;
   let failed = false;
@@ -133,58 +221,23 @@
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
     document.querySelectorAll("[data-i18n]").forEach((el) => { const v = t()[el.dataset.i18n]; if (typeof v === "string") el.textContent = v; });
     document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = t()[el.dataset.i18nHtml]; });
-    $("[data-lang-toggle]").textContent = lang === "zh" ? "EN" : "中文";
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => { el.alt = t()[el.dataset.i18nAlt]; });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => { el.setAttribute("aria-label", t()[el.dataset.i18nAriaLabel]); });
+    $("[data-lang-toggle]").textContent = t().languageName;
   }
 
   const isStale = (m) => !m || Date.now() - Date.parse(m.generated_at_utc) > STALE_HOURS * 3600e3;
-  const fmtTime = (iso) => new Date(iso).toLocaleString(lang === "zh" ? "zh-TW" : "en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
-  const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
-
-  // Store destinations come from the static product catalog markup, the single checked copy of the links.
-  function storeLinks(productId) {
-    const links = [...document.querySelectorAll(`[data-product="${productId}"] a[data-store]`)];
-    return `<span class="stores">${links.map((a) => `<a class="store" href="${esc(a.href)}" target="_blank" rel="noopener noreferrer">${esc(t()[a.dataset.store])}</a>`).join("")}</span>`;
+  function renderer() {
+    const stores = {};
+    document.querySelectorAll("[data-product]").forEach((product) => {
+      stores[product.dataset.product] = [...product.querySelectorAll("a[data-store]")].map((a) => ({ os: a.dataset.store, url: a.href }));
+    });
+    return createPulseRenderer(pulse, lang, stores);
   }
 
-  function moverList(title, rows) {
-    return `<div><h4>${esc(title)}</h4><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}${/^\d+$/.test(r.symbol) && r.name ? ` ${esc(r.name)}` : ""}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span></li>`).join("")}</ul></div>`;
-  }
-
-  function cardHead(label, name, m, productId) {
-    const stale = isStale(m);
-    return `<div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/${ICONS[productId]}" alt="" width="22" height="22" />${esc(label)}</div><div class="card-name">${esc(name)}</div></div>
-      <div class="card-date"><b>${esc(m.report_date)}</b>${esc(t().published)} ${esc(fmtTime(m.generated_at_utc))}${stale ? `<br /><span class="pill pill-stale">${esc(t().staleTag)}</span>` : ""}</div></div>`;
-  }
-
-  function equityCard(key, productId, label, name) {
-    const m = pulse.markets[key];
-    const reg = m.regime || "neutral";
-    const breadth = Math.round((m.breadth_score ?? 0) * 100);
-    const line = lang === "zh" ? m.one_liner.zh || m.one_liner.en : m.one_liner.en || m.one_liner.zh;
-    return `<article class="card spot">${cardHead(label, name, m, productId)}
-      <div class="regime-row"><span class="pill ${regimeClass(reg)}">${esc(t().regime[reg] || reg)}</span>
-        <div class="meter"><div class="meter-label"><span>${esc(t().breadth)}</span><span>${breadth}% · ${esc(t().adv)} ${esc(m.advance_decline_ratio ?? "—")}</span></div><div class="meter-bar"><i style="--w:${Math.min(100, Math.max(0, breadth))}%"></i></div></div></div>
-      ${line ? `<p class="one-liner">${esc(line)}</p>` : ""}
-      <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 3))}${moverList(t().losers, m.losers.slice(0, 3))}</div>
-      <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks(productId)}</div>
-    </article>`;
-  }
-
-  function optionsCard() {
-    const m = pulse.markets.options;
-    const name = t().nOpt;
-    const ideas = m.ideas.map((i) => `<li><b>${esc(i.symbol)}</b><span>${esc(i.strategy === "sell_call" ? t().sellCall : t().sellPut)} $${esc(i.strike)} · ${esc(i.dte)}d</span><span class="score">${esc(i.score)}</span>
-      <small>${esc(t().exp)} ${esc(i.expiry)} · ${esc(t().pop)} ${esc(i.pop)}% · ${esc(t().iv)} ${esc(i.iv)}% · ${esc(t().ann)} ${esc(i.annualized)}%</small></li>`).join("");
-    return `<article class="card spot">${cardHead(t().mOpt, name, m, "options-explorer")}
-      <div><div class="movers"><div><h4>${esc(t().ideas)}</h4></div></div><ul class="ideas">${ideas}</ul></div>
-      <div class="movers">${moverList(t().today, m.gainers.slice(0, 3))}${moverList(t().todayDown, m.losers.slice(0, 3))}</div>
-      <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks("options-explorer")}</div>
-    </article>`;
-  }
-
-  // Count up once; later renders (language switch) set the value directly.
+  // Preserve pre-rendered values; animate only a value that actually changes.
   function countTo(el, value) {
-    if (!browser || calm || el.dataset.counted) { el.textContent = value; return; }
+    if (el.textContent === String(value) || !browser || calm || el.dataset.counted) { el.textContent = value; return; }
     el.dataset.counted = "1";
     const [n, suffix] = String(value).match(/^(\d+)(.*)$/)?.slice(1) || [value, ""];
     const target = Number(n);
@@ -213,7 +266,8 @@
     chip.dataset.state = anyStale ? "stale" : "live";
     label.textContent = fill(anyStale ? t().stale : t().live, { date: latest });
 
-    $("[data-board]").innerHTML = equityCard("us", "us-stocks", t().mUs, t().nUs) + equityCard("tw", "taiwan-stocks", t().mTw, t().nTw) + optionsCard();
+    $("[data-board]").innerHTML = renderer().board();
+    $("[data-report-dates]").innerHTML = renderer().reportDates();
     countTo($("[data-stat-covered]"), markets.reduce((n, m) => n + (m.coverage?.covered || 0), 0));
     countTo($("[data-stat-news]"), pulse.news.length);
     countTo($("[data-stat-verified]"), `${markets.length}/${markets.length}`);
@@ -228,33 +282,17 @@
     renderWire();
   }
 
-  function ago(iso) {
-    const mins = Math.max(1, Math.round((Date.now() - Date.parse(iso)) / 60000));
-    const a = t().ago;
-    return mins < 60 ? fill(a.m, { n: mins }) : mins < 2880 ? fill(a.h, { n: Math.round(mins / 60) }) : fill(a.d, { n: Math.round(mins / 1440) });
-  }
-
-  function wireItem(n, i) {
-    const title = lang === "en" ? n.title.en || n.title.original : n.title.original;
-    const media = n.image
-      ? `<a class="wire-media" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img src="${esc(n.image.url)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-symbol="${esc(n.symbol)}" /></a>`
-      : `<div class="wire-media ph" aria-hidden="true"><b>${esc(n.symbol)}</b><em>${esc(n.source)}</em></div>`;
-    return `<li class="spot${i === 0 && n.image ? " feature" : ""}" style="--i:${i}">${media}<div class="wire-body"><div class="wire-meta"><span class="wire-tag">${esc(n.symbol)}</span><span>${esc(n.name && n.name !== n.symbol ? n.name : "")}</span><span>·</span><time datetime="${esc(n.published_at_utc)}">${esc(ago(n.published_at_utc))}</time></div>
-        <a class="wire-title" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a>
-        <div class="wire-foot"><span>${esc(n.source)}</span><a href="${esc(n.news_url)}">${esc(fill(t().moreOn, { s: n.symbol }))}</a></div></div></li>`;
-  }
-
   function renderWire() {
     // The pulse fixes each tab's order (United States newest first, Taiwan largest company first);
     // the top story becomes the large feature only when it has a publisher image.
-    const items = pulse.news.filter((n) => n.market === market).slice(0, 6);
     for (const key of ["us", "tw"]) $(`[data-count="${key}"]`).textContent = pulse.news.filter((n) => n.market === key).length;
-    $("[data-wire]").innerHTML = items.length ? items.map(wireItem).join("") : `<li class="wire-empty">${esc(t().wireEmpty)}</li>`;
+    $("[data-wire]").innerHTML = renderer().wireItems(market);
     document.querySelectorAll("[data-wire-tabs] [role=tab]").forEach((tab) => {
       const on = tab.dataset.market === market;
       tab.setAttribute("aria-selected", String(on));
       tab.tabIndex = on ? 0 : -1;
     });
+    $("[data-wire-static-tw]").hidden = true;
     moveInk();
   }
 
@@ -264,7 +302,7 @@
     if (img.tagName !== "IMG" || !img.closest(".wire-media")) return;
     const box = img.closest(".wire-media");
     box.className = "wire-media ph";
-    box.innerHTML = `<b>${esc(img.dataset.symbol)}</b>`;
+    box.innerHTML = `<b>${esc(img.dataset.label || img.dataset.symbol)}</b>`;
   }
 
   function moveInk() {
@@ -325,7 +363,7 @@
 
   function render() { applyStatic(); renderPulse(); $('[data-app-live="merge"] span').textContent = t().liveMerge; }
 
-  $("[data-lang-toggle]").addEventListener("click", () => { lang = lang === "zh" ? "en" : "zh"; store.set("dg-lang", lang); render(); });
+  $("[data-lang-toggle]").addEventListener("click", () => { store.set("dg-lang", lang === "zh" ? "en" : "zh"); });
   render();
 
   const getJson = (url) => fetch(url, { cache: "no-store" }).then((r) => { if (!r.ok) throw new Error(`${url} ${r.status}`); return r.json(); });
