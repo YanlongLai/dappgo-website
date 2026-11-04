@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-03T22:45:41Z",
+  "built_at_utc": "2026-11-04T09:20:52Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,125 +129,125 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-03",
-      "generated_at_utc": "2026-11-03T08:47:03Z",
+      "report_date": "2026-11-04",
+      "generated_at_utc": "2026-11-04T08:44:50Z",
       "schema_version": "1.2.0",
-      "data_hash": "e7504f8fc0f2b6f1be8b912186f9d18a631c0a494197d55729a868252bed8f92",
+      "data_hash": "fe70efe3851722298719d5b7da48fe37891cca970d381ca06765c4afd7dd7813",
       "coverage": {
         "covered": 101,
         "expected": 101,
         "status": "complete"
       },
       "web_url": "https://stocks.dappgo.com/tw/",
-      "regime": "mixed",
-      "breadth_score": 0.337,
-      "advance_decline_ratio": 0.92,
+      "regime": "risk_off",
+      "breadth_score": 0.198,
+      "advance_decline_ratio": 0.05,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 16 BUY / 0 SELL, market regime: mixed.",
-        "zh": "今日 16 檔買進 / 0 檔賣出，市場環境訊號分歧（加權指數趨勢 down + 漲家數 34% + 波動 cho）。"
+        "en": "Today's report: 11 BUY / 0 SELL, market regime: risk-off.",
+        "zh": "今日 11 檔買進 / 0 檔賣出，市場環境風險規避（漲家數佔比僅 20% = 風險規避）。"
       },
       "gainers": [
         {
-          "symbol": "2408",
-          "name": "南亞科",
-          "return_pct": 10.27,
-          "close": 456.5
+          "symbol": "1802",
+          "name": "台玻",
+          "return_pct": 3.83,
+          "close": 67.7
         },
         {
-          "symbol": "6415",
-          "name": "矽力*-KY",
-          "return_pct": 6.14,
-          "close": 501
+          "symbol": "3653",
+          "name": "健策",
+          "return_pct": 2.99,
+          "close": 6035
+        },
+        {
+          "symbol": "6446",
+          "name": "藥華藥",
+          "return_pct": 2.94,
+          "close": 1225
         },
         {
           "symbol": "2603",
           "name": "長榮",
-          "return_pct": 5.58,
-          "close": 274.5
-        },
-        {
-          "symbol": "2344",
-          "name": "華邦電",
-          "return_pct": 4.85,
-          "close": 162
+          "return_pct": 1.91,
+          "close": 266.5
         }
       ],
       "losers": [
         {
-          "symbol": "6213",
-          "name": "聯茂",
-          "return_pct": -15.57,
-          "close": 656
-        },
-        {
-          "symbol": "4958",
-          "name": "臻鼎-KY",
-          "return_pct": -14.11,
-          "close": 487
-        },
-        {
           "symbol": "3532",
           "name": "台勝科",
-          "return_pct": -13.67,
-          "close": 350.5
+          "return_pct": -22.55,
+          "close": 316
         },
         {
           "symbol": "2360",
           "name": "致茂",
-          "return_pct": -13.38,
-          "close": 1715
+          "return_pct": -20.97,
+          "close": 1545
+        },
+        {
+          "symbol": "6213",
+          "name": "聯茂",
+          "return_pct": -19.57,
+          "close": 600
+        },
+        {
+          "symbol": "3008",
+          "name": "大立光",
+          "return_pct": -17.58,
+          "close": 4945
         }
       ],
       "picks": [
         {
-          "symbol": "2301",
-          "name": "光寶科",
-          "score": 60,
+          "symbol": "1605",
+          "name": "華新",
+          "score": 62,
           "signals": {
             "en": [
-              "Below MA20 10.4%",
-              "RSI 35 near oversold",
+              "Below MA20 7.7%",
+              "RSI 40 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -10.4%",
-              "RSI 35 接近超賣",
+              "低於 MA20 -7.7%",
+              "RSI 40 接近超賣",
               "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達",
+          "score": 55,
+          "signals": {
+            "en": [
+              "Below MA20 3.6%",
+              "RSI 39 near oversold",
+              "MACD bullish turn"
+            ],
+            "zh": [
+              "低於 MA20 -3.6%",
+              "RSI 39 接近超賣",
+              "MACD 翻多"
             ]
           }
         },
         {
           "symbol": "5871",
           "name": "中租-KY",
-          "score": 45,
+          "score": 44,
           "signals": {
             "en": [
-              "Below MA20 1.5%",
+              "Below MA20 1.3%",
               "RSI 40 near oversold",
               "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -1.5%",
+              "低於 MA20 -1.3%",
               "RSI 40 接近超賣",
               "MACD 翻多"
-            ]
-          }
-        },
-        {
-          "symbol": "1504",
-          "name": "東元",
-          "score": 44,
-          "signals": {
-            "en": [
-              "Below MA20 1.0%",
-              "RSI 48 neutral-to-weak",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -1.0%",
-              "RSI 48 中性偏弱",
-              "KD 黃金交叉"
             ]
           }
         }
@@ -478,11 +478,11 @@
       "symbol": "2317",
       "name": "鴻海",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9854091",
-      "published_at_utc": "2026-11-03T04:36:06Z",
+      "url": "https://money.udn.com/money/story/5612/9856773",
+      "published_at_utc": "2026-11-04T05:30:30Z",
       "title": {
-        "original": "鴻海旗下夏普 正式獲得 ISO 27001國際資安認證",
-        "en": "Hon Hai subsidiary Sharp officially obtains ISO 27001 international information security certification"
+        "original": "AI 資本支出續強 法人預期鴻海營運具上修空間",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -492,11 +492,11 @@
       "symbol": "2330",
       "name": "台積電",
       "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3265453",
-      "published_at_utc": "2026-11-03T03:31:00Z",
+      "url": "https://finance.ettoday.net/news/3266025",
+      "published_at_utc": "2026-11-04T01:48:00Z",
       "title": {
-        "original": "快訊／台股44K失守！盤中崩千點 權值股帶頭殺",
-        "en": "Flash: Taiwan stocks 44K breach! Intraday plunge of over a thousand points, heavyweight stocks lead sell-off"
+        "original": "台股43K破了！急跌逾350點 台積電翻黑殺跌10元",
+        "en": "Taiwan stocks 43K broken! Plunged over 350 points; TSMC turns negative and falls sharply 10 yuan"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -517,6 +517,20 @@
     },
     {
       "market": "tw",
+      "symbol": "2357",
+      "name": "華碩",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9855832",
+      "published_at_utc": "2026-11-04T00:18:27Z",
+      "title": {
+        "original": "記憶體漲價怎麼賣？宏碁增彈性規格、華碩攻高階 雙11拚雙位數成長",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2357"
+    },
+    {
+      "market": "tw",
       "symbol": "2454",
       "name": "聯發科",
       "source": "UDN Money",
@@ -531,31 +545,17 @@
     },
     {
       "market": "tw",
-      "symbol": "1303",
-      "name": "南亞",
+      "symbol": "2408",
+      "name": "南亞科",
       "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3264808",
-      "published_at_utc": "2026-11-02T04:37:00Z",
+      "url": "https://finance.ettoday.net/news/3265711",
+      "published_at_utc": "2026-11-03T08:30:00Z",
       "title": {
-        "original": "「一塊布」族群回血！3檔亮燈 富喬翻紅飆漲停",
-        "en": "「One Piece of Cloth」 sector rebounds! 3 stocks light up; Fu Qiao turns red, surges to limit up"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=1303"
-    },
-    {
-      "market": "tw",
-      "symbol": "2002",
-      "name": "中鋼",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9852531",
-      "published_at_utc": "2026-11-02T10:40:57Z",
-      "title": {
-        "original": "越南和發11月鋼價平盤展現抗跌韌性 中鋼、新光鋼樂見",
+        "original": "外資狠砍1073億！記憶體3檔、台積電慘遭提款 進出前10大一文看",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2002"
+      "news_url": "https://news.dappgo.com/tw/?stock=2408"
     }
   ]
 }
