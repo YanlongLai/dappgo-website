@@ -1,93 +1,93 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-04T09:20:52Z",
+  "built_at_utc": "2026-11-04T20:15:52Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
-      "report_date": "2026-11-03",
-      "generated_at_utc": "2026-11-03T20:11:56Z",
+      "report_date": "2026-11-04",
+      "generated_at_utc": "2026-11-04T19:14:53Z",
       "schema_version": "1.2.0",
-      "data_hash": "27e05fcd74684822abb76581097ea2b847f2e1f9364e38781fcb7bd253aff545",
+      "data_hash": "68db428b39281451b634f10cb0ff414833c3b4c47516aac36882da17882b6c2b",
       "coverage": {
         "covered": 26,
         "expected": 26,
         "status": "complete"
       },
       "web_url": "https://stocks.dappgo.com/us/",
-      "regime": "mixed",
-      "breadth_score": 0.308,
-      "advance_decline_ratio": 1,
-      "vol_regime": "calm",
+      "regime": "neutral",
+      "breadth_score": 0.538,
+      "advance_decline_ratio": 1.6,
+      "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 26 tickers, market regime: mixed.",
-        "zh": "今日 26 檔個股，市場環境訊號分歧（SPY 趨勢 down + 漲家數 31% + 波動 cal）。"
+        "en": "Today's report: 26 tickers, market regime: neutral.",
+        "zh": "今日 26 檔個股，市場環境中性觀望（SPY 橫盤整理 + 漲跌家數接近 (54%) = 中性觀望）。"
       },
       "gainers": [
         {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical, Inc.",
+          "return_pct": 8.8,
+          "close": 483.27
+        },
+        {
+          "symbol": "ABNB",
+          "name": "Airbnb, Inc.",
+          "return_pct": 7.71,
+          "close": 178.84
+        },
+        {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 3.19,
-          "close": 1023.83
-        },
-        {
-          "symbol": "ARCC",
-          "name": "Ares Capital Corporation",
-          "return_pct": 2.76,
-          "close": 19.02
-        },
-        {
-          "symbol": "SBUX",
-          "name": "Starbucks Corporation",
-          "return_pct": 1.12,
-          "close": 104.19
+          "return_pct": 6.85,
+          "close": 1050.06
         },
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "return_pct": 0.53,
-          "close": 62.85
+          "return_pct": 6.48,
+          "close": 66.01
         }
       ],
       "losers": [
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -35.61,
-          "close": 60.36
+          "return_pct": -38.79,
+          "close": 58.48
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -30.07,
-          "close": 170.33
+          "return_pct": -37.37,
+          "close": 157.61
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -13.02,
-          "close": 487.34
+          "return_pct": -16.38,
+          "close": 483.68
         },
         {
-          "symbol": "GOOG",
-          "name": "Alphabet Inc. (Class C)",
-          "return_pct": -12.59,
-          "close": 276.93
+          "symbol": "EWT",
+          "name": "iShares MSCI Taiwan ETF",
+          "return_pct": -10.36,
+          "close": 97.65
         }
       ],
       "picks": [
         {
           "symbol": "META",
           "name": "Meta Platforms, Inc.",
-          "score": 61,
+          "score": 63,
           "signals": {
             "en": [
-              "Below MA20 8.7%",
-              "RSI 36 near oversold",
+              "Below MA20 6.4%",
+              "RSI 40 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -8.7%",
-              "RSI 36 接近超賣",
+              "低於 MA20 -6.4%",
+              "RSI 40 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -95,34 +95,17 @@
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "score": 60,
+          "score": 46,
           "signals": {
             "en": [
-              "Below MA20 6.2%",
-              "RSI 34 near oversold",
-              "Golden KD cross"
+              "Below MA20 1.3%",
+              "RSI 46 neutral-to-weak",
+              "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -6.2%",
-              "RSI 34 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "BABA",
-          "name": "Alibaba Group Holding Limited",
-          "score": 54,
-          "signals": {
-            "en": [
-              "Below MA20 4.4%",
-              "RSI 38 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -4.4%",
-              "RSI 38 接近超賣",
-              "KD 黃金交叉"
+              "低於 MA20 -1.3%",
+              "RSI 46 中性偏弱",
+              "MACD 翻多"
             ]
           }
         }
@@ -254,10 +237,10 @@
       ]
     },
     "options": {
-      "report_date": "2026-11-03",
-      "generated_at_utc": "2026-11-03T20:50:04Z",
+      "report_date": "2026-11-04",
+      "generated_at_utc": "2026-11-04T19:51:57Z",
       "schema_version": "1.3.0",
-      "data_hash": "fc6e555b457fe307e95a7b9b4149295ecc20c40551b169c51ff9b54c5e1c5327",
+      "data_hash": "f3293a94a95f26dbe725dd10ca22142d044363c53860f7e06c6dcc1886fb4e57",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -268,102 +251,102 @@
         {
           "symbol": "AMD",
           "strategy": "sell_put",
-          "strike": 440,
-          "premium": 6.05,
+          "strike": 432.5,
+          "premium": 2.35,
           "expiry": "2026-11-09",
-          "dte": 6,
-          "iv": 95.5,
-          "pop": 78.6,
-          "annualized": 83.6,
-          "score": 55.1
+          "dte": 5,
+          "iv": 78.2,
+          "pop": 86.9,
+          "annualized": 39.7,
+          "score": 56.7
         },
         {
-          "symbol": "UNH",
+          "symbol": "MRVL",
           "strategy": "sell_put",
-          "strike": 362.5,
-          "premium": 1.05,
+          "strike": 141,
+          "premium": 2.67,
           "expiry": "2026-11-13",
-          "dte": 10,
-          "iv": 46,
-          "pop": 90.8,
-          "annualized": 10.6,
-          "score": 52.7
+          "dte": 9,
+          "iv": 90.5,
+          "pop": 75,
+          "annualized": 76.8,
+          "score": 53.7
         },
         {
           "symbol": "TSM",
           "strategy": "sell_put",
-          "strike": 365,
-          "premium": 1.72,
+          "strike": 355,
+          "premium": 1.17,
           "expiry": "2026-11-13",
-          "dte": 10,
-          "iv": 52.2,
-          "pop": 88.4,
-          "annualized": 17.2,
-          "score": 52.5
+          "dte": 9,
+          "iv": 51.8,
+          "pop": 90.1,
+          "annualized": 13.4,
+          "score": 53.7
         },
         {
           "symbol": "ABNB",
           "strategy": "sell_put",
-          "strike": 150,
-          "premium": 1.2,
+          "strike": 160,
+          "premium": 1.16,
           "expiry": "2026-11-13",
-          "dte": 10,
-          "iv": 65.8,
-          "pop": 82.8,
-          "annualized": 29.2,
-          "score": 52.3
+          "dte": 9,
+          "iv": 68.2,
+          "pop": 83.9,
+          "annualized": 29.4,
+          "score": 53
         }
       ],
       "gainers": [
         {
-          "symbol": "AMD",
-          "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 4.56,
-          "close": 488.13
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical, Inc.",
+          "return_pct": 9.87,
+          "close": 484.25
         },
         {
-          "symbol": "AVGO",
-          "name": "Broadcom Inc.",
-          "return_pct": 3.19,
-          "close": 332.52
+          "symbol": "ABNB",
+          "name": "Airbnb, Inc.",
+          "return_pct": 7.02,
+          "close": 178.68
         },
         {
-          "symbol": "SPCX",
-          "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": 3,
-          "close": 140.46
+          "symbol": "AMZN",
+          "name": "Amazon.com Inc.",
+          "return_pct": 7.01,
+          "close": 268.25
         },
         {
           "symbol": "MSFT",
           "name": "Microsoft Corporation",
-          "return_pct": 2.82,
-          "close": 521.41
+          "return_pct": 6.78,
+          "close": 556.29
         }
       ],
       "losers": [
         {
-          "symbol": "ABNB",
-          "name": "Airbnb, Inc.",
-          "return_pct": -2.36,
-          "close": 167.08
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "return_pct": -8.95,
+          "close": 156.58
         },
         {
-          "symbol": "EWT",
-          "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -2.25,
-          "close": 98.4
+          "symbol": "SPCX",
+          "name": "Space Exploration Technologies Corp. (SpaceX)",
+          "return_pct": -5.01,
+          "close": 134.23
         },
         {
-          "symbol": "AAPL",
-          "name": "Apple Inc.",
-          "return_pct": -2.24,
-          "close": 330.74
+          "symbol": "INTC",
+          "name": "Intel Corporation",
+          "return_pct": -4.02,
+          "close": 58.12
         },
         {
-          "symbol": "ARCC",
-          "name": "Ares Capital Corporation",
-          "return_pct": -1.98,
-          "close": 19.04
+          "symbol": "SHEL",
+          "name": "Shell plc",
+          "return_pct": -2.62,
+          "close": 101.47
         }
       ],
       "backtest": {
@@ -375,103 +358,107 @@
   "news": [
     {
       "market": "us",
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/list-best-retail-stocks-to-follow-now-november-3rd-2026-11-03/",
-      "published_at_utc": "2026-11-03T19:14:18Z",
+      "symbol": "SPCX",
+      "name": "Space Exploration Technologies Corp. (SpaceX)",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=0df4cefc378bc11c91816eba7bcfb407414232dca8fe2df79519257cce7575aa",
+      "published_at_utc": "2026-11-04T17:47:20Z",
       "title": {
-        "original": "Best Retail Stocks To Follow Now - November 3rd",
-        "en": "Best Retail Stocks To Follow Now - November 3rd"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/apple-releases-new-ios-beta-with-ai-audio-tools-and-china-features-4996211",
-      "published_at_utc": "2026-11-03T18:34:50Z",
-      "title": {
-        "original": "Apple releases new iOS beta with AI audio tools and China features",
+        "original": "Blue Wave Puts Tesla’s SpaceX Merger Premium at Risk as Democrats Eye Musk’s Companies",
         "en": null
       },
       "image": {
-        "url": "https://content-media.investing.com/news/moved_LYNXMPEM7D146_L.jpg",
-        "width": null,
-        "height": null
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1793023734/images/elon-musk-onstage-spacex-falcon-9-launch/elon-musk-onstage-spacex-falcon-9-launch.png?_i=AA",
+        "width": 1200,
+        "height": 600
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
-    },
-    {
-      "market": "us",
-      "symbol": "TSM",
-      "name": "Taiwan Semiconductor Manufacturing Company Limited",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/company-news/tower-semiconductor-innolight-partner-on-ai-optics-production-93CH-4996187",
-      "published_at_utc": "2026-11-03T18:16:36Z",
-      "title": {
-        "original": "Tower Semiconductor, Innolight partner on AI optics production",
-        "en": null
-      },
-      "image": {
-        "url": "https://content-media.investing.com/news/moved_LYNXMPEI1G0EW_L.jpg",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=TSM"
-    },
-    {
-      "market": "us",
-      "symbol": "TSLA",
-      "name": "Tesla Inc.",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/list-top-energy-stocks-to-add-to-your-watchlist-november-3rd-2026-11-03/",
-      "published_at_utc": "2026-11-03T18:14:42Z",
-      "title": {
-        "original": "Top Energy Stocks To Add to Your Watchlist - November 3rd",
-        "en": "Top Energy Stocks To Add to Your Watchlist - November 3rd"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=TSLA"
+      "news_url": "https://news.dappgo.com/us/?stock=SPCX"
     },
     {
       "market": "us",
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=72ae6b4f16ee93a35001538c0e5d3d0acec2cc06fe30b182e5f5c876cef73815",
-      "published_at_utc": "2026-11-03T17:45:30Z",
+      "url": "https://finnhub.io/api/news?id=62f772db7a6d794db96600e740210aaa03f27cd622b65ae0a555e23e47781e9b",
+      "published_at_utc": "2026-11-04T17:45:28Z",
       "title": {
-        "original": "Nvidia Is Extremely Compelling Right Now And Here’s Why",
+        "original": "Nvidia is Far From The Only Threat to AMD",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2022/02/imageForEntry10-KvA.jpg",
-        "width": 1366,
-        "height": 768
+        "url": "https://247wallst.com/wp-content/uploads/2025/10/AMD-Instinct-GPUs.jpg",
+        "width": 1200,
+        "height": 675
       },
       "news_url": "https://news.dappgo.com/us/?stock=NVDA"
     },
     {
       "market": "us",
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=e40fc9ddfc3c4589220442b5e6652482735cca783db5283bd4abc46cef1b3d17",
-      "published_at_utc": "2026-11-03T17:45:25Z",
+      "url": "https://finnhub.io/api/news?id=62f772db7a6d794db96600e740210aaa03f27cd622b65ae0a555e23e47781e9b",
+      "published_at_utc": "2026-11-04T17:45:28Z",
       "title": {
-        "original": "Investors Are Beginning to Say That Meta Is The Best Buy And Hold Stock Through 2030",
+        "original": "Nvidia is Far From The Only Threat to AMD",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2021/11/Facebook-_-Meta.jpg",
-        "width": 1366,
-        "height": 768
+        "url": "https://247wallst.com/wp-content/uploads/2025/10/AMD-Instinct-GPUs.jpg",
+        "width": 1200,
+        "height": 675
       },
+      "news_url": "https://news.dappgo.com/us/?stock=AVGO"
+    },
+    {
+      "market": "us",
+      "symbol": "GOOG",
+      "name": "Alphabet Inc. (Class C)",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=4ddf5ba1d9785f682ca7d73dfaee2314ab5ee08eb179c43f2d2e51f641aed220",
+      "published_at_utc": "2026-11-04T17:45:18Z",
+      "title": {
+        "original": "Alphabet’s Asymmetry Is All You Need To Know About to Hit ‘Buy’",
+        "en": null
+      },
+      "image": {
+        "url": "https://247wallst.com/wp-content/uploads/2018/09/imageforentry1611.jpg",
+        "width": 1366,
+        "height": 767
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=GOOG"
+    },
+    {
+      "market": "us",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "source": "MarketWatch Top Stories",
+      "url": "https://www.marketwatch.com/story/watch-out-for-big-tech-companies-like-meta-and-alphabet-issuing-more-shares-and-diluting-your-stock-ownership-283e8c96?mod=mw_rss_topstories",
+      "published_at_utc": "2026-11-04T17:44:00Z",
+      "title": {
+        "original": "Watch out for Big Tech companies like Meta and Alphabet issuing more shares and diluting your stock ownership",
+        "en": "Watch out for Big Tech companies like Meta and Alphabet issuing more shares and diluting your stock ownership"
+      },
+      "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=META"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=5080a3d6a520581eec30e3d19066972765a8dc8559019b5bc7024f179bf4615b",
+      "published_at_utc": "2026-11-04T17:05:30Z",
+      "title": {
+        "original": "Apple opens up Siri to all apps as it continues to transform its voice assistant",
+        "en": null
+      },
+      "image": {
+        "url": "https://static.independent.co.uk/2026/10/26/11/2026-10-23T160455Z_893809381_RC2S8OA5YVGI_RTRMADP_3_APPLE-IPHONE.JPG?trim=3,0,3,0&width=1200&height=800&crop=1200:800",
+        "width": null,
+        "height": null
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     },
     {
       "market": "tw",
