@@ -47,7 +47,7 @@ export function renderPulseHtml(html, pulse, lang, catalog) {
           <p class="stats-date" data-report-dates>${renderer.reportDates()}</p>
           <p class="stats-note" data-i18n="researchNote">${esc(t.researchNote)}</p>`);
   html = replaceRegion(html, "pulse:board", renderer.board());
-  html = replaceRegion(html, "pulse:wire", `<ol class="wire" id="wire-panel" role="tabpanel" aria-live="polite" data-wire>${renderer.wireItems("us")}</ol>
+  html = replaceRegion(html, "pulse:wire", `<div id="wire-panel" role="tabpanel" aria-live="polite"><ol class="wire" data-wire>${renderer.wireItems("us")}</ol></div>
           <div data-wire-static-tw>
             <h3 class="static-wire-heading">${esc(t.newsTw)} · ${esc(pulse.markets.tw.report_date)}</h3>
             <ol class="wire">${renderer.wireItems("tw")}</ol>

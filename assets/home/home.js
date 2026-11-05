@@ -140,7 +140,7 @@
     const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
     const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => `<a class="store" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`).join("")}</span>`;
     function moverList(title, rows) {
-      return `<div><h4>${esc(title)}</h4><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>${r.name && r.name !== r.symbol ? `<small>${esc(r.name)}</small>` : ""}</li>`).join("")}</ul></div>`;
+      return `<div><h3>${esc(title)}</h3><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>${r.name && r.name !== r.symbol ? `<small>${esc(r.name)}</small>` : ""}</li>`).join("")}</ul></div>`;
     }
 
     function cardHead(label, name, m, productId) {
@@ -170,7 +170,7 @@
       const ideas = m.ideas.map((i) => `<li><b>${esc(i.symbol)}</b><span>${esc(i.strategy === "sell_call" ? t().sellCall : t().sellPut)} $${esc(i.strike)} · ${esc(i.dte)}d</span><span class="score">${esc(i.score)}</span>
         <small>${esc(t().exp)} ${esc(i.expiry)} · ${esc(t().pop)} ${esc(i.pop)}% · ${esc(t().iv)} ${esc(i.iv)}% · ${esc(t().ann)} ${esc(i.annualized)}%</small></li>`).join("");
       return `<article class="card spot">${cardHead(t().mOpt, name, m, "options-explorer")}
-        <div><div class="movers"><div><h4>${esc(t().ideas)}</h4></div></div><ul class="ideas">${ideas}</ul></div>
+        <div><div class="movers"><div><h3>${esc(t().ideas)}</h3></div></div><ul class="ideas">${ideas}</ul></div>
         <div class="movers">${moverList(t().today, m.gainers.slice(0, 3))}${moverList(t().todayDown, m.losers.slice(0, 3))}</div>
         <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks("options-explorer")}</div>
       </article>`;
