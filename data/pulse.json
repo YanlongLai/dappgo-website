@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-05T20:15:57Z",
+  "built_at_utc": "2026-11-05T22:45:41Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-11-05",
-      "generated_at_utc": "2026-11-05T19:32:54Z",
+      "generated_at_utc": "2026-11-05T22:26:35Z",
       "schema_version": "1.2.0",
-      "data_hash": "62472b99faa946c9b269fb53a51071cccbd2c83204bd2ff223546c1a52c89ce2",
+      "data_hash": "8e0f646079f75bdd15a0b860c7c061a2897fc76b539916dbeebd9e4ffc584a50",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -19,59 +19,59 @@
       "advance_decline_ratio": 0.13,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 26 tickers, market regime: mixed.",
-        "zh": "今日 26 檔個股，市場環境訊號分歧（SPY 趨勢 down + 漲家數 35% + 波動 cho）。"
+        "en": "Today's report: 1 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 1 檔買進 / 0 檔賣出，市場環境訊號分歧（SPY 趨勢 down + 漲家數 35% + 波動 cho）。"
       },
       "gainers": [
         {
           "symbol": "BABA",
           "name": "Alibaba Group Holding Limited",
-          "return_pct": 7.42,
-          "close": 106.93
+          "return_pct": 8.57,
+          "close": 108.07
         },
         {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 6.95,
-          "close": 1065.33
+          "return_pct": 6.98,
+          "close": 1065.59
         },
         {
           "symbol": "AMZN",
           "name": "Amazon.com Inc.",
-          "return_pct": 6.25,
-          "close": 259.02
+          "return_pct": 6.74,
+          "close": 260.21
         },
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "return_pct": 4.71,
-          "close": 64.97
+          "return_pct": 5.66,
+          "close": 65.56
         }
       ],
       "losers": [
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -41.56,
-          "close": 53.81
+          "return_pct": -43.25,
+          "close": 52.25
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -36.74,
-          "close": 138.12
+          "return_pct": -38.83,
+          "close": 133.55
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -26.9,
-          "close": 414.05
+          "return_pct": -28.6,
+          "close": 404.4
         },
         {
           "symbol": "EWT",
           "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -18.36,
-          "close": 86.53
+          "return_pct": -18.97,
+          "close": 85.88
         }
       ],
       "picks": [
@@ -81,12 +81,12 @@
           "score": 60,
           "signals": {
             "en": [
-              "Below MA20 9.8%",
+              "Below MA20 9.4%",
               "RSI 35 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -9.8%",
+              "低於 MA20 -9.4%",
               "RSI 35 接近超賣",
               "KD 黃金交叉"
             ]
@@ -95,34 +95,34 @@
         {
           "symbol": "VOO",
           "name": "Vanguard S&P 500 ETF",
-          "score": 54,
+          "score": 55,
           "signals": {
             "en": [
-              "Below MA20 4.0%",
-              "RSI 34 near oversold",
+              "Below MA20 4.2%",
+              "RSI 33 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -4.0%",
-              "RSI 34 接近超賣",
+              "低於 MA20 -4.2%",
+              "RSI 33 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "NFLX",
-          "name": "Netflix Inc.",
-          "score": 51,
+          "symbol": "UNH",
+          "name": "UnitedHealth Group Incorporated",
+          "score": 49,
           "signals": {
             "en": [
-              "Below MA20 2.4%",
-              "RSI 44 near oversold",
-              "MACD bullish turn"
+              "Below MA20 2.1%",
+              "RSI 47 neutral-to-weak",
+              "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -2.4%",
-              "RSI 44 接近超賣",
-              "MACD 翻多"
+              "低於 MA20 -2.1%",
+              "RSI 47 中性偏弱",
+              "KD 黃金交叉"
             ]
           }
         }
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-05",
-      "generated_at_utc": "2026-11-05T19:53:15Z",
+      "generated_at_utc": "2026-11-05T18:52:09Z",
       "schema_version": "1.3.0",
-      "data_hash": "12681fb43fda9a403ce6ff5a549a67e8dd0740a772c9f74f24b6e41aeb9d9dd5",
+      "data_hash": "2e97e885c126509b64c1b3753c3bc9729b14e04d4ffe37388d108ca6ab209f99",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -268,102 +268,102 @@
         {
           "symbol": "MRVL",
           "strategy": "sell_put",
-          "strike": 125,
-          "premium": 3.85,
+          "strike": 124,
+          "premium": 3.75,
           "expiry": "2026-11-13",
           "dte": 8,
-          "iv": 121.2,
-          "pop": 68.7,
-          "annualized": 140.5,
-          "score": 56.4
-        },
-        {
-          "symbol": "META",
-          "strategy": "sell_put",
-          "strike": 545,
-          "premium": 2.34,
-          "expiry": "2026-11-11",
-          "dte": 6,
-          "iv": 67.2,
-          "pop": 88.1,
-          "annualized": 26.1,
-          "score": 55.5
-        },
-        {
-          "symbol": "NVDA",
-          "strategy": "sell_put",
-          "strike": 165,
-          "premium": 1.7,
-          "expiry": "2026-11-11",
-          "dte": 6,
-          "iv": 82.2,
-          "pop": 83,
-          "annualized": 62.7,
-          "score": 54.9
+          "iv": 119.1,
+          "pop": 68.8,
+          "annualized": 138,
+          "score": 55.9
         },
         {
           "symbol": "SPCX",
           "strategy": "sell_put",
-          "strike": 114,
-          "premium": 1.55,
+          "strike": 110,
+          "premium": 1.33,
           "expiry": "2026-11-11",
           "dte": 6,
-          "iv": 92.2,
-          "pop": 78.8,
-          "annualized": 82.7,
-          "score": 54.2
+          "iv": 98.4,
+          "pop": 81.1,
+          "annualized": 73.6,
+          "score": 55.7
+        },
+        {
+          "symbol": "INTC",
+          "strategy": "sell_put",
+          "strike": 48,
+          "premium": 1.05,
+          "expiry": "2026-11-13",
+          "dte": 8,
+          "iv": 106.5,
+          "pop": 74.5,
+          "annualized": 99.8,
+          "score": 55.4
+        },
+        {
+          "symbol": "META",
+          "strategy": "sell_put",
+          "strike": 542.5,
+          "premium": 2.32,
+          "expiry": "2026-11-11",
+          "dte": 6,
+          "iv": 65.6,
+          "pop": 89.4,
+          "annualized": 26,
+          "score": 55.4
         }
       ],
       "gainers": [
         {
-          "symbol": "BABA",
-          "name": "Alibaba Group Holding Limited",
-          "return_pct": 2.01,
-          "close": 107.41
-        },
-        {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": 1.88,
-          "close": 1066.13
+          "return_pct": 1.92,
+          "close": 1066.54
+        },
+        {
+          "symbol": "BABA",
+          "name": "Alibaba Group Holding Limited",
+          "return_pct": 1.41,
+          "close": 106.77
         },
         {
           "symbol": "TLT",
           "name": "iShares 20+ Year Treasury Bond ETF",
-          "return_pct": 0.35,
-          "close": 82.05
+          "return_pct": 0.4,
+          "close": 82.09
         },
         {
           "symbol": "SHEL",
           "name": "Shell plc",
-          "return_pct": -0.8,
-          "close": 101.05
+          "return_pct": -0.63,
+          "close": 101.22
         }
       ],
       "losers": [
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -14.99,
-          "close": 415.52
+          "return_pct": -15.27,
+          "close": 414.17
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -13.34,
-          "close": 138.47
+          "return_pct": -14.18,
+          "close": 137.14
         },
         {
           "symbol": "TSLA",
           "name": "Tesla Inc.",
-          "return_pct": -10.92,
-          "close": 343.14
+          "return_pct": -11.51,
+          "close": 340.87
         },
         {
           "symbol": "EWT",
           "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -10.69,
-          "close": 86.7
+          "return_pct": -10.48,
+          "close": 86.91
         }
       ],
       "backtest": {
@@ -375,107 +375,111 @@
   "news": [
     {
       "market": "us",
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
-      "published_at_utc": "2026-11-05T19:12:39Z",
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "source": "Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/microsoft-tightens-oversight-of-neocloud-data-center-projects-bloomberg-news-reports-5005281",
+      "published_at_utc": "2026-11-05T22:06:55Z",
       "title": {
-        "original": "Meta’s warns that election backlash against data centers could make AI expansion harder",
-        "en": "Meta’s warns that election backlash against data centers could make AI expansion harder"
+        "original": "Microsoft tightens oversight of neocloud data center projects, Bloomberg News reports",
+        "en": null
       },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=META"
+      "image": {
+        "url": "https://content-media.investing.com/trkd-images/LYNXNPEMA41X2_L.jpg",
+        "width": null,
+        "height": null
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
     },
     {
       "market": "us",
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/key-republicans-seek-briefing-from-nvidia-ceo-over-chinese-spy-allegationsdocument-5005367",
-      "published_at_utc": "2026-11-05T18:42:24Z",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=294cc7b26930fa99d7a7ea33302356fa58734445935665c39658028e91a3b07e",
+      "published_at_utc": "2026-11-05T21:11:00Z",
       "title": {
-        "original": "Key Republicans seek briefing from Nvidia CEO over Chinese spy allegations-document",
+        "original": "Is Nvidia Still a Millionaire-Maker Stock?",
         "en": null
       },
       "image": {
-        "url": "https://content-media.investing.com/trkd-images/LYNXNPEMA4217_L.jpg",
-        "width": null,
-        "height": null
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892865%2Fgettyimages-2217957588-1200x800-5b2df79.jpg&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
       },
       "news_url": "https://news.dappgo.com/us/?stock=NVDA"
-    },
-    {
-      "market": "us",
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=6263c4f23340af6f09ffcc9dbde7d7529b5d74a2b1941924387718cf7caca5af",
-      "published_at_utc": "2026-11-05T17:33:43Z",
-      "title": {
-        "original": "The Stocks Making Noise-And the Ones That Actually Matter",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2026/11/the-stocks-making-noise-and-the-ones-that-actually-featured-1793551372006.webp",
-        "width": 1920,
-        "height": 1072
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=82e02201b535baaa33386b2468c7a2451e16408fcbac4763c77b9152b58a175f",
-      "published_at_utc": "2026-11-05T17:14:44Z",
-      "title": {
-        "original": "Qualcomm Says December Won’t Be Its Biggest Quarter Anymore as Apple Walks Away",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2018/01/qualcomm-inc-president-cristiano-amon.jpg",
-        "width": 1366,
-        "height": 768
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
-    },
-    {
-      "market": "us",
-      "symbol": "TSLA",
-      "name": "Tesla Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=77a15cc6acdfe88dce6e4fcc2ce99a3e512c1e0c085d2acef037c2117be94d72",
-      "published_at_utc": "2026-11-05T17:14:38Z",
-      "title": {
-        "original": "Citi Loads Up On Tesla, Lucid And Rivian In Q3 While Slashing XPeng, General Motors",
-        "en": null
-      },
-      "image": {
-        "url": "https://news.stocktwits-cdn.com/large_Getty_Images_2301339472_8ae78bcffa.jpg",
-        "width": 200,
-        "height": 200
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=TSLA"
     },
     {
       "market": "us",
       "symbol": "SPCX",
       "name": "Space Exploration Technologies Corp. (SpaceX)",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=48617d216d074b97265c70d8b5cb160dfe1d00720d6886ea5472c88c38e92104",
-      "published_at_utc": "2026-11-05T17:04:17Z",
+      "url": "https://finnhub.io/api/news?id=e58760c80558a1f56194cb88bc4575de0a7039316c173b27a48513174ab838c4",
+      "published_at_utc": "2026-11-05T21:03:35Z",
       "title": {
-        "original": "Musk Says “Data Centers In Space Looking Pretty Appealing Right Now” After Voters Sided Against Data Centers In 40 Of 41 Local Ballot Measures, As SpaceX, CoreWeave And Nebius Are Plunging Today",
+        "original": "SpaceX and Tesla Stock Plunges Have Wiped About $450 Billion in Value Since the Midterms. Is It Time to Buy?",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2026/08/shutterstock_2590658067.jpg",
-        "width": 2560,
-        "height": 1707
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd18e9af5b6f8dd6dd96e94e002c6fbe8c49378fa-6800x4800.jpg&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
       },
       "news_url": "https://news.dappgo.com/us/?stock=SPCX"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=eb9fbb561f78d56b4fb209529aa525948e5fb4e9b0f8ce4db84193c45d181bef",
+      "published_at_utc": "2026-11-05T21:03:05Z",
+      "title": {
+        "original": "Apple Reportedly Set To Raise $7.5B From Bond Offering Amid Market Selloff",
+        "en": null
+      },
+      "image": {
+        "url": "https://news.stocktwits-cdn.com/large_Getty_Images_2295892067_b57e4116e9.jpg",
+        "width": 200,
+        "height": 200
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+    },
+    {
+      "market": "us",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=6191b8e02e60b4fd11cb66451cc10b1f73abc1d81b816402145f6977ed5a1825",
+      "published_at_utc": "2026-11-05T20:27:00Z",
+      "title": {
+        "original": "Reddit Sinks 8% as Social Ad Worries Deepen in Tech Rout",
+        "en": null
+      },
+      "image": {
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1791564559/images/Reddit/Reddit.png?_i=AA",
+        "width": 1200,
+        "height": 600
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=META"
+    },
+    {
+      "market": "us",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=425b828f89b5e7c747ea76ecb68e238ab358fe7a9ab1b650ffed14ca735e4e5a",
+      "published_at_utc": "2026-11-05T20:24:40Z",
+      "title": {
+        "original": "Amazon-Uber Eats Deal Sends DASH Stock To Biggest Drop In A Year",
+        "en": null
+      },
+      "image": {
+        "url": "https://news.stocktwits-cdn.com/gettyimages_2150322951_612x612_da9f5a4822.jpg",
+        "width": 200,
+        "height": 200
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
       "market": "tw",
