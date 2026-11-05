@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -30,6 +31,14 @@ export function appStructuredData(catalog) {
   };
 }
 
+// home.css is inlined so first paint on mobile doesn't wait for a render-blocking request;
+// edit assets/home/home.css and run scripts/render-pulse-html.mjs.
+export function inlineHomeCss() {
+  const css = fs.readFileSync(new URL("../../assets/home/home.css", import.meta.url), "utf8").trim();
+  if (/<\/style/i.test(css)) throw new Error("home.css must not contain </style");
+  return `\n    <style>\n${css}\n    </style>\n    `;
+}
+
 export function renderPulseHtml(html, pulse, lang, catalog) {
   const t = I18N[lang];
   const markets = Object.values(pulse.markets);
@@ -56,6 +65,7 @@ export function renderPulseHtml(html, pulse, lang, catalog) {
     html = html.replace(new RegExp(`(data-count="${key}">)[^<]*(</small>)`), (_, a, b) => a + pulse.news.filter((n) => n.market === key).length + b);
   }
   html = replaceRegion(html, "pulse:source", `<span data-pulse-source>${esc(fill(t.sourceLine, { built: pulse.built_at_utc.replace("T", " ").replace("Z", "") }))}</span>`);
+  html = replaceRegion(html, "home:css", inlineHomeCss());
   const json = JSON.stringify(appStructuredData(catalog), null, 2).replace(/</g, "\\u003c");
   return replaceRegion(html, "apps:jsonld", `    <script type="application/ld+json">\n${json}\n    </script>`);
 }
