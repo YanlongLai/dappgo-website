@@ -110,7 +110,7 @@ test("pulse workflow includes both generated pages in no-op and commit paths", (
 test("canonical pulse build refreshes both pages and repairs HTML even on an unchanged-data run", () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pulse-build-test-"));
   try {
-    for (const name of ["index.html", "assets/home/home.js", "config/product-catalog.json", "data/pulse.json",
+    for (const name of ["index.html", "assets/home/home.js", "assets/home/home.css", "config/product-catalog.json", "data/pulse.json",
       "scripts/build-pulse.mjs", "scripts/build-zh-home.mjs", "scripts/render-pulse-html.mjs", "scripts/lib/home-html.mjs"]) {
       const file = path.join(directory, name);
       fs.mkdirSync(path.dirname(file), { recursive: true });
