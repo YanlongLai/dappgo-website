@@ -1,7 +1,8 @@
-@font-face { font-family: "Grotesk"; src: url("/assets/demo/space-grotesk-semibold.ttf") format("truetype"); font-weight: 600 700; font-display: swap; }
-@font-face { font-family: "Grotesk"; src: url("/assets/demo/space-grotesk-regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Inter"; src: url("/fonts/Inter-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Inter"; src: url("/fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+/* Latin-only subsets of the Space Grotesk and Inter files (see fonts/README.md); CJK text uses the system fallback. */
+@font-face { font-family: "Grotesk"; src: url("/assets/home/fonts/grotesk-600-latin.woff2") format("woff2"); font-weight: 600 700; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+2248, U+2260, U+2264-2265, U+25B2, U+25BC; }
+@font-face { font-family: "Grotesk"; src: url("/assets/home/fonts/grotesk-400-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+2248, U+2260, U+2264-2265, U+25B2, U+25BC; }
+@font-face { font-family: "Inter"; src: url("/assets/home/fonts/inter-400-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+2248, U+2260, U+2264-2265, U+25B2, U+25BC; }
+@font-face { font-family: "Inter"; src: url("/assets/home/fonts/inter-600-latin.woff2") format("woff2"); font-weight: 600; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+2248, U+2260, U+2264-2265, U+25B2, U+25BC; }
 
 /* DappGo blue: the long-standing brand base (#245dde), light by default with a system dark mode. */
 :root {
@@ -10,7 +11,7 @@
   --surface-2: #edf0f5;
   --ink: #192029;
   --muted: #5c6572;
-  --dim: #8a93a0;
+  --dim: #626b78;
   --line: #dce0e6;
   --blue: #245dde;
   --blue-bright: #4d84ff;
@@ -40,7 +41,7 @@
     --surface-2: #17223a;
     --ink: #eef2f8;
     --muted: #a5b0c2;
-    --dim: #6f7c92;
+    --dim: #7d8aa0;
     --line: #24314b;
     --blue: #6f9bff;
     --blue-bright: #8bb0ff;
@@ -205,7 +206,7 @@ html:not(.js) .wire-tabs { display: none; }
 @keyframes grow { from { transform: scaleX(0); } }
 .one-liner { font: 600 18px/1.35 var(--display); letter-spacing: -0.01em; }
 .movers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.movers h4 { margin: 0 0 8px; font: 500 11px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.movers h3 { margin: 0 0 8px; font: 500 11px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 .movers ul, .ideas { list-style: none; margin: 0; padding: 0; }
 .movers li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; padding: 7px 0; border-top: 1px solid var(--line); font: 500 14px var(--mono); }
 .movers li span:first-child { min-width: 0; overflow-wrap: anywhere; }
