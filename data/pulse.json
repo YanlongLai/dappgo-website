@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-06T20:15:20Z",
+  "built_at_utc": "2026-11-06T22:45:14Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-11-06",
-      "generated_at_utc": "2026-11-06T19:14:07Z",
+      "generated_at_utc": "2026-11-06T22:08:41Z",
       "schema_version": "1.2.0",
-      "data_hash": "cf5a54cd5256406a58008ce994a8dbdf894ef921eded0ce7ab29ff2c0c0686c0",
+      "data_hash": "04356a750edec3d21aa983594a68e820c6c9e9be4386cb1c3228bdd32ba49023",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -15,79 +15,79 @@
       },
       "web_url": "https://stocks.dappgo.com/us/",
       "regime": "mixed",
-      "breadth_score": 0.385,
-      "advance_decline_ratio": 2.25,
+      "breadth_score": 0.308,
+      "advance_decline_ratio": 1.17,
       "vol_regime": "choppy",
       "one_liner": {
-        "en": "Today's report: 26 tickers, market regime: mixed.",
-        "zh": "今日 26 檔個股，市場環境訊號分歧（SPY 趨勢 down + 漲家數 38% + 波動 cho）。"
+        "en": "Today's report: 1 BUY / 0 SELL, market regime: mixed.",
+        "zh": "今日 1 檔買進 / 0 檔賣出，市場環境訊號分歧（SPY 趨勢 down + 漲家數 31% + 波動 cho）。"
       },
       "gainers": [
         {
           "symbol": "ABNB",
           "name": "Airbnb, Inc.",
-          "return_pct": 16.22,
-          "close": 191.06
+          "return_pct": 15.57,
+          "close": 189.99
         },
         {
           "symbol": "BABA",
           "name": "Alibaba Group Holding Limited",
-          "return_pct": 11.32,
-          "close": 109.14
+          "return_pct": 11.64,
+          "close": 109.45
         },
         {
           "symbol": "AMZN",
           "name": "Amazon.com Inc.",
-          "return_pct": 9.18,
-          "close": 262.41
+          "return_pct": 7.88,
+          "close": 259.3
         },
         {
           "symbol": "ISRG",
           "name": "Intuitive Surgical, Inc.",
-          "return_pct": 5.04,
-          "close": 453.8
+          "return_pct": 4.81,
+          "close": 452.8
         }
       ],
       "losers": [
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -29.43,
-          "close": 138.59
+          "return_pct": -28.11,
+          "close": 141.2
         },
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": -13.03,
-          "close": 57.19
-        },
-        {
-          "symbol": "AMD",
-          "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -11.49,
-          "close": 446.8
+          "return_pct": -14.42,
+          "close": 56.28
         },
         {
           "symbol": "EWT",
           "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -11.3,
-          "close": 89.69
+          "return_pct": -11.74,
+          "close": 89.24
+        },
+        {
+          "symbol": "AMD",
+          "name": "Advanced Micro Devices, Inc.",
+          "return_pct": -11.05,
+          "close": 449.04
         }
       ],
       "picks": [
         {
           "symbol": "META",
           "name": "Meta Platforms, Inc.",
-          "score": 62,
+          "score": 61,
           "signals": {
             "en": [
-              "Below MA20 6.7%",
-              "RSI 39 near oversold",
+              "Below MA20 7.9%",
+              "RSI 37 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.7%",
-              "RSI 39 接近超賣",
+              "低於 MA20 -7.9%",
+              "RSI 37 接近超賣",
               "KD 黃金交叉"
             ]
           }
@@ -95,17 +95,34 @@
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "score": 56,
+          "score": 59,
           "signals": {
             "en": [
-              "Below MA20 3.6%",
-              "RSI 41 near oversold",
+              "Below MA20 4.3%",
+              "RSI 40 near oversold",
               "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -3.6%",
-              "RSI 41 接近超賣",
+              "低於 MA20 -4.3%",
+              "RSI 40 接近超賣",
               "MACD 翻多"
+            ]
+          }
+        },
+        {
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "score": 38,
+          "signals": {
+            "en": [
+              "Below MA20 0.3%",
+              "RSI 51 neutral-to-weak",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -0.3%",
+              "RSI 51 中性偏弱",
+              "KD 黃金交叉"
             ]
           }
         }
@@ -221,9 +238,9 @@
     },
     "options": {
       "report_date": "2026-11-06",
-      "generated_at_utc": "2026-11-06T19:54:14Z",
+      "generated_at_utc": "2026-11-06T21:57:45Z",
       "schema_version": "1.4.0",
-      "data_hash": "7eb9a71d6ea760a08221f8d7780d5e97fd3704e2ec96cebcd692144942ff0614",
+      "data_hash": "dee6c60098eaf6cc43555924d6f85dbc14c4b8a7f2efd9dee6574986763e5e76",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -232,51 +249,51 @@
       "web_url": "https://options.dappgo.com/us/",
       "ideas": [
         {
-          "symbol": "AMD",
-          "strategy": "sell_put",
-          "strike": 400,
-          "premium": 5.2,
-          "expiry": "2026-11-11",
-          "dte": 5,
-          "iv": 103.1,
-          "pop": 79.2,
-          "annualized": 94.9,
-          "score": 56.5
-        },
-        {
           "symbol": "AVGO",
           "strategy": "sell_put",
-          "strike": 262.5,
-          "premium": 1.68,
+          "strike": 265,
+          "premium": 1.08,
           "expiry": "2026-11-11",
           "dte": 5,
-          "iv": 78.6,
-          "pop": 86.6,
-          "annualized": 46.7,
-          "score": 56.1
-        },
-        {
-          "symbol": "MRVL",
-          "strategy": "sell_put",
-          "strike": 125,
-          "premium": 3,
-          "expiry": "2026-11-13",
-          "dte": 7,
-          "iv": 111.9,
-          "pop": 72.4,
-          "annualized": 125.1,
-          "score": 55.9
+          "iv": 74.1,
+          "pop": 87.5,
+          "annualized": 29.8,
+          "score": 57.3
         },
         {
           "symbol": "TSLA",
           "strategy": "sell_put",
-          "strike": 325,
-          "premium": 1.49,
+          "strike": 322.5,
+          "premium": 1.5,
           "expiry": "2026-11-11",
           "dte": 5,
-          "iv": 70.4,
-          "pop": 88.9,
-          "annualized": 33.5,
+          "iv": 74.6,
+          "pop": 87.8,
+          "annualized": 34,
+          "score": 57
+        },
+        {
+          "symbol": "MRVL",
+          "strategy": "sell_put",
+          "strike": 127,
+          "premium": 2.88,
+          "expiry": "2026-11-13",
+          "dte": 7,
+          "iv": 110.6,
+          "pop": 73.3,
+          "annualized": 118.2,
+          "score": 56.2
+        },
+        {
+          "symbol": "AMD",
+          "strategy": "sell_put",
+          "strike": 405,
+          "premium": 4.25,
+          "expiry": "2026-11-11",
+          "dte": 5,
+          "iv": 96.2,
+          "pop": 80.7,
+          "annualized": 76.6,
           "score": 55.9
         }
       ],
@@ -284,52 +301,52 @@
         {
           "symbol": "ABNB",
           "name": "Airbnb, Inc.",
-          "return_pct": 12.45,
-          "close": 191.31
+          "return_pct": 11.67,
+          "close": 189.99
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 9.82,
-          "close": 444.13
+          "return_pct": 11.04,
+          "close": 449.04
         },
         {
           "symbol": "SPCX",
           "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": 8.3,
-          "close": 133.88
+          "return_pct": 8.62,
+          "close": 134.27
         },
         {
           "symbol": "INTC",
           "name": "Intel Corporation",
-          "return_pct": 8.15,
-          "close": 56.51
+          "return_pct": 7.71,
+          "close": 56.28
         }
       ],
       "losers": [
         {
           "symbol": "ISRG",
           "name": "Intuitive Surgical, Inc.",
-          "return_pct": -3.13,
-          "close": 453.87
+          "return_pct": -3.36,
+          "close": 452.8
         },
         {
           "symbol": "NFLX",
           "name": "Netflix Inc.",
-          "return_pct": -2.74,
-          "close": 63.77
+          "return_pct": -3.28,
+          "close": 63.41
         },
         {
-          "symbol": "SHEL",
-          "name": "Shell plc",
-          "return_pct": -1.06,
-          "close": 99.06
+          "symbol": "ARCC",
+          "name": "Ares Capital Corporation",
+          "return_pct": -1.14,
+          "close": 19.13
         },
         {
           "symbol": "COST",
           "name": "Costco Wholesale Corporation",
-          "return_pct": -0.86,
-          "close": 1056.44
+          "return_pct": -1.13,
+          "close": 1053.56
         }
       ],
       "backtest": {
@@ -341,111 +358,111 @@
   "news": [
     {
       "market": "us",
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
       "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/investingcoms-stocks-of-the-week-5009013",
-      "published_at_utc": "2026-11-06T18:48:19Z",
+      "url": "https://www.investing.com/news/stock-market-news/metas-muse-app-adds-customizable-spaces-feature-93CH-5009233",
+      "published_at_utc": "2026-11-06T21:36:14Z",
       "title": {
-        "original": "Investing.com’s stocks of the week",
+        "original": "Meta’s Muse app adds customizable spaces feature",
         "en": null
       },
       "image": {
-        "url": "https://content-media.investing.com/news/LYNXMPEM230X4_1200_L.jpg",
+        "url": "https://content-media.investing.com/news/LYNXNPEE7S0V8_M.jpg",
         "width": null,
         "height": null
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
+      "news_url": "https://news.dappgo.com/us/?stock=META"
     },
     {
       "market": "us",
       "symbol": "MSFT",
       "name": "Microsoft Corporation",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/microsoft-is-winding-down-oracle-deal-to-rent-ai-cloud-capacity-bloomberg-news-reports-5008946",
-      "published_at_utc": "2026-11-06T18:18:41Z",
-      "title": {
-        "original": "Microsoft is winding down Oracle deal to rent AI cloud capacity, Bloomberg News reports",
-        "en": null
-      },
-      "image": {
-        "url": "https://content-media.investing.com/trkd-images/LYNXNPEMA51S2_L.jpg",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=f2ac749267eccb059f97672938e3cd68181ea001062b69d9f76d919376395db6",
-      "published_at_utc": "2026-11-06T17:23:13Z",
+      "url": "https://finnhub.io/api/news?id=2fd7129275681e6971a4303583f1b62e8f6df7d72e9a36b6f218846161727553",
+      "published_at_utc": "2026-11-06T19:35:17Z",
       "title": {
-        "original": "Apple Is “the Anti-AI Large Cap Tech Trade,” Says Josh Brown. Now It’s Capping AI Spending",
+        "original": "Microsoft and Google Face a New Bill as Data Centers “Have to Pay Their Own Costs”",
         "en": null
       },
       "image": {
-        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792700587/images/9-12_1439605ac7d/9-12_1439605ac7d.png?_i=AA",
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792168547/images/FEATURED-IMAGE-MAKER-1809/FEATURED-IMAGE-MAKER-1809.png?_i=AA",
         "width": 1200,
         "height": 600
       },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
     },
     {
       "market": "us",
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=6566e1de06f1a630b7a93bd9485b92fbe4616410ce320634fae96767e48ea795",
-      "published_at_utc": "2026-11-06T17:03:01Z",
+      "url": "https://finnhub.io/api/news?id=5bea0bbd6dac05418cb751215ae8cb033b1e014f956d0dd06504a02a4b8b347d",
+      "published_at_utc": "2026-11-06T19:34:42Z",
       "title": {
-        "original": "Forget Nvidia. Here’s the Company Behind the Chips",
+        "original": "Jensen Huang Out of the World’s 10 Richest People as AI Selloff Hits Wall Street",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2022/03/imageForEntry12-25Q.jpg",
+        "url": "https://247wallst.com/wp-content/uploads/2021/08/imageForEntry27-8Xf.jpg",
         "width": 1366,
-        "height": 768
+        "height": 767
       },
       "news_url": "https://news.dappgo.com/us/?stock=NVDA"
-    },
-    {
-      "market": "us",
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=6566e1de06f1a630b7a93bd9485b92fbe4616410ce320634fae96767e48ea795",
-      "published_at_utc": "2026-11-06T17:03:01Z",
-      "title": {
-        "original": "Forget Nvidia. Here’s the Company Behind the Chips",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2022/03/imageForEntry12-25Q.jpg",
-        "width": 1366,
-        "height": 768
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AVGO"
     },
     {
       "market": "us",
       "symbol": "TSLA",
       "name": "Tesla Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=9afa7aa101c264137625160379b5e562ef18a5915d2be2b5c087f45a26388cd6",
-      "published_at_utc": "2026-11-06T16:57:50Z",
+      "url": "https://finnhub.io/api/news?id=7ee8ab0332e9208596ee1512b9a0351d181878210ca26d42b541428cd6ac7139",
+      "published_at_utc": "2026-11-06T19:28:18Z",
       "title": {
-        "original": "Nio Climbs 6%, Tesla and Lucid Rise 5% as EV Stocks Rebound From Election Sell-Off",
+        "original": "NIO Soars 6%, XPeng Up 7% as EV Stocks Bounce Back After Midterm Sell-Off",
         "en": null
       },
       "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2023/12/GettyImages-1648468032-scaled.jpg",
-        "width": 2560,
-        "height": 1707
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792471310/images/16_1416527d711_1416521769e/16_1416527d711_1416521769e.png?_i=AA",
+        "width": 1200,
+        "height": 600
       },
       "news_url": "https://news.dappgo.com/us/?stock=TSLA"
+    },
+    {
+      "market": "us",
+      "symbol": "GOOG",
+      "name": "Alphabet Inc. (Class C)",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=e7e79fff72bc352399da626e75c4b5c1a108dc905ec2eb8d68afb2d280c56293",
+      "published_at_utc": "2026-11-06T19:26:29Z",
+      "title": {
+        "original": "Google Is Spending $17 Billion on a Wyoming Data Center and Says It Will Pay for 100% of Its Power",
+        "en": null
+      },
+      "image": {
+        "url": "https://247wallst.com/wp-content/uploads/2018/07/imageforentry8214.jpg",
+        "width": 1366,
+        "height": 768
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=GOOG"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=ab5323f46f0fa0682a6b445c8d67ac4b840b9604fb43c66a4553795bb3ed4d8f",
+      "published_at_utc": "2026-11-06T19:26:24Z",
+      "title": {
+        "original": "Dan Ives: “20% of the World” Will Access AI Through an Apple Device",
+        "en": null
+      },
+      "image": {
+        "url": "https://res.cloudinary.com/tikr/images/w_600,h_400,c_scale/f_webp,q_auto/v1792976106/images/9-15_1453077213e/9-15_1453077213e.png?_i=AA",
+        "width": 1200,
+        "height": 600
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     }
   ]
 }
