@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-05T22:45:41Z",
+  "built_at_utc": "2026-11-06T09:20:19Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
-      "report_date": "2026-11-05",
-      "generated_at_utc": "2026-11-05T22:26:35Z",
+      "report_date": "2026-11-06",
+      "generated_at_utc": "2026-11-06T00:12:22Z",
       "schema_version": "1.2.0",
-      "data_hash": "8e0f646079f75bdd15a0b860c7c061a2897fc76b539916dbeebd9e4ffc584a50",
+      "data_hash": "401e63229c82de21a83593789f9357c3de171a9191adba924fbc70cce77c7ae0",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-05",
-      "generated_at_utc": "2026-11-05T08:49:03Z",
+      "report_date": "2026-11-06",
+      "generated_at_utc": "2026-11-06T08:44:03Z",
       "schema_version": "1.2.0",
-      "data_hash": "96f4df5aa5025bcd8814503fc099153f11913915aa8a0228f69392a8f1cf8ad2",
+      "data_hash": "3e3c4ac03735ccfb4efaf801ed204080160713b76dda504e997ed97b7d2eca34",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,124 +140,107 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.168,
-      "advance_decline_ratio": 0.55,
+      "breadth_score": 0.129,
+      "advance_decline_ratio": 0.13,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 9 BUY / 0 SELL, market regime: risk-off.",
-        "zh": "今日 9 檔買進 / 0 檔賣出，市場環境風險規避（漲家數佔比僅 17% + 波動偏高 = 風險規避）。"
+        "en": "Today's report: 3 BUY / 1 SELL, market regime: risk-off.",
+        "zh": "今日 3 檔買進 / 1 檔賣出，市場環境風險規避（漲家數佔比僅 13% + 波動偏高 = 風險規避）。"
       },
       "gainers": [
         {
-          "symbol": "6446",
-          "name": "藥華藥",
-          "return_pct": 4.17,
-          "close": 1250
-        },
-        {
-          "symbol": "2412",
-          "name": "中華電",
-          "return_pct": 3.19,
-          "close": 161.5
-        },
-        {
           "symbol": "2618",
           "name": "長榮航",
-          "return_pct": 3.18,
-          "close": 43.75
+          "return_pct": 5.5,
+          "close": 45.1
         },
         {
           "symbol": "1216",
           "name": "統一",
-          "return_pct": 2.8,
+          "return_pct": 2.41,
           "close": 80.9
+        },
+        {
+          "symbol": "2412",
+          "name": "中華電",
+          "return_pct": 2.22,
+          "close": 161.5
+        },
+        {
+          "symbol": "2207",
+          "name": "和泰車",
+          "return_pct": 0.94,
+          "close": 537
         }
       ],
       "losers": [
         {
           "symbol": "2360",
           "name": "致茂",
-          "return_pct": -27.76,
-          "close": 1470
+          "return_pct": -31.36,
+          "close": 1335
         },
         {
           "symbol": "7750",
           "name": "新代",
-          "return_pct": -25.69,
-          "close": 1490
+          "return_pct": -28.95,
+          "close": 1485
         },
         {
           "symbol": "3532",
           "name": "台勝科",
-          "return_pct": -23.69,
-          "close": 312.5
+          "return_pct": -28.64,
+          "close": 281.5
         },
         {
-          "symbol": "7769",
-          "name": "鴻勁",
-          "return_pct": -21.56,
-          "close": 4365
+          "symbol": "6213",
+          "name": "聯茂",
+          "return_pct": -26.04,
+          "close": 551
         }
       ],
       "picks": [
         {
-          "symbol": "8046",
-          "name": "南電",
-          "score": 59,
+          "symbol": "5871",
+          "name": "中租-KY",
+          "score": 45,
           "signals": {
             "en": [
-              "Below MA20 18.8%",
-              "RSI 33 near oversold",
+              "Below MA20 1.7%",
+              "RSI 39 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -18.8%",
-              "RSI 33 接近超賣",
+              "低於 MA20 -1.7%",
+              "RSI 39 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "6789",
-          "name": "采鈺",
-          "score": 59,
+          "symbol": "6446",
+          "name": "藥華藥",
+          "score": 43,
           "signals": {
             "en": [
-              "Below MA20 11.8%",
-              "RSI 33 near oversold",
-              "Golden KD cross"
+              "Below MA20 0.8%",
+              "RSI 47 neutral-to-weak",
+              "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -11.8%",
-              "RSI 33 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "1402",
-          "name": "遠東新",
-          "score": 50,
-          "signals": {
-            "en": [
-              "Below MA20 2.1%",
-              "RSI 44 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -2.1%",
-              "RSI 44 接近超賣",
-              "KD 黃金交叉"
+              "低於 MA20 -0.8%",
+              "RSI 47 中性偏弱",
+              "MACD 翻多"
             ]
           }
         }
       ]
     },
     "options": {
-      "report_date": "2026-11-05",
-      "generated_at_utc": "2026-11-05T18:52:09Z",
-      "schema_version": "1.3.0",
-      "data_hash": "2e97e885c126509b64c1b3753c3bc9729b14e04d4ffe37388d108ca6ab209f99",
+      "report_date": "2026-11-06",
+      "generated_at_utc": "2026-11-06T02:13:07Z",
+      "schema_version": "1.4.0",
+      "data_hash": "781a65580219065eb38d4c614996f5f63939284f19c88489625d2819bcf9cb83",
       "coverage": {
         "covered": 26,
         "expected": 26,
@@ -268,102 +251,102 @@
         {
           "symbol": "MRVL",
           "strategy": "sell_put",
-          "strike": 124,
-          "premium": 3.75,
+          "strike": 120,
+          "premium": 3.95,
           "expiry": "2026-11-13",
           "dte": 8,
-          "iv": 119.1,
-          "pop": 68.8,
-          "annualized": 138,
-          "score": 55.9
+          "iv": 123.3,
+          "pop": 69.2,
+          "annualized": 150.2,
+          "score": 57.9
+        },
+        {
+          "symbol": "INTC",
+          "strategy": "sell_put",
+          "strike": 47,
+          "premium": 1.21,
+          "expiry": "2026-11-13",
+          "dte": 8,
+          "iv": 111.2,
+          "pop": 71.5,
+          "annualized": 117.5,
+          "score": 56
         },
         {
           "symbol": "SPCX",
           "strategy": "sell_put",
           "strike": 110,
-          "premium": 1.33,
+          "premium": 1.54,
           "expiry": "2026-11-11",
           "dte": 6,
-          "iv": 98.4,
-          "pop": 81.1,
-          "annualized": 73.6,
-          "score": 55.7
-        },
-        {
-          "symbol": "INTC",
-          "strategy": "sell_put",
-          "strike": 48,
-          "premium": 1.05,
-          "expiry": "2026-11-13",
-          "dte": 8,
-          "iv": 106.5,
-          "pop": 74.5,
-          "annualized": 99.8,
-          "score": 55.4
+          "iv": 102.1,
+          "pop": 79.7,
+          "annualized": 85.2,
+          "score": 55.9
         },
         {
           "symbol": "META",
           "strategy": "sell_put",
-          "strike": 542.5,
-          "premium": 2.32,
+          "strike": 545,
+          "premium": 1.94,
           "expiry": "2026-11-11",
           "dte": 6,
-          "iv": 65.6,
-          "pop": 89.4,
-          "annualized": 26,
-          "score": 55.4
+          "iv": 63,
+          "pop": 89.7,
+          "annualized": 21.7,
+          "score": 55.7
         }
       ],
       "gainers": [
         {
-          "symbol": "COST",
-          "name": "Costco Wholesale Corporation",
-          "return_pct": 1.92,
-          "close": 1066.54
-        },
-        {
           "symbol": "BABA",
           "name": "Alibaba Group Holding Limited",
-          "return_pct": 1.41,
-          "close": 106.77
+          "return_pct": 2.64,
+          "close": 108.07
+        },
+        {
+          "symbol": "COST",
+          "name": "Costco Wholesale Corporation",
+          "return_pct": 1.83,
+          "close": 1065.59
         },
         {
           "symbol": "TLT",
           "name": "iShares 20+ Year Treasury Bond ETF",
-          "return_pct": 0.4,
-          "close": 82.09
+          "return_pct": 0.21,
+          "close": 81.93
         },
         {
-          "symbol": "SHEL",
-          "name": "Shell plc",
-          "return_pct": -0.63,
-          "close": 101.22
+          "symbol": "ARCC",
+          "name": "Ares Capital Corporation",
+          "return_pct": -0.57,
+          "close": 19.35
         }
       ],
       "losers": [
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": -15.27,
-          "close": 414.17
+          "return_pct": -17.26,
+          "close": 404.4
         },
         {
           "symbol": "MRVL",
           "name": "Marvell Technology, Inc.",
-          "return_pct": -14.18,
-          "close": 137.14
-        },
-        {
-          "symbol": "TSLA",
-          "name": "Tesla Inc.",
-          "return_pct": -11.51,
-          "close": 340.87
+          "return_pct": -16.43,
+          "close": 133.55
         },
         {
           "symbol": "EWT",
           "name": "iShares MSCI Taiwan ETF",
-          "return_pct": -10.48,
-          "close": 86.91
+          "return_pct": -11.54,
+          "close": 85.88
+        },
+        {
+          "symbol": "TSM",
+          "name": "Taiwan Semiconductor Manufacturing Company Limited",
+          "return_pct": -10.78,
+          "close": 353.1
         }
       ],
       "backtest": {
@@ -375,37 +358,19 @@
   "news": [
     {
       "market": "us",
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "source": "Investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/microsoft-tightens-oversight-of-neocloud-data-center-projects-bloomberg-news-reports-5005281",
-      "published_at_utc": "2026-11-05T22:06:55Z",
-      "title": {
-        "original": "Microsoft tightens oversight of neocloud data center projects, Bloomberg News reports",
-        "en": null
-      },
-      "image": {
-        "url": "https://content-media.investing.com/trkd-images/LYNXNPEMA41X2_L.jpg",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
-    },
-    {
-      "market": "us",
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=294cc7b26930fa99d7a7ea33302356fa58734445935665c39658028e91a3b07e",
-      "published_at_utc": "2026-11-05T21:11:00Z",
+      "source": "Investing.com",
+      "url": "https://www.investing.com/news/company-news/nvidia-sale-by-daniel-meuser-reported-in-schwab-account-93CH-5006054",
+      "published_at_utc": "2026-11-05T23:01:26Z",
       "title": {
-        "original": "Is Nvidia Still a Millionaire-Maker Stock?",
+        "original": "NVIDIA sale by Daniel Meuser reported in Schwab account",
         "en": null
       },
       "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892865%2Fgettyimages-2217957588-1200x800-5b2df79.jpg&w=1200&op=resize",
-        "width": 1200,
-        "height": 630
+        "url": "https://content-media.investing.com/news/moved_LYNXNPEK1L0CN_L.jpg",
+        "width": null,
+        "height": null
       },
       "news_url": "https://news.dappgo.com/us/?stock=NVDA"
     },
@@ -482,88 +447,22 @@
       "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
-      "market": "tw",
-      "symbol": "2317",
-      "name": "鴻海",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9856773",
-      "published_at_utc": "2026-11-04T05:30:30Z",
+      "market": "us",
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=8878d9d4f14d5f0ee0d0a5262cfbba7ec80955cee0be3aad6864baebf0d3c6eb",
+      "published_at_utc": "2026-11-05T19:17:42Z",
       "title": {
-        "original": "AI 資本支出續強 法人預期鴻海營運具上修空間",
-        "en": "AI capex continues strong, institutions expect Hon Hai operations have upside revision room"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2317"
-    },
-    {
-      "market": "tw",
-      "symbol": "2330",
-      "name": "台積電",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3266679",
-      "published_at_utc": "2026-11-05T01:06:00Z",
-      "title": {
-        "original": "台積電翻紅漲15元至2275 台股跌勢收斂至212點",
-        "en": "TSMC turns positive, rises 15 yuan to 2275 yuan; TAIEX decline narrows to 212 points"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2330"
-    },
-    {
-      "market": "tw",
-      "symbol": "3036",
-      "name": "文曄",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9859541",
-      "published_at_utc": "2026-11-05T06:35:14Z",
-      "title": {
-        "original": "文曄法說會／第3季每股稅後純益7.97元創高 前三季達20.99元",
+        "original": "If You Invested $1,000 in Tesla at Its 2010 IPO, Here’s What You’d Have Today",
         "en": null
       },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=3036"
-    },
-    {
-      "market": "tw",
-      "symbol": "4938",
-      "name": "和碩",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9857165",
-      "published_at_utc": "2026-11-04T07:39:17Z",
-      "title": {
-        "original": "美期中選舉震撼科技股 童子賢力挺 AI 基本面：市場憂心過度",
-        "en": null
+      "image": {
+        "url": "https://247wallst.com/wp-content/uploads/2020/04/imageForEntry26-32O.jpg",
+        "width": 1366,
+        "height": 767
       },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=4938"
-    },
-    {
-      "market": "tw",
-      "symbol": "2357",
-      "name": "華碩",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9855832",
-      "published_at_utc": "2026-11-04T00:18:27Z",
-      "title": {
-        "original": "記憶體漲價怎麼賣？宏碁增彈性規格、華碩攻高階 雙11拚雙位數成長",
-        "en": null
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2357"
-    },
-    {
-      "market": "tw",
-      "symbol": "2454",
-      "name": "聯發科",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9857638",
-      "published_at_utc": "2026-11-04T10:48:44Z",
-      "title": {
-        "original": "聯發科AI ASIC布局再補強 延攬英特爾37年封裝大將Navid Shahriari",
-        "en": "MediaTek AI ASIC layout further strengthened, recruits Intel 37 year packaging heavyweight Navid Shahriari"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2454"
+      "news_url": "https://news.dappgo.com/us/?stock=TSLA"
     }
   ]
 }
