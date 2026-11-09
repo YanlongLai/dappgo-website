@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-09T20:15:19Z",
+  "built_at_utc": "2026-11-09T22:45:07Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-09",
-      "generated_at_utc": "2026-11-09T17:48:35Z",
+      "generated_at_utc": "2026-11-09T20:46:14Z",
       "schema_version": "1.4.0",
-      "data_hash": "caf761bdaaf7c20d2e71291f0dffc5d16015bf82c83425bdbf83d04079bd8827",
+      "data_hash": "89b9d99c38a38e4834bb7c6984d84ad6fd54ff927a2f9cd52ad154761e924688",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -268,102 +268,102 @@
         {
           "symbol": "SOXL",
           "strategy": "sell_put",
-          "strike": 50,
-          "premium": 4.2,
+          "strike": 51,
+          "premium": 4.05,
           "expiry": "2026-11-20",
           "dte": 11,
-          "iv": 182.2,
-          "pop": 56.8,
-          "annualized": 278.7,
-          "score": 68.3
+          "iv": 185.1,
+          "pop": 57.7,
+          "annualized": 263.5,
+          "score": 67.8
         },
         {
           "symbol": "IREN",
           "strategy": "sell_put",
           "strike": 19.5,
-          "premium": 1.19,
-          "expiry": "2026-11-27",
-          "dte": 18,
-          "iv": 120.4,
-          "pop": 61.9,
-          "annualized": 123.7,
-          "score": 58.2
-        },
-        {
-          "symbol": "SKHY",
-          "strategy": "sell_put",
-          "strike": 120,
-          "premium": 3.35,
+          "premium": 1.1,
           "expiry": "2026-11-20",
           "dte": 11,
-          "iv": 96.5,
-          "pop": 71,
-          "annualized": 92.6,
-          "score": 54.4
+          "iv": 139.9,
+          "pop": 61.1,
+          "annualized": 187.2,
+          "score": 59
         },
         {
           "symbol": "MRVL",
           "strategy": "sell_put",
-          "strike": 139,
-          "premium": 3.65,
+          "strike": 140,
+          "premium": 3.75,
           "expiry": "2026-11-20",
           "dte": 11,
-          "iv": 96.5,
-          "pop": 71,
-          "annualized": 87.1,
-          "score": 54
+          "iv": 93.9,
+          "pop": 71.8,
+          "annualized": 88.9,
+          "score": 54.2
+        },
+        {
+          "symbol": "SKHY",
+          "strategy": "sell_put",
+          "strike": 122,
+          "premium": 3.25,
+          "expiry": "2026-11-20",
+          "dte": 11,
+          "iv": 93.1,
+          "pop": 71.2,
+          "annualized": 88.4,
+          "score": 53.2
         }
       ],
       "gainers": [
         {
           "symbol": "SOXL",
           "name": "Direxion Daily Semiconductor Bull 3X Shares",
-          "return_pct": 20.58,
-          "close": 55.43
+          "return_pct": 24.15,
+          "close": 57.07
         },
         {
           "symbol": "OKLO",
           "name": "Oklo Inc.",
-          "return_pct": 12.48,
-          "close": 26.49
+          "return_pct": 15.88,
+          "close": 27.29
         },
         {
           "symbol": "AMD",
           "name": "Advanced Micro Devices, Inc.",
-          "return_pct": 11.84,
-          "close": 502.22
+          "return_pct": 14.33,
+          "close": 513.38
         },
         {
-          "symbol": "NET",
-          "name": "Cloudflare, Inc.",
-          "return_pct": 10.3,
-          "close": 296.42
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "return_pct": 10.22,
+          "close": 155.63
         }
       ],
       "losers": [
         {
           "symbol": "NVDA",
           "name": "NVIDIA Corporation",
-          "return_pct": -4.71,
-          "close": 177.85
+          "return_pct": -5.07,
+          "close": 177.19
         },
         {
           "symbol": "BABA",
           "name": "Alibaba Group Holding Limited",
-          "return_pct": -3.59,
-          "close": 105.52
+          "return_pct": -3.55,
+          "close": 105.56
         },
         {
-          "symbol": "TLT",
-          "name": "iShares 20+ Year Treasury Bond ETF",
-          "return_pct": 0.02,
-          "close": 81.94
+          "symbol": "IREN",
+          "name": "IREN Limited",
+          "return_pct": -0.76,
+          "close": 21.48
         },
         {
-          "symbol": "COST",
-          "name": "Costco Wholesale Corporation",
-          "return_pct": 0.14,
-          "close": 1055
+          "symbol": "SHEL",
+          "name": "Shell plc",
+          "return_pct": -0.22,
+          "close": 98.87
         }
       ],
       "backtest": {
