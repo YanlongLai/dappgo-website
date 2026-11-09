@@ -23,6 +23,12 @@ class ReadinessTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 module.verify(root)
 
+    def test_non_html_sitemap_entry_rejected(self):
+        self.altered_contract('sitemap.xml', '<loc>https://dappgo.com/</loc>', '<loc>https://dappgo.com/data/pulse.json</loc>')
+
+    def test_slashless_options_link_rejected(self):
+        self.altered_contract('index.html', 'href="/options/"', 'href="/options"')
+
     def test_training_opt_in_rejected(self):
         self.altered_contract('robots.txt', 'ai-train=no', 'ai-train=yes')
 

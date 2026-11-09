@@ -41,9 +41,18 @@ def verify(root: Path) -> None:
         assert 'data_url_v2' in text
         assert 'ai-train=no' in text
     locations = [node.text for node in ET.parse(root / 'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-    assert 'https://dappgo.com/ai-guide.txt' in locations
+    for resource in ('https://dappgo.com/ai-guide.txt', 'https://dappgo.com/mobile-version-policy.json', 'https://dappgo.com/data/pulse.json'):
+        assert resource not in locations, f'Non-HTML resource must not be in sitemap: {resource}'
     for location in locations:
         assert urlparse(location).hostname == 'dappgo.com'
+        assert not re.search(r'\.(txt|json|xml)$', urlparse(location).path), f'Sitemap lists a non-HTML resource: {location}'
+    # Options is served at /options/ (301 from /options). Slashless links create redirect chains in Search Console.
+    slashless = re.compile(r'(?:https://dappgo\.com|["\'(])/options(?![/\w.-])')
+    for path in root.rglob('*'):
+        relative = path.relative_to(root)
+        if path.suffix not in {'.html', '.js', '.mjs', '.json', '.txt', '.xml'} or {'.git', 'node_modules', 'artifacts', 'docs'} & set(relative.parts):
+            continue
+        assert not slashless.search(path.read_text(errors='ignore')), f'Slashless /options link in {relative}; use /options/'
     alternates = {'en': 'https://dappgo.com/', 'zh-Hant': 'https://dappgo.com/zh/', 'x-default': 'https://dappgo.com/'}
     assert alternates['zh-Hant'] in documents[0], 'llms.txt missing Traditional Chinese homepage'
     pulse = json.loads((root / 'data/pulse.json').read_text())
