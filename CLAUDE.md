@@ -47,13 +47,14 @@ privacy.html       privacy policy
 support.html       support FAQs and app-specific troubleshooting
 terms.html         terms of service
 llms.txt           AI crawler discovery — CDN endpoint catalogue
-sitemap.xml        SEO sitemap (keep in sync with llms.txt)
+sitemap.xml        SEO sitemap — indexable HTML pages only (data/text endpoints go in llms.txt only)
 robots.txt         crawler rules
 CNAME              dappgo.com
 ```
 
 ## Rules of thumb
 
-- Update `llms.txt` AND `sitemap.xml` together when exposing a new endpoint.
+- When exposing a new data or text endpoint (JSON, TXT, Markdown), add it to `llms.txt` only. Do not add it to `sitemap.xml`.
+- `sitemap.xml` lists only indexable HTML pages (and their clean-URL equivalents). Never list non-HTML resources there; Search Console reports them as "Discovered – currently not indexed".
 - Don't reference internal/private repos in `llms.txt` — public CDN paths only.
 - Schema: `llms.txt` references V1 CDN paths; bump when V2 ships (`schema.dappgo.com/v2/`).
