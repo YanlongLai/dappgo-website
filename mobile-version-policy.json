@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-11-06.2",
+  "revision": "2026-11-08.1",
   "apps": {
     "com.dappgo.usstocksapp": {
-      "ios": { "minimumVersion": "1.8.0" },
-      "android": { "minimumVersion": "1.8.0" }
+      "ios": { "minimumVersion": "1.8.2" },
+      "android": { "minimumVersion": "1.8.2" }
     },
     "com.dappgo.twstocksapp": {
-      "ios": { "minimumVersion": "1.8.0" },
-      "android": { "minimumVersion": "1.8.0" }
+      "ios": { "minimumVersion": "1.8.2" },
+      "android": { "minimumVersion": "1.8.2" }
     },
     "com.dappgo.optionsapp": {
-      "ios": { "minimumVersion": "1.8.0" },
-      "android": { "minimumVersion": "1.8.0" }
+      "ios": { "minimumVersion": "1.8.2" },
+      "android": { "minimumVersion": "1.8.2" }
     }
   }
 }
