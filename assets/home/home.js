@@ -15,7 +15,7 @@
       navPulse: "Today", navProducts: "Products", navNews: "News", navBusiness: "For business",
       kicker: "DappGo Studio · Research engines that ship", heroA: "Markets,", heroB: "compiled daily.",
       heroLede: "Every trading day our engines read US stocks, Taiwan stocks and US options — prices, filings, news and options chains — check the result, then publish it to the apps below. This page shows today’s run.",
-      ctaPulse: "See today’s report", ctaBusiness: "Automate your workflow",
+      heroApps: "Get the apps", ctaPulse: "See today’s report", ctaBusiness: "Automate your workflow",
       statMarkets: "Markets", statCovered: "Tickers covered today", statHeadlines: "Headlines on the wire", statVerified: "Payloads hash-verified",
       pulseTitle: "Today’s run", pulseLede: "Straight from the published reports. Each card opens the product that made it.",
       pulseNote: "Research and education only. Quotes may be delayed. No brokerage connection or trade execution; not personalized investment advice.",
@@ -76,7 +76,7 @@
       navPulse: "今日報告", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
       kicker: "DappGo Studio · 每天自動產出市場研究", heroA: "市場，", heroB: "每天幫你整理好。",
       heroLede: "每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。",
-      ctaPulse: "看今天的報告", ctaBusiness: "讓你的工作自動化",
+      heroApps: "下載 App", ctaPulse: "看今天的報告", ctaBusiness: "讓你的工作自動化",
       statMarkets: "市場", statCovered: "今日分析個股", statHeadlines: "新聞則數", statVerified: "資料驗證通過",
       pulseTitle: "今日報告", pulseLede: "以下內容直接來自今天發布的報告，點卡片就能打開對應的 App。",
       pulseNote: "內容僅供研究與學習參考，報價可能有延遲。本服務不串接券商、不代為下單，也不構成個人投資建議。",
@@ -127,6 +127,8 @@
     }
   };
 
+  // Shared store-link helper (assets/store-links.js): global in the browser, require() under Node.
+  const StoreLinks = typeof module === "object" && module.exports ? require("../store-links.js") : globalThis.DappGoStoreLinks;
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
   const pct = (v) => (v == null ? "—" : `${v > 0 ? "+" : ""}${v.toFixed(2)}%`);
@@ -138,7 +140,7 @@
     const isStale = (m) => !m || now - Date.parse(m.generated_at_utc) > STALE_HOURS * 3600e3;
     const fmtTime = (iso) => `${iso.slice(0, 10)} ${iso.slice(11, 16)} UTC`;
     const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
-    const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => `<a class="store" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`).join("")}</span>`;
+    const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => `<a class="store" href="${esc(StoreLinks.retarget(url, lang === "zh" ? "zh-home" : "home", "card"))}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`).join("")}</span>`;
     function moverList(title, rows) {
       return `<div><h3>${esc(title)}</h3><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>${r.name && r.name !== r.symbol ? `<small>${esc(r.name)}</small>` : ""}</li>`).join("")}</ul></div>`;
     }

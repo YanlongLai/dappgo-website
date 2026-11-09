@@ -111,7 +111,7 @@ test("canonical pulse build refreshes both pages and repairs HTML even on an unc
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pulse-build-test-"));
   try {
     for (const name of ["index.html", "assets/home/home.js", "assets/home/home.css", "config/product-catalog.json", "data/pulse.json",
-      "scripts/build-pulse.mjs", "scripts/build-zh-home.mjs", "scripts/render-pulse-html.mjs", "scripts/lib/home-html.mjs"]) {
+      "scripts/build-pulse.mjs", "scripts/build-zh-home.mjs", "scripts/render-pulse-html.mjs", "scripts/lib/home-html.mjs", "scripts/lib/store-links.mjs", "assets/store-links.js"]) {
       const file = path.join(directory, name);
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.copyFileSync(path.join(root, name), file);

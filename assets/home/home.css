@@ -397,3 +397,13 @@ html:not(.js) .wire-tabs { display: none; }
 
 /* Static catalog markup */
 .catalog > li { list-style: none; }
+
+/* Hero app row: one compact line linking to the app landing pages (store badges live there) */
+.hero-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 20px; }
+.hero-apps-label { margin: 0; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #9fc0ff; }
+.hero-apps ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-app-name { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 8px; border: 1px solid var(--navy-line); border-radius: 999px; background: rgba(255,255,255,.04); color: var(--on-navy); text-decoration: none; font: 600 13px var(--body); transition: border-color .2s ease, background .2s ease; }
+.hero-app-name img { border-radius: 6px; flex: none; }
+.hero-app-name span[aria-hidden] { opacity: .6; transition: transform .2s var(--ease); }
+.hero-app-name:hover { border-color: rgba(200, 215, 255, .6); background: rgba(255,255,255,.12); color: #fff; }
+.hero-app-name:hover span[aria-hidden] { transform: translate(2px, -2px); }

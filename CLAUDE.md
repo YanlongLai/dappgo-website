@@ -10,7 +10,7 @@
 - Conventions: `~/git/dappgo-stocks-meta/docs/CONVENTIONS.md` — TS / Python / commit standards
 
 ## This repo's role
-**Tier 5** | **Static HTML / CSS, GH Pages with custom CNAME `dappgo.com`** | Marketing landing page + AI-discoverability surface. Hosts `index.html`, `options.html` (proxy of options viewer), `privacy.html`, `terms.html`, `sitemap.xml`, `robots.txt`, and **`llms.txt`** which lists all CDN endpoints (data.json, manifest.json, weekly_summary.json) for AI crawlers.
+**Tier 5** | **Static HTML / CSS, GH Pages with custom CNAME `dappgo.com`** | Marketing landing page + AI-discoverability surface. Hosts `index.html`, `options/index.html` (app landing page; old report at `options/report/`), `privacy.html`, `terms.html`, `sitemap.xml`, `robots.txt`, and **`llms.txt`** which lists all CDN endpoints (data.json, manifest.json, weekly_summary.json) for AI crawlers.
 
 - **Inputs**: hand-edited HTML; pulls icons + fonts locally.
 - **Outputs**: `https://dappgo.com/` (GH Pages); `llms.txt` consumed by AI crawlers / MCP discovery.
@@ -40,7 +40,9 @@ Push to the repository's configured default branch (`master` in this checkout). 
 ```
 index.html         landing page
 og-image-v2.png    Open Graph / Meta / LinkedIn share preview card
-options.html       proxy/embed of options viewer
+options/index.html app landing pages are generated: node scripts/build-landing-pages.mjs
+options/report/    legacy options daily report page
+assets/store-links.js  the one place store ids + campaign params live
 privacy.html       privacy policy
 support.html       support FAQs and app-specific troubleshooting
 terms.html         terms of service

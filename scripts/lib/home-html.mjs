@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { applyStoreLinks } from "./store-links.mjs";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -67,5 +68,7 @@ export function renderPulseHtml(html, pulse, lang, catalog) {
   html = replaceRegion(html, "pulse:source", `<span data-pulse-source>${esc(fill(t.sourceLine, { built: pulse.built_at_utc.replace("T", " ").replace("Z", "") }))}</span>`);
   html = replaceRegion(html, "home:css", inlineHomeCss());
   const json = JSON.stringify(appStructuredData(catalog), null, 2).replace(/</g, "\\u003c");
-  return replaceRegion(html, "apps:jsonld", `    <script type="application/ld+json">\n${json}\n    </script>`);
+  html = replaceRegion(html, "apps:jsonld", `    <script type="application/ld+json">\n${json}\n    </script>`);
+  // Store hrefs come from assets/store-links.js; page name keeps English and Chinese traffic apart.
+  return applyStoreLinks(html, lang === "zh" ? "zh-home" : "home");
 }

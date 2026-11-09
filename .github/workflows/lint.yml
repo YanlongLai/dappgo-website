@@ -113,4 +113,4 @@ jobs:
           # not actual HTML and trips the doctype-first rule. Keep every
           # public HTML page here so new shell pages cannot silently drift.
           htmlhint --config .htmlhintrc \
-            index.html options.html privacy.html terms.html support.html 404.html
+            index.html options/index.html options/report/index.html privacy.html terms.html support.html 404.html

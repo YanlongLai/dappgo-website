@@ -25,10 +25,64 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://dappgo.com/options</loc>
-        <lastmod>2026-10-27</lastmod>
+        <loc>https://dappgo.com/tw-stocks/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/tw-stocks/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/tw-stocks/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/tw-stocks/" />
+        <lastmod>2026-11-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/zh/tw-stocks/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/tw-stocks/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/tw-stocks/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/tw-stocks/" />
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/us-stocks/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/us-stocks/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/us-stocks/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/us-stocks/" />
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/zh/us-stocks/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/us-stocks/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/us-stocks/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/us-stocks/" />
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/options/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/options/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/options/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/options/" />
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/zh/options/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/options/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/options/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/options/" />
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/options/report/</loc>
+        <lastmod>2026-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://dappgo.com/support</loc>
