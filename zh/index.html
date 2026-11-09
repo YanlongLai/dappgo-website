@@ -599,6 +599,16 @@ html:not(.js) .wire-tabs { display: none; }
 
 /* Static catalog markup */
 .catalog > li { list-style: none; }
+
+/* Hero app row: one compact line linking to the app landing pages (store badges live there) */
+.hero-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 20px; }
+.hero-apps-label { margin: 0; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #9fc0ff; }
+.hero-apps ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-app-name { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 8px; border: 1px solid var(--navy-line); border-radius: 999px; background: rgba(255,255,255,.04); color: var(--on-navy); text-decoration: none; font: 600 13px var(--body); transition: border-color .2s ease, background .2s ease; }
+.hero-app-name img { border-radius: 6px; flex: none; }
+.hero-app-name span[aria-hidden] { opacity: .6; transition: transform .2s var(--ease); }
+.hero-app-name:hover { border-color: rgba(200, 215, 255, .6); background: rgba(255,255,255,.12); color: #fff; }
+.hero-app-name:hover span[aria-hidden] { transform: translate(2px, -2px); }
     </style>
     
 <!-- home:css:end -->
@@ -644,6 +654,14 @@ html:not(.js) .wire-tabs { display: none; }
               <a class="btn btn-accent" href="#pulse"><span data-i18n="ctaPulse">看今天的報告</span><span aria-hidden="true">↓</span></a>
               <a class="btn btn-glass" href="#business"><span data-i18n="ctaBusiness">讓你的工作自動化</span><span aria-hidden="true">→</span></a>
             </div>
+            <div class="hero-apps" data-hero-apps>
+              <p class="hero-apps-label" data-i18n="heroApps">下載 App</p>
+              <ul>
+                <li><a class="hero-app-name" href="/zh/tw-stocks/"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>TW Stocks</span><span aria-hidden="true">↗</span></a></li>
+                <li><a class="hero-app-name" href="/zh/us-stocks/"><img src="/assets/app-icons/us-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>US Stocks</span><span aria-hidden="true">↗</span></a></li>
+                <li><a class="hero-app-name" href="/zh/options/"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>Options Explorer</span><span aria-hidden="true">↗</span></a></li>
+              </ul>
+            </div>
             </div>
             <div class="console" role="log" aria-label="最新發布紀錄" data-i18n-aria-label="consoleLabel">
               <div class="console-bar"><i></i><i></i><i></i><span>dappgo · publish run</span></div>
@@ -682,14 +700,14 @@ html:not(.js) .wire-tabs { display: none; }
           <div class="meter"><div class="meter-label"><span>市場廣度</span><span>31% · 漲跌家數比 1.17</span></div><div class="meter-bar"><i style="--w:31%"></i></div></div></div>
         <p class="one-liner">今日 1 檔買進 / 0 檔賣出，市場環境訊號分歧（SPY 趨勢 down + 漲家數 31% + 波動 cho）。</p>
         <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>ABNB</span><span class="up">+15.57%</span><small>Airbnb, Inc.</small></li><li><span>BABA</span><span class="up">+11.64%</span><small>Alibaba Group Holding Limited</small></li><li><span>AMZN</span><span class="up">+7.88%</span><small>Amazon.com Inc.</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>MRVL</span><span class="down">-28.11%</span><small>Marvell Technology, Inc.</small></li><li><span>INTC</span><span class="down">-14.42%</span><small>Intel Corporation</small></li><li><span>EWT</span><span class="down">-11.74%</span><small>iShares MSCI Taiwan ETF</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/us/">打開 US Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/us/">打開 US Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116546?ct=web-zh-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" />台股</div><div class="card-name">Taiwan Stocks</div></div>
         <div class="card-date"><b>2026-11-06</b>發布於 2026-11-06 08:44 UTC</div><div class="card-coverage">分析範圍 101/101</div></div>
         <div class="regime-row"><span class="pill pill-bear">避險情緒</span>
           <div class="meter"><div class="meter-label"><span>市場廣度</span><span>13% · 漲跌家數比 0.13</span></div><div class="meter-bar"><i style="--w:13%"></i></div></div></div>
         <p class="one-liner">今日 3 檔買進 / 1 檔賣出，市場環境風險規避（漲家數佔比僅 13% + 波動偏高 = 風險規避）。</p>
         <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>2618</span><span class="up">+5.50%</span><small>長榮航</small></li><li><span>1216</span><span class="up">+2.41%</span><small>統一</small></li><li><span>2412</span><span class="up">+2.22%</span><small>中華電</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>2360</span><span class="down">-31.36%</span><small>致茂</small></li><li><span>7750</span><span class="down">-28.95%</span><small>新代</small></li><li><span>3532</span><span class="down">-28.64%</span><small>台勝科</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/tw/">打開 Taiwan Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/tw-stocks/id6768116538" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/tw/">打開 Taiwan Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116538?ct=web-zh-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" />美股選擇權</div><div class="card-name">Options Explorer</div></div>
         <div class="card-date"><b>2026-11-06</b>發布於 2026-11-06 21:57 UTC</div><div class="card-coverage">分析範圍 26/26</div></div>
         <div><div class="movers"><div><h3>評分最高的策略</h3></div></div><ul class="ideas"><li><b>AVGO</b><span>賣出 Put $265 · 5d</span><span class="score">57.3</span>
@@ -698,7 +716,7 @@ html:not(.js) .wire-tabs { display: none; }
         <small>到期 2026-11-13 · 獲利機率 73.3% · IV 110.6% · 年化報酬 118.2%</small></li><li><b>AMD</b><span>賣出 Put $405 · 5d</span><span class="score">55.9</span>
         <small>到期 2026-11-11 · 獲利機率 80.7% · IV 96.2% · 年化報酬 76.6%</small></li></ul></div>
         <div class="movers"><div><h3>今日漲最多</h3><ul><li><span>ABNB</span><span class="up">+11.67%</span><small>Airbnb, Inc.</small></li><li><span>AMD</span><span class="up">+11.04%</span><small>Advanced Micro Devices, Inc.</small></li><li><span>SPCX</span><span class="up">+8.62%</span><small>Space Exploration Technologies Corp. (SpaceX)</small></li></ul></div><div><h3>今日跌最多</h3><ul><li><span>ISRG</span><span class="down">-3.36%</span><small>Intuitive Surgical, Inc.</small></li><li><span>NFLX</span><span class="down">-3.28%</span><small>Netflix Inc.</small></li><li><span>ARCC</span><span class="down">-1.14%</span><small>Ares Capital Corporation</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://options.dappgo.com/us/">打開 Options Explorer <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/options-explorer/id6768116720" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://options.dappgo.com/us/">打開 Options Explorer <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116720?ct=web-zh-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article>
 <!-- pulse:board:end -->
           </div>
@@ -764,7 +782,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodOptions">一個畫面看合理價格區間、選擇權報價，以及評分過的 Sell Put / Sell Call 策略。</p>
                   <ul class="app-feats"><li data-i18n="fOpt1">每檔股票的合理價格區間</li><li data-i18n="fOpt2">選擇權報價一頁看完</li><li data-i18n="fOpt3">評分過的 Sell Put / Sell Call 策略</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/options-explorer/id6768116720" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116720?ct=web-zh-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell">
@@ -778,7 +796,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodUs">每天更新的美股研究卡、公司新聞和 AI 觀點。</p>
                   <ul class="app-feats"><li data-i18n="fUs1">每日研究卡</li><li data-i18n="fUs2">個股公司新聞</li><li data-i18n="fUs3">根據數據寫成的 AI 觀點</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="US Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="US Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116546?ct=web-zh-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell">
@@ -792,7 +810,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodTw">台股每日研究，搭配在地新聞與市場脈絡。</p>
                   <ul class="app-feats"><li data-i18n="fTw1">每天追蹤台股</li><li data-i18n="fTw2">在地新聞與市場脈絡</li><li data-i18n="fTw3">每天一份研究觀點</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/tw-stocks/id6768116538" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116538?ct=web-zh-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">開啟網頁版</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell app-cell--wide">
@@ -806,7 +824,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodNews">依市場整理的公司新聞，用時間軸呈現，並連到每一檔股票。</p>
                   <ul class="app-feats"><li data-i18n="fNews1">美股、台股新聞分開看</li><li data-i18n="fNews2">每檔股票的新聞時間軸</li><li data-i18n="fNews3">直接連到原文與個股頁</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="News Markets app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.newsapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><div class="app-cta"><a class="btn btn-accent" href="https://news.dappgo.com/us/"><span data-i18n="webUs">美股新聞</span><span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">台股新聞</span><span aria-hidden="true">↗</span></a></div></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="News Markets app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.newsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><div class="app-cta"><a class="btn btn-accent" href="https://news.dappgo.com/us/"><span data-i18n="webUs">美股新聞</span><span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">台股新聞</span><span aria-hidden="true">↗</span></a></div></div>
               </article>
             </li>
             <li class="app-cell app-cell--wide">
@@ -820,7 +838,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodMerge">不一樣的數字遊戲：放下數字、合併升級，想好下一步。</p>
                   <ul class="app-feats"><li data-i18n="fMerge1">放下數字</li><li data-i18n="fMerge2">合併、不斷升級</li><li data-i18n="fMerge3">想好下一步</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div></div>
               </article>
             </li>
           </ul>
@@ -899,7 +917,7 @@ html:not(.js) .wire-tabs { display: none; }
           <a href="https://www.linkedin.com/company/dappgo/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </nav>
         <nav aria-label="法律與支援" data-i18n-aria-label="legalNav">
-          <a href="/options" data-i18n="optionsReport">選擇權每日報告</a>
+          <a href="/options/report/" data-i18n="optionsReport">選擇權每日報告</a>
           <a href="/support" data-i18n="support">客服支援</a>
           <a href="/privacy" data-i18n="privacy">隱私權政策</a>
           <a href="/terms" data-i18n="terms">服務條款</a>
@@ -913,6 +931,7 @@ html:not(.js) .wire-tabs { display: none; }
       </div>
     </footer>
 
-    <script src="/assets/home/home.js?v=20261105-perf-1" defer></script>
+    <script src="/assets/store-links.js?v=20261109-landing" defer></script>
+    <script src="/assets/home/home.js?v=20261109-landing" defer></script>
   </body>
 </html>

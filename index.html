@@ -598,6 +598,16 @@ html:not(.js) .wire-tabs { display: none; }
 
 /* Static catalog markup */
 .catalog > li { list-style: none; }
+
+/* Hero app row: one compact line linking to the app landing pages (store badges live there) */
+.hero-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 20px; }
+.hero-apps-label { margin: 0; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #9fc0ff; }
+.hero-apps ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-app-name { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 8px; border: 1px solid var(--navy-line); border-radius: 999px; background: rgba(255,255,255,.04); color: var(--on-navy); text-decoration: none; font: 600 13px var(--body); transition: border-color .2s ease, background .2s ease; }
+.hero-app-name img { border-radius: 6px; flex: none; }
+.hero-app-name span[aria-hidden] { opacity: .6; transition: transform .2s var(--ease); }
+.hero-app-name:hover { border-color: rgba(200, 215, 255, .6); background: rgba(255,255,255,.12); color: #fff; }
+.hero-app-name:hover span[aria-hidden] { transform: translate(2px, -2px); }
     </style>
     
 <!-- home:css:end -->
@@ -646,6 +656,14 @@ html:not(.js) .wire-tabs { display: none; }
               <a class="btn btn-accent" href="#pulse"><span data-i18n="ctaPulse">See today’s report</span><span aria-hidden="true">↓</span></a>
               <a class="btn btn-glass" href="#business"><span data-i18n="ctaBusiness">Automate your workflow</span><span aria-hidden="true">→</span></a>
             </div>
+            <div class="hero-apps" data-hero-apps>
+              <p class="hero-apps-label" data-i18n="heroApps">Get the apps</p>
+              <ul>
+                <li><a class="hero-app-name" href="/tw-stocks/"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>TW Stocks</span><span aria-hidden="true">↗</span></a></li>
+                <li><a class="hero-app-name" href="/us-stocks/"><img src="/assets/app-icons/us-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>US Stocks</span><span aria-hidden="true">↗</span></a></li>
+                <li><a class="hero-app-name" href="/options/"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>Options Explorer</span><span aria-hidden="true">↗</span></a></li>
+              </ul>
+            </div>
             </div>
             <div class="console" role="log" aria-label="Latest publish run" data-i18n-aria-label="consoleLabel">
               <div class="console-bar"><i></i><i></i><i></i><span>dappgo · publish run</span></div>
@@ -684,14 +702,14 @@ html:not(.js) .wire-tabs { display: none; }
           <div class="meter"><div class="meter-label"><span>Breadth</span><span>31% · Adv/Dec 1.17</span></div><div class="meter-bar"><i style="--w:31%"></i></div></div></div>
         <p class="one-liner">Today&#39;s report: 1 BUY / 0 SELL, market regime: mixed.</p>
         <div class="movers"><div><h3>5D leaders</h3><ul><li><span>ABNB</span><span class="up">+15.57%</span><small>Airbnb, Inc.</small></li><li><span>BABA</span><span class="up">+11.64%</span><small>Alibaba Group Holding Limited</small></li><li><span>AMZN</span><span class="up">+7.88%</span><small>Amazon.com Inc.</small></li></ul></div><div><h3>5D laggards</h3><ul><li><span>MRVL</span><span class="down">-28.11%</span><small>Marvell Technology, Inc.</small></li><li><span>INTC</span><span class="down">-14.42%</span><small>Intel Corporation</small></li><li><span>EWT</span><span class="down">-11.74%</span><small>iShares MSCI Taiwan ETF</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/us/">Open US Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/us/">Open US Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116546?ct=web-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" />Taiwan</div><div class="card-name">Taiwan Stocks</div></div>
         <div class="card-date"><b>2026-11-06</b>Published 2026-11-06 08:44 UTC</div><div class="card-coverage">Coverage 101/101</div></div>
         <div class="regime-row"><span class="pill pill-bear">Risk-off</span>
           <div class="meter"><div class="meter-label"><span>Breadth</span><span>13% · Adv/Dec 0.13</span></div><div class="meter-bar"><i style="--w:13%"></i></div></div></div>
         <p class="one-liner">Today&#39;s report: 3 BUY / 1 SELL, market regime: risk-off.</p>
         <div class="movers"><div><h3>5D leaders</h3><ul><li><span>2618</span><span class="up">+5.50%</span><small>長榮航</small></li><li><span>1216</span><span class="up">+2.41%</span><small>統一</small></li><li><span>2412</span><span class="up">+2.22%</span><small>中華電</small></li></ul></div><div><h3>5D laggards</h3><ul><li><span>2360</span><span class="down">-31.36%</span><small>致茂</small></li><li><span>7750</span><span class="down">-28.95%</span><small>新代</small></li><li><span>3532</span><span class="down">-28.64%</span><small>台勝科</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/tw/">Open Taiwan Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/tw-stocks/id6768116538" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/tw/">Open Taiwan Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116538?ct=web-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" />US options</div><div class="card-name">Options Explorer</div></div>
         <div class="card-date"><b>2026-11-06</b>Published 2026-11-06 21:57 UTC</div><div class="card-coverage">Coverage 26/26</div></div>
         <div><div class="movers"><div><h3>Top-scored setups</h3></div></div><ul class="ideas"><li><b>AVGO</b><span>Sell put $265 · 5d</span><span class="score">57.3</span>
@@ -700,7 +718,7 @@ html:not(.js) .wire-tabs { display: none; }
         <small>exp 2026-11-13 · POP 73.3% · IV 110.6% · ann. 118.2%</small></li><li><b>AMD</b><span>Sell put $405 · 5d</span><span class="score">55.9</span>
         <small>exp 2026-11-11 · POP 80.7% · IV 96.2% · ann. 76.6%</small></li></ul></div>
         <div class="movers"><div><h3>Today’s leaders</h3><ul><li><span>ABNB</span><span class="up">+11.67%</span><small>Airbnb, Inc.</small></li><li><span>AMD</span><span class="up">+11.04%</span><small>Advanced Micro Devices, Inc.</small></li><li><span>SPCX</span><span class="up">+8.62%</span><small>Space Exploration Technologies Corp. (SpaceX)</small></li></ul></div><div><h3>Today’s laggards</h3><ul><li><span>ISRG</span><span class="down">-3.36%</span><small>Intuitive Surgical, Inc.</small></li><li><span>NFLX</span><span class="down">-3.28%</span><small>Netflix Inc.</small></li><li><span>ARCC</span><span class="down">-1.14%</span><small>Ares Capital Corporation</small></li></ul></div></div>
-        <div class="card-actions"><a class="open-link" href="https://options.dappgo.com/us/">Open Options Explorer <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/us/app/options-explorer/id6768116720" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer">Android</a></span></div>
+        <div class="card-actions"><a class="open-link" href="https://options.dappgo.com/us/">Open Options Explorer <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116720?ct=web-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article>
 <!-- pulse:board:end -->
           </div>
@@ -768,7 +786,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodOptions">Valuation ranges, options chains and scored Sell Put / Sell Call setups in one research view.</p>
                   <ul class="app-feats"><li data-i18n="fOpt1">Valuation ranges by ticker</li><li data-i18n="fOpt2">Options chains in one view</li><li data-i18n="fOpt3">Scored Sell Put / Sell Call setups</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/options-explorer/id6768116720" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Options Explorer app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116720?ct=web-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.optionsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://options.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell">
@@ -782,7 +800,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodUs">Daily research cards, company news and AI viewpoints across US equities.</p>
                   <ul class="app-feats"><li data-i18n="fUs1">Daily research cards</li><li data-i18n="fUs2">Company news by stock</li><li data-i18n="fUs3">AI viewpoints grounded in the data</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="US Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/us-stocks/id6768116546" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="US Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116546?ct=web-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/us/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell">
@@ -796,7 +814,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodTw">Taiwan market coverage with local context and a daily research perspective.</p>
                   <ul class="app-feats"><li data-i18n="fTw1">Taiwan market coverage</li><li data-i18n="fTw2">Local news and context</li><li data-i18n="fTw3">A daily research perspective</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/us/app/tw-stocks/id6768116538" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Taiwan Stocks app downloads"><a class="badge" data-store="ios" href="https://apps.apple.com/app/id6768116538?ct=web-home-products&amp;mt=8" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/app-store-official.svg" alt="Download on the App Store" width="132" height="44" loading="lazy" /></a><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><a class="app-web" href="https://stocks.dappgo.com/tw/"><span data-i18n="webApp">Open web app</span> <span aria-hidden="true">↗</span></a></div>
               </article>
             </li>
             <li class="app-cell app-cell--wide">
@@ -810,7 +828,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodNews">Company news by market, kept in a clear timeline and linked to each stock.</p>
                   <ul class="app-feats"><li data-i18n="fNews1">United States and Taiwan newsrooms</li><li data-i18n="fNews2">A clear timeline for each stock</li><li data-i18n="fNews3">Linked to the source and each stock</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="News Markets app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.newsapp" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><div class="app-cta"><a class="btn btn-accent" href="https://news.dappgo.com/us/"><span data-i18n="webUs">United States news</span><span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">Taiwan news</span><span aria-hidden="true">↗</span></a></div></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="News Markets app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.newsapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div><div class="app-cta"><a class="btn btn-accent" href="https://news.dappgo.com/us/"><span data-i18n="webUs">United States news</span><span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="https://news.dappgo.com/tw/"><span data-i18n="webTw">Taiwan news</span><span aria-hidden="true">↗</span></a></div></div>
               </article>
             </li>
             <li class="app-cell app-cell--wide">
@@ -824,7 +842,7 @@ html:not(.js) .wire-tabs { display: none; }
                   <p data-i18n="prodMerge">A different kind of number game. Drop, combine, find your next move.</p>
                   <ul class="app-feats"><li data-i18n="fMerge1">Drop a number</li><li data-i18n="fMerge2">Combine to climb</li><li data-i18n="fMerge3">Find your next move</li></ul>
                 </div>
-                <div class="app-foot"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div></div>
+                <div class="app-foot"><div class="store-downloads" aria-label="Number Merge app downloads"><a class="badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.dappgo.numbermerge&amp;referrer=utm_source%3Dweb%26utm_medium%3Dhome-products" target="_blank" rel="noopener noreferrer"><img src="/assets/store-badges/google-play-official.svg" alt="Get it on Google Play" width="149" height="44" loading="lazy" /></a></div></div>
               </article>
             </li>
           </ul>
@@ -905,7 +923,7 @@ html:not(.js) .wire-tabs { display: none; }
           <a href="https://www.linkedin.com/company/dappgo/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </nav>
         <nav aria-label="Legal and support" data-i18n-aria-label="legalNav">
-          <a href="/options" data-i18n="optionsReport">Options daily report</a>
+          <a href="/options/report/" data-i18n="optionsReport">Options daily report</a>
           <a href="/support" data-i18n="support">Support</a>
           <a href="/privacy" data-i18n="privacy">Privacy</a>
           <a href="/terms" data-i18n="terms">Terms</a>
@@ -919,6 +937,7 @@ html:not(.js) .wire-tabs { display: none; }
       </div>
     </footer>
 
-    <script src="/assets/home/home.js?v=20261105-perf-1" defer></script>
+    <script src="/assets/store-links.js?v=20261109-landing" defer></script>
+    <script src="/assets/home/home.js?v=20261109-landing" defer></script>
   </body>
 </html>

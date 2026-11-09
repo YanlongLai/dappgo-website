@@ -28,6 +28,7 @@ export function translateHome(english, pulse, catalog) {
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(t.pageTitle)}</title>`);
   html = html.replace(/<meta\b[^>]+(?:name|property)="(?:description|og:title|og:description|twitter:title|twitter:description)"[^>]*>/g, (tag) =>
     tag.replace(/content="[^"]*"/, `content="${esc(/(?:og:|twitter:)title/.test(tag) ? t.pageTitle : t.pageDescription)}"`));
+  html = html.replace(/(<a class="hero-app-name" href=")\/(tw-stocks|us-stocks|options)\/"/g, '$1/zh/$2/"');
   html = html.replace('<link rel="canonical" href="https://dappgo.com/"', '<link rel="canonical" href="https://dappgo.com/zh/"');
   html = html.replace('<meta property="og:url" content="https://dappgo.com/"', '<meta property="og:url" content="https://dappgo.com/zh/"');
   html = html.replace('property="og:locale" content="en_US"', 'property="og:locale" content="zh_TW"')
