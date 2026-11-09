@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-06T22:45:14Z",
+  "built_at_utc": "2026-11-09T09:20:58Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-06",
-      "generated_at_utc": "2026-11-06T08:44:03Z",
+      "report_date": "2026-11-09",
+      "generated_at_utc": "2026-11-09T08:40:08Z",
       "schema_version": "1.2.0",
-      "data_hash": "3e3c4ac03735ccfb4efaf801ed204080160713b76dda504e997ed97b7d2eca34",
+      "data_hash": "5c0c14eb1235db343ce06840c7397d0779e37ab494269c42887885db28b577a4",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,97 +140,114 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.129,
-      "advance_decline_ratio": 0.13,
+      "breadth_score": 0.069,
+      "advance_decline_ratio": 0.03,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 3 BUY / 1 SELL, market regime: risk-off.",
-        "zh": "今日 3 檔買進 / 1 檔賣出，市場環境風險規避（漲家數佔比僅 13% + 波動偏高 = 風險規避）。"
+        "en": "Today's report: 3 BUY / 0 SELL, market regime: risk-off.",
+        "zh": "今日 3 檔買進 / 0 檔賣出，市場環境風險規避（加權指數跌破 200MA + 漲家數佔比僅 7% + 波動偏）。"
       },
       "gainers": [
         {
-          "symbol": "2618",
-          "name": "長榮航",
-          "return_pct": 5.5,
-          "close": 45.1
-        },
-        {
-          "symbol": "1216",
-          "name": "統一",
-          "return_pct": 2.41,
-          "close": 80.9
+          "symbol": "6446",
+          "name": "藥華藥",
+          "return_pct": 6.72,
+          "close": 1270
         },
         {
           "symbol": "2412",
           "name": "中華電",
-          "return_pct": 2.22,
-          "close": 161.5
+          "return_pct": 2.19,
+          "close": 163.5
         },
         {
-          "symbol": "2207",
-          "name": "和泰車",
-          "return_pct": 0.94,
-          "close": 537
+          "symbol": "2618",
+          "name": "長榮航",
+          "return_pct": 2.11,
+          "close": 43.6
+        },
+        {
+          "symbol": "3045",
+          "name": "台灣大",
+          "return_pct": -0.37,
+          "close": 133
         }
       ],
       "losers": [
         {
           "symbol": "2360",
           "name": "致茂",
-          "return_pct": -31.36,
-          "close": 1335
+          "return_pct": -31.34,
+          "close": 1205
+        },
+        {
+          "symbol": "6805",
+          "name": "富世達",
+          "return_pct": -29.14,
+          "close": 1690
         },
         {
           "symbol": "7750",
           "name": "新代",
-          "return_pct": -28.95,
-          "close": 1485
+          "return_pct": -28.75,
+          "close": 1450
         },
         {
-          "symbol": "3532",
-          "name": "台勝科",
-          "return_pct": -28.64,
-          "close": 281.5
-        },
-        {
-          "symbol": "6213",
-          "name": "聯茂",
-          "return_pct": -26.04,
-          "close": 551
+          "symbol": "3189",
+          "name": "景碩",
+          "return_pct": -28,
+          "close": 671
         }
       ],
       "picks": [
         {
-          "symbol": "5871",
-          "name": "中租-KY",
-          "score": 45,
+          "symbol": "2881",
+          "name": "富邦金",
+          "score": 67,
           "signals": {
             "en": [
-              "Below MA20 1.7%",
+              "Below MA20 6.2%",
               "RSI 39 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -1.7%",
+              "低於 MA20 -6.2%",
               "RSI 39 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "6446",
-          "name": "藥華藥",
-          "score": 43,
+          "symbol": "2885",
+          "name": "元大金",
+          "score": 65,
           "signals": {
             "en": [
-              "Below MA20 0.8%",
-              "RSI 47 neutral-to-weak",
-              "MACD bullish turn"
+              "Below MA20 5.8%",
+              "RSI 36 near oversold",
+              "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -0.8%",
-              "RSI 47 中性偏弱",
-              "MACD 翻多"
+              "低於 MA20 -5.8%",
+              "RSI 36 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "2890",
+          "name": "永豐金",
+          "score": 65,
+          "signals": {
+            "en": [
+              "Below MA20 7.2%",
+              "RSI 34 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -7.2%",
+              "RSI 34 接近超賣",
+              "KD 黃金交叉"
             ]
           }
         }
@@ -463,6 +480,90 @@
         "height": 600
       },
       "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+    },
+    {
+      "market": "tw",
+      "symbol": "2317",
+      "name": "鴻海",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9865196",
+      "published_at_utc": "2026-11-08T08:36:05Z",
+      "title": {
+        "original": "鴻海參展 TASTI 2026 第二代珍珠號雙星展現新世代太空通訊成果",
+        "en": "Foxconn participates in TASTI 2026 second-generation Pearl twin satellites showcase new-generation space communication achievements"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2317"
+    },
+    {
+      "market": "tw",
+      "symbol": "2330",
+      "name": "台積電",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3268708",
+      "published_at_utc": "2026-11-09T01:02:00Z",
+      "title": {
+        "original": "快訊／台積電漲65元至2200 台股漲895點來到40597點",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2330"
+    },
+    {
+      "market": "tw",
+      "symbol": "4938",
+      "name": "和碩",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9862965",
+      "published_at_utc": "2026-11-06T15:27:07Z",
+      "title": {
+        "original": "童子賢解讀台股重挫與美國期中大選：民主黨掌國會為「短空長多」",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=4938"
+    },
+    {
+      "market": "tw",
+      "symbol": "6505",
+      "name": "台塑化",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3267655",
+      "published_at_utc": "2026-11-06T08:25:00Z",
+      "title": {
+        "original": "台塑四寶10月營收出爐 南亞創55個月新高",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=6505"
+    },
+    {
+      "market": "tw",
+      "symbol": "1326",
+      "name": "台化",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9862940",
+      "published_at_utc": "2026-11-06T17:55:31Z",
+      "title": {
+        "original": "台塑四寶10月營收年增62.5% 南亞攀四年半新高",
+        "en": "Formosa Plastics Four Treasures 10 Monthly Revenue Year-on-Year Increase 62.5% Nan Ya Climbs to Four-and-a-Half-Year High"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=1326"
+    },
+    {
+      "market": "tw",
+      "symbol": "1303",
+      "name": "南亞",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3268750",
+      "published_at_utc": "2026-11-09T01:59:00Z",
+      "title": {
+        "original": "南亞10月營收報喜領軍上攻 3檔玻纖布鎖漲停",
+        "en": "Nan Ya 10 Monthly Revenue Reports Good News Leading the Rally 3 Glass Fiber Cloth Stocks Locked Limit Up"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=1303"
     }
   ]
 }
