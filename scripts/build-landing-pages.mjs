@@ -27,12 +27,14 @@ function badges(app, lang, position) {
 
 function phone(app, lang) {
   const ui = UI[lang];
-  if (app.phone) {
-    const { src, width, height } = app.phone;
-    return `<figure class="phone" data-reveal><div class="phone-frame"><img src="${src}-660.webp" srcset="${src}-330.webp 330w, ${src}-660.webp 660w, ${src}-1320.webp 1320w" sizes="(max-width: 700px) 62vw, 280px" width="${width}" height="${height}" alt="${esc(app[lang].brand)} ${esc(ui.phoneLabel)}" /></div></figure>`;
+  const alt = `${app[lang].brand} ${ui.phoneAlt}`;
+  const shot = app.phone;
+  if (shot.srcset) {
+    const { srcset, width, height } = shot;
+    return `<figure class="phone" data-reveal><div class="phone-frame"><img src="${srcset}-660.webp" srcset="${srcset}-330.webp 330w, ${srcset}-660.webp 660w, ${srcset}-1320.webp 1320w" sizes="(max-width: 700px) 62vw, 260px" width="${width}" height="${height}" alt="${esc(alt)}" /></div></figure>`;
   }
-  // No phone screenshot asset exists in the repo for this app yet: a quiet, decorative placeholder.
-  return `<figure class="phone" data-reveal><div class="phone-frame phone-placeholder" role="img" aria-label="${esc(ui.phonePlaceholder)}"><img class="ph-icon" src="${app.iconLarge}" alt="" width="72" height="72" /><b>${esc(app[lang].brand)}</b><span class="ph-lines" aria-hidden="true"><i></i><i></i><i></i></span><small>${esc(ui.phonePlaceholder)}</small></div></figure>`;
+  const { width, height } = shot;
+  return `<figure class="phone" data-reveal><div class="phone-frame"><img src="${shot.src.replace("{lang}", lang)}" width="${width}" height="${height}" alt="${esc(alt)}" /></div></figure>`;
 }
 
 function otherApps(app, lang) {
@@ -153,25 +155,23 @@ ${jsonld}
     <main id="main">
       <section class="hero" id="top">
         <canvas class="hero-canvas" data-hero-canvas aria-hidden="true"></canvas>
-        <div class="wrap">
-          <p class="kicker"><img src="${app.icon}" alt="" width="20" height="20" /><span>${esc(c.kicker)}</span></p>
-          <h1 class="hero-title">
-            <span>${esc(c.brand)}</span>
-            <span class="hero-accent">${esc(c.descriptor)}</span>
-          </h1>
-          <div class="hero-foot">
-            <div>
-              <p class="hero-lede">${esc(c.subtitle)}</p>
-              <div class="landing-badges">
-                ${badges(app, lang, "hero")}
-              </div>
-              <div class="hero-cta">
-                <a class="btn btn-glass" href="${app.web}" target="_blank" rel="noopener noreferrer"><span>${esc(ui.openWeb)}</span><span aria-hidden="true">↗</span></a>
-              </div>
-              <p class="stats-note">${esc(DISCLAIMER[lang])}</p>
+        <div class="wrap landing-hero-grid">
+          <div class="landing-hero-copy">
+            <p class="kicker"><img src="${app.icon}" alt="" width="20" height="20" /><span>${esc(c.kicker)}</span></p>
+            <h1 class="hero-title">
+              <span>${esc(c.brand)}</span>
+              <span class="hero-accent">${esc(c.descriptor)}</span>
+            </h1>
+            <p class="hero-lede">${esc(c.subtitle)}</p>
+            <div class="landing-badges">
+              ${badges(app, lang, "hero")}
             </div>
-            ${phone(app, lang)}
+            <div class="hero-cta">
+              <a class="btn btn-glass" href="${app.web}" target="_blank" rel="noopener noreferrer"><span>${esc(ui.openWeb)}</span><span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="stats-note">${esc(DISCLAIMER[lang])}</p>
           </div>
+          ${phone(app, lang)}
         </div>
       </section>
 

@@ -18,7 +18,7 @@ export const APPS = {
     web: "https://stocks.dappgo.com/tw/",
     ogImage: "https://dappgo.com/og-image-v2.png",
     ogImageAlt: { en: "DappGo market research and automation", zh: "DappGo 市場研究與自動化" },
-    phone: null,
+    phone: { src: "/assets/screenshots/tw-stocks/dashboard-{lang}.jpg", width: 432, height: 960 },
     en: {
       brand: "TW Stocks",
       descriptor: "Taiwan Stock Market",
@@ -56,7 +56,7 @@ export const APPS = {
     web: "https://stocks.dappgo.com/us/",
     ogImage: "https://dappgo.com/og-image-v2.png",
     ogImageAlt: { en: "DappGo market research and automation", zh: "DappGo 市場研究與自動化" },
-    phone: null,
+    phone: { src: "/assets/screenshots/us-stocks/dashboard-{lang}.jpg", width: 432, height: 960 },
     en: {
       brand: "US Stocks",
       descriptor: "AI Stock Signals",
@@ -94,7 +94,7 @@ export const APPS = {
     web: "https://options.dappgo.com/us/",
     ogImage: "https://dappgo.com/og-options.png",
     ogImageAlt: { en: "Options Explorer by DappGo", zh: "DappGo Options Explorer" },
-    phone: { src: "/assets/screenshots/options/dashboard", width: 660, height: 1434 },
+    phone: { srcset: "/assets/screenshots/options/dashboard", width: 660, height: 1434 },
     en: {
       brand: "Options Explorer",
       descriptor: "Option Chain",
@@ -151,8 +151,7 @@ export const UI = {
     support: "Support",
     privacy: "Privacy",
     terms: "Terms",
-    phoneLabel: "App preview",
-    phonePlaceholder: "Screenshot coming soon",
+    phoneAlt: "dashboard screen",
     disclaimerLabel: "Disclaimer"
   },
   zh: {
@@ -181,8 +180,7 @@ export const UI = {
     support: "支援",
     privacy: "隱私權政策",
     terms: "服務條款",
-    phoneLabel: "App 預覽",
-    phonePlaceholder: "截圖即將更新",
+    phoneAlt: "儀表板畫面",
     disclaimerLabel: "免責聲明"
   }
 };
