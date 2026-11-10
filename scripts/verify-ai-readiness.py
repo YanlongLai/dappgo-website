@@ -50,7 +50,8 @@ def verify(root: Path) -> None:
     slashless = re.compile(r'(?:https://dappgo\.com|["\'(])/options(?![/\w.-])')
     for path in root.rglob('*'):
         relative = path.relative_to(root)
-        if path.suffix not in {'.html', '.js', '.mjs', '.json', '.txt', '.xml'} or {'.git', 'node_modules', 'artifacts', 'docs'} & set(relative.parts):
+        # Skip tooling and nested checkouts (.git, .claude/worktrees, .wrangler): they are not served.
+        if path.suffix not in {'.html', '.js', '.mjs', '.json', '.txt', '.xml'} or {'node_modules', 'artifacts', 'docs'} & set(relative.parts) or any(part.startswith('.') for part in relative.parts):
             continue
         assert not slashless.search(path.read_text(errors='ignore')), f'Slashless /options link in {relative}; use /options/'
     alternates = {'en': 'https://dappgo.com/', 'zh-Hant': 'https://dappgo.com/zh/', 'x-default': 'https://dappgo.com/'}
