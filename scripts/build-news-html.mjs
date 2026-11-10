@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
 import { esc, replaceRegion } from "./lib/home-html.mjs";
 import { load } from "./lib/market-data.mjs";
 
@@ -213,13 +214,17 @@ export async function buildNewsHtml({ root = repositoryRoot, sources, check = fa
   for (const { market } of removals) summary[market].removed++;
   const changedPaths = [...updates.map(([file]) => file), ...removals.map(({ file }) => file)].map((file) => path.relative(root, file).split(path.sep).join("/")).sort(compare);
   if (!check) applyChanges(root, updates, removals);
-  return { summary, changedPaths, bytes };
+  return { summary, changedPaths, bytes, generatedAtUtc: loaded.us.pointer.generated_at_utc };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
-    const check = process.argv.includes("--check");
+    const { values } = parseArgs({ options: { check: { type: "boolean", default: false }, "generated-at-file": { type: "string" } } });
+    const check = values.check;
+    if (check && values["generated-at-file"]) throw new Error("--generated-at-file cannot be used with --check");
     const result = await buildNewsHtml({ check });
+    // Carry the exact loaded US pointer into the deploy step; never refetch latest.json.
+    if (values["generated-at-file"]) fs.writeFileSync(values["generated-at-file"], result.generatedAtUtc + "\n");
     if (check) {
       if (result.changedPaths.length) { console.log(result.changedPaths.join("\n")); process.exitCode = 1; }
     } else {

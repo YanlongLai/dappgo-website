@@ -14,7 +14,7 @@ run(process.execPath, ["scripts/verify-pulse.mjs"]);
 run(process.execPath, ["scripts/build-zh-home.mjs", "--check"]);
 run(process.execPath, ["scripts/build-landing-pages.mjs", "--check"]);
 run(process.execPath, ["--check", "scripts/build-pulse.mjs"]);
-run(process.execPath, ["--test", "scripts/build-news-html.test.mjs"]);
+run(process.execPath, ["--test", "scripts/build-news-html.test.mjs", "scripts/deploy-news.test.mjs"]);
 run(process.execPath, ["--check", "assets/home/home.js"]);
 run(process.execPath, ["--check", "assets/home/landing.js"]);
 run(process.execPath, ["--check", "assets/store-links.js"]);

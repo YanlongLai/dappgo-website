@@ -103,7 +103,7 @@ test("pulse workflow includes both generated pages in no-op and commit paths", (
   const workflow = read(".gitea/workflows/pulse.yml");
   assert.match(workflow, /git diff --quiet HEAD -- data\/pulse.json index.html zh\/index.html news\//);
   assert.match(workflow, /git commit[^\n]+-- data\/pulse.json index.html zh\/index.html news\//);
-  assert.match(workflow, /node scripts\/verify-pulse\.mjs\s+node scripts\/build-news-html\.mjs\s+git add -- news\//);
+  assert.match(workflow, /node scripts\/verify-pulse\.mjs\s+node scripts\/build-news-html\.mjs --generated-at-file "\$work\/news-generated-at-utc"\s+git add -- news\//);
   assert.match(workflow, /for attempt in 1 2 3/);
   assert.match(workflow, /if \[ -z "\$\{PUSH_TOKEN:-\}" \]/);
 });

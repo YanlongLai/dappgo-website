@@ -262,8 +262,14 @@ globalThis.fetch = async (url) => {
   assert.equal(failed.stderr, "");
   for (const line of failed.stdout.trim().split("\n")) assert.match(line, /^news\/(?:us|tw|sitemap\.xml)(?:\/.*)?$/);
   assert.deepEqual(snapshot(directory), before);
-  const built = run();
+  const stamp = path.join(directory, "news-generated-at-utc");
+  const built = run("--generated-at-file", stamp);
   assert.equal(built.status, 0, built.stderr);
+  assert.equal(fs.readFileSync(stamp, "utf8"), "2026-11-09T13:00:00Z\n");
+  const readOnly = run("--check", "--generated-at-file", stamp);
+  assert.equal(readOnly.status, 1);
+  assert.match(readOnly.stderr, /cannot be used with --check/);
+  assert.equal(fs.readFileSync(stamp, "utf8"), "2026-11-09T13:00:00Z\n");
   const passed = run("--check");
   assert.equal(passed.status, 0, passed.stderr);
   assert.equal(passed.stdout, "");
