@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-10T20:15:10Z",
+  "built_at_utc": "2026-11-10T22:45:50Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-10",
-      "generated_at_utc": "2026-11-10T19:46:44Z",
+      "generated_at_utc": "2026-11-10T20:47:04Z",
       "schema_version": "1.4.0",
-      "data_hash": "5705faa64a9f3237de89917acf0c9d8b21e5ad4e277a95467b6413fe06d58c02",
+      "data_hash": "21680d4757474afe7353e9e2a2099d343e1f7cc1203d5e3606755803616f384c",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -268,102 +268,102 @@
         {
           "symbol": "SOXL",
           "strategy": "sell_put",
-          "strike": 49,
-          "premium": 4.05,
+          "strike": 50,
+          "premium": 4.4,
           "expiry": "2026-11-20",
           "dte": 10,
-          "iv": 190.1,
-          "pop": 57.4,
-          "annualized": 301.7,
-          "score": 69.9
+          "iv": 195.3,
+          "pop": 55.8,
+          "annualized": 321.2,
+          "score": 69.5
         },
         {
           "symbol": "IREN",
           "strategy": "sell_put",
           "strike": 17.5,
-          "premium": 1.02,
-          "expiry": "2026-11-20",
-          "dte": 10,
-          "iv": 146.5,
-          "pop": 60.7,
-          "annualized": 212.7,
-          "score": 59.7
+          "premium": 1.18,
+          "expiry": "2026-11-27",
+          "dte": 17,
+          "iv": 131.6,
+          "pop": 59.2,
+          "annualized": 144.8,
+          "score": 59.5
         },
         {
           "symbol": "AMD",
           "strategy": "sell_put",
-          "strike": 460,
-          "premium": 3.45,
+          "strike": 462.5,
+          "premium": 3.8,
           "expiry": "2026-11-16",
           "dte": 6,
-          "iv": 80,
-          "pop": 84,
-          "annualized": 45.6,
-          "score": 55.1
+          "iv": 79.3,
+          "pop": 83.8,
+          "annualized": 50,
+          "score": 54.6
         },
         {
           "symbol": "MU",
           "strategy": "sell_put",
-          "strike": 640,
-          "premium": 6.35,
+          "strike": 645,
+          "premium": 5.9,
           "expiry": "2026-11-16",
           "dte": 6,
-          "iv": 84.2,
-          "pop": 82.1,
-          "annualized": 60.4,
-          "score": 54.7
+          "iv": 84,
+          "pop": 82,
+          "annualized": 55.6,
+          "score": 54.5
         }
       ],
       "gainers": [
         {
-          "symbol": "AVGO",
-          "name": "Broadcom Inc.",
-          "return_pct": 3.45,
-          "close": 330.51
-        },
-        {
           "symbol": "NET",
           "name": "Cloudflare, Inc.",
-          "return_pct": 3.15,
-          "close": 303
+          "return_pct": 4.05,
+          "close": 305.65
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom Inc.",
+          "return_pct": 3.76,
+          "close": 331.5
         },
         {
           "symbol": "AMZN",
           "name": "Amazon.com Inc.",
-          "return_pct": 1.53,
-          "close": 271
+          "return_pct": 1.74,
+          "close": 271.58
         },
         {
           "symbol": "UNH",
           "name": "UnitedHealth Group Incorporated",
-          "return_pct": 1.39,
-          "close": 403.15
+          "return_pct": 1.7,
+          "close": 404.36
         }
       ],
       "losers": [
         {
           "symbol": "IREN",
           "name": "IREN Limited",
-          "return_pct": -10.23,
-          "close": 19.22
+          "return_pct": -9.27,
+          "close": 19.43
         },
         {
           "symbol": "OKLO",
           "name": "Oklo Inc.",
-          "return_pct": -7.23,
-          "close": 24.9
+          "return_pct": -6.78,
+          "close": 25.02
         },
         {
           "symbol": "NVDA",
           "name": "NVIDIA Corporation",
-          "return_pct": -6.56,
-          "close": 166.95
+          "return_pct": -5.99,
+          "close": 167.96
         },
         {
           "symbol": "SNDK",
           "name": "Sandisk Corporation",
-          "return_pct": -4.49,
-          "close": 846.71
+          "return_pct": -3.76,
+          "close": 853.2
         }
       ],
       "backtest": {
