@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-10T02:48:30Z",
+  "built_at_utc": "2026-11-10T09:20:49Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -130,9 +130,9 @@
     },
     "tw": {
       "report_date": "2026-11-10",
-      "generated_at_utc": "2026-11-10T01:17:37Z",
+      "generated_at_utc": "2026-11-10T08:38:37Z",
       "schema_version": "1.2.0",
-      "data_hash": "0834d7f90d4ca64f6c168b640a9787008d32a83dd7bd0b72815829eef736f80a",
+      "data_hash": "e53a9f894cb4b906c23cecb9f23241c07113086400fb361ed136a3087190878c",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -485,29 +485,29 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9865196",
-      "published_at_utc": "2026-11-08T08:36:05Z",
+      "source": "ETtoday Finance",
+      "url": "https://finance.ettoday.net/news/3269349",
+      "published_at_utc": "2026-11-10T01:44:00Z",
       "title": {
-        "original": "鴻海參展 TASTI 2026 第二代珍珠號雙星展現新世代太空通訊成果",
-        "en": "Foxconn participates in TASTI 2026 second-generation Pearl twin satellites showcase new-generation space communication achievements"
+        "original": "台達電連2根漲停！權值5強猛攻 台股狂飆1460點收復43K",
+        "en": "Delta Electronics consecutive 2 limit-up! Heavyweight 5 strong attack, Taiwan stocks soar 1460 points to reclaim 43K"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
     },
     {
       "market": "tw",
-      "symbol": "2330",
-      "name": "台積電",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3268708",
-      "published_at_utc": "2026-11-09T01:02:00Z",
+      "symbol": "2357",
+      "name": "華碩",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9868832",
+      "published_at_utc": "2026-11-10T04:16:42Z",
       "title": {
-        "original": "快訊／台積電漲65元至2200 台股漲895點來到40597點",
-        "en": "Flash: TSMC rises 65 yuan to 2200 yuan; Taiwan stocks rise 895 points to 40597 points"
+        "original": "AI 賦能碳管理 華碩攜手臺大醫院北護分院推動醫療永續轉型",
+        "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2330"
+      "news_url": "https://news.dappgo.com/tw/?stock=2357"
     },
     {
       "market": "tw",
@@ -532,24 +532,10 @@
       "published_at_utc": "2026-11-09T16:03:29Z",
       "title": {
         "original": "蘋果進擊機器人 鴻準有望成為大贏家",
-        "en": null
+        "en": "Apple advances into robots; Hongzhun poised to be big winner"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2308"
-    },
-    {
-      "market": "tw",
-      "symbol": "1326",
-      "name": "台化",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9862940",
-      "published_at_utc": "2026-11-06T17:55:31Z",
-      "title": {
-        "original": "台塑四寶10月營收年增62.5% 南亞攀四年半新高",
-        "en": "Formosa Plastics Four Treasures 10 Monthly Revenue Year-on-Year Increase 62.5% Nan Ya Climbs to Four-and-a-Half-Year High"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=1326"
     },
     {
       "market": "tw",
@@ -564,6 +550,20 @@
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=1303"
+    },
+    {
+      "market": "tw",
+      "symbol": "2912",
+      "name": "統一超",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9867137",
+      "published_at_utc": "2026-11-09T08:29:34Z",
+      "title": {
+        "original": "統一超商入股 LOPIA 過關 將取得在台超市公司51%股權",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2912"
     }
   ]
 }
