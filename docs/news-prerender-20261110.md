@@ -29,10 +29,11 @@ at 09:20, 20:15, and 22:45 UTC on weekdays. It stages new news files and commits
 changed snapshots with the pulse to GitHub master. Cloudflare Pages project
 `dappgo-news` is a direct-upload project; a push to master alone does not update
 `news.dappgo.com`. After a successful push, the workflow checks that exact
-commit's file list for `news/` changes, then runs `scripts/deploy-news.sh` in the
-published clone. Pulse-only commits and unchanged scheduled runs skip deployment.
-The clone is retained between the publish and deploy steps and cleaned up even
-when a step fails.
+commit's file list for `news/` changes and hands the commit SHA to a second job,
+`deploy-news`, on the `dappgo-ci` runner (Wrangler 4.149 needs Node 22; the
+`dappgo-pulse-host` runner has Node 20). That job clones GitHub master, checks out
+exactly that commit and runs `scripts/deploy-news.sh`; its clone is removed on
+exit. Pulse-only commits and unchanged scheduled runs skip deployment.
 
 The Owner must add the repository secret `CLOUDFLARE_PAGES_TOKEN` to the **Gitea
 repository hosting `.gitea/workflows/pulse.yml`**. Use a Cloudflare API token with
