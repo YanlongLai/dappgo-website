@@ -140,7 +140,12 @@
     const isStale = (m) => !m || now - Date.parse(m.generated_at_utc) > STALE_HOURS * 3600e3;
     const fmtTime = (iso) => `${iso.slice(0, 10)} ${iso.slice(11, 16)} UTC`;
     const regimeClass = (r) => (/bull|risk_on/.test(r) ? "pill-bull" : /bear|risk_off/.test(r) ? "pill-bear" : /mixed/.test(r) ? "pill-mixed" : "pill-neutral");
-    const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => `<a class="store" href="${esc(StoreLinks.retarget(url, lang === "zh" ? "zh-home" : "home", "card"))}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`).join("")}</span>`;
+    const storeLinks = (id) => `<span class="stores">${(stores[id] || []).map(({ os, url }) => {
+      const generated = StoreLinks.retarget(url, lang === "zh" ? "zh-home" : "home", "card");
+      const attribution = StoreLinks.getBrowserAttribution?.();
+      const href = StoreLinks.withSource(generated, attribution?.source, attribution?.campaign);
+      return `<a class="store" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(t()[os])}</a>`;
+    }).join("")}</span>`;
     function moverList(title, rows) {
       return `<div><h3>${esc(title)}</h3><ul>${rows.map((r) => `<li><span>${esc(r.symbol)}</span><span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>${r.name && r.name !== r.symbol ? `<small>${esc(r.name)}</small>` : ""}</li>`).join("")}</ul></div>`;
     }

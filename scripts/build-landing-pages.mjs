@@ -220,6 +220,7 @@ ${jsonld}
       </div>
     </footer>
 
+    <script src="/assets/store-links.js?v=20261110-src" defer></script>
     <script src="/assets/home/landing.js?v=20261109-landing" defer></script>
   </body>
 </html>
