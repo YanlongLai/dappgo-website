@@ -101,8 +101,9 @@ test("JSON-LD comes only from live catalog apps and contains no inferred offers 
 
 test("pulse workflow includes both generated pages in no-op and commit paths", () => {
   const workflow = read(".gitea/workflows/pulse.yml");
-  assert.match(workflow, /git diff --quiet -- data\/pulse.json index.html zh\/index.html/);
-  assert.match(workflow, /git commit[^\n]+-- data\/pulse.json index.html zh\/index.html/);
+  assert.match(workflow, /git diff --quiet HEAD -- data\/pulse.json index.html zh\/index.html news\//);
+  assert.match(workflow, /git commit[^\n]+-- data\/pulse.json index.html zh\/index.html news\//);
+  assert.match(workflow, /node scripts\/verify-pulse\.mjs\s+node scripts\/build-news-html\.mjs --generated-at-file "\$work\/news-generated-at-utc"\s+git add -- news\//);
   assert.match(workflow, /for attempt in 1 2 3/);
   assert.match(workflow, /if \[ -z "\$\{PUSH_TOKEN:-\}" \]/);
 });
@@ -111,7 +112,7 @@ test("canonical pulse build refreshes both pages and repairs HTML even on an unc
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pulse-build-test-"));
   try {
     for (const name of ["index.html", "assets/home/home.js", "assets/home/home.css", "config/product-catalog.json", "data/pulse.json",
-      "scripts/build-pulse.mjs", "scripts/build-zh-home.mjs", "scripts/render-pulse-html.mjs", "scripts/lib/home-html.mjs", "scripts/lib/store-links.mjs", "assets/store-links.js"]) {
+      "scripts/build-pulse.mjs", "scripts/build-zh-home.mjs", "scripts/render-pulse-html.mjs", "scripts/lib/home-html.mjs", "scripts/lib/market-data.mjs", "scripts/lib/store-links.mjs", "assets/store-links.js"]) {
       const file = path.join(directory, name);
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.copyFileSync(path.join(root, name), file);

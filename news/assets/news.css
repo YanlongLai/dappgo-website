@@ -84,6 +84,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .search-feedback { margin: -10px 0 18px; font-size: 13px; line-height: 1.6; color: var(--muted); }
 .stock-list { display: grid; gap: 4px; }
 .stock-button { width: 100%; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 13px 10px; border: 0; border-left: 3px solid transparent; color: var(--ink); background: transparent; text-align: left; font-size: 13px; }
+a.stock-button { text-decoration: none; }
 .stock-button:hover { background: #edf0e8; }
 .stock-button[aria-current="true"] { border-left-color: var(--forest); background: var(--wash); font-weight: 700; }
 .stock-button small { color: var(--muted); font: 11px ui-monospace, monospace; }

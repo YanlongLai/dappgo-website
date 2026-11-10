@@ -3,6 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(new URL("..", import.meta.url).pathname);
+const stockRoutes = ["us", "tw"].flatMap((market) => fs.readdirSync(path.join(root, market), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => `${market}/${entry.name}/index.html`)
+  .filter((route) => fs.existsSync(path.join(root, route)) && fs.readFileSync(path.join(root, route), "utf8").includes("<!-- dappgo:generated-stock-page -->")));
+const readerRoutes = ["us/index.html", "tw/index.html", ...stockRoutes];
 const files = ["index.html", "tw/index.html", "us/index.html", "assets/news.css", "assets/news.js", "_headers", "_routes.json", "wrangler.toml", "robots.txt", "sitemap.xml", "llms.txt", "ads.txt", "functions/api/markets/[market]/dashboard/[file].js"];
 for (const file of files) assert.ok(fs.existsSync(path.join(root, file)), `missing ${file}`);
 
@@ -11,7 +16,7 @@ assert.equal(adsTxt.replace(/\r\n/g, "\n"), "google.com, pub-7851819017318644, D
 assert.ok(!adsTxt.startsWith("\uFEFF"), "ads.txt must not contain a BOM");
 
 const landing = fs.readFileSync(path.join(root, "index.html"), "utf8");
-for (const route of ["index.html", "us/index.html", "tw/index.html"]) {
+for (const route of ["index.html", ...readerRoutes]) {
   const html = fs.readFileSync(path.join(root, route), "utf8");
   const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? "";
   const loaders = [...html.matchAll(/<script\b[^>]*\bsrc="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-7851819017318644"[^>]*><\/script>/g)];
@@ -61,20 +66,20 @@ assert.doesNotMatch(headers, /script-src[^;]*(?:'unsafe-inline'|'unsafe-eval'|\*
 assert.match(headers, /\/tw\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
 assert.match(headers, /\/us\/\*[\s\S]*Cache-Control: public, max-age=0, must-revalidate/);
 
-for (const route of ["tw/index.html", "us/index.html"]) {
+for (const route of readerRoutes) {
   const html = fs.readFileSync(path.join(root, route), "utf8");
   assert.match(html, /data-news-app/);
   assert.match(html, /data-market="(tw|us)"/);
-  assert.match(html, /\.\.\/assets\/news\.css\?v=[a-z0-9-]+/i);
-  assert.match(html, /\.\.\/assets\/news\.js\?v=[a-z0-9-]+/i);
+  assert.match(html, /(?:\.\.\/|\/)assets\/news\.css\?v=[a-z0-9-]+/i);
+  assert.match(html, /(?:\.\.\/|\/)assets\/news\.js\?v=[a-z0-9-]+/i);
   assert.match(html, /data-stock-search-mobile/);
   assert.match(html, /data-mobile-stock-select/);
   assert.match(html, /data-language="zh"/);
   assert.match(html, /data-language="en"/);
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
-  assert.match(html, /news\.js\?v=20261028-contact/);
-  assert.match(html, /news\.css\?v=20261028-contact/);
+  assert.match(html, /news\.js\?v=20261110-prerender/);
+  assert.match(html, /news\.css\?v=20261110-prerender/);
   assert.match(html, /news-data\.js\?v=20261028-contact/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
@@ -95,7 +100,36 @@ for (const route of ["tw/index.html", "us/index.html"]) {
   assert.doesNotMatch(html, /class="edition"|data-i18n="edition(?:Top|Name|Time)"|class="hero"|data-i18n(?:-html)?="hero(?:Title|Body)"/);
   assert.doesNotMatch(html, /thumbnail|縮圖/i);
   assert.doesNotMatch(html, /class="mobile-picker"/);
+  assert.match(html, /<meta name="robots" content="index,follow">/);
+  const canonical = `https://news.dappgo.com/${route.replace(/index\.html$/, "")}`;
+  assert.ok(html.includes(`<link rel="canonical" href="${canonical}">`), `${route}: self canonical`);
+  assert.ok(sitemap.includes(`<loc>${canonical}</loc>`), `${route}: sitemap entry`);
+  const prerender = html.match(/<section data-stories\b[^>]*><!-- dappgo:prerender:start -->([\s\S]*?)<!-- dappgo:prerender:end --><\/section>/)?.[1];
+  assert.ok(prerender, `${route}: fallback is inside the runtime replacement target`);
+  assert.match(prerender, /<h2>.+<\/h2>/);
+  assert.match(prerender, /<time datetime="\d{4}-\d{2}-\d{2}T/);
+  assert.match(prerender, /<ul>/);
+  assert.doesNotMatch(prerender, /<script\b|<img\b|<iframe\b/);
+  const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1]);
+  assert.equal(data["@type"], "CollectionPage");
+  assert.equal(data.url, canonical);
+  assert.equal(data.mainEntity["@type"], "ItemList");
+  assert.equal(data.mainEntity.numberOfItems, data.mainEntity.itemListElement.length);
+  assert.match(data.description, /\d{4}-\d{2}-\d{2} report: \d+ published stories/);
+  assert.match(data.description, /\d+ 則已發布新聞/);
+  const market = route.split("/")[0];
+  const listedSymbols = html.match(/data-stock-pages="([^"]*)"/)[1].split(/\s+/).filter(Boolean);
+  const generatedSymbols = stockRoutes.filter((stockRoute) => stockRoute.startsWith(`${market}/`)).map((stockRoute) => stockRoute.split("/")[1]).sort();
+  assert.deepEqual(listedSymbols, generatedSymbols, `${route}: generated-page directory matches the client list`);
+  if (stockRoutes.includes(route)) {
+    assert.doesNotMatch(html, /(?:href|src)="\.\.\//);
+    assert.ok(data.mainEntity.numberOfItems >= 3, `${route}: stock threshold`);
+    assert.match(html, /<title>[^<]+ news — DappGo News \/ [^<]+ 新聞<\/title>/);
+  }
 }
+
+const generatedBytes = readerRoutes.reduce((total, route) => total + fs.statSync(path.join(root, route)).size, Buffer.byteLength(sitemap));
+assert.ok(generatedBytes < 2_000_000, `generated news exceeds 2 MB: ${generatedBytes}`);
 
 const css = fs.readFileSync(path.join(root, "assets/news.css"), "utf8");
 assert.match(css, /\.skeletons\[hidden\]\s*\{[^}]*display:\s*none\s*!important/s);
@@ -128,4 +162,4 @@ assert.match(script, /addEventListener\("popstate"/);
 assert.match(script, /params\.set\("stock", state\.stock\)/);
 assert.doesNotMatch(script, /target="_blank"/);
 
-console.log(`news reader contract: passed (${files.length} files)`);
+console.log(`news reader contract: passed (${files.length} required files, ${stockRoutes.length} stock pages, ${generatedBytes} generated bytes)`);
