@@ -292,7 +292,7 @@ if (command === "clone") {
   process.exit(result.status ?? 1);
 }`, { mode: 0o755 });
   const result = spawnSync("bash", ["-c", workflowRun("Refresh and publish pulse")], { cwd: directory, env, encoding: "utf8" });
-  const outputs = Object.fromEntries(fs.readFileSync(env.GITHUB_OUTPUT, "utf8").trim().split("\n").map((line) => {
+  const outputs = Object.fromEntries((fs.existsSync(env.GITHUB_OUTPUT) ? fs.readFileSync(env.GITHUB_OUTPUT, "utf8").trim().split("\n").filter(Boolean) : []).map((line) => {
     const index = line.indexOf("=");
     return [line.slice(0, index), line.slice(index + 1)];
   }));
@@ -311,14 +311,10 @@ test("workflow deploys only for a successfully pushed news commit or the manual 
       assert.equal(result.status, 0, result.stderr);
       assert.equal(outputs.deploy_news, scenario.deploy);
       assert.equal(fs.existsSync(env.FIXTURE_PUSH_RECORD), scenario.pushed);
-      const site = path.join(outputs.work_dir, "site");
-      assert.ok(site.startsWith(path.join(directory, "tmp")));
-      assert.equal(expectedTimestamp(path.join(site, "news/us/index.html"), path.join(outputs.work_dir, "news-generated-at-utc")),
-        scenario.change === "news" ? "2026-11-09T14:00:00Z" : generatedAt);
-      if (scenario.change === "news") {
-        const head = execFileSync(realGit, ["rev-parse", "HEAD"], { cwd: site, env, encoding: "utf8" }).trim();
-        assert.equal(head, JSON.parse(fs.readFileSync(env.FIXTURE_PUSH_RECORD, "utf8")).commit);
-      }
+      assert.ok(!fs.existsSync(path.join(directory, "tmp")) || fs.readdirSync(path.join(directory, "tmp")).length === 0, "the publish clone must be removed on exit");
+      assert.match(outputs.commit, /^[0-9a-f]{40}$/);
+      if (scenario.pushed) assert.equal(outputs.commit, JSON.parse(fs.readFileSync(env.FIXTURE_PUSH_RECORD, "utf8")).commit);
+      else assert.equal(outputs.commit, execFileSync(realGit, ["rev-parse", "HEAD"], { cwd: directory, env, encoding: "utf8" }).trim());
     });
   }
 });
@@ -346,17 +342,31 @@ test("workflow missing deploy secret warns and succeeds before invoking the depl
   assert.match(result.stdout, /::warning::News HTML was committed.*not deployed.*CLOUDFLARE_PAGES_TOKEN/);
 });
 
-test("workflow forwards the timestamp file and propagates deployment failure", (t) => {
+function deployJobFixture(t, { nodeVersion = "v22.12.0", deployScript }) {
   const { directory, env } = fixture(t);
-  const script = path.join(directory, "site/scripts");
-  fs.mkdirSync(script, { recursive: true });
-  fs.writeFileSync(path.join(script, "deploy-news.sh"), `#!/bin/sh
-test "$1" = --generated-at-file || exit 91
-test "$2" = "$PUBLISH_WORK_DIR/news-generated-at-utc" || exit 92
-test -n "$CLOUDFLARE_API_TOKEN" || exit 93
-exit 74\n`);
-  const result = spawnSync("bash", ["-c", workflowRun("Deploy and verify news")], { cwd: directory,
-    env: { ...env, CLOUDFLARE_API_TOKEN: "offline-fixture-authorization", PUBLISH_WORK_DIR: directory }, encoding: "utf8" });
+  fs.mkdirSync(path.join(directory, "bin"), { recursive: true });
+  fs.mkdirSync(path.join(directory, "tmp"), { recursive: true });
+  fs.writeFileSync(path.join(directory, "bin/node"), `#!/bin/sh\n[ "$1" = --version ] && { echo ${nodeVersion}; exit 0; }\nexec ${process.execPath} "$@"\n`, { mode: 0o755 });
+  fs.writeFileSync(path.join(directory, "bin/mktemp"), `#!/bin/sh\nmkdir -p "${directory}/tmp/work" && echo "${directory}/tmp/work"\n`, { mode: 0o755 });
+  fs.writeFileSync(path.join(directory, "bin/git"), `#!/bin/sh\ncase "$1" in\n  clone) dest="$(eval echo \\$$#)"; mkdir -p "$dest/scripts"; cp "${directory}/deploy-news.sh" "$dest/scripts/deploy-news.sh"; echo "$@" >> "${directory}/git-calls" ;;\n  checkout) echo "$@" >> "${directory}/git-calls" ;;\n  *) exit 97 ;;\nesac\n`, { mode: 0o755 });
+  fs.writeFileSync(path.join(directory, "deploy-news.sh"), typeof deployScript === "function" ? deployScript(directory) : deployScript);
+  return { directory, env: { ...env, PATH: `${path.join(directory, "bin")}:${env.PATH}`, CLOUDFLARE_API_TOKEN: "offline-fixture-authorization", DEPLOY_COMMIT: "0123456789abcdef0123456789abcdef01234567" } };
+}
+
+test("deploy job clones the pushed commit from GitHub and propagates deployment failure", (t) => {
+  const { directory, env } = deployJobFixture(t, { deployScript: (dir) => `#!/bin/sh\ntest "$#" = 0 || exit 91\ntest -n "$CLOUDFLARE_API_TOKEN" || exit 93\ntest "$(pwd)" = "${dir}/tmp/work/site" || exit 94\nexit 74\n` });
+  const result = spawnSync("bash", ["-c", workflowRun("Deploy and verify news")], { cwd: directory, env, encoding: "utf8" });
   assert.equal(result.status, 74, result.stderr);
-  assert.equal(result.stdout, "");
+  const calls = fs.readFileSync(path.join(directory, "git-calls"), "utf8");
+  assert.match(calls, /clone --quiet --depth 50 --branch master https:\/\/github\.com\/YanlongLai\/dappgo-website\.git /);
+  assert.match(calls, /checkout --quiet 0123456789abcdef0123456789abcdef01234567/);
+  assert.ok(!fs.existsSync(path.join(directory, "tmp/work")), "the deploy clone must be removed on exit");
+});
+
+test("deploy job refuses a runner without Node 22", (t) => {
+  const { directory, env } = deployJobFixture(t, { nodeVersion: "v20.20.2", deployScript: "#!/bin/sh\nexit 0\n" });
+  const result = spawnSync("bash", ["-c", workflowRun("Deploy and verify news")], { cwd: directory, env, encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /deploy-news needs Node 22/);
+  assert.ok(!fs.existsSync(path.join(directory, "git-calls")), "nothing is cloned on an unsupported runner");
 });

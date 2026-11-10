@@ -22,7 +22,10 @@ on:
 jobs:
   refresh:
     runs-on: dappgo-pulse-host
-    timeout-minutes: 20
+    timeout-minutes: 10
+    outputs:
+      deploy_news: ${{ steps.publish.outputs.deploy_news }}
+      commit: ${{ steps.publish.outputs.commit }}
     steps:
       - name: Refresh and publish pulse
         id: publish
@@ -36,7 +39,7 @@ jobs:
             exit 1
           fi
           work="$(mktemp -d)"
-          printf 'work_dir=%s\n' "$work" >> "$GITHUB_OUTPUT"
+          trap 'rm -rf "$work"' EXIT
           remote="https://github.com/YanlongLai/dappgo-website.git"
           auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PUSH_TOKEN" | base64 -w0)"
           git -c http.extraheader="$auth" clone --quiet --depth 20 --branch master "$remote" "$work/site"
@@ -44,6 +47,7 @@ jobs:
           git config user.name "DappGo Pulse"
           git config user.email "automation@dappgo.com"
           deploy_news=false
+          pushed_commit=""
           if [ "${FORCE_DEPLOY_NEWS:-false}" = "true" ]; then
             deploy_news=true
           fi
@@ -79,25 +83,33 @@ jobs:
             echo "::error::pulse push failed after 3 attempts" >&2
             exit 1
           fi
+          [ -n "$pushed_commit" ] || pushed_commit="$(git rev-parse HEAD)"
           printf 'deploy_news=%s\n' "$deploy_news" >> "$GITHUB_OUTPUT"
+          printf 'commit=%s\n' "$pushed_commit" >> "$GITHUB_OUTPUT"
 
+  deploy-news:
+    # Wrangler 4.149 needs Node >= 22; dappgo-pulse-host runs Node 20, so the
+    # upload runs on the dappgo-ci runner from a fresh clone of the commit that
+    # the refresh job pushed to GitHub master.
+    needs: refresh
+    if: ${{ needs.refresh.outputs.deploy_news == 'true' }}
+    runs-on: dappgo-ci
+    timeout-minutes: 15
+    steps:
       - name: Deploy and verify news
-        if: ${{ steps.publish.outputs.deploy_news == 'true' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: 83066b4bb72b4d78d018900762c0c948
-          PUBLISH_WORK_DIR: ${{ steps.publish.outputs.work_dir }}
+          DEPLOY_COMMIT: ${{ needs.refresh.outputs.commit }}
         run: |
           set -Eeuo pipefail
           if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
             echo "::warning::News HTML was committed to GitHub master but not deployed: CLOUDFLARE_PAGES_TOKEN is missing; Owner must add it and rerun with deploy_news=true."
             exit 0
           fi
-          cd "$PUBLISH_WORK_DIR/site"
-          bash scripts/deploy-news.sh --generated-at-file "$PUBLISH_WORK_DIR/news-generated-at-utc"
-
-      - name: Clean up publish clone
-        if: ${{ always() && steps.publish.outputs.work_dir != '' }}
-        env:
-          PUBLISH_WORK_DIR: ${{ steps.publish.outputs.work_dir }}
-        run: rm -rf -- "$PUBLISH_WORK_DIR"
+          [[ "$(node --version)" == v22.* ]] || { echo "::error::deploy-news needs Node 22 (Wrangler 4.149); got $(node --version)" >&2; exit 1; }
+          work="$(mktemp -d)"
+          trap 'rm -rf "$work"' EXIT
+          git clone --quiet --depth 50 --branch master https://github.com/YanlongLai/dappgo-website.git "$work/site"
+          cd "$work/site"
+          git checkout --quiet "$DEPLOY_COMMIT"
+          bash scripts/deploy-news.sh
