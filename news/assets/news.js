@@ -28,10 +28,16 @@
   const SKELETON_DELAY_MS = 300;
   const PAGE_DELAY_MS = 600;
   const SLOW_LOAD_MS = 8000;
+  const stockPages = new Set((root.dataset.stockPages || "").split(/\s+/).filter(Boolean));
+  function stockPath() {
+    const match = new URL(window.location.href).pathname.match(/^\/(us|tw)\/([A-Z0-9.]{1,10})\/$/i);
+    return match && match[1].toLowerCase() === market ? match[2].toUpperCase() : null;
+  }
+  let preferStockPath = Boolean(stockPath());
   function readViewState() {
     const params = new URLSearchParams(window.location.search);
     return {
-      stock: params.get("stock") || null,
+      stock: stockPath() || params.get("stock") || null,
       query: params.get("q") || "",
       language: validLanguage(params.get("lang")) || savedLanguage || (market === "us" ? browserLanguage : defaultLanguage)
     };
@@ -191,8 +197,14 @@
   function syncViewUrl() {
     const url = new URL(window.location.href);
     const params = url.searchParams;
-    if (state.stock) params.set("stock", state.stock);
-    else params.delete("stock");
+    if (preferStockPath && stockPages.has(state.stock)) {
+      url.pathname = `/${market}/${state.stock}/`;
+      params.delete("stock");
+    } else {
+      url.pathname = `/${market}/`;
+      if (state.stock) params.set("stock", state.stock);
+      else params.delete("stock");
+    }
     if (state.query) params.set("q", state.query);
     else params.delete("q");
     params.delete("range");
@@ -202,6 +214,7 @@
   }
 
   function applyViewStateFromUrl() {
+    preferStockPath = Boolean(stockPath());
     const next = readViewState();
     state.stock = next.stock;
     state.query = next.query;
@@ -285,10 +298,19 @@
     if (state.stock && state.stock !== "all" && !allEntries.some((entry) => entry.symbol === state.stock)) state.stock = "all";
     if (!state.stock && all.length) state.stock = all[0].symbol;
     const allButton = `<button class="stock-button" type="button" data-stock="all" aria-current="${state.stock === "all" ? "true" : "false"}"><span>${escapeHtml(copy.allMarket)}</span><small>ALL</small></button>`;
-    const buttons = all.map((entry) => `<button class="stock-button" type="button" data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"><span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small></button>`).join("");
+    const buttons = all.map((entry) => {
+      const content = `<span>${escapeHtml(entry.name)}</span><small>${escapeHtml(entry.symbol)}</small>`;
+      const attrs = `data-stock="${escapeHtml(entry.symbol)}" aria-current="${state.stock === entry.symbol ? "true" : "false"}"`;
+      return stockPages.has(entry.symbol)
+        ? `<a class="stock-button" href="/${market}/${escapeHtml(entry.symbol)}/?lang=${escapeHtml(state.language)}" ${attrs}>${content}</a>`
+        : `<button class="stock-button" type="button" ${attrs}>${content}</button>`;
+    }).join("");
     els.stockList.innerHTML = allButton + buttons;
-    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", () => {
+    els.stockList.querySelectorAll("[data-stock]").forEach((button) => button.addEventListener("click", (event) => {
+      if (event && (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) return;
+      event?.preventDefault();
       state.stock = button.dataset.stock;
+      if (stockPages.has(state.stock)) preferStockPath = true;
       state.visibleCount = PAGE_SIZE;
       syncViewUrl(); renderStocks(); renderStories();
       // Rendering replaces the buttons. Restore focus to the selected control,

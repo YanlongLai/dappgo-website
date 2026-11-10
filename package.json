@@ -5,6 +5,7 @@
   "description": "DappGo marketing website (static HTML on GitHub Pages, dappgo.app).",
   "scripts": {
     "release": "./scripts/release.sh",
-    "quality": "node scripts/quality-gate.mjs"
+    "quality": "node scripts/quality-gate.mjs",
+    "news:check": "node scripts/build-news-html.mjs --check"
   }
 }

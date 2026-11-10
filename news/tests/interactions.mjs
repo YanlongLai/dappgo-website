@@ -7,7 +7,7 @@ const source = fs.readFileSync(new URL('../assets/news.js', import.meta.url), 'u
 const tickers = { AAPL: { name: 'Apple Inc.', news: [] }, MSFT: { name: 'Microsoft', news: [] } };
 const flush = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 
-async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en', generatedAt = null, storyCount = 0, deferFetch = false, reading = null, initialStock = null } = {}) {
+async function fixture({ market = 'us', fail = false, savedLanguage = null, browserLanguage = 'en', generatedAt = null, storyCount = 0, deferFetch = false, reading = null, initialStock = null, initialPath = null, stockPages = '', prerender = '', stockData = null } = {}) {
   const nodes = new Map();
   const languages = ['zh', 'en'].map(language => element({ language }));
   const feedback = [element(), element()];
@@ -44,7 +44,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
   };
   clears.forEach((button, index) => button.closest = () => ({ querySelector: () => get(index ? '[data-stock-search-mobile]' : '[data-stock-search]') }));
   const root = {
-    dataset: { market }, querySelector: get,
+    dataset: { market, stockPages }, querySelector: get,
     querySelectorAll: selector => ({
       '[data-language]': languages,
       '[data-search-feedback]': feedback, '[data-clear-search]': clears,
@@ -53,7 +53,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
   };
   let failures = fail;
   let calls = 0;
-  let href = `https://news.dappgo.com/${market}/?lang=en${initialStock ? `&stock=${initialStock}` : ""}`;
+  let href = `https://news.dappgo.com${initialPath || `/${market}/`}?lang=en${initialStock ? `&stock=${initialStock}` : ""}`;
   const timers = new Map();
   let now = 0;
   let releaseFetch;
@@ -63,9 +63,12 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
     url: `https://example.test/story-${index}`, date: index < 15 ? '2026-10-22' : '2026-10-21',
     ...(index % 2 === 0 ? { image_url: 'https://example.test/image.jpg', image_width: 1200, image_height: 675 } : {}),
   })) } } };
+  if (stockData) payload.ticker_data = stockData;
+  if (prerender) get('[data-stories]').innerHTML = prerender;
   let timerId = 0;
   const openings = [];
-  const window = { DappGoNewsEngagement: { createClient: () => ({ recordOpen: topic => openings.push(topic), enabled: () => true, privacySignal: () => false }) }, location: { get search() { return new URL(href).search; }, get href() { return href; } }, history: { replaceState(_a, _b, value) { href = new URL(value, href).href; } }, addEventListener() {} };
+  const windowEvents = {};
+  const window = { DappGoNewsEngagement: { createClient: () => ({ recordOpen: topic => openings.push(topic), enabled: () => true, privacySignal: () => false }) }, location: { get search() { return new URL(href).search; }, get href() { return href; } }, history: { replaceState(_a, _b, value) { href = new URL(value, href).href; } }, addEventListener(name, callback) { windowEvents[name] = callback; } };
   const document = { documentElement: {}, querySelector: () => root, addEventListener() {} };
   vm.runInNewContext(source, {
     document, window, navigator: { languages: [browserLanguage] }, URL, URLSearchParams, Intl, AbortController,
@@ -85,6 +88,7 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
   return { get, languages, feedback, clears, disclaimer, timers, document, openings,
     toggleAnalysis() { const button = { disabled: /aria-controls="analysis-content" disabled/.test(get('[data-ai-analysis]').innerHTML) }; get('[data-ai-analysis]').events.click({ target: { closest: () => button } }); },
     focus: () => focused, calls: () => calls, href: () => href,
+    navigate(value) { href = new URL(value, href).href; windowEvents.popstate(); },
     setFailure(value) { failures = value; },
     async release() { deferFetch = false; releaseFetch(); await flush(); },
     async advance(ms) {
@@ -97,6 +101,74 @@ async function fixture({ market = 'us', fail = false, savedLanguage = null, brow
       now = target;
     },
   };
+}
+
+test('stock paths normalize case, take precedence over queries and remain paths when switching generated stocks', async () => {
+  const app = await fixture({ initialPath: '/US/aapl/', initialStock: 'MSFT', stockPages: 'AAPL MSFT' });
+  assert.equal(app.get('[data-company-name]').textContent, 'Apple Inc.');
+  assert.equal(new URL(app.href()).pathname, '/us/AAPL/');
+  assert.equal(new URL(app.href()).searchParams.has('stock'), false);
+  app.get('[data-mobile-stock-select]').events.change({ target: { value: 'MSFT' } });
+  assert.equal(new URL(app.href()).pathname, '/us/MSFT/');
+  app.languages[0].events.click();
+  assert.equal(new URL(app.href()).pathname, '/us/MSFT/');
+  assert.equal(new URL(app.href()).searchParams.get('lang'), 'zh');
+  app.navigate('/us/AAPL/?lang=en');
+  assert.equal(app.get('[data-company-name]').textContent, 'Apple Inc.');
+});
+
+test('stock-page visitors fall back to a query for missing pages and can return to generated paths', async () => {
+  const app = await fixture({ initialPath: '/us/AAPL/', stockPages: 'AAPL' });
+  app.get('[data-mobile-stock-select]').events.change({ target: { value: 'MSFT' } });
+  assert.equal(new URL(app.href()).pathname, '/us/');
+  assert.equal(new URL(app.href()).searchParams.get('stock'), 'MSFT');
+  app.get('[data-mobile-stock-select]').events.change({ target: { value: 'AAPL' } });
+  assert.equal(new URL(app.href()).pathname, '/us/AAPL/');
+  assert.equal(new URL(app.href()).searchParams.has('stock'), false);
+  app.get('[data-mobile-stock-select]').events.change({ target: { value: 'all' } });
+  assert.equal(new URL(app.href()).pathname, '/us/');
+  assert.equal(new URL(app.href()).searchParams.get('stock'), 'all');
+});
+
+test('legacy queries still select stocks; landing stock links prefer existing static pages', async () => {
+  const app = await fixture({ initialStock: 'MSFT', stockPages: 'AAPL' });
+  assert.equal(app.get('[data-company-name]').textContent, 'Microsoft');
+  assert.equal(new URL(app.href()).pathname, '/us/');
+  assert.equal(new URL(app.href()).searchParams.get('stock'), 'MSFT');
+  assert.match(app.get('[data-stock-list]').html, /<a class="stock-button" href="\/us\/AAPL\/\?lang=en"/);
+  const apple = app.get('[data-stock-list]').buttons.find(button => button.dataset.stock === 'AAPL');
+  apple.events.click({ ctrlKey: true });
+  assert.equal(app.get('[data-company-name]').textContent, 'Microsoft');
+  let prevented = false;
+  apple.events.click({ preventDefault() { prevented = true; } });
+  assert.equal(prevented, true);
+  assert.equal(new URL(app.href()).pathname, '/us/AAPL/');
+});
+
+test('Taiwan stock paths select the numeric ticker and preserve language switching', async () => {
+  const app = await fixture({ market: 'tw', initialPath: '/tw/2330/', stockPages: '2330', stockData: { '2330': { name: '台積電', news: [] } } });
+  assert.equal(app.get('[data-company-name]').textContent, '台積電');
+  assert.equal(new URL(app.href()).pathname, '/tw/2330/');
+  app.languages[0].events.click();
+  assert.equal(app.document.documentElement.lang, 'zh-Hant');
+  assert.equal(new URL(app.href()).pathname, '/tw/2330/');
+});
+
+for (const market of ['us', 'tw']) {
+  test(`${market}: prerendered stories remain readable while loading and are replaced by the normal reader in both languages`, async () => {
+    const prerender = '<h2>Latest published headlines / 最新已發布新聞</h2><ul><li>Published fallback</li></ul>';
+    const app = await fixture({ market, deferFetch: true, storyCount: 3, prerender });
+    assert.equal(app.get('[data-stories]').html, prerender);
+    await app.release();
+    assert.doesNotMatch(app.get('[data-stories]').html, /Published fallback/);
+    assert.equal((app.get('[data-stories]').html.match(/<article /g) || []).length, 3);
+    for (const button of app.languages) {
+      button.events.click();
+      assert.equal((app.get('[data-stories]').html.match(/<article /g) || []).length, 3);
+      assert.doesNotMatch(app.get('[data-stories]').html, /Published fallback/);
+    }
+    assert.equal(app.calls(), 2, 'language changes do not fetch');
+  });
 }
 
 test('root destination explicitly selects English even with Chinese browser and saved preference', async () => {

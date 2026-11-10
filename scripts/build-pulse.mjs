@@ -3,30 +3,14 @@
 // Fails closed: any pointer/payload mismatch aborts without writing. Unchanged content is not rewritten.
 import fs from "node:fs";
 import { renderHomeSnapshots } from "./render-pulse-html.mjs";
+import { GATEWAY, load } from "./lib/market-data.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const GATEWAY = "https://data.dappgo.com/v1/markets";
 const out = path.resolve(root, process.argv[2] || "data/pulse.json");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "config/product-catalog.json"), "utf8"));
 const webUrl = (id, market) => catalog.products.find((p) => p.id === id)?.web_routes.find((r) => r.market === market)?.url;
-const IMMUTABLE = /^dashboard\/data-[a-f0-9]{12,64}\.json$/;
-
-async function getJson(url) {
-  const response = await fetch(url, { headers: { accept: "application/json" } });
-  if (!response.ok) throw new Error(`${url} returned ${response.status}`);
-  return response.json();
-}
-
-async function load(market) {
-  const pointer = await getJson(`${GATEWAY}/${market}/dashboard/latest.json`);
-  if (!IMMUTABLE.test(pointer.data_url_v2 || "")) throw new Error(`${market}: pointer has no immutable data_url_v2`);
-  const payload = await getJson(`${GATEWAY}/${market}/${pointer.data_url_v2}`);
-  if (payload.data_hash !== pointer.hash) throw new Error(`${market}: payload data_hash does not match pointer hash`);
-  return { pointer, payload };
-}
-
 const round = (value, digits = 2) => (Number.isFinite(value) ? Number(value.toFixed(digits)) : null);
 const mover = ({ symbol, name, return_pct, current_close }) => ({ symbol, name, return_pct: round(return_pct), close: round(current_close) });
 const identity = ({ pointer, payload }) => ({

@@ -1,9 +1,10 @@
 name: homepage-pulse
 
 # Rebuilds data/pulse.json from the hash-verified data.dappgo.com pointers and
-# commits it and the generated EN/zh homepage snapshots to GitHub master (canonical; GitHub Pages serves dappgo.com).
+# commits it, the EN/zh homepage snapshots, and news/ to GitHub master (canonical; GitHub Pages serves dappgo.com).
 # Gitea is a one-way mirror, so the commit is pushed to GitHub, never to Gitea.
-# Holidays and repeat runs are no-ops: an unchanged pulse is not committed.
+# Holidays and repeat runs are no-ops when both pulse and news are unchanged.
+# Cloudflare Pages project dappgo-news deploys news/ from GitHub master.
 on:
   schedule:
     - cron: '20 9 * * 1-5'   # after the Taiwan final publish (~08:40 UTC)
@@ -36,12 +37,14 @@ jobs:
           for attempt in 1 2 3; do
             node scripts/build-pulse.mjs
             node scripts/verify-pulse.mjs
-            if git diff --quiet -- data/pulse.json index.html zh/index.html; then
-              echo "pulse unchanged; nothing to publish"
+            node scripts/build-news-html.mjs
+            git add -- news/
+            if git diff --quiet HEAD -- data/pulse.json index.html zh/index.html news/; then
+              echo "pulse and news unchanged; nothing to publish"
               exit 0
             fi
             dates="$(node -e 'const m=require("./data/pulse.json").markets;console.log(["us","tw","options"].map(k=>`${k} ${m[k].report_date}`).join(", "))')"
-            git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json index.html zh/index.html
+            git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json index.html zh/index.html news/
             if git -c http.extraheader="$auth" push --quiet origin HEAD:master; then
               echo "published $(git rev-parse HEAD)"
               exit 0
