@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-10T22:45:50Z",
+  "built_at_utc": "2026-11-11T09:20:29Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-10",
-      "generated_at_utc": "2026-11-10T08:38:37Z",
+      "report_date": "2026-11-11",
+      "generated_at_utc": "2026-11-11T08:43:56Z",
       "schema_version": "1.2.0",
-      "data_hash": "e53a9f894cb4b906c23cecb9f23241c07113086400fb361ed136a3087190878c",
+      "data_hash": "c8f7a4223c0a3720fa13d366aa98c31a09bd9ad20ad35ec05e1dea3cd13882fb",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,114 +140,114 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.059,
-      "advance_decline_ratio": 7.08,
+      "breadth_score": 0.188,
+      "advance_decline_ratio": 11.12,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 2 BUY / 2 SELL, market regime: risk-off.",
-        "zh": "今日 2 檔買進 / 2 檔賣出，市場環境風險規避（加權指數跌破 200MA + 漲家數佔比僅 6% + 波動偏）。"
+        "en": "Today's report: 2 BUY / 5 SELL, market regime: risk-off.",
+        "zh": "今日 2 檔買進 / 5 檔賣出，市場環境風險規避（追蹤標的站上 20 日均線的比例僅 19% + 波動偏高 =）。"
       },
       "gainers": [
         {
-          "symbol": "6446",
-          "name": "藥華藥",
-          "return_pct": 15.13,
-          "close": 1370
+          "symbol": "1802",
+          "name": "台玻",
+          "return_pct": 14.99,
+          "close": 76.7
         },
         {
-          "symbol": "2618",
-          "name": "長榮航",
-          "return_pct": 1.74,
-          "close": 43.9
+          "symbol": "3661",
+          "name": "世芯-KY",
+          "return_pct": 14.78,
+          "close": 3650
         },
         {
-          "symbol": "2891",
-          "name": "中信金",
-          "return_pct": 1.2,
-          "close": 75.9
+          "symbol": "1303",
+          "name": "南亞",
+          "return_pct": 13.2,
+          "close": 313
         },
         {
-          "symbol": "2880",
-          "name": "華南金",
-          "return_pct": 0,
-          "close": 49.6
+          "symbol": "3443",
+          "name": "創意",
+          "return_pct": 10.82,
+          "close": 7885
         }
       ],
       "losers": [
         {
-          "symbol": "2360",
-          "name": "致茂",
-          "return_pct": -27.11,
-          "close": 1250
+          "symbol": "2347",
+          "name": "聯強",
+          "return_pct": -12.4,
+          "close": 79.1
         },
         {
           "symbol": "3189",
           "name": "景碩",
-          "return_pct": -24.18,
-          "close": 690
+          "return_pct": -9.85,
+          "close": 741
         },
         {
-          "symbol": "3037",
-          "name": "欣興",
-          "return_pct": -24.07,
-          "close": 757
+          "symbol": "3034",
+          "name": "聯詠",
+          "return_pct": -9.76,
+          "close": 481
         },
         {
-          "symbol": "6515",
-          "name": "穎崴",
-          "return_pct": -22.07,
-          "close": 3495
+          "symbol": "2356",
+          "name": "英業達",
+          "return_pct": -9.22,
+          "close": 51.2
         }
       ],
       "picks": [
         {
-          "symbol": "2890",
-          "name": "永豐金",
-          "score": 66,
+          "symbol": "2395",
+          "name": "研華",
+          "score": 68,
           "signals": {
             "en": [
-              "Below MA20 6.0%",
-              "RSI 37 near oversold",
+              "Below MA20 6.6%",
+              "RSI 41 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.0%",
-              "RSI 37 接近超賣",
+              "低於 MA20 -6.6%",
+              "RSI 41 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "2883",
-          "name": "凱基金",
-          "score": 66,
-          "signals": {
-            "en": [
-              "Below MA20 7.3%",
-              "RSI 37 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -7.3%",
-              "RSI 37 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "2330",
-          "name": "台積電",
+          "symbol": "3036",
+          "name": "文曄",
           "score": 65,
           "signals": {
             "en": [
-              "Below MA20 6.2%",
-              "RSI 35 near oversold",
+              "Below MA20 5.2%",
+              "RSI 42 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.2%",
-              "RSI 35 接近超賣",
+              "低於 MA20 -5.2%",
+              "RSI 42 接近超賣",
               "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "6669",
+          "name": "緯穎",
+          "score": 64,
+          "signals": {
+            "en": [
+              "Below MA20 8.6%",
+              "RSI 32 near oversold",
+              "MACD bullish turn"
+            ],
+            "zh": [
+              "低於 MA20 -8.6%",
+              "RSI 32 接近超賣",
+              "MACD 翻多"
             ]
           }
         }
@@ -473,85 +473,85 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3269349",
-      "published_at_utc": "2026-11-10T01:44:00Z",
+      "source": "UDN Money",
+      "url": "https://money.udn.com/money/story/5612/9872095",
+      "published_at_utc": "2026-11-11T07:49:08Z",
       "title": {
-        "original": "台達電連2根漲停！權值5強猛攻 台股狂飆1460點收復43K",
-        "en": "Delta Electronics consecutive 2 limit-up! Heavyweight 5 strong attack, Taiwan stocks soar 1460 points to reclaim 43K"
+        "original": "鴻華先進首屆「純電生活節」車主聚會200輛電動車南北齊聚",
+        "en": "Foxtron Advanced's first \"Pure Electric Life Festival\" owner gathering 200 electric vehicles gather north and south"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
     },
     {
       "market": "tw",
-      "symbol": "2357",
-      "name": "華碩",
+      "symbol": "2330",
+      "name": "台積電",
       "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9868832",
-      "published_at_utc": "2026-11-10T04:16:42Z",
+      "url": "https://money.udn.com/money/story/5612/9872092",
+      "published_at_utc": "2026-11-11T07:48:08Z",
       "title": {
-        "original": "AI 賦能碳管理 華碩攜手臺大醫院北護分院推動醫療永續轉型",
+        "original": "一座晶圓廠要3000種化學品！台積電侯永清：高鐵兩三小時備齊是台灣優勢",
+        "en": "A wafer fab needs 3000 kinds of chemicals! TSMC's Hou Yongqing: High-speed rail within two to three hours to get them ready is Taiwan's advantage."
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=2330"
+    },
+    {
+      "market": "tw",
+      "symbol": "3231",
+      "name": "緯創",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMipANBVV95cUxNLXpLLUV0QnV0dU8xRUhSVFN0RTU4MF9KeWptZmtFLTVOUHZtaVlXY29sRl9lQnYwU1RneUxfUnNBeExaTGhDcm53SVhHT056dXQzUUFyaHZpaUtIWkdkUVludEF1RlN4dmg2dEs2b1czaFVETGEwX1NiTy1MZ3pBSl9mUVA4YjJZSFRZS0R1ajV2bG1DRUcxemgwSEZWczlkT0FoTG9Qc2I4MkJKR1BBaXNUR0xMLUVGUEh5eDZYNFk4SGRiZktrTUJ1U0RyM1NoTDBXTEZvaDNDSkRQdFNxTWMxTHh1eHdxQnBjVVgxdzRwODB2andKS0RITThKSDFkRVJicUhoZVZYbjlDX1JjVHlFNmZMNDRzbUlYMkNldXBDNzhqak1Hdm1uZ2pZQnk3MXlLWGljc2RhT0ppS09RaGZPbnh6SGhvTzBQTEMyMi0tWWtRVThta2dJclZYbmtaTXFCYVJxU29feDFfTFMtbHNTVTU2dWs0NWppUmpLSEpNZktZQzVQY2FKZGZ2bGxCbDNjai0wZzltWXpTYlZiWjdheGU?oc=5",
+      "published_at_utc": "2026-11-10T12:06:04Z",
+      "title": {
+        "original": "電子五哥10月營收「二增三減」 緯創再衝4千億元大關寫單月次高",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2357"
+      "news_url": "https://news.dappgo.com/tw/?stock=3231"
     },
     {
       "market": "tw",
-      "symbol": "6505",
-      "name": "台塑化",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9867276",
-      "published_at_utc": "2026-11-09T09:29:21Z",
+      "symbol": "2382",
+      "name": "廣達",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMiqANBVV95cUxOZm5SemV4ZzVPeG90REd4aVZEUGxDQXBlMWxEQmh5c2ZKREcxem8xRklSYS1ZWll4Y0IwcnloeUNwdUFZMlA5NlJBUXg0RmJwbEhSb2ZUWEZSRmszR2RXeTlUZEhDeHJQazc0bm8tLVFqblJRbTBxazJZbWdMV052MzVTMDdqcktoRnJkekU0cm5feVBscXVOWnVtSS1IX2t1VGIwY3p0QkJjT01mUXlYQVJqZTd1RU00YnZfZW1iekQ3bEVrT28xR29EQnpBX3QwN251SlRaWFppR2xaOUlBMk9YZXRPbU9hR3ZLSEhaYkVHWlJzakJSUmlaYlhRN1RIT1BRZllMLS1MZU84Tkd2T0hjY0c5bVV6dS1XVy1FTVRuQXdYNVJ3X0ZQRER2UjhoX1V5VnJDUGlMRHBpZXNlUGFYODNfV1U3X2M3M0pWbTJVblJEd2NCNGllOXNlMDZtOHBKYXV3YTc3QWg3eWZKSmtqNVI1SEJTMGNkRFFPUWFoQkFaQXBTMmNXcy1pUThLMFVnMk1KbmJSWS1IT2hvZTREaGlMRnpL?oc=5",
+      "published_at_utc": "2026-11-11T08:13:46Z",
       "title": {
-        "original": "台塑化增持台橡 深化產業鏈整合 強調無關經營權議題",
+        "original": "廣達法說1》前三季賺破2個股本創新高 明年伺服器營收占比上看9成",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=6505"
+      "news_url": "https://news.dappgo.com/tw/?stock=2382"
     },
     {
       "market": "tw",
-      "symbol": "2308",
-      "name": "台達電",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9867940",
-      "published_at_utc": "2026-11-09T16:03:29Z",
+      "symbol": "3036",
+      "name": "文曄",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9LbURLLXQ0VVRmdjRUNE51QU15dmlwVDRsbHVoZlZ6NXVCekxCYVBZMVk2MW9VYUY1TUlXY0N0Um5JeXk2ZXhnV2cydDk0VFRvanI4S3RjaHo?oc=5",
+      "published_at_utc": "2026-11-11T01:56:48Z",
       "title": {
-        "original": "蘋果進擊機器人 鴻準有望成為大贏家",
-        "en": "Apple advances into robots; Hongzhun poised to be big winner"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2308"
-    },
-    {
-      "market": "tw",
-      "symbol": "1303",
-      "name": "南亞",
-      "source": "ETtoday Finance",
-      "url": "https://finance.ettoday.net/news/3268750",
-      "published_at_utc": "2026-11-09T01:59:00Z",
-      "title": {
-        "original": "南亞10月營收報喜領軍上攻 3檔玻纖布鎖漲停",
-        "en": "Nan Ya 10 Monthly Revenue Reports Good News Leading the Rally 3 Glass Fiber Cloth Stocks Locked Limit Up"
-      },
-      "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=1303"
-    },
-    {
-      "market": "tw",
-      "symbol": "2912",
-      "name": "統一超",
-      "source": "UDN Money",
-      "url": "https://money.udn.com/money/story/5612/9867137",
-      "published_at_utc": "2026-11-09T08:29:34Z",
-      "title": {
-        "original": "統一超商入股 LOPIA 過關 將取得在台超市公司51%股權",
+        "original": "3036 文曄 - 營收成長.EPS大賺.好像都跟你沒關係 - 股市爆料同學會",
         "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2912"
+      "news_url": "https://news.dappgo.com/tw/?stock=3036"
+    },
+    {
+      "market": "tw",
+      "symbol": "4938",
+      "name": "和碩",
+      "source": "富聯網",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTE9nVFJ5STVVV0REUm1rNWRwWmplQm5LZFpsWFZjQjFma3IzeWVYOUVoYlpJd2swWDk0R0xkRWg5MGpCVTBQQWFlVE5ybFozd29BS095WlRYMi1zNV9PSFZ4cnZjWEFnSXpOMmNZajdQSXVpSkVqNzBuSk1CYXdaa3R3REdOTm02?oc=5",
+      "published_at_utc": "2026-11-11T03:38:00Z",
+      "title": {
+        "original": "《電週邊》10月營收月減12.4% 和碩走弱",
+        "en": null
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/tw/?stock=4938"
     }
   ]
 }
