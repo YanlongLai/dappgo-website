@@ -49,6 +49,7 @@
     "us-stocks": { ios: "6768116546", android: "com.dappgo.usstocksapp" },
     "options-explorer": { ios: "6768116720", android: "com.dappgo.optionsapp" },
     news: { android: "com.dappgo.newsapp" },
+    "number-rpg": { ios: "6827756398", android: "com.dappgo.numberrpg" },
     "number-merge": { android: "com.dappgo.numbermerge" }
   };
 

@@ -6,44 +6,80 @@
       "id": "options-explorer",
       "name": "Options Explorer",
       "web_routes": [
-        {"market": "us", "url": "https://options.dappgo.com/us/"}
+        {
+          "market": "us",
+          "url": "https://options.dappgo.com/us/"
+        }
       ],
       "stores": {
-        "ios": {"status": "live", "url": "https://apps.apple.com/us/app/options-explorer/id6768116720"},
-        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp"}
+        "ios": {
+          "status": "live",
+          "url": "https://apps.apple.com/us/app/options-explorer/id6768116720"
+        },
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.optionsapp"
+        }
       }
     },
     {
       "id": "us-stocks",
       "name": "US Stocks",
       "web_routes": [
-        {"market": "us", "url": "https://stocks.dappgo.com/us/"}
+        {
+          "market": "us",
+          "url": "https://stocks.dappgo.com/us/"
+        }
       ],
       "stores": {
-        "ios": {"status": "live", "url": "https://apps.apple.com/us/app/us-stocks/id6768116546"},
-        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp"}
+        "ios": {
+          "status": "live",
+          "url": "https://apps.apple.com/us/app/us-stocks/id6768116546"
+        },
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp"
+        }
       }
     },
     {
       "id": "taiwan-stocks",
       "name": "Taiwan Stocks",
       "web_routes": [
-        {"market": "tw", "url": "https://stocks.dappgo.com/tw/"}
+        {
+          "market": "tw",
+          "url": "https://stocks.dappgo.com/tw/"
+        }
       ],
       "stores": {
-        "ios": {"status": "live", "url": "https://apps.apple.com/us/app/tw-stocks/id6768116538"},
-        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp"}
+        "ios": {
+          "status": "live",
+          "url": "https://apps.apple.com/us/app/tw-stocks/id6768116538"
+        },
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp"
+        }
       }
     },
     {
       "id": "news",
       "name": "DappGo News",
       "web_routes": [
-        {"market": "us", "url": "https://news.dappgo.com/us/"},
-        {"market": "tw", "url": "https://news.dappgo.com/tw/"}
+        {
+          "market": "us",
+          "url": "https://news.dappgo.com/us/"
+        },
+        {
+          "market": "tw",
+          "url": "https://news.dappgo.com/tw/"
+        }
       ],
       "stores": {
-        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.newsapp"}
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.newsapp"
+        }
       }
     },
     {
@@ -51,14 +87,38 @@
       "name": "Number Merge",
       "web_routes": [],
       "stores": {
-        "android": {"status": "live", "url": "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge"}
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge"
+        }
+      }
+    },
+    {
+      "id": "number-rpg",
+      "name": "Number RPG",
+      "web_routes": [
+        {
+          "url": "https://dappgo.com/number-rpg/"
+        }
+      ],
+      "stores": {
+        "ios": {
+          "status": "live",
+          "url": "https://apps.apple.com/us/app/number-rpg/id6827756398"
+        },
+        "android": {
+          "status": "live",
+          "url": "https://play.google.com/store/apps/details?id=com.dappgo.numberrpg"
+        }
       }
     },
     {
       "id": "market-claim-verifier",
       "name": "Market claim verifier",
       "web_routes": [
-        {"url": "https://hackathon.dappgo.com"}
+        {
+          "url": "https://hackathon.dappgo.com"
+        }
       ],
       "stores": {}
     }

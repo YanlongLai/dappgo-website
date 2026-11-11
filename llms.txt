@@ -55,3 +55,5 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 ## Limits
 
 Only public read-only resources are advertised. This catalogue grants no login, trading, social publication, Git, SSH or server-operation permission. Native store availability is managed separately. No public MCP or WebMCP action endpoint is advertised. Static Markdown is available at the explicit guide URL; automatic Accept: text/markdown conversion is not enabled.
+
+- [Number RPG](https://dappgo.com/number-rpg/): pet adventure game, available on iOS and Android. Official store downloads, support, privacy, terms, and account deletion are linked from the product page.
