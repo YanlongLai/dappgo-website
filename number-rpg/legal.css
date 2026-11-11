@@ -86,6 +86,12 @@
   letter-spacing: -0.06em;
 }
 
+.adventure-official {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .adventure-heading {
   margin: 0 0 24px;
   font-size: clamp(24px, 2.4vw, 32px);

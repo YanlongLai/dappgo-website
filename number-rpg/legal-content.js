@@ -1488,6 +1488,7 @@ const storePages = {
       "product": "Number RPG by DappGo",
       "summary": "Need help with Number RPG? Find answers below or email admin@dappgo.com.",
       "sections": [
+        {"heading": "Report suspected impersonation", "paragraphs": ["If a website or app appears to impersonate Number RPG or DappGo, email its URL and screenshots to admin@dappgo.com. Please leave out passwords, payment details, and other sensitive information."]},
         {
           "heading": "Contact us",
           "paragraphs": [
@@ -1536,6 +1537,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG is published by DappGo. This is the official website.",
       "title": "Number RPG",
       "summary": "Explore five lands with twelve stages each. Grow your pets, face bosses, and collect relics. Take on the Endless and Boss towers, and share the adventure with friends.",
       "heading": "Grow your pets. Find your next adventure.",
@@ -1552,6 +1554,7 @@ const storePages = {
       "product": "DappGo 的 Number RPG",
       "summary": "Number RPG 遇到問題了嗎？請參考下方說明，或寄信至 admin@dappgo.com。",
       "sections": [
+        {"heading": "回報疑似仿冒", "paragraphs": ["若發現疑似冒用 Number RPG 或 DappGo 名義的網站或 App，請將網址與截圖寄至 admin@dappgo.com。請勿附上密碼、付款資料或其他敏感資訊。"]},
         {
           "heading": "聯絡我們",
           "paragraphs": [
@@ -1600,6 +1603,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG 由 DappGo 發行，此為官方網站。",
       "title": "Number RPG",
       "summary": "探索五大國度，每個國度都有十二個關卡。培育寵物、挑戰首領、收集遺物，登上無盡之塔與首領之塔，和好友一起冒險。",
       "heading": "培育寵物，展開下一段冒險。",
@@ -1616,6 +1620,7 @@ const storePages = {
       "product": "DappGo 的 Number RPG",
       "summary": "Number RPG 遇到问题了吗？请查看下方说明，或发送邮件至 admin@dappgo.com。",
       "sections": [
+        {"heading": "举报疑似仿冒", "paragraphs": ["若发现疑似冒用 Number RPG 或 DappGo 名义的网站或 App，请将网址和截图发送至 admin@dappgo.com。请勿附上密码、付款资料或其他敏感信息。"]},
         {
           "heading": "联系我们",
           "paragraphs": [
@@ -1664,6 +1669,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG 由 DappGo 发行，此为官方网站。",
       "title": "Number RPG",
       "summary": "探索五大国度，每个国度都有十二个关卡。培养宠物、挑战首领、收集遗物，登上无尽之塔与首领之塔，和好友一起冒险。",
       "heading": "培养宠物，开启下一段冒险。",
@@ -1680,6 +1686,7 @@ const storePages = {
       "product": "DappGo の Number RPG",
       "summary": "Number RPG でお困りですか？以下の案内をご覧いただくか、admin@dappgo.com までご連絡ください。",
       "sections": [
+        {"heading": "なりすましの疑いを報告", "paragraphs": ["Number RPG または DappGo を装う疑いのあるサイトやアプリを見つけた場合は、URL とスクリーンショットを admin@dappgo.com にお送りください。パスワード、支払い情報、その他の機密情報は含めないでください。"]},
         {
           "heading": "お問い合わせ",
           "paragraphs": [
@@ -1728,6 +1735,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG の配信元は DappGo です。このサイトは公式サイトです。",
       "title": "Number RPG",
       "summary": "5 つの大地、それぞれ 12 のステージを探索。ペットを育て、ボスに挑み、遺物を集めましょう。無限の塔やボスの塔に挑戦し、フレンドと冒険を楽しめます。",
       "heading": "ペットを育て、次の冒険へ。",
@@ -1744,6 +1752,7 @@ const storePages = {
       "product": "DappGo의 Number RPG",
       "summary": "Number RPG 이용에 도움이 필요하신가요? 아래 안내를 확인하거나 admin@dappgo.com으로 문의하세요.",
       "sections": [
+        {"heading": "사칭 의심 신고", "paragraphs": ["Number RPG 또는 DappGo를 사칭하는 것으로 의심되는 웹사이트나 앱을 발견하면 URL과 스크린샷을 admin@dappgo.com으로 보내 주세요. 비밀번호, 결제 정보 및 기타 민감한 정보는 제외해 주세요."]},
         {
           "heading": "문의하기",
           "paragraphs": [
@@ -1792,6 +1801,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG는 DappGo가 배포합니다. 이곳은 공식 웹사이트입니다.",
       "title": "Number RPG",
       "summary": "각각 12개 스테이지로 구성된 다섯 지역을 탐험하세요. 펫을 키우고 보스에 도전하며 유물을 모으세요. 무한의 탑과 보스의 탑을 오르고 친구와 모험을 함께하세요.",
       "heading": "펫을 키우고, 다음 모험으로.",
@@ -1808,6 +1818,7 @@ const storePages = {
       "product": "Number RPG de DappGo",
       "summary": "¿Necesitas ayuda con Number RPG? Consulta las respuestas o escribe a admin@dappgo.com.",
       "sections": [
+        {"heading": "Denunciar una posible suplantación", "paragraphs": ["Si un sitio web o una app parece suplantar a Number RPG o DappGo, envía su URL y capturas de pantalla a admin@dappgo.com. Omite contraseñas, datos de pago y otra información sensible."]},
         {
           "heading": "Contacta con nosotros",
           "paragraphs": [
@@ -1856,6 +1867,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "DappGo publica Number RPG. Este es el sitio web oficial.",
       "title": "Number RPG",
       "summary": "Explora cinco tierras con doce fases cada una. Haz crecer a tus mascotas, enfréntate a jefes y reúne reliquias. Supera las torres Infinita y de Jefes, y comparte la aventura con amigos.",
       "heading": "Haz crecer a tus mascotas. Sigue la aventura.",
@@ -1872,6 +1884,7 @@ const storePages = {
       "product": "Number RPG par DappGo",
       "summary": "Besoin d’aide avec Number RPG ? Consultez les réponses ci-dessous ou écrivez à admin@dappgo.com.",
       "sections": [
+        {"heading": "Signaler une usurpation présumée", "paragraphs": ["Si un site ou une application semble usurper l’identité de Number RPG ou DappGo, envoyez son URL et des captures d’écran à admin@dappgo.com. Excluez les mots de passe, données de paiement et autres informations sensibles."]},
         {
           "heading": "Nous contacter",
           "paragraphs": [
@@ -1920,6 +1933,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG est publié par DappGo. Ceci est le site officiel.",
       "title": "Number RPG",
       "summary": "Explorez cinq contrées de douze niveaux chacune. Faites grandir vos compagnons, affrontez des boss et collectionnez des reliques. Relevez les défis des tours Infinie et des Boss, et partagez l’aventure avec vos amis.",
       "heading": "Faites grandir vos compagnons. Partez à l’aventure.",
@@ -1936,6 +1950,7 @@ const storePages = {
       "product": "Number RPG von DappGo",
       "summary": "Du brauchst Hilfe mit Number RPG? Hier findest du Antworten. Du kannst auch an admin@dappgo.com schreiben.",
       "sections": [
+        {"heading": "Mögliche Nachahmung melden", "paragraphs": ["Wenn eine Website oder App sich möglicherweise als Number RPG oder DappGo ausgibt, sende die URL und Screenshots an admin@dappgo.com. Bitte keine Passwörter, Zahlungsdaten oder anderen vertraulichen Informationen mitsenden."]},
         {
           "heading": "Kontakt",
           "paragraphs": [
@@ -1984,6 +1999,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG wird von DappGo veröffentlicht. Dies ist die offizielle Website.",
       "title": "Number RPG",
       "summary": "Erkunde fünf Länder mit jeweils zwölf Stufen. Lass deine Begleiter wachsen, besiege Bosse und sammle Relikte. Stelle dich dem Endlos- und dem Boss-Turm und erlebe das Abenteuer mit Freunden.",
       "heading": "Lass deine Begleiter wachsen. Zieh weiter.",
@@ -2000,6 +2016,7 @@ const storePages = {
       "product": "Number RPG da DappGo",
       "summary": "Precisa de ajuda com o Number RPG? Veja as respostas abaixo ou escreva para admin@dappgo.com.",
       "sections": [
+        {"heading": "Denunciar possível falsificação", "paragraphs": ["Se um site ou app parecer se passar por Number RPG ou DappGo, envie a URL e capturas de tela para admin@dappgo.com. Não inclua senhas, dados de pagamento ou outras informações sensíveis."]},
         {
           "heading": "Fale conosco",
           "paragraphs": [
@@ -2048,6 +2065,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG é publicado pela DappGo. Este é o site oficial.",
       "title": "Number RPG",
       "summary": "Explore cinco terras com doze fases cada. Faça seus companheiros crescerem, enfrente chefes e reúna relíquias. Desafie as torres Infinita e dos Chefes e compartilhe a aventura com amigos.",
       "heading": "Crie seus companheiros. Viva a próxima aventura.",
@@ -2064,6 +2082,7 @@ const storePages = {
       "product": "Number RPG โดย DappGo",
       "summary": "ต้องการความช่วยเหลือเกี่ยวกับ Number RPG หรือไม่? ดูคำตอบด้านล่างหรือส่งอีเมลถึง admin@dappgo.com",
       "sections": [
+        {"heading": "รายงานการแอบอ้างที่น่าสงสัย", "paragraphs": ["หากพบเว็บไซต์หรือแอปที่สงสัยว่าแอบอ้างเป็น Number RPG หรือ DappGo โปรดส่ง URL และภาพหน้าจอไปที่ admin@dappgo.com โดยไม่ใส่รหัสผ่าน ข้อมูลการชำระเงิน หรือข้อมูลอ่อนไหวอื่น ๆ"]},
         {
           "heading": "ติดต่อเรา",
           "paragraphs": [
@@ -2112,6 +2131,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG เผยแพร่โดย DappGo นี่คือเว็บไซต์ทางการ",
       "title": "Number RPG",
       "summary": "สำรวจห้าดินแดน ดินแดนละสิบสองด่าน เลี้ยงคู่หูให้เติบโต ต่อสู้กับบอส และสะสมวัตถุโบราณ ท้าทายหอคอยไร้สิ้นสุดและหอคอยบอส พร้อมแบ่งปันการผจญภัยกับเพื่อน",
       "heading": "เลี้ยงคู่หูให้เติบโต แล้วออกผจญภัยต่อ",
@@ -2128,6 +2148,7 @@ const storePages = {
       "product": "Number RPG của DappGo",
       "summary": "Cần giúp đỡ với Number RPG? Xem hướng dẫn bên dưới hoặc gửi email đến admin@dappgo.com.",
       "sections": [
+        {"heading": "Báo cáo nghi vấn giả mạo", "paragraphs": ["Nếu phát hiện trang web hoặc ứng dụng có dấu hiệu mạo danh Number RPG hoặc DappGo, hãy gửi URL và ảnh chụp màn hình đến admin@dappgo.com. Không gửi mật khẩu, thông tin thanh toán hoặc thông tin nhạy cảm khác."]},
         {
           "heading": "Liên hệ",
           "paragraphs": [
@@ -2176,6 +2197,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG do DappGo phát hành. Đây là trang web chính thức.",
       "title": "Number RPG",
       "summary": "Khám phá năm vùng đất, mỗi vùng mười hai màn. Nuôi thú cưng lớn lên, đối đầu trùm và thu thập di vật. Thử sức ở Tháp Vô Tận, Tháp Trùm và chia sẻ hành trình cùng bạn bè.",
       "heading": "Nuôi thú cưng. Tiếp bước phiêu lưu.",
@@ -2192,6 +2214,7 @@ const storePages = {
       "product": "Number RPG oleh DappGo",
       "summary": "Perlu bantuan untuk Number RPG? Lihat jawaban berikut atau kirim email ke admin@dappgo.com.",
       "sections": [
+        {"heading": "Laporkan dugaan peniruan", "paragraphs": ["Jika situs web atau aplikasi diduga menyamar sebagai Number RPG atau DappGo, kirim URL dan tangkapan layar ke admin@dappgo.com. Jangan sertakan kata sandi, data pembayaran, atau informasi sensitif lainnya."]},
         {
           "heading": "Hubungi kami",
           "paragraphs": [
@@ -2240,6 +2263,7 @@ const storePages = {
       ]
     },
     "home": {
+      "official": "Number RPG diterbitkan oleh DappGo. Ini adalah situs web resmi.",
       "title": "Number RPG",
       "summary": "Jelajahi lima wilayah dengan dua belas tahap di masing-masingnya. Besarkan peliharaan, hadapi bos, dan kumpulkan relik. Tantang Menara Tanpa Akhir dan Menara Bos, lalu berbagi petualangan dengan teman.",
       "heading": "Besarkan peliharaanmu. Lanjutkan petualangan.",
