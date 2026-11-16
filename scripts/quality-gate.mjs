@@ -25,5 +25,6 @@ run(process.execPath, ["news/tests/contract.mjs"]);
 run(process.execPath, ["news/tests/analysis.mjs"]);
 run(process.execPath, ["--test", "news/tests/interactions.mjs"]);
 run(process.execPath, ["--test", "news/tests/engagement.mjs"]);
+run(process.execPath, ["--test", "news/tests/proxy.mjs"]);
 run(process.env.PYTHON || "python3", ["-m", "unittest", "-v", "tests/test_ai_readiness.py"]);
 console.log("\nQuality gate passed. GitHub Actions is paused by Owner instruction and was not run.");

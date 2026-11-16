@@ -1,6 +1,9 @@
 const UPSTREAM = "https://data.dappgo.com";
 const MARKETS = new Set(["us", "tw"]);
 const FILE_PATTERN = /^(?:latest|data-[a-f0-9]{12,64})\.json$/i;
+// Bound the upstream wait so a stalled gateway yields a fast JSON error
+// instead of holding the Function open.
+export const UPSTREAM_TIMEOUT_MS = 5000;
 
 function jsonError(message, status) {
   return new Response(JSON.stringify({ error: message }), {
@@ -19,7 +22,13 @@ export async function onRequestGet({ params }) {
   if (!MARKETS.has(market) || !FILE_PATTERN.test(file)) return jsonError("Not found", 404);
 
   const upstream = `${UPSTREAM}/v1/markets/${market}/dashboard/${file}`;
-  const response = await fetch(upstream, { headers: { accept: "application/json" } });
+  let response;
+  try {
+    response = await fetch(upstream, { headers: { accept: "application/json" }, signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS) });
+  } catch (error) {
+    const timedOut = error?.name === "TimeoutError" || error?.name === "AbortError";
+    return jsonError(timedOut ? "Upstream data gateway timed out" : "Upstream data gateway unreachable", timedOut ? 504 : 502);
+  }
   if (!response.ok) return jsonError(`Upstream data gateway returned ${response.status}`, response.status >= 500 ? 502 : response.status);
 
   const headers = new Headers();
