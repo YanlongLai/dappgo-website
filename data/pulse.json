@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-16T22:45:37Z",
+  "built_at_utc": "2026-11-17T09:20:28Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-16",
-      "generated_at_utc": "2026-11-16T08:40:22Z",
+      "report_date": "2026-11-17",
+      "generated_at_utc": "2026-11-17T08:38:08Z",
       "schema_version": "1.2.0",
-      "data_hash": "7359d5cdd1205bb5c42ce364cc84346287ce4e0f665bac48eab3acb10585d072",
+      "data_hash": "a84c40da41727de04deaf85545b28e1ff4135feb05a9b78e4cca272a8b61c306",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,8 +140,8 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.109,
-      "advance_decline_ratio": 0.02,
+      "breadth_score": 0.099,
+      "advance_decline_ratio": 0.25,
       "vol_regime": "high",
       "one_liner": {
         "en": "Today's report: 3 BUY / 2 SELL, market regime: risk-off.",
@@ -149,105 +149,105 @@
       },
       "gainers": [
         {
-          "symbol": "1802",
-          "name": "台玻",
-          "return_pct": 20.63,
-          "close": 76.6
+          "symbol": "2891",
+          "name": "中信金",
+          "return_pct": 5.16,
+          "close": 77.5
         },
         {
           "symbol": "3661",
           "name": "世芯-KY",
-          "return_pct": 17.68,
-          "close": 3660
+          "return_pct": 5.12,
+          "close": 3595
         },
         {
-          "symbol": "3443",
-          "name": "創意",
-          "return_pct": 15.59,
-          "close": 7750
+          "symbol": "1216",
+          "name": "統一",
+          "return_pct": 4.9,
+          "close": 79.2
         },
         {
-          "symbol": "2313",
-          "name": "華通",
-          "return_pct": 10.6,
-          "close": 193
+          "symbol": "2207",
+          "name": "和泰車",
+          "return_pct": 4.53,
+          "close": 531
         }
       ],
       "losers": [
         {
-          "symbol": "2356",
-          "name": "英業達",
-          "return_pct": -22.66,
-          "close": 43
-        },
-        {
-          "symbol": "2344",
-          "name": "華邦電",
-          "return_pct": -14.72,
-          "close": 113
+          "symbol": "3189",
+          "name": "景碩",
+          "return_pct": -27.25,
+          "close": 542
         },
         {
           "symbol": "3653",
           "name": "健策",
-          "return_pct": -14.55,
-          "close": 4815
+          "return_pct": -25.13,
+          "close": 4335
         },
         {
-          "symbol": "2324",
-          "name": "仁寶",
-          "return_pct": -14.33,
-          "close": 28.1
+          "symbol": "2059",
+          "name": "川湖",
+          "return_pct": -23.35,
+          "close": 6565
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興",
+          "return_pct": -23.07,
+          "close": 637
         }
       ],
       "picks": [
         {
-          "symbol": "2379",
-          "name": "瑞昱",
-          "score": 68,
+          "symbol": "6505",
+          "name": "台塑化",
+          "score": 64,
           "signals": {
             "en": [
-              "Below MA20 6.1%",
-              "RSI 42 near oversold",
+              "Below MA20 7.8%",
+              "RSI 43 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -6.1%",
-              "RSI 42 接近超賣",
+              "低於 MA20 -7.8%",
+              "RSI 43 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "2404",
-          "name": "漢唐",
-          "score": 66,
+          "symbol": "2890",
+          "name": "永豐金",
+          "score": 64,
           "signals": {
             "en": [
-              "Below MA20 8.1%",
-              "RSI 38 near oversold",
+              "Below MA20 5.5%",
+              "RSI 39 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -8.1%",
-              "RSI 38 接近超賣",
+              "低於 MA20 -5.5%",
+              "RSI 39 接近超賣",
               "KD 黃金交叉"
             ]
           }
         },
         {
-          "symbol": "2883",
-          "name": "凱基金",
-          "score": 65,
+          "symbol": "6139",
+          "name": "亞翔",
+          "score": 61,
           "signals": {
             "en": [
-              "Below MA20 5.4%",
-              "RSI 41 near oversold",
-              "Golden KD cross"
+              "Below MA20 9.0%",
+              "RSI 36 near oversold",
+              "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -5.4%",
-              "RSI 41 接近超賣",
-              "KD 黃金交叉"
+              "低於 MA20 -9.0%",
+              "RSI 36 接近超賣",
+              "MACD 翻多"
             ]
           }
         }
@@ -477,12 +477,12 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "FTNN",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE15WTNRcHNJT3otSlh0dGdiS3dCX09TWEg3S01ZWmxZbFVlckUxZUI2aWxWd2RjWlg5WDhXM0hmb2pPb0lVN1lpUEtUdw?oc=5",
-      "published_at_utc": "2026-11-15T23:46:00Z",
+      "source": "CMoney投資網誌",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOR2RWV002UnlJWHNCcE5WRGs5OVhrNHlWUUtway1IbHdyX2FVUnV0NTVKY0hTcFZaZUpMOVlBckNPajFfclUtZjRMSC1mUV85LXlGaVRMR21qcmY4anNNTm44Njg3SjdSbHhJWVNfS1pweUZENlB3V0pWMFp0dTJfMzJ3X1lpSkdKNExaT19RSEo?oc=5",
+      "published_at_utc": "2026-11-17T07:05:09Z",
       "title": {
-        "original": "黃仁勳離職了AI訂單還在！鴻海、廣達等4大廠看旺2027年 「這2家」喊高雙位數成長",
-        "en": "Jensen Huang resigns but AI orders remain! Hon Hai, Quanta and other 4 major factories bullish on 2027 year 'this 2 company' touts high double-digit growth"
+        "original": "【即時新聞】鴻海無懼台股重挫近千點！今日盤中發揮抗跌韌性穩守平盤",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -491,12 +491,12 @@
       "market": "tw",
       "symbol": "2330",
       "name": "台積電",
-      "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE10anRaTG1hX29MTnFMRUR1ZVJFSXl3ZUVYckc0UmxqdUtGY2tuYjQ3WWN0WHRKVndMNlBjRXIxNm5WQm11enNvZ0R4bHZGTG5Xd1Z2cnR2enM?oc=5",
-      "published_at_utc": "2026-11-16T08:08:08Z",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxQSlY1emV0TVRrWEI0Vkl4b0JkV2twUTJhQS0wMld5MEdkX2x5TnEyVEVKdHJHZTMwSXZXVEptUTZLVUpJaDJxODhOZDV4Qkwzc1NzZ2RYMk9oNk1XOWpRRTNmNzRrTTRXbFJpeDBJU2pZRUh4MmJlRGNGWjR0WUdvZDBPc09Iejl3RHdmZ3NtNDVHUkd6S0stRHdtUmVHUmU1YU9mcHI1c21pakp4cFhwajR6MlB1N3lHOTZkdlU5Rjd5bXl6SGhqakItZmQ3Q3Nkc3dmSi1uMmZzemxZMGJZQ3lycmkwZUNUd0NpLXRFNXRUeWhuSnVDcFo2MjY0V2lYc0FPUkpRVDVid0gwXzJ3RS1tOHZ1X3RqSjhCZ0pNalY1cHdLY0ZDNXJ4dGJpVkV1d2JlekFxalJVMXR4dllWbGE5UU56UVU?oc=5",
+      "published_at_utc": "2026-11-17T07:44:49Z",
       "title": {
-        "original": "【即時新聞】最新台股重挫2300點爆避險潮，台積電零股交易量達470萬躋身前五大！",
-        "en": "[Breaking News] Latest TAIEX plunges 2300 points triggering safe-haven wave, TSMC odd-lot trading volume reaches 4700000 ranking top five!"
+        "original": "台股重挫948點！4萬大關驚險守住 台積電跌45元收2170元",
+        "en": "Taiwan stocks plunged 948 points! 40000 key level barely defended; TSMC fell 45 yuan closed at 2170 yuan"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -506,10 +506,10 @@
       "symbol": "3231",
       "name": "緯創",
       "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBDNlpkXzU5RmpIbWMzbkxHejRhU0VpOURUamRxTk5IRjJ0M0ZRVzROeHhqN3RsenZvM2JmUlppWkI2Wl9NNGpraDNtZVN0VUVCZHlJ?oc=5",
-      "published_at_utc": "2026-11-16T06:37:17Z",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9oaS1JN3VEaVdfb1VxbHM5QWNpd20zcmtzMjd1OFZPTXZNVVJhN2tSX2k2Rno4TExrbE5XbXJ6UXZLSmktaWhuVVAwdmdoemJJSDR1MU9VRGo?oc=5",
+      "published_at_utc": "2026-11-17T04:04:04Z",
       "title": {
-        "original": "緯創(3231) 個股概覽 | 個股 - 股市",
+        "original": "3231 緯創- 今日重點須知- 股市爆料同學會",
         "en": null
       },
       "image": null,
@@ -519,11 +519,11 @@
       "market": "tw",
       "symbol": "2382",
       "name": "廣達",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxOcFllOGlUZmtwVGdDY2hOVlFjUkdFa0w1bjB4eXJXTG1sY1hFTUwybElmY2xjc2pjRGRiNXFvdTZtRGt4b0hValVfS1Z1WkFvMTBIWXV6U2UtelBQS056a2h1YXZSN2hoVmFWZXFGTEtlcnZUb1VhLWhUWUxyRTBOeXlUb3ZUakxLcUo1VmlsN3NSWjBrSmppdVdwOHU5dThuNmRVT0M3TFdXbURIYWZSN0ZocWEzWDl1U3ZhVTgtMkZ6QUFIT29TcEIxNHpLX2FIWlNEZW50TnA4TWIzYk9wanpLRHRwMF9oM0UyOV9FOUdZUHR5ZHNBNnkwT0JwNGI4RlVWQmxWejVyOTVLQ3ZEaXVNUzZrNkxubnZLWk5tdEtBeHo1YWxVa09lYWl6MEpoRkdlSWcwS08tWlRiQlc3TkljdkR3OU9VSmF3eFl6QzNhSkNmdlhDeUFpTlFSQl9xUTZJWGNlSm9pT05JUzYxdWlkeEw?oc=5",
-      "published_at_utc": "2026-11-16T03:21:58Z",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wcE04cGxVcHA5WHRfV2ZacVlCZFIxVzhTVUI5cGFBSFVLdlhIeHp0LXNhaHdlSWh1cy1DVXc3WU1WSGg1cl90dEU3SFREOXN4QVZ4Tk9yMmVod9IBX0FVX3lxTE0zUW9BYnlhWVBDOUdzcnQ5VWdFZnEzVlBhMlRLQ29kMm5MM1ZIYnllMUxjNUdNanhVcVVkN1FZekxOczlWTzVvTjJWSWxPMzJHRzBqeFF3Vl9HX3pfRGFB?oc=5",
+      "published_at_utc": "2026-11-16T08:00:00Z",
       "title": {
-        "original": "甜甜價來了？廣達跌破270元寫今年新低 分析師：再等等",
+        "original": "市場氣氛轉弱 外資調降廣達、鴻海及緯創等 AI 伺服器概念股目標價",
         "en": null
       },
       "image": null,
@@ -547,11 +547,11 @@
       "market": "tw",
       "symbol": "4938",
       "name": "和碩",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBTS0lnMG41NEsyTm5sUmhaMXFpZ3FFVTJlREl2OEVRWUVXYTBKR3NzNFVVMFN3QWx3eE9OVUp5R1ZVMUZXR0IxUC1UUHFENnNmdWhKdzR4Ry1SQdIBX0FVX3lxTE83VHhJSTJyVkotRkNSQzlLbnVPcFJGQ29YeWpobE9FMVYtMzltbXhJbmNiNHFteUhOMjdxVmxQX296OTdXOFZMWUFEOThBX2xFTlU4SmRZVTBNaUd2cElF?oc=5",
-      "published_at_utc": "2026-11-13T15:26:05Z",
+      "source": "聚財網",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFA3bVI4NWVHc3VVSHAxWFlWTmtPd1RyREM5cmloR0ZLckdWZFBmQ0JCMXA5bERheWJ2N3BuT3VyaTZlUGk3RURTZWxwTEo?oc=5",
+      "published_at_utc": "2026-11-17T03:56:16Z",
       "title": {
-        "original": "和碩、鴻海 四檔展望佳",
+        "original": "和碩搶攻伺服器商機 鎖定代理型 AI 需求",
         "en": null
       },
       "image": null,
