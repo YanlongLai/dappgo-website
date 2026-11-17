@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-17T20:15:41Z",
+  "built_at_utc": "2026-11-17T22:45:32Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-17",
-      "generated_at_utc": "2026-11-17T18:46:52Z",
+      "generated_at_utc": "2026-11-17T20:46:34Z",
       "schema_version": "1.4.0",
-      "data_hash": "28229d92d168fea16e2ee6fec37234a54b8900e908207c3c8f18e8c590a101b7",
+      "data_hash": "408523b87520b32cb14c22ed7837512e56f4d5f82eb6d4a365e50aaff10b4d8d",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -269,101 +269,101 @@
           "symbol": "SOXL",
           "strategy": "sell_put",
           "strike": 42,
-          "premium": 5.05,
+          "premium": 5.1,
           "expiry": "2026-12-04",
           "dte": 17,
-          "iv": 208.5,
-          "pop": 51.3,
-          "annualized": 258.2,
-          "score": 72.1
+          "iv": 207,
+          "pop": 51.6,
+          "annualized": 260.7,
+          "score": 72.5
+        },
+        {
+          "symbol": "MSFT",
+          "strategy": "sell_put",
+          "strike": 455,
+          "premium": 1.14,
+          "expiry": "2026-11-23",
+          "dte": 6,
+          "iv": 56.7,
+          "pop": 92.4,
+          "annualized": 15.2,
+          "score": 56.2
         },
         {
           "symbol": "META",
           "strategy": "sell_put",
           "strike": 560,
-          "premium": 1.47,
+          "premium": 1.34,
           "expiry": "2026-11-23",
           "dte": 6,
-          "iv": 58,
-          "pop": 91.8,
-          "annualized": 16,
-          "score": 56.3
+          "iv": 56.9,
+          "pop": 91.6,
+          "annualized": 14.6,
+          "score": 56.1
         },
         {
-          "symbol": "TSLA",
+          "symbol": "AMD",
           "strategy": "sell_put",
-          "strike": 340,
-          "premium": 1.4,
+          "strike": 440,
+          "premium": 6.95,
           "expiry": "2026-11-23",
           "dte": 6,
-          "iv": 67.2,
-          "pop": 89,
-          "annualized": 25,
-          "score": 55.8
-        },
-        {
-          "symbol": "MRVL",
-          "strategy": "sell_put",
-          "strike": 130,
-          "premium": 6.15,
-          "expiry": "2026-12-04",
-          "dte": 17,
-          "iv": 107.1,
-          "pop": 64.6,
-          "annualized": 101.6,
-          "score": 55.7
+          "iv": 107,
+          "pop": 76.9,
+          "annualized": 96.1,
+          "score": 56
         }
       ],
       "gainers": [
         {
           "symbol": "SPCX",
           "name": "Space Exploration Technologies Corp. (SpaceX)",
-          "return_pct": 2.41,
-          "close": 140.68
+          "return_pct": 2.97,
+          "close": 141.44
         },
         {
           "symbol": "AVGO",
           "name": "Broadcom Inc.",
-          "return_pct": 1.37,
-          "close": 337.95
+          "return_pct": 1.58,
+          "close": 338.68
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell Technology, Inc.",
+          "return_pct": 0.52,
+          "close": 146.11
         },
         {
           "symbol": "TLT",
           "name": "iShares 20+ Year Treasury Bond ETF",
-          "return_pct": 0.38,
-          "close": 79.68
-        },
-        {
-          "symbol": "COST",
-          "name": "Costco Wholesale Corporation",
-          "return_pct": 0.12,
-          "close": 1115.05
+          "return_pct": 0.28,
+          "close": 79.6
         }
       ],
       "losers": [
         {
-          "symbol": "ORCL",
-          "name": "Oracle Corporation",
-          "return_pct": -4.23,
-          "close": 114.05
-        },
-        {
           "symbol": "UNH",
           "name": "UnitedHealth Group Incorporated",
-          "return_pct": -4.1,
-          "close": 395.12
+          "return_pct": -5.94,
+          "close": 387.55
         },
         {
-          "symbol": "IREN",
-          "name": "IREN Limited",
-          "return_pct": -4,
-          "close": 15.73
+          "symbol": "BABA",
+          "name": "Alibaba Group Holding Limited",
+          "return_pct": -4.2,
+          "close": 86.81
         },
         {
-          "symbol": "NET",
-          "name": "Cloudflare, Inc.",
-          "return_pct": -3.86,
-          "close": 282.25
+          "symbol": "TSM",
+          "name": "Taiwan Semiconductor Manufacturing Company Limited",
+          "return_pct": -3.7,
+          "close": 359.64
+        },
+        {
+          "symbol": "ORCL",
+          "name": "Oracle Corporation",
+          "return_pct": -3.66,
+          "close": 114.73
         }
       ],
       "backtest": {
