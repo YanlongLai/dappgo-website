@@ -238,7 +238,7 @@ test("a failed market load leaves both landings, stock pages and sitemap unchang
 
 test("CLI check exits 1 with differing paths only, then 0 silently after fixture rebuild; repeat builds are no-ops", (t) => {
   const directory = fixture(t);
-  for (const name of ["scripts/build-news-html.mjs", "scripts/lib/home-html.mjs", "scripts/lib/market-data.mjs", "scripts/lib/store-links.mjs", "assets/home/home.js", "assets/store-links.js"]) {
+  for (const name of ["scripts/build-news-html.mjs", "scripts/lib/home-html.mjs", "scripts/lib/market-data.mjs", "scripts/lib/dappgo-dev-client.mjs", "scripts/lib/store-links.mjs", "assets/home/home.js", "assets/store-links.js"]) {
     const file = path.join(directory, name);
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.copyFileSync(path.join(root, name), file);

@@ -1,9 +1,11 @@
+import { withDevHeaders } from "./dappgo-dev-client.mjs";
+
 // Shared published-market loader. Verify the immutable pointer before using a payload.
 export const GATEWAY = "https://data.dappgo.com/v1/markets";
 const IMMUTABLE = /^dashboard\/data-[a-f0-9]{12,64}\.json$/;
 
 async function getJson(url) {
-  const response = await fetch(url, { headers: { accept: "application/json" } });
+  const response = await fetch(url, { headers: withDevHeaders(url, { accept: "application/json" }, "website-scripts") });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
   return response.json();
 }
