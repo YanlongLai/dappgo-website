@@ -18,7 +18,7 @@ run(process.execPath, ["--test", "scripts/build-news-html.test.mjs", "scripts/de
 run(process.execPath, ["--check", "assets/home/home.js"]);
 run(process.execPath, ["--check", "assets/home/landing.js"]);
 run(process.execPath, ["--check", "assets/store-links.js"]);
-run(process.execPath, ["--test", "scripts/web-ownership.test.cjs", "assets/demo/demo.test.cjs", "assets/home/home.test.cjs", "scripts/home-html.test.mjs", "scripts/landing-pages.test.mjs"]);
+run(process.execPath, ["--test", "scripts/web-ownership.test.cjs", "assets/demo/demo.test.cjs", "assets/home/home.test.cjs", "scripts/home-html.test.mjs", "scripts/landing-pages.test.mjs", "scripts/dappgo-dev-client.test.mjs"]);
 run(process.execPath, ["--check", "assets/demo/demo.js"]);
 run(process.execPath, ["--check", "news/assets/news.js"]);
 run(process.execPath, ["news/tests/contract.mjs"]);
