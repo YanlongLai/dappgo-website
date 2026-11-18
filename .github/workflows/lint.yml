@@ -47,6 +47,11 @@ jobs:
           #   not internal routes; keep them in the manual smoke-test checklist.
           #   https://dappgo.com/zh/ — absolute canonical/hreflang URL of a page that
           #   only exists after deploy; the local file is checked by home.test.cjs.
+          #   https://dappgo.com/(zh/)reports|guides|about|… — absolute canonical, hreflang and
+          #   JSON-LD URLs of generated reading pages. A new session page exists in the
+          #   repository before GitHub Pages serves it, so its own URL 404s for a moment on
+          #   every archive commit. Root-relative links between these pages are still checked
+          #   here as files, and scripts/content-pages.test.mjs checks them in the quality gate.
           # --accept 403/429: the pulse snapshot links today's publisher articles,
           #   and several publishers block automated probes; 404 still fails.
           args: >-
@@ -64,6 +69,7 @@ jobs:
             --exclude 'www.instagram.com/dappgo/'
             --exclude '\.woff2$'
             --exclude 'file:.*/(options|privacy|terms|support)$'
+            --exclude '^https://dappgo\.com/(zh/)?(reports|guides|about|editorial-policy|ai-disclosure|contact)/'
             --exclude '^https://dappgo\.com/zh/$'
             './**/*.html'
           fail: true
