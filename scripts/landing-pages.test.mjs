@@ -13,9 +13,9 @@ const read = (file) => fs.readFileSync(file, "utf8");
 const hrefs = (html) => [...html.matchAll(/<a\b[^>]*\shref="([^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, "&"));
 const storeHrefs = (html) => hrefs(html).filter((h) => /^https:\/\/(apps\.apple\.com|play\.google\.com)\//.test(h));
 
-test("store-link helper builds the documented URLs and omits pt while the token is empty", () => {
-  assert.equal(StoreLinks.APPLE_PROVIDER_TOKEN, "", "token is unknown until the Owner supplies it");
-  assert.equal(StoreLinks.appStoreUrl("tw-stocks", "tw", "hero"), "https://apps.apple.com/app/id6768116538?ct=web-tw-hero&mt=8");
+test("store-link helper builds the documented URLs with the App Store provider token", () => {
+  assert.equal(StoreLinks.APPLE_PROVIDER_TOKEN, "128886683", "provider token from ASC campaign links (2026-11-18)");
+  assert.equal(StoreLinks.appStoreUrl("tw-stocks", "tw", "hero"), "https://apps.apple.com/app/id6768116538?pt=128886683&ct=web-tw-hero&mt=8");
   assert.equal(StoreLinks.playUrl("tw-stocks", "tw", "hero"), "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&referrer=utm_source%3Dweb%26utm_medium%3Dtw-hero");
   assert.equal(StoreLinks.campaign("home", "hero"), "web-home-hero");
   assert.throws(() => StoreLinks.campaign("x".repeat(40), "hero"), /40 characters/);
@@ -36,7 +36,7 @@ test("source aliases and campaign slugs are bounded and reject hostile values", 
 test("withSource rewrites generated App Store and Play URLs without changing their destination", () => {
   const ios = StoreLinks.appStoreUrl("tw-stocks", "zh-tw-stocks", "hero");
   const play = StoreLinks.playUrl("tw-stocks", "zh-tw-stocks", "hero");
-  const iosFacebook = "https://apps.apple.com/app/id6768116538?ct=fb-zh-tw-stocks-hero&mt=8";
+  const iosFacebook = "https://apps.apple.com/app/id6768116538?pt=128886683&ct=fb-zh-tw-stocks-hero&mt=8";
   const playThreads = "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&referrer=utm_source%3Dthreads%26utm_medium%3Dzh-tw-stocks-hero";
   const playCampaign = "https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&referrer=utm_source%3Dfb%26utm_medium%3Dzh-tw-stocks-hero%26utm_campaign%3Dspring-launch";
   assert.equal(StoreLinks.withSource(ios, " Facebook "), iosFacebook);

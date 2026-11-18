@@ -16,11 +16,11 @@
 })(typeof globalThis === "object" ? globalThis : this, function (root) {
   "use strict";
 
-  // App Store Connect "provider token" (pt=). NOT KNOWN YET: the Owner reads it from
-  // App Store Connect > Analytics > Campaigns and pastes it here. While empty, links omit `pt`
-  // and stay valid; `ct` is still sent, so campaign names are ready the moment the token is set.
+  // App Store Connect "provider token" (pt=) for the DappGo provider. Read 2026-11-18 from
+  // App Store Connect > Analytics > Campaigns (campaign link generator); it is public in every
+  // campaign link. App Store links carry pt + ct so ASC Analytics > Sources shows each campaign.
   // This is the only place the token is defined.
-  const APPLE_PROVIDER_TOKEN = "";
+  const APPLE_PROVIDER_TOKEN = "128886683";
 
   const CAMPAIGN_SOURCE = "web";
   const CT_MAX = 40;

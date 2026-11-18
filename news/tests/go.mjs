@@ -33,7 +33,7 @@ test("detects platforms", () => {
 test("iOS goes to the App Store with ct (and pt when configured)", async () => {
   const res = onRequest(req("/go/us-stocks?c=threads-tw-20261118", IPHONE));
   assert.equal(res.status, 302);
-  assert.equal(res.headers.get("location"), "https://apps.apple.com/app/id6768116546?ct=threads-tw-20261118&mt=8");
+  assert.equal(res.headers.get("location"), "https://apps.apple.com/app/id6768116546?pt=128886683&ct=threads-tw-20261118&mt=8");
   assert.equal(res.headers.get("cache-control"), "no-store");
   assert.equal(res.headers.get("vary"), "User-Agent");
   assert.equal(targetFor("options", "ios", "x-1", "123456"), "https://apps.apple.com/app/id6768116720?pt=123456&ct=x-1&mt=8");
