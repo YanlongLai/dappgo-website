@@ -20,6 +20,11 @@ for (const route of ["index.html", ...readerRoutes]) {
   const html = fs.readFileSync(path.join(root, route), "utf8");
   const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? "";
   const loaders = [...html.matchAll(/<script\b[^>]*\bsrc="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-7851819017318644"[^>]*><\/script>/g)];
+  if (stockRoutes.includes(route)) {
+    // Headline-only stock pages carry no ad code at all (AdSense low-value content review, 2026-11-18).
+    assert.doesNotMatch(html, /adsbygoogle|googlesyndication|ca-pub-/, `${route}: stock pages must stay ad-free`);
+    continue;
+  }
   assert.equal(loaders.length, 1, `${route}: one exact publisher loader`);
   assert.ok(head.includes(loaders[0][0]), `${route}: loader belongs in head`);
   assert.match(loaders[0][0], /\basync\b/);
