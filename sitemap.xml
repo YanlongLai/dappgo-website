@@ -668,6 +668,24 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://dappgo.com/reports/tw/2026-11-18/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/reports/tw/2026-11-18/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/reports/tw/2026-11-18/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/reports/tw/2026-11-18/" />
+        <lastmod>2026-11-18</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/zh/reports/tw/2026-11-18/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/reports/tw/2026-11-18/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/reports/tw/2026-11-18/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/reports/tw/2026-11-18/" />
+        <lastmod>2026-11-18</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://dappgo.com/reports/tw/2026-11-17/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/reports/tw/2026-11-17/" />
         <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/reports/tw/2026-11-17/" />
