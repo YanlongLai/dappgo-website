@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { onRequest, sanitizeCampaign, platformOf, targetFor, APPS } from "../functions/go/[app].js";
+import { onRequest, sanitizeCampaign, sourceOf, platformOf, targetFor, APPS } from "../functions/go/[app].js";
+import storeLinks from "../../assets/store-links.js";
 
 const IPHONE = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 300.0";
 const ANDROID = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36";
@@ -11,6 +12,9 @@ test("sanitizes campaign tokens", () => {
   assert.equal(sanitizeCampaign("Threads-TW-20261118"), "threads-tw-20261118");
   assert.equal(sanitizeCampaign("<script>alert(1)</script>"), "script-alert-1-script");
   assert.equal(sanitizeCampaign("a b__c//d"), "a-b-c-d");
+  assert.equal(sourceOf("instagram-reel-1"), "ig");
+  assert.equal(sourceOf("threads-tw-20261118"), "threads");
+  assert.equal(sourceOf("newsletter-1"), "link");
   assert.equal(sanitizeCampaign(""), "direct");
   assert.equal(sanitizeCampaign(null), "direct");
   assert.equal(sanitizeCampaign("---"), "direct");
@@ -44,7 +48,15 @@ test("Android goes to Play with an encoded utm referrer", () => {
 
 test("desktop goes to the app page with utm, no campaign means direct", () => {
   assert.equal(onRequest(req("/go/number-rpg?c=x-post-1", DESKTOP)).headers.get("location"), "https://dappgo.com/number-rpg/?utm_source=x&utm_medium=social&utm_campaign=x-post-1");
-  assert.equal(onRequest(req("/go/options", DESKTOP)).headers.get("location"), "https://dappgo.com/options/?utm_source=direct&utm_medium=link&utm_campaign=direct");
+  assert.equal(onRequest(req("/go/options", DESKTOP)).headers.get("location"), "https://dappgo.com/options/?utm_source=link&utm_medium=link&utm_campaign=direct");
+});
+
+test("store ids come from assets/store-links.js", () => {
+  for (const [slug, store] of [["us-stocks", "us-stocks"], ["tw-stocks", "tw-stocks"], ["options", "options-explorer"], ["number-rpg", "number-rpg"]]) {
+    assert.equal(APPS[slug].store, store);
+    assert.ok(targetFor(slug, "ios", "x-1").includes(`id${storeLinks.APPS[store].ios}`));
+    assert.equal(new URL(targetFor(slug, "android", "x-1")).searchParams.get("id"), storeLinks.APPS[store].android);
+  }
 });
 
 test("only allowlisted apps; unknown slugs go home; other methods refused", () => {
