@@ -43,6 +43,8 @@ og-image-v2.png    Open Graph / Meta / LinkedIn share preview card
 options/index.html app landing pages are generated: node scripts/build-landing-pages.mjs
 options/report/    legacy options daily report page
 assets/store-links.js  the one place store ids + campaign params live
+reports/ zh/reports/   daily report archive, generated: node scripts/build-content.mjs (data in data/reports/<market>/<session>.json)
+guides/ about/ editorial-policy/ ai-disclosure/ contact/ (+ zh/…)   generated from scripts/lib/guides-content.mjs
 privacy.html       privacy policy
 support.html       support FAQs and app-specific troubleshooting
 terms.html         terms of service
@@ -51,6 +53,14 @@ sitemap.xml        SEO sitemap — indexable HTML pages only (data/text endpoint
 robots.txt         crawler rules
 CNAME              dappgo.com
 ```
+
+## Reading pages (report archive, guides, about and policy)
+
+- Never edit the generated HTML. Edit `scripts/lib/guides-content.mjs` (copy), `scripts/lib/report-render.mjs` (archive layout and sentences) or `assets/content/content.css`, then run `node scripts/build-content.mjs`. `--check` runs in the quality gate.
+- The archive is refreshed by `.gitea/workflows/pulse.yml` (`build-content.mjs --latest`): it stores the latest hash-verified payload of each market under `data/reports/` and rebuilds the pages and the `content:start … content:end` block of `sitemap.xml`. `scripts/backfill-report-archive.mjs` rebuilds history from the report repositories.
+- Archive sentences are templates over one record. Add a sentence only if every number in it comes from the record, and drop it when the field is missing. Do not copy AI commentary or per-ticker verdict labels onto these pages.
+- When an engine rule changes (regime thresholds, screen score, options score), update the matching paragraph in `guides-content.mjs` in both languages and its `updated` date.
+- The AdSense loader goes only on daily report pages and guides (`ads: true`). Hubs, about/policy/contact, legal, support and app pages stay ad-free; `scripts/content-pages.test.mjs` enforces this.
 
 ## Rules of thumb
 

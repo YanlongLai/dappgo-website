@@ -1,7 +1,8 @@
 name: homepage-pulse
 
 # Rebuilds data/pulse.json from the hash-verified data.dappgo.com pointers and
-# commits it, the EN/zh homepage snapshots, and news/ to GitHub master (canonical; GitHub Pages serves dappgo.com).
+# commits it, the EN/zh homepage snapshots, the report archive (data/reports, reports/, zh/reports/, sitemap.xml)
+# and news/ to GitHub master (canonical; GitHub Pages serves dappgo.com).
 # Gitea is a one-way mirror, so the commit is pushed to GitHub, never to Gitea.
 # Holidays and repeat runs are no-ops when both pulse and news are unchanged,
 # unless deploy_news=true requests another upload of the current master.
@@ -56,14 +57,20 @@ jobs:
             node scripts/build-pulse.mjs
             node scripts/verify-pulse.mjs
             node scripts/build-news-html.mjs --generated-at-file "$work/news-generated-at-utc"
-            git add -- news/
-            if git diff --quiet HEAD -- data/pulse.json index.html zh/index.html news/; then
+            # Report archive: a failure here must not block the pulse, so the archive paths are restored.
+            if ! node scripts/build-content.mjs --latest; then
+              echo "::warning::report archive refresh failed; publishing the pulse without it" >&2
+              git checkout --quiet HEAD -- data/reports reports zh/reports sitemap.xml || true
+              git clean -fdq -- data/reports reports zh/reports || true
+            fi
+            git add -- news/ data/reports reports zh/reports sitemap.xml
+            if git diff --quiet HEAD -- data/pulse.json index.html zh/index.html news/ data/reports reports zh/reports sitemap.xml; then
               echo "pulse and news unchanged; nothing to publish"
               published=true
               break
             fi
             dates="$(node -e 'const m=require("./data/pulse.json").markets;console.log(["us","tw","options"].map(k=>`${k} ${m[k].report_date}`).join(", "))')"
-            git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json index.html zh/index.html news/
+            git commit --quiet -m "chore(pulse): refresh homepage pulse (${dates})" -- data/pulse.json index.html zh/index.html news/ data/reports reports zh/reports sitemap.xml
             if git -c http.extraheader="$auth" push --quiet origin HEAD:master; then
               pushed_commit="$(git rev-parse HEAD)"
               echo "published $pushed_commit"

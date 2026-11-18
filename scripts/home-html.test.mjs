@@ -103,7 +103,11 @@ test("pulse workflow includes both generated pages in no-op and commit paths", (
   const workflow = read(".gitea/workflows/pulse.yml");
   assert.match(workflow, /git diff --quiet HEAD -- data\/pulse.json index.html zh\/index.html news\//);
   assert.match(workflow, /git commit[^\n]+-- data\/pulse.json index.html zh\/index.html news\//);
-  assert.match(workflow, /node scripts\/verify-pulse\.mjs\s+node scripts\/build-news-html\.mjs --generated-at-file "\$work\/news-generated-at-utc"\s+git add -- news\//);
+  assert.match(workflow, /node scripts\/verify-pulse\.mjs\s+node scripts\/build-news-html\.mjs --generated-at-file "\$work\/news-generated-at-utc"\s/);
+  // The report archive refreshes after the news build; its failure restores the archive paths and never blocks the pulse.
+  assert.match(workflow, /if ! node scripts\/build-content\.mjs --latest; then[\s\S]+?git checkout --quiet HEAD -- data\/reports reports zh\/reports sitemap\.xml \|\| true[\s\S]+?fi\s+git add -- news\/ data\/reports reports zh\/reports sitemap\.xml/);
+  assert.match(workflow, /git diff --quiet HEAD -- [^\n]*news\/ data\/reports reports zh\/reports sitemap\.xml; then/);
+  assert.match(workflow, /git commit[^\n]+news\/ data\/reports reports zh\/reports sitemap\.xml\n/);
   assert.match(workflow, /for attempt in 1 2 3/);
   assert.match(workflow, /if \[ -z "\$\{PUSH_TOKEN:-\}" \]/);
 });

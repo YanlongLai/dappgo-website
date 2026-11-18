@@ -145,6 +145,8 @@ ${jsonld}
         <nav class="nav" aria-label="Main">
           <a href="${lang === "zh" ? "/zh/" : "/"}">${esc(ui.home)}</a>
           <a href="${lang === "zh" ? "/zh/" : "/"}#products">${esc(ui.navApps)}</a>
+          <a href="${lang === "zh" ? "/zh" : ""}/reports/">${lang === "zh" ? "每日報告" : "Reports"}</a>
+          <a href="${lang === "zh" ? "/zh" : ""}/guides/">${lang === "zh" ? "閱讀指南" : "Guides"}</a>
         </nav>
         <div class="topbar-tools">
           <a class="lang" href="${pagePath(app, other)}" hreflang="${other === "zh" ? "zh-Hant" : "en"}" lang="${other === "zh" ? "zh-Hant" : "en"}" aria-label="${esc(ui.langLabel)}">${esc(ui.langName)}</a>

@@ -12,7 +12,7 @@
       ogImageAlt: "DappGo market research and automation",
       expImageAlt: "Market claim verifier comparing a finance post with an SEC filing",
       coverage: "Coverage", reportDates: "Report dates", researchNote: "Research and education only; not investment advice.",
-      navPulse: "Today", navProducts: "Products", navNews: "News", navBusiness: "For business",
+      navPulse: "Today", navReports: "Reports", navGuides: "Guides", footReports: "Daily report archive", footGuides: "Guides and methodology", footAbout: "About DappGo", footEditorial: "Editorial policy", footContact: "Contact", navProducts: "Products", navNews: "News", navBusiness: "For business",
       kicker: "DappGo Studio · Research engines that ship", heroA: "Markets,", heroB: "compiled daily.",
       heroLede: "Every trading day our engines read US stocks, Taiwan stocks and US options — prices, filings, news and options chains — check the result, then publish it to the apps below. This page shows today’s run.",
       heroApps: "Get the apps", ctaPulse: "See today’s report", ctaBusiness: "Automate your workflow",
@@ -74,7 +74,7 @@
       ogImageAlt: "DappGo 市場研究與自動化",
       expImageAlt: "Market claim verifier 對照財經貼文與 SEC 申報文件",
       coverage: "分析範圍", reportDates: "報告日期", researchNote: "僅供研究與學習參考，不構成投資建議。",
-      navPulse: "今日報告", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
+      navPulse: "今日報告", navReports: "報告檔案", navGuides: "閱讀指南", footReports: "每日報告檔案庫", footGuides: "閱讀指南與方法", footAbout: "關於 DappGo", footEditorial: "編輯政策", footContact: "聯絡我們", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
       kicker: "DappGo Studio · 每天自動產出市場研究", heroA: "市場，", heroB: "每天幫你整理好。",
       heroLede: "每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。",
       heroApps: "下載 App", ctaPulse: "看今天的報告", ctaBusiness: "讓你的工作自動化",
@@ -414,7 +414,7 @@
   const topbar = $(".topbar");
   const hero = $(".hero");
   const progress = $("[data-progress]");
-  const navLinks = [...document.querySelectorAll(".nav a")];
+  const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
   let ticking = false;
   const onScroll = () => {
     ticking = false;
