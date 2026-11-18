@@ -46,6 +46,9 @@ Resolve data_url_v2 relative to https://data.dappgo.com/v1/markets/<market>/ (no
 
 - [Home — English](https://dappgo.com/): static report snapshot with report dates; research and education only, not investment advice.
 - [首頁 — 繁體中文](https://dappgo.com/zh/): 靜態報告摘要附報告日期，僅供研究與學習參考，不構成投資建議。
+- [Daily report archive](https://dappgo.com/reports/) ([中文](https://dappgo.com/zh/reports/)): one page per trading session for US stocks, Taiwan stocks and US options, each built from one published report payload with its generation time and payload hash.
+- [Guides](https://dappgo.com/guides/) ([中文](https://dappgo.com/zh/guides/)): how to read the reports, [how the signals are computed](https://dappgo.com/guides/how-dappgo-computes-signals/) and a [glossary](https://dappgo.com/guides/glossary/).
+- [About](https://dappgo.com/about/), [editorial policy and methodology](https://dappgo.com/editorial-policy/), [AI use](https://dappgo.com/ai-disclosure/), [contact](https://dappgo.com/contact/); Chinese versions under https://dappgo.com/zh/.
 - [Support](https://dappgo.com/support)
 - [Privacy](https://dappgo.com/privacy.html)
 - [Terms](https://dappgo.com/terms.html)

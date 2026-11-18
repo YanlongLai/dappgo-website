@@ -249,13 +249,19 @@ function pulseFixture(t, { change = "unchanged", force = false, pushFailures = 0
   fs.writeFileSync(path.join(directory, "scripts/build-pulse.mjs"), `import fs from "node:fs";
 if (process.env.FIXTURE_CHANGE === "pulse") fs.appendFileSync("index.html", " refreshed");`);
   fs.writeFileSync(path.join(directory, "scripts/verify-pulse.mjs"), "// Offline fixture verification\n");
+  // Report archive refresh: offline no-op in this fixture; its own contract lives in content-pages.test.mjs.
+  fs.writeFileSync(path.join(directory, "scripts/build-content.mjs"), "// Offline fixture archive refresh\n");
+  fs.mkdirSync(path.join(directory, "data/reports"), { recursive: true });
+  fs.mkdirSync(path.join(directory, "reports"), { recursive: true });
+  fs.mkdirSync(path.join(directory, "zh/reports"), { recursive: true });
+  for (const file of ["data/reports/.keep", "reports/index.html", "zh/reports/index.html", "sitemap.xml"]) fs.writeFileSync(path.join(directory, file), "fixture\n");
   fs.writeFileSync(path.join(directory, "scripts/build-news-html.mjs"), `import fs from "node:fs";
 const timestamp = process.env.FIXTURE_CHANGE === "news" ? "2026-11-09T14:00:00Z" : ${JSON.stringify(generatedAt)};
 if (process.env.FIXTURE_CHANGE === "news") fs.writeFileSync("news/us/index.html", ${JSON.stringify(html())}.replaceAll(${JSON.stringify(generatedAt)}, timestamp));
 const flag = process.argv.indexOf("--generated-at-file");
 if (flag < 0) throw new Error("Missing build timestamp handoff");
 fs.writeFileSync(process.argv[flag + 1], timestamp + "\\n");`);
-  git("add", "scripts", "data", "index.html", "zh");
+  git("add", "scripts", "data", "index.html", "zh", "reports", "sitemap.xml");
   git("commit", "--quiet", "-m", "offline pulse fixture");
   git("update-ref", "refs/remotes/origin/master", "HEAD");
   Object.assign(env, {

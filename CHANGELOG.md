@@ -14,6 +14,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 - DappGo News uses its submitted app icon; Number Merge is listed as Android-only.
 
 ### Added
+- Daily report archive at `/reports/` and `/zh/reports/`: one page per session for US stocks, Taiwan stocks and US options, generated from published report payloads (`scripts/build-content.mjs`), refreshed by the pulse workflow.
+- Guides (`/guides/`), About, Editorial policy and methodology, AI disclosure and Contact pages in English and Traditional Chinese, with breadcrumbs, shared navigation and sitemap entries.
 - Bold homepage redesign ("Markets, compiled daily") showing today's US stocks, Taiwan stocks and US options reports and a mixed US/TW headline wire, each linked into its product.
 - `scripts/build-pulse.mjs` derives the ~14 KB `data/pulse.json` from hash-verified data.dappgo.com pointers (fails closed, skips unchanged); `scripts/verify-pulse.mjs` enforces its contract.
 - Gitea Actions `homepage-pulse` (runner `dappgo-pulse-host`) refreshes the pulse at 09:20, 20:15, and 22:45 UTC on weekdays and pushes to GitHub master with the `DAPPGO_WEBSITE_PUSH_TOKEN` secret (the `dappgo-website-pulse` fine-grained PAT, which needs Contents: Read and write on this repository); `website-ci` runs the quality gate. GitHub Actions no longer runs the pulse.
