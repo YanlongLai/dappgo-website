@@ -13,6 +13,9 @@ export const APPS = Object.freeze({
   "tw-stocks": { store: "tw-stocks", web: "https://dappgo.com/tw-stocks/" },
   "options": { store: "options-explorer", web: "https://dappgo.com/options/" },
   "number-rpg": { store: "number-rpg", web: "https://dappgo.com/number-rpg/" },
+  // Android-only apps: iOS and desktop go to the web destination.
+  "news": { store: "news", web: "https://news.dappgo.com/" },
+  "number-merge": { store: "number-merge", web: "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge" },
 });
 
 const DEFAULT_CAMPAIGN = "direct";

@@ -52,15 +52,16 @@ test("desktop goes to the app page with utm, no campaign means direct", () => {
 });
 
 test("store ids come from assets/store-links.js", () => {
-  for (const [slug, store] of [["us-stocks", "us-stocks"], ["tw-stocks", "tw-stocks"], ["options", "options-explorer"], ["number-rpg", "number-rpg"]]) {
+  for (const [slug, store] of [["us-stocks", "us-stocks"], ["tw-stocks", "tw-stocks"], ["options", "options-explorer"], ["number-rpg", "number-rpg"], ["news", "news"], ["number-merge", "number-merge"]]) {
     assert.equal(APPS[slug].store, store);
-    assert.ok(targetFor(slug, "ios", "x-1").includes(`id${storeLinks.APPS[store].ios}`));
+    if (storeLinks.APPS[store].ios) assert.ok(targetFor(slug, "ios", "x-1").includes(`id${storeLinks.APPS[store].ios}`));
+    else assert.ok(!targetFor(slug, "ios", "x-1").startsWith("https://apps.apple.com/"), `${slug} has no iOS app`);
     assert.equal(new URL(targetFor(slug, "android", "x-1")).searchParams.get("id"), storeLinks.APPS[store].android);
   }
 });
 
 test("only allowlisted apps; unknown slugs go home; other methods refused", () => {
-  assert.deepEqual(Object.keys(APPS).sort(), ["number-rpg", "options", "tw-stocks", "us-stocks"]);
+  assert.deepEqual(Object.keys(APPS).sort(), ["news", "number-merge", "number-rpg", "options", "tw-stocks", "us-stocks"]);
   for (const bad of ["evil", "..", "us-stocks.evil.com", "__proto__", "constructor"]) {
     assert.equal(onRequest({ request: new Request("https://news.dappgo.com/go/x", { headers: { "user-agent": IPHONE } }), params: { app: bad } }).headers.get("location"), "https://dappgo.com/");
   }
@@ -72,4 +73,11 @@ test("the location never carries raw input", () => {
   const loc = onRequest(req("/go/us-stocks?c=%0d%0aSet-Cookie:%20a=b", DESKTOP)).headers.get("location");
   assert.ok(!/[\r\n]/.test(loc));
   assert.ok(new URL(loc).searchParams.get("utm_campaign").match(/^[a-z0-9-]+$/));
+});
+
+test("Android-only apps: Android goes to Play with utm, iOS and desktop go to the web destination", () => {
+  assert.equal(targetFor("news", "android", "threads-tw-20261119"), "https://play.google.com/store/apps/details?id=com.dappgo.newsapp&referrer=utm_source%3Dthreads%26utm_medium%3Dsocial%26utm_campaign%3Dthreads-tw-20261119");
+  assert.equal(targetFor("news", "ios", "threads-tw-20261119"), "https://news.dappgo.com/?utm_source=threads&utm_medium=social&utm_campaign=threads-tw-20261119");
+  assert.equal(targetFor("number-merge", "android", "ig-reel-20261119"), "https://play.google.com/store/apps/details?id=com.dappgo.numbermerge&referrer=utm_source%3Dig%26utm_medium%3Dsocial%26utm_campaign%3Dig-reel-20261119");
+  assert.match(targetFor("number-merge", "web", "direct"), /^https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.dappgo\.numbermerge&utm_source=link/);
 });
