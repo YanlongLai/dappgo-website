@@ -20,11 +20,16 @@ test('review loader includes approved publishers, is async in head, without manu
   assert.match(head, /object-src 'none'/);
   assert.match(head, /fundingchoicesmessages\.google\.com/);
 });
-test('browser privacy covers three routes and explicitly disabled ads in both languages', () => {
+test('browser privacy covers three routes and the dappgo.com AdSense cookie disclosure in both languages', () => {
   const html = fs.readFileSync(path.join(root, 'privacy.html'), 'utf8');
   for (const route of ['stocks.dappgo.com/us','stocks.dappgo.com/tw','options.dappgo.com/us']) assert.ok(html.includes(route));
-  assert.match(html, /Web advertising is currently disabled/);
-  assert.match(html, /Web 廣告目前停用/);
+  assert.match(html, /Browser editions show no web ads/);
+  assert.match(html, /瀏覽器版本不顯示網頁廣告/);
+  assert.match(html, /Third-party vendors, including Google, use cookies to serve ads/);
+  assert.match(html, /Google 等第三方供應商會使用 Cookie/);
+  assert.match(html, /adssettings\.google\.com/);
+  assert.match(html, /aboutads\.info/);
+  assert.doesNotMatch(html, /Web advertising is currently disabled|Web 廣告目前停用/);
   assert.match(html, /US\/TW settings offer watchlist clearing/);
   assert.match(html, /local caches, jsDelivr/);
   assert.match(html, /Cached reads need not make a network request/);
