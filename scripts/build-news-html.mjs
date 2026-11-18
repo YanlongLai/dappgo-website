@@ -109,6 +109,9 @@ export function renderNewsPage(template, model, pointer, stock = null) {
     html = replaceOne(html, /(<h1\b[^>]*\bdata-company-name[^>]*>)[\s\S]*?(<\/h1>)/g, (_, start, end) => start + esc(stock.name) + end, "company heading");
     html = html.replace(/\b(href|src)="\.\.\/assets\//g, '$1="/assets/');
     html = html.replace("<!doctype html>", `<!doctype html>\n${GENERATED}`);
+    // Per-stock pages are lists of publishers' headlines with no analysis of ours, so they carry no ad code.
+    // The market pages keep the loader. replaceOne fails the build if the template ever stops matching.
+    html = replaceOne(html, /[ \t]*<script\b[^>]*\bsrc="https:\/\/pagead2\.googlesyndication\.com\/[^"]*"[^>]*><\/script>\n?/g, () => "", "ad loader");
   }
   return html;
 }
