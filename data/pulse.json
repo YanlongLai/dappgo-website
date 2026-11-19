@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-18T22:14:40Z",
+  "built_at_utc": "2026-11-19T09:20:38Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-18",
-      "generated_at_utc": "2026-11-18T08:38:33Z",
+      "report_date": "2026-11-19",
+      "generated_at_utc": "2026-11-19T08:38:08Z",
       "schema_version": "1.2.0",
-      "data_hash": "e03c1628cfc126ed8f3e5d93fd2266118438ba75a27b93e715e19901e84d1940",
+      "data_hash": "cf9bca85672ca9be0b587946ec0b191b92b699aafb7e54332e353d4fbfe4500e",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -141,113 +141,113 @@
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
       "breadth_score": 0.05,
-      "advance_decline_ratio": 1.23,
+      "advance_decline_ratio": 0.08,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 3 BUY / 3 SELL, market regime: risk-off.",
-        "zh": "今日 3 檔買進 / 3 檔賣出，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
+        "en": "Today's report: 2 bullish / 3 bearish signals, market regime: risk-off.",
+        "zh": "今日 2 檔偏多訊號 / 3 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
       },
       "gainers": [
         {
-          "symbol": "3661",
-          "name": "世芯-KY",
-          "return_pct": 8.22,
-          "close": 3950
-        },
-        {
           "symbol": "2207",
           "name": "和泰車",
-          "return_pct": 4.06,
-          "close": 538
+          "return_pct": 4.8,
+          "close": 546
+        },
+        {
+          "symbol": "2412",
+          "name": "中華電",
+          "return_pct": 2.47,
+          "close": 166
+        },
+        {
+          "symbol": "5876",
+          "name": "上海商銀",
+          "return_pct": 1.52,
+          "close": 53.4
         },
         {
           "symbol": "1216",
           "name": "統一",
-          "return_pct": 2.6,
-          "close": 78.8
-        },
-        {
-          "symbol": "2609",
-          "name": "陽明",
-          "return_pct": 2.37,
-          "close": 60.5
+          "return_pct": 1.03,
+          "close": 78.7
         }
       ],
       "losers": [
         {
           "symbol": "6415",
           "name": "矽力*-KY",
-          "return_pct": -28.56,
-          "close": 334
+          "return_pct": -29.52,
+          "close": 308
+        },
+        {
+          "symbol": "3532",
+          "name": "台勝科",
+          "return_pct": -28.87,
+          "close": 207
         },
         {
           "symbol": "8046",
           "name": "南電",
-          "return_pct": -28.24,
-          "close": 775
+          "return_pct": -28.19,
+          "close": 698
         },
         {
-          "symbol": "3653",
-          "name": "健策",
-          "return_pct": -26.59,
-          "close": 4570
-        },
-        {
-          "symbol": "2059",
-          "name": "川湖",
-          "return_pct": -25.32,
-          "close": 6520
+          "symbol": "1802",
+          "name": "台玻",
+          "return_pct": -28.15,
+          "close": 58.7
         }
       ],
       "picks": [
         {
-          "symbol": "6505",
-          "name": "台塑化",
+          "symbol": "1590",
+          "name": "亞德客-KY",
           "score": 64,
           "signals": {
             "en": [
-              "Below MA20 6.4%",
-              "RSI 43 near oversold",
-              "Golden KD cross"
-            ],
-            "zh": [
-              "低於 MA20 -6.4%",
-              "RSI 43 接近超賣",
-              "KD 黃金交叉"
-            ]
-          }
-        },
-        {
-          "symbol": "4938",
-          "name": "和碩",
-          "score": 64,
-          "signals": {
-            "en": [
-              "Below MA20 12.5%",
+              "Below MA20 6.2%",
               "RSI 33 near oversold",
-              "Golden KD cross"
+              "MACD bullish turn"
             ],
             "zh": [
-              "低於 MA20 -12.5%",
+              "低於 MA20 -6.2%",
               "RSI 33 接近超賣",
-              "KD 黃金交叉"
+              "MACD 翻多"
             ]
           }
         },
         {
-          "symbol": "3034",
-          "name": "聯詠",
+          "symbol": "3036",
+          "name": "文曄",
           "score": 63,
           "signals": {
             "en": [
-              "Below MA20 12.9%",
-              "RSI 30 near oversold",
+              "Below MA20 11.8%",
+              "RSI 31 near oversold",
               "Golden KD cross"
             ],
             "zh": [
-              "低於 MA20 -12.9%",
-              "RSI 30 接近超賣",
+              "低於 MA20 -11.8%",
+              "RSI 31 接近超賣",
               "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "1519",
+          "name": "華城",
+          "score": 60,
+          "signals": {
+            "en": [
+              "Below MA20 10.4%",
+              "RSI 34 near oversold",
+              "MACD bullish turn"
+            ],
+            "zh": [
+              "低於 MA20 -10.4%",
+              "RSI 34 接近超賣",
+              "MACD 翻多"
             ]
           }
         }
@@ -477,12 +477,12 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5hYUUtbU1PSTZQSjZZNVlWRjFBaTc2cGNzeEd2Vm9hYmt6NUFXMi02Xy1vSGQta0JtNExmaF9nZkx0WUdON2FxVzN6d1JYeGVPUHdpS3FBN3M?oc=5",
-      "published_at_utc": "2026-11-18T06:10:32Z",
+      "source": "CMoney投資網誌",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWUJKNUJ6ZmdtYjlMbS1XdXdmcV9wX1lSank1cVVXcnpjenpjR20tZ3RfRXZlR3ZEWW80dnFvcWZuVzZ5TC14ZWh2YTZtaDdFWDNLVkt3a2J1MVNMWEtua2w3aE0zalFSb1UwYWVlamU4UFZpemRBTzFrZUJZeTNmMU1Tb1YtcU5BX0JnempXZGM?oc=5",
+      "published_at_utc": "2026-11-19T06:05:18Z",
       "title": {
-        "original": "2317 鴻海 - 輝達砸10億美元擴大台廠合作！財報利多為何帶不動台股？2檔概念股一次看- 股市爆料同學會",
-        "en": "2317 Foxconn - Nvidia invests USD 1000000000 to expand Taiwan factory cooperation! Earnings positive why can't it lift Taiwan stocks? 2 concept stocks at a glance - Stock Market Exposé Club"
+        "original": "【即時新聞】最新宣布！輝達點名擴大合作，鴻海盤中達225.5元後跌逾1%",
+        "en": "[Breaking News] Latest announcement! NVIDIA names expanded cooperation, Foxconn intraday reaches 225.5 yuan then falls over 1%"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -491,12 +491,12 @@
       "market": "tw",
       "symbol": "2330",
       "name": "台積電",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMijANBVV95cUxNT1p2YVk4eFR5QzF0UDlvUDVnNGo4ZnV0eDg5cFh3bUwzTnJ5YVlWazJfb2V6emxoOERhREVmek5xVm5vUDNrenlkbkZvZmw4QlZwZkxPYks3dmUxZUxINUs1V19qM2ZWU1c4cGR0MHp4dnB1RVRjSjZyNWR6Ty04alJZRjliemZ6NVFxUndzV1VOX1hUMGFmUUY5VnVtNTdpU0N6aEE3cHV4aUhrZ0QyVkZRZWxRdHNLTGdxOHNYTFdQUlV1Z2tLTk55dGt2WHl5endzSFJLaFpvUTZfOHl5ZUxHTnBnTEZ3YVhwelFRcGxzcUo2SXNPRDFod0d3R3hlSEJqY0hBelhtXzdfYV92UDVKRzNJaHlzSjVkem9vVm9jWlRpNC0xXzRxQWJQRFlLelhOcFRVUHV3SHhaVVhzdmVfRWJiNnlybjFzVVZGa0NFdGNNNzFuZUU2T1BfSk5jemwzdkFNNS1mTjBwQzBWNzJaaVBpSVNxRS1sVEtrdGYwcU9MQkswWS1KSWM?oc=5",
-      "published_at_utc": "2026-11-18T08:03:45Z",
+      "source": "CMoney投資網誌",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3Q5eDBpZGtLTkFLMFhXanZjUlZadm85TGM1cGVGdnNEdmkybzRxREVoTmIyQnJjVDJqY3ZyTkxWMzNFbEZ1aUxkbzBId2NtMElxSjY1Wi1DUUoyYzZBSWwzYk1mdE1kQjJtaGM3RktZcHR6S1l3LVpxNnI2Y0dWN0pLcGV0eUJpV2hfeU45aUs?oc=5",
+      "published_at_utc": "2026-11-19T08:06:00Z",
       "title": {
-        "original": "輝達擴產點名6家台廠！台積電鴻海領軍 景碩載板衝3.5倍以上",
-        "en": "NVIDIA expands production, names 6 Taiwan firms! TSMC, Foxconn lead; Kinsus substrate surges over 3.5x"
+        "original": "【即時新聞】今日台股重挫跌破三萬九千點，台積電下跌七十五元，並參與AI巨頭私募配售",
+        "en": "【Breaking News】Today Taiwan stocks plunge, breaking below thirty-nine thousand points, TSMC falls seventy-five yuan, and participates in AI giant's private placement"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -505,11 +505,11 @@
       "market": "tw",
       "symbol": "3231",
       "name": "緯創",
-      "source": "CMoney投資網誌",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPWG5yZ1RUYS1CQUc4OUdFRU81cUNHZ3NqbC1qVld0VzBxaFotbGpyem9Hb1hyLVV3US1LRFVLdGh4MzRWRTNqLUVoR3FsTDlyd2xMUmJtRlRObmV0akpiVl8xWE1vRndxSnlRa1NTS0N3OFZ4ZWgybml1M3pXUTNzb3BMd01MY1drcXFmLUdB?oc=5",
-      "published_at_utc": "2026-11-18T05:03:12Z",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE40dUoyRi1HaWlraEMweWpySWVnOUlwNmoxX2hTMTdNZkVXXzhqNWViaEhqTFZ1UEdvUGlGQ3RENnluZXJIUTJHVUFhbWgzYXM?oc=5",
+      "published_at_utc": "2026-11-18T09:31:24Z",
       "title": {
-        "original": "【13:03 即時新聞】緯創(3231)盤中走強，市場聚焦AI伺服器訂單動能",
+        "original": "緯創(3231)第三季營收首破兆元！AI伺服器占比衝上83%，2027年出貨續增",
         "en": null
       },
       "image": null,
@@ -519,11 +519,11 @@
       "market": "tw",
       "symbol": "2382",
       "name": "廣達",
-      "source": "旺得富理財網",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8yOVhQMWRCLTNjSGhUTkp5cWQ5UzhuUWlnQkwyRlpNNTRONEZodXJzUlpyOHRlYmlFajNWZnMwZk5ZQXY5WThOQVMxYVlnTkVsQlRLY2R1eUZaSkpxX1M0YzExNTF5U1I1R1E?oc=5",
-      "published_at_utc": "2026-11-18T06:59:17Z",
+      "source": "CMoney投資網誌",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOaEtKTGNBUFVuVkZBaWUzQWU4OWk5YWFEUVlfcWRyTXpOdUJpUGNVWktTM25FcHFGRkJTX0JqWUY4NDJBTlprcFVGQmNwbmNHQnJfUW45VFc2bUk1SU9yRUFTR2lOYkpMWVNuRGNCMWdISjRDNU5GZTF4WkNIVzB3ZFR5MlUtemVROUlfNTB3?oc=5",
+      "published_at_utc": "2026-11-19T04:48:08Z",
       "title": {
-        "original": "AI伺服器利多變利空？廣達、華碩、仁寶…外資全砍4檔目標價1檔降幅逾1成、1檔續喊賣出- 上市櫃",
+        "original": "【12:47 即時新聞】廣達(2382)盤中小跌整理，AI伺服器成市場觀察焦點",
         "en": null
       },
       "image": null,
@@ -533,11 +533,11 @@
       "market": "tw",
       "symbol": "4938",
       "name": "和碩",
-      "source": "富聯網",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZFQ4Tm9YcFZrQjRpRVdpbUcyWExRUFVuUExaWFVxakdXaHpqSC1pbEJsZU1YWXBjbXZyRUczTk1oM2JUSXE5Vzg1Z3dCRGhuTlN2YVphSUV5TjVkSEZ6UzhpbFF4bWJ6My1ucXVkZVljOWZXUU13VEtnV0plenBhSVNCME1tdDhK?oc=5",
-      "published_at_utc": "2026-11-18T00:00:00Z",
+      "source": "FTNN 新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1hVHIxeEVMVU50YTU1ZTRZVjF0VXhXejBna19Db2xqOXdBVUUySXZVMFpYQ1pIZ0w2Y1ZBbndXSFF1U2thYnVYWXRHTQ?oc=5",
+      "published_at_utc": "2026-11-19T00:50:00Z",
       "title": {
-        "original": "財訊快報：攻AI商機，和碩揮軍SC26，展示高密度運算解決方案",
+        "original": "廣達、華碩、和碩、仁寶還有戲？美外資同步下修目標價 「1檔」再喊賣出",
         "en": null
       },
       "image": null,
@@ -547,11 +547,11 @@
       "market": "tw",
       "symbol": "6669",
       "name": "緯穎",
-      "source": "CMoney投資網誌",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZkpQWkQ5RS1IQXRfY2xjTzUybG1JbVlnOFNMM1dBbzd3ZWlzVU1JRmF1TENfYjVBZ1NxcV91VDRoWE16U2VJY0U4TV9XX2JWOG9pYWNCa1ZZMXZVMHFIUk5SdkVyMU5EdlR0QUloZEsyaUVEME5JeFZ1NFNxYmNpeXlRNW9YdlBvMklRLTZSSms?oc=5",
-      "published_at_utc": "2026-11-18T08:08:35Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ZZDJrUWsyOUs4MG95TkpwQ2NLaFdveFd6ZE1Qb1V4aHA1SFFmWmFrZDJFS09XV0VGMnBfMGUzbWduUVpucUsyU3VBQUJIOXlBT1B5ZndfNjI?oc=5",
+      "published_at_utc": "2026-11-18T11:35:45Z",
       "title": {
-        "original": "【即時新聞】最新輝達變動引發市場轉向，緯穎作為Trainium 3代工廠有望受惠！",
+        "original": "6669 緯穎 - 再撐8-9個月就能領股利了 給大家股利一下 - 股市爆料同學會",
         "en": null
       },
       "image": null,
