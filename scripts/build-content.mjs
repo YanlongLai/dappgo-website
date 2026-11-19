@@ -57,7 +57,7 @@ ${c.items.map(([href, name, text]) => `        <li><a href="${p(href)}">${esc(na
   const jsonld = page.updated
     ? [{ "@context": "https://schema.org", "@type": "Article", headline: c.h1, description: c.description, inLanguage: ui.htmlLang, dateModified: page.updated, datePublished: page.updated, mainEntityOfPage: ORIGIN + p(page.path), author: { "@type": "Organization", name: "DappGo", url: ORIGIN + p("/about/") }, publisher: { "@type": "Organization", name: "DappGo", url: ORIGIN } }]
     : page.path === "/about/"
-      ? [{ "@context": "https://schema.org", "@type": "Organization", name: "DappGo", url: ORIGIN, logo: `${ORIGIN}/icons/icon-512.png`, email: "admin@dappgo.com", sameAs: ["https://www.facebook.com/dappgo", "https://www.instagram.com/dappgo/", "https://www.threads.com/@dappgo", "https://www.linkedin.com/company/dappgo/"] }]
+      ? [{ "@context": "https://schema.org", "@type": "Organization", name: "DappGo", url: ORIGIN, logo: `${ORIGIN}/icons/icon-512.png`, email: "admin@dappgo.com", founder: { "@type": "Person", name: "Yenlung Lai" }, address: { "@type": "PostalAddress", addressRegion: "CA", addressCountry: "US" }, sameAs: ["https://www.facebook.com/dappgo", "https://www.instagram.com/dappgo/", "https://www.threads.com/@dappgo", "https://www.linkedin.com/company/dappgo/"] }]
       : [];
   return renderPage({ lang, path: page.path, title: c.title, description: c.description, section: page.section, ads: page.ads, ogType: page.updated ? "article" : "website", crumbs, body: `${head}\n${main}${updated}`, jsonld, generator: "build-content.mjs" });
 }

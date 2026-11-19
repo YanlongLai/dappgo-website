@@ -501,6 +501,9 @@ export const PAGES = [
       <h2>What we are not</h2>
       <p>DappGo is a publisher. We are not a broker, an investment adviser or a fund, we do not execute trades, and we do not know anything about your finances. Everything we publish is research and educational material. It is not advice to buy or sell anything.</p>
 
+      <h2>Who runs DappGo</h2>
+      <p>DappGo is run by Yenlung Lai in California, United States, who is responsible for the reports, the apps and this site.</p>
+
       <h2>Standards and contact</h2>
       <p>Our <a href="${p("/editorial-policy/")}">editorial policy</a> covers sourcing, time stamps, corrections, advertising and independence. To report an error or ask a question, see the <a href="${p("/contact/")}">contact page</a>.</p>`
     },
@@ -527,6 +530,9 @@ export const PAGES = [
 
       <h2>我們不是什麼</h2>
       <p>DappGo 是內容發布者。我們不是券商、投資顧問或基金，不代客下單，也不了解你的財務狀況。我們發布的一切都是研究與教育性質的資料，不是買賣任何標的的建議。</p>
+
+      <h2>誰經營 DappGo</h2>
+      <p>DappGo 由 Yenlung Lai 經營，所在地為美國加州，負責報告、App 與本站的內容。</p>
 
       <h2>準則與聯絡方式</h2>
       <p>我們的<a href="${p("/editorial-policy/")}">編輯政策</a>說明資料來源、時間標示、更正、廣告與獨立性。回報錯誤或提問，請見<a href="${p("/contact/")}">聯絡頁面</a>。</p>`
