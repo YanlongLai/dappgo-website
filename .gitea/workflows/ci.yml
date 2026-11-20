@@ -5,12 +5,18 @@ name: website-ci
 # node:sqlite, which news/tests/engagement.mjs needs.
 on:
   push:
-    branches: [master]
+    # Every branch: GitHub PR branches reach Gitea through the 15-minute mirror,
+    # so this is the pre-merge run. Gitea pull_request events never fire here.
+    branches: ['**']
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   quality:
