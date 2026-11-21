@@ -362,7 +362,7 @@
         <span class="lang-en">Privacy Policy</span>
         <span class="lang-zh">隱私政策</span>
             </h1>
-            <p class="updated"><span class="lang-en">Last updated: 2026-11-18</span><span class="lang-zh">最後更新：2026-11-18</span></p>
+            <p class="updated"><span class="lang-en">Last updated: 2026-11-21</span><span class="lang-zh">最後更新：2026-11-21</span></p>
         </div>
 
         <div class="legal-content">
@@ -370,41 +370,56 @@
     <div class="summary">
         <div class="lang-zh">
             <strong>重點摘要：</strong>
-            TW Stocks、US Stocks、Options Explorer 與 Number Merge 的資料流程不同。三款研究 App 的新版將採用下方說明的 Firebase Advanced Consent Mode：詳細使用分析預設關閉，即使未開啟，Firebase 仍可能傳送有限的衡量訊號；較舊版本可能未啟用此功能。廣告同意獨立由 Google UMP 與適用的裝置設定管理，Google Mobile Ads 可能處理裝置識別碼、網路推估的一般位置、廣告互動、診斷與效能資料。Number Merge 另見專屬說明。AI 分析基於公開市場數據；主動提交的 email 僅依相關訂閱或表單用途處理。
+            TW Stocks、US Stocks、Options Explorer、DappGo News 與 Number Merge 的資料流程不同。三款研究 App 的「選擇性詳細使用分析」在您未曾選擇時預設開啟，可隨時在設定關閉；Firebase Crashlytics 當機報告也依同一開關。開啟推播時，App 會在後端保存推播 token（Apple APNs／Google FCM）與一組匿名 Firebase uid。去除廣告與訂閱透過 Apple／Google 結帳並由 RevenueCat 驗證；US Stocks 估值頁會把 RevenueCat 匿名 App User ID 送到 DappGo 資料服務以確認訂閱。廣告同意由 Google UMP、Apple ATT 與裝置設定各自管理。AI 分析只使用公開市場數據。
         </div>
         <div class="lang-en">
             <strong>TL;DR:</strong>
-            TW Stocks, US Stocks, Options Explorer, and Number Merge have different data flows. The upcoming versions of the three research apps will use Firebase Advanced Consent Mode described below: detailed usage analytics is off by default, but Firebase may still send limited measurement signals while it is off. Older versions may not include this feature. Advertising consent is managed independently through Google UMP and applicable device settings. Google Mobile Ads may process device identifiers, network-inferred coarse location, ad interactions, diagnostics, and performance data. See Number Merge's separate section. AI research uses public market data; voluntarily submitted email is used for the relevant subscription or form purpose.
+            TW Stocks, US Stocks, Options Explorer, DappGo News, and Number Merge have different data flows. In the three research apps, “Optional detailed usage analytics” is on by default when you have not made a choice, and you can turn it off in Settings anytime; Firebase Crashlytics crash reports follow the same switch. When you turn on push notifications, the app stores a push token (Apple APNs / Google FCM) and an anonymous Firebase uid on our backend. Ad removal and subscriptions are paid through Apple or Google and verified by RevenueCat; the US Stocks valuation page sends the anonymous RevenueCat App User ID to the DappGo data service to confirm a subscription. Advertising choices are handled separately by Google UMP, Apple ATT, and device settings. AI research uses public market data only.
         </div>
     </div>
 
     <section id="mobile-advanced-consent">
         <div class="lang-zh">
-            <h2>研究 App 新版：使用分析與您的選擇</h2>
-            <p>此說明適用於在設定中顯示「選擇性詳細使用分析」的 Options Explorer、US Stocks 與 TW Stocks iOS／Android 新版。Firebase Analytics（Google）採用 Advanced Consent Mode，四項同意目的預設拒絕；既有明確選擇沿用，沒有另外的遷移流程。拒絕分析儲存時，SDK 仍可能傳送有限的 App／裝置環境、時間、同意狀態及自動事件衡量訊號；這不是「完全不收集資料」模式。</p>
-            <p>開啟選用詳細使用分析後，我們才傳送 App 使用與廣告成效的詳細自訂事件，用於產品分析與改善。您可隨時在設定關閉，以停止後續詳細自訂事件；關閉不會停止上述有限 SDK 訊號，也不會自動刪除已處理資料。Firebase 依同意狀態與 SDK 設定處理分析識別碼；我們不為這些事件另建 DappGo 裝置 ID、不傳送姓名、email 或使用者輸入的持倉內容。</p>
+            <h2>研究 App：使用分析、當機報告與您的選擇</h2>
+            <p>此說明適用於 Options Explorer、US Stocks 與 TW Stocks 的 iOS／Android 版本（設定中顯示「選擇性詳細使用分析」）。Firebase Analytics（Google）採用 Advanced Consent Mode：SDK 啟動時四項同意目的預設拒絕，再依您的選擇更新；既有明確選擇沿用，沒有另外的遷移流程。您尚未做出選擇時，此開關<strong>預設開啟</strong>，App 會授予分析儲存並傳送 App 使用與廣告成效的詳細自訂事件，用於產品分析與改善。</p>
+            <p>您可隨時在設定關閉，以停止後續詳細自訂事件與 Firebase Crashlytics 當機報告；關閉後 SDK 仍可能傳送有限的衡量訊號（App／裝置環境、時間、同意狀態及自動事件），這不是「完全不收集資料」模式，也不會自動刪除已處理資料。Firebase 依同意狀態與 SDK 設定處理分析識別碼；當機報告包含當機堆疊、裝置與系統資訊及畫面名稱，不包含使用者 ID、email 或自選清單。我們不傳送姓名、email 或使用者輸入的持倉內容。</p>
             <p>分析開關不授予廣告儲存、廣告使用者資料、個人化廣告或 Apple 跨 App 追蹤權限。廣告選擇請使用設定中的廣告隱私選項與系統控制。Google 為衡量服務處理資料，詳見 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私政策</a>。如需查詢或請求刪除可識別的資料，請聯絡 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>；已彙總且無法識別的統計無法依個人定位刪除。</p>
         </div>
         <div class="lang-en">
-            <h2>New research-app versions: analytics and your choices</h2>
-            <p>This section applies to iOS and Android versions of Options Explorer, US Stocks, and TW Stocks showing “Optional detailed usage analytics” in Settings. Google Firebase Analytics uses Advanced Consent Mode with all four consent purposes denied by default. Existing explicit choices are used directly, without a separate migration flow. When analytics storage is denied, the SDK may still send limited app/device context, time, consent-state, and automatic-event measurement signals. This is not a no-data-collection mode.</p>
-            <p>We send detailed custom app-usage and ad-performance events for product analytics and improvement only after you enable the optional switch. Turn it off in Settings anytime to stop future detailed custom events. Turning it off does not stop limited SDK signals or automatically delete previously processed data. Firebase handles analytics identifiers according to consent and SDK configuration. We do not create a separate DappGo device ID for these events or send your name, email, or user-entered holdings.</p>
+            <h2>Research apps: analytics, crash reports and your choices</h2>
+            <p>This section applies to the iOS and Android versions of Options Explorer, US Stocks, and TW Stocks that show “Optional detailed usage analytics” in Settings. Google Firebase Analytics uses Advanced Consent Mode: the SDK starts with all four consent purposes denied by default and is then updated from your choice. Existing explicit choices are used directly, without a separate migration flow. When you have not made a choice, the switch is <strong>on by default</strong>: the app grants analytics storage and sends detailed custom app-usage and ad-performance events for product analytics and improvement.</p>
+            <p>Turn it off in Settings anytime to stop future detailed custom events and Firebase Crashlytics crash reports. While it is off, the SDK may still send limited measurement signals (app/device context, time, consent state, and automatic events). This is not a no-data-collection mode, and turning it off does not automatically delete previously processed data. Firebase handles analytics identifiers according to consent and SDK configuration. Crash reports contain the stack trace, device and OS details, and the screen name, but no user ID, email, or watchlist. We do not send your name, email, or user-entered holdings.</p>
             <p>The analytics switch does not grant ad storage, ad user data, personalized advertising, or Apple cross-app tracking permission. Use the separate advertising privacy options and system controls for advertising choices. Google processes measurement data as described in its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>. Contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> to ask about or request deletion of identifiable data; aggregated statistics that cannot identify you cannot be individually located for deletion.</p>
         </div>
     </section>
 
     <section id="mobile-att">
         <div class="lang-zh">
-            <h2>新版 iOS 研究 App：Apple 追蹤授權</h2>
-            <p>即將推出的 Options Explorer 1.5.15、US Stocks 1.0.4 與 TW Stocks 1.0.4 iOS 版本會使用 Apple 的 App Tracking Transparency（ATT）系統視窗，詢問是否允許跨其他公司 App 與網站的廣告追蹤。授權且符合適用廣告同意選擇時，Google Mobile Ads 可能使用廣告識別碼與廣告互動資料，結合其他公司提供的資料，用於個人化廣告與廣告成效衡量。這項系統授權與 UMP 廣告選擇、詳細使用分析開關各自獨立；其中一項同意不代表其他項目也同意。</p>
-            <p>拒絕、限制、尚未授權或無法確認 ATT 狀態時，新版 iOS App 不初始化或請求廣告，也不展示快取廣告，不阻擋市場資訊與研究功能。獨立的分析設定與有限分析訊號仍可能涉及資料處理，不代表完全不收集資料。我們不藉其他識別方式繞過拒絕追蹤的選擇。</p>
-            <p>您可以在 iOS「設定 → 隱私權與安全性 → 追蹤」變更授權；App 會在回到前景時重新檢查。已拒絕後不會反覆要求系統授權。Android 沒有 Apple ATT 視窗，使用其適用的 UMP 與裝置廣告控制。此段不表示舊版本已具有新的授權流程，也不改變 Number Merge 的專屬說明。</p>
+            <h2>iOS 研究 App：Apple 追蹤授權與廣告</h2>
+            <p>Options Explorer、US Stocks 與 TW Stocks 的 iOS 版本會使用 Apple 的 App Tracking Transparency（ATT）系統視窗，詢問是否允許跨其他公司 App 與網站的廣告追蹤。授權且符合適用廣告同意選擇時，Google Mobile Ads 可能使用廣告識別碼與廣告互動資料，結合其他公司提供的資料，用於個人化廣告與廣告成效衡量。這項系統授權與 UMP 廣告選擇、詳細使用分析開關各自獨立；其中一項同意不代表其他項目也同意。</p>
+            <p>拒絕、限制或無法確認 ATT 狀態時，App 只請求非個人化廣告（不授予廣告使用者資料與個人化），市場資訊與研究功能照常使用。廣告形式包括橫幅、回到 App 時的開啟廣告、事先提示的全螢幕插頁，以及您主動選擇觀看的獎勵廣告。我們不藉其他識別方式繞過拒絕追蹤的選擇。</p>
+            <p>您可以在 iOS「設定 → 隱私權與安全性 → 追蹤」變更授權；App 會在回到前景時重新檢查，已拒絕後不會反覆要求。Android 沒有 Apple ATT 視窗，使用 UMP 與裝置廣告控制。</p>
         </div>
         <div class="lang-en">
-            <h2>Upcoming iOS research apps: Apple tracking authorization</h2>
-            <p>The upcoming iOS releases of Options Explorer 1.5.15, US Stocks 1.0.4, and TW Stocks 1.0.4 use Apple's App Tracking Transparency (ATT) system prompt to ask about advertising tracking across other companies' apps and websites. When authorized and consistent with applicable advertising choices, Google Mobile Ads may use advertising identifiers and ad-interaction data together with data from other companies for personalized advertising and ad measurement. ATT, UMP advertising choices, and the detailed usage analytics switch are separate; permission for one does not grant the others.</p>
-            <p>When ATT is denied, restricted, not yet authorized, or cannot be verified, the new iOS apps do not initialize or request advertising or present cached ads; market information and research remain usable. Independent analytics settings and limited analytics signals can still involve data processing; this is not a no-data-collection promise. We do not use alternative identifiers to bypass a tracking refusal.</p>
-            <p>Change authorization in iOS Settings → Privacy &amp; Security → Tracking. The app checks again on returning to the foreground and does not repeatedly request system authorization after a refusal. Android does not show Apple's ATT prompt and uses applicable UMP and device advertising controls. This section does not claim older versions contain the new authorization flow and does not change Number Merge's separate disclosure.</p>
+            <h2>iOS research apps: Apple tracking authorization and ads</h2>
+            <p>The iOS versions of Options Explorer, US Stocks, and TW Stocks use Apple's App Tracking Transparency (ATT) system prompt to ask about advertising tracking across other companies' apps and websites. When authorized and consistent with applicable advertising choices, Google Mobile Ads may use advertising identifiers and ad-interaction data together with data from other companies for personalized advertising and ad measurement. ATT, UMP advertising choices, and the detailed usage analytics switch are separate; permission for one does not grant the others.</p>
+            <p>When ATT is denied, restricted, or cannot be verified, the app requests only non-personalized ads (ad user data and personalization are not granted); market information and research remain usable. Ad formats are banners, an app-open ad when you return to the app, full-screen interstitials announced in advance, and rewarded ads you choose to watch. We do not use alternative identifiers to bypass a tracking refusal.</p>
+            <p>Change authorization in iOS Settings → Privacy &amp; Security → Tracking. The app checks again on returning to the foreground and does not repeatedly ask after a refusal. Android does not show Apple's ATT prompt and uses UMP and device advertising controls.</p>
+        </div>
+    </section>
+
+    <section id="mobile-push-purchases">
+        <div class="lang-zh">
+            <h2>研究 App：推播通知、購買與訂閱</h2>
+            <p><strong>推播通知（選用）</strong>：您在 App 內同意並在系統允許通知後，App 會透過 Firebase Anonymous Auth 取得一組匿名 uid（保存在裝置上），並把推播 token（iOS 為 Apple APNs token，Android 為 Google FCM token）連同平台、bundle ID、訂閱市場、語言／地區、時區、通知偏好（例如訊號變化推播開關、追蹤的代號、勿擾時段）寫入 Firestore 的 <code>users/{uid}</code>，用於傳送您選擇的通知。若系統已允許通知，App 啟動時會同步最新 token。uid 與 token 不包含姓名、email 或 Apple／Google 帳號。您可在 App 設定或系統設定關閉通知；如需刪除這些紀錄，請使用支援此功能的 App 內「刪除我的資料」（Options Explorer）或來信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>。</p>
+            <p><strong>去除廣告與訂閱</strong>：購買透過 Apple App Store 或 Google Play 結帳，DappGo 不接觸信用卡或銀行資訊。RevenueCat 為我們處理購買驗證與權益，接收商店交易資訊與一組匿名 App User ID（由 RevenueCat SDK 產生，不是您的 Apple ID 或 Google 帳號）；RevenueCat 也會收到廣告曝光與收益事件，用於收益統計。</p>
+            <p><strong>US Stocks 估值頁</strong>：讀取估值資料時，App 會在請求標頭附上 RevenueCat 匿名 App User ID，DappGo 資料服務（data.dappgo.com）據此向 RevenueCat 查詢訂閱是否有效，結果僅在伺服器記憶體暫存最多 72 小時，不用於分析或廣告。7 天免費試用不需付款資料：資料服務發出一張有簽章、含到期時間的試用憑證，保存在您裝置的鑰匙圈／安全儲存，之後隨估值請求送出；憑證不含裝置或個人識別碼。</p>
+        </div>
+        <div class="lang-en">
+            <h2>Research apps: push notifications, purchases and subscriptions</h2>
+            <p><strong>Push notifications (optional)</strong>: after you agree in the app and the system allows notifications, the app obtains an anonymous uid through Firebase Anonymous Authentication (kept on the device) and writes your push token (an Apple APNs token on iOS, a Google FCM token on Android) to <code>users/{uid}</code> in Firestore, together with platform, bundle ID, subscribed markets, language/region, time zone and notification preferences (for example the signal-change switch, followed tickers and quiet hours). This is used only to deliver the notifications you chose. If notifications are already allowed, the app refreshes the token at launch. The uid and token contain no name, email, or Apple/Google account. Turn notifications off in the app or in system settings; to delete these records, use the in-app "Delete my data" where available (Options Explorer) or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.</p>
+            <p><strong>Ad removal and subscriptions</strong>: purchases are paid through the Apple App Store or Google Play; DappGo never receives card or bank details. RevenueCat processes purchase validation and entitlements for us and receives store transaction details and an anonymous App User ID generated by the RevenueCat SDK (not your Apple ID or Google account). RevenueCat also receives ad impression and revenue events for revenue reporting.</p>
+            <p><strong>US Stocks valuation page</strong>: valuation requests carry the anonymous RevenueCat App User ID in a request header. The DappGo data service (data.dappgo.com) uses it to ask RevenueCat whether the subscription is active and keeps the answer only in server memory for up to 72 hours; it is not used for analytics or advertising. The 7-day free trial needs no payment details: the data service issues a signed trial pass with an expiry time, which is stored in your device keychain / secure storage and sent with valuation requests. The pass contains no device or personal identifier.</p>
         </div>
     </section>
 
@@ -449,7 +464,7 @@
     <div class="lang-zh">
         <h2>Number Merge（Number Merge - DappGo）</h2>
         <p>
-            Number Merge 不需要建立帳號或登入，核心遊戲可以離線執行。遊戲設定、本機最高分與最高方塊保存在裝置上。使用線上排行榜時，App 會傳送隨機產生的玩家識別碼、分數、最高方塊、平台、App 版本與提交時間至 DappGo 排行榜服務；更新個人資料時，也會傳送您選擇的暱稱、寵物及選填的國家代碼。排行榜可能公開顯示這些暱稱、分數與個人資料。國家代碼不是精確位置；請勿在暱稱填入姓名、email 或其他敏感資料。Number Merge 不使用股票 App 的 Firebase uid、推播或意見回饋流程。
+            Number Merge 不需要建立帳號或登入，核心遊戲可以離線執行。遊戲設定、本機最高分與最高方塊保存在裝置上。使用線上排行榜時，App 會傳送隨機產生的玩家識別碼、分數、最高方塊、平台、App 版本與提交時間至 DappGo 排行榜服務；更新個人資料時，也會傳送您選擇的暱稱、寵物及選填的國家代碼。排行榜可能公開顯示這些暱稱、分數與個人資料。國家代碼不是精確位置；請勿在暱稱填入姓名、email 或其他敏感資料。Number Merge 不使用股票 App 的 Firebase uid、推播或意見回饋流程。Android 版可選擇使用 Google Play 遊戲服務，成就與分數會送到您的 Play 遊戲帳號。
         </p>
         <p>
             Number Merge 包含 Google AdMob banner 廣告，以及只有在玩家主動選擇「看廣告 +1」時才開啟的獎勵廣告。Google Mobile Ads SDK 可能為投放、衡量、頻率控制及防止廣告詐欺處理裝置識別、廣告識別、網路推估的一般位置、診斷、效能與廣告互動資料；實際資料處理會依 AdMob 設定、所在地區、同意狀態與裝置設定而定。DappGo 不會把這些資料與您的姓名、email 或金融資料連結。
@@ -457,11 +472,14 @@
         <p>
             在需要使用者選擇的地區，廣告 consent message 會由 Google User Messaging Platform（UMP）處理。您可以依裝置或廣告提示提供、拒絕或變更選擇；拒絕後仍可能顯示非個人化或受限制的廣告。
         </p>
+        <p>
+            Firebase Analytics 只在 UMP 同意狀態允許時收集遊戲使用與廣告成效事件。選購「去除廣告」時由 Apple／Google 結帳，RevenueCat 以匿名 App User ID 驗證購買並接收廣告曝光與收益事件；DappGo 不接觸付款資訊。
+        </p>
     </div>
     <div class="lang-en">
         <h2>Number Merge (Number Merge - DappGo)</h2>
         <p>
-            Number Merge does not require an account or sign-in, and the core game works offline. Game settings and local records remain on your device. When using the online leaderboard, the app sends a randomly generated player identifier, score, highest tile, platform, app version and submission time to DappGo's leaderboard service. Profile updates also send your chosen display name, pet and optional country code. Leaderboards may publicly display these names, scores and profile details. A country code is not precise location; do not include your real name, email or sensitive information in your display name. Number Merge does not use the stock-app Firebase uid, push notification or feedback flows.
+            Number Merge does not require an account or sign-in, and the core game works offline. Game settings and local records remain on your device. When using the online leaderboard, the app sends a randomly generated player identifier, score, highest tile, platform, app version and submission time to DappGo's leaderboard service. Profile updates also send your chosen display name, pet and optional country code. Leaderboards may publicly display these names, scores and profile details. A country code is not precise location; do not include your real name, email or sensitive information in your display name. Number Merge does not use the stock-app Firebase uid, push notification or feedback flows. On Android you can optionally use Google Play Games Services, which sends achievements and scores to your Play Games profile.
         </p>
         <p>
             Number Merge includes Google AdMob banner ads and an optional rewarded ad that opens only when a player chooses “Watch ad +1”. The Google Mobile Ads SDK may process device identifiers, advertising identifiers, coarse location inferred from network information, diagnostic data, performance data, and ad-interaction data for serving, measurement, frequency control, and fraud prevention. Actual processing depends on AdMob configuration, region, consent status, and device settings. DappGo does not connect this information to your name, email, or financial data.
@@ -469,6 +487,21 @@
         <p>
             Where user choice is required, Google User Messaging Platform (UMP) handles the advertising consent message. You can provide, decline, or change your choice through the device or advertising privacy controls; declining may still allow non-personalized or limited ads.
         </p>
+        <p>
+            Firebase Analytics collects gameplay and ad-performance events only when the UMP consent state allows it. The optional "Remove ads" purchase is paid through Apple or Google; RevenueCat validates it with an anonymous App User ID and receives ad impression and revenue events. DappGo never receives payment details.
+        </p>
+    </div>
+
+    <!-- DappGo News app-specific disclosure -->
+    <div class="lang-zh">
+        <h2>DappGo News（News Markets）</h2>
+        <p>DappGo News 不需要帳號。Firebase Analytics 只在 UMP 同意狀態允許且您未在 App 內關閉分析時收集閱讀與廣告成效事件。App 也會在您開啟 AI 觀點時，把匿名閱讀次數（事件 ID、每天更換的隨機訪客 ID、市場、代號、語言、平台）送到 news.dappgo.com，用於統計熱門主題；不含廣告或裝置識別碼，關閉 App 內分析即停止並刪除此 ID。</p>
+        <p>App 顯示 Google AdMob 廣告，廣告資料處理方式同上方 Google Mobile Ads 說明，並由 UMP 管理同意。選購「去除廣告」時由 Google Play 結帳，RevenueCat 以匿名 App User ID 驗證購買並接收廣告曝光與收益事件；DappGo 不接觸付款資訊。</p>
+    </div>
+    <div class="lang-en">
+        <h2>DappGo News (News Markets)</h2>
+        <p>DappGo News needs no account. Firebase Analytics collects reading and ad-performance events only when the UMP consent state allows it and you have not turned analytics off in the app. When you open an AI view, the app also sends an anonymous reading count (event ID, a random visitor ID that changes every day, market, ticker, language and platform) to news.dappgo.com to measure popular topics. It contains no advertising or device identifier; turning analytics off in the app stops it and deletes that ID.</p>
+        <p>The app shows Google AdMob ads, handled as described for Google Mobile Ads in this policy, with consent managed by UMP. The optional "Remove ads" purchase is paid through Google Play; RevenueCat validates it with an anonymous App User ID and receives ad impression and revenue events. DappGo never receives payment details.</p>
     </div>
 
     <!-- Website review loader: separate from browser app ad activation -->
@@ -502,8 +535,10 @@
 
         <h3>App 使用資料</h3>
         <ul>
-            <li><strong>匿名 Firebase uid</strong>（Firebase Anonymous Auth 自動產生，存在裝置上）— 適用舊版 TW Stocks／US Stocks 的後端功能，以及 Options Explorer 主動回饋或選用推播功能，可能使用此識別碼連結服務資料；<u>未綁定您的姓名或 email</u>。新版 TW Stocks／US Stocks 的匿名驗證、遠端推播註冊與 Firestore 用戶資料功能仍暫停；這與獨立的原生 Analytics／廣告 SDK 不同。</li>
-            <li><strong>使用事件</strong>：新版研究 App 依上方 Advanced Consent Mode 說明處理有限衡量訊號與選用詳細自訂事件；舊版 Options Explorer 曾停用產品使用分析。Google Mobile Ads 的廣告資料處理獨立依廣告設定、同意與裝置控制進行。</li>
+            <li><strong>匿名 Firebase uid</strong>（Firebase Anonymous Auth 自動產生，存在裝置上）— 三款研究 App 在您開啟推播時使用，Options Explorer 的 App 內刪除功能也會用它找到您的紀錄；<u>未綁定您的姓名或 email</u>。詳見上方「推播通知、購買與訂閱」。</li>
+            <li><strong>推播 token</strong>（Apple APNs／Google FCM）與通知偏好 — 僅在您開啟推播後收集。</li>
+            <li><strong>RevenueCat 匿名 App User ID</strong> — 用於購買驗證；US Stocks 估值頁也會送到 DappGo 資料服務確認訂閱。</li>
+            <li><strong>使用事件與當機報告</strong>：研究 App 依上方說明處理有限衡量訊號、詳細自訂事件與 Crashlytics 當機報告（預設開啟，可在設定關閉）。Google Mobile Ads 的廣告資料處理獨立依廣告設定、同意與裝置控制進行。</li>
         </ul>
 
         <h3>訂閱 email</h3>
@@ -526,7 +561,7 @@
 
         <h3>網站 analytics</h3>
         <p>
-            本網站使用 Google Analytics 4 計算頁面瀏覽量，IP 地址自動匿名化。我們不做跨網站追蹤、不設置非必要 cookie 用於行銷或廣告。如不希望被追蹤，請使用瀏覽器隱私模式、廣告攔截器或 Do Not Track。
+            本網站使用 Google Analytics 4 計算頁面瀏覽量，IP 地址自動匿名化。Google Analytics 本身不用於跨網站追蹤；首頁、每日報告與指南頁的 Google AdSense 廣告 Cookie 另見上方「dappgo.com 的廣告與 Cookie」。如不希望被追蹤，請使用瀏覽器隱私模式、廣告攔截器或 Do Not Track。
         </p>
     </div>
     <div class="lang-en">
@@ -536,8 +571,10 @@
 
         <h3>App usage</h3>
         <ul>
-            <li>Anonymous Firebase uid (auto-generated by Firebase Anonymous Auth, stored on device) — backend features in applicable older TW Stocks / US Stocks versions and explicit feedback or optional push flows in Options Explorer may use this identifier to link service records; <u>it is not linked to your name or email</u>. Anonymous authentication, remote push registration, and Firestore user-data features remain paused in the new TW Stocks / US Stocks versions, separately from native Analytics and advertising SDKs.</li>
-            <li>Usage events: new research-app versions process limited measurement signals and optional detailed custom events as described in the Advanced Consent Mode section above. Older Options Explorer versions had product-usage analytics disabled. Google Mobile Ads data handling is independent and follows advertising configuration, consent, and device controls.</li>
+            <li>Anonymous Firebase uid (auto-generated by Firebase Anonymous Auth, stored on device) — used by the three research apps when you turn on push notifications, and by Options Explorer's in-app deletion to find your records; <u>it is not linked to your name or email</u>. See "push notifications, purchases and subscriptions" above.</li>
+            <li>Push token (Apple APNs / Google FCM) and notification preferences — collected only after you turn on notifications.</li>
+            <li>Anonymous RevenueCat App User ID — used for purchase validation; the US Stocks valuation page also sends it to the DappGo data service to confirm a subscription.</li>
+            <li>Usage events and crash reports: research apps process limited measurement signals, detailed custom events, and Crashlytics crash reports as described above (on by default, can be turned off in Settings). Google Mobile Ads data handling is independent and follows advertising configuration, consent, and device controls.</li>
         </ul>
 
         <h3>Subscription email</h3>
@@ -560,7 +597,7 @@
 
         <h3>Website analytics</h3>
         <p>
-            The site uses Google Analytics 4 with automatic IP anonymization. We don't do cross-site tracking, and we don't set non-essential cookies for marketing or advertising. Use private browsing, an ad blocker, or DNT to opt out.
+            The site uses Google Analytics 4 with automatic IP anonymization. Google Analytics itself is not used for cross-site tracking; Google AdSense advertising cookies on the homepage, daily reports and guides are described under "Advertising and cookies on dappgo.com" above. Use private browsing, an ad blocker, or DNT to opt out.
         </p>
     </div>
 
@@ -568,39 +605,39 @@
     <div class="lang-zh">
         <h2>App 端儲存的 Firestore 集合</h2>
         <p>
-            使用需要後端服務的 App 功能時，App 可能透過 Firebase Anonymous Auth 取得一組<strong>匿名 uid</strong>。此 uid 為 Firebase 自動產生的隨機識別碼，<strong>不包含您的姓名、email、Apple ID 或任何直接識別資訊</strong>。Options Explorer 目前版本不會在啟動或一般瀏覽時建立此識別碼；只有主動送出回饋或開啟選用推播時才會使用。
+            使用需要後端服務的 App 功能時，App 可能透過 Firebase Anonymous Auth 取得一組<strong>匿名 uid</strong>。此 uid 為 Firebase 自動產生的隨機識別碼，<strong>不包含您的姓名、email、Apple ID 或任何直接識別資訊</strong>。三款研究 App 都不會在一般瀏覽時建立此識別碼；只有開啟選用推播（或 Options Explorer 的回饋功能）時才會使用。
         </p>
         <p>
-            以下為適用舊版與仍啟用的選用功能之集合及歷史資料說明（Firebase 為資料處理者）。新版 TW Stocks／US Stocks 不新增匿名驗證、遠端推播註冊或 Firestore 用戶資料；Options Explorer 僅在明確選用的後端功能需要時使用，並非一般瀏覽初始化：
+            以下為目前使用中的集合及歷史資料說明（Firebase 為資料處理者）：
         </p>
         <ul>
             <li><strong><code>events/</code></strong> — 部分其他股票 App 版本的匿名事件紀錄。Options Explorer 目前版本不寫入此集合；既有舊資料依原本的保留政策處理。</li>
             <li><strong><code>feedback/</code></strong> — 使用者主動透過 App 內 Feedback 表單提交的文字意見：uid、類別、評分、訊息內容、App 版本。用於產品改善與審計紀錄。<strong>保留：3 年後刪除識別欄位。</strong></li>
-            <li><strong><code>users/{uid}</code></strong> — APNs 推播裝置 token、通知偏好、locale、device_tz、bundle_id、訂閱市場（markets_subscribed）。APNs token 為 Apple 提供的每台裝置不透明識別碼，<strong>非個人識別資料</strong>。<strong>保留：直到您關閉通知或刪除資料為止。</strong></li>
+            <li><strong><code>users/{uid}</code></strong> — 推播 token（iOS：Apple APNs；Android：Google FCM）、平台、通知偏好、locale、device_tz、bundle_id、訂閱市場（markets_subscribed）、註冊時間；模擬器註冊另標記 is_simulator。token 為 Apple／Google 提供的不透明裝置識別碼，不包含姓名或帳號。<strong>保留：直到您刪除資料或 token 失效為止；關閉通知會停止發送。</strong></li>
             <li><strong><code>push_log/</code></strong> — 推播發送嘗試紀錄：uid、market、結果（success/failure）、timestamp。用於除錯與發送品質監測。<strong>保留：30 天以上，依除錯需要。</strong></li>
             <li><strong><code>iv_history/{ticker}</code></strong> — 每檔 ticker 的每日 IV 快照。<strong>不與使用者綁定，無隱私影響。</strong></li>
         </ul>
         <p>
-            您可隨時於 App「設定」內點選「<strong>刪除我的資料</strong>」按鈕，立即清除上述所有與您 uid 相關的 Firestore 文件；如需更進階的請求（例如資料匯出、特定欄位修正），請來信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>。
+            Options Explorer 可在 App「設定」內點選「<strong>刪除我的資料</strong>」，立即清除上述與您 uid 相關的 Firestore 文件；US Stocks 與 TW Stocks 請來信要求刪除。如需更進階的請求（例如資料匯出、特定欄位修正），請來信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>。
         </p>
     </div>
     <div class="lang-en">
         <h2>Firestore collections stored on our backend</h2>
         <p>
-            When a feature needs a backend service, the app may obtain an <strong>anonymous uid</strong> via Firebase Anonymous Authentication. This is a random identifier issued by Firebase and contains <strong>no name, email, Apple ID, or other directly-identifying information</strong>. The current Options Explorer version does not create it at launch or during ordinary browsing; it uses it only for explicit feedback submission or optional push registration.
+            When a feature needs a backend service, the app may obtain an <strong>anonymous uid</strong> via Firebase Anonymous Authentication. This is a random identifier issued by Firebase and contains <strong>no name, email, Apple ID, or other directly-identifying information</strong>. None of the three research apps creates it during ordinary browsing; it is used only when you turn on optional push notifications (or for Options Explorer feedback).
         </p>
         <p>
-            The following collections describe applicable older versions, historical records, and optional features that remain enabled (Firebase acts as data processor). New TW Stocks / US Stocks versions do not add anonymous authentication, remote push registrations, or Firestore user data. Options Explorer uses these services only when an explicitly selected backend feature needs them, not for ordinary browsing:
+            The collections in use, and historical records (Firebase acts as data processor):
         </p>
         <ul>
             <li><strong><code>events/</code></strong> — anonymous product-event records from some other stock-app versions. The current Options Explorer version does not write to this collection; legacy records follow their existing retention policy.</li>
             <li><strong><code>feedback/</code></strong> — user-submitted text feedback from the in-app Feedback form: uid, category, rating, body, app version. Used for product improvement and audit. <strong>Retention: identifying fields removed after 3 years.</strong></li>
-            <li><strong><code>users/{uid}</code></strong> — APNs device token, notification preferences, locale, device_tz, bundle_id, markets_subscribed. The APNs token is a per-device opaque identifier issued by Apple and is <strong>not a personal identifier</strong>. <strong>Retention: until you opt out of notifications or delete your data.</strong></li>
+            <li><strong><code>users/{uid}</code></strong> — push token (Apple APNs on iOS, Google FCM on Android), platform, notification preferences, locale, device_tz, bundle_id, markets_subscribed, registration time; simulator registrations are marked is_simulator. Tokens are opaque device identifiers issued by Apple or Google and contain no name or account. <strong>Retention: until you delete your data or the token becomes invalid; turning notifications off stops delivery.</strong></li>
             <li><strong><code>push_log/</code></strong> — record of push delivery attempts: uid, market, outcome (success/failure), timestamp. Used for debugging and delivery-quality monitoring. <strong>Retention: 30+ days as needed for debugging.</strong></li>
             <li><strong><code>iv_history/{ticker}</code></strong> — per-ticker daily IV snapshot. <strong>Not user-scoped, no privacy impact.</strong></li>
         </ul>
         <p>
-            You can tap the <strong>"Delete my data"</strong> button in the app's Settings at any time to immediately clear all Firestore documents tied to your uid. For more advanced requests (export, field-level correction), email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.
+            In Options Explorer, tap <strong>"Delete my data"</strong> in Settings to immediately clear the Firestore documents tied to your uid; for US Stocks and TW Stocks, email us to request deletion. For more advanced requests (export, field-level correction), email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.
         </p>
     </div>
 
@@ -638,7 +675,7 @@
         <ul>
             <li>研究 App 不要求 GPS 定位、聯絡人、相片、麥克風、相機或語音權限；廣告 SDK 仍可能由網路資訊推估一般位置。</li>
             <li>Number Merge 不要求位置、聯絡人、相片、麥克風、相機或語音權限；AdMob 可能依廣告設定處理廣告相關識別與診斷資料。</li>
-            <li>新版 iOS 研究 App 的跨公司廣告追蹤依上方 ATT 授權說明；拒絕不影響核心功能。Number Merge 的第三方廣告資料處理另依其專屬說明。</li>
+            <li>iOS 研究 App 的跨公司廣告追蹤依上方 ATT 授權說明；拒絕不影響核心功能。Number Merge 的第三方廣告資料處理另依其專屬說明。</li>
             <li>不收集 <strong>使用者輸入的金融資料</strong>。我們只分析公開市場數據，您不需要連接券商或輸入 portfolio。</li>
             <li>不會用您的資料 <strong>訓練 ML 模型</strong>，不會販售或出租。</li>
         </ul>
@@ -648,7 +685,7 @@
         <ul>
             <li>Number Merge does not request location, contacts, photos, microphone, camera, or audio permissions; AdMob may process ad-related identifiers and diagnostic data according to its configuration.</li>
             <li>Research apps do not request GPS location, contacts, photos, microphone, camera, or audio permissions; an ad SDK may still infer coarse location from network information.</li>
-            <li>Cross-company advertising tracking in the new iOS research apps follows the ATT authorization section above; refusal does not affect core use. Number Merge's advertising data processing follows its separate disclosure.</li>
+            <li>Cross-company advertising tracking in the iOS research apps follows the ATT authorization section above; refusal does not affect core use. Number Merge's advertising data processing follows its separate disclosure.</li>
             <li>No user-input financial info. We only analyze public market data — no broker connection, no portfolio input required.</li>
             <li>We don't use your data to train ML models, and we don't sell or rent it.</li>
         </ul>
@@ -659,34 +696,42 @@
         <h2>第三方服務</h2>
         <ul>
             <li><strong>Google Analytics 4</strong>（<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>，Google LLC）— 網站匿名訪客分析，IP 已自動匿名化；資料中心 US。</li>
-            <li><strong>Firebase Analytics（GA4 in-app，Google LLC）</strong> — 舊整合曾於 2026-05-18 退役；新版研究 App 使用上方說明的 Advanced Consent Mode。詳細自訂事件需明確開啟，有限 SDK 訊號不代表取得同意；不使用 Firestore 儲存新版產品分析事件。</li>
-            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong>（Google LLC）— 適用舊版與仍啟用選用功能的後端資料庫；儲存 feedback、users、push_log、iv_history 及舊事件資料。Options Explorer 的明確選用回饋／推播功能可能使用匿名服務識別碼；新版 TW Stocks／US Stocks 的此流程仍暫停。資料中心 US（multi-region nam5）；歐盟傳輸依 Google 的 DPF 認證與 Firebase DPA 中的 SCCs。</li>
-            <li><strong>Apple Push Notification Service (APNs)</strong>（Apple Inc.）— 傳遞推播通知至您的裝置。我們將 APNs 提供的不透明 device token 儲存於 <code>users/{uid}</code>，並透過 Apple 伺服器傳送通知 payload。Apple 不向我們透露您的 Apple ID。資料處理依 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 隱私政策</a>規範。</li>
+            <li><strong>Firebase Analytics（GA4 in-app，Google LLC）</strong> — 研究 App 使用上方說明的 Advanced Consent Mode，詳細自訂事件依「選擇性詳細使用分析」開關（預設開啟）；DappGo News 與 Number Merge 依 UMP 同意狀態。產品分析事件不存於 Firestore。</li>
+            <li><strong>Firebase Crashlytics</strong>（Google LLC）— 研究 App 的當機報告，依同一分析開關。</li>
+            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong>（Google LLC）— 研究 App 的推播註冊與回饋後端；儲存 users、push_log、feedback、iv_history 及舊事件資料，以匿名 uid 連結。資料中心 US（multi-region nam5）；歐盟傳輸依 Google 的 DPF 認證與 Firebase DPA 中的 SCCs。</li>
+            <li><strong>Apple Push Notification Service (APNs) 與 Firebase Cloud Messaging (FCM)</strong>（Apple Inc.／Google LLC）— 傳遞推播通知至您的 iOS／Android 裝置。我們將不透明的推播 token 儲存於 <code>users/{uid}</code>，並透過 Apple／Google 伺服器傳送通知 payload。Apple 不向我們透露您的 Apple ID。資料處理依 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 隱私政策</a>規範。</li>
             <li><strong>Google Forms</strong>（Google LLC）— 處理 Contact Form 與 Feedback Form 提交；data sub-processor for DappGo。</li>
             <li><strong>Google Workspace</strong>（Google LLC）— admin@dappgo.com 信箱、Drive 儲存 Form 回應、Apps Script 執行週期任務（每週彙總、每日報告寄送）。</li>
             <li><strong>Google Gemini API</strong>（Google LLC）— AI 分析公開市場數據（無個人資料），詳見上方 §AI 處理。</li>
-            <li><strong>Google Mobile Ads / AdMob</strong>（Google LLC）— Number Merge 的 banner／optional rewarded ads，以及三款研究 App 的同意流程控管橫幅與受冷卻時間限制的全螢幕廣告；可能處理裝置識別、網路推估的一般位置、產品互動、廣告資料、診斷與效能資料，依 AdMob 設定、UMP、ATT（新版 iOS 研究 App）、所在地區與裝置設定而定。跨公司追蹤用途請見上方版本限定的 ATT 說明。</li>
+            <li><strong>Google Mobile Ads / AdMob</strong>（Google LLC）— Number Merge 與 DappGo News 的廣告，以及三款研究 App 的橫幅、回到 App 時的開啟廣告、事先提示的插頁與選擇觀看的獎勵廣告；可能處理裝置識別、網路推估的一般位置、產品互動、廣告資料、診斷與效能資料，依 AdMob 設定、UMP、ATT（iOS 研究 App）、所在地區與裝置設定而定。跨公司追蹤用途請見上方 ATT 說明。</li>
+            <li><strong>RevenueCat</strong>（RevenueCat, Inc.，<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy</a>）— 去除廣告與訂閱的購買驗證與權益管理；處理匿名 App User ID、商店交易資訊，以及廣告曝光與收益事件。</li>
+            <li><strong>DappGo 資料服務</strong>（data.dappgo.com，經 Cloudflare）— 提供市場資料；US Stocks 估值頁的訂閱確認與 7 天試用憑證在此處理（見上方說明）。</li>
             <li><strong>GitHub Pages / GitHub Inc.</strong>（Microsoft Corp.）— 託管本網站、訂閱清單存放於 private repository；資料中心 US。GitHub（Microsoft）為訂閱清單儲存的資料處理者，處理依 <a href="https://github.com/customer-terms" target="_blank" rel="noopener">GitHub 客戶條款（含資料保護協議）</a>及 Microsoft 的 DPF 認證規範。</li>
             <li><strong>jsDelivr</strong> — CDN，提供每日報告 JSON 公開端點。</li>
             <li><strong>訂閱流程</strong> — 訂閱 email 透過 Google Forms 收集（資料存放依 Google Workspace 規範，受 Google DPA 約束）。FormSubmit 已於 2026-05-10 自資料流程中移除。</li>
-            <li><strong>Apple Inc.</strong>（透過 App Store 與 TestFlight）— 提供 App 下載通路；如未來開啟付費訂閱，將透過 Apple In-App Purchase 處理（詳見 §訂閱與付費）。</li>
+            <li><strong>Apple Inc.</strong>（透過 App Store 與 TestFlight）— 提供 App 下載通路；App 內購買與訂閱透過 Apple In-App Purchase 處理（詳見 §訂閱與付費）。</li>
+            <li><strong>Google Play</strong>（Google LLC）— Android 下載通路與 Google Play 結帳。</li>
         </ul>
     </div>
     <div class="lang-en">
         <h2>Third parties</h2>
         <ul>
             <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy</a>, Google LLC) — anonymized website visitor analytics; IP anonymization enabled; US data center.</li>
-            <li><strong>Firebase Analytics (GA4 in-app, Google LLC)</strong> — the old integration was retired on 2026-05-18. New research-app versions use Advanced Consent Mode as described above. Detailed custom events require explicit opt-in; limited SDK signals do not constitute consent. New product-analytics events are not stored in Firestore.</li>
-            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong> (Google LLC) — backend database for applicable older versions and optional features that remain enabled, storing feedback, push-registration, shared market-data, and legacy event records. Options Explorer's explicitly selected feedback / push flows may use an anonymous service identifier; this flow remains paused in new TW Stocks / US Stocks versions. US data center (multi-region nam5); EU transfers are governed by Google's DPF certification and SCCs in the Firebase DPA.</li>
-            <li><strong>Apple Push Notification Service (APNs)</strong> (Apple Inc.) — delivers push notifications to your device. We store the opaque APNs device token Apple provides in <code>users/{uid}</code> and send notification payloads via Apple's servers. Apple does not disclose your Apple ID to us. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
+            <li><strong>Firebase Analytics (GA4 in-app, Google LLC)</strong> — research apps use Advanced Consent Mode as described above, with detailed custom events following the "Optional detailed usage analytics" switch (on by default); DappGo News and Number Merge follow the UMP consent state. Product-analytics events are not stored in Firestore.</li>
+            <li><strong>Firebase Crashlytics</strong> (Google LLC) — crash reports in the research apps, following the same analytics switch.</li>
+            <li><strong>Firebase Firestore &amp; Anonymous Auth</strong> (Google LLC) — push-registration and feedback backend for the research apps, storing users, push_log, feedback, shared market-data, and legacy event records, linked by the anonymous uid. US data center (multi-region nam5); EU transfers are governed by Google's DPF certification and SCCs in the Firebase DPA.</li>
+            <li><strong>Apple Push Notification Service (APNs) and Firebase Cloud Messaging (FCM)</strong> (Apple Inc. / Google LLC) — deliver push notifications to your iOS / Android device. We store the opaque push token in <code>users/{uid}</code> and send notification payloads via Apple's or Google's servers. Apple does not disclose your Apple ID to us. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
             <li><strong>Google Forms</strong> (Google LLC) — processes Contact and Feedback form submissions on DappGo's behalf.</li>
             <li><strong>Google Workspace</strong> (Google LLC) — admin@dappgo.com mailbox, Drive storage of form responses, Apps Script for scheduled tasks (weekly digest, daily report sending).</li>
             <li><strong>Google Gemini API</strong> (Google LLC) — AI analysis on public market data only (no personal data); see "AI Processing" above.</li>
-            <li><strong>Google Mobile Ads / AdMob</strong> (Google LLC) — banner and optional rewarded ads in Number Merge, plus consent-controlled banners and cooldown-limited full-screen ads in the three research apps; may process device identifiers, network-inferred coarse location, product interaction, advertising data, diagnostics, and performance data depending on AdMob configuration, UMP, ATT (new iOS research apps), region, and device settings. Cross-company tracking purposes are described in the version-scoped ATT section above.</li>
+            <li><strong>Google Mobile Ads / AdMob</strong> (Google LLC) — ads in Number Merge and DappGo News, plus banners, an app-open ad on return, announced interstitials and opt-in rewarded ads in the three research apps; may process device identifiers, network-inferred coarse location, product interaction, advertising data, diagnostics, and performance data depending on AdMob configuration, UMP, ATT (iOS research apps), region, and device settings. Cross-company tracking purposes are described in the ATT section above.</li>
+            <li><strong>RevenueCat</strong> (RevenueCat, Inc., <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy</a>) — purchase validation and entitlements for ad removal and subscriptions; processes an anonymous App User ID, store transaction details, and ad impression and revenue events.</li>
+            <li><strong>DappGo data service</strong> (data.dappgo.com, through Cloudflare) — serves market data; handles the US Stocks valuation subscription check and the 7-day trial pass (see above).</li>
             <li><strong>GitHub Pages / GitHub Inc.</strong> (Microsoft Corp.) — hosts this website; subscriber list stored in a private repository; US data center. GitHub (Microsoft) is the data processor for the stored subscriber list; processing is governed by the <a href="https://github.com/customer-terms" target="_blank" rel="noopener">GitHub Customer Terms, including its Data Protection Agreement</a>, and Microsoft's DPF certification.</li>
             <li><strong>jsDelivr</strong> — CDN serving daily report JSON files.</li>
             <li><strong>Subscription flow</strong> — Subscription emails are collected via Google Forms (data residency follows Google Workspace; governed by Google's DPA). FormSubmit has been removed from the data flow as of 2026-05-10.</li>
-            <li><strong>Apple Inc.</strong> (via App Store and TestFlight) — distribution; if paid subscriptions launch, payments will be processed via Apple In-App Purchase (see §Subscriptions).</li>
+            <li><strong>Apple Inc.</strong> (via App Store and TestFlight) — distribution; in-app purchases and subscriptions are processed via Apple In-App Purchase (see §Subscriptions).</li>
+            <li><strong>Google Play</strong> (Google LLC) — Android distribution and Google Play billing.</li>
         </ul>
     </div>
 
@@ -744,9 +789,9 @@
     <div class="lang-zh">
         <h2>您的權利</h2>
         <ul>
-            <li><strong>App 內「刪除我的資料」按鈕</strong>：支援此功能的 App「設定」內提供一鍵刪除按鈕，立即清除與您匿名 uid 相關的 Firestore 文件（例如 feedback、users/{uid}、push_log；若其他 App 有舊 events 資料也會一併處理）。新版產品分析事件不寫入 Firestore；Firebase Analytics 行為與刪除請求方式請見上方 Advanced Consent Mode 說明。</li>
+            <li><strong>App 內「刪除我的資料」按鈕</strong>：Options Explorer 的「設定」內提供一鍵刪除按鈕，立即清除與您匿名 uid 相關的 Firestore 文件（例如 feedback、users/{uid}、push_log；若有舊 events 資料也會一併處理）；其他 App 請來信要求刪除。產品分析事件不寫入 Firestore；Firebase Analytics 行為與刪除請求方式請見上方 Advanced Consent Mode 說明。</li>
             <li><strong>GDPR</strong>（歐盟使用者，第 15-22 條）：可行使<strong>查閱權（Art. 15）</strong>、<strong>更正權（Art. 16）</strong>、<strong>刪除權／被遺忘權（Art. 17）</strong>、<strong>限制處理權（Art. 18）</strong>、<strong>資料可攜權（Art. 20）</strong>、<strong>異議權（Art. 21）</strong>、以及<strong>不受自動化決定影響權（Art. 22）</strong>。可透過 App 內「刪除我的資料」按鈕（適用刪除權）或寄信至 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 行使其餘權利。我們承諾於收到合理可驗證請求後 30 天內回覆。您亦有權向您所在歐盟成員國的主管監督機關提出申訴，名錄請見 <a href="https://www.edpb.europa.eu/about-edpb/our-members_en" target="_blank" rel="noopener">EDPB 成員名錄</a>。</li>
-            <li><strong>CCPA / CPRA</strong>（加州使用者，§1798.100 et seq.）：可行使<strong>知情權（§1798.110）</strong>、<strong>刪除權（§1798.105）</strong>、<strong>更正權（§1798.106）</strong>、<strong>限制使用敏感個人資訊（§1798.121）</strong>、以及<strong>選擇退出販售／分享</strong>（§1798.120）。廣告資料處理與控制方式見上方版本限定的 ATT／廣告說明；ATT 不取代其他適用的隱私選擇。可透過 App 內「刪除我的資料」按鈕或寄信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 行使。</li>
+            <li><strong>CCPA / CPRA</strong>（加州使用者，§1798.100 et seq.）：可行使<strong>知情權（§1798.110）</strong>、<strong>刪除權（§1798.105）</strong>、<strong>更正權（§1798.106）</strong>、<strong>限制使用敏感個人資訊（§1798.121）</strong>、以及<strong>選擇退出販售／分享</strong>（§1798.120）。廣告資料處理與控制方式見上方 ATT／廣告說明；ATT 不取代其他適用的隱私選擇。可透過 App 內「刪除我的資料」按鈕或寄信 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 行使。</li>
             <li><strong>回覆期限計算</strong>：查閱 / 刪除請求的回覆期限，依 GDPR 第 12(3) 條規定（1 個月，複雜請求可延長 2 個月）及 CCPA §1798.130（45 天，可延長一次），從我們<strong>收到可驗證請求之日</strong>起算。</li>
             <li><strong>退訂</strong>：回覆任一封 email「<code>unsubscribe</code>」，或寄信給 <a href="mailto:admin@dappgo.com?subject=Unsubscribe">admin@dappgo.com</a>。</li>
         </ul>
@@ -754,9 +799,9 @@
     <div class="lang-en">
         <h2>Your rights</h2>
         <ul>
-            <li><strong>In-app "Delete my data" button</strong>: Apps that support this feature expose a one-tap delete button that purges Firestore documents tied to your anonymous uid (for example feedback, users/{uid}, and push_log; legacy events are also handled where applicable). New product-analytics events are not written to Firestore; Firebase Analytics behavior and deletion requests are described in the Advanced Consent Mode section above.</li>
+            <li><strong>In-app "Delete my data" button</strong>: Options Explorer exposes a one-tap delete button in Settings that purges Firestore documents tied to your anonymous uid (for example feedback, users/{uid}, and push_log; legacy events are also handled where applicable); for other apps, email us to request deletion. Product-analytics events are not written to Firestore; Firebase Analytics behavior and deletion requests are described in the Advanced Consent Mode section above.</li>
             <li><strong>GDPR</strong> (EU users, Arts. 15–22): you may exercise the <strong>right of access (Art. 15)</strong>, <strong>rectification (Art. 16)</strong>, <strong>erasure / right to be forgotten (Art. 17)</strong>, <strong>restriction of processing (Art. 18)</strong>, <strong>data portability (Art. 20)</strong>, <strong>objection (Art. 21)</strong>, and the right to <strong>not be subject to automated decision-making (Art. 22)</strong>. Use the in-app "Delete my data" button (for erasure) or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> for any other right. We reply within 30 days of a verifiable request. You also have the right to lodge a complaint with your local EU supervisory authority — directory at <a href="https://www.edpb.europa.eu/about-edpb/our-members_en" target="_blank" rel="noopener">EDPB member directory</a>.</li>
-            <li><strong>CCPA / CPRA</strong> (California users, §1798.100 et seq.): you may exercise the <strong>right to know (§1798.110)</strong>, <strong>delete (§1798.105)</strong>, <strong>correct (§1798.106)</strong>, <strong>limit use of sensitive personal information (§1798.121)</strong>, and <strong>opt out of sale/sharing (§1798.120)</strong>. See the version-scoped ATT and advertising sections above for advertising processing and controls; ATT does not replace other applicable privacy choices. Use the in-app "Delete my data" button or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.</li>
+            <li><strong>CCPA / CPRA</strong> (California users, §1798.100 et seq.): you may exercise the <strong>right to know (§1798.110)</strong>, <strong>delete (§1798.105)</strong>, <strong>correct (§1798.106)</strong>, <strong>limit use of sensitive personal information (§1798.121)</strong>, and <strong>opt out of sale/sharing (§1798.120)</strong>. See the ATT and advertising sections above for advertising processing and controls; ATT does not replace other applicable privacy choices. Use the in-app "Delete my data" button or email <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>.</li>
             <li><strong>Response time limits</strong>: Time limits for responding to access/deletion requests are calculated from the date we receive a verifiable request, in accordance with GDPR Article 12(3) (1 month, extendable by 2 additional months for complex requests) and CCPA §1798.130 (45 days, extendable once).</li>
             <li><strong>Unsubscribe</strong> by replying <code>unsubscribe</code> or emailing <a href="mailto:admin@dappgo.com?subject=Unsubscribe">admin@dappgo.com</a>.</li>
         </ul>
@@ -766,7 +811,8 @@
     <div class="lang-zh">
         <h2>處理活動的法律基礎（GDPR 第 6 條）</h2>
         <ul>
-            <li><strong>選用 Firebase 服務</strong>：GDPR 第 6(1)(a) 條或第 6(1)(b) 條（依功能而定）。Options Explorer 僅在明確選用的回饋／推播功能需要時使用匿名服務識別碼；使用者也可透過 App「設定 → 刪除我的資料」或寄信至 admin@dappgo.com 要求刪除。</li>
+            <li><strong>選用 Firebase 服務</strong>：GDPR 第 6(1)(a) 條或第 6(1)(b) 條（依功能而定）。研究 App 僅在您開啟推播（或 Options Explorer 回饋）時使用匿名服務識別碼；可透過 Options Explorer「設定 → 刪除我的資料」或寄信至 admin@dappgo.com 要求刪除。</li>
+            <li><strong>購買驗證與訂閱確認（RevenueCat、DappGo 資料服務）</strong>：GDPR 第 6(1)(b) 條 — 履行您購買的服務。</li>
             <li><strong>自願填寫的意見 / 聯絡表單提交</strong>：GDPR 第 6(1)(a) 條（明確同意）或第 6(1)(b) 條（提交內容涉及業務洽詢時適用，即契約前措施）。您可隨時發 email 至 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 要求刪除任何已提交資料，以撤回同意。</li>
             <li><strong>Email 電子報訂閱</strong>（功能上線時）：GDPR 第 6(1)(a) 條 — 明確的主動訂閱同意。每封郵件均附有退訂連結。</li>
             <li><strong>透過 Google Analytics 4 的網站 analytics</strong>：GDPR 第 6(1)(f) 條 — 為衡量網站效能的合法利益。您可透過瀏覽器的「不追蹤」設定或封鎖 GA cookie 來退出。</li>
@@ -776,7 +822,8 @@
     <div class="lang-en">
         <h2>Legal Basis for Processing (Art. 6 GDPR)</h2>
         <ul>
-            <li><strong>Optional Firebase services</strong>: Article 6(1)(a) or Article 6(1)(b), depending on the feature. Options Explorer uses an anonymous service identifier only when its explicitly selected feedback / push features require it; users may request deletion through "Settings → Delete my data" or by emailing admin@dappgo.com.</li>
+            <li><strong>Optional Firebase services</strong>: Article 6(1)(a) or Article 6(1)(b), depending on the feature. The research apps use an anonymous service identifier only when you turn on push notifications (or for Options Explorer feedback); request deletion through Options Explorer "Settings → Delete my data" or by emailing admin@dappgo.com.</li>
+            <li><strong>Purchase validation and subscription checks (RevenueCat, DappGo data service)</strong>: Article 6(1)(b) — performing the service you bought.</li>
             <li><strong>Voluntary feedback / contact form submissions</strong>: Article 6(1)(a) (explicit consent) or Article 6(1)(b) GDPR where the submission relates to a business inquiry (pre-contractual steps). You may withdraw consent at any time by emailing <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> requesting deletion of any submitted information.</li>
             <li><strong>Email newsletter subscription</strong> (when implemented): Article 6(1)(a) — explicit opt-in. Unsubscribe link in every email.</li>
             <li><strong>Website analytics via Google Analytics 4</strong>: Article 6(1)(f) — legitimate interests in website performance. You can opt out via your browser's "do not track" settings or by blocking GA cookies.</li>
@@ -788,13 +835,13 @@
     <div class="lang-zh">
         <h2>兒童與 COPPA</h2>
         <p>
-            Options Explorer 是 iOS 與 Android 的公開市場與選擇權研究工具，不含社群動態、聊天、賭博、獎勵或兒童導向功能。它不會在安裝、啟動或一般瀏覽時建立 Firebase Anonymous Auth uid；只有主動送出回饋或開啟選用推播時，才可能使用此服務識別碼。一般瀏覽不要求姓名、email 或 GPS／精確定位權限；廣告 SDK 仍可能依上述同意與裝置設定處理裝置識別碼及網路推估的一般位置，原生 Analytics 另依上方說明處理。App Store 的年齡分級依 Apple App Store Connect 問卷計算；本專案的建議答案記錄於 <code>docs/app-store/age-rating.md</code>。若您認為我們收到兒童的個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們會審查並刪除。
+            Options Explorer 是 iOS 與 Android 的公開市場與選擇權研究工具，不含社群動態、聊天、賭博、獎勵或兒童導向功能。它不會在一般瀏覽時建立 Firebase Anonymous Auth uid；只有開啟選用推播或送出回饋時，才會使用此服務識別碼。一般瀏覽不要求姓名、email 或 GPS／精確定位權限；廣告 SDK 仍可能依上述同意與裝置設定處理裝置識別碼及網路推估的一般位置，原生 Analytics 另依上方說明處理。App Store 的年齡分級依 Apple App Store Connect 問卷計算；本專案的建議答案記錄於 <code>docs/app-store/age-rating.md</code>。若您認為我們收到兒童的個人資訊，請透過 <a href="mailto:admin@dappgo.com">admin@dappgo.com</a> 聯絡我們，我們會審查並刪除。
         </p>
     </div>
     <div class="lang-en">
         <h2>Children &amp; COPPA</h2>
         <p>
-            Options Explorer is an iOS and Android public-market and options-research tool. It has no social feed, chat, gambling, rewards, or child-directed features. It does not create a Firebase Anonymous Auth uid at install, launch, or during ordinary browsing; this service identifier may be used only when the user submits feedback or enables optional push notifications. Ordinary browsing does not require names, email addresses, or GPS / precise-location permission. The ad SDK may still process device identifiers and network-inferred coarse location according to the choices and settings above; native Analytics is described separately above. The App Store age rating is calculated from Apple's App Store Connect questionnaire; the recommended answers are recorded in <code>docs/app-store/age-rating.md</code>. If a child or parent believes we received a child's personal information, contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete it.
+            Options Explorer is an iOS and Android public-market and options-research tool. It has no social feed, chat, gambling, rewards, or child-directed features. It does not create a Firebase Anonymous Auth uid during ordinary browsing; this service identifier is used only when the user turns on optional push notifications or submits feedback. Ordinary browsing does not require names, email addresses, or GPS / precise-location permission. The ad SDK may still process device identifiers and network-inferred coarse location according to the choices and settings above; native Analytics is described separately above. The App Store age rating is calculated from Apple's App Store Connect questionnaire; the recommended answers are recorded in <code>docs/app-store/age-rating.md</code>. If a child or parent believes we received a child's personal information, contact <a href="mailto:admin@dappgo.com">admin@dappgo.com</a>; we will review and delete it.
         </p>
     </div>
 
@@ -814,29 +861,29 @@
 
     <!-- Subscriptions & Paid Features -->
     <div class="lang-zh">
-        <h2>訂閱與付費（未來）</h2>
+        <h2>訂閱與付費</h2>
         <p>
-            DappGo App 與每日報告目前<strong>免費使用</strong>。未來可能推出付費訂閱方案以擴大功能。當付費功能上線時：
+            DappGo App 與每日報告的核心內容<strong>免費使用</strong>。App 提供選購的「去除廣告」，US Stocks 另提供估值頁訂閱（含 7 天免費試用，不需付款資料）：
         </p>
         <ul>
-            <li>所有 App Store 訂閱透過 <strong>Apple In-App Purchase</strong> 處理。Apple 是您與我們之間的支付處理者；我們<strong>不接觸您的信用卡或銀行資訊</strong>。</li>
-            <li>我們從 Apple 收到匿名化的<strong>訂閱憑證</strong>（receipt token），用於驗證您的訂閱狀態。Receipt 不含您的 Apple ID 或聯絡資訊。</li>
-            <li>訂閱的<strong>取消、退款</strong>：依 Apple 標準訂閱條款，請至「設定 → Apple ID → 訂閱」管理。</li>
-            <li><strong>EU 使用者</strong>享有 14 天 cooling-off period，可透過 Apple 申請退款。</li>
-            <li>任何付費結構變更（價格上調、功能調整）將提前通知並要求您重新確認。</li>
+            <li>購買透過 <strong>Apple In-App Purchase</strong> 或 <strong>Google Play 結帳</strong>處理；我們<strong>不接觸您的信用卡或銀行資訊</strong>。</li>
+            <li><strong>RevenueCat</strong> 代我們驗證商店交易與權益，使用匿名 App User ID，不含您的 Apple ID、Google 帳號或聯絡資訊。US Stocks 估值頁的訂閱確認方式見上方「推播通知、購買與訂閱」。</li>
+            <li>訂閱的<strong>取消、退款</strong>：iOS 請至「設定 → Apple ID → 訂閱」，Android 請至 Google Play「付款和訂閱」，依各商店條款處理。</li>
+            <li><strong>EU 使用者</strong>享有適用的撤回權，可透過 Apple 或 Google 申請退款。</li>
+            <li>任何付費結構變更（價格上調、功能調整）將提前通知並依商店規則要求您重新確認。</li>
         </ul>
     </div>
     <div class="lang-en">
-        <h2>Subscriptions &amp; Paid Features (future)</h2>
+        <h2>Subscriptions &amp; Paid Features</h2>
         <p>
-            DappGo App and daily reports are currently <strong>free</strong>. Paid subscription tiers may launch in the future to expand features. When paid features go live:
+            The core content of the DappGo apps and daily reports is <strong>free</strong>. The apps offer an optional "Remove ads" purchase, and US Stocks offers a valuation-page subscription (with a 7-day free trial that needs no payment details):
         </p>
         <ul>
-            <li>App Store subscriptions are processed by <strong>Apple In-App Purchase</strong>. Apple is the payment processor between you and us; we <strong>never receive your credit card or bank info</strong>.</li>
-            <li>We receive an anonymous <strong>receipt token</strong> from Apple to verify your subscription status. Receipts do NOT contain your Apple ID or contact info.</li>
-            <li>Cancel or refund subscriptions via Apple Settings → Apple ID → Subscriptions, per Apple's standard terms.</li>
-            <li>EU users have a 14-day cooling-off period; refund requests through Apple.</li>
-            <li>Any pricing or feature changes will be notified in advance and require re-confirmation.</li>
+            <li>Purchases are processed by <strong>Apple In-App Purchase</strong> or <strong>Google Play billing</strong>; we <strong>never receive your credit card or bank info</strong>.</li>
+            <li><strong>RevenueCat</strong> validates store transactions and entitlements for us using an anonymous App User ID that contains no Apple ID, Google account, or contact info. How the US Stocks valuation page confirms a subscription is described under "push notifications, purchases and subscriptions" above.</li>
+            <li>Cancel or refund subscriptions via iOS Settings → Apple ID → Subscriptions, or Google Play → Payments &amp; subscriptions, per each store's terms.</li>
+            <li>EU users have the applicable right of withdrawal; request refunds through Apple or Google.</li>
+            <li>Any pricing or feature changes will be notified in advance and require re-confirmation under store rules.</li>
         </ul>
     </div>
 
