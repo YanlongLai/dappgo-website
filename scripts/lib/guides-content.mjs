@@ -683,6 +683,82 @@ export const PAGES = [
     }
   },
   {
+    path: "/delete-data/",
+    section: "about",
+    ads: false,
+    updated: "2026-11-21",
+    en: {
+      title: "Delete your data in DappGo apps | DappGo",
+      description: "How to delete the data that Options Explorer, US Stocks and TW Stocks by DappGo keep on our servers, what is deleted, and what is kept.",
+      kicker: "Privacy",
+      h1: "Delete your data",
+      lede: "For Options Explorer, US Stocks and TW Stocks by DappGo. None of these apps has an account, so there is nothing to close: deletion removes the records linked to the anonymous ID on your device.",
+      body: (p) => `
+      <h2>What we keep on our servers</h2>
+      <p>Only when you turn on push notifications does the app create an anonymous Firebase ID and store, under that ID, your push token (Apple APNs or Google FCM), platform, app, subscribed markets, language, time zone and notification settings. Options Explorer also keeps any feedback you send from the app. Older app versions may have left anonymous event records. We also keep a log of push delivery attempts (ID, market, result, time). None of these contain your name, email or Apple / Google account.</p>
+
+      <h2>Options Explorer: delete in the app</h2>
+      <ol>
+        <li>Open Options Explorer and go to <b>Settings</b>.</li>
+        <li>Tap <b>Delete my data</b> and confirm with <b>Delete</b>.</li>
+        <li>Restart the app when it asks you to.</li>
+      </ol>
+      <p>This immediately deletes your <code>users</code> record (push token and notification settings), your feedback, and any legacy event records on our servers, signs out the anonymous ID so a new one is created next time, and clears the app's data on the device.</p>
+
+      <h2>US Stocks and TW Stocks</h2>
+      <p>These apps do not have the in-app button yet. Until they do:</p>
+      <ol>
+        <li>Turn off notifications for the app in your phone's settings (or with the signal-change switch in the app's notification settings). We stop sending immediately.</li>
+        <li>Uninstall the app if you want the push token gone. The next time we try to send, Apple or Google reports the token as invalid and our server deletes it automatically. What remains is the anonymous ID and your notification settings, which can no longer be linked to your device.</li>
+        <li>Questions or other requests: email <a href="mailto:admin@dappgo.com?subject=Delete%20my%20data">admin@dappgo.com</a> with the app name and platform. Because there are no accounts, we cannot look up your records by your email address.</li>
+      </ol>
+
+      <h2>What is kept</h2>
+      <ul>
+        <li><b>Push delivery logs</b> (anonymous ID, market, result, time) are not removed by the button; they are kept for debugging as described in the <a href="/privacy">privacy policy</a>. Email us to have them removed.</li>
+        <li><b>Purchases and subscriptions</b> stay with Apple or Google and with RevenueCat, linked only to an anonymous purchase ID, because the stores need them for restores, refunds and tax records. Manage or cancel them in your App Store or Google Play account.</li>
+        <li><b>Analytics and crash reports</b> sent to Google Firebase are kept under Google's retention settings (up to 14 months for Analytics) and are not linked to the anonymous Firebase ID above. Turn off <b>Optional detailed usage analytics</b> in Settings to stop sending them.</li>
+        <li><b>Advertising data</b> is handled by Google AdMob under its own policies; use the ad privacy choices in Settings and your device's ad settings.</li>
+      </ul>
+      <p class="note">Developer: DappGo (Yenlung Lai, sole proprietor), California, USA. Full details are in the <a href="/privacy">privacy policy</a>. Number RPG has its own <a href="/number-rpg/delete-account/">account deletion page</a>.</p>`
+    },
+    zh: {
+      title: "刪除 DappGo App 的資料｜DappGo",
+      description: "如何刪除 DappGo 的 Options Explorer、US Stocks 與 TW Stocks 保存在伺服器上的資料，會刪除哪些、保留哪些。",
+      kicker: "隱私",
+      h1: "刪除你的資料",
+      lede: "適用 DappGo 的 Options Explorer、US Stocks 與 TW Stocks。這些 App 沒有帳號，因此不需要關閉帳號：刪除會移除與你裝置上匿名 ID 相關的紀錄。",
+      body: (p) => `
+      <h2>我們在伺服器上保存什麼</h2>
+      <p>只有在你開啟推播時，App 才會建立一組匿名 Firebase ID，並在這個 ID 下保存推播 token（Apple APNs 或 Google FCM）、平台、App、訂閱市場、語言、時區與通知設定。Options Explorer 也會保存你從 App 送出的意見回饋。舊版 App 可能留下匿名事件紀錄。我們另有推播發送紀錄（ID、市場、結果、時間）。以上都不含你的姓名、email 或 Apple／Google 帳號。</p>
+
+      <h2>Options Explorer：在 App 內刪除</h2>
+      <ol>
+        <li>開啟 Options Explorer，進入<b>設定</b>。</li>
+        <li>點選<b>刪除我的資料</b>，再按<b>刪除</b>確認。</li>
+        <li>依提示重新啟動 App。</li>
+      </ol>
+      <p>這會立即刪除伺服器上的 <code>users</code> 紀錄（推播 token 與通知設定）、你的意見回饋與舊版事件紀錄，登出匿名 ID（下次會產生新的 ID），並清除裝置上的 App 資料。</p>
+
+      <h2>US Stocks 與 TW Stocks</h2>
+      <p>這兩款 App 目前還沒有 App 內刪除按鈕。在加入之前：</p>
+      <ol>
+        <li>在手機設定中關閉這個 App 的通知（或關閉 App 通知設定裡的訊號變化推播），我們會立即停止發送。</li>
+        <li>若要移除推播 token，請刪除 App。下次發送時 Apple 或 Google 會回報 token 已失效，我們的伺服器會自動刪除它。剩下的只有匿名 ID 與通知設定，無法再連結到你的裝置。</li>
+        <li>其他問題或請求，請來信 <a href="mailto:admin@dappgo.com?subject=Delete%20my%20data">admin@dappgo.com</a>，註明 App 名稱與平台。由於沒有帳號，我們無法用你的 email 找到你的紀錄。</li>
+      </ol>
+
+      <h2>會保留的資料</h2>
+      <ul>
+        <li><b>推播發送紀錄</b>（匿名 ID、市場、結果、時間）不會被按鈕刪除，依<a href="/privacy">隱私權政策</a>保留供除錯使用；如需刪除請來信。</li>
+        <li><b>購買與訂閱</b>由 Apple 或 Google 及 RevenueCat 保存，只連結匿名的購買 ID，商店需要它處理恢復購買、退款與稅務紀錄。請在 App Store 或 Google Play 帳號中管理或取消。</li>
+        <li><b>使用分析與當機報告</b>送到 Google Firebase，依 Google 的保留設定保存（使用分析最長 14 個月），且不與上述匿名 Firebase ID 連結。在設定中關閉<b>選擇性詳細使用分析</b>即可停止傳送。</li>
+        <li><b>廣告資料</b>由 Google AdMob 依其政策處理；請使用設定中的廣告隱私選項與裝置的廣告設定。</li>
+      </ul>
+      <p class="note">開發者：DappGo（Yenlung Lai，個人營業者），美國加州。完整說明見<a href="/privacy">隱私權政策</a>。Number RPG 另有<a href="/number-rpg/delete-account/">帳號刪除頁面</a>。</p>`
+    }
+  },
+  {
     path: "/contact/",
     section: "about",
     ads: false,

@@ -1892,6 +1892,24 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://dappgo.com/delete-data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/delete-data/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/delete-data/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/delete-data/" />
+        <lastmod>2026-11-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://dappgo.com/zh/delete-data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/delete-data/" />
+        <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/delete-data/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dappgo.com/delete-data/" />
+        <lastmod>2026-11-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://dappgo.com/contact/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://dappgo.com/contact/" />
         <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://dappgo.com/zh/contact/" />
