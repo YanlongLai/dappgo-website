@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-20T22:45:33Z",
+  "built_at_utc": "2026-11-23T09:20:48Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-11-20",
-      "generated_at_utc": "2026-11-20T21:45:01Z",
+      "generated_at_utc": "2026-11-21T05:51:45Z",
       "schema_version": "1.2.0",
-      "data_hash": "8b15b974eea1908137d30d31827a00786bb929aa9e9e4ed213f77f71b7803ba0",
+      "data_hash": "65fc71f6ce8e607e5b2d4631779dcb7cb703cb85e28fc86a0ac4819cdb413494",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -95,10 +95,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-20",
-      "generated_at_utc": "2026-11-20T08:46:18Z",
+      "report_date": "2026-11-23",
+      "generated_at_utc": "2026-11-23T08:46:09Z",
       "schema_version": "1.2.0",
-      "data_hash": "95346bf624f12b1f2873f499a2c61198be78eec7581045a6db9068ccb1e9526c",
+      "data_hash": "fd9fafa38895e4ca53fb39fbbc2b7f2a64c15477f11353b3e7ef442f648aaa8a",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -106,63 +106,63 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.01,
-      "advance_decline_ratio": 0,
+      "breadth_score": 0.02,
+      "advance_decline_ratio": 2.16,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 3 bullish / 1 bearish signals, market regime: risk-off.",
-        "zh": "今日 3 檔偏多訊號 / 1 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
+        "en": "Today's report: 0 bullish / 3 bearish signals, market regime: risk-off.",
+        "zh": "今日 0 檔偏多訊號 / 3 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
       },
       "gainers": [
         {
           "symbol": "2412",
           "name": "中華電",
-          "return_pct": -1.52,
-          "close": 162.5
+          "return_pct": 0.61,
+          "close": 164.5
         },
         {
-          "symbol": "2207",
-          "name": "和泰車",
-          "return_pct": -2.09,
-          "close": 516
+          "symbol": "2345",
+          "name": "智邦",
+          "return_pct": -2.17,
+          "close": 1350
         },
         {
-          "symbol": "2633",
-          "name": "台灣高鐵",
-          "return_pct": -3.1,
-          "close": 25
+          "symbol": "3665",
+          "name": "貿聯-KY",
+          "return_pct": -2.72,
+          "close": 1430
         },
         {
-          "symbol": "1216",
-          "name": "統一",
-          "return_pct": -4.21,
-          "close": 75
+          "symbol": "3661",
+          "name": "世芯-KY",
+          "return_pct": -2.73,
+          "close": 3560
         }
       ],
       "losers": [
         {
-          "symbol": "1802",
-          "name": "台玻",
-          "return_pct": -37.84,
-          "close": 52.9
+          "symbol": "3532",
+          "name": "台勝科",
+          "return_pct": -36.72,
+          "close": 168
         },
         {
           "symbol": "3443",
           "name": "創意",
-          "return_pct": -37.28,
-          "close": 5400
+          "return_pct": -33.94,
+          "close": 5120
         },
         {
-          "symbol": "3532",
-          "name": "台勝科",
-          "return_pct": -36.78,
-          "close": 186.5
+          "symbol": "2360",
+          "name": "致茂",
+          "return_pct": -26.43,
+          "close": 927
         },
         {
-          "symbol": "8046",
-          "name": "南電",
-          "return_pct": -35.62,
-          "close": 629
+          "symbol": "6415",
+          "name": "矽力*-KY",
+          "return_pct": -24.87,
+          "close": 296
         }
       ],
       "picks": []
@@ -291,108 +291,112 @@
       "market": "us",
       "symbol": "AAPL",
       "name": "Apple Inc.",
-      "source": "Trefis",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-increasing-market-risk-205345674.html",
-      "published_at_utc": "2026-11-20T20:53:45Z",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/20/startup-sues-apple-in-india-over-tap-to-share-contacts-feature/",
+      "published_at_utc": "2026-11-21T04:00:00Z",
       "title": {
-        "original": "Is Apple Stock Increasing Your Market Risk?",
-        "en": null
+        "original": "Startup sues Apple in India over tap-to-share contacts feature",
+        "en": "Startup sues Apple in India over tap-to-share contacts feature"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     },
     {
       "market": "us",
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "source": "TIKR",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/pretty-bizarre-microsoft-worth-more-203843390.html",
-      "published_at_utc": "2026-11-20T20:38:43Z",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=3f489ba364b864a098b8cd638834cfe14b432498e8a10bc54f138e11887d9a4b",
+      "published_at_utc": "2026-11-21T02:48:25Z",
       "title": {
-        "original": "“Pretty Bizarre”: Microsoft Is Worth More Than Alphabet. Which Makes No Sense",
+        "original": "NVDA Stock Sees Biggest Fall In 22 Months, But Top Analyst Says Nvidia’s AI Boom Isn’t Over Yet — Here Are 5 Reasons Why",
         "en": null
       },
-      "image": null,
-      "news_url": "https://news.dappgo.com/us/?stock=MSFT"
+      "image": {
+        "url": "https://news.stocktwits-cdn.com/large_Getty_Images_2304265302_a4716281c1.jpg",
+        "width": 200,
+        "height": 200
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
+    },
+    {
+      "market": "us",
+      "symbol": "SPCX",
+      "name": "Space Exploration Technologies Corp. (SpaceX)",
+      "source": "Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/analysiswall-street-banks-set-for-banner-year-as-anthropic-spacex-ipos-generate-1-billion-in-fees-5042444",
+      "published_at_utc": "2026-11-21T02:12:22Z",
+      "title": {
+        "original": "Analysis-Wall Street banks set for banner year as Anthropic, SpaceX IPOs generate $1 billion in fees",
+        "en": null
+      },
+      "image": {
+        "url": "https://content-media.investing.com/trkd-images/LYNXNPEMAJ1SP_L.jpg",
+        "width": null,
+        "height": null
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=SPCX"
+    },
+    {
+      "market": "us",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=ad535577a22285a6b5c05dd0e166df5c181d99100edda772bf66ec17e0e6ee34",
+      "published_at_utc": "2026-11-21T02:12:02Z",
+      "title": {
+        "original": "Amazon's re:Invent Conference Starts Nov. 30. Here's What the Stock Did in the Month After the Last 10.",
+        "en": null
+      },
+      "image": {
+        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F160d43dfd7350cd39035020acd24f5be2e3e1199-1290x860.png&w=1200&op=resize",
+        "width": 1200,
+        "height": 630
+      },
+      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
       "market": "us",
       "symbol": "TSLA",
       "name": "Tesla Inc.",
       "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=0293b19a174bc9dd73e7660067cc374a47b344c98d66ff68278bd0b7f854bf0c",
-      "published_at_utc": "2026-11-20T19:42:00Z",
+      "url": "https://finnhub.io/api/news?id=8bc418fe586cd3519d9aaf9e2d32d2245cbdfae9166eb59ff5f3c4b0829da957",
+      "published_at_utc": "2026-11-21T01:52:02Z",
       "title": {
-        "original": "$17B Tesla manufacturing plant led October’s construction starts rebound",
+        "original": "In 2000, Elon Musk Crashed His Uninsured $1 Million McLaren Trying to Show Peter Thiel What It Could Do. In 2025, Thiel’s Fund Quietly Sold Every Tesla Share It Owned",
         "en": null
       },
       "image": {
-        "url": "https://imgproxy.divecdn.com/TQOgEHdr4oWPUyhqmjsi5JF7seG12b1NnXSokBMS1hQ/g:ce/rs:fit:770:435/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS84NTU5MjcwMjVfMTk2ODA2ODM0NDI0MDg1Nl81NTMyNTE4NTQ3ODEzOTAyNTJfbi5qcGc=.webp",
-        "width": null,
-        "height": null
+        "url": "https://247wallst.com/wp-content/uploads/2026/08/shutterstock_2318800315.jpg",
+        "width": 2560,
+        "height": 1707
       },
       "news_url": "https://news.dappgo.com/us/?stock=TSLA"
     },
     {
       "market": "us",
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=8d9f145e129918faafef6131abddb41254f3d3cf970e071115f4caf1bdf760a2",
-      "published_at_utc": "2026-11-20T19:33:55Z",
-      "title": {
-        "original": "Trump Bought At Least $5 Million Of This Dividend ETF Before AI Sell-Off",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2019/12/imageforentry2-rbp.jpg",
-        "width": 1366,
-        "height": 767
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
-    },
-    {
-      "market": "us",
       "symbol": "META",
       "name": "Meta Platforms, Inc.",
-      "source": "MarketBeat Instant Alerts",
-      "url": "https://www.marketbeat.com/instant-alerts/list-top-virtual-reality-stocks-to-follow-today-november-20th-2026-11-20/",
-      "published_at_utc": "2026-11-20T19:12:21Z",
+      "source": "Yahoo",
+      "url": "https://finnhub.io/api/news?id=18455e52fcc792b425f28b7085acae25e32b36a7e3eec0362c6db618e1508c2b",
+      "published_at_utc": "2026-11-21T01:10:00Z",
       "title": {
-        "original": "Top Virtual Reality Stocks To Follow Today - November 20th",
-        "en": "Top Virtual Reality Stocks To Follow Today - November 20th"
+        "original": "George Soros Raised His Meta (META) Stake by 596%. Then the Stock Fell",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=META"
     },
     {
-      "market": "us",
-      "symbol": "SPCX",
-      "name": "Space Exploration Technologies Corp. (SpaceX)",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=036fdcc27a6c6de22afb462741e83f29c287fc3b0846445fd3e9ae5ec8202526",
-      "published_at_utc": "2026-11-20T18:50:02Z",
-      "title": {
-        "original": "Forget SpaceX: This Stock Could Be the Real Winner of the Space Race",
-        "en": null
-      },
-      "image": {
-        "url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F75a1b1ee04c08d67cab6b14a0bed90f25076f783-3840x2160.jpg&w=1200&op=resize",
-        "width": 1200,
-        "height": 630
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=SPCX"
-    },
-    {
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "CMoney投資網誌",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPX1R4VGdQYkJkZndlc2dwUXJDczV6aDZfQTFDSmlKd2tBcVNpNVVoa1lyUkhBb3NPZ3pCNzlaSXR3RUYtNmJVSkwxRktxNURxa21LVDBGcUJHamZ6cEV4UU1Ta1hjd1JvaGFETnJjQ2h1dXRhdUN4Vm1OdlFrVV9YRlZWR01zZjFnakFURkNobks?oc=5",
-      "published_at_utc": "2026-11-19T22:35:23Z",
+      "source": "自由財經",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5KSXkxZGEwbHBWVy1GMzVFUHk0WHZDTGJLYmVNNm5JRkpBSjViZDNzYjNmY0RhdlMyQjk3UTBFV09CTW0wcWdjNFE2ZGRJWF9fUVJJM1lOVFZYcE05LS1j0gFkQVVfeXFMT21LM2ZHc3B0bmM1bFpjaTlXQ2RrcTF5bExrbkFLWEM5QjVVSXRhZFNkZENiSEhpU0p5WmhMZzZRUlpzdmRWdUo5VXFYRWZGZnljTS1fenJaSV9yTTAxUllnUkpubQ?oc=5",
+      "published_at_utc": "2026-11-23T01:58:33Z",
       "title": {
-        "original": "【即時新聞】鴻海第三季獲利創歷史新高，AI伺服器需求強勁帶動後市表現亮眼！",
-        "en": "[Breaking News] Foxconn's third-quarter profit hits a historic high, strong AI server demand drives bright outlook!"
+        "original": "焦點股》鴻海：台股止跌 多頭反攻指標",
+        "en": "Focus Stock》Foxconn: Taiwan stocks halt decline, bullish counterattack indicator"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -401,12 +405,12 @@
       "market": "tw",
       "symbol": "2330",
       "name": "台積電",
-      "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBnZzVaN250eFBkNWJnMGhkX1hGVXVpS0FVQ09vam5US1F4aC1nUXR2ZWs3X2JGUnpUUGg1UEJOREhlQU5lRDVrVElBVVJDUGVSdDJsc3hKbFI?oc=5",
-      "published_at_utc": "2026-11-20T07:36:35Z",
+      "source": "永豐金證券",
+      "url": "https://news.google.com/rss/articles/CBMimAVBVV95cUxPMGQxMFVNY1lNMXQ1YTJpWlJzeElUazN0Q1Y3U3Zjb2hkbE9hd2dCMUVjY1A2aHhHRUt2c0FNU3RtNXpLLU1EU2hGSXBoTno1RS10NlZQckVWdC0yV2JGT181Y25nczZ4akx2U1YwQXdqbmlJTGVHekJ0NXZqbkl2RWE1SnNBM2hkaS11VWZ2TFV5VHdxOE8tSGRTVlhIYy1OemdBMTlhdnpzOUZNSkVHMFpWbVpQZEZxcEhmM3BKQWEzU1kwXzVmbG5DTUVuS3l3Ynd4cktMZEVWMkpDR0hDNGE0ekRzbFpNVHRfbnhJd2xLc3NUbVpRODhRbXlzOXBPcjh2Z09QNE1BRVlYOGNGWl9pOHBrOUJ0Z2lKRHBvOFBnNXQ3UGVoTGZsa25LZ0RvQ1hRaDFlZGItaEdBcXN4Y0x0T043N3BPX1pESlhXdlNhc3c5Yi01RkNuQTg2X09xa096Yk5lcXJBVlVRSndHakpSa2NPQzJmX0E3Sy1xMXI0M1lqRWpOeDZEbXpsLTRQUDBSeDVYSFpiZy0tNHNFUnZJS3F0X29nRGY0SXRfVVZ3TjFYTm5GbTdPRXZBQXJVM2JPSld4U1V5TUFONWJEWjZFcWlSS2d2T3lGRnNGNEg5akFraVVMNnZIM0ZyZ2FNZHRpZFpVQVZNYVdPNTNxOGJGcmdLU2QxN0F0OWxfaXhwN0NJdXVTYkVPaUEtR0NfYWRMQVZSSXVOSWMwZ2U4dTFwLUk1Vzk2MUxtSUNMU2lQckNJUmE3Wng3UjB5cEM4YnNSSTJjREJtNy1ZZnJsaW9wY2E0allaa1JTeXJfWElkMXNqUXJtMFdYSEhDNHp3cTFFNG5kMHdvU29PVUZLeTBlMFlKZndL?oc=5",
+      "published_at_utc": "2026-11-23T06:47:18Z",
       "title": {
-        "original": "2330 台積電 - 外資 - 股市爆料同學會",
-        "en": "2330 TSMC - Foreign Capital - Stock Market Leaks Alumni Association"
+        "original": "【零股排行榜】 盤中零股成交量TOP 20｜0050 元大台灣50、00919 群益台灣精選高息、2330 台積電、0056 元大高股息、00878 國泰永續高股息(1123)｜豐雲學堂2026 年 11 月",
+        "en": "【Odd-lot Ranking】 Intraday odd-lot trading volume TOP 20 | 50 yuan Yuanta Taiwan 50, 00919 Capital Taiwan Selected High Yield, 2330 TSMC, 56 yuan High Dividend, 00878 Cathay Sustainable High Dividend (1123) | Fengyun Academy 2026 Year 11 Month"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -415,11 +419,11 @@
       "market": "tw",
       "symbol": "3231",
       "name": "緯創",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE42UVU4VHhiWHlCeG9Pb3BJYXNqY0gxNGZ4TG1yQk1hOHR0OWR6cEFDYWtLRUl4Z0tTakVnSDlQVlJSX2Q2TzBtX3p2V1d5QXFqcHhz?oc=5",
-      "published_at_utc": "2026-11-18T16:22:07Z",
+      "source": "MoneyDJ",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZHNHaXY2WFVRWGhzZnpTMU1zeWRpLUlGY0FQYjY5SElLSmNUcWxzQjk5TkJwR216clNocUx6eFFqbjlYcmhod1gzTjl3UmtzeURsNGk5RW1TOTlhNWxyNWVYU0xnRGVvYmFLX1J1VzFuUlFtVnI0Q2Z1ajdQcjVsNlpXNG1zZ3FDQnU1S1JXWFd6QQ?oc=5",
+      "published_at_utc": "2026-11-23T02:44:00Z",
       "title": {
-        "original": "緯創(3231)第三季營收首破兆元！AI伺服器占比衝上83%，2027年出貨續增",
+        "original": "緯創明年獲利估續攀高，法人看PE處低檔具上修空間- 新聞",
         "en": null
       },
       "image": null,
@@ -427,27 +431,27 @@
     },
     {
       "market": "tw",
-      "symbol": "2382",
-      "name": "廣達",
-      "source": "永豐金證券",
-      "url": "https://news.google.com/rss/articles/CBMi5ARBVV95cUxQSUlSMGJNM1h4eG5pdFUwR1hhaXdnUU1OMHFmX01fVHd2ME51c1B2TXdUVC1WS1RnOVFkRmdjaDlENnduNzhJei1kTXVvQ2dPcEdsUUdvR3RvTlRfZXVyMDFCSHFXclMwOVZFWWRTNzZheVVvUkdyaE1lNmVHX21OLU9EaV9PNlo0ZmVuYUlhTUItOXlLb1R4Z0I5aEVWOEtEWHFpeDN4SjE3bnNvUmJxSDhjMGdGdThJUXROajFFeDdWOUhWOHU0M0tlQ2tkTEhXXzVTdHBwLXFNck02V2VFSGNPMFBGenhCWjQ4OEJPYVFnNGdXSXVrYUUwTUlQbHRxTHM2TkM2R1V0LXNabUZYSHBDY0s1YnRTeGdKajlOWW1NemRKXzJPaXFqcmpGYk5ZMm9sTUItcmxvc0ZNS3BxcGszTFVLR0FDR1hQSVdITXVyM3ZiX0RvRXNKdEMzV1J6Z2RoNTBiQUdzTHFOY0Z3OVNpNXctbVBadFBRQUlqTEpYUENiNTFiVXlpLXpRQUd6V2pDRFVvZE9YdVloYzNkNGVScXJSN3RrRTZ0RkRsdnZDYjNMX19xYTVaSThkdGZEeU0xa1ViUFBPSl9lYlIyVlZyazlsVm41ekhLdzFtZml0S0VBVlkxeGFlRHFaaUdlTzg1RDkwRTRiNjNGUkprUGRkTVRTaTQ0YlhZNHRRSjhtRnc5b01BNllYM0k5T2ZyYndENlFqczM5Y1B0NlRSRDIxSUpLME5PS3dZMGdwWkVfMnpCWGhSbFFUVDk0VjgteDBQZkZmc1dwT0FTZTlYT0t4OUg?oc=5",
-      "published_at_utc": "2026-11-20T07:43:50Z",
+      "symbol": "3036",
+      "name": "文曄",
+      "source": "旺得富理財網",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBtZEw2U3FlanU0aHpRZHZTM1M2S2VFRXB3RWhNM1h1ajdfLTAzX0xra29yRFN4UmdWWEM5ZC1IUGJYYzhaU0pHNTBjNk9OQnl2MTlKZ0VpYVBHNm5FYzhpMGR5TENEdU1pR2c?oc=5",
+      "published_at_utc": "2026-11-23T01:35:05Z",
       "title": {
-        "original": "美國資料中心建置卡關，台灣AI供應鏈會受影響嗎？廣達、台達電等訂單與獲利關鍵一次看｜股市話題",
-        "en": "US data center construction stalled, will Taiwan AI supply chain be affected? Quanta, Delta Electronics and other orders and profit keys at a glance | Stock Market Topic"
+        "original": "《電通股》AI、記憶體過旺藏危機!外資示警2028年文曄、大聯大遭降評- 上市櫃",
+        "en": null
       },
       "image": null,
-      "news_url": "https://news.dappgo.com/tw/?stock=2382"
+      "news_url": "https://news.dappgo.com/tw/?stock=3036"
     },
     {
       "market": "tw",
       "symbol": "4938",
       "name": "和碩",
-      "source": "自由財經",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13QnVkRW5fY0VXTkUxc2lnX2hsejhzZGcwZmxZdlFHRVNfb2ZpQks3R1NQZXl2Z1FtbkpUdG10S19ERzF5NVBYOFJPR2h2Sy1HT0JlMjFheHEydzdSeHA00gFkQVVfeXFMTVlqTGtsOU5pZExXcEF6MFhrZGZaVkNXVURDN09SV29ZeHNLTkl1OHRieU43QXctVkpVbGVuYk5mdUFzU3FXRG5vd3dPbzdHamxWSWphWDFIYk5hLTg2T1ExQ180WQ?oc=5",
-      "published_at_utc": "2026-11-20T05:51:27Z",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1UQW5xLXh6TDE3c0lVY0Z6Ti1fUUJIcjEwR284VUhuNzBwUW1ZcndzT2JvQ2k3bm9haXJhS3hXcG45WnpUalhyYmJOQWVZTDFwR0p3QnRQazJxUdIBX0FVX3lxTE44WWpZeDNZSVVXQUVrRkw3NVJ1Y2U5bDlxNDFEOVpGMGtDWjhCTlc5M19CTGo4emVsY3B2TnphMUVIYU8zejFkMUFRTmJnVlhCX0FzZGdHV3BWblZZNkl3?oc=5",
+      "published_at_utc": "2026-11-22T08:02:32Z",
       "title": {
-        "original": "和碩召開供應商大會 攜千家夥伴強化韌性",
+        "original": "和碩召開2026供應商大會 海內外逾千家夥伴響應",
         "en": null
       },
       "image": null,
@@ -457,11 +461,11 @@
       "market": "tw",
       "symbol": "6669",
       "name": "緯穎",
-      "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ZZDJrUWsyOUs4MG95TkpwQ2NLaFdveFd6ZE1Qb1V4aHA1SFFmWmFrZDJFS09XV0VGMnBfMGUzbWduUVpucUsyU3VBQUJIOXlBT1B5ZndfNjI?oc=5",
-      "published_at_utc": "2026-11-18T11:35:45Z",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9kNjNTY0xodXJ4bFNkVlZFYVJtb21jVWJWckliZVpxMnlNc1ZqTDY5d1dvWFJQRDRqWjZHbnUxRm1PclBRdkUyLUpjWHRER2tvTVVNaGhMVjFhZWJncG5idG1uQ3g?oc=5",
+      "published_at_utc": "2026-11-23T01:19:44Z",
       "title": {
-        "original": "6669 緯穎 - 再撐8-9個月就能領股利了 給大家股利一下 - 股市爆料同學會",
+        "original": "鉅亨速報 - Factset 最新調查：緯穎(6669-TW)EPS預估上修至136.67元，預估目標價為2600元",
         "en": null
       },
       "image": null,
