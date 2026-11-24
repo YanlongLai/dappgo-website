@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-24T02:48:41Z",
+  "built_at_utc": "2026-11-24T09:20:19Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -130,9 +130,9 @@
     },
     "tw": {
       "report_date": "2026-11-24",
-      "generated_at_utc": "2026-11-24T01:23:50Z",
+      "generated_at_utc": "2026-11-24T08:46:03Z",
       "schema_version": "1.2.0",
-      "data_hash": "f0add1585bbf7fda7933e0d56ecca6ce5714f610100a8c0c686274ca52007d7b",
+      "data_hash": "702148173f32dc2e0ea973889248cdb6989278d8c9efb3c80c9b4c14a7a139b5",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -140,66 +140,118 @@
       },
       "web_url": "https://stocks.dappgo.com/tw/",
       "regime": "risk_off",
-      "breadth_score": 0.02,
-      "advance_decline_ratio": 2.16,
+      "breadth_score": 0.139,
+      "advance_decline_ratio": 99,
       "vol_regime": "high",
       "one_liner": {
-        "en": "Today's report: 0 bullish / 3 bearish signals, market regime: risk-off.",
-        "zh": "今日 0 檔偏多訊號 / 3 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
+        "en": "Today's report: 2 bullish / 8 bearish signals, market regime: risk-off.",
+        "zh": "今日 2 檔偏多訊號 / 8 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。"
       },
       "gainers": [
         {
-          "symbol": "2412",
-          "name": "中華電",
-          "return_pct": 0.61,
-          "close": 164.5
-        },
-        {
           "symbol": "2345",
           "name": "智邦",
-          "return_pct": -2.17,
-          "close": 1350
+          "return_pct": 11.65,
+          "close": 1485
         },
         {
           "symbol": "3665",
           "name": "貿聯-KY",
-          "return_pct": -2.72,
-          "close": 1430
+          "return_pct": 11.35,
+          "close": 1570
+        },
+        {
+          "symbol": "3044",
+          "name": "健鼎",
+          "return_pct": 11.07,
+          "close": 486.5
         },
         {
           "symbol": "3661",
           "name": "世芯-KY",
-          "return_pct": -2.73,
-          "close": 3560
+          "return_pct": 8.9,
+          "close": 3915
         }
       ],
       "losers": [
         {
           "symbol": "3532",
           "name": "台勝科",
-          "return_pct": -36.72,
-          "close": 168
+          "return_pct": -22.8,
+          "close": 184.5
         },
         {
           "symbol": "3443",
           "name": "創意",
-          "return_pct": -33.94,
-          "close": 5120
+          "return_pct": -19.28,
+          "close": 5630
         },
         {
-          "symbol": "2360",
-          "name": "致茂",
-          "return_pct": -26.43,
-          "close": 927
+          "symbol": "3008",
+          "name": "大立光",
+          "return_pct": -11.85,
+          "close": 3980
         },
         {
-          "symbol": "6415",
-          "name": "矽力*-KY",
-          "return_pct": -24.87,
-          "close": 296
+          "symbol": "2884",
+          "name": "玉山金",
+          "return_pct": -11.68,
+          "close": 41.2
         }
       ],
-      "picks": []
+      "picks": [
+        {
+          "symbol": "2881",
+          "name": "富邦金",
+          "score": 69,
+          "signals": {
+            "en": [
+              "Below MA20 6.0%",
+              "RSI 43 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -6.0%",
+              "RSI 43 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "2885",
+          "name": "元大金",
+          "score": 69,
+          "signals": {
+            "en": [
+              "Below MA20 6.0%",
+              "RSI 43 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -6.0%",
+              "RSI 43 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        },
+        {
+          "symbol": "2887",
+          "name": "台新新光金",
+          "score": 68,
+          "signals": {
+            "en": [
+              "Below MA20 7.2%",
+              "RSI 41 near oversold",
+              "Golden KD cross"
+            ],
+            "zh": [
+              "低於 MA20 -7.2%",
+              "RSI 41 接近超賣",
+              "KD 黃金交叉"
+            ]
+          }
+        }
+      ]
     },
     "options": {
       "report_date": "2026-11-23",
@@ -434,11 +486,11 @@
       "symbol": "2317",
       "name": "鴻海",
       "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhYkc5N2FxT29Hbm0zQndLUE1KcllEa2prUVZxcEo2RE42a0xlS2NvVlVMX2RnTERBekJwTXhTUHpaakJsRzZyT093T05udGstNXBBb1h2UTU?oc=5",
-      "published_at_utc": "2026-11-24T00:44:58Z",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9kXzlRal9CSHUwYkxiaVhqSHNIVG9uTE1TcG9Ed0dFY2V3dnRtTzdzRHdDQzdKSWZua2diY0FVU19aU2hadVRsRGVnczdsY3g1cUtMR2hrREg?oc=5",
+      "published_at_utc": "2026-11-24T07:15:18Z",
       "title": {
-        "original": "2317 鴻海 - 台股加油！鴻海加油！ - 股市爆料同學會",
-        "en": null
+        "original": "2317 鴻海 - 資策會攜資安業助金融業加速後量子密碼遷移強化風險盤點、系統升級- 股市爆料同學會",
+        "en": "2317 Foxconn - Institute for Information Industry collaborates with cybersecurity industry to help financial sector accelerate post-quantum cryptography migration, strengthen risk assessment, system upgrades - Stock Market Exposé Club"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -448,11 +500,11 @@
       "symbol": "2330",
       "name": "台積電",
       "source": "CMoney投資網誌",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUG84Y295SWg5VFJuSThtRHNPRG1MNy10dXZBR1BBaTFsNEdKSXl5Y0FSdXNrXzlyeGJrdFN2T2ZXT0l6SE9Vdy04QWtBVHh3elZCX2thUndYMVBSODJ4aG5JdTVhLTFUOXloSXJXeTVfSXNMSnJxNV83VHV0X1RNYWd3?oc=5",
-      "published_at_utc": "2026-11-24T00:24:26Z",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQRV90ZThMV0xnSUVHT1N0T1FUTU5KZTdJTTFrazlHS2Zjekx1Mlc0UERHUm1DWFBWNVF3ZnRIak4zWnpwX2FhVFdJMVpIdko0RHVUS2hZcUUxbndCUEU5cUltdHAyNGlaeTJfLW4tWTBoZ2RTZXR6S3ZmdEhPdW9DS000ZGJJZmhCQUcxdWhkVXo?oc=5",
+      "published_at_utc": "2026-11-24T07:53:39Z",
       "title": {
-        "original": "台積電說明先進製程產能持續供不應求，產官界重申人工智慧長期需求強勁-財經焦點情報站",
-        "en": "TSMC explains advanced process capacity continues to be in short supply; industry and government reiterate strong long-term AI demand - Financial Focus Intelligence Station"
+        "original": "【即時新聞】黃仁勳復職消弭市場疑慮，輝達新品支撐台積電3奈米高產能！",
+        "en": "[Breaking News] Jensen Huang resumes post dispels market doubts, NVIDIA new products support TSMC 3 nm high capacity!"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -462,10 +514,10 @@
       "symbol": "3231",
       "name": "緯創",
       "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBVVXB3TWV6bnRnQk1ZaTVCVzVTTVF5QzJoWkxtRzdWMGFLREpaNWZjYkJZRFprMVAwV3pPTDM1MzV5SUVjd2k4OU1faXA3NV9ES01aaEwwZ2o?oc=5",
-      "published_at_utc": "2026-11-23T16:36:11Z",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5PSDdlcEV3YXNubTVrV1BNbmVpUXdrQ2MxNTg1T2VCeUZVMjA1aU5xVUY2SFAzWTlSUDJyWUdqRU9vTkdrUy1nQkFDc3ZYdWM1bG5YNjBuc2Y?oc=5",
+      "published_at_utc": "2026-11-24T06:19:24Z",
       "title": {
-        "original": "《緯創》盤中發出起漲訊號、盤後又入選「主動式ETF加碼」",
+        "original": "3231 緯創- 假如我算錯我認輸,萬一算對年底跟明年股價,大機構要不要炒緯創- 股市爆料同學會",
         "en": null
       },
       "image": null,
@@ -476,10 +528,10 @@
       "symbol": "3036",
       "name": "文曄",
       "source": "CMoney",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1MWEt0NzZGZURnWXNsb21xV09vVGtBMHhqY2xzVjVRUzEzWVY0RUlhYlZoc2xodXFTbC1DeUNrTmg3b3RwZnZnNGZheWVaYld4UW94VFRNN0Q?oc=5",
-      "published_at_utc": "2026-11-23T14:53:13Z",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE81NWp1RDR5aXZSRW9iTUxZZFBveExZODBGS0NkbU9ZeThiY05rUEs2OXQ2U3VCY2Ffcm5jV2VMQjhnQ0d4NFFqQTBmdDdlcjduZF9Z?oc=5",
+      "published_at_utc": "2026-11-24T05:41:49Z",
       "title": {
-        "original": "3036 文曄- 股市最新爆料，掌握股友們對眾個股股價、技術分析、新聞的第一手... - 股市爆料同學會",
+        "original": "文曄(3036) 個股概覽 | 個股 - 股市",
         "en": null
       },
       "image": null,
