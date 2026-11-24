@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-23T22:45:47Z",
+  "built_at_utc": "2026-11-24T02:48:41Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
@@ -129,10 +129,10 @@
       ]
     },
     "tw": {
-      "report_date": "2026-11-23",
-      "generated_at_utc": "2026-11-23T08:46:09Z",
+      "report_date": "2026-11-24",
+      "generated_at_utc": "2026-11-24T01:23:50Z",
       "schema_version": "1.2.0",
-      "data_hash": "fd9fafa38895e4ca53fb39fbbc2b7f2a64c15477f11353b3e7ef442f648aaa8a",
+      "data_hash": "f0add1585bbf7fda7933e0d56ecca6ce5714f610100a8c0c686274ca52007d7b",
       "coverage": {
         "covered": 101,
         "expected": 101,
@@ -433,12 +433,12 @@
       "market": "tw",
       "symbol": "2317",
       "name": "鴻海",
-      "source": "自由財經",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5KSXkxZGEwbHBWVy1GMzVFUHk0WHZDTGJLYmVNNm5JRkpBSjViZDNzYjNmY0RhdlMyQjk3UTBFV09CTW0wcWdjNFE2ZGRJWF9fUVJJM1lOVFZYcE05LS1j0gFkQVVfeXFMT21LM2ZHc3B0bmM1bFpjaTlXQ2RrcTF5bExrbkFLWEM5QjVVSXRhZFNkZENiSEhpU0p5WmhMZzZRUlpzdmRWdUo5VXFYRWZGZnljTS1fenJaSV9yTTAxUllnUkpubQ?oc=5",
-      "published_at_utc": "2026-11-23T01:58:33Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhYkc5N2FxT29Hbm0zQndLUE1KcllEa2prUVZxcEo2RE42a0xlS2NvVlVMX2RnTERBekJwTXhTUHpaakJsRzZyT093T05udGstNXBBb1h2UTU?oc=5",
+      "published_at_utc": "2026-11-24T00:44:58Z",
       "title": {
-        "original": "焦點股》鴻海：台股止跌 多頭反攻指標",
-        "en": "Focus Stock》Foxconn: Taiwan stocks halt decline, bullish counterattack indicator"
+        "original": "2317 鴻海 - 台股加油！鴻海加油！ - 股市爆料同學會",
+        "en": null
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2317"
@@ -447,12 +447,12 @@
       "market": "tw",
       "symbol": "2330",
       "name": "台積電",
-      "source": "永豐金證券",
-      "url": "https://news.google.com/rss/articles/CBMimAVBVV95cUxPMGQxMFVNY1lNMXQ1YTJpWlJzeElUazN0Q1Y3U3Zjb2hkbE9hd2dCMUVjY1A2aHhHRUt2c0FNU3RtNXpLLU1EU2hGSXBoTno1RS10NlZQckVWdC0yV2JGT181Y25nczZ4akx2U1YwQXdqbmlJTGVHekJ0NXZqbkl2RWE1SnNBM2hkaS11VWZ2TFV5VHdxOE8tSGRTVlhIYy1OemdBMTlhdnpzOUZNSkVHMFpWbVpQZEZxcEhmM3BKQWEzU1kwXzVmbG5DTUVuS3l3Ynd4cktMZEVWMkpDR0hDNGE0ekRzbFpNVHRfbnhJd2xLc3NUbVpRODhRbXlzOXBPcjh2Z09QNE1BRVlYOGNGWl9pOHBrOUJ0Z2lKRHBvOFBnNXQ3UGVoTGZsa25LZ0RvQ1hRaDFlZGItaEdBcXN4Y0x0T043N3BPX1pESlhXdlNhc3c5Yi01RkNuQTg2X09xa096Yk5lcXJBVlVRSndHakpSa2NPQzJmX0E3Sy1xMXI0M1lqRWpOeDZEbXpsLTRQUDBSeDVYSFpiZy0tNHNFUnZJS3F0X29nRGY0SXRfVVZ3TjFYTm5GbTdPRXZBQXJVM2JPSld4U1V5TUFONWJEWjZFcWlSS2d2T3lGRnNGNEg5akFraVVMNnZIM0ZyZ2FNZHRpZFpVQVZNYVdPNTNxOGJGcmdLU2QxN0F0OWxfaXhwN0NJdXVTYkVPaUEtR0NfYWRMQVZSSXVOSWMwZ2U4dTFwLUk1Vzk2MUxtSUNMU2lQckNJUmE3Wng3UjB5cEM4YnNSSTJjREJtNy1ZZnJsaW9wY2E0allaa1JTeXJfWElkMXNqUXJtMFdYSEhDNHp3cTFFNG5kMHdvU29PVUZLeTBlMFlKZndL?oc=5",
-      "published_at_utc": "2026-11-23T06:47:18Z",
+      "source": "CMoney投資網誌",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUG84Y295SWg5VFJuSThtRHNPRG1MNy10dXZBR1BBaTFsNEdKSXl5Y0FSdXNrXzlyeGJrdFN2T2ZXT0l6SE9Vdy04QWtBVHh3elZCX2thUndYMVBSODJ4aG5JdTVhLTFUOXloSXJXeTVfSXNMSnJxNV83VHV0X1RNYWd3?oc=5",
+      "published_at_utc": "2026-11-24T00:24:26Z",
       "title": {
-        "original": "【零股排行榜】 盤中零股成交量TOP 20｜0050 元大台灣50、00919 群益台灣精選高息、2330 台積電、0056 元大高股息、00878 國泰永續高股息(1123)｜豐雲學堂2026 年 11 月",
-        "en": "【Odd-lot Ranking】 Intraday odd-lot trading volume TOP 20 | 50 yuan Yuanta Taiwan 50, 00919 Capital Taiwan Selected High Yield, 2330 TSMC, 56 yuan High Dividend, 00878 Cathay Sustainable High Dividend (1123) | Fengyun Academy 2026 Year 11 Month"
+        "original": "台積電說明先進製程產能持續供不應求，產官界重申人工智慧長期需求強勁-財經焦點情報站",
+        "en": "TSMC explains advanced process capacity continues to be in short supply; industry and government reiterate strong long-term AI demand - Financial Focus Intelligence Station"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/tw/?stock=2330"
@@ -461,11 +461,11 @@
       "market": "tw",
       "symbol": "3231",
       "name": "緯創",
-      "source": "MoneyDJ",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZHNHaXY2WFVRWGhzZnpTMU1zeWRpLUlGY0FQYjY5SElLSmNUcWxzQjk5TkJwR216clNocUx6eFFqbjlYcmhod1gzTjl3UmtzeURsNGk5RW1TOTlhNWxyNWVYU0xnRGVvYmFLX1J1VzFuUlFtVnI0Q2Z1ajdQcjVsNlpXNG1zZ3FDQnU1S1JXWFd6QQ?oc=5",
-      "published_at_utc": "2026-11-23T02:44:00Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBVVXB3TWV6bnRnQk1ZaTVCVzVTTVF5QzJoWkxtRzdWMGFLREpaNWZjYkJZRFprMVAwV3pPTDM1MzV5SUVjd2k4OU1faXA3NV9ES01aaEwwZ2o?oc=5",
+      "published_at_utc": "2026-11-23T16:36:11Z",
       "title": {
-        "original": "緯創明年獲利估續攀高，法人看PE處低檔具上修空間- 新聞",
+        "original": "《緯創》盤中發出起漲訊號、盤後又入選「主動式ETF加碼」",
         "en": null
       },
       "image": null,
@@ -475,11 +475,11 @@
       "market": "tw",
       "symbol": "3036",
       "name": "文曄",
-      "source": "旺得富理財網",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBtZEw2U3FlanU0aHpRZHZTM1M2S2VFRXB3RWhNM1h1ajdfLTAzX0xra29yRFN4UmdWWEM5ZC1IUGJYYzhaU0pHNTBjNk9OQnl2MTlKZ0VpYVBHNm5FYzhpMGR5TENEdU1pR2c?oc=5",
-      "published_at_utc": "2026-11-23T01:35:05Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1MWEt0NzZGZURnWXNsb21xV09vVGtBMHhqY2xzVjVRUzEzWVY0RUlhYlZoc2xodXFTbC1DeUNrTmg3b3RwZnZnNGZheWVaYld4UW94VFRNN0Q?oc=5",
+      "published_at_utc": "2026-11-23T14:53:13Z",
       "title": {
-        "original": "《電通股》AI、記憶體過旺藏危機!外資示警2028年文曄、大聯大遭降評- 上市櫃",
+        "original": "3036 文曄- 股市最新爆料，掌握股友們對眾個股股價、技術分析、新聞的第一手... - 股市爆料同學會",
         "en": null
       },
       "image": null,
@@ -489,11 +489,11 @@
       "market": "tw",
       "symbol": "4938",
       "name": "和碩",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1UQW5xLXh6TDE3c0lVY0Z6Ti1fUUJIcjEwR284VUhuNzBwUW1ZcndzT2JvQ2k3bm9haXJhS3hXcG45WnpUalhyYmJOQWVZTDFwR0p3QnRQazJxUdIBX0FVX3lxTE44WWpZeDNZSVVXQUVrRkw3NVJ1Y2U5bDlxNDFEOVpGMGtDWjhCTlc5M19CTGo4emVsY3B2TnphMUVIYU8zejFkMUFRTmJnVlhCX0FzZGdHV3BWblZZNkl3?oc=5",
-      "published_at_utc": "2026-11-22T08:02:32Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE42cjRPYWg5b0EyR1BHajlheXhmYmtucm50Sk84clROdEhBTVNDaVgyZXJxODY1TDd3Q3o1eXRhRm5Gamxla0VCZy1kMlMyck1kNVZHSzVJemo?oc=5",
+      "published_at_utc": "2026-11-23T09:02:05Z",
       "title": {
-        "original": "和碩召開2026供應商大會 海內外逾千家夥伴響應",
+        "original": "4938 和碩- 伺服器營收從0到10%，為什麼和碩爆發力比別人強？ - 股市爆料同學會",
         "en": null
       },
       "image": null,
@@ -503,11 +503,11 @@
       "market": "tw",
       "symbol": "6669",
       "name": "緯穎",
-      "source": "TradingView",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9kNjNTY0xodXJ4bFNkVlZFYVJtb21jVWJWckliZVpxMnlNc1ZqTDY5d1dvWFJQRDRqWjZHbnUxRm1PclBRdkUyLUpjWHRER2tvTVVNaGhMVjFhZWJncG5idG1uQ3g?oc=5",
-      "published_at_utc": "2026-11-23T01:19:44Z",
+      "source": "CMoney",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAyYm04SFJQT2JSU1RnaXBlcUxhSlc5NVJKSDRkNGtKSnJBRzRCM2UtTjQ0eWdDSjZYNWR1Zm5lVGlESkpUVTV0RjVTeXBMeHZCQWFiYWFmc1M?oc=5",
+      "published_at_utc": "2026-11-23T14:53:16Z",
       "title": {
-        "original": "鉅亨速報 - Factset 最新調查：緯穎(6669-TW)EPS預估上修至136.67元，預估目標價為2600元",
+        "original": "6669 緯穎- 輝達宣布恢復黃仁勳執行長職務- 股市爆料同學會",
         "en": null
       },
       "image": null,
