@@ -10,7 +10,7 @@
   /* DappGo brand W4 (2026-11-26): navy and amber only, on warm neutrals. Amber is a fill, not a text colour on white. */
   --navy: #0F1B3D;
   --amber: #E8A33D;
-  --page: #F7F3EA;
+  --page: #FFFFFF;
   --surface: #fff;
   --ink: #0F1B3D;
   --muted: #4A5368;
@@ -18,7 +18,7 @@
   --brand: #0F1B3D;
   --brand-soft: #F6E7CC;
   --panel: #F4F2EE;
-  --radius: 22px;
+  --radius: 8px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   color-scheme: light;
   scroll-behavior: smooth;

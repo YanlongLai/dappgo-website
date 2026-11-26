@@ -428,12 +428,12 @@
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
 
-  // Hero field: the logo pulse travels along the stats rule, over a dot grid that brightens near the cursor.
+  // Hero field: the logo pulse travels along the stats rule.
   const canvas = $("[data-hero-canvas]");
   const ctx = canvas.getContext?.("2d");
   if (!ctx) return;
   let w = 0, h = 0, dpr = 1, mouse = { x: -999, y: -999 }, visible = true, frame = 0;
-  let dot = "184, 192, 212", trace = "232, 163, 61";
+  let trace = "232, 163, 61";
   // The logo polyline (4,32 56,32 74,10 96,52 118,4 136,32 196,32) as offsets from its centre and baseline.
   const BLIP = [[-40, 0], [-22, -22], [0, 20], [22, -28], [40, 0]];
   let baseline = 0;
@@ -444,22 +444,12 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // Brand colours come from the stylesheet so the field follows the navy (EN) or white (ZH) hero.
     const style = getComputedStyle(canvas);
-    dot = style.getPropertyValue("--field-dot").trim() || dot;
     trace = style.getPropertyValue("--field-trace").trim() || trace;
     const rule = hero.querySelector(".hero-stats");
     baseline = rule ? rule.getBoundingClientRect().top - canvas.getBoundingClientRect().top : h * 0.8;
   };
   const draw = (time) => {
     ctx.clearRect(0, 0, w, h);
-    const gap = 32;
-    for (let x = gap / 2; x < w; x += gap) {
-      for (let y = gap / 2; y < h; y += gap) {
-        const d = Math.hypot(x - mouse.x, y - mouse.y);
-        const glow = Math.max(0, 1 - d / 180);
-        ctx.fillStyle = `rgba(${dot}, ${0.08 + glow * 0.55})`;
-        ctx.fillRect(x - 0.75 - glow, y - 0.75 - glow, 1.5 + glow * 2, 1.5 + glow * 2);
-      }
-    }
     // One pulse crosses the hero every 9 seconds; with reduced motion it rests at two thirds.
     const span = w + 240;
     const cx = calm ? w * 0.66 : ((time * span) / 9000) % span - 120;

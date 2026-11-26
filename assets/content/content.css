@@ -29,7 +29,7 @@ html[lang="zh-Hant"] .doc h2, html[lang="zh-Hant"] .doc h3 { letter-spacing: 0; 
 .doc li + li { margin-top: 6px; }
 .doc a { color: var(--brand); text-underline-offset: 3px; }
 .doc .note { color: var(--muted); font-size: 15px; line-height: 1.65; }
-.doc .formula { font: 500 15px/1.7 var(--mono); color: var(--ink); background: var(--surface-2); border-radius: 10px; padding: 14px 16px; margin-top: 14px; overflow-x: auto; white-space: pre; }
+.doc .formula { font: 500 15px/1.7 var(--mono); color: var(--ink); background: var(--surface-2); border-radius: 6px; padding: 14px 16px; margin-top: 14px; overflow-x: auto; white-space: pre; }
 .up { color: var(--up); }
 .down { color: var(--down); }
 
