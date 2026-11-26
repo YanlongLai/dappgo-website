@@ -16,7 +16,8 @@
   --slate: #4A5368;
   --rule: #E4E0D8;
 
-  --page: var(--cream);
+  --page: var(--white);
+  --band: var(--warm-gray);
   --surface: var(--white);
   --surface-2: var(--warm-gray);
   --ink: var(--navy);
@@ -78,6 +79,7 @@ html[lang="zh-Hant"] {
     --hero-line: var(--navy-line);
     --hero-fill: rgba(255, 255, 255, 0.06);
     --hero-accent: var(--amber);
+    --band: var(--navy);
     --field-dot: 184, 192, 212;
     --up: #34d399;
     --down: #ff6b5b;
@@ -205,6 +207,8 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 /* Sections */
 .section { padding-block: clamp(72px, 10vw, 128px); }
 .section + .section { border-top: 1px solid var(--line); }
+/* The page is white; the wire section sits on a warm band so the long page keeps a rhythm. */
+.section.news { background: var(--band); }
 .section-head { display: grid; grid-template-columns: 72px minmax(0, 1fr) minmax(0, 420px); gap: 16px 24px; align-items: end; margin-bottom: clamp(32px, 5vw, 56px); }
 .index { font: 600 13px var(--label); color: var(--brand); align-self: start; padding-top: 12px; }
 .section-head h2 { font: 800 clamp(36px, 5.4vw, 76px)/1 var(--display); letter-spacing: -0.035em; }
