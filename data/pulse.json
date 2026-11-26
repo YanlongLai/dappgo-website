@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "built_at_utc": "2026-11-26T20:15:42Z",
+  "built_at_utc": "2026-11-26T22:45:36Z",
   "source": "https://data.dappgo.com/v1/markets",
   "markets": {
     "us": {
       "report_date": "2026-11-26",
-      "generated_at_utc": "2026-11-26T19:17:07Z",
+      "generated_at_utc": "2026-11-26T20:15:19Z",
       "schema_version": "1.2.0",
-      "data_hash": "d73bcd73736cfb99c8adf1581fbf8f2ef91984e4784fb704bcd38d8c02b36f33",
+      "data_hash": "ac73ab27db3b4bbf576ed6291449bbade90c271b0617d0835abe86b5236c6bad",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -255,9 +255,9 @@
     },
     "options": {
       "report_date": "2026-11-26",
-      "generated_at_utc": "2026-11-26T19:47:36Z",
+      "generated_at_utc": "2026-11-26T20:45:56Z",
       "schema_version": "1.4.0",
-      "data_hash": "591a86a350ed62ace83117bf271d8c7fca374650516ab35c20f0f48bed8e891c",
+      "data_hash": "a1b680d6d79c52b6ce2624b154e510747805e9aa2998488859c69ac421d3eea7",
       "coverage": {
         "covered": 36,
         "expected": 36,
@@ -375,17 +375,59 @@
   "news": [
     {
       "market": "us",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-best-virtual-reality-stocks-to-watch-now-november-26th-2026-11-26/",
+      "published_at_utc": "2026-11-26T19:12:14Z",
+      "title": {
+        "original": "Best Virtual Reality Stocks To Watch Now - November 26th",
+        "en": "Best Virtual Reality Stocks To Watch Now - November 26th"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=META"
+    },
+    {
+      "market": "us",
       "symbol": "MSFT",
       "name": "Microsoft Corporation",
-      "source": "GuruFocus.com",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-stocks-slip-1-25-184200035.html",
-      "published_at_utc": "2026-11-26T18:42:00Z",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-best-technology-stocks-to-research-november-26th-2026-11-26/",
+      "published_at_utc": "2026-11-26T19:12:13Z",
       "title": {
-        "original": "Microsoft Stocks Slip 1.25% While Nadella Backs Cheaper In-House AI Models",
-        "en": null
+        "original": "Best Technology Stocks To Research - November 26th",
+        "en": "Best Technology Stocks To Research - November 26th"
       },
       "image": null,
       "news_url": "https://news.dappgo.com/us/?stock=MSFT"
+    },
+    {
+      "market": "us",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-best-technology-stocks-to-research-november-26th-2026-11-26/",
+      "published_at_utc": "2026-11-26T19:12:13Z",
+      "title": {
+        "original": "Best Technology Stocks To Research - November 26th",
+        "en": "Best Technology Stocks To Research - November 26th"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
+    },
+    {
+      "market": "us",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "source": "MarketBeat Instant Alerts",
+      "url": "https://www.marketbeat.com/instant-alerts/list-promising-retail-stocks-to-watch-now-november-26th-2026-11-26/",
+      "published_at_utc": "2026-11-26T19:12:11Z",
+      "title": {
+        "original": "Promising Retail Stocks To Watch Now - November 26th",
+        "en": "Promising Retail Stocks To Watch Now - November 26th"
+      },
+      "image": null,
+      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
     },
     {
       "market": "us",
@@ -418,60 +460,6 @@
         "height": 630
       },
       "news_url": "https://news.dappgo.com/us/?stock=GOOG"
-    },
-    {
-      "market": "us",
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=a57513f1874bf235955e61f79943797e673bc5596ec9d994585688f962e663a3",
-      "published_at_utc": "2026-11-26T17:16:00Z",
-      "title": {
-        "original": "Nvidia faces credit rating review as S&P flags governance concerns",
-        "en": null
-      },
-      "image": {
-        "url": "https://cdn.proactiveinvestors.com/eyJidWNrZXQiOiJwYS1jZG4iLCJrZXkiOiJ1cGxvYWRcL05ld3NcL0ltYWdlXC8yMDI2XzExXC8yMDI0LTA1LTI4LTE1LTU3LTQ0LTEzYWQ0NWI3ZjcxZGUxNTg2MjNjYjhkMWRmOTE2N2UyXzZiMDg2OTllNzk5ZmUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjYzMCwiZml0IjoiY292ZXIifX19",
-        "width": null,
-        "height": null
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=NVDA"
-    },
-    {
-      "market": "us",
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=0a915e9b948b5d00b3225260447fa53343bd561cba2da9ae09e8d91c19487b73",
-      "published_at_utc": "2026-11-26T17:10:02Z",
-      "title": {
-        "original": "Amazon Has 59 Buy Ratings and Not a Single Sell. Here’s Where its Headed",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2019/08/rsz_gettyimages-1064235628.jpg",
-        "width": 1366,
-        "height": 768
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AMZN"
-    },
-    {
-      "market": "us",
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "source": "Yahoo",
-      "url": "https://finnhub.io/api/news?id=ef160b29ee3719ce754becc4a970781515ebfef3417364410fab4cffef8504c2",
-      "published_at_utc": "2026-11-26T17:07:34Z",
-      "title": {
-        "original": "Apple, Exxon and Lowe’s Are Rewarding Shareholders Beyond Their Regular Dividends",
-        "en": null
-      },
-      "image": {
-        "url": "https://247wallst.com/wp-content/uploads/2024/03/shutterstock-1822415267-huge-licensed-scaled.jpg",
-        "width": 1500,
-        "height": 1009
-      },
-      "news_url": "https://news.dappgo.com/us/?stock=AAPL"
     },
     {
       "market": "tw",
