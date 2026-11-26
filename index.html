@@ -251,7 +251,6 @@
   --hero-fill: rgba(255, 255, 255, 0.06);
   --hero-accent: var(--amber);
   --field-dot: 184, 192, 212;
-  --field-trace: 232, 163, 61;
   --up: #0e9f6e;
   --down: #d93a2b;
   --warn: #9a6a12;
@@ -328,12 +327,12 @@ h1, h2, h3, p { margin: 0; }
 .topbar { position: sticky; top: 0; z-index: 20; color: var(--hero-ink); background: color-mix(in srgb, var(--hero-bg) 78%, transparent); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid var(--hero-line); transition: background .3s ease, color .3s ease, border-color .3s ease; }
 .topbar.solid { color: var(--ink); background: color-mix(in srgb, var(--page) 88%, transparent); border-bottom-color: var(--line); }
 .topbar-inner { display: flex; align-items: center; gap: 24px; height: 60px; }
-/* Logo W4 "Pulse link", horizontal lockup: Dapp + amber pulse + Go (Manrope 800 in English, Inter 800 in Chinese). */
-.brand { display: inline-flex; align-items: center; text-decoration: none; font: 800 22px/1 var(--display); letter-spacing: -0.01em; }
-.brand-word { display: inline-flex; align-items: center; gap: .14em; }
-.brand-pulse { flex: none; width: 1.9em; height: .57em; overflow: visible; }
-.brand-pulse polyline { fill: none; stroke: var(--amber); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 260; stroke-dashoffset: 0; }
-.brand:hover .brand-pulse polyline { animation: pulse-draw .9s var(--ease); }
+/* Header logo: pulse tile + wordmark (Manrope 800 in English, Inter 800 in Chinese). The tile takes the text colour. */
+.brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font: 800 22px/1 var(--display); letter-spacing: -0.01em; }
+.brand-tile { flex: none; width: 28px; height: 28px; }
+.brand-tile rect { fill: currentColor; }
+.brand-tile polyline { fill: none; stroke: var(--amber); stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 260; stroke-dashoffset: 0; }
+.brand:hover .brand-tile polyline { animation: pulse-draw .9s var(--ease); }
 @keyframes pulse-draw { from { stroke-dashoffset: 260; } }
 .nav { display: flex; gap: 4px; margin-left: 12px; }
 .nav a { text-decoration: none; opacity: .72; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: opacity .15s ease, background .15s ease; }
@@ -394,7 +393,7 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 /* Today's brief: one row per market, straight from the published pulse */
 .brief { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); box-shadow: 0 16px 40px rgba(15, 27, 61, .14); overflow: hidden; }
 .brief-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 16px 20px; font: 800 17px/1 var(--display); letter-spacing: -0.01em; border-bottom: 1px solid var(--line); }
-.brief-head .brand-pulse { width: 44px; height: 13px; }
+.brief-head time { font: 400 12px var(--label); letter-spacing: 0; color: var(--muted); }
 .brief-rows { list-style: none; margin: 0; padding: 0; min-height: 186px; }
 .brief-rows li + li { border-top: 1px solid var(--line); }
 .js .brief-rows li { animation: rise .5s var(--ease) both; animation-delay: calc(var(--i, 0) * 120ms); }
@@ -697,7 +696,7 @@ html:not(.js) .wire-tabs { display: none; }
     <header class="topbar">
       <div class="wrap topbar-inner">
         <a class="brand" href="#top" aria-label="DappGo home" data-i18n-aria-label="homeLabel">
-          <span class="brand-word" role="img" aria-label="DappGo"><span aria-hidden="true">Dapp</span><svg class="brand-pulse" viewBox="0 0 200 60" aria-hidden="true" focusable="false"><polyline points="4,32 56,32 74,10 96,52 118,4 136,32 196,32" /></svg><span aria-hidden="true">Go</span></span>
+          <svg class="brand-tile" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" /><g transform="translate(6 24.7) scale(.26)"><polyline points="4,32 56,32 74,10 96,52 118,4 136,32 196,32" /></g></svg><span class="brand-word">DappGo</span>
         </a>
         <nav class="nav" aria-label="Main" data-i18n-aria-label="mainNav">
           <a href="#pulse" data-i18n="navPulse">Today</a>
@@ -743,7 +742,7 @@ html:not(.js) .wire-tabs { display: none; }
               </div>
             </div>
             <section class="brief" aria-label="Today’s brief" data-i18n-aria-label="briefLabel">
-              <h2 class="brief-head"><span data-i18n="briefLabel">Today’s brief</span><svg class="brand-pulse" viewBox="0 0 200 60" aria-hidden="true" focusable="false"><polyline points="4,32 56,32 74,10 96,52 118,4 136,32 196,32" /></svg></h2>
+              <h2 class="brief-head"><span data-i18n="briefLabel">Today’s brief</span><time data-brief-date></time></h2>
               <ul class="brief-rows" data-brief></ul>
               <p class="brief-foot" data-brief-foot></p>
             </section>

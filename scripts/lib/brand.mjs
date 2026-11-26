@@ -4,8 +4,9 @@ export const NAVY = "#0F1B3D";
 export const AMBER = "#E8A33D";
 export const PULSE_POINTS = "4,32 56,32 74,10 96,52 118,4 136,32 196,32";
 
-// Horizontal lockup: Dapp + amber pulse + Go. Colours and size come from .brand in assets/home/home.css.
-export const BRAND_HTML = `<span class="brand-word" role="img" aria-label="DappGo"><span aria-hidden="true">Dapp</span><svg class="brand-pulse" viewBox="0 0 200 60" aria-hidden="true" focusable="false"><polyline points="${PULSE_POINTS}" /></svg><span aria-hidden="true">Go</span></span>`;
+// Header logo: the pulse tile (same mark as the favicon) beside the wordmark. Colours and size come from .brand in
+// assets/home/home.css. The stacked "Dapp / pulse / Go" lockup stays on avatars, app icons and share images.
+export const BRAND_HTML = `<svg class="brand-tile" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" /><g transform="translate(6 24.7) scale(.26)"><polyline points="${PULSE_POINTS}" /></g></svg><span class="brand-word">DappGo</span>`;
 
 const THEME_EN = `<meta name="theme-color" content="${NAVY}" />`;
 const THEME_ZH = `<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF" />\n    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="${NAVY}" />`;

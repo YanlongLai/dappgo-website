@@ -142,31 +142,29 @@ summary:focus-visible,
   align-items: center;
   gap: 32px;
 }
-/* Logo W4 "Pulse link", horizontal lockup: Dapp + amber pulse + Go. */
+/* Header logo: pulse tile + wordmark. The tile takes the text colour. */
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   font-size: 25px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.brand-word {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.14em;
-}
-.brand-pulse {
+.brand-tile {
   flex: none;
-  width: 1.9em;
-  height: 0.57em;
-  overflow: visible;
+  width: 30px;
+  height: 30px;
 }
-.brand-pulse polyline {
+.brand-tile rect {
+  fill: currentColor;
+}
+.brand-tile polyline {
   fill: none;
   stroke: var(--amber);
-  stroke-width: 12;
+  stroke-width: 20;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
