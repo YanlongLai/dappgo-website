@@ -92,7 +92,12 @@ html[lang="zh-Hant"] {
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body { margin: 0; background: var(--page); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; overflow-x: hidden; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+/* Figures line up in data blocks; running text keeps proportional digits. */
+.card, .brief, .tape, .hero-stats dd, .ideas, .data { font-variant-numeric: tabular-nums; }
+::selection { background: var(--amber); color: var(--navy); }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
 a { color: inherit; }
 h1, h2, h3, p { margin: 0; }
 .wrap { width: min(1280px, 100%); margin-inline: auto; padding-inline: var(--gutter); }
@@ -120,6 +125,9 @@ h1, h2, h3, p { margin: 0; }
 .nav a { text-decoration: none; opacity: .72; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: opacity .15s ease, background .15s ease; }
 .nav a:hover, .nav a[aria-current="true"] { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
 .topbar-tools { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+/* Once the hero has scrolled away, the bar offers the apps. */
+.topbar-cta { display: none; align-items: center; min-height: 32px; padding: 0 14px; border-radius: 999px; background: var(--amber); color: var(--on-amber); font: 600 13px var(--body); text-decoration: none; }
+.topbar.solid .topbar-cta { display: inline-flex; animation: rise .35s var(--ease) both; }
 .live-chip { display: inline-flex; align-items: center; gap: 8px; font: 500 12px var(--label); border: 1px solid color-mix(in srgb, currentColor 22%, transparent); padding: 5px 10px; border-radius: 999px; white-space: nowrap; opacity: .9; }
 .live-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--dim); }
 .live-chip[data-state="live"] i { background: #34d399; animation: ping 2.2s infinite; }
@@ -129,11 +137,12 @@ h1, h2, h3, p { margin: 0; }
 .lang { display: inline-flex; align-items: center; text-decoration: none; font: 600 13px var(--body); color: inherit; background: color-mix(in srgb, currentColor 8%, transparent); border: 1px solid color-mix(in srgb, currentColor 22%, transparent); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
 .lang:hover { border-color: currentColor; }
 
-html[lang="zh-Hant"] .hero-title { font-size: clamp(32px, 10.4vw, 132px); line-height: 1.05; }
+html[lang="zh-Hant"] .hero-title { font-size: clamp(36px, 6vw, 88px); line-height: 1.1; }
 
 /* Buttons */
 .btn { position: relative; display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border-radius: 999px; font: 600 15px var(--body); text-decoration: none; border: 1px solid transparent; overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s ease, background .2s ease, border-color .2s ease; }
 .btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 .btn span[aria-hidden] { transition: transform .2s var(--ease); }
 .btn:hover span[aria-hidden] { transform: translate(2px, 0); }
 .btn-accent { background: var(--amber); color: var(--on-amber); }
@@ -156,14 +165,16 @@ html[lang="zh-Hant"] .hero-title { font-size: clamp(32px, 10.4vw, 132px); line-h
 .kicker::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
 .kicker.dark { color: var(--on-navy-muted); border-color: var(--navy-line); background: rgba(255,255,255,.06); }
 .kicker.dark::before { background: var(--amber); }
-.hero-title { font: 800 clamp(52px, 10vw, 152px)/.94 var(--display); letter-spacing: -0.045em; display: flex; flex-direction: column; }
+.hero-title { font: 800 clamp(44px, 6.6vw, 96px)/.98 var(--display); letter-spacing: -0.04em; display: flex; flex-direction: column; }
 /* The second hero line carries a static amber underline (static so thumbnails and crawlers never catch it half-drawn). */
 .hero-accent { position: relative; align-self: flex-start; color: var(--hero-ink); }
 .hero-accent::after { content: ""; position: absolute; left: .04em; right: .04em; bottom: -.24em; height: .06em; border-radius: 999px; background: var(--amber); }
 html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
-.hero-title { padding-bottom: .2em; }
-.hero-foot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 32px 48px; align-items: end; margin-top: clamp(32px, 5vw, 56px); }
-.hero-lede { max-width: 620px; color: var(--hero-muted); font-size: clamp(16px, 1.6vw, 19px); margin-bottom: 28px; }
+.hero-title { padding-bottom: .26em; }
+/* Copy on the left, today's brief on the right, so the first screen already shows the day. */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 40px 56px; align-items: center; }
+.hero-main { min-width: 0; }
+.hero-lede { max-width: 560px; color: var(--hero-muted); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; margin: clamp(20px, 2.4vw, 32px) 0 28px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Today's brief: one row per market, straight from the published pulse */
@@ -177,7 +188,9 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 .brief-rows a:hover { background: var(--surface-2); }
 .brief-market { display: flex; align-items: baseline; gap: 10px; font: 600 16px/1.2 var(--body); }
 .brief-market time { font: 400 12px var(--label); color: var(--muted); }
-.brief-fact { font-size: 13px; color: var(--muted); }
+.brief-fact { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.brief-meter { position: relative; width: 56px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.brief-meter::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 2px; background: var(--amber); transform-origin: 0 50%; animation: grow 1.2s var(--ease) both; }
 .brief-move { justify-self: end; font: 500 14px var(--mono); white-space: nowrap; }
 .brief-move .score { color: var(--brand); font-weight: 700; }
 .brief .pill { justify-self: end; }
@@ -191,7 +204,7 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 .hero-stats dd { margin: 6px 0 0; font: 800 clamp(28px, 4vw, 48px)/1 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--hero-ink); }
 
 /* Ticker tape */
-.tape { position: relative; z-index: 1; border-top: 1px solid var(--hero-line); background: var(--hero-fill); overflow: hidden; }
+.tape { position: relative; z-index: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); border-top: 1px solid var(--hero-line); background: var(--hero-fill); overflow: hidden; }
 .tape-track { display: flex; width: max-content; animation: tape 70s linear infinite; }
 .tape:hover .tape-track { animation-play-state: paused; }
 .tape-item { display: inline-flex; align-items: baseline; gap: 10px; padding: 14px 28px; font: 500 14px var(--mono); white-space: nowrap; border-right: 1px solid var(--hero-line); text-decoration: none; color: var(--hero-ink); }
@@ -395,7 +408,8 @@ html:not(.js) .wire-tabs { display: none; }
   .board .card:last-child { grid-column: 1 / -1; }
   .wire { grid-template-columns: 1fr 1fr; }
   .wire > li.feature { grid-column: 1 / -1; grid-row: auto; }
-  .hero-foot { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .topbar.solid .topbar-cta { display: none; }
   .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .app-cell, .app-cell--wide { grid-column: span 1; }
   .app-cell:nth-child(3) { grid-column: 1 / -1; }

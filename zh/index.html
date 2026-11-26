@@ -308,7 +308,12 @@ html[lang="zh-Hant"] {
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body { margin: 0; background: var(--page); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; overflow-x: hidden; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+/* Figures line up in data blocks; running text keeps proportional digits. */
+.card, .brief, .tape, .hero-stats dd, .ideas, .data { font-variant-numeric: tabular-nums; }
+::selection { background: var(--amber); color: var(--navy); }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
 a { color: inherit; }
 h1, h2, h3, p { margin: 0; }
 .wrap { width: min(1280px, 100%); margin-inline: auto; padding-inline: var(--gutter); }
@@ -336,6 +341,9 @@ h1, h2, h3, p { margin: 0; }
 .nav a { text-decoration: none; opacity: .72; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: opacity .15s ease, background .15s ease; }
 .nav a:hover, .nav a[aria-current="true"] { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
 .topbar-tools { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+/* Once the hero has scrolled away, the bar offers the apps. */
+.topbar-cta { display: none; align-items: center; min-height: 32px; padding: 0 14px; border-radius: 999px; background: var(--amber); color: var(--on-amber); font: 600 13px var(--body); text-decoration: none; }
+.topbar.solid .topbar-cta { display: inline-flex; animation: rise .35s var(--ease) both; }
 .live-chip { display: inline-flex; align-items: center; gap: 8px; font: 500 12px var(--label); border: 1px solid color-mix(in srgb, currentColor 22%, transparent); padding: 5px 10px; border-radius: 999px; white-space: nowrap; opacity: .9; }
 .live-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--dim); }
 .live-chip[data-state="live"] i { background: #34d399; animation: ping 2.2s infinite; }
@@ -345,11 +353,12 @@ h1, h2, h3, p { margin: 0; }
 .lang { display: inline-flex; align-items: center; text-decoration: none; font: 600 13px var(--body); color: inherit; background: color-mix(in srgb, currentColor 8%, transparent); border: 1px solid color-mix(in srgb, currentColor 22%, transparent); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
 .lang:hover { border-color: currentColor; }
 
-html[lang="zh-Hant"] .hero-title { font-size: clamp(32px, 10.4vw, 132px); line-height: 1.05; }
+html[lang="zh-Hant"] .hero-title { font-size: clamp(36px, 6vw, 88px); line-height: 1.1; }
 
 /* Buttons */
 .btn { position: relative; display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border-radius: 999px; font: 600 15px var(--body); text-decoration: none; border: 1px solid transparent; overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s ease, background .2s ease, border-color .2s ease; }
 .btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 .btn span[aria-hidden] { transition: transform .2s var(--ease); }
 .btn:hover span[aria-hidden] { transform: translate(2px, 0); }
 .btn-accent { background: var(--amber); color: var(--on-amber); }
@@ -372,14 +381,16 @@ html[lang="zh-Hant"] .hero-title { font-size: clamp(32px, 10.4vw, 132px); line-h
 .kicker::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
 .kicker.dark { color: var(--on-navy-muted); border-color: var(--navy-line); background: rgba(255,255,255,.06); }
 .kicker.dark::before { background: var(--amber); }
-.hero-title { font: 800 clamp(52px, 10vw, 152px)/.94 var(--display); letter-spacing: -0.045em; display: flex; flex-direction: column; }
+.hero-title { font: 800 clamp(44px, 6.6vw, 96px)/.98 var(--display); letter-spacing: -0.04em; display: flex; flex-direction: column; }
 /* The second hero line carries a static amber underline (static so thumbnails and crawlers never catch it half-drawn). */
 .hero-accent { position: relative; align-self: flex-start; color: var(--hero-ink); }
 .hero-accent::after { content: ""; position: absolute; left: .04em; right: .04em; bottom: -.24em; height: .06em; border-radius: 999px; background: var(--amber); }
 html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
-.hero-title { padding-bottom: .2em; }
-.hero-foot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 32px 48px; align-items: end; margin-top: clamp(32px, 5vw, 56px); }
-.hero-lede { max-width: 620px; color: var(--hero-muted); font-size: clamp(16px, 1.6vw, 19px); margin-bottom: 28px; }
+.hero-title { padding-bottom: .26em; }
+/* Copy on the left, today's brief on the right, so the first screen already shows the day. */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 40px 56px; align-items: center; }
+.hero-main { min-width: 0; }
+.hero-lede { max-width: 560px; color: var(--hero-muted); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; margin: clamp(20px, 2.4vw, 32px) 0 28px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Today's brief: one row per market, straight from the published pulse */
@@ -393,7 +404,9 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 .brief-rows a:hover { background: var(--surface-2); }
 .brief-market { display: flex; align-items: baseline; gap: 10px; font: 600 16px/1.2 var(--body); }
 .brief-market time { font: 400 12px var(--label); color: var(--muted); }
-.brief-fact { font-size: 13px; color: var(--muted); }
+.brief-fact { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.brief-meter { position: relative; width: 56px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.brief-meter::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 2px; background: var(--amber); transform-origin: 0 50%; animation: grow 1.2s var(--ease) both; }
 .brief-move { justify-self: end; font: 500 14px var(--mono); white-space: nowrap; }
 .brief-move .score { color: var(--brand); font-weight: 700; }
 .brief .pill { justify-self: end; }
@@ -407,7 +420,7 @@ html[lang="zh-Hant"] .hero-accent::after { bottom: -.12em; }
 .hero-stats dd { margin: 6px 0 0; font: 800 clamp(28px, 4vw, 48px)/1 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--hero-ink); }
 
 /* Ticker tape */
-.tape { position: relative; z-index: 1; border-top: 1px solid var(--hero-line); background: var(--hero-fill); overflow: hidden; }
+.tape { position: relative; z-index: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); border-top: 1px solid var(--hero-line); background: var(--hero-fill); overflow: hidden; }
 .tape-track { display: flex; width: max-content; animation: tape 70s linear infinite; }
 .tape:hover .tape-track { animation-play-state: paused; }
 .tape-item { display: inline-flex; align-items: baseline; gap: 10px; padding: 14px 28px; font: 500 14px var(--mono); white-space: nowrap; border-right: 1px solid var(--hero-line); text-decoration: none; color: var(--hero-ink); }
@@ -611,7 +624,8 @@ html:not(.js) .wire-tabs { display: none; }
   .board .card:last-child { grid-column: 1 / -1; }
   .wire { grid-template-columns: 1fr 1fr; }
   .wire > li.feature { grid-column: 1 / -1; grid-row: auto; }
-  .hero-foot { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .topbar.solid .topbar-cta { display: none; }
   .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .app-cell, .app-cell--wide { grid-column: span 1; }
   .app-cell:nth-child(3) { grid-column: 1 / -1; }
@@ -699,6 +713,7 @@ html:not(.js) .wire-tabs { display: none; }
           <!-- pulse:status:start -->
 <span class="live-chip" data-live-chip><i aria-hidden="true"></i><span data-live-label>發布於 · 2026-11-26</span></span>
 <!-- pulse:status:end -->
+          <a class="topbar-cta" href="#products" data-i18n="heroApps">下載 App</a>
           <a class="lang" href="/" data-lang-toggle hreflang="en" lang="en" aria-label="Switch to English">EN</a>
         </div>
       </div>
@@ -708,26 +723,26 @@ html:not(.js) .wire-tabs { display: none; }
       <section class="hero" id="top">
         <canvas class="hero-canvas" data-hero-canvas aria-hidden="true"></canvas>
         <div class="wrap">
-          <p class="kicker"><span data-i18n="kicker">台股・美股・選擇權</span></p>
-          <h1 class="hero-title">
-            <span data-i18n="heroA">每天 5 分鐘，</span>
-            <span class="hero-accent" data-i18n="heroB">看懂市場。</span>
-          </h1>
-          <div class="hero-foot">
-            <div>
-            <p class="hero-lede" data-i18n="heroLede">每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。</p>
-            <div class="hero-cta">
-              <a class="btn btn-accent" href="#pulse"><span data-i18n="ctaPulse">看今天的報告</span><span aria-hidden="true">↓</span></a>
-              <a class="btn btn-glass" href="#business"><span data-i18n="ctaBusiness">讓你的工作自動化</span><span aria-hidden="true">→</span></a>
-            </div>
-            <div class="hero-apps" data-hero-apps>
-              <p class="hero-apps-label" data-i18n="heroApps">下載 App</p>
-              <ul>
-                <li><a class="hero-app-name" href="/zh/tw-stocks/"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>TW Stocks</span><span aria-hidden="true">↗</span></a></li>
-                <li><a class="hero-app-name" href="/zh/us-stocks/"><img src="/assets/app-icons/us-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>US Stocks</span><span aria-hidden="true">↗</span></a></li>
-                <li><a class="hero-app-name" href="/zh/options/"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>Options Explorer</span><span aria-hidden="true">↗</span></a></li>
-              </ul>
-            </div>
+          <div class="hero-grid">
+            <div class="hero-main">
+              <p class="kicker"><span data-i18n="kicker">台股・美股・選擇權</span></p>
+              <h1 class="hero-title">
+                <span data-i18n="heroA">每天 5 分鐘，</span>
+                <span class="hero-accent" data-i18n="heroB">看懂市場。</span>
+              </h1>
+              <p class="hero-lede" data-i18n="heroLede">每個交易日三份報告：美股、台股、美股選擇權。資料檢查無誤後才發布到下方的 App，這一頁就是今天的結果。</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="#pulse"><span data-i18n="ctaPulse">看今天的報告</span><span aria-hidden="true">↓</span></a>
+                <a class="btn btn-glass" href="#business"><span data-i18n="ctaBusiness">讓你的工作自動化</span><span aria-hidden="true">→</span></a>
+              </div>
+              <div class="hero-apps" data-hero-apps>
+                <p class="hero-apps-label" data-i18n="heroApps">下載 App</p>
+                <ul>
+                  <li><a class="hero-app-name" href="/zh/tw-stocks/"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>TW Stocks</span><span aria-hidden="true">↗</span></a></li>
+                  <li><a class="hero-app-name" href="/zh/us-stocks/"><img src="/assets/app-icons/us-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>US Stocks</span><span aria-hidden="true">↗</span></a></li>
+                  <li><a class="hero-app-name" href="/zh/options/"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" /><span>Options Explorer</span><span aria-hidden="true">↗</span></a></li>
+                </ul>
+              </div>
             </div>
             <section class="brief" aria-label="今日重點" data-i18n-aria-label="briefLabel">
               <h2 class="brief-head"><span data-i18n="briefLabel">今日重點</span><svg class="brand-pulse" viewBox="0 0 200 60" aria-hidden="true" focusable="false"><polyline points="4,32 56,32 74,10 96,52 118,4 136,32 196,32" /></svg></h2>
@@ -765,14 +780,14 @@ html:not(.js) .wire-tabs { display: none; }
         <div class="regime-row"><span class="pill pill-bear">避險情緒</span>
           <div class="meter"><div class="meter-label"><span>市場廣度</span><span>14% · 漲跌家數比 0.57</span></div><div class="meter-bar"><i style="--w:14%"></i></div></div></div>
         <p class="one-liner">今日 36 檔個股，市場環境風險規避（SPY 跌破 200MA + 漲家數佔比僅 14% + 波動）。</p>
-        <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>QCOM</span><span class="up">+5.54%</span><small>QUALCOMM Incorporated</small></li><li><span>TLT</span><span class="up">+2.52%</span><small>iShares 20+ Year Treasury Bond ETF</small></li><li><span>BABA</span><span class="up">+2.24%</span><small>Alibaba Group Holding Limited</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>SOXL</span><span class="down">-35.00%</span><small>Direxion Daily Semiconductor Bull 3X Shares</small></li><li><span>SNDK</span><span class="down">-24.13%</span><small>Sandisk Corporation</small></li><li><span>AMD</span><span class="down">-23.41%</span><small>Advanced Micro Devices, Inc.</small></li></ul></div></div>
+        <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>QCOM</span><span class="up">+5.54%</span><small>QUALCOMM Incorporated</small></li><li><span>TLT</span><span class="up">+2.52%</span><small>iShares 20+ Year Treasury Bond ETF</small></li><li><span>BABA</span><span class="up">+2.24%</span><small>Alibaba Group Holding Limited</small></li><li><span>ISRG</span><span class="up">+1.48%</span><small>Intuitive Surgical, Inc.</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>SOXL</span><span class="down">-35.00%</span><small>Direxion Daily Semiconductor Bull 3X Shares</small></li><li><span>SNDK</span><span class="down">-24.13%</span><small>Sandisk Corporation</small></li><li><span>AMD</span><span class="down">-23.41%</span><small>Advanced Micro Devices, Inc.</small></li><li><span>IREN</span><span class="down">-15.68%</span><small>IREN Limited</small></li></ul></div></div>
         <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/us/">打開 US Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116546?pt=128886683&amp;ct=web-zh-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.usstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/tw-stocks-icon-128.webp?v=20261028" alt="" width="22" height="22" />台股</div><div class="card-name">Taiwan Stocks</div></div>
         <div class="card-date"><b>2026-11-26</b>發布於 2026-11-26 08:43 UTC</div><div class="card-coverage">分析範圍 101/101</div></div>
         <div class="regime-row"><span class="pill pill-bear">避險情緒</span>
           <div class="meter"><div class="meter-label"><span>市場廣度</span><span>12% · 漲跌家數比 7.42</span></div><div class="meter-bar"><i style="--w:12%"></i></div></div></div>
         <p class="one-liner">今日 0 檔偏多訊號 / 7 檔偏空訊號，市場環境風險規避（加權指數跌破 200MA + 追蹤標的站上 20 日均線的比）。</p>
-        <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>2368</span><span class="up">+25.95%</span><small>金像電</small></li><li><span>3665</span><span class="up">+24.31%</span><small>貿聯-KY</small></li><li><span>2059</span><span class="up">+20.45%</span><small>川湖</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>3532</span><span class="down">-10.87%</span><small>台勝科</small></li><li><span>3443</span><span class="down">-10.17%</span><small>創意</small></li><li><span>2886</span><span class="down">-9.64%</span><small>兆豐金</small></li></ul></div></div>
+        <div class="movers"><div><h3>5 日漲最多</h3><ul><li><span>2368</span><span class="up">+25.95%</span><small>金像電</small></li><li><span>3665</span><span class="up">+24.31%</span><small>貿聯-KY</small></li><li><span>2059</span><span class="up">+20.45%</span><small>川湖</small></li><li><span>2345</span><span class="up">+20.00%</span><small>智邦</small></li></ul></div><div><h3>5 日跌最多</h3><ul><li><span>3532</span><span class="down">-10.87%</span><small>台勝科</small></li><li><span>3443</span><span class="down">-10.17%</span><small>創意</small></li><li><span>2886</span><span class="down">-9.64%</span><small>兆豐金</small></li><li><span>2880</span><span class="down">-9.52%</span><small>華南金</small></li></ul></div></div>
         <div class="card-actions"><a class="open-link" href="https://stocks.dappgo.com/tw/">打開 Taiwan Stocks <span aria-hidden="true">↗</span></a><span class="stores"><a class="store" href="https://apps.apple.com/app/id6768116538?pt=128886683&amp;ct=web-zh-home-card&amp;mt=8" target="_blank" rel="noopener noreferrer">iOS</a><a class="store" href="https://play.google.com/store/apps/details?id=com.dappgo.twstocksapp&amp;referrer=utm_source%3Dweb%26utm_medium%3Dzh-home-card" target="_blank" rel="noopener noreferrer">Android</a></span></div>
       </article><article class="card spot"><div class="card-top"><div><div class="card-market"><img src="/assets/app-icons/options-icon-128.webp?v=20261028" alt="" width="22" height="22" />美股選擇權</div><div class="card-name">Options Explorer</div></div>
         <div class="card-date"><b>2026-11-25</b>發布於 2026-11-25 20:45 UTC</div><div class="card-coverage">分析範圍 36/36</div></div>

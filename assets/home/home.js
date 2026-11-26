@@ -14,7 +14,8 @@
       coverage: "Coverage", reportDates: "Report dates", researchNote: "Research and education only; not investment advice.",
       navPulse: "Today", navReports: "Reports", navGuides: "Guides", footReports: "Daily report archive", footGuides: "Guides and methodology", footAbout: "About DappGo", footEditorial: "Editorial policy", footContact: "Contact", navProducts: "Products", navNews: "News", navBusiness: "For business",
       kicker: "US stocks · Taiwan stocks · Options", heroA: "Your daily", heroB: "market brief.",
-      heroLede: "Every trading day our engines read US stocks, Taiwan stocks and US options — prices, filings, news and options chains — check the result, then publish it to the apps below. This page shows today’s run.",
+      heroLede: "Three reports every trading day: US stocks, Taiwan stocks and US options. Each one is checked, then published to the apps below. Today’s results are on this page.",
+      agoMin: "{n} min ago", agoHour: "{n} h ago", updated: "updated {t}",
       heroApps: "Get the apps", ctaPulse: "See today’s report", ctaBusiness: "Automate your workflow",
       statMarkets: "Markets", statCovered: "Tickers covered today", statHeadlines: "Headlines on the wire", statVerified: "Reports verified",
       pulseTitle: "Today’s run", pulseLede: "Straight from the published reports. Each card opens the product that made it.",
@@ -76,7 +77,8 @@
       coverage: "分析範圍", reportDates: "報告日期", researchNote: "僅供研究與學習參考，不構成投資建議。",
       navPulse: "今日報告", navReports: "報告檔案", navGuides: "閱讀指南", footReports: "每日報告檔案庫", footGuides: "閱讀指南與方法", footAbout: "關於 DappGo", footEditorial: "編輯政策", footContact: "聯絡我們", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
       kicker: "台股・美股・選擇權", heroA: "每天 5 分鐘，", heroB: "看懂市場。",
-      heroLede: "每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。",
+      heroLede: "每個交易日三份報告：美股、台股、美股選擇權。資料檢查無誤後才發布到下方的 App，這一頁就是今天的結果。",
+      agoMin: "{n} 分鐘前", agoHour: "{n} 小時前", updated: "{t}更新",
       heroApps: "下載 App", ctaPulse: "看今天的報告", ctaBusiness: "讓你的工作自動化",
       statMarkets: "市場", statCovered: "今日分析個股", statHeadlines: "新聞則數", statVerified: "資料驗證通過",
       pulseTitle: "今日報告", pulseLede: "以下內容直接來自今天發布的報告，點卡片就能打開對應的 App。",
@@ -168,7 +170,7 @@
         <div class="regime-row"><span class="pill ${regimeClass(reg)}">${esc(t().regime[reg] || reg)}</span>
           <div class="meter"><div class="meter-label"><span>${esc(t().breadth)}</span><span>${breadth}% · ${esc(t().adv)} ${esc(m.advance_decline_ratio ?? "—")}</span></div><div class="meter-bar"><i style="--w:${Math.min(100, Math.max(0, breadth))}%"></i></div></div></div>
         ${line ? `<p class="one-liner">${esc(line)}</p>` : ""}
-        <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 3))}${moverList(t().losers, m.losers.slice(0, 3))}</div>
+        <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 4))}${moverList(t().losers, m.losers.slice(0, 4))}</div>
         <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks(productId)}</div>
       </article>`;
     }
@@ -295,6 +297,11 @@
     // the top story becomes the large feature only when it has a publisher image.
     for (const key of ["us", "tw"]) $(`[data-count="${key}"]`).textContent = pulse.news.filter((n) => n.market === key).length;
     $("[data-wire]").innerHTML = renderer().wireItems(market);
+    // Recent stories read as "3 h ago"; the exact UTC time stays in the tooltip and the datetime attribute.
+    if (browser) document.querySelectorAll("[data-wire] time[datetime]").forEach((el) => {
+      const rel = ago(Date.parse(el.dateTime));
+      if (rel) { el.title = el.textContent; el.textContent = rel; }
+    });
     document.querySelectorAll("[data-wire-tabs] [role=tab]").forEach((tab) => {
       const on = tab.dataset.market === market;
       tab.setAttribute("aria-selected", String(on));
@@ -330,13 +337,21 @@
     if (focus) document.querySelector(`[data-wire-tabs] [data-market="${market}"]`)?.focus();
   }
 
+  // "12 min ago" / "5 h ago" for anything under 36 hours old; older items keep their date.
+  function ago(ms) {
+    const min = Math.round((Date.now() - ms) / 60000);
+    if (!Number.isFinite(min) || min < 0 || min >= 36 * 60) return "";
+    return min < 60 ? fill(t().agoMin, { n: Math.max(1, min) }) : fill(t().agoHour, { n: Math.round(min / 60) });
+  }
+
   // The hero brief: one line per market from the verified pulse (regime, breadth, top mover or top setup).
   function briefRows() {
     const move = (r) => (r ? `<b>${esc(r.symbol)}</b> <span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>` : "");
     const rows = [["us", t().mUs], ["tw", t().mTw]].map(([key, name], i) => {
       const m = pulse.markets[key];
       const kind = { bullish: "bull", risk_on: "bull", bearish: "bear", risk_off: "bear", mixed: "mixed" }[m.regime] || "neutral";
-      const breadth = m.breadth_score == null ? "" : `${esc(t().breadth)} ${Math.round(m.breadth_score * 100)}%`;
+      const share = m.breadth_score == null ? null : Math.round(m.breadth_score * 100);
+      const breadth = share == null ? "" : `<i class="brief-meter" style="--w:${Math.min(100, Math.max(0, share))}%" aria-hidden="true"></i>${esc(t().breadth)} ${share}%`;
       return `<li style="--i:${i}"><a href="${esc(m.web_url)}"><span class="brief-market">${esc(name)}<time datetime="${esc(m.report_date)}">${esc(m.report_date)}</time></span>`
         + `<span class="pill pill-${kind}">${esc(t().regime[m.regime] || m.regime || "—")}</span><span class="brief-fact">${breadth}</span><span class="brief-move">${move(m.gainers[0])}</span></a></li>`;
     });
@@ -351,7 +366,9 @@
   function renderBrief() {
     const n = Object.keys(pulse.markets).length;
     $("[data-brief]").innerHTML = briefRows().join("");
-    $("[data-brief-foot]").textContent = fill(t().briefFoot, { n, h: pulse.news.length });
+    const newest = Math.max(...Object.values(pulse.markets).map((m) => Date.parse(m.generated_at_utc)));
+    const age = browser ? ago(newest) : "";
+    $("[data-brief-foot]").textContent = fill(t().briefFoot, { n, h: pulse.news.length }) + (age ? ` · ${fill(t().updated, { t: age })}` : "");
   }
 
   // One live line per app card, from the same verified pulse as the board.
