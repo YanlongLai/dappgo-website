@@ -155,11 +155,11 @@ summary:focus-visible,
 .brand-word {
   display: inline-flex;
   align-items: center;
-  gap: 0.14em;
+  gap: 0.1em;
 }
 .brand-pulse {
   flex: none;
-  width: 1.9em;
+  width: 0.99em;
   height: 0.57em;
   overflow: visible;
 }
