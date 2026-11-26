@@ -46,7 +46,7 @@ html[data-lang="zh"] .legal-page .lang-en {
   display: block;
   height: 2px;
   margin-top: 4px;
-  background: var(--blue);
+  background: var(--brand);
   content: "";
 }
 
@@ -81,7 +81,7 @@ html[data-lang="zh"] .legal-page .lang-en {
   flex: 0 0 28px;
   width: 28px;
   height: 2px;
-  background: var(--blue);
+  background: var(--brand);
 }
 
 .legal-page .legal-hero h1 {
@@ -123,7 +123,7 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
   margin: 0 0 56px;
   padding: 26px 30px;
   border: 1px solid var(--line);
-  border-left: 4px solid var(--blue);
+  border-left: 4px solid var(--brand);
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: 0 18px 40px rgba(25, 32, 41, 0.06);
@@ -141,9 +141,9 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
   margin: 0 0 56px;
   padding: 26px 30px;
   border: 1px solid var(--line);
-  border-left: 4px solid var(--blue);
+  border-left: 4px solid var(--brand);
   border-radius: var(--radius);
-  background: var(--blue-soft);
+  background: var(--brand-soft);
   box-shadow: 0 18px 40px rgba(25, 32, 41, 0.05);
   color: var(--muted);
   font-size: 15px;
@@ -206,7 +206,7 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
 }
 
 .legal-page .legal-content a {
-  color: var(--blue);
+  color: var(--brand);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -220,7 +220,7 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
   padding: 0.15em 0.35em;
   border: 1px solid var(--line);
   border-radius: 5px;
-  background: var(--blue-soft);
+  background: var(--brand-soft);
   color: var(--ink);
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 0.9em;
@@ -266,7 +266,7 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: var(--blue);
+  color: var(--brand);
   content: "+";
   font-size: 17px;
   line-height: 1;
@@ -307,21 +307,21 @@ html[data-lang="zh"] .legal-page .updated .lang-zh {
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: var(--blue-soft);
+  background: var(--brand-soft);
   color: var(--ink);
   text-decoration: none;
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s;
 }
 
 .legal-page .legal-content .cta-card:hover {
-  border-color: var(--blue);
-  box-shadow: 0 16px 30px rgba(36, 93, 222, 0.12);
+  border-color: var(--brand);
+  box-shadow: 0 16px 30px rgba(232, 163, 61, 0.2);
   text-decoration: none;
   transform: translateY(-3px);
 }
 
 .legal-page .legal-content .cta-card-title {
-  color: var(--blue);
+  color: var(--brand);
   font-size: 17px;
   font-weight: 600;
 }

@@ -16,7 +16,7 @@ test("production homepage is indexable and keeps the public metadata contract", 
   assert.match(production, /<meta name="robots" content="index, follow"/);
   assert.match(production, /<link rel="canonical" href="https:\/\/dappgo\.com\//);
   assert.match(production, /googletagmanager\.com\/gtag\/js\?id=G-C9K7KCERPP/);
-  assert.match(production, /og-image-v2\.png/);
+  assert.match(production, /og-brand-en\.png/);
   assert.match(production, /"@type": "Organization"/);
   assert.doesNotMatch(production, /noindex/);
   // home.css is inlined by scripts/render-pulse-html.mjs; the page makes no stylesheet request.

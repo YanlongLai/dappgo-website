@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Brand W4 "Pulse link" sitewide: navy `#0F1B3D` and amber `#E8A33D` on warm neutrals, Manrope display type (Inter on Chinese pages), the Dapp + pulse + Go logo in every header, flat colour instead of gradients, a navy hero in English and a white hero in Traditional Chinese. New favicon, app icons and share images (banner B1, English and Chinese) come from `scripts/build-brand-assets.py`.
 - The Taiwan wire lists the largest companies first (by latest monthly revenue; the TW payload has no market cap), one recent story each, with repeated headlines skipped.
 - The United States wire now draws from the ten highest-weight stocks by market cap, one story per stock, newest first.
 - Homepage returns to the DappGo blue base (light with system dark mode, deep-blue hero and business band) and gains a live publish-run console, a hero market-field canvas, count-up stats, scroll reveal, cursor spotlight and a scroll progress bar.

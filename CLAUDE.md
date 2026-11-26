@@ -26,7 +26,7 @@
 
 ```bash
 ./scripts/download-fonts.sh        # refresh local font cache
-python3 scripts/generate-icons.py  # regenerate favicons / app-icons
+python3 scripts/build-brand-assets.py  # regenerate favicon, app icons and share images from the W4 logo
 # preview locally:
 python3 -m http.server 8080        # then open http://localhost:8080
 ```
@@ -39,7 +39,8 @@ Push to the repository's configured default branch (`master` in this checkout). 
 
 ```
 index.html         landing page
-og-image-v2.png    Open Graph / Meta / LinkedIn share preview card
+og-brand-en.png og-brand-zh.png   share preview cards (banner B1), built by scripts/build-brand-assets.py
+scripts/lib/brand.mjs   logo markup, theme colour and display-font preload shared by every page shell
 options/index.html app landing pages are generated: node scripts/build-landing-pages.mjs
 options/report/    legacy options daily report page
 assets/store-links.js  the one place store ids + campaign params live
@@ -61,6 +62,13 @@ CNAME              dappgo.com
 - Archive sentences are templates over one record. Add a sentence only if every number in it comes from the record, and drop it when the field is missing. Do not copy AI commentary or per-ticker verdict labels onto these pages.
 - When an engine rule changes (regime thresholds, screen score, options score), update the matching paragraph in `guides-content.mjs` in both languages and its `updated` date.
 - The AdSense loader goes only on daily report pages and guides (`ads: true`). Hubs, about/policy/contact, legal, support and app pages stay ad-free; `scripts/content-pages.test.mjs` enforces this.
+
+## Brand (W4, Owner-approved 2026-11-26)
+
+- Navy `#0F1B3D` and amber `#E8A33D` are the only brand colours; neutrals are white, cream `#F7F3EA`, warm gray `#F4F2EE`, slate `#4A5368` and lines `#E4E0D8`. Tokens live at the top of `assets/home/home.css` (home, app and reading pages) and `assets/demo/demo.css` (legal, support, 404, Number RPG shell).
+- Amber is a fill and line colour. It is too light for text on white, so text accents use `--brand` (navy in light mode, amber in dark mode).
+- English pages use the navy lockup and hero (W4D, Manrope 800); Traditional Chinese pages the white ones (W4A, Inter 800). The switch is `html[lang="zh-Hant"]` in `home.css`.
+- Flat colour only: no decorative gradients or coloured glows.
 
 ## Rules of thumb
 

@@ -39,7 +39,7 @@
 
     <!-- PWA manifest & theme -->
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#0F1B3D">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
     <!-- JSON-LD Structured Data -->
@@ -104,9 +104,9 @@
             --text: #1e293b;
             --text-muted: #64748b;
             --text-heading: #0f172a;
-            --accent: #2563eb;
-            --accent-dark: #1d4ed8;
-            --accent-dim: rgba(37, 99, 235, 0.06);
+            --accent: #0F1B3D;
+            --accent-dark: #0F1B3D;
+            --accent-dim: rgba(232, 163, 61, 0.06);
             --border: #e2e8f0;
             --shadow-sm: 0 1px 3px rgba(15,23,42,.04);
             --shadow-lg: 0 12px 40px rgba(15,23,42,.1);
@@ -461,7 +461,7 @@
             .ai-card { padding: 1.75rem 1.25rem 2rem; }
         }
     </style>
-    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/home/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/demo/demo.css">
     <link rel="stylesheet" href="/assets/demo/page-shell.css">
 </head>
@@ -471,8 +471,7 @@
 <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 <header class="site-header">
     <a class="brand" href="/" aria-label="DappGo home">
-        <img src="/favicon.svg" width="34" height="34" alt="">
-        <span>DappGo<span class="brand-dot">.</span></span>
+        <span class="brand-word" role="img" aria-label="DappGo"><span aria-hidden="true">Dapp</span><svg class="brand-pulse" viewBox="0 0 200 60" aria-hidden="true" focusable="false"><polyline points="4,32 56,32 74,10 96,52 118,4 136,32 196,32" /></svg><span aria-hidden="true">Go</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <a href="/#products" data-i18n="nav.products">Our products</a>

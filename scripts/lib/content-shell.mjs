@@ -1,10 +1,12 @@
 // Shared document shell for the reading pages (report archive, guides, about and policy pages).
 // `ads: true` adds the AdSense loader and its CSP sources; it is set only for article-type pages
 // (daily reports and guides), never for hubs, legal, contact or app pages.
+import { BRAND_HTML, displayFontPreload, themeColorMeta } from "./brand.mjs";
+
 export const ORIGIN = "https://dappgo.com";
 const GA_ID = "G-C9K7KCERPP";
 const ADS_CLIENT = "ca-pub-7851819017318644";
-export const ASSET_VERSION = "20261118-content";
+export const ASSET_VERSION = "20261126-brand";
 
 export const esc = (value) => String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export const localPath = (lang, enPath) => (lang === "zh" ? `/zh${enPath}` : enPath);
@@ -78,7 +80,7 @@ export function renderPage(page) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Security-Policy" content="${ads ? CSP_ADS : CSP_BASE}" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#071434" />
+    ${themeColorMeta(lang)}
     <meta name="description" content="${esc(description)}" />
     <meta name="author" content="DappGo" />
     <link rel="canonical" href="${url}" />
@@ -89,7 +91,7 @@ export function renderPage(page) {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
-    <meta property="og:image" content="${ORIGIN}/og-image-v2.png" />
+    <meta property="og:image" content="${ORIGIN}/og-brand-${lang === "zh" ? "zh" : "en"}.png" />
     <meta property="og:site_name" content="DappGo" />
     <meta property="og:locale" content="${ui.ogLocale}" />
     <meta property="og:locale:alternate" content="${ui.ogLocaleAlt}" />
@@ -99,7 +101,7 @@ export function renderPage(page) {
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preload" href="/assets/home/fonts/grotesk-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+    ${displayFontPreload(lang)}
     <link rel="preload" href="/assets/home/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />${adsHead}
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -124,7 +126,7 @@ ${ld}
     <header class="topbar">
       <div class="wrap topbar-inner">
         <a class="brand" href="${p("/")}" aria-label="${esc(ui.homeLabel)}">
-          <span class="brand-mark" aria-hidden="true">D</span><span class="brand-word">DappGo</span>
+          ${BRAND_HTML}
         </a>
         <nav class="nav" aria-label="Main">
           ${nav("reports", p("/reports/"), ui.reports)}

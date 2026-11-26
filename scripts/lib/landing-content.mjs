@@ -16,7 +16,7 @@ export const APPS = {
     iconLarge: "/assets/app-icons/tw-stocks-icon.png",
     appId: "6768116538",
     web: "https://stocks.dappgo.com/tw/",
-    ogImage: "https://dappgo.com/og-image-v2.png",
+    ogImage: { en: "https://dappgo.com/og-brand-en.png", zh: "https://dappgo.com/og-brand-zh.png" },
     ogImageAlt: { en: "DappGo market research and automation", zh: "DappGo 市場研究與自動化" },
     phone: { src: "/assets/screenshots/tw-stocks/dashboard-{lang}.jpg", width: 432, height: 960 },
     en: {
@@ -54,7 +54,7 @@ export const APPS = {
     iconLarge: "/assets/app-icons/us-stocks-icon.png",
     appId: "6768116546",
     web: "https://stocks.dappgo.com/us/",
-    ogImage: "https://dappgo.com/og-image-v2.png",
+    ogImage: { en: "https://dappgo.com/og-brand-en.png", zh: "https://dappgo.com/og-brand-zh.png" },
     ogImageAlt: { en: "DappGo market research and automation", zh: "DappGo 市場研究與自動化" },
     phone: { src: "/assets/screenshots/us-stocks/dashboard-{lang}.jpg", width: 432, height: 960 },
     en: {
@@ -92,7 +92,7 @@ export const APPS = {
     iconLarge: "/assets/app-icons/options-icon.png",
     appId: "6768116720",
     web: "https://options.dappgo.com/us/",
-    ogImage: "https://dappgo.com/og-options.png",
+    ogImage: { en: "https://dappgo.com/og-options.png", zh: "https://dappgo.com/og-options.png" },
     ogImageAlt: { en: "Options Explorer by DappGo", zh: "DappGo Options Explorer" },
     phone: { srcset: "/assets/screenshots/options/dashboard", width: 660, height: 1434 },
     en: {

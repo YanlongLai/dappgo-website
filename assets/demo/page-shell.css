@@ -19,9 +19,9 @@ html[data-lang="zh"] .not-found-page .lang-en {
   --text: var(--ink);
   --text-muted: var(--muted);
   --text-heading: var(--ink);
-  --accent: var(--blue);
-  --accent-dark: var(--blue);
-  --accent-dim: var(--blue-soft);
+  --accent: var(--brand);
+  --accent-dark: var(--brand);
+  --accent-dim: var(--brand-soft);
   --border: var(--line);
   --shadow-sm: 0 1px 3px rgba(25, 32, 41, 0.06);
   --shadow-lg: 0 18px 42px rgba(25, 32, 41, 0.1);
@@ -33,7 +33,7 @@ html[data-lang="zh"] .not-found-page .lang-en {
 }
 
 .report-page .brand .brand-dot {
-  color: var(--blue);
+  color: var(--brand);
 }
 
 .report-page .report-main {
@@ -55,7 +55,7 @@ html[data-lang="zh"] .not-found-page .lang-en {
 }
 
 .report-page .report-note > p:first-child a {
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
 }
 
@@ -89,7 +89,7 @@ html[data-lang="zh"] .not-found-page .lang-en {
 }
 
 .not-found-code {
-  color: var(--blue);
+  color: var(--brand);
   font-size: clamp(92px, 15vw, 176px);
   font-weight: 600;
   letter-spacing: -0.1em;
@@ -118,7 +118,7 @@ html[data-lang="zh"] .not-found-page .lang-en {
 }
 
 .not-found-card .button:hover {
-  background: var(--blue);
+  background: var(--brand);
 }
 
 @media (max-width: 767px) {
