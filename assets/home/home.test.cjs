@@ -105,7 +105,8 @@ test("renders all three market cards and the wire from the pulse", async () => {
   const shown = [...wire.matchAll(/<time datetime="([^"]+)"/g)].map(([, iso]) => iso);
   assert.deepEqual(shown, [...shown].sort().reverse(), "wire is newest first");
   for (const n of us.filter((item) => item.image)) assert.ok(wire.includes(`src="${n.image.url.replace(/&/g, "&amp;")}"`), n.symbol);
-  assert.match(app.element("[data-console]").innerHTML, /payloads verified/);
+  assert.match(app.element("[data-brief]").innerHTML, /brief-market/);
+  assert.match(app.element("[data-brief-foot]").textContent, /reports verified/);
   assert.ok(["live", "stale"].includes(app.element("[data-live-chip]").dataset.state));
 });
 
