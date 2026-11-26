@@ -366,9 +366,6 @@
   function renderBrief() {
     const n = Object.keys(pulse.markets).length;
     $("[data-brief]").innerHTML = briefRows().join("");
-    const latest = Object.values(pulse.markets).map((m) => m.report_date).sort().pop();
-    const date = $("[data-brief-date]");
-    if (date) { date.dateTime = latest; date.textContent = latest; }
     const newest = Math.max(...Object.values(pulse.markets).map((m) => Date.parse(m.generated_at_utc)));
     const age = browser ? ago(newest) : "";
     $("[data-brief-foot]").textContent = fill(t().briefFoot, { n, h: pulse.news.length }) + (age ? ` · ${fill(t().updated, { t: age })}` : "");
@@ -448,12 +445,15 @@
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
 
-  // Hero field: a dot grid that brightens near the cursor.
+  // Hero field: the logo pulse travels along the stats rule, over a dot grid that brightens near the cursor.
   const canvas = $("[data-hero-canvas]");
   const ctx = canvas.getContext?.("2d");
   if (!ctx) return;
   let w = 0, h = 0, dpr = 1, mouse = { x: -999, y: -999 }, visible = true, frame = 0;
-  let dot = "184, 192, 212";
+  let dot = "184, 192, 212", trace = "232, 163, 61";
+  // The logo polyline (4,32 56,32 74,10 96,52 118,4 136,32 196,32) as offsets from its centre and baseline.
+  const BLIP = [[-40, 0], [-22, -22], [0, 20], [22, -28], [40, 0]];
+  let baseline = 0;
   const size = () => {
     dpr = Math.min(2, window.devicePixelRatio || 1);
     w = canvas.clientWidth; h = canvas.clientHeight;
@@ -462,6 +462,9 @@
     // Brand colours come from the stylesheet so the field follows the navy (EN) or white (ZH) hero.
     const style = getComputedStyle(canvas);
     dot = style.getPropertyValue("--field-dot").trim() || dot;
+    trace = style.getPropertyValue("--field-trace").trim() || trace;
+    const rule = hero.querySelector(".hero-stats");
+    baseline = rule ? rule.getBoundingClientRect().top - canvas.getBoundingClientRect().top : h * 0.8;
   };
   const draw = (time) => {
     ctx.clearRect(0, 0, w, h);
@@ -474,6 +477,19 @@
         ctx.fillRect(x - 0.75 - glow, y - 0.75 - glow, 1.5 + glow * 2, 1.5 + glow * 2);
       }
     }
+    // One pulse crosses the hero every 9 seconds; with reduced motion it rests at two thirds.
+    const span = w + 240;
+    const cx = calm ? w * 0.66 : ((time * span) / 9000) % span - 120;
+    const k = Math.min(1.5, Math.max(1, w / 900));
+    ctx.strokeStyle = `rgba(${trace}, 0.9)`;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(0, baseline);
+    for (const [dx, dy] of BLIP) ctx.lineTo(cx + dx * k, baseline + dy * k);
+    ctx.lineTo(w, baseline);
+    ctx.stroke();
     if (!calm && visible) frame = requestAnimationFrame(draw);
   };
   size();

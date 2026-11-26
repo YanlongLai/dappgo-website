@@ -1,5 +1,5 @@
 // Motion for the app landing pages. Same behaviours as home.js (progress bar, solid top bar, reveal on
-// scroll, the hero dot field), without the pulse data, so these pages stay light.
+// scroll, the hero dot field and pulse line), without the pulse data, so these pages stay light.
 (() => {
   "use strict";
   const $ = (s) => document.querySelector(s);
@@ -38,7 +38,9 @@
   const ctx = canvas.getContext?.("2d");
   if (!ctx) return;
   let w = 0, h = 0, dpr = 1, mouse = { x: -999, y: -999 }, visible = true, frame = 0;
-  let dot = "184, 192, 212";
+  let dot = "184, 192, 212", trace = "232, 163, 61";
+  // The logo polyline as offsets from its centre and baseline (same motion as the homepage).
+  const BLIP = [[-40, 0], [-22, -22], [0, 0], [22, -28], [40, 0]];
   const size = () => {
     dpr = Math.min(2, window.devicePixelRatio || 1);
     w = canvas.clientWidth; h = canvas.clientHeight;
@@ -46,6 +48,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const style = getComputedStyle(canvas);
     dot = style.getPropertyValue("--field-dot").trim() || dot;
+    trace = style.getPropertyValue("--field-trace").trim() || trace;
   };
   const draw = (time) => {
     ctx.clearRect(0, 0, w, h);
@@ -57,6 +60,19 @@
         ctx.fillRect(x - 0.75 - glow, y - 0.75 - glow, 1.5 + glow * 2, 1.5 + glow * 2);
       }
     }
+    // One pulse crosses the bottom edge of the hero every 9 seconds.
+    const baseline = h - 2;
+    const span = w + 240;
+    const cx = calm ? w * 0.66 : ((time * span) / 9000) % span - 120;
+    ctx.strokeStyle = `rgba(${trace}, 0.9)`;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(0, baseline);
+    for (const [dx, dy] of BLIP) ctx.lineTo(cx + dx, baseline + dy);
+    ctx.lineTo(w, baseline);
+    ctx.stroke();
     if (!calm && visible) frame = requestAnimationFrame(draw);
   };
   size();
