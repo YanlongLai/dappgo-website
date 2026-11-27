@@ -84,7 +84,7 @@ for (const route of readerRoutes) {
   assert.match(html, /data-i18n="stockIndex"/);
   assert.match(html, /data-i18n-placeholder="searchStock"/);
   assert.match(html, /news\.js\?v=20261110-prerender/);
-  assert.match(html, /news\.css\?v=20261127-brand/);
+  assert.match(html, /news\.css\?v=20261127-dark/);
   assert.match(html, /news-data\.js\?v=20261028-contact/);
   assert.match(html, /data-i18n="navUs">US/);
   assert.match(html, /data-i18n="navTw">TW/);
