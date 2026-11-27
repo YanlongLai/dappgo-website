@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { APPS, UI, DISCLAIMER } from "./lib/landing-content.mjs";
 import { StoreLinks } from "./lib/store-links.mjs";
 import { esc } from "./lib/home-html.mjs";
+import { BRAND_HTML, displayFontPreload, themeColorMeta } from "./lib/brand.mjs";
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ORIGIN = "https://dappgo.com";
@@ -81,7 +82,7 @@ export function renderLanding(app, lang) {
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://cloudflareinsights.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://docs.google.com"
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#071434" />
+    ${themeColorMeta(lang)}
     <meta name="apple-itunes-app" content="app-id=${app.appId}, app-argument=${esc(url)}" />
     <meta name="description" content="${esc(c.description)}" />
     <meta name="author" content="DappGo" />
@@ -93,7 +94,7 @@ export function renderLanding(app, lang) {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${esc(c.title)}" />
     <meta property="og:description" content="${esc(c.description)}" />
-    <meta property="og:image" content="${app.ogImage}" />
+    <meta property="og:image" content="${app.ogImage[lang]}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="${esc(app.ogImageAlt[lang])}" />
@@ -103,14 +104,14 @@ export function renderLanding(app, lang) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(c.title)}" />
     <meta name="twitter:description" content="${esc(c.description)}" />
-    <meta name="twitter:image" content="${app.ogImage}" />
+    <meta name="twitter:image" content="${app.ogImage[lang]}" />
     <meta name="twitter:image:alt" content="${esc(app.ogImageAlt[lang])}" />
     <title>${esc(c.title)}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preload" href="/assets/home/fonts/grotesk-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+    ${displayFontPreload(lang)}
     <link rel="preload" href="/assets/home/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -129,8 +130,8 @@ export function renderLanding(app, lang) {
     <script type="application/ld+json">
 ${jsonld}
     </script>
-    <link rel="stylesheet" href="/assets/home/home.css?v=20261109-landing" />
-    <link rel="stylesheet" href="/assets/home/landing.css?v=20261109-landing" />
+    <link rel="stylesheet" href="/assets/home/home.css?v=20261126-brand" />
+    <link rel="stylesheet" href="/assets/home/landing.css?v=20261126-brand" />
     <script>document.documentElement.classList.add("js");</script>
   </head>
   <body class="landing">
@@ -140,7 +141,7 @@ ${jsonld}
     <header class="topbar">
       <div class="wrap topbar-inner">
         <a class="brand" href="${lang === "zh" ? "/zh/" : "/"}" aria-label="${esc(ui.homeLabel)}">
-          <span class="brand-mark" aria-hidden="true">D</span><span class="brand-word">DappGo</span>
+          ${BRAND_HTML}
         </a>
         <nav class="nav" aria-label="Main">
           <a href="${lang === "zh" ? "/zh/" : "/"}">${esc(ui.home)}</a>
@@ -223,7 +224,7 @@ ${jsonld}
     </footer>
 
     <script src="/assets/store-links.js?v=20261110-src2" defer></script>
-    <script src="/assets/home/landing.js?v=20261109-landing" defer></script>
+    <script src="/assets/home/landing.js?v=20261126-brand" defer></script>
   </body>
 </html>
 `;

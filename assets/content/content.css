@@ -10,10 +10,10 @@
 .crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--dim); }
 .crumbs a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; min-height: 32px; }
-.crumbs a:hover { color: var(--blue); }
+.crumbs a:hover { color: var(--brand); }
 
 .doc-head { margin-bottom: clamp(28px, 4vw, 44px); }
-.doc-kicker { font: 600 13px var(--body); color: var(--blue); letter-spacing: .02em; margin-bottom: 12px; }
+.doc-kicker { font: 600 13px var(--body); color: var(--brand); letter-spacing: .02em; margin-bottom: 12px; }
 .doc h1 { font: 700 clamp(32px, 4.6vw, 54px)/1.06 var(--display); letter-spacing: -0.035em; max-width: 880px; }
 html[lang="zh-Hant"] .doc h1 { line-height: 1.2; letter-spacing: -0.01em; }
 .doc-lede { font-size: clamp(18px, 1.9vw, 21px); line-height: 1.55; color: var(--muted); margin-top: 16px; max-width: 760px; }
@@ -27,7 +27,7 @@ html[lang="zh-Hant"] .doc h2, html[lang="zh-Hant"] .doc h3 { letter-spacing: 0; 
 .doc p + p, .doc p + ul, .doc p + ol, .doc ul + p, .doc ol + p { margin-top: 14px; }
 .doc ul, .doc ol { padding-left: 22px; margin: 0; }
 .doc li + li { margin-top: 6px; }
-.doc a { color: var(--blue); text-underline-offset: 3px; }
+.doc a { color: var(--brand); text-underline-offset: 3px; }
 .doc .note { color: var(--muted); font-size: 15px; line-height: 1.65; }
 .doc .formula { font: 500 15px/1.7 var(--mono); color: var(--ink); background: var(--surface-2); border-radius: 10px; padding: 14px 16px; margin-top: 14px; overflow-x: auto; white-space: pre; }
 .up { color: var(--up); }
@@ -50,10 +50,10 @@ html[lang="zh-Hant"] .doc h2, html[lang="zh-Hant"] .doc h3 { letter-spacing: 0; 
 .data tbody th { font-weight: 600; }
 .data .name { color: var(--muted); font-weight: 400; white-space: normal; min-width: 140px; }
 .data a { color: inherit; text-decoration: none; }
-.data a:hover { color: var(--blue); text-decoration: underline; }
+.data a:hover { color: var(--brand); text-decoration: underline; }
 
 .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: clamp(40px, 6vw, 64px); padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px; }
-.pager a { color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.pager a { color: var(--brand); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
 .pager a:hover { text-decoration: underline; }
 
 .hub-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; margin-top: 8px; }
@@ -61,7 +61,7 @@ html[lang="zh-Hant"] .doc h2, html[lang="zh-Hant"] .doc h3 { letter-spacing: 0; 
 .hub-grid ul { list-style: none; padding: 0; }
 .hub-grid li { border-bottom: 1px solid var(--line); margin: 0; }
 .hub-grid li a { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; text-decoration: none; color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
-.hub-grid li a:hover { color: var(--blue); }
+.hub-grid li a:hover { color: var(--brand); }
 .hub-grid li span { color: var(--muted); }
 .hub-more { display: inline-block; margin-top: 14px; font-size: 15px; }
 
@@ -81,7 +81,7 @@ html[lang="zh-Hant"] .doc h2, html[lang="zh-Hant"] .doc h3 { letter-spacing: 0; 
 .doc-footer h2 { font: 600 13px var(--body); color: var(--muted); margin-bottom: 10px; }
 .doc-footer nav { display: flex; flex-direction: column; gap: 2px; }
 .doc-footer nav a { color: var(--ink); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; min-height: 36px; }
-.doc-footer nav a:hover { color: var(--blue); }
+.doc-footer nav a:hover { color: var(--brand); }
 .doc-footer .footer-base { margin-top: 40px; }
 
 @media (max-width: 900px) {

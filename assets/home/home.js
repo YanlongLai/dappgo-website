@@ -7,16 +7,17 @@
       pageTitle: "DappGo — Daily US & Taiwan stock and options research",
       pageDescription: "Free daily research reports on US stocks, Taiwan stocks and US options. Read on the web or in DappGo’s iOS and Android apps, with news and market context.",
       skip: "Skip to content", homeLabel: "DappGo home", mainNav: "Main", socialNav: "Social", legalNav: "Legal and support",
-      consoleLabel: "Latest publish run", tapeLabel: "Five-day movers across markets", marketLabel: "Market",
+      briefLabel: "Today’s brief", briefFoot: "{n}/{n} reports verified · {h} headlines", topSetup: "Top setup", tapeLabel: "Five-day movers across markets", marketLabel: "Market",
       switchLanguage: "切換至繁體中文", languageName: "中文",
       ogImageAlt: "DappGo market research and automation",
       expImageAlt: "Market claim verifier comparing a finance post with an SEC filing",
       coverage: "Coverage", reportDates: "Report dates", researchNote: "Research and education only; not investment advice.",
       navPulse: "Today", navReports: "Reports", navGuides: "Guides", footReports: "Daily report archive", footGuides: "Guides and methodology", footAbout: "About DappGo", footEditorial: "Editorial policy", footContact: "Contact", navProducts: "Products", navNews: "News", navBusiness: "For business",
-      kicker: "DappGo Studio · Research engines that ship", heroA: "Markets,", heroB: "compiled daily.",
-      heroLede: "Every trading day our engines read US stocks, Taiwan stocks and US options — prices, filings, news and options chains — check the result, then publish it to the apps below. This page shows today’s run.",
+      kicker: "US stocks · Taiwan stocks · Options", heroA: "Your daily", heroB: "market brief.",
+      heroLede: "Three reports every trading day: US stocks, Taiwan stocks and US options. Each one is checked, then published to the apps below. Today’s results are on this page.",
+      agoMin: "{n} min ago", agoHour: "{n} h ago", updated: "updated {t}",
       heroApps: "Get the apps", ctaPulse: "See today’s report", ctaBusiness: "Automate your workflow",
-      statMarkets: "Markets", statCovered: "Tickers covered today", statHeadlines: "Headlines on the wire", statVerified: "Payloads hash-verified",
+      statMarkets: "Markets", statCovered: "Tickers covered today", statHeadlines: "Headlines on the wire", statVerified: "Reports verified",
       pulseTitle: "Today’s run", pulseLede: "Straight from the published reports. Each card opens the product that made it.",
       pulseNote: "Research and education only. Quotes may be delayed. No brokerage connection or trade execution; not personalized investment advice.",
       newsTitle: "On the wire", newsLede: "The latest headlines our engines picked up, one market at a time, linked to their source and to the stock in DappGo News.",
@@ -69,14 +70,15 @@
       pageTitle: "DappGo｜每日美股、台股與美股選擇權研究",
       pageDescription: "DappGo 每日整理美股、台股與美股選擇權研究報告，提供市場概況、個股漲跌、選擇權策略與新聞來源連結。可透過網頁或 iOS、Android App 免費閱讀，內容僅供研究與學習參考，不構成投資建議。",
       skip: "跳至主要內容", homeLabel: "DappGo 首頁", mainNav: "主要導覽", socialNav: "社群", legalNav: "法律與支援",
-      consoleLabel: "最新發布紀錄", tapeLabel: "各市場五日漲跌", marketLabel: "市場",
+      briefLabel: "今日重點", briefFoot: "{n}/{n} 份報告已驗證 · {h} 則新聞", topSetup: "最高分策略", tapeLabel: "各市場五日漲跌", marketLabel: "市場",
       switchLanguage: "Switch to English", languageName: "EN",
       ogImageAlt: "DappGo 市場研究與自動化",
       expImageAlt: "Market claim verifier 對照財經貼文與 SEC 申報文件",
       coverage: "分析範圍", reportDates: "報告日期", researchNote: "僅供研究與學習參考，不構成投資建議。",
       navPulse: "今日報告", navReports: "報告檔案", navGuides: "閱讀指南", footReports: "每日報告檔案庫", footGuides: "閱讀指南與方法", footAbout: "關於 DappGo", footEditorial: "編輯政策", footContact: "聯絡我們", navProducts: "產品", navNews: "新聞", navBusiness: "企業服務",
-      kicker: "DappGo Studio · 每天自動產出市場研究", heroA: "市場，", heroB: "每天幫你整理好。",
-      heroLede: "每個交易日，系統會自動讀取美股、台股和美股選擇權的股價、公告、新聞與選擇權資料，檢查無誤後，再發布到下方的各個 App。這一頁看到的，就是今天最新的結果。",
+      kicker: "台股・美股・選擇權", heroA: "每天 5 分鐘，", heroB: "看懂市場。",
+      heroLede: "每個交易日三份報告：美股、台股、美股選擇權。資料檢查無誤後才發布到下方的 App，這一頁就是今天的結果。",
+      agoMin: "{n} 分鐘前", agoHour: "{n} 小時前", updated: "{t}更新",
       heroApps: "下載 App", ctaPulse: "看今天的報告", ctaBusiness: "讓你的工作自動化",
       statMarkets: "市場", statCovered: "今日分析個股", statHeadlines: "新聞則數", statVerified: "資料驗證通過",
       pulseTitle: "今日報告", pulseLede: "以下內容直接來自今天發布的報告，點卡片就能打開對應的 App。",
@@ -168,7 +170,7 @@
         <div class="regime-row"><span class="pill ${regimeClass(reg)}">${esc(t().regime[reg] || reg)}</span>
           <div class="meter"><div class="meter-label"><span>${esc(t().breadth)}</span><span>${breadth}% · ${esc(t().adv)} ${esc(m.advance_decline_ratio ?? "—")}</span></div><div class="meter-bar"><i style="--w:${Math.min(100, Math.max(0, breadth))}%"></i></div></div></div>
         ${line ? `<p class="one-liner">${esc(line)}</p>` : ""}
-        <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 3))}${moverList(t().losers, m.losers.slice(0, 3))}</div>
+        <div class="movers">${moverList(t().gainers, m.gainers.slice(0, 4))}${moverList(t().losers, m.losers.slice(0, 4))}</div>
         <div class="card-actions"><a class="open-link" href="${esc(m.web_url)}">${esc(fill(t().open, { name }))} <span aria-hidden="true">↗</span></a>${storeLinks(productId)}</div>
       </article>`;
     }
@@ -223,7 +225,6 @@
   let market = store.get("dg-wire") === "tw" ? "tw" : "us";
   let pulse = null;
   let failed = false;
-  let consoleTyped = false;
   const t = () => I18N[lang];
 
   function applyStatic() {
@@ -286,7 +287,7 @@
       [...m.gainers, ...m.losers].map((r) => `<a class="tape-item" href="${esc(m.web_url)}"><em>${esc(tag)}</em>${esc(r.symbol)} <span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span></a>`));
     $("[data-tape]").innerHTML = tape.join("") + tape.join("").replace(/<a /g, '<a aria-hidden="true" tabindex="-1" ');
 
-    renderConsole();
+    renderBrief();
     renderAppLive();
     renderWire();
   }
@@ -296,6 +297,11 @@
     // the top story becomes the large feature only when it has a publisher image.
     for (const key of ["us", "tw"]) $(`[data-count="${key}"]`).textContent = pulse.news.filter((n) => n.market === key).length;
     $("[data-wire]").innerHTML = renderer().wireItems(market);
+    // Recent stories read as "3 h ago"; the exact UTC time stays in the tooltip and the datetime attribute.
+    if (browser) document.querySelectorAll("[data-wire] time[datetime]").forEach((el) => {
+      const rel = ago(Date.parse(el.dateTime));
+      if (rel) { el.title = el.textContent; el.textContent = rel; }
+    });
     document.querySelectorAll("[data-wire-tabs] [role=tab]").forEach((tab) => {
       const on = tab.dataset.market === market;
       tab.setAttribute("aria-selected", String(on));
@@ -331,31 +337,38 @@
     if (focus) document.querySelector(`[data-wire-tabs] [data-market="${market}"]`)?.focus();
   }
 
-  // The hero console replays the real publish steps recorded in the pulse.
-  function consoleLines() {
-    const rows = [["us", t().tabUs], ["tw", t().tabTw], ["options", t().mOptShort]];
-    const lines = [`<span class="d">$ dappgo pulse --verify</span>`];
-    for (const [key, name] of rows) {
-      const m = pulse.markets[key];
-      const cov = m.coverage ? `${m.coverage.covered}/${m.coverage.expected}` : "—";
-      lines.push(`<span class="k">›</span> ${esc(name)} ${esc(m.report_date)}  <span class="d">sha256</span> ${esc(m.data_hash.slice(0, 10))}…  <span class="ok">✓</span>`);
-      lines.push(`  <span class="d">coverage</span> ${esc(cov)}  <span class="d">published</span> ${esc(m.generated_at_utc.slice(11, 16))} UTC`);
-    }
-    lines.push(`<span class="ok">✓</span> ${rows.length}/${rows.length} payloads verified · ${esc(pulse.news.length)} headlines`);
-    return lines;
+  // "12 min ago" / "5 h ago" for anything under 36 hours old; older items keep their date.
+  function ago(ms) {
+    const min = Math.round((Date.now() - ms) / 60000);
+    if (!Number.isFinite(min) || min < 0 || min >= 36 * 60) return "";
+    return min < 60 ? fill(t().agoMin, { n: Math.max(1, min) }) : fill(t().agoHour, { n: Math.round(min / 60) });
   }
 
-  function renderConsole() {
-    const box = $("[data-console]");
-    const lines = consoleLines();
-    if (!browser || calm || consoleTyped) { box.innerHTML = `${lines.join("\n")}\n<span class="caret"></span>`; return; }
-    consoleTyped = true;
-    let shown = 1;
-    const tick = () => {
-      box.innerHTML = `${lines.slice(0, shown).join("\n")}\n<span class="caret"></span>`;
-      if (shown++ < lines.length) setTimeout(tick, 260);
-    };
-    tick();
+  // The hero brief: one line per market from the verified pulse (regime, breadth, top mover or top setup).
+  function briefRows() {
+    const move = (r) => (r ? `<b>${esc(r.symbol)}</b> <span class="${tone(r.return_pct)}">${pct(r.return_pct)}</span>` : "");
+    const rows = [["us", t().mUs], ["tw", t().mTw]].map(([key, name], i) => {
+      const m = pulse.markets[key];
+      const kind = { bullish: "bull", risk_on: "bull", bearish: "bear", risk_off: "bear", mixed: "mixed" }[m.regime] || "neutral";
+      const share = m.breadth_score == null ? null : Math.round(m.breadth_score * 100);
+      const breadth = share == null ? "" : `<i class="brief-meter" style="--w:${Math.min(100, Math.max(0, share))}%" aria-hidden="true"></i>${esc(t().breadth)} ${share}%`;
+      return `<li style="--i:${i}"><a href="${esc(m.web_url)}"><span class="brief-market">${esc(name)}<time datetime="${esc(m.report_date)}">${esc(m.report_date)}</time></span>`
+        + `<span class="pill pill-${kind}">${esc(t().regime[m.regime] || m.regime || "—")}</span><span class="brief-fact">${breadth}</span><span class="brief-move">${move(m.gainers[0])}</span></a></li>`;
+    });
+    const o = pulse.markets.options;
+    const best = o.ideas[0];
+    rows.push(`<li style="--i:2"><a href="${esc(o.web_url)}"><span class="brief-market">${esc(t().mOpt)}<time datetime="${esc(o.report_date)}">${esc(o.report_date)}</time></span>`
+      + `<span class="pill pill-neutral">${esc(t().topSetup)}</span><span class="brief-fact">${best ? `${esc(best.strategy === "sell_call" ? t().sellCall : t().sellPut)} $${esc(best.strike)} · ${esc(best.dte)}d` : ""}</span>`
+      + `<span class="brief-move">${best ? `<b>${esc(best.symbol)}</b> <span class="score">${esc(best.score)}</span>` : ""}</span></a></li>`);
+    return rows;
+  }
+
+  function renderBrief() {
+    const n = Object.keys(pulse.markets).length;
+    $("[data-brief]").innerHTML = briefRows().join("");
+    const newest = Math.max(...Object.values(pulse.markets).map((m) => Date.parse(m.generated_at_utc)));
+    const age = browser ? ago(newest) : "";
+    $("[data-brief-foot]").textContent = fill(t().briefFoot, { n, h: pulse.news.length }) + (age ? ` · ${fill(t().updated, { t: age })}` : "");
   }
 
   // One live line per app card, from the same verified pulse as the board.
@@ -432,19 +445,27 @@
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
 
-  // Hero field: drifting price traces over a dot grid that brightens near the cursor.
+  // Hero field: the logo pulse travels along the stats rule, over a dot grid that brightens near the cursor.
   const canvas = $("[data-hero-canvas]");
   const ctx = canvas.getContext?.("2d");
   if (!ctx) return;
   let w = 0, h = 0, dpr = 1, mouse = { x: -999, y: -999 }, visible = true, frame = 0;
-  const traces = Array.from({ length: 5 }, (_, i) => ({ seed: Math.random() * 1000, y: 0.32 + i * 0.12, amp: 18 + i * 9, speed: 0.12 + i * 0.05, alpha: 0.5 - i * 0.07 }));
+  let dot = "184, 192, 212", trace = "232, 163, 61";
+  // The logo polyline (4,32 56,32 74,10 96,52 118,4 136,32 196,32) as offsets from its centre and baseline.
+  const BLIP = [[-40, 0], [-22, -22], [0, 20], [22, -28], [40, 0]];
+  let baseline = 0;
   const size = () => {
     dpr = Math.min(2, window.devicePixelRatio || 1);
     w = canvas.clientWidth; h = canvas.clientHeight;
     canvas.width = w * dpr; canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Brand colours come from the stylesheet so the field follows the navy (EN) or white (ZH) hero.
+    const style = getComputedStyle(canvas);
+    dot = style.getPropertyValue("--field-dot").trim() || dot;
+    trace = style.getPropertyValue("--field-trace").trim() || trace;
+    const rule = hero.querySelector(".hero-stats");
+    baseline = rule ? rule.getBoundingClientRect().top - canvas.getBoundingClientRect().top : h * 0.8;
   };
-  const noise = (x, s) => Math.sin(x * 0.011 + s) * 0.6 + Math.sin(x * 0.023 + s * 1.7) * 0.3 + Math.sin(x * 0.051 + s * 0.3) * 0.1;
   const draw = (time) => {
     ctx.clearRect(0, 0, w, h);
     const gap = 32;
@@ -452,25 +473,23 @@
       for (let y = gap / 2; y < h; y += gap) {
         const d = Math.hypot(x - mouse.x, y - mouse.y);
         const glow = Math.max(0, 1 - d / 180);
-        ctx.fillStyle = `rgba(150, 185, 255, ${0.08 + glow * 0.55})`;
+        ctx.fillStyle = `rgba(${dot}, ${0.08 + glow * 0.55})`;
         ctx.fillRect(x - 0.75 - glow, y - 0.75 - glow, 1.5 + glow * 2, 1.5 + glow * 2);
       }
     }
-    const shift = time * 0.001;
-    for (const tr of traces) {
-      const grad = ctx.createLinearGradient(0, 0, w, 0);
-      grad.addColorStop(0, "rgba(77, 132, 255, 0)");
-      grad.addColorStop(0.5, `rgba(127, 176, 255, ${tr.alpha})`);
-      grad.addColorStop(1, `rgba(127, 209, 255, ${tr.alpha * 0.6})`);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      for (let x = 0; x <= w; x += 6) {
-        const y = h * tr.y + noise(x + shift * 60 * tr.speed * 10, tr.seed) * tr.amp;
-        x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-      }
-      ctx.stroke();
-    }
+    // One pulse crosses the hero every 9 seconds; with reduced motion it rests at two thirds.
+    const span = w + 240;
+    const cx = calm ? w * 0.66 : ((time * span) / 9000) % span - 120;
+    const k = Math.min(1.5, Math.max(1, w / 900));
+    ctx.strokeStyle = `rgba(${trace}, 0.9)`;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(0, baseline);
+    for (const [dx, dy] of BLIP) ctx.lineTo(cx + dx * k, baseline + dy * k);
+    ctx.lineTo(w, baseline);
+    ctx.stroke();
     if (!calm && visible) frame = requestAnimationFrame(draw);
   };
   size();

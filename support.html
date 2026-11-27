@@ -17,15 +17,15 @@
     <meta name="description" content="DappGo support — FAQs, contact form, feedback form, and email for the TW / US / Options daily signal apps.">
     <link rel="canonical" href="https://dappgo.com/support">
 
-    <meta property="og:image" content="https://dappgo.com/og-image-v2.png">
+    <meta property="og:image" content="https://dappgo.com/og-brand-en.png">
     <meta property="og:image:alt" content="DappGo market research and automation">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://dappgo.com/og-image-v2.png">
+    <meta name="twitter:image" content="https://dappgo.com/og-brand-en.png">
     <meta name="twitter:image:alt" content="DappGo market research and automation">
 
     <!-- PWA manifest & theme -->
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#0F1B3D">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
     <!-- Theme and locale init (pre-paint, avoids flash) -->
@@ -74,8 +74,8 @@
             --text: #1e293b;
             --text-muted: #64748b;
             --text-heading: #0f172a;
-            --accent: #2563eb;
-            --accent-dim: rgba(37, 99, 235, 0.06);
+            --accent: #0F1B3D;
+            --accent-dim: rgba(232, 163, 61, 0.06);
             --border: #e2e8f0;
         }
         body {
@@ -107,7 +107,7 @@
         .brand-mark {
             display: inline-grid; place-items: center;
             width: 28px; height: 28px; border-radius: 8px;
-            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            background: linear-gradient(135deg, var(--accent), #0F1B3D);
             color: #fff; font-size: 14px; font-weight: 800;
         }
         .topbar-actions a {
@@ -203,7 +203,7 @@
             display: flex; flex-direction: column; gap: 0.4rem;
             padding: 1.25rem;
             background: var(--accent-dim);
-            border: 1px solid rgba(37, 99, 235, 0.18);
+            border: 1px solid rgba(232, 163, 61, 0.18);
             border-radius: 10px;
             text-decoration: none;
             color: var(--text);
@@ -211,7 +211,7 @@
         }
         .cta-card:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            box-shadow: 0 4px 14px rgba(232, 163, 61, 0.12);
             text-decoration: none;
         }
         .cta-card-title {
@@ -232,7 +232,7 @@
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 0.4rem; }
         footer a:hover { color: var(--accent); }
     </style>
-    <link rel="preload" href="/assets/demo/space-grotesk-semibold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/home/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/demo/demo.css">
     <link rel="stylesheet" href="/assets/demo/legal.css">
 </head>
@@ -241,8 +241,7 @@
 <a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-zh">跳至內容</span></a>
 <header class="site-header">
     <a class="brand" href="/" aria-label="DappGo home">
-        <img src="/favicon.svg" width="34" height="34" alt="">
-        <span>DappGo<span class="brand-dot">.</span></span>
+        <span class="brand-word" role="img" aria-label="DappGo"><span aria-hidden="true">Dapp</span><svg class="brand-pulse" viewBox="46 0 100 60" aria-hidden="true" focusable="false"><polyline points="46,32 56,32 74,10 96,52 118,4 136,32 146,32" /></svg><span aria-hidden="true">Go</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <a href="/"><span class="lang-en">Home</span><span class="lang-zh">首頁</span></a>
