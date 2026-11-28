@@ -104,7 +104,13 @@ git worktree remove .news-rollback
 
 `npm run news:check` compares snapshots against current published data without
 writing and lists only differing paths (exit 1 for differences). Unchanged inputs
-produce no rewrites. Generated HTML and sitemap must total less than 2 MB.
+produce no rewrites. Each generated page must be under 40 KB and generated HTML plus sitemap must total
+less than 3 MB. These are our own page-weight goals, not platform limits
+(Cloudflare Pages: 20,000 files, 25 MiB per file, no total-size limit). Output is
+bounded by the watchlist: 137 tickers (US 36, TW 101) give at most 137 stock pages
+plus two landings, each list capped upstream at 12 (US), 5 (TW) or 30 (landing);
+3 MB leaves room for about 200 tickers. Loading placeholders are built by
+`news.js`, and JSON-LD lists the newest 10 stories, to keep each page small.
 `node --test scripts/build-news-html.test.mjs` uses fixtures and no network;
 `node --test scripts/deploy-news.test.mjs` covers the deploy refusal rules, exact
 dry-run argv, offline upload handling and freshness polling in temporary git
