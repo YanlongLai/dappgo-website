@@ -188,7 +188,21 @@ test("headlines, translations, companies, sources and URLs are escaped in HTML a
   const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1];
   assert.doesNotMatch(json, /<script|<\/script/);
   const parsed = JSON.parse(json);
-  assert.equal(parsed.mainEntity.itemListElement.find((item) => item.item.url.includes("?x=")).item.headline, `${hostile} (Translated & title)`);
+  assert.equal(parsed.mainEntity.itemListElement.find((item) => item.item.url.includes("?x=")).item.headline, hostile);
+  assert.doesNotMatch(json, /Translated/, "the translated title stays in the visible list only");
+});
+
+test("JSON-LD lists the newest 10 stories while the visible list stays complete", () => {
+  const sources = source({ AAPL: company("a", 14) });
+  const model = marketNews("us", sources.payload);
+  const html = renderNewsPage(templates.us, model, sources.pointer, model.stockPages[0]);
+  const block = html.match(/<!-- dappgo:prerender:start -->([\s\S]*?)<!-- dappgo:prerender:end -->/)[1];
+  const visible = [...block.matchAll(/<li><a rel="noopener" href="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(visible.length, 14);
+  const list = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]).mainEntity;
+  assert.equal(list.numberOfItems, 10);
+  assert.deepEqual(list.itemListElement.map((item) => item.item.url), visible.slice(0, 10));
+  assert.deepEqual(list.itemListElement.map((item) => item.position), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
 
 test("landings render exactly the newest 30 stories and 10 most-covered companies", () => {
