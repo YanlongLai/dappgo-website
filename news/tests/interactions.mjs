@@ -248,7 +248,9 @@ test('fast API responses never show skeletons; slow responses reveal at 300ms an
   assert.equal(fast.get('[data-load-status]').textContent, '');
   const slow = await fixture({ deferFetch: true, storyCount: 2 });
   await slow.advance(299); assert.equal(slow.get('[data-skeletons]').hidden, true);
+  assert.doesNotMatch(fast.get('[data-skeletons]').html || '', /skeleton-card/, 'placeholders are not built for a fast load');
   await slow.advance(1); assert.equal(slow.get('[data-skeletons]').hidden, false);
+  assert.equal(slow.get('[data-skeletons]').html.match(/class="story skeleton-card has-media"/g).length, 2, 'two placeholder cards are built on reveal');
   assert.match(slow.get('[data-load-status]').textContent, /Loading news/);
   await slow.release();
   assert.equal(slow.get('[data-skeletons]').hidden, true);

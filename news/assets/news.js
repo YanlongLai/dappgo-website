@@ -433,8 +433,8 @@
     updatePagination();
   }
 
-  function renderSkeleton(item) {
-    const hasMedia = usableImage(item);
+  // Loading placeholders are built here, not shipped in every page: the block was 1.8 KB of hidden markup per page.
+  function skeletonCard(hasMedia) {
     return `<div class="story skeleton-card ${hasMedia ? "has-media" : "is-text-only"}" aria-hidden="true"><div class="story-grid"><div class="story-meta"><span class="skeleton-block skeleton-avatar"></span><span class="skeleton-source-lines"><span class="skeleton-block skeleton-source"></span><span class="skeleton-block skeleton-provider"></span></span><span class="skeleton-block skeleton-date"></span></div><h3><span class="skeleton-block skeleton-title"></span><span class="skeleton-block skeleton-title short"></span></h3>${hasMedia ? `<figure class="story-media skeleton-block skeleton-media"></figure>` : ""}<p class="story-excerpt"><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy"></span><span class="skeleton-block skeleton-copy short"></span></p><div class="story-footer"><span class="skeleton-block skeleton-tag"></span><span class="skeleton-block skeleton-action"></span></div></div></div>`;
   }
 
@@ -443,7 +443,7 @@
     state.appending = true;
     state.loadMoreObserver?.disconnect();
     const upcoming = storyItems().slice(state.visibleCount, state.visibleCount + 2);
-    els.moreSkeletons.innerHTML = upcoming.map(renderSkeleton).join("");
+    els.moreSkeletons.innerHTML = upcoming.map((item) => skeletonCard(usableImage(item))).join("");
     const mediaItems = upcoming.filter(usableImage);
     els.moreSkeletons.querySelectorAll(".skeleton-media").forEach((node, index) => {
       const item = mediaItems[index];
@@ -586,6 +586,7 @@
     renderAnalysis();
     if (!state.payload) skeletonTimer = setTimeout(() => {
       loadingPhase = "skeleton";
+      if (!els.skeletons.innerHTML) els.skeletons.innerHTML = skeletonCard(true) + skeletonCard(true);
       els.skeletons.hidden = false;
       updateLoadingStatus();
       renderAnalysis();

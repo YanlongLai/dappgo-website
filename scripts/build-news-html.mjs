@@ -57,6 +57,8 @@ const stockHref = (model, symbol) => model.stockPages.some((company) => company.
 // Structured data lists only the newest stories, with the publisher's own headline. The visible list on the page
 // stays complete and keeps the translated title; repeating both in JSON-LD doubled the size of every page.
 export const JSONLD_ITEMS = 10;
+export const PAGE_BUDGET = 40_000;
+export const TOTAL_BUDGET = 3_000_000;
 const headline = (story) => story.title + (story.title_en && story.title_en !== story.title ? ` (${story.title_en})` : "");
 
 function renderStories(model, stories, pointer, stock) {
@@ -211,8 +213,14 @@ export async function buildNewsHtml({ root = repositoryRoot, sources, check = fa
     }
   }
   planned.set(path.join(root, "news/sitemap.xml"), renderSitemap(models));
-  const bytes = [...planned.values()].reduce((total, html) => total + Buffer.byteLength(html), 0);
-  if (bytes >= 2_000_000) throw new Error(`Generated news HTML and sitemap exceed the 2 MB budget (${bytes} bytes)`);
+  // Our own page-weight goals, not platform limits; news/tests/contract.mjs explains the bound and checks the same numbers.
+  let bytes = 0;
+  for (const [file, html] of planned) {
+    const size = Buffer.byteLength(html);
+    if (file.endsWith(".html") && size >= PAGE_BUDGET) throw new Error(`${path.relative(root, file)} exceeds the 40 KB page budget (${size} bytes)`);
+    bytes += size;
+  }
+  if (bytes >= TOTAL_BUDGET) throw new Error(`Generated news HTML and sitemap exceed the 3 MB budget (${bytes} bytes)`);
   const updates = [...planned].filter(([file, html]) => read(file) !== html);
   for (const [file] of updates) {
     const match = file.match(/[/\\]news[/\\](us|tw)[/\\][^/\\]+[/\\]index\.html$/);
