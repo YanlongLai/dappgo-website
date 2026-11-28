@@ -54,6 +54,9 @@ export function marketNews(market, payload) {
 
 const stockHref = (model, symbol) => model.stockPages.some((company) => company.symbol === symbol)
   ? `/${model.market}/${symbol}/` : `/${model.market}/?stock=${encodeURIComponent(symbol)}`;
+// Structured data lists only the newest stories, with the publisher's own headline. The visible list on the page
+// stays complete and keeps the translated title; repeating both in JSON-LD doubled the size of every page.
+export const JSONLD_ITEMS = 10;
 const headline = (story) => story.title + (story.title_en && story.title_en !== story.title ? ` (${story.title_en})` : "");
 
 function renderStories(model, stories, pointer, stock) {
@@ -90,14 +93,15 @@ export function renderNewsPage(template, model, pointer, stock = null) {
   let html = replaceRegion(template, "dappgo:prerender", renderStories(model, stories, pointer, stock));
   html = replaceOne(html, /<meta name="description" content="[^"]*">/g, () => `<meta name="description" content="${esc(description)}">`, "description");
   html = replaceOne(html, /\bdata-stock-pages="[^"]*"/g, () => `data-stock-pages="${esc(model.stockPages.map((company) => company.symbol).join(" "))}"`, "stock-page list");
+  const listed = stories.slice(0, JSONLD_ITEMS);
   const structured = {
     "@context": "https://schema.org", "@type": "CollectionPage", url, name, description,
     inLanguage: ["en", "zh-Hant"], dateModified: pointer.generated_at_utc,
     mainEntity: {
-      "@type": "ItemList", numberOfItems: stories.length,
-      itemListElement: stories.map((story, index) => ({
+      "@type": "ItemList", numberOfItems: listed.length,
+      itemListElement: listed.map((story, index) => ({
         "@type": "ListItem", position: index + 1,
-        item: { "@type": "NewsArticle", headline: headline(story), url: story.url, datePublished: story.published_at_utc, publisher: { "@type": "Organization", name: story.source } }
+        item: { "@type": "NewsArticle", headline: story.title, url: story.url, datePublished: story.published_at_utc, publisher: { "@type": "Organization", name: story.source } }
       }))
     }
   };

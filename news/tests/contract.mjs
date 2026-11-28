@@ -120,6 +120,9 @@ for (const route of readerRoutes) {
   assert.equal(data.url, canonical);
   assert.equal(data.mainEntity["@type"], "ItemList");
   assert.equal(data.mainEntity.numberOfItems, data.mainEntity.itemListElement.length);
+  assert.ok(data.mainEntity.numberOfItems <= 10, `${route}: JSON-LD lists at most 10 stories`);
+  const visibleUrls = [...prerender.matchAll(/<li><a rel="noopener" href="([^"]+)"/g)].map((match) => match[1].replaceAll("&amp;", "&"));
+  assert.equal(data.mainEntity.numberOfItems, Math.min(10, visibleUrls.length), `${route}: JSON-LD covers the newest visible stories`);
   assert.match(data.description, /\d{4}-\d{2}-\d{2} report: \d+ published stories/);
   assert.match(data.description, /\d+ 則已發布新聞/);
   const market = route.split("/")[0];
